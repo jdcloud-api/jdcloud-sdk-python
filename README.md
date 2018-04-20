@@ -24,17 +24,15 @@ SDK使用中的任何问题，欢迎您在Issues页面交流。
  
 调用SDK
 Python SDK的调用主要分为4步：
-1.     设置accessKey和secretKey
 
-2.     创建Client
-
-3.     设置请求参数
-
-4.     执行请求得到响应
+1. 设置accessKey和secretKey
+2. 创建Client
+3. 设置请求参数
+4. 执行请求得到响应
 
 以下是查询云主机实例类型的调用示例
 
-```
+```python
 access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 credential = Credential(access_key, secret_key)

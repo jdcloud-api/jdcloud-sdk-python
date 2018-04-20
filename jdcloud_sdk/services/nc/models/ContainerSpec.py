@@ -38,7 +38,7 @@ class ContainerSpec(object):
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param primaryNetworkInterface:  主网卡配置信息
         :param logConfiguration: (Optional) 容器日志配置信息；默认会在本地分配10MB的存储空间
-        :param description: (Optional) 容器描述；命名规范
+        :param description: (Optional) 容器描述
         :param charge: (Optional) 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
         """
 

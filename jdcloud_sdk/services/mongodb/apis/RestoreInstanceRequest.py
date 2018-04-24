@@ -32,19 +32,14 @@ class RestoreInstanceRequest(JDCloudRequest):
 
 class RestoreInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, backupId):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID
+        :param backupId: 备份ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.backupId = None
-
-    def setBackupId(self, backupId):
-        """
-        :param backupId: (Optional) 备份ID
-        """
         self.backupId = backupId
 

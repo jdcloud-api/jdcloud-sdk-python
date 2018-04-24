@@ -21,7 +21,7 @@ class LogConfiguration(object):
 
     def __init__(self, logDriver=None, options=None):
         """
-        :param logDriver: (Optional) 日志Driver名称  default：默认在本地分配10MB的存储空间，自动rotate  ^ jcslogs：可以指定将日志保存到云监控日志系统  ^ splunk
+        :param logDriver: (Optional) 日志Driver名称  default：默认在本地分配10MB的存储空间，自动rotate
         :param options: (Optional) 日志Driver的配置选项
         """
 

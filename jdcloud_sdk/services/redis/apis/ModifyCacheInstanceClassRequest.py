@@ -36,7 +36,7 @@ class ModifyCacheInstanceClassParameters(object):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID
-        :param cacheInstanceClass: 变更后的缓存Redis实例规格代码，参考https://www.jdcloud.com/help/detail/2414/isCatalog/1
+        :param cacheInstanceClass: 变更后的缓存Redis&lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/411/isCatalog/1&quot;&gt;实例规格代码&lt;/a&gt;
         """
 
         self.regionId = regionId

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisassociateElasticIpRequest(JDCloudRequest):
     """
-    云容器解绑公网IP 解绑的是主网卡、主内网IP对应的弹性IP
+    容器解绑公网IP 解绑的是主网卡、主内网IP对应的弹性IP
     """
 
     def __init__(self, parameters, header=None, version="v1"):

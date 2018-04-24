@@ -32,26 +32,16 @@ class ModifyInstanceSpecRequest(JDCloudRequest):
 
 class ModifyInstanceSpecParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, instanceClass, instanceStorageGB):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID
+        :param instanceClass: 实例规格，包年包月不允许小于当前规格。
+        :param instanceStorageGB: 存储空间，包年包月不允许小于当前规格。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.instanceClass = None
-        self.instanceStorageGB = None
-
-    def setInstanceClass(self, instanceClass):
-        """
-        :param instanceClass: (Optional) 实例规格，包年包月不允许小于当前规格。
-        """
         self.instanceClass = instanceClass
-
-    def setInstanceStorageGB(self, instanceStorageGB):
-        """
-        :param instanceStorageGB: (Optional) 存储空间，包年包月不允许小于当前规格。
-        """
         self.instanceStorageGB = instanceStorageGB
 

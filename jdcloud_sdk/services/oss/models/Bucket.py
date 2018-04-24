@@ -19,10 +19,10 @@
 
 class Bucket(object):
 
-    def __init__(self, name, creationDate, ):
+    def __init__(self, name, creationDate=None):
         """
         :param name:  
-        :param creationDate:  
+        :param creationDate: (Optional) 
         """
 
         self.name = name

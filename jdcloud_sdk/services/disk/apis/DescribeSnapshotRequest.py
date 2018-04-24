@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeSnapshotRequest(JDCloudRequest):
     """
-    云硬盘快照信息详情
+    查询云硬盘快照信息详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):

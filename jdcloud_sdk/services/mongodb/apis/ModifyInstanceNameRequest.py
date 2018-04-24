@@ -32,19 +32,14 @@ class ModifyInstanceNameRequest(JDCloudRequest):
 
 class ModifyInstanceNameParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, instanceName):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID
+        :param instanceName: 新的实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.instanceName = None
-
-    def setInstanceName(self, instanceName):
-        """
-        :param instanceName: (Optional) 新的实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符。
-        """
         self.instanceName = instanceName
 

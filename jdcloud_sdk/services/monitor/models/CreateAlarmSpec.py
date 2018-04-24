@@ -25,12 +25,12 @@ class CreateAlarmSpec(object):
         :param contactGroups: (Optional) 报警规则通知的联系组，必须在控制台上已创建，例如&quot; [&#39;联系组1&#39;,&#39;联系组2&#39;]&quot;
         :param contactPersons: (Optional) 报警规则通知的联系人，必须在控制台上已创建，例如 [“联系人1”,”联系人2”]
         :param downSample: (Optional) 取样频次
-        :param metric:  根据产品线查询可用监控项列表 接口 返回的Metric字段
+        :param metric:  取值请查看 &lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/2791/isCatalog/1&quot;&gt;查询可用创建监控规则的指标列表]&lt;/a&gt; 接口 的metric字段
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param operation:  报警比较符，只能为以下几种&lt;&#x3D;,&lt;,&gt;,&gt;&#x3D;,&#x3D;&#x3D;,!&#x3D;
         :param period:  查询指标的周期，单位为分钟,目前支持的取值：2，5，15，30，60
         :param resourceIds:  报警规则对应实例列表，每次最多100个，例如&quot;[&#39;resourceId1&#39;,&#39;resourceId2&#39;]&quot;
-        :param serviceCode:  产品名称
+        :param serviceCode:  产品名称，取值请查看 &lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/2791/isCatalog/1&quot;&gt;查询可用创建监控规则的指标列表]&lt;/a&gt; 接口 的serviceCode字段
         :param threshold:  报警阈值，目前只开放数值类型功能
         :param times:  连续探测几次都满足阈值条件时报警，可选值:1,2,3,5
         """

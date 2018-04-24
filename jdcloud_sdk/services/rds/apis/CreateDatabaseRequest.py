@@ -32,26 +32,16 @@ class CreateDatabaseRequest(JDCloudRequest):
 
 class CreateDatabaseParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, dbName, characterSetName):
         """
         :param regionId: 区域代码
         :param instanceId: 实例ID
+        :param dbName: 数据库名称
+        :param characterSetName: 字符集名称,mysql字符集包括：utf8；SQL Server字符集包括：Chinese_PRC_CI_AS、Chinese_PRC_CS_AS、SQL_Latin1_General_CP1_CI_AS、SQL_Latin1_General_CP1_CS_AS、Chinese_PRC_BIN
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.dbName = None
-        self.characterSetName = None
-
-    def setDbName(self, dbName):
-        """
-        :param dbName: (Optional) 数据库名称
-        """
         self.dbName = dbName
-
-    def setCharacterSetName(self, characterSetName):
-        """
-        :param characterSetName: (Optional) 字符集名称,mysql字符集包括：utf8；SQL Server字符集包括：Chinese_PRC_CI_AS、Chinese_PRC_CS_AS、SQL_Latin1_General_CP1_CI_AS、SQL_Latin1_General_CP1_CS_AS、Chinese_PRC_BIN
-        """
         self.characterSetName = characterSetName
 

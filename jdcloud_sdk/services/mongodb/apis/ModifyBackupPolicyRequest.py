@@ -32,19 +32,14 @@ class ModifyBackupPolicyRequest(JDCloudRequest):
 
 class ModifyBackupPolicyParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, preferredBackupTime):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID
+        :param preferredBackupTime: 备份时间，格式：HH:mmZ- HH:mmZ，只允许间隔时间为1小时的整点.
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.preferredBackupTime = None
-
-    def setPreferredBackupTime(self, preferredBackupTime):
-        """
-        :param preferredBackupTime: (Optional) 备份时间，格式：HH:mmZ- HH:mmZ，只允许间隔时间为1小时的整点.
-        """
         self.preferredBackupTime = preferredBackupTime
 

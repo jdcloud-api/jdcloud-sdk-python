@@ -26,4 +26,4 @@ class VmClient(JDCloudClient):
         if config is None:
             config = Config('vm.jdcloud-api.com')
 
-        super(VmClient, self).__init__(credential, config, 'vm', '0.6.0', logger)
+        super(VmClient, self).__init__(credential, config, 'vm', '0.6.1', logger)

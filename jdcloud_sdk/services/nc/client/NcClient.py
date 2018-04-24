@@ -26,4 +26,4 @@ class NcClient(JDCloudClient):
         if config is None:
             config = Config('nc.jdcloud-api.com')
 
-        super(NcClient, self).__init__(credential, config, 'nc', '0.2.0', logger)
+        super(NcClient, self).__init__(credential, config, 'nc', '0.2.1', logger)

@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="07708cfa-fc44-4115-9d56-6cbaabb4a59f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/CreateSnapshotRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/DescribeDiskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/DescribeDisksRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/DescribeSnapshotRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/DescribeSnapshotsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/RestoreDiskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/client/DiskClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/Disk.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/DiskAttachment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/DiskSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/Snapshot.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/SnapshotSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/disk/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/CreateForwardRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/CreateInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/CreateWebRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DeleteForwardRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DeleteWebRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeForwardRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeForwardRulesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeInstancesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeWebRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DescribeWebRulesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DisableInstanceCCRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DisableInstanceIpBlackListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DisableInstanceIpWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/DisableInstanceUrlWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/EnableInstanceCCRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/EnableInstanceIpBlackListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/EnableInstanceIpWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/EnableInstanceUrlWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyForwardRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyInstanceCCRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyInstanceIpBlackListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyInstanceIpWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyInstanceNameRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyInstanceUrlWhiteListRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/ModifyWebRuleRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/client/IpantiClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/CCSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/ForwardRule.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/ForwardRuleSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/Instance.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/InstanceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/WebRule.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/WebRuleSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/ipanti/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/BackupDownloadURLRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/CreateBackupRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/CreateInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/DeleteBackupRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/DeleteInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/DescribeBackupPolicyRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/DescribeBackupsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/DescribeInstancesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/ModifyBackupPolicyRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/ModifyInstanceNameRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/ModifyInstanceSpecRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/ResetPasswordRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/RestoreInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/client/MongodbClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/models/Backup.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/models/BackupDownloadURL.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/models/DBInstance.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/models/DBInstanceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mongodb/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/CreateAlarmRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DeleteAlarmsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeAlarmHistoryRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeAlarmsByIDRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeAlarmsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeMetricDataRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeMetricsForCreateAlarmRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DescribeMetricsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/DisableAlarmRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/EnableAlarmRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/UpdateAlarmRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/client/MonitorClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/Alarm.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/AlarmHistory.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/CreateAlarmBody.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/CreateAlarmSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/DataPoint.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/ErrorBody.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/Metric.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/MetricData.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/MetricDetail.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/ServiceCodeMetrics.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/UpdateAlarmBody.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/monitor/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/CreateThumbnailTaskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/GetNotificationRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/GetThumbnailTaskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/ListThumbnailTaskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/SetNotificationRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/client/MpsClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/Notification.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailQuery.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailStatus.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailTask.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailTaskID.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailTaskRule.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailTaskSource.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/ThumbnailTaskTarget.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/TranscodeStatus.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/mps/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/AssociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/CreateContainersRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/CreateSecretRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DeleteContainerRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DeleteSecretRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DescribeContainerRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DescribeContainersRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DescribeQuotaRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DescribeSecretRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DescribeSecretsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/DisassociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/GetLogsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/ModifyContainerAttributeRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/StartContainerRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/StopContainerRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/client/NcClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/Container.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/ContainerNetworkInterfaceAttachmentSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/ContainerSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/DockerRegistryData.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/ElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/EnvVar.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/HostAlias.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/InstanceCloudDisk.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/InstanceNetworkInterface.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/InstanceNetworkInterfaceAttachment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/LogConfiguration.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/LogOption.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/NetworkInterfacePrivateIp.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/NetworkInterfaceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/Quota.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/Secret.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/SecurityGroupSimple.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/VolumeMount.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/VolumeMountSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/nc/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/apis/DeleteBucketRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/apis/HeadBucketRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/apis/ListBucketsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/apis/PutBucketRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/client/OssClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/models/Bucket.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/models/User.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/oss/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/CreateAccountRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/CreateBackupRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/CreateDatabaseRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/DeleteAccountRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/DeleteDatabaseRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/DescribeBackupDownloadURLRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/DescribeBackupsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/DescribeImportFilesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/GrantPrivilegeRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/ResetPasswordRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/RestoreDatabaseFromBackupRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/RestoreDatabaseFromFileRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/client/RdsClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/AccountPrivilege.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/Backup.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/BackupSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/File.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/FileDownloadURL.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/ImportFile.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/rds/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/CreateCacheInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/DeleteCacheInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/DescribeCacheInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/DescribeCacheInstancesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/DescribeInstanceClassRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/DescribeUserQuotaRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/ModifyCacheInstanceAttributeRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/ModifyCacheInstanceClassRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/ResetCacheInstancePasswordRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/client/RedisClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/AzId.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/AzIdSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/CacheInstance.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/CacheInstanceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/InstanceClass.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/redis/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/AssociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/AttachDiskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/CreateImageRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/CreateInstancesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DeleteImageRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DeleteInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeImageConstraintsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeImageMembersRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeImageRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeImagesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeInstanceTypesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeInstanceVncUrlRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeInstancesRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DescribeQuotasRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DetachDiskRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/DisassociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/ModifyInstanceAttributeRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/ModifyInstancePasswordRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/RebootInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/ShareImageRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/StartInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/StopInstanceRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/UnShareImageRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/client/VmClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/Ag.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/Image.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/ImageConstraint.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/ImageInstanceTypeConstraint.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/Instance.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceDiskAttachment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceDiskAttachmentSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceNetworkInterface.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceNetworkInterfaceAttachment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceNetworkInterfaceAttachmentSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplate.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateData.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateDisk.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateDiskAttachment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateDiskAttachmentSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateDiskSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateElasticIp.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateNetworkInterfaceAttachmentSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateNetworkInterfaceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceTemplateSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/InstanceType.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/LocalDisk.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/Quota.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/SecurityGroupSimple.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vm/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/ChangeLog.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/AssignSecondaryIpsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/AssociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/CreateElasticIpsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/CreateVpcPeeringRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DeleteElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DeleteVpcPeeringRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeElasticIpsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeNetworkSecurityGroupRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeNetworkSecurityGroupsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeSubnetRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeSubnetsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeVpcPeeringRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeVpcPeeringsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeVpcRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DescribeVpcsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/DisassociateElasticIpRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/ModifyVpcPeeringRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/UnassignSecondaryIpsRequest.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/apis/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/client/VpcClient.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/client/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/AssignSecondaryIpsSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/AssociateElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/CreateElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/CreateVpcPeeringSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/DisassociateElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/ElasticIp.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/ElasticIpSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/ModifyVpcPeeringSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/NetworkInterface.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/NetworkInterfacePrivateIp.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/NetworkInterfaceSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/NetworkSecurityGroup.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/SecurityGroupRule.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/Subnet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/UnassignSecondaryIpsSpec.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/Vpc.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/VpcPeering.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/VpcPeeringVpcInfo.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jdcloud_sdk/services/vpc/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/iam/apis/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/core/version.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModifyDiskAttributeRequest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/ModifyDiskAttributeRequest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeLog.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/ChangeLog.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VpcClient.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/client/VpcClient.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="change_log.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/change_log.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/change_log.txt" />
+        <option value="$PROJECT_DIR$/setup.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2" />
+    <option name="y" value="67" />
+    <option name="width" value="1938" />
+    <option name="height" value="966" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="jdcloud-sdk-python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jdcloud-sdk-python" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\githubtanc009\jdcloud-sdk-python\jdcloud_sdk\services" />
+      <recent name="D:\githubtanc009\jdcloud-sdk-python\jdcloud_sdk\services\disk" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07708cfa-fc44-4115-9d56-6cbaabb4a59f" name="Default" comment="" />
+      <created>1524568652071</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1524568652071</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-2" y="67" width="1938" height="966" extended-state="0" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/iam/apis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/core/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/disk/client/DiskClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/disk/apis/ModifyDiskAttributeRequest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/ipanti/apis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/ChangeLog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdcloud_sdk/services/vpc/client/VpcClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

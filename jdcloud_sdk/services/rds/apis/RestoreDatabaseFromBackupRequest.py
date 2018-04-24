@@ -32,28 +32,18 @@ class RestoreDatabaseFromBackupRequest(JDCloudRequest):
 
 class RestoreDatabaseFromBackupParameters(object):
 
-    def __init__(self, regionId, instanceId, dbName, ):
+    def __init__(self, regionId, instanceId, dbName, backupId, backupFileName):
         """
         :param regionId: 区域代码
         :param instanceId: 实例ID
         :param dbName: 库名称
+        :param backupId: 备份ID
+        :param backupFileName: 指定该备份中用于恢复数据库的文件名称
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.dbName = dbName
-        self.backupId = None
-        self.backupFileName = None
-
-    def setBackupId(self, backupId):
-        """
-        :param backupId: (Optional) 备份ID
-        """
         self.backupId = backupId
-
-    def setBackupFileName(self, backupFileName):
-        """
-        :param backupFileName: (Optional) 指定该备份中用于恢复数据库的文件名称
-        """
         self.backupFileName = backupFileName
 

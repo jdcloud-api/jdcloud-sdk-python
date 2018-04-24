@@ -32,21 +32,16 @@ class ResetPasswordRequest(JDCloudRequest):
 
 class ResetPasswordParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, ):
+    def __init__(self, regionId, instanceId, accountName, accountPassword):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
         :param accountName: 账户名
+        :param accountPassword: 新密码
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.accountName = accountName
-        self.accountPassword = None
-
-    def setAccountPassword(self, accountPassword):
-        """
-        :param accountPassword: (Optional) 新密码
-        """
         self.accountPassword = accountPassword
 

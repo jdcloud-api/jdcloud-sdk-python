@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UpdateAlarmRequest(JDCloudRequest):
     """
-    修改已创建的报警规则，修改之后返回新的规则id
+    修改已创建的报警规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):

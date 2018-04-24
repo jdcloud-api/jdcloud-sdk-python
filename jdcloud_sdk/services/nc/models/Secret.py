@@ -22,7 +22,7 @@ class Secret(object):
     def __init__(self, name=None, type=None, createdAt=None, data=None):
         """
         :param name: (Optional) 机密数据名称
-        :param type: (Optional) 私密数据的类型，目前仅支持如下类型：  docker-registry：用来和docker registry认证的类型  ^ generic：基于字面值和文件的通用类型
+        :param type: (Optional) 私密数据的类型，目前仅支持如下类型：docker-registry：用来和docker registry认证的类型
         :param createdAt: (Optional) 创建时间
         :param data: (Optional) 机密的数据
         """

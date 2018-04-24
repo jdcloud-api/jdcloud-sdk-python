@@ -32,28 +32,23 @@ class RestoreDatabaseFromFileRequest(JDCloudRequest):
 
 class RestoreDatabaseFromFileParameters(object):
 
-    def __init__(self, regionId, instanceId, dbName, ):
+    def __init__(self, regionId, instanceId, dbName, fileName):
         """
         :param regionId: 区域代码
         :param instanceId: 实例ID
         :param dbName: 库名称
+        :param fileName: 用户在单库上云中上传的文件名称
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.dbName = dbName
         self.sharedFileGid = None
-        self.fileName = None
+        self.fileName = fileName
 
     def setSharedFileGid(self, sharedFileGid):
         """
         :param sharedFileGid: (Optional) 共享文件的全局ID，可从上传文件查询接口describeImportFiles获取；如果该文件不是共享文件，则全局ID为空
         """
         self.sharedFileGid = sharedFileGid
-
-    def setFileName(self, fileName):
-        """
-        :param fileName: (Optional) 用户在单库上云中上传的文件名称
-        """
-        self.fileName = fileName
 

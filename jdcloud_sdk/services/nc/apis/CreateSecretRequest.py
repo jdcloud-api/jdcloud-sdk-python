@@ -36,7 +36,7 @@ class CreateSecretParameters(object):
         """
         :param regionId: Region ID
         :param name: 机密数据名称，不能重复
-        :param secretType: 私密数据的类型，目前仅支持如下类型：  docker-registry：用来和docker registry认证的类型  ^ generic：基于字面值和文件的通用类型
+        :param secretType: 私密数据的类型，目前仅支持如下类型：docker-registry：用来和docker registry认证的类型
         """
 
         self.regionId = regionId

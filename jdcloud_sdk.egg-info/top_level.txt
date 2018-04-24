@@ -1,2 +1,0 @@
-demo
-jdcloud_sdk

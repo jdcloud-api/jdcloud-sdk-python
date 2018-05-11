@@ -35,8 +35,8 @@ class DescribeAlarmHistoryParameters(object):
     def __init__(self, regionId, startTime, endTime, ):
         """
         :param regionId: 地域 Id
-        :param startTime: 查询数据开始时间，默认24小时前，可以输入long型时间，也可以输入yyyy-MM-dd&#39;T&#39;HH:mm:ssZ类型时间
-        :param endTime: 查询数据结束时间，默认当前时间，可以输入long型时间，也可以输入yyyy-MM-dd&#39;T&#39;HH:mm:ssZ类型时间
+        :param startTime: 查询数据开始时间，默认24小时前，可以输入long型时间，也可以输入yyyy-MM-dd'T'HH:mm:ssZ类型时间
+        :param endTime: 查询数据结束时间，默认当前时间，可以输入long型时间，也可以输入yyyy-MM-dd'T'HH:mm:ssZ类型时间
         """
 
         self.regionId = regionId

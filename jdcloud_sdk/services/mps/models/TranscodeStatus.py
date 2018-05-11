@@ -21,9 +21,9 @@ class TranscodeStatus(object):
 
     def __init__(self, status, errorCode=None, notifyMessage=None):
         """
-        :param status:  状态
+        :param status:  状态 (SUCESS, ERROR, PENDDING, RUNNING)
         :param errorCode: (Optional) 错误码
-        :param notifyMessage: (Optional) 通知消息，由work调用，暂时方案
+        :param notifyMessage: (Optional) 通知消息, 由work调用, 暂时方案
         """
 
         self.status = status

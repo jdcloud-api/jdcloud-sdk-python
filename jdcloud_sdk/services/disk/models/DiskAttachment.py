@@ -25,7 +25,7 @@ class DiskAttachment(object):
         :param diskId: (Optional) 云硬盘ID
         :param instanceType: (Optional) 挂载实例的类型，取值为 vm、nc
         :param instanceId: (Optional) 挂载实例的ID
-        :param status: (Optional) 挂载状态，取值为 &quot;attaching&quot;, &quot;attached&quot;, &quot;detaching&quot;, &quot;detached&quot;
+        :param status: (Optional) 挂载状态，取值为 "attaching", "attached", "detaching", "detached"
         :param attachTime: (Optional) 挂载时间
         """
 

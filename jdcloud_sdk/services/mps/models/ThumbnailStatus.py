@@ -21,7 +21,7 @@ class ThumbnailStatus(object):
 
     def __init__(self, status, errorCode=None, count=None):
         """
-        :param status:  状态
+        :param status:  状态 (SUCESS, ERROR, PENDDING, RUNNING)
         :param errorCode: (Optional) 错误码
         :param count: (Optional) 成功时生成的截图文件个数
         """

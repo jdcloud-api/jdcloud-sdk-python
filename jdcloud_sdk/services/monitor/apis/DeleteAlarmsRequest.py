@@ -35,7 +35,7 @@ class DeleteAlarmsParameters(object):
     def __init__(self, regionId, ids):
         """
         :param regionId: 地域 Id
-        :param ids: 待删除的规则id，用&quot;|&quot;间隔
+        :param ids: 待删除的规则id，用"|"间隔
         """
 
         self.regionId = regionId

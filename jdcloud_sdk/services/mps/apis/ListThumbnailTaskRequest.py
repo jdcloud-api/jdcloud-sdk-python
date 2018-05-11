@@ -46,19 +46,19 @@ class ListThumbnailTaskParameters(object):
 
     def setStatus(self, status):
         """
-        :param status: (Optional) task 状态 [PENDING, RUNNING, SUCCESS, FAILED]
+        :param status: (Optional) task 状态 (PENDING, RUNNING, SUCCESS, FAILED)
         """
         self.status = status
 
     def setBegin(self, begin):
         """
-        :param begin: (Optional) 开始时间 时间格式(GMT): yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;
+        :param begin: (Optional) 开始时间 时间格式(GMT): yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
         """
         self.begin = begin
 
     def setEnd(self, end):
         """
-        :param end: (Optional) 结束时间 时间格式(GMT): yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;
+        :param end: (Optional) 结束时间 时间格式(GMT): yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
         """
         self.end = end
 
@@ -70,7 +70,7 @@ class ListThumbnailTaskParameters(object):
 
     def setLimit(self, limit):
         """
-        :param limit: (Optional) 查询记录数
+        :param limit: (Optional) 查询记录数 [1, 1000]
         """
         self.limit = limit
 

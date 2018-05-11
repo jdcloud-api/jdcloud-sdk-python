@@ -47,16 +47,17 @@ class DescribeMetricDataParameters(object):
         self.startTime = None
         self.endTime = None
         self.timeInterval = None
+        self.tags = None
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
+        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
         """
         self.endTime = endTime
 
@@ -65,4 +66,10 @@ class DescribeMetricDataParameters(object):
         :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
         """
         self.timeInterval = timeInterval
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 自定义标签
+        """
+        self.tags = tags
 

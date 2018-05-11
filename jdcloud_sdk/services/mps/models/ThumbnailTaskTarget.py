@@ -19,14 +19,14 @@
 
 class ThumbnailTaskTarget(object):
 
-    def __init__(self, destBucket=None, destKeyPrefix=None, format=None, widthInPixel=None, heightInPixel=None, keys=None):
+    def __init__(self, destBucket, destKeyPrefix=None, format=None, widthInPixel=None, heightInPixel=None, keys=None):
         """
-        :param destBucket: (Optional) 
-        :param destKeyPrefix: (Optional) 
-        :param format: (Optional) 
-        :param widthInPixel: (Optional) 
-        :param heightInPixel: (Optional) 
-        :param keys: (Optional) 
+        :param destBucket:  输入存放目标文件的 bucket
+        :param destKeyPrefix: (Optional) 目标截图的Key的前缀, '前缀-taskID-%04d(num).(format)', 默认: sourceKey
+        :param format: (Optional) 目标截图的格式 default: jpg
+        :param widthInPixel: (Optional) 目标截图的宽, 如果视频实际分辨率低于目标分辨率则按照实际分辨率输出 default: 0 代表源视频高 其他[8, 4096]
+        :param heightInPixel: (Optional) 目标截图的高, 如果视频实际分辨率低于目标分辨率则按照实际分辨率输出 default: 0 代表源视频高 其他[8, 4096]
+        :param keys: (Optional) 目标截图的Key的集合 (readonly)
         """
 
         self.destBucket = destBucket

@@ -36,9 +36,9 @@ class UpdateAlarmParameters(object):
         """
         :param regionId: 地域 Id
         :param alarmId: 规则id
-        :param calculation: 统计方法：平均值&#x3D;avg、最大值&#x3D;max、最小值&#x3D;min、总和&#x3D;sum
+        :param calculation: 统计方法：平均值=avg、最大值=max、最小值=min、总和=sum
         :param metric: 根据产品线查询可用监控项列表 接口 返回的Metric字段
-        :param operation: &gt;&#x3D;、&gt;、&lt;、&lt;&#x3D;、&#x3D;&#x3D;、!&#x3D;
+        :param operation: >=、>、<、<=、==、!=
         :param period: 统计周期（单位：分钟），可选值：2,5,15,30,60
         :param serviceCode: 产品名称
         :param threshold: 阈值

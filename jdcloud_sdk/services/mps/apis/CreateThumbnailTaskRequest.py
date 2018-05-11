@@ -32,9 +32,11 @@ class CreateThumbnailTaskRequest(JDCloudRequest):
 
 class CreateThumbnailTaskParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, source, target, ):
         """
         :param regionId: region id
+        :param source: 
+        :param target: 
         """
 
         self.regionId = regionId
@@ -43,51 +45,39 @@ class CreateThumbnailTaskParameters(object):
         self.errorCode = None
         self.createdTime = None
         self.lastUpdatedTime = None
-        self.source = None
-        self.target = None
+        self.source = source
+        self.target = target
         self.rule = None
 
     def setTaskID(self, taskID):
         """
-        :param taskID: (Optional) 任务ID
+        :param taskID: (Optional) 任务ID (readonly)
         """
         self.taskID = taskID
 
     def setStatus(self, status):
         """
-        :param status: (Optional) 状态
+        :param status: (Optional) 状态 (SUCCESS, ERROR, PENDDING, RUNNING) (readonly)
         """
         self.status = status
 
     def setErrorCode(self, errorCode):
         """
-        :param errorCode: (Optional) 错误码
+        :param errorCode: (Optional) 错误码 (readonly)
         """
         self.errorCode = errorCode
 
     def setCreatedTime(self, createdTime):
         """
-        :param createdTime: (Optional) 任务创建时间
+        :param createdTime: (Optional) 任务创建时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’  (readonly)
         """
         self.createdTime = createdTime
 
     def setLastUpdatedTime(self, lastUpdatedTime):
         """
-        :param lastUpdatedTime: (Optional) 任务创建时间
+        :param lastUpdatedTime: (Optional) 任务创建时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’  (readonly)
         """
         self.lastUpdatedTime = lastUpdatedTime
-
-    def setSource(self, source):
-        """
-        :param source: (Optional) 
-        """
-        self.source = source
-
-    def setTarget(self, target):
-        """
-        :param target: (Optional) 
-        """
-        self.target = target
 
     def setRule(self, rule):
         """

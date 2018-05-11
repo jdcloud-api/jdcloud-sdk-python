@@ -21,14 +21,14 @@ class ThumbnailQuery(object):
 
     def __init__(self, status=None, begin=None, end=None, marker=None, limit=None, nextMarker=None, truncated=None, taskList=None):
         """
-        :param status: (Optional) 
-        :param begin: (Optional) 
-        :param end: (Optional) 
-        :param marker: (Optional) 
-        :param limit: (Optional) 
-        :param nextMarker: (Optional) 
-        :param truncated: (Optional) 
-        :param taskList: (Optional) 
+        :param status: (Optional) 状态 (SUCCESS, ERROR, PENDDING, RUNNING)
+        :param begin: (Optional) 查询开始时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’
+        :param end: (Optional) 查询结束时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’
+        :param marker: (Optional) 本次请求的marker, 标记查询的起始位置, 此处为taskID
+        :param limit: (Optional) 本次请求返回的任务列表的最大元素个数, 有效值: [1-1000]，默认值: 1000
+        :param nextMarker: (Optional) 获取下一页所需要传递的marker值(此处为taskID), 仅当isTruncated为true时(数据未全部返回)出现 (readonly)
+        :param truncated: (Optional) 指明返回数据是否被截断. true表示本页后面还有数据, 即数据未全部返回; false表示已是最后一页, 即数据已全部返回 (readonly)
+        :param taskList: (Optional) 返回的task列表 (readonly)
         """
 
         self.status = status

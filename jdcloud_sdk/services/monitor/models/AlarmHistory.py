@@ -21,7 +21,7 @@ class AlarmHistory(object):
 
     def __init__(self, calculation=None, contactGroups=None, contactPersons=None, deleted=None, enabled=None, id=None, metric=None, metricName=None, noticePeriod=None, noticeTime=None, operation=None, period=None, region=None, resourceId=None, serviceCode=None, tag=None, threshold=None, times=None, value=None):
         """
-        :param calculation: (Optional) 统计方法：平均值&#x3D;avg、最大值&#x3D;max、最小值&#x3D;min
+        :param calculation: (Optional) 统计方法：平均值=avg、最大值=max、最小值=min
         :param contactGroups: (Optional) 通知的联系组，如 [“联系组1”,”联系组2”]
         :param contactPersons: (Optional) 通知的联系人，如 [“联系人1”,”联系人2”]
         :param deleted: (Optional) 该规则是否已经被删除，1表示已经被删除，0表示未删除，被删除的规则，在使用查询规则的接口时，将不会被检索到
@@ -31,7 +31,7 @@ class AlarmHistory(object):
         :param metricName: (Optional) 规则id监控项名称
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param noticeTime: (Optional) 报警的时间
-        :param operation: (Optional) &gt;&#x3D;、&gt;、&lt;、&lt;&#x3D;、&#x3D;&#x3D;、！&#x3D;
+        :param operation: (Optional) >=、>、<、<=、==、！=
         :param period: (Optional) 统计周期（单位：分钟）
         :param region: (Optional) 地域信息
         :param resourceId: (Optional) 此规则所应用的资源id

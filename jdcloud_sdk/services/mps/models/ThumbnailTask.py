@@ -19,15 +19,15 @@
 
 class ThumbnailTask(object):
 
-    def __init__(self, taskID=None, status=None, errorCode=None, createdTime=None, lastUpdatedTime=None, source=None, target=None, rule=None):
+    def __init__(self, source, target, taskID=None, status=None, errorCode=None, createdTime=None, lastUpdatedTime=None, rule=None):
         """
-        :param taskID: (Optional) 任务ID
-        :param status: (Optional) 状态
-        :param errorCode: (Optional) 错误码
-        :param createdTime: (Optional) 任务创建时间
-        :param lastUpdatedTime: (Optional) 任务创建时间
-        :param source: (Optional) 
-        :param target: (Optional) 
+        :param taskID: (Optional) 任务ID (readonly)
+        :param status: (Optional) 状态 (SUCCESS, ERROR, PENDDING, RUNNING) (readonly)
+        :param errorCode: (Optional) 错误码 (readonly)
+        :param createdTime: (Optional) 任务创建时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’  (readonly)
+        :param lastUpdatedTime: (Optional) 任务创建时间 时间格式(GMT): yyyy-MM-dd’T’HH:mm:ss.SSS’Z’  (readonly)
+        :param source:  
+        :param target:  
         :param rule: (Optional) 
         """
 

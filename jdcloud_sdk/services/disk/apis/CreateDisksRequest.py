@@ -19,40 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsForCreateAlarmRequest(JDCloudRequest):
+class CreateDisksRequest(JDCloudRequest):
     """
-    查询可用创建监控规则的指标列表
+    创建一块或多块云硬盘
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsForCreateAlarmRequest, self).__init__(
-            '/metricsForCreateAlarm', 'GET', header, version)
+        super(CreateDisksRequest, self).__init__(
+            '/regions/{regionId}/disks', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsForCreateAlarmParameters(object):
+class CreateDisksParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, diskSpec, maxCount, clientToken):
         """
+        :param regionId: 地域ID
+        :param diskSpec: 创建云硬盘规格
+        :param maxCount: 购买实例数量；取值范围：[1,100]
+        :param clientToken: 幂等性校验参数
         """
 
-        self.serviceCode = None
-
-    def setServiceCode(self, serviceCode):
-        """
-        :param serviceCode: (Optional) 资源的类型，默认为空，展示所有项目
-vm-->云主机
-disk-->云硬盘
-ip-->公网ip
-balance-->负载均衡
-database-->云数据库mysql版本
-cdn-->京东CDN
-redis-->redis云缓存
-mongodb-->mongoDB云缓存
-storage-->云存储
-sqlserver-->云数据库sqlserver版 
-nativecontainer-->容器
-
-        """
-        self.serviceCode = serviceCode
+        self.regionId = regionId
+        self.diskSpec = diskSpec
+        self.maxCount = maxCount
+        self.clientToken = clientToken
 

@@ -19,10 +19,10 @@
 
 class ThumbnailTaskSource(object):
 
-    def __init__(self, bucket=None, key=None):
+    def __init__(self, bucket, key, ):
         """
-        :param bucket: (Optional) 
-        :param key: (Optional) 
+        :param bucket:  输入视频信息的 bucket
+        :param key:  输入视频信息的 Key
         """
 
         self.bucket = bucket

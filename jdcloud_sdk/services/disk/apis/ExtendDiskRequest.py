@@ -19,40 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsForCreateAlarmRequest(JDCloudRequest):
+class ExtendDiskRequest(JDCloudRequest):
     """
-    查询可用创建监控规则的指标列表
+    扩容云硬盘到指定大小
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsForCreateAlarmRequest, self).__init__(
-            '/metricsForCreateAlarm', 'GET', header, version)
+        super(ExtendDiskRequest, self).__init__(
+            '/regions/{regionId}/disks/{diskId}:extend', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsForCreateAlarmParameters(object):
+class ExtendDiskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, diskId, diskSizeGB):
         """
+        :param regionId: 地域ID
+        :param diskId: 云硬盘ID
+        :param diskSizeGB: 扩容后的云硬盘大小，单位为GiB
         """
 
-        self.serviceCode = None
-
-    def setServiceCode(self, serviceCode):
-        """
-        :param serviceCode: (Optional) 资源的类型，默认为空，展示所有项目
-vm-->云主机
-disk-->云硬盘
-ip-->公网ip
-balance-->负载均衡
-database-->云数据库mysql版本
-cdn-->京东CDN
-redis-->redis云缓存
-mongodb-->mongoDB云缓存
-storage-->云存储
-sqlserver-->云数据库sqlserver版 
-nativecontainer-->容器
-
-        """
-        self.serviceCode = serviceCode
+        self.regionId = regionId
+        self.diskId = diskId
+        self.diskSizeGB = diskSizeGB
 

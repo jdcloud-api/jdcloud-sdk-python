@@ -17,7 +17,7 @@
 
 class JDCloudRequest(object):
 
-    def __init__(self, url, method, header={}, version="v1"):
+    def __init__(self, url, method, header=None, version="v1"):
         self.url = url  # i.e. /regions/${regionId}/elasticIps/${elasticIpId}
         self.version = version
         self.header = header

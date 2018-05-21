@@ -15,7 +15,7 @@
 # limitations under the License.
 
 
-class Credential:
+class Credential(object):
 
     def __init__(self, access_key, secret_key):
         self.access_key = access_key

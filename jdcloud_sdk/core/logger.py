@@ -33,8 +33,8 @@ class Logger(object):
             print message
 
 
-default_logger = Logger(INFO)
+DEFAULT_LOGGER = Logger(INFO)
 
 
 def get_default_logger():
-    return default_logger
+    return DEFAULT_LOGGER

@@ -20,7 +20,7 @@ import json
 class JDCloudResponse(object):
 
     def __init__(self):
-        self.requestId = None
+        self.request_id = None
         self.error = None
         self.result = None
 
@@ -33,7 +33,7 @@ class JDCloudResponse(object):
     def load_hook(self, resp_dict):
         request_id = resp_dict.get('requestId')
         if request_id:
-            self.requestId = request_id
+            self.request_id = request_id
 
             error = resp_dict.get('error')
             if error:

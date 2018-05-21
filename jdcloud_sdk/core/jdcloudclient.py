@@ -14,12 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import base64
 import traceback
 import requests
-import base64
 from jdcloud_sdk.core import const
 from jdcloud_sdk.core.signer import Signer
-from jdcloud_sdk.core.version import version
+from jdcloud_sdk.core.version import VERSION
 from jdcloud_sdk.core.parameterbuilder import WithBodyBuilder, WithoutBodyBuilder
 from jdcloud_sdk.core.exception import ClientException
 from jdcloud_sdk.core.jdcloudresponse import JDCloudResponse, ErrorResponse
@@ -76,25 +76,25 @@ class JDCloudClient(object):
             self.__logger.log(INFO, resp.content)
 
             return self.__process_response(request.method, resp)
-        except Exception as e:
+        except Exception as expt:
             msg = traceback.format_exc()
             self.__logger.log(ERROR, msg)
-            raise e
+            raise expt
 
     def __merge_headers(self, request_header):
-        header = dict()
-        header['User-Agent'] = 'JdcloudSdkPython/%s %s/%s' % (version, self.__service_name, self.__revision)
-        header['Content-Type'] = 'application/json'
+        headers = dict()
+        headers['User-Agent'] = 'JdcloudSdkPython/%s %s/%s' % (VERSION, self.__service_name, self.__revision)
+        headers['Content-Type'] = 'application/json'
 
-        if request_header is not None:
-            for k, v in request_header.items():
-                if k.lower().startswith(const.HEADER_JDCLOUD_PREFIX)\
-                        or k.lower().startswith(const.HEADER_JCLOUD_PREFIX):
-                    v = base64.b64encode(v)
-                header[k] = v
+        if request_header is not None and isinstance(request_header, dict):
+            for key, value in request_header.items():
+                if key.lower().startswith(const.HEADER_JDCLOUD_PREFIX)\
+                        or key.lower().startswith(const.HEADER_JCLOUD_PREFIX):
+                    value = base64.b64encode(value)
+                headers[key] = value
 
-        self.__logger.log(INFO, header)
-        return header
+        self.__logger.log(INFO, headers)
+        return headers
 
     def __get_region_id(self, request):
         if not hasattr(request.parameters, 'regionId') or request.parameters.regionId is None:
@@ -109,9 +109,9 @@ class JDCloudClient(object):
             request_id = response.headers.get(const.HEADER_REQUESTID)
             if request_id is None or request_id == '':
                 jd_resp.error = ErrorResponse('', '500', 'can not get requestId in HEAD response')
-                jd_resp.requestId = ''
+                jd_resp.request_id = ''
             else:
-                jd_resp.requestId = request_id
+                jd_resp.request_id = request_id
         else:
             jd_resp.fill_value(response.content)
 

@@ -22,7 +22,7 @@ import re
 import urllib
 import uuid
 from . import const
-from logger import INFO
+from .logger import INFO
 
 
 class Signer(object):
@@ -45,9 +45,9 @@ class Signer(object):
         else:
             full_host = host
 
-        t = self.__now()
-        jdcloud_date = t.strftime('%Y%m%dT%H%M%SZ')
-        datestamp = t.strftime('%Y%m%d')  # Date w/o time, used in credential scope
+        now = self.__now()
+        jdcloud_date = now.strftime('%Y%m%dT%H%M%SZ')
+        datestamp = now.strftime('%Y%m%d')  # Date w/o time, used in credential scope
         nonce = str(uuid.uuid4())
         headers[const.JDCLOUD_DATE] = jdcloud_date
         headers[const.JDCLOUD_NONCE] = nonce
@@ -98,12 +98,12 @@ class Signer(object):
         })
 
     def __normalize_query_string(self, query):
-        kv = (list(map(str.strip, s.split("=")))
-              for s in query.split('&')
-              if len(s) > 0)
+        params = (list(map(str.strip, s.split("=")))
+                  for s in query.split('&')
+                  if len(s) > 0)
 
         normalized = '&'.join('%s=%s' % (p[0], p[1] if len(p) > 1 else '')
-                              for p in sorted(kv))
+                              for p in sorted(params))
         return normalized
 
     def __now(self):
@@ -119,19 +119,18 @@ class Signer(object):
                    r'(:(?P<port>\d+?))?'
                    r'(?P<path>/.*?)?'
                    r'(\?(?P<query>.*?))?'
-                   r'$'
-                   )
+                   r'$')
         regex = re.compile(pattern)
-        m = regex.match(path)
-        d = m.groupdict() if m is not None else None
+        match = regex.match(path)
+        group_dict = match.groupdict() if match is not None else None
 
-        if d['path'] is None:
-            d['path'] = '/'
+        if group_dict['path'] is None:
+            group_dict['path'] = '/'
 
-        if d['query'] is None:
-            d['query'] = ''
+        if group_dict['query'] is None:
+            group_dict['query'] = ''
 
-        return d
+        return group_dict
 
     def __sign(self, key, msg):
         return hmac.new(key, msg.encode('utf-8'), hashlib.sha256).digest()
@@ -166,7 +165,6 @@ class Signer(object):
         canonical_values = []
         for key in headers:
             if key == 'host':
-                print '------full-host=' + full_host
                 canonical_values.append('host:' + full_host)
             else:
                 canonical_values.append(key + ':' + signed_values[key])
@@ -178,15 +176,3 @@ class Signer(object):
             canonical_headers += ('%s:%s\n' % (const.JDCLOUD_SECURITY_TOKEN, security_token))
 
         return canonical_headers, signed_headers
-
-
-
-
-
-
-
-
-
-
-
-

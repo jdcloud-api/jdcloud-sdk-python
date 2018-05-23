@@ -33,6 +33,10 @@ Python SDK的调用主要分为4步：
 以下是查询云主机实例类型的调用示例
 
 ```python
+from jdcloud_sdk.core.credential import Credential
+from jdcloud_sdk.services.vm.client.VmClient import VmClient
+from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest import DescribeInstanceTypesParameters, DescribeInstanceTypesRequest
+
 access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 credential = Credential(access_key, secret_key)

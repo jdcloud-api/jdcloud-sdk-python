@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 # limitations under the License.
 
 
-class Credential:
+class Credential(object):
 
     def __init__(self, access_key, secret_key):
         self.access_key = access_key

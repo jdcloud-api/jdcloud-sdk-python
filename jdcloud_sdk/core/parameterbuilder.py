@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 import abc
 import re
 import json
+from urllib import quote
 
 
 class ParameterBuilder(object):
@@ -34,8 +35,8 @@ class ParameterBuilder(object):
             return {}
 
         pairs = {}
-        for key in parameters.__dict__.keys():
-            value = parameters.__dict__[key]
+        for key in parameters.keys():
+            value = parameters[key]
             if isinstance(value, list) or value is None:
                 continue
             pairs.update({key: value})
@@ -44,24 +45,27 @@ class ParameterBuilder(object):
     # remove path params
     def _build_query_params(self, parameters, url):
         result = ''
-        result_dict = self._build_params(parameters.__dict__, url, '', [])
-        if len(result_dict) != 0:
+        result_list = self._build_params(parameters, url, '', [])
+        if result_list.__len__() != 0:
             result += '?'
 
-        return result + '&'.join(result_dict)
+        return result + '&'.join(result_list)
 
     def _build_params(self, param_dict, url, prefix, result_list):
         for key in param_dict:
             value = param_dict[key]
 
-            if url.find("{"+key+"}") != -1: continue
-            if value is None: continue
+            if url.find("{"+key+"}") != -1:
+                continue
+
+            if value is None:
+                continue
 
             if isinstance(value, list):
                 i = 1
                 for item in value:
                     sub_prefix = "%s.%d." % (key, i)
-                    if isinstance(item, str) or isinstance(item, int):
+                    if isinstance(item, (int, str)):
                         result_list.append("%s%s.%d=%s" % (prefix, key, i, item))
                     elif isinstance(item, dict):
                         result_list = self._build_params(item, url, sub_prefix, result_list)
@@ -85,15 +89,16 @@ class ParameterBuilder(object):
         return url
 
     def __get_path_param_value(self, params, field):
-        return params.get(field, '')
+        return str(params.get(field, ''))
 
 
 # GET/DELETE
 class WithoutBodyBuilder(ParameterBuilder):
 
     def build_url(self, request, scheme, endpoint):
-        query_params = self._build_query_params(request.parameters, request.url)
-        url = self._replace_url_with_value(request.url, request.parameters)
+        parameters = get_parameter_dict(request.parameters)
+        query_params = quote(self._build_query_params(parameters, request.url), safe='/&=?')
+        url = quote(self._replace_url_with_value(request.url, parameters), safe='/:')
         return '%s://%s/%s%s%s' % (scheme, endpoint, request.version, url, query_params)
 
     def build_body(self, request):
@@ -104,13 +109,20 @@ class WithoutBodyBuilder(ParameterBuilder):
 class WithBodyBuilder(ParameterBuilder):
 
     def build_url(self, request, scheme, endpoint):
-        url = self._replace_url_with_value(request.url, request.parameters)
+        parameters = get_parameter_dict(request.parameters)
+        url = quote(self._replace_url_with_value(request.url, parameters), safe='/:')
         return '%s://%s/%s%s' % (scheme, endpoint, request.version, url)
 
     def build_body(self, request):
+        if isinstance(request.parameters, dict):
+            return json.dumps(request.parameters)
         return json.dumps(request.parameters, cls=ParametersEncoder)
 
 
 class ParametersEncoder(json.JSONEncoder):
     def default(self, o):
         return o.__dict__
+
+
+def get_parameter_dict(parameters):
+    return parameters if isinstance(parameters, dict) else parameters.__dict__

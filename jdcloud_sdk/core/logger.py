@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,8 +33,8 @@ class Logger(object):
             print message
 
 
-default_logger = Logger(INFO)
+DEFAULT_LOGGER = Logger(INFO)
 
 
 def get_default_logger():
-    return default_logger
+    return DEFAULT_LOGGER

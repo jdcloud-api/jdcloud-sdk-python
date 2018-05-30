@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 class JDCloudRequest(object):
 
-    def __init__(self, url, method, header={}, version="v1"):
+    def __init__(self, url, method, header=None, version="v1"):
         self.url = url  # i.e. /regions/${regionId}/elasticIps/${elasticIpId}
         self.version = version
         self.header = header

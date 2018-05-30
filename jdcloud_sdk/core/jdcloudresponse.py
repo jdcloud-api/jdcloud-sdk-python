@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import json
 class JDCloudResponse(object):
 
     def __init__(self):
-        self.requestId = None
+        self.request_id = None
         self.error = None
         self.result = None
 
@@ -33,7 +33,7 @@ class JDCloudResponse(object):
     def load_hook(self, resp_dict):
         request_id = resp_dict.get('requestId')
         if request_id:
-            self.requestId = request_id
+            self.request_id = request_id
 
             error = resp_dict.get('error')
             if error:

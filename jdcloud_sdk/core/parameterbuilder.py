@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class ParameterBuilder(object):
         return url
 
     def __get_path_param_value(self, params, field):
-        return params.get(field, '')
+        return str(params.get(field, ''))
 
 
 # GET/DELETE

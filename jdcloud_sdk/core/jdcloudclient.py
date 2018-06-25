@@ -105,10 +105,11 @@ class JDCloudClient(object):
     def __process_response(self, method, response):
         jd_resp = JDCloudResponse()
 
-        if method == const.METHOD_HEAD:
+        content_length = response.headers.get(const.HEADER_CONTENT_LEN)
+        if method == const.METHOD_HEAD or response.status_code in (204, 304) or content_length == '0':
             request_id = response.headers.get(const.HEADER_REQUESTID)
             if request_id is None or request_id == '':
-                jd_resp.error = ErrorResponse('', '500', 'can not get requestId in HEAD response')
+                jd_resp.error = ErrorResponse('', response.status_code, 'can not get requestId in HEAD response')
                 jd_resp.request_id = ''
             else:
                 jd_resp.request_id = request_id

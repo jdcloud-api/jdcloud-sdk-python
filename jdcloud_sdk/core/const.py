@@ -34,5 +34,6 @@ SCHEME_HTTP = 'http'
 SCHEME_HTTPS = 'https'
 
 HEADER_REQUESTID = 'x-jdcloud-request-id'
+HEADER_CONTENT_LEN = 'Content-Length'
 HEADER_JCLOUD_PREFIX = 'x-jcloud'
 HEADER_JDCLOUD_PREFIX = 'x-jdcloud'

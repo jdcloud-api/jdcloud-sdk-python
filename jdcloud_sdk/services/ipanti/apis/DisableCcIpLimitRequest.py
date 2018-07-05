@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DisableCcObserverModeRequest(JDCloudRequest):
+class DisableCcIpLimitRequest(JDCloudRequest):
     """
-    关闭实例CC防护的观察者模式
+    关闭CC防护每ip的限速
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DisableCcObserverModeRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:disableCcObserverMode', 'POST', header, version)
+        super(DisableCcIpLimitRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:disableCcIpLimit', 'POST', header, version)
         self.parameters = parameters
 
 
-class DisableCcObserverModeParameters(object):
+class DisableCcIpLimitParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """

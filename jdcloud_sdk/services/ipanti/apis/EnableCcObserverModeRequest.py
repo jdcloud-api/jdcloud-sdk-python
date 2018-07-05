@@ -21,12 +21,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableCcObserverModeRequest(JDCloudRequest):
     """
-    开启CC防护每ip的限速
+    开启实例CC防护的观察者模式
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(EnableCcObserverModeRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:enableCcIpLimit', 'POST', header, version)
+            '/regions/{regionId}/instances/{instanceId}:enableCcObserverMode', 'POST', header, version)
         self.parameters = parameters
 
 

@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,4 +26,4 @@ class IpantiClient(JDCloudClient):
         if config is None:
             config = Config('ipanti.jdcloud-api.com')
 
-        super(IpantiClient, self).__init__(credential, config, 'ipanti', '0.2.0', logger)
+        super(IpantiClient, self).__init__(credential, config, 'ipanti', '1.0.0', logger)

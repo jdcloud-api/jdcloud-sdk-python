@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +19,14 @@
 
 class ForwardRuleSpec(object):
 
-    def __init__(self, protocol=None, port=None, algorithm=None, originType=None, originAddr=None, originDomain=None, originPort=None):
+    def __init__(self, protocol=None, port=None, algorithm=None, originType=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None):
         """
         :param protocol: (Optional) 协议：TCP或者UDP
         :param port: (Optional) 端口号
-        :param algorithm: (Optional) 转发规则：wrr-&gt;带权重的轮询，wlc-&gt;加权最小连接，rr-&gt;不带权重的轮询，sh-&gt;源地址hash
+        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，wlc->加权最小连接，rr->不带权重的轮询，sh->源地址hash
         :param originType: (Optional) 回源类型，ip或者domain
-        :param originAddr: (Optional) 回源地址：originType为ip时为多个填多个ip，originType为domain时填一个域名
+        :param originAddr: (Optional) 
+        :param onlineAddr: (Optional) 
         :param originDomain: (Optional) 回源域名
         :param originPort: (Optional) 回源端口号
         """
@@ -35,5 +36,6 @@ class ForwardRuleSpec(object):
         self.algorithm = algorithm
         self.originType = originType
         self.originAddr = originAddr
+        self.onlineAddr = onlineAddr
         self.originDomain = originDomain
         self.originPort = originPort

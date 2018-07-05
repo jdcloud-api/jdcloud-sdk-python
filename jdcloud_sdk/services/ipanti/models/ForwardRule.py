@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,27 +19,31 @@
 
 class ForwardRule(object):
 
-    def __init__(self, forwardRuleId=None, protocol=None, cname=None, originType=None, port=None, algorithm=None, originAddr=None, originDomain=None, originPort=None, status=None):
+    def __init__(self, id=None, instanceId=None, protocol=None, cname=None, originType=None, port=None, algorithm=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None, status=None):
         """
-        :param forwardRuleId: (Optional) 规则id
+        :param id: (Optional) 规则id
+        :param instanceId: (Optional) 实例id
         :param protocol: (Optional) TCP或UDP
         :param cname: (Optional) 规则的cname
         :param originType: (Optional) 回源类型：ip或者domain
         :param port: (Optional) 端口号
-        :param algorithm: (Optional) 转发规则：wrr-&gt;带权重的轮询，wlc-&gt;加权最小连接，rr-&gt;不带权重的轮询，sh-&gt;源地址hash
-        :param originAddr: (Optional) 回源地址：originType为ip时为多个填多个ip，originType为domain时填一个域名
+        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，wlc->加权最小连接，rr->不带权重的轮询，sh->源地址hash
+        :param originAddr: (Optional) 
+        :param onlineAddr: (Optional) 
         :param originDomain: (Optional) 回源域名
         :param originPort: (Optional) 回源端口号
         :param status: (Optional) 0防御状态，1回源状态
         """
 
-        self.forwardRuleId = forwardRuleId
+        self.id = id
+        self.instanceId = instanceId
         self.protocol = protocol
         self.cname = cname
         self.originType = originType
         self.port = port
         self.algorithm = algorithm
         self.originAddr = originAddr
+        self.onlineAddr = onlineAddr
         self.originDomain = originDomain
         self.originPort = originPort
         self.status = status

@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,16 +19,16 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, name=None, carrier=None, elasticTriggerCount=None, abovePeakCount=None, bp=None, ep=None, bw=None, ccThreshold=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, pin=None, urlWhitelist=None, urlWhitelistStatus=None):
+    def __init__(self, instanceId=None, name=None, carrier=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, pin=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
         """
         :param instanceId: (Optional) 实例id
         :param name: (Optional) 实例名称
         :param carrier: (Optional) 线路，UNICOM、TELECOM
         :param elasticTriggerCount: (Optional) 触发弹性带宽的次数
         :param abovePeakCount: (Optional) 超峰次数
-        :param bp: (Optional) 保底带宽
-        :param ep: (Optional) 弹性带宽
-        :param bw: (Optional) 业务带宽大小
+        :param inBitslimit: (Optional) 保底带宽
+        :param resilientBitslimit: (Optional) 弹性带宽
+        :param businessBitslimit: (Optional) 业务带宽大小
         :param ccThreshold: (Optional) cc阈值大小
         :param ruleCount: (Optional) 非网站类规则数
         :param webRuleCount: (Optional) 网站类规则数
@@ -48,6 +48,10 @@ class Instance(object):
         :param pin: (Optional) 用户pin
         :param urlWhitelist: (Optional) url白名单列表
         :param urlWhitelistStatus: (Optional) url白名单状态，0关闭，1开启
+        :param hostQps: (Optional) ccProtectMode为自定义模式时，每个Host的防护阈值
+        :param hostUrlQps: (Optional) ccProtectMode为自定义模式时，每个Host+URI的防护阈值
+        :param ipHostQps: (Optional) ccProtectMode为自定义模式时，每个源IP对Host的防护阈值
+        :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时，每个源IP对Host+URI的防护阈值
         """
 
         self.instanceId = instanceId
@@ -55,9 +59,9 @@ class Instance(object):
         self.carrier = carrier
         self.elasticTriggerCount = elasticTriggerCount
         self.abovePeakCount = abovePeakCount
-        self.bp = bp
-        self.ep = ep
-        self.bw = bw
+        self.inBitslimit = inBitslimit
+        self.resilientBitslimit = resilientBitslimit
+        self.businessBitslimit = businessBitslimit
         self.ccThreshold = ccThreshold
         self.ruleCount = ruleCount
         self.webRuleCount = webRuleCount
@@ -77,3 +81,7 @@ class Instance(object):
         self.pin = pin
         self.urlWhitelist = urlWhitelist
         self.urlWhitelistStatus = urlWhitelistStatus
+        self.hostQps = hostQps
+        self.hostUrlQps = hostUrlQps
+        self.ipHostQps = ipHostQps
+        self.ipHostUrlQps = ipHostUrlQps

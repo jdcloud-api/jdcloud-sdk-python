@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,31 +19,47 @@
 
 class WebRule(object):
 
-    def __init__(self, webRuleId=None, domain=None, cname=None, protocol=None, port=None, originType=None, originAddr=None, httpsCertContent=None, httpsRsaKey=None, httpCertStatus=None, status=None, ccStatus=None):
+    def __init__(self, id=None, instanceId=None, domain=None, cname=None, protocol=None, port=None, httpsPort=None, originType=None, originAddr=None, onlineAddr=None, originDomain=None, httpsCertContent=None, httpsRsaKey=None, httpCertStatus=None, status=None, ccStatus=None, algorithm=None, forceJump=None, customPortStatus=None, httpOrigin=None):
         """
-        :param webRuleId: (Optional) 规则id
+        :param id: (Optional) 规则id
+        :param instanceId: (Optional) 实例id
         :param domain: (Optional) 子域名
         :param cname: (Optional) 规则的cname
         :param protocol: (Optional) 协议：HTTP、HTTPS、HTTP_HTTPS
-        :param port: (Optional) 端口号，80,443
-        :param originType: (Optional) 回源类型：ip或者domain
-        :param originAddr: (Optional) 回源地址：originType为ip时为多个填多个ip，originType为domain时填一个域名
+        :param port: (Optional) HTTP协议的端口号，如80,81，多个端口号使用逗号分隔
+        :param httpsPort: (Optional) HTTPS协议的端口号，如443,8443，多个端口号使用逗号分隔
+        :param originType: (Optional) 回源类型：A或者CNAME
+        :param originAddr: (Optional) 
+        :param onlineAddr: (Optional) 
+        :param originDomain: (Optional) 回源域名,originType为CNAME时返回该字段
         :param httpsCertContent: (Optional) 证书内容
         :param httpsRsaKey: (Optional) 证书私钥
         :param httpCertStatus: (Optional) 证书状态：0异常，1正常
         :param status: (Optional) 0防御状态，1回源状态
-        :param ccStatus: (Optional) 0CC关闭 1CC开启
+        :param ccStatus: (Optional) 0 CC关闭 1 CC开启
+        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，rr->不带权重的轮询
+        :param forceJump: (Optional) 是否开启https强制跳转，当protocol为HTTP_HTTPS时可以配置该属性 0为不强跳 1为开启强跳
+        :param customPortStatus: (Optional) 是否为自定义端口号，0为默认 1为自定义
+        :param httpOrigin: (Optional) 是否开启http回源，0为不开启 1为开启，当勾选HTTPS时可以配置该属性
         """
 
-        self.webRuleId = webRuleId
+        self.id = id
+        self.instanceId = instanceId
         self.domain = domain
         self.cname = cname
         self.protocol = protocol
         self.port = port
+        self.httpsPort = httpsPort
         self.originType = originType
         self.originAddr = originAddr
+        self.onlineAddr = onlineAddr
+        self.originDomain = originDomain
         self.httpsCertContent = httpsCertContent
         self.httpsRsaKey = httpsRsaKey
         self.httpCertStatus = httpCertStatus
         self.status = status
         self.ccStatus = ccStatus
+        self.algorithm = algorithm
+        self.forceJump = forceJump
+        self.customPortStatus = customPortStatus
+        self.httpOrigin = httpOrigin

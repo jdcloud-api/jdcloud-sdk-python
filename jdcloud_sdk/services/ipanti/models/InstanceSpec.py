@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,16 +19,17 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name=None, buyType=None, timeUnit=None, timeSpan=None, carrier=None, bp=None, ep=None, bw=None):
+    def __init__(self, name=None, buyType=None, timeUnit=None, timeSpan=None, carrier=None, bp=None, ep=None, bw=None, returnUrl=None):
         """
         :param name: (Optional) 实例名称
         :param buyType: (Optional) 购买类型：1新购 3升级
         :param timeUnit: (Optional) 购买时长单位：3月 4年
         :param timeSpan: (Optional) 购买时长跨度
-        :param carrier: (Optional) 线路：UNICOM、TELECOM
+        :param carrier: (Optional) 线路：TELECOM为电信线路，UNICOM为联通线路，CMCC为移动线路
         :param bp: (Optional) 保底带宽：单位Gbps
         :param ep: (Optional) 弹性带宽：单位Gbps
         :param bw: (Optional) 业务带宽：单位Mbps
+        :param returnUrl: (Optional) 支付成功后跳转的页面，控制台交互模式传该字段
         """
 
         self.name = name
@@ -39,3 +40,4 @@ class InstanceSpec(object):
         self.bp = bp
         self.ep = ep
         self.bw = bw
+        self.returnUrl = returnUrl

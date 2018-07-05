@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ class EnableInstanceUrlWhiteListRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(EnableInstanceUrlWhiteListRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/enableUrlWhiteList', 'POST', header, version)
+            '/regions/{regionId}/instances/{instanceId}:enableUrlWhiteList', 'POST', header, version)
         self.parameters = parameters
 
 

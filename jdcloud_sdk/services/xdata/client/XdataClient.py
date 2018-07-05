@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,4 +26,4 @@ class XdataClient(JDCloudClient):
         if config is None:
             config = Config('xdata.jdcloud-api.com')
 
-        super(XdataClient, self).__init__(credential, config, 'xdata', '0.1.0', logger)
+        super(XdataClient, self).__init__(credential, config, 'xdata', '1.0.0', logger)

@@ -1,6 +1,6 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +19,19 @@
 
 class CCSpec(object):
 
-    def __init__(self, ccProtectMode=None, ccThreshold=None, ccSpeedLimit=None):
+    def __init__(self, ccProtectMode=None, ccThreshold=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
         """
         :param ccProtectMode: (Optional) cc防护模式：0正常 1宽松 2紧急 3自定义
         :param ccThreshold: (Optional) cc阈值大小
-        :param ccSpeedLimit: (Optional) cc限速大小，ccProtectMode为自定义时才需要指定，统计周期为1分钟
+        :param hostQps: (Optional) ccProtectMode为自定义模式时，指定每个Host的防护阈值
+        :param hostUrlQps: (Optional) ccProtectMode为自定义模式时，指定每个Host+URI的防护阈值
+        :param ipHostQps: (Optional) ccProtectMode为自定义模式时，指定每个源IP对Host的防护阈值
+        :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时，指定每个源IP对Host+URI的防护阈值
         """
 
         self.ccProtectMode = ccProtectMode
         self.ccThreshold = ccThreshold
-        self.ccSpeedLimit = ccSpeedLimit
+        self.hostQps = hostQps
+        self.hostUrlQps = hostUrlQps
+        self.ipHostQps = ipHostQps
+        self.ipHostUrlQps = ipHostUrlQps

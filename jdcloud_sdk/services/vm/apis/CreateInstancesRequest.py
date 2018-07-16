@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstancesRequest(JDCloudRequest):
     """
-    创建一台或多台指定配置的实例
+    创建一台或多台指定配置的实例<a href="https://www.jdcloud.com/help/detail/3383/isCatalog/1">参数详细说明</a>
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,24 +32,19 @@ class CreateInstancesRequest(JDCloudRequest):
 
 class CreateInstancesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, instanceSpec, ):
         """
         :param regionId: Region ID
+        :param instanceSpec: 创建主机规格
         """
 
         self.regionId = regionId
-        self.instanceSpec = None
-        self.maxCount = None
-
-    def setInstanceSpec(self, instanceSpec):
-        """
-        :param instanceSpec: (Optional) 创建主机规格
-        """
         self.instanceSpec = instanceSpec
+        self.maxCount = None
 
     def setMaxCount(self, maxCount):
         """
-        :param maxCount: (Optional) 购买实例数量；取值范围：[1,100]
+        :param maxCount: (Optional) 购买实例数量；取值范围：[1,100]，默认为1
         """
         self.maxCount = maxCount
 

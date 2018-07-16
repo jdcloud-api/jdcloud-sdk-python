@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import base64
 import traceback
 import requests
 from jdcloud_sdk.core import const
@@ -24,6 +23,7 @@ from jdcloud_sdk.core.parameterbuilder import WithBodyBuilder, WithoutBodyBuilde
 from jdcloud_sdk.core.exception import ClientException
 from jdcloud_sdk.core.jdcloudresponse import JDCloudResponse, ErrorResponse
 from jdcloud_sdk.core.logger import get_default_logger, INFO, ERROR
+from jdcloud_sdk.core.util import base64encode
 
 
 class JDCloudClient(object):
@@ -59,6 +59,8 @@ class JDCloudClient(object):
 
         try:
             header = self.__merge_headers(request.header)
+            token = header.get(const.JDCLOUD_SECURITY_TOKEN, '')
+
             param_builder = self.__builder_map[request.method]()
             url = param_builder.build_url(request, self.__config.scheme, self.__config.endpoint)
             body = param_builder.build_body(request)
@@ -68,7 +70,7 @@ class JDCloudClient(object):
             signer = Signer(self.__logger)
             signer.sign(method=request.method, region=region, uri=url,
                         headers=header, data=body, credential=self.__credential,
-                        security_token="", service=self.__service_name)
+                        security_token=token, service=self.__service_name)
             self.__logger.log(INFO, header)
 
             resp = requests.request(request.method, url, data=body, headers=header,
@@ -90,7 +92,7 @@ class JDCloudClient(object):
             for key, value in request_header.items():
                 if key.lower().startswith(const.HEADER_JDCLOUD_PREFIX)\
                         or key.lower().startswith(const.HEADER_JCLOUD_PREFIX):
-                    value = base64.b64encode(value)
+                    value = base64encode(value)
                 headers[key] = value
 
         self.__logger.log(INFO, headers)

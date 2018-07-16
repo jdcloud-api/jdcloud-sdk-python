@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,13 +19,14 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, desc=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, desc=None, state=None):
         """
         :param family: (Optional) 实例族
         :param instanceType: (Optional) 实例类型，比如g.b1.2xlarge
         :param cpu: (Optional) cpu个数
         :param memoryMB: (Optional) 内存
         :param desc: (Optional) 描述
+        :param state: (Optional) 状态
         """
 
         self.family = family
@@ -33,3 +34,4 @@ class InstanceType(object):
         self.cpu = cpu
         self.memoryMB = memoryMB
         self.desc = desc
+        self.state = state

@@ -19,32 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceTypesRequest(JDCloudRequest):
+class ResizeInstanceRequest(JDCloudRequest):
     """
-    查询实例类型资源信息列表
+    "云主机变更实例规格，需要关机操作"
+"16年创建的云盘做系统盘的主机，一代与二代实例类型不允许相互调整"
+"本地盘做系统盘的主机，一代与二代实例类型不允许相互调整"
+"ag中的主机，一代与二代实例类型不允许相互调整"
+"变更后实例规格的网卡数量限制，要支持当前主机的网卡数量，如不支持，需要缷载网卡后再变更实例规格"
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceTypesRequest, self).__init__(
-            '/regions/{regionId}/instanceTypes', 'GET', header, version)
+        super(ResizeInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:resizeInstance', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceTypesParameters(object):
+class ResizeInstanceParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, instanceId, instanceType):
         """
         :param regionId: Region ID
+        :param instanceId: Instance ID
+        :param instanceType: 实例规格
         """
 
         self.regionId = regionId
-        self.filters = None
-
-    def setFilters(self, filters):
-        """
-        :param filters: (Optional) instanceTypes - 实例类型，精确匹配，支持多个
-az - 可用区，精确匹配，支持多个
-
-        """
-        self.filters = filters
+        self.instanceId = instanceId
+        self.instanceType = instanceType
 

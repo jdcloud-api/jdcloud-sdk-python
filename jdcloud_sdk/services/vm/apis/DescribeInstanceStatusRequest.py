@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceTypesRequest(JDCloudRequest):
+class DescribeInstanceStatusRequest(JDCloudRequest):
     """
-    查询实例类型资源信息列表
+    批量查询云主机状态
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceTypesRequest, self).__init__(
-            '/regions/{regionId}/instanceTypes', 'GET', header, version)
+        super(DescribeInstanceStatusRequest, self).__init__(
+            '/regions/{regionId}/instanceStatus', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceTypesParameters(object):
+class DescribeInstanceStatusParameters(object):
 
     def __init__(self, regionId, ):
         """
@@ -38,12 +38,31 @@ class DescribeInstanceTypesParameters(object):
         """
 
         self.regionId = regionId
+        self.pageNumber = None
+        self.pageSize = None
         self.filters = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码；默认为1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        """
+        self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceTypes - 实例类型，精确匹配，支持多个
-az - 可用区，精确匹配，支持多个
+        :param filters: (Optional) instanceId - 实例ID，精确匹配，支持多个
+privateIpAddress - 主网卡IP地址，模糊匹配，支持单个
+vpcId - 私有网络ID，精确匹配，支持多个
+status - 云主机状态，精确匹配，支持多个
+name - 实例名称，模糊匹配，支持单个
+imageId - 镜像ID，模糊匹配，支持单个
+networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
 
         """
         self.filters = filters

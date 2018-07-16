@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -40,6 +40,7 @@ class DescribeInstancesParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -54,6 +55,12 @@ class DescribeInstancesParameters(object):
         """
         self.pageSize = pageSize
 
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) instanceId - 实例ID，精确匹配，支持多个
@@ -63,6 +70,7 @@ vpcId - 私有网络ID，精确匹配，支持多个
 status - 云主机状态，精确匹配，支持多个
 name - 实例名称，模糊匹配，支持单个
 imageId - 镜像ID，模糊匹配，支持单个
+networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
 
         """
         self.filters = filters

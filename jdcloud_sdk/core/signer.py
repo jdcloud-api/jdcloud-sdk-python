@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,10 +19,10 @@ import time
 import hashlib
 import hmac
 import re
-import urllib
 import uuid
 from . import const
 from .logger import INFO
+from .util import quote
 
 
 class Signer(object):
@@ -39,7 +39,7 @@ class Signer(object):
         query = uri_dict['query']
         path = uri_dict['path']
 
-        canonical_uri = urllib.quote(path)
+        canonical_uri = quote(path)
         if port and port not in ['80', '443']:
             full_host = host + ':' + port
         else:
@@ -91,11 +91,13 @@ class Signer(object):
         headers.update({
             const.JDCLOUD_AUTH: authorization_header,
             const.JDCLOUD_DATE: jdcloud_date,
-            const.JDCLOUD_SECURITY_TOKEN: security_token,
             const.JDCLOUD_CONTENT_SHA256: payload_hash,
             const.JDCLOUD_ALGORITHM: const.JDCLOUD_ALGORITHM,
             const.JDCLOUD_NONCE: nonce
         })
+
+        if security_token:
+            headers.update({const.JDCLOUD_SECURITY_TOKEN: security_token})
 
     def __normalize_query_string(self, query):
         params = (list(map(str.strip, s.split("=")))
@@ -170,9 +172,5 @@ class Signer(object):
                 canonical_values.append(key + ':' + signed_values[key])
 
         canonical_headers = '\n'.join(canonical_values) + '\n'
-
-        if security_token:
-            signed_headers += ';' + const.JDCLOUD_SECURITY_TOKEN
-            canonical_headers += ('%s:%s\n' % (const.JDCLOUD_SECURITY_TOKEN, security_token))
 
         return canonical_headers, signed_headers

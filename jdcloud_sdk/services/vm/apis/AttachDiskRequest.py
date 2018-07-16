@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,23 +32,28 @@ class AttachDiskRequest(JDCloudRequest):
 
 class AttachDiskParameters(object):
 
-    def __init__(self, regionId, instanceId, diskId, deviceName, ):
+    def __init__(self, regionId, instanceId, diskId, ):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID
         :param diskId: 云硬盘ID
-        :param deviceName: 逻辑挂载点[vdb,vdc,vdd,vde,vdf,vdg,vdh]
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.diskId = diskId
-        self.deviceName = deviceName
+        self.deviceName = None
         self.autoDelete = None
+
+    def setDeviceName(self, deviceName):
+        """
+        :param deviceName: (Optional) 逻辑挂载点[vdb,vdc,vdd,vde,vdf,vdg,vdh]
+        """
+        self.deviceName = deviceName
 
     def setAutoDelete(self, autoDelete):
         """
-        :param autoDelete: (Optional) 当删除主机时，是否自动关联删除此硬盘，默认False，此对按配置计费生效
+        :param autoDelete: (Optional) 当删除主机时，是否自动关联删除此硬盘，默认False，只支持按配置计费
         """
         self.autoDelete = autoDelete
 

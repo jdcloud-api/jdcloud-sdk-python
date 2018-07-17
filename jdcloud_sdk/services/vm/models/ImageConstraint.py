@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,9 +19,11 @@
 
 class ImageConstraint(object):
 
-    def __init__(self, imageInstanceTypeConstraint=None):
+    def __init__(self, imageId=None, imageInstanceTypeConstraint=None):
         """
+        :param imageId: (Optional) 镜像ID
         :param imageInstanceTypeConstraint: (Optional) 镜像实例类型限制
         """
 
+        self.imageId = imageId
         self.imageInstanceTypeConstraint = imageInstanceTypeConstraint

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, launchTime=None, az=None, keyNames=None, charge=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, launchTime=None, az=None, keyNames=None, charge=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -29,7 +29,7 @@ class Instance(object):
         :param privateIpAddress: (Optional) 主网卡主IP地址
         :param elasticIpId: (Optional) 主网卡主IP绑定弹性IP的ID
         :param elasticIpAddress: (Optional) 主网卡主IP绑定弹性IP的地址
-        :param status: (Optional) 实例状态
+        :param status: (Optional) 实例状态，[pending,starting,running,stopping,stopped,rebooting,rebuilding,resizing,deleting,error]
         :param description: (Optional) 实例描述
         :param imageId: (Optional) 镜像ID
         :param systemDisk: (Optional) 系统盘信息
@@ -39,6 +39,7 @@ class Instance(object):
         :param az: (Optional) 可用区
         :param keyNames: (Optional) 密钥对名称
         :param charge: (Optional) 计费信息
+        :param tags: (Optional) Tag信息
         """
 
         self.instanceId = instanceId
@@ -59,3 +60,4 @@ class Instance(object):
         self.az = az
         self.keyNames = keyNames
         self.charge = charge
+        self.tags = tags

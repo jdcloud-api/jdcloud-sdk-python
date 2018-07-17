@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,10 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateImageRequest(JDCloudRequest):
     """
-    &quot;虚机创建私有镜像&quot;
-&quot;虚机状态必须为stopped&quot;
-&quot;如果虚机上有挂载数据盘，默认会将数据盘创建快照，生成打包镜像&quot;
-&quot;主机没有未完成的任务才可制作镜像&quot;
+    "虚机创建私有镜像"
+"虚机状态必须为stopped"
+"如果虚机上有挂载数据盘，默认会将数据盘创建快照，生成打包镜像"
+"主机没有未完成的任务才可制作镜像"
 
     """
 

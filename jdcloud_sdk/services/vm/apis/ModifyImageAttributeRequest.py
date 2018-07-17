@@ -19,32 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceTypesRequest(JDCloudRequest):
+class ModifyImageAttributeRequest(JDCloudRequest):
     """
-    查询实例类型资源信息列表
+    修改镜像信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceTypesRequest, self).__init__(
-            '/regions/{regionId}/instanceTypes', 'GET', header, version)
+        super(ModifyImageAttributeRequest, self).__init__(
+            '/regions/{regionId}/images/{imageId}:modifyImageAttribute', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceTypesParameters(object):
+class ModifyImageAttributeParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, imageId, ):
         """
         :param regionId: Region ID
+        :param imageId: Image ID
         """
 
         self.regionId = regionId
-        self.filters = None
+        self.imageId = imageId
+        self.name = None
+        self.description = None
 
-    def setFilters(self, filters):
+    def setName(self, name):
         """
-        :param filters: (Optional) instanceTypes - 实例类型，精确匹配，支持多个
-az - 可用区，精确匹配，支持多个
+        :param name: (Optional) 名称；名称和描述必传其中一个；不为空且只允许中文、数字、大小写字母、英文下划线“_”及中划线“-”，长度不超过32字符
+        """
+        self.name = name
 
+    def setDescription(self, description):
         """
-        self.filters = filters
+        :param description: (Optional) 描述；名称和描述必传其中一个；长度不超过256个字符
+        """
+        self.description = description
 

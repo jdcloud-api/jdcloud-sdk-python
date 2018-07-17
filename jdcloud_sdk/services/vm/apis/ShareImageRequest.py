@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,10 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ShareImageRequest(JDCloudRequest):
     """
-    &quot;共享镜像，最多可共享给20个帐户&quot;
-&quot;打包镜像暂不支持共享&quot;
-&quot;不能操作非私有镜像&quot;
-&quot;不能共享给自己&quot;
+    "共享镜像，最多可共享给20个帐户"
+"打包镜像暂不支持共享"
+"不能操作非私有镜像"
+"不能共享给自己"
 
     """
 

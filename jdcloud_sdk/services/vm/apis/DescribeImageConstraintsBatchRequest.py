@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceTypesRequest(JDCloudRequest):
+class DescribeImageConstraintsBatchRequest(JDCloudRequest):
     """
-    查询实例类型资源信息列表
+    批量查询镜像限制
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceTypesRequest, self).__init__(
-            '/regions/{regionId}/instanceTypes', 'GET', header, version)
+        super(DescribeImageConstraintsBatchRequest, self).__init__(
+            '/regions/{regionId}/imageConstraints', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceTypesParameters(object):
+class DescribeImageConstraintsBatchParameters(object):
 
     def __init__(self, regionId, ):
         """
@@ -38,13 +38,11 @@ class DescribeInstanceTypesParameters(object):
         """
 
         self.regionId = regionId
-        self.filters = None
+        self.ids = None
 
-    def setFilters(self, filters):
+    def setIds(self, ids):
         """
-        :param filters: (Optional) instanceTypes - 实例类型，精确匹配，支持多个
-az - 可用区，精确匹配，支持多个
-
+        :param ids: (Optional) 镜像ID列表
         """
-        self.filters = filters
+        self.ids = ids
 

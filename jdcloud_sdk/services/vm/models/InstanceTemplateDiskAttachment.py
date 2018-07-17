@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@ class InstanceTemplateDiskAttachment(object):
     def __init__(self, diskCategory=None, autoDelete=None, instanceTemplateDisk=None, deviceName=None, noDevice=None):
         """
         :param diskCategory: (Optional) 磁盘分类，local或者cloud；系统盘仅支持local；数据盘仅支持cloud
-        :param autoDelete: (Optional) 自动删除，删除主机时自动删除此磁盘，默认为True，本地盘不能更改此值
+        :param autoDelete: (Optional) 自动删除，删除主机时自动删除此磁盘，默认为true，本地盘不能更改此值
         :param instanceTemplateDisk: (Optional) 云硬盘规格
         :param deviceName: (Optional) 系统盘不需要使用，数据盘时才能够使用。设置数据盘的挂载点，[vdb,vdc,vdd,vde,vdf,vdg,vdh]
         :param noDevice: (Optional) 排除镜像数据盘映射中的逻辑挂载点

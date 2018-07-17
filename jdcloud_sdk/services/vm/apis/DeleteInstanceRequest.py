@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,10 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteInstanceRequest(JDCloudRequest):
     """
-    &quot;删除单个实例&quot;
-&quot;主机状态必须为停止状态、同时主机没有未完成的任务才可删除&quot;
-&quot;包年包月未到期的主机不能删除&quot;
-&quot;如果主机中挂载了数据盘，并且设置了AutoDelete属性为True，那么数据盘会随主机一起删除&quot;
+    "删除单个实例"
+"主机状态必须为运行(running)、停止(stopped)、错误(error)，同时云主机没有未完成的任务才可删除"
+"包年包月未到期的主机不能删除"
+"白名单用户不能删除包年包月已到期的云主机"
+"如果主机中挂载的数据盘为按配置计费，并且设置了AutoDelete属性为true，那么数据盘会随主机一起删除"
 
     """
 

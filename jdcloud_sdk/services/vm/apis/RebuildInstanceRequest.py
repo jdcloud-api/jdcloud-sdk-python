@@ -19,32 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceTypesRequest(JDCloudRequest):
+class RebuildInstanceRequest(JDCloudRequest):
     """
-    查询实例类型资源信息列表
+    云主机使用指定镜像重置实例镜像，需要关机操作，
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceTypesRequest, self).__init__(
-            '/regions/{regionId}/instanceTypes', 'GET', header, version)
+        super(RebuildInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:rebuildInstance', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceTypesParameters(object):
+class RebuildInstanceParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, instanceId, password, ):
         """
         :param regionId: Region ID
+        :param instanceId: Instance ID
+        :param password: 云主机密码
         """
 
         self.regionId = regionId
-        self.filters = None
+        self.instanceId = instanceId
+        self.password = password
+        self.imageId = None
+        self.keyNames = None
 
-    def setFilters(self, filters):
+    def setImageId(self, imageId):
         """
-        :param filters: (Optional) instanceTypes - 实例类型，精确匹配，支持多个
-az - 可用区，精确匹配，支持多个
+        :param imageId: (Optional) 镜像ID
+        """
+        self.imageId = imageId
 
+    def setKeyNames(self, keyNames):
         """
-        self.filters = filters
+        :param keyNames: (Optional) 密钥对名称；当前只支持一个
+        """
+        self.keyNames = keyNames
 

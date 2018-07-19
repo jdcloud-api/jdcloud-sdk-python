@@ -30,3 +30,11 @@ def base64encode(value):
     elif sys.version_info.major == 3:
         encoded_value = base64.b64encode(value.encode('utf-8'))
         return str(encoded_value, 'utf-8')
+
+
+# byte to string
+def byte_to_str(string):
+    if sys.version_info.major == 2:
+        return string
+    elif sys.version_info.major == 3:
+        return str(string, 'utf-8')

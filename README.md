@@ -5,13 +5,13 @@
 
 # 环境准备 #
 
-1. 京东云Python SDK适用于Python 2.7.*及以上版本，暂未支持3.*版本。
-2. 在开始调用京东云open API之前，需提前在京东云用户中心账户管理下的AccessKey管理页面申请accesskey和secretKey密钥对（简称AK/SK）。AK/SK信息请妥善保管，如果遗失可能会造成非法用户使用此信息操作您在云上的资源，给你造成数据和财产损失。
+1. 京东云Python SDK适用于Python 2.7.* 和 3.* 版本。
+2. 在开始调用京东云Open API之前，需提前在京东云用户中心账户管理下的AccessKey管理页面申请accesskey和secretKey密钥对（简称AK/SK）。AK/SK信息请妥善保管，如果遗失可能会造成非法用户使用此信息操作您在云上的资源，给你造成数据和财产损失。
 
 # SDK使用方法 #
 建议使用pip安装京东云Python SDK，如下所示：
 
-	pip install jdcloud_sdk
+	pip install -U jdcloud_sdk
 您还可以下载sdk源代码自行使用。
 
 使用源码安装您可以如下方式执行：

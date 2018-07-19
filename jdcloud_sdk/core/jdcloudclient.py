@@ -23,7 +23,7 @@ from jdcloud_sdk.core.parameterbuilder import WithBodyBuilder, WithoutBodyBuilde
 from jdcloud_sdk.core.exception import ClientException
 from jdcloud_sdk.core.jdcloudresponse import JDCloudResponse, ErrorResponse
 from jdcloud_sdk.core.logger import get_default_logger, INFO, ERROR
-from jdcloud_sdk.core.util import base64encode
+from jdcloud_sdk.core.util import base64encode, byte_to_str
 
 
 class JDCloudClient(object):
@@ -116,6 +116,6 @@ class JDCloudClient(object):
             else:
                 jd_resp.request_id = request_id
         else:
-            jd_resp.fill_value(response.content)
+            jd_resp.fill_value(byte_to_str(response.content))
 
         return jd_resp

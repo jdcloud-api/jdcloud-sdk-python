@@ -19,30 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteInstanceRequest(JDCloudRequest):
+class SearchRRRequest(JDCloudRequest):
     """
-    "删除单个实例"
-"主机状态必须为运行(running)、停止(stopped)、错误(error)，同时云主机没有未完成的任务才可删除"
-"包年包月未到期的主机不能删除"
-"白名单用户不能删除包年包月已到期的云主机"
-"如果主机中挂载的数据盘为按配置计费，并且设置了AutoDelete属性为true，那么数据盘会随主机一起删除"
- [MFA enabled]
+    查询某个主域名的解析记录
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteInstanceRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}', 'DELETE', header, version)
+        super(SearchRRRequest, self).__init__(
+            '/regions/{regionId}/domain/{domainId}/RR', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteInstanceParameters(object):
+class SearchRRParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, domainId, ):
         """
         :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param domainId: 域名ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
+        self.domainId = domainId
 

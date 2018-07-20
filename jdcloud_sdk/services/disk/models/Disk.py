@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
 
 class Disk(object):
 
-    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, status=None, attachments=None, snapshotId=None, createTime=None, charge=None):
+    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, status=None, attachments=None, snapshotId=None, createTime=None, charge=None, tags=None):
         """
         :param diskId: (Optional) 云硬盘ID
         :param az: (Optional) 云硬盘所属AZ
@@ -32,6 +32,7 @@ class Disk(object):
         :param snapshotId: (Optional) 创建该云硬盘的快照ID
         :param createTime: (Optional) 创建云硬盘时间
         :param charge: (Optional) 云硬盘计费配置信息
+        :param tags: (Optional) Tag信息
         """
 
         self.diskId = diskId
@@ -45,3 +46,4 @@ class Disk(object):
         self.snapshotId = snapshotId
         self.createTime = createTime
         self.charge = charge
+        self.tags = tags

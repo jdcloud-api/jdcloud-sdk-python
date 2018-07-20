@@ -54,5 +54,11 @@ try:
 except Exception, e:
     print e
     #错误处理
-```    
+```
 
+如果需要设置额外的header，例如要调用开启了MFA操作保护的接口，需要传递x-jdcloud-security-token，则按照如下方式：
+```python
+parameters = DeleteInstanceTypesParameters('cn-north-1')
+header = {'x-jdcloud-security-token': 'xxx'} 
+request = DeleteInstanceTypesRequest(parameters, header)
+```

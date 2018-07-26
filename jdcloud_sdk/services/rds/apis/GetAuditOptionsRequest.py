@@ -19,29 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class GetAuditOptionsRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    获取审计所有选项及推荐的选项，目前仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(GetAuditOptionsRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/audit:getOptions', 'POST', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class GetAuditOptionsParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, instanceId, name):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param regionId: Region ID
+        :param instanceId: Instance ID
+        :param name: 审计选项类别，大小写敏感
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.name = name
 

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupsRequest(JDCloudRequest):
     """
-    获取备份信息
+    获取备份信息</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -37,7 +37,7 @@ class DescribeBackupsParameters(object):
         :param regionId: 地域代码
         :param instanceId: 实例ID
         :param pageNumber: 显示数据的页码，取值范围：[1,1000)，页码超过总页数时，显示最后一页，用于查询列表的接口
-        :param pageSize: 每页显示的数据条数，取值范围：10/20/30/50/100
+        :param pageSize: 每页显示的数据条数，默认为10，取值范围：[1,100]，只能为10的倍数
         """
 
         self.regionId = regionId
@@ -52,31 +52,31 @@ class DescribeBackupsParameters(object):
 
     def setAuto(self, auto):
         """
-        :param auto: (Optional) 查询备份类型，0为手动备份，1为自动备份，不传表示全部. - 测试参数，后续可能被其他参数取代
+        :param auto: (Optional) 查询备份类型，0为手动备份，1为自动备份，不传表示全部. </br><strong>- 测试参数，后续可能被其他参数取代</strong>
         """
         self.auto = auto
 
     def setBackupTypeFilter(self, backupTypeFilter):
         """
-        :param backupTypeFilter: (Optional) 返回backupType等于指定值的备份列表。full为全量备份，diff为增量备份- 测试参数，后续可能被其他参数取代
+        :param backupTypeFilter: (Optional) 返回backupType等于指定值的备份列表。full为全量备份，diff为增量备份</br><strong>- 测试参数，后续可能被其他参数取代</strong>
         """
         self.backupTypeFilter = backupTypeFilter
 
     def setDbNameFilter(self, dbNameFilter):
         """
-        :param dbNameFilter: (Optional) 返回dbName等于指定值的备份列表，不传或为空返回全部- 测试参数，后续可能被其他参数取代
+        :param dbNameFilter: (Optional) 返回dbName等于指定值的备份列表，不传或为空返回全部</br><strong>- 测试参数，后续可能被其他参数取代</strong>
         """
         self.dbNameFilter = dbNameFilter
 
     def setBackupTimeRangeStartFilter(self, backupTimeRangeStartFilter):
         """
-        :param backupTimeRangeStartFilter: (Optional) 返回备份开始时间大于该时间的备份列表- 测试参数，后续可能被其他参数取代
+        :param backupTimeRangeStartFilter: (Optional) 返回备份开始时间大于该时间的备份列表，格式为：YYYY-MM-DD HH:mm:ss</br><strong>- 测试参数，后续可能被其他参数取代</strong>
         """
         self.backupTimeRangeStartFilter = backupTimeRangeStartFilter
 
     def setBackupTimeRangeEndFilter(self, backupTimeRangeEndFilter):
         """
-        :param backupTimeRangeEndFilter: (Optional) 返回备份开始时间小于等于该时间的备份列表- 测试参数，后续可能被其他参数取代
+        :param backupTimeRangeEndFilter: (Optional) 返回备份开始时间小于等于该时间的备份列表，格式为：YYYY-MM-DD HH:mm:ss</br><strong>- 测试参数，后续可能被其他参数取代</strong>
         """
         self.backupTimeRangeEndFilter = backupTimeRangeEndFilter
 

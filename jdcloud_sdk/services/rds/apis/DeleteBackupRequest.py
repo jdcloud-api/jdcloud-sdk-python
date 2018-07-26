@@ -19,29 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class DeleteBackupRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    删除备份</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(DeleteBackupRequest, self).__init__(
+            '/regions/{regionId}/backups/{backupId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class DeleteBackupParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, backupId, ):
         """
         :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param backupId: 备份ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.backupId = backupId
 

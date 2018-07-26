@@ -19,29 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class SetImportFileSharedRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    设置上传文件是否共享给该用户的其他实例</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(SetImportFileSharedRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/importFiles/{fileName}:setShared', 'POST', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class SetImportFileSharedParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, instanceId, fileName, shared):
         """
-        :param regionId: 地域代码
+        :param regionId: 区域编码
         :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param fileName: 单库上云文件名
+        :param shared: 文件是否共享，不区分大小写，true:共享;false:不共享
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.fileName = fileName
+        self.shared = shared
 

@@ -19,29 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class DescribeInstancesRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    查询RDS实例列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(DescribeInstancesRequest, self).__init__(
+            '/regions/{regionId}/instances', 'GET', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class DescribeInstancesParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, ):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param regionId: Region ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 显示数据的页码，取值范围：[1,1000)，页码超过总页数时，显示最后一页，用于查询列表的接口
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页显示的数据条数，取值范围：10/20/30/50/100
+        """
+        self.pageSize = pageSize
 

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,10 +21,10 @@ class ImportFile(object):
 
     def __init__(self, name=None, sharedFileGid=None, sizeByte=None, uploadTime=None, isLocal=None):
         """
-        :param name: (Optional) 文件名称
+        :param name: (Optional) 上传的备份文件名称
         :param sharedFileGid: (Optional) 如果该文件是共享文件，则有全局ID，如不是共享文件，则为空
-        :param sizeByte: (Optional) 文件大小
-        :param uploadTime: (Optional) 文件上传完成时间
+        :param sizeByte: (Optional) 文件大小，单位Byte
+        :param uploadTime: (Optional) 文件上传完成时间，格式为：YYYY-MM-DD HH:mm:ss
         :param isLocal: (Optional) 是否所属当前实例. “true”或者“false”
         """
 

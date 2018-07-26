@@ -19,25 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeImportFilesRequest(JDCloudRequest):
+class ModifyAuditRequest(JDCloudRequest):
     """
-    获取单库上云文件列表</br>- SQL Server：支持</br>- MySQL：暂不支持
+    修改当前审计选项，目前仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeImportFilesRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/importFiles', 'GET', header, version)
+        super(ModifyAuditRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/audit:modifyAudit', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeImportFilesParameters(object):
+class ModifyAuditParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 区域编码
-        :param instanceId: 实例ID
+        :param regionId: Region ID
+        :param instanceId: Instance ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.add = None
+        self.drop = None
+
+    def setAdd(self, add):
+        """
+        :param add: (Optional) 增加审计项，多个审计项之间用英文逗号，分号或空格分隔，例如DATABASE_OBJECT_ACCESS_GROUP,ACKUP_RESTORE_GROUP
+        """
+        self.add = add
+
+    def setDrop(self, drop):
+        """
+        :param drop: (Optional) 删除审计项，多个审计项之间用英文逗号，分号或空格分隔，例如DATABASE_OBJECT_ACCESS_GROUP,ACKUP_RESTORE_GROUP如删除了所有审计项，则审计自动关闭
+        """
+        self.drop = drop
 

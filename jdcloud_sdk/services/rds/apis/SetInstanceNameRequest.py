@@ -19,29 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class SetInstanceNameRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    修改RDS实例名称，目前仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(SetInstanceNameRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:setInstanceName', 'POST', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class SetInstanceNameParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, instanceId, instanceName):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param regionId: Region ID
+        :param instanceId: Instance ID
+        :param instanceName: 实例名称，名称支持中文、数字、小写字母及英文下划线“_”，且不少于2字符不超过32字符
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.instanceName = instanceName
 

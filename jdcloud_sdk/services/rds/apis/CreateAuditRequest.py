@@ -19,29 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ResetPasswordRequest(JDCloudRequest):
+class CreateAuditRequest(JDCloudRequest):
     """
-    数据库账号重置密码</br>- SQL Server：支持</br>- MySQL：暂不支持
+    开启数据库审计，目前仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ResetPasswordRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accounts/{accountName}:resetPassword', 'POST', header, version)
+        super(CreateAuditRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/audit', 'POST', header, version)
         self.parameters = parameters
 
 
-class ResetPasswordParameters(object):
+class CreateAuditParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, instanceId, enabled):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
-        :param accountPassword: 新密码
+        :param regionId: Region ID
+        :param instanceId: Instance ID
+        :param enabled: 要开启的审计选项，各个选项之间用英文逗号或空格进行分割，例如：DATABASE_OBJECT_ACCESS_GROUP,ACKUP_RESTORE_GROUP
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.accountName = accountName
-        self.accountPassword = accountPassword
+        self.enabled = enabled
 

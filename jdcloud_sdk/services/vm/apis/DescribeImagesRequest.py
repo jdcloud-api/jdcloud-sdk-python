@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeImagesRequest(JDCloudRequest):
     """
-    查询镜像资源信息列表
+    查询镜像信息列表。<br>
+通过此接口可以查询到京东云官方镜像、第三方镜像、私有镜像、或其他用户共享给您的镜像。<br>
+此接口支持分页查询，默认每页20条。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,23 +37,27 @@ class DescribeImagesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         """
 
         self.regionId = regionId
         self.imageSource = None
         self.platform = None
         self.ids = None
+        self.rootDeviceType = None
+        self.status = None
+        self.pageNumber = None
+        self.pageSize = None
 
     def setImageSource(self, imageSource):
         """
-        :param imageSource: (Optional) 镜像来源：public、shared、thirdparty、private，如果没有指定ids参数，此参数必传
+        :param imageSource: (Optional) 镜像来源，如果没有指定ids参数，此参数必传；取值范围：public、shared、thirdparty、private
         """
         self.imageSource = imageSource
 
     def setPlatform(self, platform):
         """
-        :param platform: (Optional) 操作系统平台: Windows Server、CentOS、Ubuntu
+        :param platform: (Optional) 操作系统平台，取值范围：Windows Server、CentOS、Ubuntu
         """
         self.platform = platform
 
@@ -59,4 +66,28 @@ class DescribeImagesParameters(object):
         :param ids: (Optional) 镜像ID列表，如果指定了此参数，其它参数可为空
         """
         self.ids = ids
+
+    def setRootDeviceType(self, rootDeviceType):
+        """
+        :param rootDeviceType: (Optional) 镜像支持的系统盘类型，[localDisk,cloudDisk]
+        """
+        self.rootDeviceType = rootDeviceType
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3871/isCatalog/1">参考镜像状态</a>
+        """
+        self.status = status
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码；默认为1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        """
+        self.pageSize = pageSize
 

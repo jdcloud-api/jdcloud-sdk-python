@@ -21,11 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ResizeInstanceRequest(JDCloudRequest):
     """
-    "云主机变更实例规格，需要关机操作"
-"16年创建的云盘做系统盘的主机，一代与二代实例类型不允许相互调整"
-"本地盘做系统盘的主机，一代与二代实例类型不允许相互调整"
-"ag中的主机，一代与二代实例类型不允许相互调整"
-"变更后实例规格的网卡数量限制，要支持当前主机的网卡数量，如不支持，需要缷载网卡后再变更实例规格"
+    云主机变更规格类型<br>
+云主机的状态必须为<b>stopped</b>状态。<br>
+16年创建的云硬盘做系统盘的主机，一代与二代规格类型不允许相互调整。<br>
+本地盘(local类型)做系统盘的主机，一代与二代规格类型不允许相互调整。<br>
+使用高可用组(Ag)创建的主机，一代与二代规格类型不允许相互调整。<br>
+云硬盘(cloud类型)做系统盘的主机，一代与二代规格类型允许相互调整。<br>
+如果当前主机中的弹性网卡数量，大于规格类型允许的弹性网卡数量，会返回错误。可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。<br>
+当前主机所使用的镜像，需要支持要变更的目标规格类型，否则返回错误。可查询<a href="https://www.jdcloud.com/help/detail/2872/isCatalog/1">DescribeImageConstraints</a>接口获得指定镜像的规格类型限制信息。<br>
+云主机欠费时，无法更改规格类型。
 
     """
 
@@ -39,9 +43,9 @@ class ResizeInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, instanceType):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
-        :param instanceType: 实例规格
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
+        :param instanceType: 规格类型，可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
         """
 
         self.regionId = regionId

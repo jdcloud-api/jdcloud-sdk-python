@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisassociateElasticIpRequest(JDCloudRequest):
     """
-    云主机解绑公网IP 解绑的是主网卡、主内网IP对应的弹性IP
+    云主机解绑弹性公网IP，解绑的是主网卡、内网主IP对应的弹性公网IP。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +35,9 @@ class DisassociateElasticIpParameters(object):
 
     def __init__(self, regionId, instanceId, elasticIpId):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
-        :param elasticIpId: 弹性IP ID
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
+        :param elasticIpId: 弹性公网IP的ID
         """
 
         self.regionId = regionId

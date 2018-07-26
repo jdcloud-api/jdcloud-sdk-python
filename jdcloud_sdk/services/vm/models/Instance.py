@@ -19,26 +19,29 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, launchTime=None, az=None, keyNames=None, charge=None, tags=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None):
         """
-        :param instanceId: (Optional) 实例ID
-        :param instanceName: (Optional) 实例名称
-        :param instanceType: (Optional) 实例类型
+        :param instanceId: (Optional) 云主机ID
+        :param instanceName: (Optional) 云主机名称
+        :param instanceType: (Optional) 云主机类型
         :param vpcId: (Optional) 主网卡所属VPC的ID
         :param subnetId: (Optional) 主网卡所属子网的ID
         :param privateIpAddress: (Optional) 主网卡主IP地址
         :param elasticIpId: (Optional) 主网卡主IP绑定弹性IP的ID
         :param elasticIpAddress: (Optional) 主网卡主IP绑定弹性IP的地址
-        :param status: (Optional) 实例状态，[pending,starting,running,stopping,stopped,rebooting,rebuilding,resizing,deleting,error]
-        :param description: (Optional) 实例描述
+        :param status: (Optional) 云主机状态，<a href="https://www.jdcloud.com/help/detail/3869/isCatalog/1">参考云主机状态</a>
+        :param description: (Optional) 云主机描述
         :param imageId: (Optional) 镜像ID
-        :param systemDisk: (Optional) 系统盘信息
-        :param dataDisks: (Optional) 数据盘信息
-        :param primaryNetworkInterface: (Optional) 主网卡信息
+        :param systemDisk: (Optional) 系统盘配置
+        :param dataDisks: (Optional) 数据盘配置
+        :param primaryNetworkInterface: (Optional) 主网卡配置
+        :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置
         :param launchTime: (Optional) 创建时间
-        :param az: (Optional) 可用区
+        :param az: (Optional) 云主机所在可用区
         :param keyNames: (Optional) 密钥对名称
         :param charge: (Optional) 计费信息
+        :param ag: (Optional) 高可用组，如果创建云主机使用了高可用组，此处可展示高可用组名称
+        :param faultDomain: (Optional) 高可用组中的错误域
         :param tags: (Optional) Tag信息
         """
 
@@ -56,8 +59,11 @@ class Instance(object):
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.primaryNetworkInterface = primaryNetworkInterface
+        self.secondaryNetworkInterfaces = secondaryNetworkInterfaces
         self.launchTime = launchTime
         self.az = az
         self.keyNames = keyNames
         self.charge = charge
+        self.ag = ag
+        self.faultDomain = faultDomain
         self.tags = tags

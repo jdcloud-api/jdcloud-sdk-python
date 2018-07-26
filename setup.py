@@ -9,7 +9,7 @@ with open(path.join(here, 'README'), encoding='utf-8') as f:
 
 setup(
     name='jdcloud_sdk',
-    version="1.2.4",
+    version="1.2.5",
     description=long_description,
     author='JDCloud API Gateway Team',
     url='https://github.com/jdcloud-api/jdcloud-sdk-python',

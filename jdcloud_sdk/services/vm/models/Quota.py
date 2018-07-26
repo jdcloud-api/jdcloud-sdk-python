@@ -21,7 +21,7 @@ class Quota(object):
 
     def __init__(self, resourceType=None, limit=None, used=None):
         """
-        :param resourceType: (Optional) 资源类型[instance，keypair，image]
+        :param resourceType: (Optional) 资源类型[instance，keypair，image，instanceTemplate]
         :param limit: (Optional) 配额上限
         :param used: (Optional) 已用配额
         """

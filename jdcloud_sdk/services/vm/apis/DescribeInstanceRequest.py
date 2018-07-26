@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceRequest(JDCloudRequest):
     """
-    查询云主机详情
+    查询一台云主机的详细信息
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class DescribeInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId

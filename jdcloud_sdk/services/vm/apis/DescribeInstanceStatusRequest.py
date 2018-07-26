@@ -34,7 +34,7 @@ class DescribeInstanceStatusParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         """
 
         self.regionId = regionId
@@ -56,11 +56,11 @@ class DescribeInstanceStatusParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceId - 实例ID，精确匹配，支持多个
+        :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
 privateIpAddress - 主网卡IP地址，模糊匹配，支持单个
 vpcId - 私有网络ID，精确匹配，支持多个
 status - 云主机状态，精确匹配，支持多个
-name - 实例名称，模糊匹配，支持单个
+name - 云主机名称，模糊匹配，支持单个
 imageId - 镜像ID，模糊匹配，支持单个
 networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
 

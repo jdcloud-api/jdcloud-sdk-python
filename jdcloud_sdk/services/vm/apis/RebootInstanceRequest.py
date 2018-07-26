@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RebootInstanceRequest(JDCloudRequest):
     """
-    重启单个实例，只能重启running状态的实例，主机没有未完成的任务才可重启
+    重启单个云主机，只能重启<b>running</b>状态的云主机，云主机没有正在进行中的任务才可重启。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class RebootInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId

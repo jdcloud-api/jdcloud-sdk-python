@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StartInstanceRequest(JDCloudRequest):
     """
-    启动单个实例，只能启动stopped状态的实例，主机没有未完成的任务才可启动
+    启动单个云主机，只能启动<b>stopped</b>状态的云主机，云主机没有正在进行中的任务才可启动。<br>
+只能启动正常计费状态的云主机。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +36,8 @@ class StartInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId

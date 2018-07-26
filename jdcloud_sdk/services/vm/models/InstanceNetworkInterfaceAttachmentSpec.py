@@ -21,7 +21,7 @@ class InstanceNetworkInterfaceAttachmentSpec(object):
 
     def __init__(self, deviceIndex=None, networkInterface=None):
         """
-        :param deviceIndex: (Optional) 设备Index，主网卡只能是1
+        :param deviceIndex: (Optional) 网卡设备Index，主网卡只能是1
         :param networkInterface: (Optional) 网卡接口规范
         """
 

@@ -21,12 +21,12 @@ class InstanceTemplateData(object):
 
     def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None):
         """
-        :param instanceType: (Optional) 实例类型
+        :param instanceType: (Optional) 规格类型
         :param vpcId: (Optional) 主网卡所属VPC的ID
         :param imageId: (Optional) 镜像ID
-        :param includePassword: (Optional) 密码不会返回，true：为包含密码，false：为不包含密码
+        :param includePassword: (Optional) 启动模板中是否包含自定义密码，true：包含密码，false：不包含密码
         :param systemDisk: (Optional) 系统盘信息
-        :param dataDisks: (Optional) 数据盘信息
+        :param dataDisks: (Optional) 数据盘信息，本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
         :param primaryNetworkInterface: (Optional) 主网卡信息
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param keyNames: (Optional) 密钥对名称；当前只支持一个

@@ -22,7 +22,7 @@ class InstanceStatus(object):
     def __init__(self, instanceId=None, status=None):
         """
         :param instanceId: (Optional) 云主机ID
-        :param status: (Optional) 云主机状态
+        :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3869/isCatalog/1">参考云主机状态</a>
         """
 
         self.instanceId = instanceId

@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeImageMembersRequest(JDCloudRequest):
     """
-    查询镜像共享帐户列表，不能操作非私有镜像
+    查询镜像共享帐户列表，只允许操作您的个人私有镜像。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class DescribeImageMembersParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: Region ID
-        :param imageId: Image ID
+        :param regionId: 地域ID
+        :param imageId: 镜像ID
         """
 
         self.regionId = regionId

@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyImageAttributeRequest(JDCloudRequest):
     """
-    修改镜像信息
+    修改镜像信息，包括名称、描述；只允许操作您的个人私有镜像。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class ModifyImageAttributeParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: Region ID
-        :param imageId: Image ID
+        :param regionId: 地域ID
+        :param imageId: 镜像ID
         """
 
         self.regionId = regionId
@@ -45,13 +46,13 @@ class ModifyImageAttributeParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 名称；名称和描述必传其中一个；不为空且只允许中文、数字、大小写字母、英文下划线“_”及中划线“-”，长度不超过32字符
+        :param name: (Optional) 名称，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
         """
         self.name = name
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述；名称和描述必传其中一个；长度不超过256个字符
+        :param description: (Optional) 描述，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
         """
         self.description = description
 

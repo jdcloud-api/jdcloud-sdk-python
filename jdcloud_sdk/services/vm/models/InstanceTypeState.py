@@ -22,7 +22,7 @@ class InstanceTypeState(object):
     def __init__(self, az=None, inStock=None):
         """
         :param az: (Optional) 可用区
-        :param inStock: (Optional) true:可用、false:已售罄不可用
+        :param inStock: (Optional) 可售卖情况，true:可售卖、false:已售罄不可用
         """
 
         self.az = az

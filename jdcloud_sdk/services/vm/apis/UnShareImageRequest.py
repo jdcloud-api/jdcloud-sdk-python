@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UnShareImageRequest(JDCloudRequest):
     """
-    取消共享镜像，不能操作非私有镜像
+    取消共享镜像，只允许操作您的个人私有镜像。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class UnShareImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: Region ID
-        :param imageId: Image ID
+        :param regionId: 地域ID
+        :param imageId: 镜像ID
         """
 
         self.regionId = regionId

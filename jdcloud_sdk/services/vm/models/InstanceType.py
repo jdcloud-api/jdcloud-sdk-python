@@ -19,19 +19,21 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, desc=None, state=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None):
         """
         :param family: (Optional) 实例族
-        :param instanceType: (Optional) 实例类型，比如g.b1.2xlarge
+        :param instanceType: (Optional) 规格类型，比如g.b1.2xlarge
         :param cpu: (Optional) cpu个数
-        :param memoryMB: (Optional) 内存
+        :param memoryMB: (Optional) 内存大小
+        :param nicLimit: (Optional) 支持弹性网卡的数量
         :param desc: (Optional) 描述
-        :param state: (Optional) 状态
+        :param state: (Optional) 规格状态
         """
 
         self.family = family
         self.instanceType = instanceType
         self.cpu = cpu
         self.memoryMB = memoryMB
+        self.nicLimit = nicLimit
         self.desc = desc
         self.state = state

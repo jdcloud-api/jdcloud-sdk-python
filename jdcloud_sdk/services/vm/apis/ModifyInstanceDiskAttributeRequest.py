@@ -19,26 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeImageRequest(JDCloudRequest):
+class ModifyInstanceDiskAttributeRequest(JDCloudRequest):
     """
-    查询镜像详情。
+    修改云主机挂载的数据盘属性，包括是否随主机删除。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'GET', header, version)
+        super(ModifyInstanceDiskAttributeRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:modifyInstanceDiskAttribute', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeImageParameters(object):
+class ModifyInstanceDiskAttributeParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId
-        self.imageId = imageId
+        self.instanceId = instanceId
+        self.dataDisks = None
+
+    def setDataDisks(self, dataDisks):
+        """
+        :param dataDisks: (Optional) 云硬盘列表
+        """
+        self.dataDisks = dataDisks
 

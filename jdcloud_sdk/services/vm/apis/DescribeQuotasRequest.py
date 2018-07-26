@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeQuotasRequest(JDCloudRequest):
     """
-    查询（虚机、镜像、密钥、模板）配额
+    查询配额，支持：云主机、镜像、密钥、模板
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +35,7 @@ class DescribeQuotasParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         """
 
         self.regionId = regionId

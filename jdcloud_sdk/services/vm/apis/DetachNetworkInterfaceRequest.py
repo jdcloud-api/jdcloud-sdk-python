@@ -19,26 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeImageRequest(JDCloudRequest):
+class DetachNetworkInterfaceRequest(JDCloudRequest):
     """
-    查询镜像详情。
+    云主机缷载一块弹性网卡。<br>
+云主机状态必须为<b>running</b>或<b>stopped</b>状态，并且没有正在进行中的任务才可操作。<br>
+不能缷载主网卡。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'GET', header, version)
+        super(DetachNetworkInterfaceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:detachNetworkInterface', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeImageParameters(object):
+class DetachNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, instanceId, networkInterfaceId):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param instanceId: 云主机ID
+        :param networkInterfaceId: 弹性网卡ID
         """
 
         self.regionId = regionId
-        self.imageId = imageId
+        self.instanceId = instanceId
+        self.networkInterfaceId = networkInterfaceId
 

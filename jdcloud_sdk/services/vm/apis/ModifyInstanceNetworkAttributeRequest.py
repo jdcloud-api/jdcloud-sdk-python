@@ -19,26 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeImageRequest(JDCloudRequest):
+class ModifyInstanceNetworkAttributeRequest(JDCloudRequest):
     """
-    查询镜像详情。
+    修改虚机弹性网卡属性，包括是否随云主机一起删除。<br>
+不能修改主网卡。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'GET', header, version)
+        super(ModifyInstanceNetworkAttributeRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:modifyInstanceNetworkAttribute', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeImageParameters(object):
+class ModifyInstanceNetworkAttributeParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId
-        self.imageId = imageId
+        self.instanceId = instanceId
+        self.networks = None
+
+    def setNetworks(self, networks):
+        """
+        :param networks: (Optional) 弹性网卡列表
+        """
+        self.networks = networks
 

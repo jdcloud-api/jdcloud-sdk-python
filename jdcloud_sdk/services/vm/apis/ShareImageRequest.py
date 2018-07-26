@@ -21,10 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ShareImageRequest(JDCloudRequest):
     """
-    "共享镜像，最多可共享给20个帐户"
-"打包镜像暂不支持共享"
-"不能操作非私有镜像"
-"不能共享给自己"
+    共享镜像，只允许操作您的个人私有镜像，单个镜像最多可共享给20个京东云帐户。<br>
+打包镜像目前不支持共享。
 
     """
 
@@ -38,8 +36,8 @@ class ShareImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: Region ID
-        :param imageId: Image ID
+        :param regionId: 地域ID
+        :param imageId: 镜像ID
         """
 
         self.regionId = regionId

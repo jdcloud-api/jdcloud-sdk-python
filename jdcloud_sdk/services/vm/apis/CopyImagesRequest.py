@@ -19,26 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeImageRequest(JDCloudRequest):
+class CopyImagesRequest(JDCloudRequest):
     """
-    查询镜像详情。
+    镜像跨区复制，将私有镜像复制到其它地域下，只允许操作您的个人私有镜像。<br>
+只支持cloudDisk云盘系统盘类型的镜像。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'GET', header, version)
+        super(CopyImagesRequest, self).__init__(
+            '/regions/{regionId}/images:copyImages', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeImageParameters(object):
+class CopyImagesParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, sourceImageIds, destinationRegion):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param sourceImageIds: 源镜像ID
+        :param destinationRegion: 目标区域
         """
 
         self.regionId = regionId
-        self.imageId = imageId
+        self.sourceImageIds = sourceImageIds
+        self.destinationRegion = destinationRegion
 

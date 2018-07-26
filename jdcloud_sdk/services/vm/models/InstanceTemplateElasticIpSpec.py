@@ -23,7 +23,7 @@ class InstanceTemplateElasticIpSpec(object):
         """
         :param bandwidthMbps:  弹性公网IP的限速（单位：MB）
         :param provider: (Optional) IP服务商，取值为BGP,nonBGP
-        :param chargeMode:  计费类型，bandwith，flow
+        :param chargeMode:  计费类型，支持按带宽计费(bandwith)，按流量计费(flow)
         """
 
         self.bandwidthMbps = bandwidthMbps

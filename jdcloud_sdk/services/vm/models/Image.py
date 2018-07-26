@@ -19,7 +19,7 @@
 
 class Image(object):
 
-    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, dataDisks=None):
+    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None):
         """
         :param imageId: (Optional) 镜像ID
         :param name: (Optional) 镜像名称
@@ -29,11 +29,15 @@ class Image(object):
         :param systemDiskSizeGB: (Optional) 镜像系统盘大小
         :param imageSource: (Optional) 镜像来源 jcloud：官方镜像 marketplace：镜像市场镜像 self：用户自己的镜像 shared：其他用户分享的镜像
         :param osType: (Optional) 镜像的操作系统类型，[windows, linux]
-        :param status: (Optional) 镜像状态, [pending, ready, deleting, error]
+        :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3871/isCatalog/1">参考镜像状态</a>
         :param createTime: (Optional) 创建时间
         :param sizeMB: (Optional) 镜像本身大小
         :param desc: (Optional) 镜像描述
+        :param systemDisk: (Optional) 系统盘配置
         :param dataDisks: (Optional) 打包镜像数据盘映射信息
+        :param snapshotId: (Optional) 云硬盘做系统盘的快照id，创建云主机时，默认使用此快照创建系统盘
+        :param rootDeviceType: (Optional) 镜像支持的系统盘类型。localDisk：支持本地盘系统盘。cloudDisk：支持云盘系统盘
+        :param progress: (Optional) 镜像复制时的进度，单位为百分比，例如：80
         """
 
         self.imageId = imageId
@@ -48,4 +52,8 @@ class Image(object):
         self.createTime = createTime
         self.sizeMB = sizeMB
         self.desc = desc
+        self.systemDisk = systemDisk
         self.dataDisks = dataDisks
+        self.snapshotId = snapshotId
+        self.rootDeviceType = rootDeviceType
+        self.progress = progress

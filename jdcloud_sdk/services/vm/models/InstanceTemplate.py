@@ -24,8 +24,8 @@ class InstanceTemplate(object):
         :param id: (Optional) 启动模板ID
         :param name: (Optional) 启动模板名称
         :param description: (Optional) 启动模板描述
-        :param instanceTemplateData: (Optional) 模板的数据
-        :param ags: (Optional) ag信息
+        :param instanceTemplateData: (Optional) 启动模板的数据
+        :param ags: (Optional) 关联的高可用组(ag)信息
         :param createdTime: (Optional) 创建时间
         """
 

@@ -21,7 +21,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RebuildInstanceRequest(JDCloudRequest):
     """
-    云主机使用指定镜像重置实例镜像，需要关机操作，
+    云主机使用指定镜像重置云主机镜像<br>
+云主机的状态必须为<b>stopped</b>状态。<br>
+若当前云主机的系统盘类型为local类型，那么更换的镜像必须为localDisk类型的镜像；同理若当前云主机的系统盘为cloud类型，那么更换的镜像必须为cloudDisk类型的镜像。可查询<a href="https://www.jdcloud.com/help/detail/2874/isCatalog/1">DescribeImages</a>接口获得指定地域的镜像信息。<br>
+若不指定镜像ID，默认使用当前主机的原镜像重置系统。<br>
+指定的镜像必须能够支持当前主机的规格类型(instanceType)，否则会返回错误。可查询<a href="https://www.jdcloud.com/help/detail/2872/isCatalog/1">DescribeImageConstraints</a>接口获得指定镜像的规格类型限制信息。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +39,9 @@ class RebuildInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, password, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
-        :param password: 云主机密码
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
+        :param password: 云主机密码，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
         """
 
         self.regionId = regionId
@@ -47,13 +52,13 @@ class RebuildInstanceParameters(object):
 
     def setImageId(self, imageId):
         """
-        :param imageId: (Optional) 镜像ID
+        :param imageId: (Optional) 镜像ID。可查询<a href="https://www.jdcloud.com/help/detail/2874/isCatalog/1">DescribeImages</a>接口获得指定地域的镜像信息。
         """
         self.imageId = imageId
 
     def setKeyNames(self, keyNames):
         """
-        :param keyNames: (Optional) 密钥对名称；当前只支持一个
+        :param keyNames: (Optional) 密钥对名称；当前只支持一个。
         """
         self.keyNames = keyNames
 

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ class ElasticIp(object):
         """
         :param elasticIpId: (Optional) 弹性IP的Id
         :param elasticIpAddress: (Optional) 弹性IP地址
-        :param bandwidthMbps: (Optional) 弹性ip的限速（单位：Mb)
+        :param bandwidthMbps: (Optional) 弹性ip的限速（单位：Mbps)
         :param provider: (Optional) IP服务商，取值为bgp或no_bgp
         :param privateIpAddress: (Optional) 私有IP的IPV4地址
         :param networkInterfaceId: (Optional) 配置弹性网卡Id

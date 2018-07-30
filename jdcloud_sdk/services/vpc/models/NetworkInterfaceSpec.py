@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,20 +19,22 @@
 
 class NetworkInterfaceSpec(object):
 
-    def __init__(self, subnetId, az=None, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, securityGroups=None, sanityCheck=None, description=None):
+    def __init__(self, subnetId, az=None, networkInterfaceName=None, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, securityGroups=None, sanityCheck=None, description=None):
         """
         :param subnetId:  子网ID
         :param az: (Optional) 可用区，用户的默认可用区
-        :param primaryIpAddress: (Optional) 网卡主私IP
+        :param networkInterfaceName: (Optional) 网卡名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
+        :param primaryIpAddress: (Optional) 网卡主IP，如果不指定，会自动从子网中分配
         :param secondaryIpAddresses: (Optional) SecondaryIp列表
         :param secondaryIpCount: (Optional) 自动分配的SecondaryIp数量
-        :param securityGroups: (Optional) 安全组ID列表
-        :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1，默认为1
-        :param description: (Optional) 描述
+        :param securityGroups: (Optional) 要绑定的安全组ID列表，最多指定5个安全组
+        :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1,默认为1
+        :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
         """
 
         self.subnetId = subnetId
         self.az = az
+        self.networkInterfaceName = networkInterfaceName
         self.primaryIpAddress = primaryIpAddress
         self.secondaryIpAddresses = secondaryIpAddresses
         self.secondaryIpCount = secondaryIpCount

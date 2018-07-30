@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstancesRequest(JDCloudRequest):
     """
-    查询云主机列表
+    批量查询云主机的详细信息<br>
+此接口支持分页查询，默认每页20条。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,13 +36,12 @@ class DescribeInstancesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         """
 
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
-        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -55,22 +56,18 @@ class DescribeInstancesParameters(object):
         """
         self.pageSize = pageSize
 
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) Tag筛选条件
-        """
-        self.tags = tags
-
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceId - 实例ID，精确匹配，支持多个
+        :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
 privateIpAddress - 主网卡IP地址，模糊匹配，支持单个
 az - 可用区，精确匹配，支持多个
 vpcId - 私有网络ID，精确匹配，支持多个
-status - 云主机状态，精确匹配，支持多个
-name - 实例名称，模糊匹配，支持单个
+status - 云主机状态，精确匹配，支持多个，<a href="https://www.jdcloud.com/help/detail/3869/isCatalog/1">参考云主机状态</a>
+name - 云主机名称，模糊匹配，支持单个
 imageId - 镜像ID，模糊匹配，支持单个
 networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
+agId - 使用可用组id，支持单个
+faultDomain - 错误域，支持多个
 
         """
         self.filters = filters

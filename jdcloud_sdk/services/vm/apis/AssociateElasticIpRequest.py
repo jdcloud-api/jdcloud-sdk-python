@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AssociateElasticIpRequest(JDCloudRequest):
     """
-    云主机绑定公网IP 绑定的是主网卡、主内网IP对应的弹性IP
+    云主机绑定弹性公网IP，绑定的是主网卡、内网主IP对应的弹性公网IP。<br>
+一台云主机只能绑定一个弹性公网IP(主网卡)，若主网卡已存在弹性公网IP，会返回错误。<br>
+如果是黑名单中的用户，会返回错误。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +37,9 @@ class AssociateElasticIpParameters(object):
 
     def __init__(self, regionId, instanceId, elasticIpId):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
-        :param elasticIpId: 弹性IP ID
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
+        :param elasticIpId: 弹性公网IP的ID
         """
 
         self.regionId = regionId

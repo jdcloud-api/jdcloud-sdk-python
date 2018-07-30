@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeImageRequest(JDCloudRequest):
     """
-    查询镜像信息
+    查询镜像详情。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +35,8 @@ class DescribeImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: Region ID
-        :param imageId: Image ID
+        :param regionId: 地域ID
+        :param imageId: 镜像ID
         """
 
         self.regionId = regionId

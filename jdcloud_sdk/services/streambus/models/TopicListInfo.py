@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
 
 class TopicListInfo(object):
 
-    def __init__(self, archived=None, createdTime=None, deleted=None, id=None, lifecycle=None, name=None, partitionNum=None, remark=None, shardNum=None, status=None, topicName=None, uid=None, updatedTime=None, userPin=None):
+    def __init__(self, archived=None, createdTime=None, deleted=None, id=None, lifecycle=None, name=None, partitionNum=None, remark=None, shardNum=None, status=None, topicName=None, uid=None, updatedTime=None, userPin=None, dataSize=None):
         """
         :param archived: (Optional) 是否归档（0：未归档，1：已归档）
         :param createdTime: (Optional) 创建topic的时间戳
@@ -35,6 +35,7 @@ class TopicListInfo(object):
         :param uid: (Optional) 对应kafka中的uid
         :param updatedTime: (Optional) 更新topic的时间戳
         :param userPin: (Optional) 用户的userPin
+        :param dataSize: (Optional) 
         """
 
         self.archived = archived
@@ -51,3 +52,4 @@ class TopicListInfo(object):
         self.uid = uid
         self.updatedTime = updatedTime
         self.userPin = userPin
+        self.dataSize = dataSize

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -50,7 +50,7 @@ class DescribeNetworkSecurityGroupsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,500]
+        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
         """
         self.pageSize = pageSize
 
@@ -58,7 +58,7 @@ class DescribeNetworkSecurityGroupsParameters(object):
         """
         :param filters: (Optional) networkSecurityGroupIds - 安全组ID列表，支持多个
 networkSecurityGroupNames - 安全组名称列表，支持多个
-vpcId	- 安全组所属vpc Id
+vpcId	- 安全组所属vpc Id，支持单个
 
         """
         self.filters = filters

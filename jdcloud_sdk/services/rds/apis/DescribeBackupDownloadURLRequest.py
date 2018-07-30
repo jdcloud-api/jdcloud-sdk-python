@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupDownloadURLRequest(JDCloudRequest):
     """
-    获取备份下载链接
+    获取备份下载链接</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -45,7 +45,7 @@ class DescribeBackupDownloadURLParameters(object):
 
     def setFileName(self, fileName):
         """
-        :param fileName: (Optional) MySQL：无需此参数；SQL Server：指定该备份中需要获取下载链接的文件名称，SQL Server必须输入该参数
+        :param fileName: (Optional) SQL Server：指定该备份中需要获取下载链接的文件名称，SQL Server必须输入该参数</br>MySQL：无需此参数；
         """
         self.fileName = fileName
 

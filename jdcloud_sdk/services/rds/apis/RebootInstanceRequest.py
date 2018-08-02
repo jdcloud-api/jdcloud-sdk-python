@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RebootInstanceRequest(JDCloudRequest):
     """
-    重启RDS实例，目前仅支持SQL Server
+    重启RDS实例</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -45,13 +45,13 @@ class RebootInstanceParameters(object):
 
     def setRebootMaster(self, rebootMaster):
         """
-        :param rebootMaster: (Optional) 是否重启主节点。 - 仅SQL Server 支持该参数
+        :param rebootMaster: (Optional) 是否重启主节点。</br>- SQL Server：支持</br>- MySQL：暂不支持
         """
         self.rebootMaster = rebootMaster
 
     def setRebootSlave(self, rebootSlave):
         """
-        :param rebootSlave: (Optional) 是否重启从节点。 - 仅SQL Server 支持该参数
+        :param rebootSlave: (Optional) 是否重启从节点。</br>- SQL Server：支持</br>- MySQL：暂不支持
         """
         self.rebootSlave = rebootSlave
 

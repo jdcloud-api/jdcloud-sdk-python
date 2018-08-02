@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteDatabaseRequest(JDCloudRequest):
     """
-    删除数据库
+    删除数据库 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):

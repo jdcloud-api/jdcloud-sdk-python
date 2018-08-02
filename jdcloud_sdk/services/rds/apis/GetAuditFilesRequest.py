@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetAuditFilesRequest(JDCloudRequest):
     """
-    查看审计文件列表，目前仅支持SQL Server
+    查看审计文件列表</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

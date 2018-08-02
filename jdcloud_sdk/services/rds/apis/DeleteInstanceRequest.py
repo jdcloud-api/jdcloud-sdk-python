@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteInstanceRequest(JDCloudRequest):
     """
-    删除数据库集群实例，以及目前支持删除Mysql只读实例
+    删除数据库集群实例及Mysql只读实例</br>- SQL Server：支持</br>- MySQL：支持 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateAuditRequest(JDCloudRequest):
     """
-    开启数据库审计，目前仅支持SQL Server
+    开启数据库审计</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

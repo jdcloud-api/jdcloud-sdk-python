@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetAuditOptionsRequest(JDCloudRequest):
     """
-    获取审计所有选项及推荐的选项，目前仅支持SQL Server
+    获取审计所有选项及推荐的选项</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

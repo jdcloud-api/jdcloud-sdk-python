@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceAttributesRequest(JDCloudRequest):
     """
-    查询RDS实例详细信息
+    查询RDS实例详细信息</br>- SQL Server：支持</br>- MySQL：支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

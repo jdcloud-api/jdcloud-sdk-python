@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeErrorLogsRequest(JDCloudRequest):
     """
-    获取SQL Server 错误日志及下载信息，目前仅SQL Server支持
+    获取SQL Server 错误日志及下载信息</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -26,4 +26,4 @@ class ClouddnsserviceClient(JDCloudClient):
         if config is None:
             config = Config('clouddnsservice.jdcloud-api.com')
 
-        super(ClouddnsserviceClient, self).__init__(credential, config, 'clouddnsservice', '1.0.0', logger)
+        super(ClouddnsserviceClient, self).__init__(credential, config, 'clouddnsservice', '1.0.1', logger)

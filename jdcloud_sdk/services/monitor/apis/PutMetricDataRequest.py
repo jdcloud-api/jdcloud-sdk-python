@@ -19,35 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsRequest(JDCloudRequest):
+class PutMetricDataRequest(JDCloudRequest):
     """
-    根据产品线查询可用监控项列表
+    自定义监控数据上报接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsRequest, self).__init__(
-            '/metrics', 'GET', header, version)
+        super(PutMetricDataRequest, self).__init__(
+            '/customMetrics', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsParameters(object):
+class PutMetricDataParameters(object):
 
-    def __init__(self, serviceCode):
+    def __init__(self, ):
         """
-        :param serviceCode: 资源的类型 ： 
-vm-->云主机
-disk-->云硬盘
-ip-->公网ip
-balance-->负载均衡
-database-->云数据库mysql版本
-cdn-->京东CDN
-redis-->redis云缓存
-mongodb-->mongoDB云缓存
-storage-->云存储
-sqlserver-->云数据库sqlserver版 
-nativecontainer-->容器
-
         """
 
-        self.serviceCode = serviceCode
+        self.metricDataList = None
+
+    def setMetricDataList(self, metricDataList):
+        """
+        :param metricDataList: (Optional) 数据参数
+        """
+        self.metricDataList = metricDataList
 

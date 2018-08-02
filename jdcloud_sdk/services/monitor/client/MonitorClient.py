@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,4 +26,4 @@ class MonitorClient(JDCloudClient):
         if config is None:
             config = Config('monitor.jdcloud-api.com')
 
-        super(MonitorClient, self).__init__(credential, config, 'monitor', '0.3.2', logger)
+        super(MonitorClient, self).__init__(credential, config, 'monitor', '1.1.1', logger)

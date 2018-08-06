@@ -40,4 +40,18 @@ class SearchRRParameters(object):
 
         self.regionId = regionId
         self.domainId = domainId
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 当前页数，起始值为1，默认为1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页查询时设置的每页行数, 默认为10
+        """
+        self.pageSize = pageSize
 

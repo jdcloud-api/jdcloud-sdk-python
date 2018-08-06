@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetInstanceNameRequest(JDCloudRequest):
     """
-    修改RDS实例名称，目前仅支持SQL Server
+    修改RDS实例名称</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

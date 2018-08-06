@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class FailoverInstanceRequest(JDCloudRequest):
     """
-    RDS实例主备切换，目前仅支持SQL Server
+    RDS实例主备切换</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

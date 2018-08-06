@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetAuditDownloadURLRequest(JDCloudRequest):
     """
-    获取某个审计文件的下载链接，目前仅支持SQL Server
+    获取某个审计文件的下载链接</br>- SQL Server：支持</br>- MySQL：暂不支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

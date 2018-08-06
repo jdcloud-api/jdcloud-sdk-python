@@ -19,35 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsRequest(JDCloudRequest):
+class GetDomainQueryCountRequest(JDCloudRequest):
     """
-    根据产品线查询可用监控项列表
+    查看域名的解析次数
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsRequest, self).__init__(
-            '/metrics', 'GET', header, version)
+        super(GetDomainQueryCountRequest, self).__init__(
+            '/regions/{regionId}/domain/{domainId}/queryCount', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsParameters(object):
+class GetDomainQueryCountParameters(object):
 
-    def __init__(self, serviceCode):
+    def __init__(self, regionId, domainId, domainName, start, end):
         """
-        :param serviceCode: 资源的类型 ： 
-vm-->云主机
-disk-->云硬盘
-ip-->公网ip
-balance-->负载均衡
-database-->云数据库mysql版本
-cdn-->京东CDN
-redis-->redis云缓存
-mongodb-->mongoDB云缓存
-storage-->云存储
-sqlserver-->云数据库sqlserver版 
-nativecontainer-->容器
-
+        :param regionId: Region ID
+        :param domainId: 域名ID
+        :param domainName: 域名
+        :param start: 起始时间, UTC时间例如2017-11-10T23:00:00Z
+        :param end: 终止时间, UTC时间例如2017-11-10T23:00:00Z
         """
 
-        self.serviceCode = serviceCode
+        self.regionId = regionId
+        self.domainId = domainId
+        self.domainName = domainName
+        self.start = start
+        self.end = end
 

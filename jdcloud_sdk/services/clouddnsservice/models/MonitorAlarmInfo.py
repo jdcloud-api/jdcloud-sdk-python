@@ -21,7 +21,7 @@ class MonitorAlarmInfo(object):
 
     def __init__(self, domainId=None, subDomainName=None, host=None, id=None, startTime=None):
         """
-        :param domainId: (Optional) 域名ID?
+        :param domainId: (Optional) 域名ID
         :param subDomainName: (Optional) 子域名
         :param host: (Optional) 故障IP/域名
         :param id: (Optional) null

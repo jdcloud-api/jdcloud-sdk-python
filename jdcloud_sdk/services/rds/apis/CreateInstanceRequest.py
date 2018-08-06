@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceRequest(JDCloudRequest):
     """
-    创建数据库集群实例
+    创建数据库集群实例</br>- SQL Server：支持</br>- MySQL：支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

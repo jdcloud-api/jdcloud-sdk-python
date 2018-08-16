@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateDatabaseRequest(JDCloudRequest):
     """
-    创建数据库</br>- SQL Server：支持</br>- MySQL：暂不支持
+    创建数据库</br>- SQL Server：支持</br>- MySQL：支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

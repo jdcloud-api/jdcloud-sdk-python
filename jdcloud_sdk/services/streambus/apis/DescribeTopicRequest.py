@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeTopicRequest(JDCloudRequest):
     """
-    查看指定主题
+    查询指定主题,如果已归档会返回归档信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DescribeTopicParameters(object):
 
     def __init__(self, regionId, name):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         :param name: 
         """
 

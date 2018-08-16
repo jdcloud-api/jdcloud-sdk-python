@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDatabasesRequest(JDCloudRequest):
     """
-    查看数据库列表</br>- SQL Server：支持</br>- MySQL：暂不支持
+    查看数据库列表</br>- SQL Server：支持</br>- MySQL：支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -44,7 +44,7 @@ class DescribeDatabasesParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称</br>- SQL Server：支持</br>- MySQL：暂不支持
         """
         self.dbName = dbName
 

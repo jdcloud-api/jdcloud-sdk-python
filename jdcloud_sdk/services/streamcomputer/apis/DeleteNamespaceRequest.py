@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteNamespaceRequest(JDCloudRequest):
     """
-    删除namespace
+    删除namespace,如果旗下关联有其他资源，不允许删除
     """
 
     def __init__(self, parameters, header=None, version="v1"):

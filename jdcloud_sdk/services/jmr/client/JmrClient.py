@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,4 +26,4 @@ class JmrClient(JDCloudClient):
         if config is None:
             config = Config('jmr.jdcloud-api.com')
 
-        super(JmrClient, self).__init__(credential, config, 'jmr', '1.0.0', logger)
+        super(JmrClient, self).__init__(credential, config, 'jmr', '1.1.0', logger)

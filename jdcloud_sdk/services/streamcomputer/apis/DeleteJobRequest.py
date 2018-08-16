@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteJobRequest(JDCloudRequest):
     """
-    删除job
+    删除作业
     """
 
     def __init__(self, parameters, header=None, version="v1"):

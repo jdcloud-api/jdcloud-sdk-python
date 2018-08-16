@@ -19,17 +19,21 @@
 
 class Topic(object):
 
-    def __init__(self, archived=None, lifecycle=None, name=None, shardNum=None, remark=None):
+    def __init__(self, id=None, archived=None, lifecycle=None, partitionNum=None, name=None, shardNum=None, remark=None):
         """
+        :param id: (Optional) 主题id
         :param archived: (Optional) 是否归档（0：未归档，1：已归档）
         :param lifecycle: (Optional) 数据写入后的保留时间
+        :param partitionNum: (Optional) 分区
         :param name: (Optional) 流数据总线中topic的名字
         :param shardNum: (Optional) 流数据总线shard的数量
         :param remark: (Optional) 备注
         """
 
+        self.id = id
         self.archived = archived
         self.lifecycle = lifecycle
+        self.partitionNum = partitionNum
         self.name = name
         self.shardNum = shardNum
         self.remark = remark

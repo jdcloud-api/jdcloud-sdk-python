@@ -26,4 +26,4 @@ class StreambusClient(JDCloudClient):
         if config is None:
             config = Config('streambus.jdcloud-api.com')
 
-        super(StreambusClient, self).__init__(credential, config, 'streambus', '1.0.0', logger)
+        super(StreambusClient, self).__init__(credential, config, 'streambus', '1.0.1', logger)

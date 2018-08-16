@@ -26,4 +26,4 @@ class StreamcomputerClient(JDCloudClient):
         if config is None:
             config = Config('streamcomputer.jdcloud-api.com')
 
-        super(StreamcomputerClient, self).__init__(credential, config, 'streamcomputer', '1.0.0', logger)
+        super(StreamcomputerClient, self).__init__(credential, config, 'streamcomputer', '1.0.1', logger)

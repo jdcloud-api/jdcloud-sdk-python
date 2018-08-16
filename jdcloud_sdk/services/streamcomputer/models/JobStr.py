@@ -19,7 +19,7 @@
 
 class JobStr(object):
 
-    def __init__(self, namespaceId=None, name=None, description=None, resourceConsume=None, id=None, uid=None, status=None, duration=None, appName=None, deleted=None, createTime=None, updateTime=None, userName=None):
+    def __init__(self, namespaceId=None, name=None, description=None, resourceConsume=None, id=None, uid=None, status=None, duration=None, appName=None, deleted=None, createTime=None, updateTime=None, userName=None, sqlStatement=None, jobType=None):
         """
         :param namespaceId: (Optional) 
         :param name: (Optional) 
@@ -34,6 +34,8 @@ class JobStr(object):
         :param createTime: (Optional) 
         :param updateTime: (Optional) 
         :param userName: (Optional) 
+        :param sqlStatement: (Optional) 
+        :param jobType: (Optional) 
         """
 
         self.namespaceId = namespaceId
@@ -49,3 +51,5 @@ class JobStr(object):
         self.createTime = createTime
         self.updateTime = updateTime
         self.userName = userName
+        self.sqlStatement = sqlStatement
+        self.jobType = jobType

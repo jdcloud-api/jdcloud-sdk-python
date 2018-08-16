@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddTopicRequest(JDCloudRequest):
     """
-    创建topic
+    创建topic时，topicModel中只需要传topic参数，另外两个参数可为空
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class AddTopicParameters(object):
 
     def __init__(self, regionId, topicModel):
         """
-        :param regionId: Region ID
-        :param topicModel: 
+        :param regionId: 地域ID
+        :param topicModel: 示例：{"topicModel":{"topic":{"archived":0,"id":"","name":"create","remark":"备注","shardNum":1,"partitionNum":2,"lifecycle":3}}}
         """
 
         self.regionId = regionId

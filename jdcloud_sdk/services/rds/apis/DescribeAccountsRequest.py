@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAccountsRequest(JDCloudRequest):
     """
-    查看实例下所有账号信息</br>- SQL Server：支持</br>- MySQL：暂不支持
+    查看实例下所有账号信息</br>- SQL Server：支持</br>- MySQL：支持
     """
 
     def __init__(self, parameters, header=None, version="v1"):

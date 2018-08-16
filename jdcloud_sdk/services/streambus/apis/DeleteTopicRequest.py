@@ -34,7 +34,7 @@ class DeleteTopicParameters(object):
 
     def __init__(self, regionId, name):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         :param name: 
         """
 

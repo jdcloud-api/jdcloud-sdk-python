@@ -21,7 +21,7 @@ class Target(object):
 
     def __init__(self, name=None, recordSize=None, cycle=None):
         """
-        :param name: (Optional) 需要归档的目的
+        :param name: (Optional) 需要归档的目的地
         :param recordSize: (Optional) 当达到这个数据量时开始归档
         :param cycle: (Optional) 进行归档任务的时间周期
         """

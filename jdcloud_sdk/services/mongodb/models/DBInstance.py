@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryGB=None, azId=None, vpcId=None, subnetId=None, replicaSetName=None, instanceDomain=None, dBName=None, accountName=None, instancePort=None, instanceStatus=None, backupRetentionPeriod=None, createTime=None, preferredBackupWindow=None, preferredmaintenanceWindow=None, charge=None):
+    def __init__(self, instanceId=None, instanceName=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryGB=None, azId=None, vpcId=None, subnetId=None, replicaSetName=None, instanceDomain=None, dBName=None, accountName=None, instancePort=None, instanceStatus=None, backupRetentionPeriod=None, createTime=None, preferredBackupWindow=None, preferredmaintenanceWindow=None, charge=None, isSetSecurityIps=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -43,6 +43,7 @@ class DBInstance(object):
         :param preferredBackupWindow: (Optional) 自动备份时间，如：00:00-02:00，表示0点到2点进行数据库自动备份
         :param preferredmaintenanceWindow: (Optional) 系统维护时间，如：00:00-02:00，表示0点到2点进行系统维护
         :param charge: (Optional) 计费信息
+        :param isSetSecurityIps: (Optional) 是否设置白名单，true：已设置，false：未设置
         """
 
         self.instanceId = instanceId
@@ -67,3 +68,4 @@ class DBInstance(object):
         self.preferredBackupWindow = preferredBackupWindow
         self.preferredmaintenanceWindow = preferredmaintenanceWindow
         self.charge = charge
+        self.isSetSecurityIps = isSetSecurityIps

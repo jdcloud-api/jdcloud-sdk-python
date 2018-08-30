@@ -34,10 +34,10 @@ class OperateRRParameters(object):
 
     def __init__(self, regionId, domainId, ids, action):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param ids: 需要操作的解析记录ID
-        :param action: 操作类型，on/off/del，分别是启用、停用、删除解析记录
+        :param action: 操作类型，on->启用 off->停用 del->删除
         """
 
         self.regionId = regionId

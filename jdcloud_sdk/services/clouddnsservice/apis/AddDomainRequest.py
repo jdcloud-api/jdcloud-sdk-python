@@ -34,9 +34,9 @@ class AddDomainParameters(object):
 
     def __init__(self, regionId, packId, domainName, ):
         """
-        :param regionId: Region ID
-        :param packId: 套餐类型, 0免费 ,1企业版, 2高级版
-        :param domainName: 域名
+        :param regionId: 实例所属的地域ID
+        :param packId: 域名的套餐类型, 0->免费 ,1->企业版, 2->高级版
+        :param domainName: 要添加的域名
         """
 
         self.regionId = regionId
@@ -56,25 +56,25 @@ class AddDomainParameters(object):
 
     def setBuyType(self, buyType):
         """
-        :param buyType: (Optional) 1新购买、2升级，高级版必填
+        :param buyType: (Optional) 1->新购买、2->升级，收费套餐的域名必填
         """
         self.buyType = buyType
 
     def setTimeSpan(self, timeSpan):
         """
-        :param timeSpan: (Optional) 1-3 ，时长，高级版必填
+        :param timeSpan: (Optional) 1，2，3 ，时长，收费套餐的域名必填
         """
         self.timeSpan = timeSpan
 
     def setTimeUnit(self, timeUnit):
         """
-        :param timeUnit: (Optional) 时间单位，高级版必填
+        :param timeUnit: (Optional) 时间单位，收费套餐的域名必填
         """
         self.timeUnit = timeUnit
 
     def setBillingType(self, billingType):
         """
-        :param billingType: (Optional) 计费类型，高级版必填
+        :param billingType: (Optional) 计费类型，收费套餐的域名必填
         """
         self.billingType = billingType
 

@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateTableRequest(JDCloudRequest):
     """
-    创建数据表
+    创建用户实例的数据表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,7 +36,7 @@ class CreateTableParameters(object):
         """
         :param regionId: 地域ID
         :param instanceName: 实例名称
-        :param dbModelDBTable: 数据表描述
+        :param dbModelDBTable: 数据表描述信息
         """
 
         self.regionId = regionId

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
 
 class DBInstanceSpec(object):
 
-    def __init__(self, instanceClass, instanceStorageGB, multiAZ, azId, vpcId, subnetId, instanceName=None, engine=None, engineVersion=None, password=None, backupId=None):
+    def __init__(self, instanceClass, instanceStorageGB, multiAZ, azId, vpcId, subnetId, instanceName=None, engine=None, engineVersion=None, password=None, backupId=None, originDBInstanceId=None, restoreTime=None):
         """
         :param instanceName: (Optional) 实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符。
         :param engine: (Optional) 数据库类型，MongoDB
@@ -32,6 +32,8 @@ class DBInstanceSpec(object):
         :param subnetId:  子网ID
         :param password: (Optional) 密码，必须包含且只支持字母及数字，不少于8字符不超过16字符。
         :param backupId: (Optional) 按备份创建使用的具体备份ID
+        :param originDBInstanceId: (Optional) 基于一个实例的备份创建新实例，如填写则restoreTime也需要填写。
+        :param restoreTime: (Optional) 用户指定备份保留周期内的任意时间点，如2011-06-11T16:00:00Z，非必填，与backupId互斥。
         """
 
         self.instanceName = instanceName
@@ -45,3 +47,5 @@ class DBInstanceSpec(object):
         self.subnetId = subnetId
         self.password = password
         self.backupId = backupId
+        self.originDBInstanceId = originDBInstanceId
+        self.restoreTime = restoreTime

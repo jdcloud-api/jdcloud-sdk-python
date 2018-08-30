@@ -34,7 +34,7 @@ class GetDomainQueryTrafficParameters(object):
 
     def __init__(self, regionId, domainId, domainName, start, end):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param domainName: 域名
         :param start: 起始时间, UTC时间例如2017-11-10T23:00:00Z

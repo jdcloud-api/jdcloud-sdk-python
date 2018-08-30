@@ -34,8 +34,8 @@ class DelDomainParameters(object):
 
     def __init__(self, regionId, domainId):
         """
-        :param regionId: Region ID
-        :param domainId: 域名ID
+        :param regionId: 实例所属的地域ID
+        :param domainId: 需要删除的域名ID
         """
 
         self.regionId = regionId

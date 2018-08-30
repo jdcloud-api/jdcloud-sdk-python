@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddMonitorRequest(JDCloudRequest):
     """
-    添加子域名的监控项，采用默认配置
+    添加子域名的监控项，默认把子域名的所有监控项都添加上监控
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class AddMonitorParameters(object):
 
     def __init__(self, regionId, domainId, subDomainName):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param subDomainName: 子域名
         """

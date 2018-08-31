@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddRRRequest(JDCloudRequest):
     """
-    添加域名解析
+    添加域名的解析记录
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class AddRRParameters(object):
 
     def __init__(self, regionId, domainId, req):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param req: RR参数
         """

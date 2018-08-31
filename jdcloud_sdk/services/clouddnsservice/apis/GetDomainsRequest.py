@@ -34,9 +34,9 @@ class GetDomainsParameters(object):
 
     def __init__(self, regionId, pageNumber, pageSize, ):
         """
-        :param regionId: Region ID
-        :param pageNumber: 当前页数，起始值为1，默认为1
-        :param pageSize: 分页查询时设置的每页行数
+        :param regionId: 实例所属的地域ID
+        :param pageNumber: 分页查询时查询的每页的序号，起始值为1，默认为1
+        :param pageSize: 分页查询时设置的每页行数，默认为10
         """
 
         self.regionId = regionId
@@ -46,7 +46,7 @@ class GetDomainsParameters(object):
 
     def setDomainName(self, domainName):
         """
-        :param domainName: (Optional) 关键字，按照”%domainName%”模式搜索主域名
+        :param domainName: (Optional) 关键字，按照”%domainName%”模式匹配主域名
         """
         self.domainName = domainName
 

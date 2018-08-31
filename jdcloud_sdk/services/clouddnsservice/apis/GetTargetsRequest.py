@@ -34,7 +34,7 @@ class GetTargetsParameters(object):
 
     def __init__(self, regionId, domainId, subDomainName):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param subDomainName: 子域名
         """

@@ -34,7 +34,7 @@ class UpdateMonitorParameters(object):
 
     def __init__(self, regionId, domainId, updateMonitor):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param updateMonitor: 监控项设置信息
         """

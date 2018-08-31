@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetViewTreeRequest(JDCloudRequest):
     """
-    查询DNS所有解析线路
+    查询云解析所有的基础解析线路
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class GetViewTreeParameters(object):
 
     def __init__(self, regionId, domainId, packId, viewId):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param packId: 套餐ID
         :param viewId: view ID，默认为0

@@ -34,9 +34,9 @@ class UpdateDomainParameters(object):
 
     def __init__(self, regionId, domainName, id):
         """
-        :param regionId: Region ID
-        :param domainName: 域名
-        :param id: 域名ID
+        :param regionId: 实例所属的地域ID
+        :param domainName: 需要修改的域名
+        :param id: 需要修改的域名ID
         """
 
         self.regionId = regionId

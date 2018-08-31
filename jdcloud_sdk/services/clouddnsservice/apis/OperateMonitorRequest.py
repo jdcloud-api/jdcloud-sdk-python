@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class OperateMonitorRequest(JDCloudRequest):
     """
-    监控项的操作，包括：删除，暂停，启动, 手动恢复, 手动切换
+    监控项的操作集合，包括：删除，暂停，启动, 手动恢复, 手动切换
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class OperateMonitorParameters(object):
 
     def __init__(self, regionId, domainId, action, ids, ):
         """
-        :param regionId: Region ID
+        :param regionId: 实例所属的地域ID
         :param domainId: 域名ID
         :param action: 删除del, 暂停stop, 开启start, 手动恢复recover，手动切换switch
         :param ids: 监控项ID

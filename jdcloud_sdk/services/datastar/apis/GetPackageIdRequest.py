@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetPackageIdRequest(JDCloudRequest):
     """
-    null
+    根据设备ID查询人群包ID
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class GetPackageIdParameters(object):
     def __init__(self, regionId, deviceIds):
         """
         :param regionId: 地域ID
-        :param deviceIds: dmp根据deviceIds批量查询最大packageId入参
+        :param deviceIds: MD5（deviceId），多个MD5（deviceId）用英文逗号进行分割，注：MD5结果小写
         """
 
         self.regionId = regionId

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateBackupRequest(JDCloudRequest):
     """
-    创建备份</br>- SQL Server：支持</br>- MySQL：暂不支持
+    创建一个RDS实例全量备份，可以对整个实例或者部分数据库（仅SQL Server支持）进行全量备份。同一时间点，只能有一个正在运行的备份任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class CreateBackupParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域代码
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
@@ -43,7 +43,7 @@ class CreateBackupParameters(object):
 
     def setInstanceId(self, instanceId):
         """
-        :param instanceId: (Optional) 集群ID
+        :param instanceId: (Optional) RDS实例ID，唯一标识一个实例
         """
         self.instanceId = instanceId
 

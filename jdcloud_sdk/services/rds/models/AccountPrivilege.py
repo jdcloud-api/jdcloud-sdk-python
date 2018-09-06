@@ -21,8 +21,8 @@ class AccountPrivilege(object):
 
     def __init__(self, dbName=None, privilege=None):
         """
-        :param dbName: (Optional) 数据库名称
-        :param privilege: (Optional) 对数据库具有的权限</br>ro:只读</br>rw:读写
+        :param dbName: (Optional) 数据库名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param privilege: (Optional) 账号对数据库所具有的权限，权限的具体定义可以参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         """
 
         self.dbName = dbName

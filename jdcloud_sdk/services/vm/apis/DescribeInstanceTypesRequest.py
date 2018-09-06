@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceTypesRequest(JDCloudRequest):
     """
-    查询规格类型信息列表
+    查询实例规格信息列表
 
     """
 
@@ -43,7 +43,7 @@ class DescribeInstanceTypesParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceTypes - 规格类型，精确匹配，支持多个
+        :param filters: (Optional) instanceTypes - 实例规格，精确匹配，支持多个
 az - 可用区，精确匹配，支持多个
 
         """

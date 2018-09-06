@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteBackupRequest(JDCloudRequest):
     """
-    删除备份</br>- SQL Server：支持</br>- MySQL：支持
+    删除RDS实例备份，仅允许删除用户生成的备份，系统自动备份不允许删除。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DeleteBackupParameters(object):
 
     def __init__(self, regionId, backupId, ):
         """
-        :param regionId: 地域代码
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param backupId: 备份ID
         """
 

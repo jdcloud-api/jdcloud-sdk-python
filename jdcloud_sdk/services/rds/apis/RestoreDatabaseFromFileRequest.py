@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RestoreDatabaseFromFileRequest(JDCloudRequest):
     """
-    从用户上传的备份文件中恢复SQL Server数据库</br>- SQL Server：支持</br>- MySQL：暂不支持
+    从用户通过单库上云工具上传到云上的备份文件中恢复单个数据库<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +34,10 @@ class RestoreDatabaseFromFileParameters(object):
 
     def __init__(self, regionId, instanceId, dbName, fileName):
         """
-        :param regionId: 区域代码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param dbName: 库名称
-        :param fileName: 用户在单库上云中上传的文件名称
+        :param fileName: 用户上传的备份文件名称（包括文件后缀名），例如mydb1.bak
         """
 
         self.regionId = regionId
@@ -48,7 +48,7 @@ class RestoreDatabaseFromFileParameters(object):
 
     def setSharedFileGid(self, sharedFileGid):
         """
-        :param sharedFileGid: (Optional) 共享文件的全局ID，可从上传文件查询接口describeImportFiles获取；如果该文件不是共享文件，则全局ID为空
+        :param sharedFileGid: (Optional) 共享文件的全局ID，可从上传文件查询接口[describeImportFiles](../import/describeImportFiles.md)获取；如果该文件不是共享文件，则不用输入该参数
         """
         self.sharedFileGid = sharedFileGid
 

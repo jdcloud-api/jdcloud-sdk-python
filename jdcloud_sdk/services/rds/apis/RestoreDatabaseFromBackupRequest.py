@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RestoreDatabaseFromBackupRequest(JDCloudRequest):
     """
-    从云数据库SQL Server备份中恢复单个数据库</br>- SQL Server：支持</br>- MySQL：暂不支持
+    从备份中恢复单个数据库，支持从其他实例（但必须是同一个账号下的实例）备份中恢复。例如可以从生产环境的数据库实例的备份恢复到测试环境的数据库中。<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,11 +34,11 @@ class RestoreDatabaseFromBackupParameters(object):
 
     def __init__(self, regionId, instanceId, dbName, backupId, backupFileName):
         """
-        :param regionId: 区域代码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param dbName: 库名称
-        :param backupId: 备份ID
-        :param backupFileName: 指定该备份中用于恢复数据库的文件名称
+        :param backupId: 备份ID，可从备份查询接口describeBackups获取
+        :param backupFileName: 指定该备份中用于恢复数据库的文件名称。通常情况下文件名（不包括后缀）即为备份的数据库名。例如文件名为my_test_db.bak，表示该文件是my_test_db数据库的备份
         """
 
         self.regionId = regionId

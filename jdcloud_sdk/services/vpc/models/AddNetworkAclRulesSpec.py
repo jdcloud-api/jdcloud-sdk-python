@@ -19,9 +19,9 @@
 
 class AddNetworkAclRulesSpec(object):
 
-    def __init__(self, networkAclRuleSpec, ):
+    def __init__(self, networkAclRuleSpecs, ):
         """
-        :param networkAclRuleSpec:  networkAcl规则列表
+        :param networkAclRuleSpecs:  networkAcl规则列表
         """
 
-        self.networkAclRuleSpec = networkAclRuleSpec
+        self.networkAclRuleSpecs = networkAclRuleSpecs

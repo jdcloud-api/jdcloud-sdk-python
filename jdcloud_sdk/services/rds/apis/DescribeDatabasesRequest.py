@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDatabasesRequest(JDCloudRequest):
     """
-    查看数据库列表</br>- SQL Server：支持</br>- MySQL：支持
+    获取当前实例的所有数据库详细信息的列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class DescribeDatabasesParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 区域代码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
         self.regionId = regionId
@@ -44,7 +44,7 @@ class DescribeDatabasesParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称</br>- SQL Server：支持</br>- MySQL：暂不支持
+        :param dbName: (Optional) 数据库名。如果不指定数据库名，则返回所有数据库列表<br>- **MySQL：不支持该字段**<br>- **SQL Server：支持该字段**
         """
         self.dbName = dbName
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetInstanceNameRequest(JDCloudRequest):
     """
-    修改RDS实例名称</br>- SQL Server：支持</br>- MySQL：暂不支持
+    修改实例名称，可支持中文，实例名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +34,9 @@ class SetInstanceNameParameters(object):
 
     def __init__(self, regionId, instanceId, instanceName):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
-        :param instanceName: 实例名称，名称支持中文、数字、小写字母及英文下划线“_”，且不少于2字符不超过32字符
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param instanceName: 实例名称，名称支持中文，实例名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         """
 
         self.regionId = regionId

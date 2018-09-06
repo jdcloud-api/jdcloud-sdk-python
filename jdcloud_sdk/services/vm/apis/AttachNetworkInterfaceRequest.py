@@ -24,7 +24,7 @@ class AttachNetworkInterfaceRequest(JDCloudRequest):
     云主机挂载一块弹性网卡。<br>
 云主机状态必须为<b>running</b>或<b>stopped</b>状态，并且没有正在进行中的任务才可操作。<br>
 弹性网卡上如果绑定了公网IP，那么公网IP所在az需要与云主机的az保持一致，或者公网IP属于全可用区，才可挂载。<br>
-云主机挂载弹性网卡的数量，不能超过实例规格的限制。可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。<br>
+云主机挂载弹性网卡的数量，不能超过实例规格的限制。可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定规格可挂载弹性网卡的数量上限。<br>
 弹性网卡与云主机必须在相同vpc下。
 
     """

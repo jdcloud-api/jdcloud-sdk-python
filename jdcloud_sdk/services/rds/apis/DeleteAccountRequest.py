@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteAccountRequest(JDCloudRequest):
     """
-    删除数据库账户</br>- SQL Server：支持</br>- MySQL：支持
+    删除数据库账号，账号删除后不可恢复，用户无法再使用该账号登录RDS实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +34,9 @@ class DeleteAccountParameters(object):
 
     def __init__(self, regionId, instanceId, accountName, ):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 账户名
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param accountName: 账号名，在同一个实例中账号名不能重复
         """
 
         self.regionId = regionId

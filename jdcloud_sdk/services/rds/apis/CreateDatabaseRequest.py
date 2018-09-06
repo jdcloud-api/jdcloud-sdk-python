@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateDatabaseRequest(JDCloudRequest):
     """
-    创建数据库</br>- SQL Server：支持</br>- MySQL：支持
+    创建一个数据库。 为了实例的管理和数据恢复，RDS对用户权限进行了限制，用户仅能通过控制台或本接口创建数据库
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +34,10 @@ class CreateDatabaseParameters(object):
 
     def __init__(self, regionId, instanceId, dbName, characterSetName):
         """
-        :param regionId: 区域代码
-        :param instanceId: 实例ID
-        :param dbName: 数据库名称
-        :param characterSetName: 字符集名称</br><strong>mysql字符集支持：</strong></br>- utf8；</br><strong>SQL Server字符集支持：</strong></br>- Chinese_PRC_CI_AS</br>- Chinese_PRC_CS_AS</br>- SQL_Latin1_General_CP1_CI_AS</br>- SQL_Latin1_General_CP1_CS_AS</br>- Chinese_PRC_BIN
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param dbName: 数据库名，数据库名称的限制请参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param characterSetName: 数据库的字符集名，当前支持的字符集请查看[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         """
 
         self.regionId = regionId

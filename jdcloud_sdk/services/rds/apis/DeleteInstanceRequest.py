@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteInstanceRequest(JDCloudRequest):
     """
-    删除数据库集群实例及Mysql只读实例</br>- SQL Server：支持</br>- MySQL：支持 [MFA enabled]
+    删除一个RDS实例或者MySQL的只读实例。删除MySQL主实例时，会同时将对应的MySQL只读实例也删除 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class DeleteInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
         self.regionId = regionId

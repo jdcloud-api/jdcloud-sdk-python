@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceAttributesRequest(JDCloudRequest):
     """
-    查询RDS实例详细信息</br>- SQL Server：支持</br>- MySQL：支持
+    查询RDS实例（MySQL、SQL Server等）的详细信息以及MySQL只读实例详细信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class DescribeInstanceAttributesParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
         self.regionId = regionId

@@ -21,8 +21,8 @@ class BackupSpec(object):
 
     def __init__(self, backupName=None, dbNames=None):
         """
-        :param backupName: (Optional) 备份名称，缺省系统将分配一个随机名称
-        :param dbNames: (Optional) 需要备份的数据库名称列表。如不填，则备份整个实例。</br>SQL Server支持该参数</br><strong>MySQL不支持该参数</strong>
+        :param backupName: (Optional) 备份名称<br>SQL Server：最长支持64个英文字符或等长的中文字符<br>MySQL：只允许数字、小写字母及英文下划线“_”,不超过32字符
+        :param dbNames: (Optional) 需要备份的数据库名称列表。如不填，则备份整个实例<br>- **MySQL：不支持该参数**<br>- **SQL Server：支持**
         """
 
         self.backupName = backupName

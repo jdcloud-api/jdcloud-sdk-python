@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class ShareImageRequest(JDCloudRequest):
     """
     共享镜像，只允许操作您的个人私有镜像，单个镜像最多可共享给20个京东云帐户。<br>
-打包镜像目前不支持共享。
+整机镜像目前不支持共享。
 
     """
 

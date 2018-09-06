@@ -19,11 +19,11 @@
 
 class ModifyQuotaSpec(object):
 
-    def __init__(self, type=None, parentResourceId=None, maxLimit=None):
+    def __init__(self, type, maxLimit, parentResourceId=None):
         """
-        :param type: (Optional) 资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）
+        :param type:  资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）
         :param parentResourceId: (Optional) type为vpc、elastic_ip、network_interface不设置, type为subnet、security_group、vpcpeering设置为vpcId
-        :param maxLimit: (Optional) 配额大小
+        :param maxLimit:  配额大小
         """
 
         self.type = type

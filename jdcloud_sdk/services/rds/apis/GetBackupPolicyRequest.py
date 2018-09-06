@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetBackupPolicyRequest(JDCloudRequest):
     """
-    查看RDS实例备份策略</br>- SQL Server：支持</br>- MySQL：暂不支持
+    查看RDS实例备份策略。根据数据库类型的不同，支持的备份策略也略有差异，具体请看返回参数中的详细说明
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class GetBackupPolicyParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: Instance ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
         self.regionId = regionId

@@ -21,7 +21,7 @@ class InstanceTemplateData(object):
 
     def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None):
         """
-        :param instanceType: (Optional) 规格类型
+        :param instanceType: (Optional) 实例规格
         :param vpcId: (Optional) 主网卡所属VPC的ID
         :param imageId: (Optional) 镜像ID
         :param includePassword: (Optional) 启动模板中是否包含自定义密码，true：包含密码，false：不包含密码

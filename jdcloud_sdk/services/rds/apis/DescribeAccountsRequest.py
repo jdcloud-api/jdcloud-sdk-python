@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAccountsRequest(JDCloudRequest):
     """
-    查看实例下所有账号信息</br>- SQL Server：支持</br>- MySQL：支持
+    查看某个RDS实例下所有账号信息，包括账号名称、对各个数据库的访问权限信息等
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class DescribeAccountsParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
         self.regionId = regionId

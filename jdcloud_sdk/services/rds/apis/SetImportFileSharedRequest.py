@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetImportFileSharedRequest(JDCloudRequest):
     """
-    设置上传文件是否共享给该用户的其他实例</br>- SQL Server：支持</br>- MySQL：暂不支持
+    设置或取消上传文件是否共享给同一账号下的其他实例。缺省情况下，文件仅在上传的实例上可见并可导入，其他实例不可见不可导入。如果需要该文件在其他实例上也可导入，可将此文件设置为共享<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +34,10 @@ class SetImportFileSharedParameters(object):
 
     def __init__(self, regionId, instanceId, fileName, shared):
         """
-        :param regionId: 区域编码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param fileName: 单库上云文件名
-        :param shared: 文件是否共享，不区分大小写，true:共享;false:不共享
+        :param shared: 文件是否共享<br>true:共享<br>false:不共享
         """
 
         self.regionId = regionId

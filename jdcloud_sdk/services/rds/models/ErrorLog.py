@@ -21,8 +21,8 @@ class ErrorLog(object):
 
     def __init__(self, name=None, sizeByte=None, lastUpdateTime=None, uploadTime=None, publicURL=None, internalURL=None):
         """
-        :param name: (Optional) 错误日志名称
-        :param sizeByte: (Optional) 错误日志大小，单位Byte
+        :param name: (Optional) 错误日志文件名称
+        :param sizeByte: (Optional) 错误日志文件大小，单位Byte
         :param lastUpdateTime: (Optional) 错误日志最后更新时间，格式为：YYYY-MM-DD HH:mm:ss
         :param uploadTime: (Optional) 错误日志上传时间，格式为：YYYY-MM-DD HH:mm:ss
         :param publicURL: (Optional) 公网下载链接

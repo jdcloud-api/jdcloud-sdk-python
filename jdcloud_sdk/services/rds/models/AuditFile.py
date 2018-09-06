@@ -21,10 +21,10 @@ class AuditFile(object):
 
     def __init__(self, name=None, sizeByte=None, lastUpdateTime=None, uploadTime=None):
         """
-        :param name: (Optional) 审计日志名称
-        :param sizeByte: (Optional) 审计日志大小，单位Byte
-        :param lastUpdateTime: (Optional) 审计日志最后更新时间
-        :param uploadTime: (Optional) 审计日志上传时间
+        :param name: (Optional) 审计日志文件名称
+        :param sizeByte: (Optional) 审计日志文件大小，单位Byte
+        :param lastUpdateTime: (Optional) 审计日志文件最后更新时间
+        :param uploadTime: (Optional) 审计日志文件上传时间
         """
 
         self.name = name

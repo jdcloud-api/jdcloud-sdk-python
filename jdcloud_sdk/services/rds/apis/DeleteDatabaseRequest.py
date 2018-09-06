@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteDatabaseRequest(JDCloudRequest):
     """
-    删除数据库</br>- SQL Server：支持</br>- MySQL：支持 [MFA enabled]
+    从RDS实例中删除数据库。为便于管理和数据恢复，RDS对用户权限进行了控制，用户仅能通过控制台或本接口删除数据库 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,8 @@ class DeleteDatabaseParameters(object):
 
     def __init__(self, regionId, instanceId, dbName, ):
         """
-        :param regionId: 区域代码
-        :param instanceId: 实例ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param dbName: 库名称
         """
 

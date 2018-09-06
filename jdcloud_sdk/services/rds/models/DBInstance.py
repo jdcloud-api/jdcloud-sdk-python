@@ -21,14 +21,14 @@ class DBInstance(object):
 
     def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, regionId=None, azId=None, instanceStatus=None, createTime=None, charge=None):
         """
-        :param instanceId: (Optional) 数据库实例ID
-        :param instanceName: (Optional) 数据库实例名称
-        :param instanceType: (Optional) 实例类别，目前仅支持主实例，对应值为master
-        :param engine: (Optional) 数据库类型 MySQL|SQL Server
-        :param engineVersion: (Optional) 数据库版本 MySQL支持5.6、5.7  SQL Server支持2008 R2、2012 EE、2014 EE、2016 EE
-        :param regionId: (Optional) 地域ID
-        :param azId: (Optional) 可用区ID， 第一个ID必须为主实例所在的可用区
-        :param instanceStatus: (Optional) 实例状态
+        :param instanceId: (Optional) 实例ID
+        :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param instanceType: (Optional) 实例类别，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param engine: (Optional) 实例引擎类型，如MySQL或SQL Server等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param engineVersion: (Optional) 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param regionId: (Optional) 地域ID，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
+        :param azId: (Optional) 可用区ID，第一个为主实例在的可用区，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
+        :param instanceStatus: (Optional) 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param createTime: (Optional) 实例创建时间
         :param charge: (Optional) 计费配置
         """

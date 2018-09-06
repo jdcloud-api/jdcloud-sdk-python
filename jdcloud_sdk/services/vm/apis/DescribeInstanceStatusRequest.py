@@ -57,12 +57,13 @@ class DescribeInstanceStatusParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
-privateIpAddress - 主网卡IP地址，模糊匹配，支持单个
+privateIpAddress - 主网卡内网主IP地址，模糊匹配，支持多个
 vpcId - 私有网络ID，精确匹配，支持多个
-status - 云主机状态，精确匹配，支持多个
+status - 云主机状态，精确匹配，支持多个，<a href="https://www.jdcloud.com/help/detail/3869/isCatalog/1">参考云主机状态</a>
 name - 云主机名称，模糊匹配，支持单个
-imageId - 镜像ID，模糊匹配，支持单个
+imageId - 镜像ID，精确匹配，支持多个
 networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
+subnetId - 子网ID，精确匹配，支持多个
 
         """
         self.filters = filters

@@ -23,7 +23,7 @@ class Instance(object):
         """
         :param instanceId: (Optional) 云主机ID
         :param instanceName: (Optional) 云主机名称
-        :param instanceType: (Optional) 云主机类型
+        :param instanceType: (Optional) 实例规格
         :param vpcId: (Optional) 主网卡所属VPC的ID
         :param subnetId: (Optional) 主网卡所属子网的ID
         :param privateIpAddress: (Optional) 主网卡主IP地址

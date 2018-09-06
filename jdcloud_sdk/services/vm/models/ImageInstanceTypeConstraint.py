@@ -21,8 +21,8 @@ class ImageInstanceTypeConstraint(object):
 
     def __init__(self, constraintsType=None, instanceTypes=None):
         """
-        :param constraintsType: (Optional) 受限制的规格类型。excludes：排除指定的实例类型；includes：只包含指定的实例类型，暂不支持includes
-        :param instanceTypes: (Optional) 规格类型列表
+        :param constraintsType: (Optional) 限制类型。取值：excludes：不支持的实例类型；includes：支持的实例类型。
+        :param instanceTypes: (Optional) 实例规格列表
         """
 
         self.constraintsType = constraintsType

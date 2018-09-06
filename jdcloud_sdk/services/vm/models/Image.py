@@ -23,21 +23,21 @@ class Image(object):
         """
         :param imageId: (Optional) 镜像ID
         :param name: (Optional) 镜像名称
-        :param platform: (Optional) 操作系统发行版，[suse, debian, ubuntu, centos, windows-server]
-        :param osVersion: (Optional) 操作系统版本号
-        :param architecture: (Optional) 镜像架构 i386, x86_64
+        :param platform: (Optional) 镜像的操作系统发行版。取值：Ubuntu,CentOS,Windows Server
+        :param osVersion: (Optional) 镜像的操作系统版本。
+        :param architecture: (Optional) 镜像架构。取值：i386,x86_64
         :param systemDiskSizeGB: (Optional) 镜像系统盘大小
-        :param imageSource: (Optional) 镜像来源 jcloud：官方镜像 marketplace：镜像市场镜像 self：用户自己的镜像 shared：其他用户分享的镜像
-        :param osType: (Optional) 镜像的操作系统类型，[windows, linux]
+        :param imageSource: (Optional) 镜像来源。取值：jcloud：官方镜像；marketplace：镜像市场镜像；self：用户自己的镜像；shared：其他用户分享的镜像
+        :param osType: (Optional) 镜像的操作系统类型。取值：windows,linux
         :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3871/isCatalog/1">参考镜像状态</a>
         :param createTime: (Optional) 创建时间
-        :param sizeMB: (Optional) 镜像本身大小
+        :param sizeMB: (Optional) 镜像文件实际大小
         :param desc: (Optional) 镜像描述
-        :param systemDisk: (Optional) 系统盘配置
-        :param dataDisks: (Optional) 打包镜像数据盘映射信息
-        :param snapshotId: (Optional) 云硬盘做系统盘的快照id，创建云主机时，默认使用此快照创建系统盘
-        :param rootDeviceType: (Optional) 镜像支持的系统盘类型。localDisk：支持本地盘系统盘。cloudDisk：支持云盘系统盘
-        :param progress: (Optional) 镜像复制时的进度，单位为百分比，例如：80
+        :param systemDisk: (Optional) 镜像系统盘配置
+        :param dataDisks: (Optional) 镜像数据盘映射信息
+        :param snapshotId: (Optional) 创建云盘系统盘所使用的云硬盘快照ID。系统盘类型为本地盘的镜像，此参数为空。
+        :param rootDeviceType: (Optional) 镜像支持的系统盘类型。取值：localDisk：本地盘系统盘；cloudDisk：云盘系统盘。
+        :param progress: (Optional) 镜像复制和转换时的进度，仅显示数值，单位为百分比
         """
 
         self.imageId = imageId

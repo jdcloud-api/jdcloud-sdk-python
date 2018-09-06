@@ -56,7 +56,7 @@ class AttachDiskParameters(object):
 
     def setAutoDelete(self, autoDelete):
         """
-        :param autoDelete: (Optional) 自动随主机删除此云硬盘，默认为False，只支持按配置计费的云硬盘。如果是共享型云硬盘，此参数无效。
+        :param autoDelete: (Optional) 自动随主机删除此云硬盘，默认为False。仅按配置计费云硬盘支持修改此参数，包年包月云硬盘默认为False且不可修改。如果是共享型云硬盘，此参数无效。
         """
         self.autoDelete = autoDelete
 

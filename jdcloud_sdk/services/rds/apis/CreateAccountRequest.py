@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateAccountRequest(JDCloudRequest):
     """
-    创建数据库账户</br>- SQL Server：支持</br>- MySQL：支持
+    创建数据库账号，用户可以使用客户端，应用程序等通过该账号和密码登录RDS数据库实例。<br>为便于管理和恢复，RDS对账号进行了限制，数据库账号只能通过控制台或者OpenAPI进行创建、删除账号以及对账号授权等，用户不能通过SQL语句对账号进行相关操作。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +34,10 @@ class CreateAccountParameters(object):
 
     def __init__(self, regionId, instanceId, accountName, accountPassword):
         """
-        :param regionId: 地域代码
-        :param instanceId: 实例ID
-        :param accountName: 用户名
-        :param accountPassword: 用户密码
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param accountName: 账号名，在同一个RDS实例中，账号名不能重复。账号名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param accountPassword: 密码,密码的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         """
 
         self.regionId = regionId

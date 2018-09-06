@@ -21,9 +21,9 @@ class Database(object):
 
     def __init__(self, dbName=None, dbStatus=None, characterSetName=None, accessPrivilege=None):
         """
-        :param dbName: (Optional) 数据库名称
-        :param dbStatus: (Optional) 数据库状态 building：创建中， running：运行中</br>- SQL Server：支持</br>- MySQL：暂不支持
-        :param characterSetName: (Optional) 字符集名称,mysql字符集包括：utf8；SQL Server字符集包括：Chinese_PRC_CI_AS、Chinese_PRC_CS_AS、SQL_Latin1_General_CP1_CI_AS、SQL_Latin1_General_CP1_CS_AS、Chinese_PRC_BIN
+        :param dbName: (Optional) 数据库名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param dbStatus: (Optional) 数据库状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)<br>- **MySQL：不支持，不返回该字段**<br>- **SQL Server：返回该字段**
+        :param characterSetName: (Optional) 字符集，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param accessPrivilege: (Optional) 该数据库相关账户权限列表
         """
 

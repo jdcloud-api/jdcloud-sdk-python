@@ -21,16 +21,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstancesRequest(JDCloudRequest):
     """
-    创建一台或多台指定配置的云主机<a href="https://www.jdcloud.com/help/detail/3383/isCatalog/1">参数详细说明</a><br>
+    创建一台或多台指定配置的云主机，创建模式分为三种：1.普通方式、2.使用高可用组、3.使用启动模板。三种方式创建云主机时参数的必传与非必传是不同的，具体请参考<a href="https://www.jdcloud.com/help/detail/3383/isCatalog/1">参数详细说明</a><br>
 - 创建云主机需要通过实名认证
-- 规格类型
+- 实例规格
     - 可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
     - 不能使用已下线、或已售馨的规格ID
 - 镜像
     - Windows Server 2012 R2标准版 64位 中文版 SQL Server 2014 标准版 SP2内存需大于1GB；
     - Windows Server所有镜像CPU不可选超过64核CPU。
     - 可查询<a href="https://www.jdcloud.com/help/detail/2874/isCatalog/1">DescribeImages</a>接口获得指定地域的镜像信息。
-    - 选择的镜像必须支持选择的规格类型。可查询<a href="https://www.jdcloud.com/help/detail/2872/isCatalog/1">DescribeImageConstraints</a>接口获得指定镜像的规格类型限制信息。<br>
+    - 选择的镜像必须支持选择的实例规格。可查询<a href="https://www.jdcloud.com/help/detail/2872/isCatalog/1">DescribeImageConstraints</a>接口获得指定镜像的实例规格限制信息。<br>
 - 网络配置
     - 指定主网卡配置信息
         - 必须指定subnetId

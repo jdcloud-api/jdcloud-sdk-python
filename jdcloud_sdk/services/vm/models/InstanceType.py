@@ -21,8 +21,8 @@ class InstanceType(object):
 
     def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None):
         """
-        :param family: (Optional) 实例族
-        :param instanceType: (Optional) 规格类型，比如g.b1.2xlarge
+        :param family: (Optional) 实例规格类型
+        :param instanceType: (Optional) 实例规格，比如g.b1.2xlarge
         :param cpu: (Optional) cpu个数
         :param memoryMB: (Optional) 内存大小
         :param nicLimit: (Optional) 支持弹性网卡的数量

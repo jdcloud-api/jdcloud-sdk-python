@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class CopyImagesRequest(JDCloudRequest):
     """
     镜像跨区复制，将私有镜像复制到其它地域下，只允许操作您的个人私有镜像。<br>
-只支持cloudDisk云盘系统盘类型的镜像。
+只支持rootDeviceType为cloudDisk的云硬盘系统盘镜像操作。
 
     """
 

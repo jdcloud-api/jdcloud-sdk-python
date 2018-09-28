@@ -75,7 +75,7 @@ class DescribeImagesParameters(object):
 
     def setStatus(self, status):
         """
-        :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3871/isCatalog/1">参考镜像状态</a>
+        :param status: (Optional) <a href="http://docs.jdcloud.com/virtual-machines/api/image_status">参考镜像状态</a>
         """
         self.status = status
 

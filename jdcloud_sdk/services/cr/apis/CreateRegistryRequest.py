@@ -33,22 +33,17 @@ class CreateRegistryRequest(JDCloudRequest):
 
 class CreateRegistryParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, registryName, ):
         """
         :param regionId: Region ID
-        """
-
-        self.regionId = regionId
-        self.registryName = None
-        self.description = None
-
-    def setRegistryName(self, registryName):
-        """
-        :param registryName: (Optional) 用户定义的registry名称。<br> DNS兼容registry名称规则如下：
+        :param registryName: 用户定义的registry名称。<br> DNS兼容registry名称规则如下：
  <br> 不可为空，且不能超过32字符 <br> 以小写字母开始和结尾，支持使用小写字母、数字、中划线(-)
 
         """
+
+        self.regionId = regionId
         self.registryName = registryName
+        self.description = None
 
     def setDescription(self, description):
         """

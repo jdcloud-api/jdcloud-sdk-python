@@ -26,4 +26,4 @@ class CrClient(JDCloudClient):
         if config is None:
             config = Config('cr.jdcloud-api.com')
 
-        super(CrClient, self).__init__(credential, config, 'cr', '0.1.0', logger)
+        super(CrClient, self).__init__(credential, config, 'cr', '0.1.1', logger)

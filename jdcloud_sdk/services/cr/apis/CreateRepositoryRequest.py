@@ -35,24 +35,19 @@ class CreateRepositoryRequest(JDCloudRequest):
 
 class CreateRepositoryParameters(object):
 
-    def __init__(self, regionId, registryName, ):
+    def __init__(self, regionId, registryName, repositoryName, ):
         """
         :param regionId: Region ID
         :param registryName: 注册表名称
+        :param repositoryName: 镜像仓库名称。
+可以专有模式如默认命名空间nginx-web-app；或者和命名空间一起将多个仓库聚集在一起如 project-a/nginx-web-app。
+
         """
 
         self.regionId = regionId
         self.registryName = registryName
-        self.repositoryName = None
-        self.description = None
-
-    def setRepositoryName(self, repositoryName):
-        """
-        :param repositoryName: (Optional) 镜像仓库名称。
-可以专有模式如默认命名空间nginx-web-app；或者和命名空间一起将多个仓库聚集在一起如 project-a/nginx-web-app。
-
-        """
         self.repositoryName = repositoryName
+        self.description = None
 
     def setDescription(self, description):
         """

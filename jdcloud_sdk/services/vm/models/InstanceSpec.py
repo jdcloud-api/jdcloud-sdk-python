@@ -24,10 +24,10 @@ class InstanceSpec(object):
         :param agId: (Optional) 高可用组Id。指定了此参数后，只能通过高可用组关联的实例模板创建虚机，并且实例模板中的参数不可覆盖替换。实例模板以外的参数还可以指定。
         :param instanceTemplateId: (Optional) 实例模板id，如果没有使用高可用组，那么对于实例模板中没有的信息，需要使用创建虚机的参数进行补充，或者选择覆盖启动模板中的参数。
         :param az: (Optional) 云主机所属的可用区。
-        :param instanceType: (Optional) 实例规格。可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
-        :param imageId: (Optional) 镜像ID。可查询<a href="https://www.jdcloud.com/help/detail/2874/isCatalog/1">DescribeImages</a>接口获得指定地域的镜像信息。
-        :param name:  云主机名称，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
-        :param password: (Optional) 密码，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param instanceType: (Optional) 实例规格。可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
+        :param imageId: (Optional) 镜像ID。可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeimages">DescribeImages</a>接口获得指定地域的镜像信息。
+        :param name:  云主机名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param password: (Optional) 密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         :param keyNames: (Optional) 密钥对名称，当前只支持传入一个。
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param primaryNetworkInterface: (Optional) 主网卡配置信息
@@ -38,7 +38,7 @@ class InstanceSpec(object):
 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
 
-        :param description: (Optional) 主机描述，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param description: (Optional) 主机描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
 
         self.agId = agId

@@ -46,13 +46,13 @@ class ModifyInstanceAttributeParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 名称，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param name: (Optional) 名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
         self.name = name
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param description: (Optional) 描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
         self.description = description
 

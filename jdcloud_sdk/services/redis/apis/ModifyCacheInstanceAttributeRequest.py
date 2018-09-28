@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ class ModifyCacheInstanceAttributeParameters(object):
     def __init__(self, regionId, cacheInstanceId, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
-        :param cacheInstanceId: 缓存Redis实例ID
+        :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识。
         """
 
         self.regionId = regionId
@@ -45,13 +45,13 @@ class ModifyCacheInstanceAttributeParameters(object):
 
     def setCacheInstanceName(self, cacheInstanceName):
         """
-        :param cacheInstanceName: (Optional) 缓存Redis实例资源名称
+        :param cacheInstanceName: (Optional) 缓存Redis实例资源名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
         """
         self.cacheInstanceName = cacheInstanceName
 
     def setCacheInstanceDescription(self, cacheInstanceDescription):
         """
-        :param cacheInstanceDescription: (Optional) 缓存Redis实例资源描述
+        :param cacheInstanceDescription: (Optional) 缓存Redis实例资源描述，不能超过256个字符
         """
         self.cacheInstanceDescription = cacheInstanceDescription
 

@@ -19,7 +19,7 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None, gpu=None, localDisks=None):
         """
         :param family: (Optional) 实例规格类型
         :param instanceType: (Optional) 实例规格，比如g.b1.2xlarge
@@ -28,6 +28,8 @@ class InstanceType(object):
         :param nicLimit: (Optional) 支持弹性网卡的数量
         :param desc: (Optional) 描述
         :param state: (Optional) 规格状态
+        :param gpu: (Optional) Gpu配置
+        :param localDisks: (Optional) 本地缓存盘配置，目前只有Gpu规格上才有
         """
 
         self.family = family
@@ -37,3 +39,5 @@ class InstanceType(object):
         self.nicLimit = nicLimit
         self.desc = desc
         self.state = state
+        self.gpu = gpu
+        self.localDisks = localDisks

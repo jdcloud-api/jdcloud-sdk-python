@@ -29,7 +29,7 @@ class Instance(object):
         :param privateIpAddress: (Optional) 主网卡主IP地址
         :param elasticIpId: (Optional) 主网卡主IP绑定弹性IP的ID
         :param elasticIpAddress: (Optional) 主网卡主IP绑定弹性IP的地址
-        :param status: (Optional) 云主机状态，<a href="https://www.jdcloud.com/help/detail/3869/isCatalog/1">参考云主机状态</a>
+        :param status: (Optional) 云主机状态，<a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
         :param description: (Optional) 云主机描述
         :param imageId: (Optional) 镜像ID
         :param systemDisk: (Optional) 系统盘配置

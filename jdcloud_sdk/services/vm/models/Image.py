@@ -29,7 +29,7 @@ class Image(object):
         :param systemDiskSizeGB: (Optional) 镜像系统盘大小
         :param imageSource: (Optional) 镜像来源。取值：jcloud：官方镜像；marketplace：镜像市场镜像；self：用户自己的镜像；shared：其他用户分享的镜像
         :param osType: (Optional) 镜像的操作系统类型。取值：windows,linux
-        :param status: (Optional) <a href="https://www.jdcloud.com/help/detail/3871/isCatalog/1">参考镜像状态</a>
+        :param status: (Optional) <a href="http://docs.jdcloud.com/virtual-machines/api/image_status">参考镜像状态</a>
         :param createTime: (Optional) 创建时间
         :param sizeMB: (Optional) 镜像文件实际大小
         :param desc: (Optional) 镜像描述

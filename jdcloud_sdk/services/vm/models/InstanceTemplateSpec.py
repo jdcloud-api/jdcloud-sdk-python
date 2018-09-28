@@ -21,9 +21,9 @@ class InstanceTemplateSpec(object):
 
     def __init__(self, instanceType, imageId, primaryNetworkInterface, systemDisk, password=None, keyNames=None, elasticIp=None, dataDisks=None):
         """
-        :param instanceType:  实例规格，可查询<a href="https://www.jdcloud.com/help/detail/2901/isCatalog/1">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
-        :param imageId:  镜像ID，可查询<a href="https://www.jdcloud.com/help/detail/2874/isCatalog/1">DescribeImages</a>接口获得指定地域的镜像信息。
-        :param password: (Optional) 密码，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param instanceType:  实例规格，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
+        :param imageId:  镜像ID，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeimages">DescribeImages</a>接口获得指定地域的镜像信息。
+        :param password: (Optional) 密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         :param keyNames: (Optional) 密钥对名称；当前只支持一个
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param primaryNetworkInterface:  主网卡配置信息

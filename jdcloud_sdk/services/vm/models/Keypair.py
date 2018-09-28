@@ -19,11 +19,13 @@
 
 class Keypair(object):
 
-    def __init__(self, keyName=None, keyFingerprint=None):
+    def __init__(self, keyName=None, keyFingerprint=None, createTime=None):
         """
         :param keyName: (Optional) 密钥对名称
         :param keyFingerprint: (Optional) 密钥对的指纹，根据 RFC4716 定义的公钥指纹格式，采用 MD5 信息摘要算法。
+        :param createTime: (Optional) 创建时间
         """
 
         self.keyName = keyName
         self.keyFingerprint = keyFingerprint
+        self.createTime = createTime

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyCacheInstanceClassRequest(JDCloudRequest):
     """
-    变更缓存Redis实例配置
+    变更缓存Redis实例配置，只能变更运行状态的实例配置，变更配置的规格不能与之前的相同
+预付费用户，从集群版变配到主从版，新规格的内存大小要大于老规格的内存大小，从主从版到集群版，新规格的内存大小要不小于老规格的内存大小
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,8 +37,8 @@ class ModifyCacheInstanceClassParameters(object):
     def __init__(self, regionId, cacheInstanceId, cacheInstanceClass):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
-        :param cacheInstanceId: 缓存Redis实例ID
-        :param cacheInstanceClass: 变更后的缓存Redis&lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/411/isCatalog/1&quot;&gt;实例规格代码&lt;/a&gt;
+        :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识。
+        :param cacheInstanceClass: 变更后的缓存Redis规格，详细参见：<a href="https://www.jdcloud.com/help/detail/411/isCatalog/1">实例规格代码</a>
         """
 
         self.regionId = regionId

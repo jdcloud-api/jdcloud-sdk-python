@@ -38,7 +38,7 @@ class ModifyInstancePasswordParameters(object):
         """
         :param regionId: 地域ID
         :param instanceId: 云主机ID
-        :param password: 密码，<a href="https://www.jdcloud.com/help/detail/3870/isCatalog/1">参考公共参数规范</a>。
+        :param password: 密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
 
         self.regionId = regionId

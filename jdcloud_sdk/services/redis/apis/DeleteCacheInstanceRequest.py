@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteCacheInstanceRequest(JDCloudRequest):
     """
-    删除单个缓存Redis实例
+    删除按配置计费、或包年包月已到期的单个缓存Redis实例，包年包月未到期不可删除
+只有处于运行<b>running</b>或者错误<b>error</b>状态的可以删除，其余状态不可以删除
+白名单用户不能删除包年包月已到期的云主机
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +38,7 @@ class DeleteCacheInstanceParameters(object):
     def __init__(self, regionId, cacheInstanceId, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
-        :param cacheInstanceId: 缓存Redis实例ID
+        :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识。
         """
 
         self.regionId = regionId

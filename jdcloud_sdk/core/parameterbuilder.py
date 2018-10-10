@@ -97,7 +97,7 @@ class WithoutBodyBuilder(ParameterBuilder):
 
     def build_url(self, request, scheme, endpoint):
         parameters = get_parameter_dict(request.parameters)
-        query_params = quote(self._build_query_params(parameters, request.url), safe='/&=?')
+        query_params = quote(self._build_query_params(parameters, request.url), safe='&=?')
         url = quote(self._replace_url_with_value(request.url, parameters), safe='/:')
         return '%s://%s/%s%s%s' % (scheme, endpoint, request.version, url, query_params)
 

@@ -32,54 +32,49 @@ class UpdateAlarmRequest(JDCloudRequest):
 
 class UpdateAlarmParameters(object):
 
-    def __init__(self, regionId, alarmId, calculation, metric, operation, period, serviceCode, threshold, times):
+    def __init__(self, regionId, alarmId, rule, ):
         """
         :param regionId: 地域 Id
         :param alarmId: 规则id
-        :param calculation: 统计方法：平均值=avg、最大值=max、最小值=min、总和=sum
-        :param metric: 根据产品线查询可用监控项列表 接口 返回的Metric字段
-        :param operation: >=、>、<、<=、==、!=
-        :param period: 统计周期（单位：分钟），可选值：2,5,15,30,60
-        :param serviceCode: 产品名称
-        :param threshold: 阈值
-        :param times: 连续多少次后报警，可选值:1,2,3,5
+        :param rule: 
         """
 
         self.regionId = regionId
         self.alarmId = alarmId
-        self.calculation = calculation
-        self.contactGroups = None
-        self.contactPersons = None
-        self.downSample = None
-        self.metric = metric
-        self.noticePeriod = None
-        self.operation = operation
-        self.period = period
-        self.serviceCode = serviceCode
-        self.threshold = threshold
-        self.times = times
+        self.contacts = None
+        self.rule = rule
+        self.webHookContent = None
+        self.webHookProtocol = None
+        self.webHookSecret = None
+        self.webHookUrl = None
 
-    def setContactGroups(self, contactGroups):
+    def setContacts(self, contacts):
         """
-        :param contactGroups: (Optional) 通知的联系组，如 [“联系组1”,”联系组2”]
+        :param contacts: (Optional) 通知联系人
         """
-        self.contactGroups = contactGroups
+        self.contacts = contacts
 
-    def setContactPersons(self, contactPersons):
+    def setWebHookContent(self, webHookContent):
         """
-        :param contactPersons: (Optional) 通知的联系人，如 [“联系人1”,”联系人2”]
+        :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookContent均不为空时，才会创建webHook
         """
-        self.contactPersons = contactPersons
+        self.webHookContent = webHookContent
 
-    def setDownSample(self, downSample):
+    def setWebHookProtocol(self, webHookProtocol):
         """
-        :param downSample: (Optional) 取样频次
+        :param webHookProtocol: (Optional) webHook协议
         """
-        self.downSample = downSample
+        self.webHookProtocol = webHookProtocol
 
-    def setNoticePeriod(self, noticePeriod):
+    def setWebHookSecret(self, webHookSecret):
         """
-        :param noticePeriod: (Optional) 通知周期 单位：小时
+        :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
         """
-        self.noticePeriod = noticePeriod
+        self.webHookSecret = webHookSecret
+
+    def setWebHookUrl(self, webHookUrl):
+        """
+        :param webHookUrl: (Optional) 回调url
+        """
+        self.webHookUrl = webHookUrl
 

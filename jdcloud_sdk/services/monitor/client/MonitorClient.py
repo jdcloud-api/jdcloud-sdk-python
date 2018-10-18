@@ -26,4 +26,4 @@ class MonitorClient(JDCloudClient):
         if config is None:
             config = Config('monitor.jdcloud-api.com')
 
-        super(MonitorClient, self).__init__(credential, config, 'monitor', '1.1.1', logger)
+        super(MonitorClient, self).__init__(credential, config, 'monitor', '1.2.2', logger)

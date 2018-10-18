@@ -19,29 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricDataRequest(JDCloudRequest):
+class BatchDescribeMetricDataRequest(JDCloudRequest):
     """
-    查看某资源的监控数据
+    查看某资源多个监控项数据
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricDataRequest, self).__init__(
-            '/regions/{regionId}/metrics/{metric}/metricData', 'GET', header, version)
+        super(BatchDescribeMetricDataRequest, self).__init__(
+            '/regions/{regionId}/metricsData', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricDataParameters(object):
+class BatchDescribeMetricDataParameters(object):
 
-    def __init__(self, regionId, metric, serviceCode, resourceId, ):
+    def __init__(self, regionId, serviceCode, resourceId, ):
         """
         :param regionId: 地域 Id
-        :param metric: 监控项英文标识(id)
         :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
         :param resourceId: 资源的uuid
         """
 
         self.regionId = regionId
-        self.metric = metric
         self.serviceCode = serviceCode
         self.resourceId = resourceId
         self.startTime = None
@@ -49,6 +47,7 @@ class DescribeMetricDataParameters(object):
         self.timeInterval = None
         self.tags = None
         self.groupBy = None
+        self.filters = None
 
     def setStartTime(self, startTime):
         """
@@ -79,4 +78,10 @@ class DescribeMetricDataParameters(object):
         :param groupBy: (Optional) 是否对查询的tags分组
         """
         self.groupBy = groupBy
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 自定义标签
+        """
+        self.filters = filters
 

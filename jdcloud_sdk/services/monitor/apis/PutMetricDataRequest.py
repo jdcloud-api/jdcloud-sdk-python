@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class PutMetricDataRequest(JDCloudRequest):
     """
-    自定义监控数据上报接口
+    该接口为自定义监控数据上报的接口，方便您将自己采集的时序数据上报到云监控。可上报原始数据和已聚合的统计数据。支持批量上报方式。单次请求最多包含 50 个数据点；数据大小不超过 256k。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

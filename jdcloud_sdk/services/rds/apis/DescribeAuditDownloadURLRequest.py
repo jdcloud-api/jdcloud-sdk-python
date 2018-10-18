@@ -19,28 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsForCreateAlarmRequest(JDCloudRequest):
+class DescribeAuditDownloadURLRequest(JDCloudRequest):
     """
-    查询可用创建监控规则的指标列表
+    获取某个审计文件的下载链接，同时支持内链和外链，链接的有效时间为24小时<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsForCreateAlarmRequest, self).__init__(
-            '/metricsForCreateAlarm', 'GET', header, version)
+        super(DescribeAuditDownloadURLRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/audit:describeAuditDownloadURL', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsForCreateAlarmParameters(object):
+class DescribeAuditDownloadURLParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, instanceId, fileName):
         """
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param fileName: 审计文件名
         """
 
-        self.serviceCode = None
-
-    def setServiceCode(self, serviceCode):
-        """
-        :param serviceCode: (Optional) 资源的类型，取值vm, lb, ip, database 等
-        """
-        self.serviceCode = serviceCode
+        self.regionId = regionId
+        self.instanceId = instanceId
+        self.fileName = fileName
 

@@ -19,13 +19,17 @@
 
 class Metric(object):
 
-    def __init__(self, calculateUnit=None, metric=None, metricName=None):
+    def __init__(self, aggregator=None, calculateUnit=None, metric=None, metricName=None, period=None):
         """
-        :param calculateUnit: (Optional) 指标的计算单位，比如bit/s、%、k等
-        :param metric: (Optional) 监控项英文标识
-        :param metricName: (Optional) 监控项名称
+        :param aggregator: (Optional) 
+        :param calculateUnit: (Optional) 
+        :param metric: (Optional) 
+        :param metricName: (Optional) 
+        :param period: (Optional) 
         """
 
+        self.aggregator = aggregator
         self.calculateUnit = calculateUnit
         self.metric = metric
         self.metricName = metricName
+        self.period = period

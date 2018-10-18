@@ -26,7 +26,7 @@ class DescribeQueryPerformanceRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeQueryPerformanceRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/performance:describeQueryPerformance', 'POST', header, version)
+            '/regions/{regionId}/instances/{instanceId}/performance:describeQueryPerformance', 'GET', header, version)
         self.parameters = parameters
 
 

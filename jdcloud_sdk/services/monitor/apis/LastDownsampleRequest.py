@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricDataRequest(JDCloudRequest):
+class LastDownsampleRequest(JDCloudRequest):
     """
-    查看某资源的监控数据
+    查看某资源的最后一个点
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricDataRequest, self).__init__(
-            '/regions/{regionId}/metrics/{metric}/metricData', 'GET', header, version)
+        super(LastDownsampleRequest, self).__init__(
+            '/regions/{regionId}/metrics/{metric}/lastDownsample', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricDataParameters(object):
+class LastDownsampleParameters(object):
 
     def __init__(self, regionId, metric, serviceCode, resourceId, ):
         """
@@ -44,11 +44,17 @@ class DescribeMetricDataParameters(object):
         self.metric = metric
         self.serviceCode = serviceCode
         self.resourceId = resourceId
+        self.tags = None
         self.startTime = None
         self.endTime = None
         self.timeInterval = None
-        self.tags = None
-        self.groupBy = None
+        self.aggrType = None
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 自定义标签
+        """
+        self.tags = tags
 
     def setStartTime(self, startTime):
         """
@@ -64,19 +70,13 @@ class DescribeMetricDataParameters(object):
 
     def setTimeInterval(self, timeInterval):
         """
-        :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
+        :param timeInterval: (Optional) 查询的时间间隔，仅支持分钟级别，例如：1m
         """
         self.timeInterval = timeInterval
 
-    def setTags(self, tags):
+    def setAggrType(self, aggrType):
         """
-        :param tags: (Optional) 自定义标签
+        :param aggrType: (Optional) 聚合方式：max avg min等
         """
-        self.tags = tags
-
-    def setGroupBy(self, groupBy):
-        """
-        :param groupBy: (Optional) 是否对查询的tags分组
-        """
-        self.groupBy = groupBy
+        self.aggrType = aggrType
 

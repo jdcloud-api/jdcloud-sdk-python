@@ -19,38 +19,40 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeIndexPerformanceRequest(JDCloudRequest):
+class DescribeSlowLogsRequest(JDCloudRequest):
     """
-    根据用户定义的查询条件，获取索引性能的统计信息，并提供缺失索引及索引创建建议。用户可以根据这些信息查找与索引相关的性能瓶颈，并进行优化。<br>- 仅支持SQL Server
+    查询MySQL实例的慢日志的概要信息。<br>- 仅支持SQL Server
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeIndexPerformanceRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/performance:describeIndexPerformance', 'GET', header, version)
+        super(DescribeSlowLogsRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/performance:describeSlowLogs', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeIndexPerformanceParameters(object):
+class DescribeSlowLogsParameters(object):
 
-    def __init__(self, regionId, instanceId, queryType, ):
+    def __init__(self, regionId, instanceId, startTime, endTime, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param queryType: 查询类型，不同的查询类型按照相应的字段从高到低返回结果。<br>支持如下类型：<br>Missing：缺失索引<br>Size：索引大小，单位KB<br>Updates：索引更新次数<br>Scans：表扫描次数<br>Used：最少使用<br>
+        :param startTime: 慢日志开始时间,格式为：YYYY-MM-DD HH:mm:ss,开始时间到结束时间不能大于30天,结束时间不能大于当前时间
+        :param endTime: 慢日志结束时间,格式为：YYYY-MM-DD HH:mm:ss,开始时间到结束时间不能大于30天,结束时间不能大于当前时间
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.queryType = queryType
-        self.db = None
+        self.startTime = startTime
+        self.endTime = endTime
+        self.dbName = None
         self.pageNumber = None
         self.pageSize = None
 
-    def setDb(self, db):
+    def setDbName(self, dbName):
         """
-        :param db: (Optional) 需要查询的数据库名，多个数据库名之间用英文逗号分隔，默认所有数据库
+        :param dbName: (Optional) 查询哪个数据库的慢日志，不填表示返回所有数据库的慢日志
         """
-        self.db = db
+        self.dbName = dbName
 
     def setPageNumber(self, pageNumber):
         """
@@ -60,7 +62,7 @@ class DescribeIndexPerformanceParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为50，取值范围：[1,100]，只能为10的倍数，用于查询列表的接口
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、30、50、100
         """
         self.pageSize = pageSize
 

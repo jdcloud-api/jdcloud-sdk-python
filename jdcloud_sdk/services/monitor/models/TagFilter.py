@@ -19,10 +19,10 @@
 
 class TagFilter(object):
 
-    def __init__(self, key, values, ):
+    def __init__(self, key=None, values=None):
         """
-        :param key:  Tag键
-        :param values:  Tag值
+        :param key: (Optional) Tag键
+        :param values: (Optional) Tag值
         """
 
         self.key = key

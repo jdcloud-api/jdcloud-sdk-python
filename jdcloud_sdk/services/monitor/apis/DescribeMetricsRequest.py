@@ -34,19 +34,7 @@ class DescribeMetricsParameters(object):
 
     def __init__(self, serviceCode):
         """
-        :param serviceCode: 资源的类型 ： 
-vm-->云主机
-disk-->云硬盘
-ip-->公网ip
-balance-->负载均衡
-database-->云数据库mysql版本
-cdn-->京东CDN
-redis-->redis云缓存
-mongodb-->mongoDB云缓存
-storage-->云存储
-sqlserver-->云数据库sqlserver版 
-nativecontainer-->容器
-
+        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
         """
 
         self.serviceCode = serviceCode

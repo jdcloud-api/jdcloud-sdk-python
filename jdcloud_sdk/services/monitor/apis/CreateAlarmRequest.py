@@ -35,7 +35,7 @@ class CreateAlarmParameters(object):
     def __init__(self, regionId, clientToken, createAlarmSpec):
         """
         :param regionId: 地域 Id
-        :param clientToken: 幂等性校验参数，最长32位，值不变则返回值不会变
+        :param clientToken: 幂等性校验参数,最长36位
         :param createAlarmSpec: 
         """
 

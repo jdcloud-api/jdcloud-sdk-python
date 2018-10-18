@@ -22,6 +22,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeAlarmHistoryRequest(JDCloudRequest):
     """
     查询报警历史
+检索条件组合优先级从高到低为
+1. serviceCode
+1.1 serviceCode + resourceId
+1.2 serviceCode + resourceIds
+2. serviceCodes
+3. 用户所有规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,31 +38,37 @@ class DescribeAlarmHistoryRequest(JDCloudRequest):
 
 class DescribeAlarmHistoryParameters(object):
 
-    def __init__(self, regionId, startTime, endTime, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域 Id
-        :param startTime: 查询数据开始时间，默认24小时前，可以输入long型时间，也可以输入yyyy-MM-dd'T'HH:mm:ssZ类型时间
-        :param endTime: 查询数据结束时间，默认当前时间，可以输入long型时间，也可以输入yyyy-MM-dd'T'HH:mm:ssZ类型时间
         """
 
         self.regionId = regionId
-        self.id = None
-        self.serviceCode = None
-        self.resourceId = None
-        self.startTime = startTime
-        self.endTime = endTime
         self.pageNumber = None
         self.pageSize = None
+        self.serviceCode = None
+        self.resourceId = None
+        self.alarmId = None
+        self.alarming = None
+        self.startTime = None
+        self.endTime = None
+        self.filters = None
 
-    def setId(self, id):
+    def setPageNumber(self, pageNumber):
         """
-        :param id: (Optional) 报警规则的Id
+        :param pageNumber: (Optional) 当前所在页，默认为1
         """
-        self.id = id
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+        """
+        self.pageSize = pageSize
 
     def setServiceCode(self, serviceCode):
         """
-        :param serviceCode: (Optional) 产品名称
+        :param serviceCode: (Optional) 产品线
         """
         self.serviceCode = serviceCode
 
@@ -66,15 +78,35 @@ class DescribeAlarmHistoryParameters(object):
         """
         self.resourceId = resourceId
 
-    def setPageNumber(self, pageNumber):
+    def setAlarmId(self, alarmId):
         """
-        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞)
+        :param alarmId: (Optional) 规则Id
         """
-        self.pageNumber = pageNumber
+        self.alarmId = alarmId
 
-    def setPageSize(self, pageSize):
+    def setAlarming(self, alarming):
         """
-        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
+        :param alarming: (Optional) 正在报警, 取值为1
         """
-        self.pageSize = pageSize
+        self.alarming = alarming
+
+    def setStartTime(self, startTime):
+        """
+        :param startTime: (Optional) 开始时间
+        """
+        self.startTime = startTime
+
+    def setEndTime(self, endTime):
+        """
+        :param endTime: (Optional) 结束时间
+        """
+        self.endTime = endTime
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 服务码或资源Id列表
+filter name 为serviceCodes表示查询多个产品线的规则
+filter name 为resourceIds表示查询多个资源的规则
+        """
+        self.filters = filters
 

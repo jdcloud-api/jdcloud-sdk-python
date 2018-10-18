@@ -19,28 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricsForCreateAlarmRequest(JDCloudRequest):
+class DescribeBackupPolicyRequest(JDCloudRequest):
     """
-    查询可用创建监控规则的指标列表
+    查看RDS实例备份策略。根据数据库类型的不同，支持的备份策略也略有差异，具体请看返回参数中的详细说明
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricsForCreateAlarmRequest, self).__init__(
-            '/metricsForCreateAlarm', 'GET', header, version)
+        super(DescribeBackupPolicyRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricsForCreateAlarmParameters(object):
+class DescribeBackupPolicyParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, instanceId, ):
         """
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         """
 
-        self.serviceCode = None
-
-    def setServiceCode(self, serviceCode):
-        """
-        :param serviceCode: (Optional) 资源的类型，取值vm, lb, ip, database 等
-        """
-        self.serviceCode = serviceCode
+        self.regionId = regionId
+        self.instanceId = instanceId
 

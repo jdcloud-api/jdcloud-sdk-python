@@ -21,10 +21,10 @@ class MetricDetail(object):
 
     def __init__(self, calculateUnit=None, metric=None, metricName=None, serviceCode=None, downSample=None):
         """
-        :param calculateUnit: (Optional) 指标的计算单位，比如bit/s、%、k等
-        :param metric: (Optional) 监控项英文标识
-        :param metricName: (Optional) 监控项名称
-        :param serviceCode: (Optional) 产品线标识
+        :param calculateUnit: (Optional) 指标的计算单位，比如bit/s、%、byte等
+        :param metric: (Optional) 监控指标英文标识
+        :param metricName: (Optional) 监控指标名称
+        :param serviceCode: (Optional) 资源类型标识
         :param downSample: (Optional) 取样频次
         """
 

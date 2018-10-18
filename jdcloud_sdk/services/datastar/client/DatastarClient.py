@@ -26,4 +26,4 @@ class DatastarClient(JDCloudClient):
         if config is None:
             config = Config('datastar.jdcloud-api.com')
 
-        super(DatastarClient, self).__init__(credential, config, 'datastar', '1.0.1', logger)
+        super(DatastarClient, self).__init__(credential, config, 'datastar', '1.0.2', logger)

@@ -19,11 +19,13 @@
 
 class MetricData(object):
 
-    def __init__(self, data=None, metric=None):
+    def __init__(self, data=None, metric=None, tags=None):
         """
         :param data: (Optional) 
         :param metric: (Optional) 
+        :param tags: (Optional) 
         """
 
         self.data = data
         self.metric = metric
+        self.tags = tags

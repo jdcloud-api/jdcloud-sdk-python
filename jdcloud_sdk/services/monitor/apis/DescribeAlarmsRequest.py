@@ -21,7 +21,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAlarmsRequest(JDCloudRequest):
     """
-    查询监控规则
+    查询规则, 查询参数组合及优先级从高到低为：
+1：serviceCode不为空
+1.1：serviceCode + resourceId
+1.2: serviceCode + resourceIds
+2：serviceCodes不为空
+3: 所有规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -38,13 +43,28 @@ class DescribeAlarmsParameters(object):
         """
 
         self.regionId = regionId
-        self.serviceCode = None
-        self.resourceId = None
-        self.status = None
-        self.isAlarming = None
-        self.enabled = None
         self.pageNumber = None
         self.pageSize = None
+        self.serviceCode = None
+        self.resourceID = None
+        self.ruleType = None
+        self.status = None
+        self.enabled = None
+        self.isAlarming = None
+        self.alarmId = None
+        self.filters = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 当前所在页，默认为1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+        """
+        self.pageSize = pageSize
 
     def setServiceCode(self, serviceCode):
         """
@@ -52,11 +72,17 @@ class DescribeAlarmsParameters(object):
         """
         self.serviceCode = serviceCode
 
-    def setResourceId(self, resourceId):
+    def setResourceID(self, resourceID):
         """
-        :param resourceId: (Optional) 资源Id
+        :param resourceID: (Optional) 资源ID
         """
-        self.resourceId = resourceId
+        self.resourceID = resourceID
+
+    def setRuleType(self, ruleType):
+        """
+        :param ruleType: (Optional) 规则类型, 1表示资源监控，6表示站点监控
+        """
+        self.ruleType = ruleType
 
     def setStatus(self, status):
         """
@@ -64,27 +90,29 @@ class DescribeAlarmsParameters(object):
         """
         self.status = status
 
-    def setIsAlarming(self, isAlarming):
-        """
-        :param isAlarming: (Optional) 是否为正在报警的规则，0为忽略，1为是，与 status 同时只能生效一个,isAlarming 优先生效
-        """
-        self.isAlarming = isAlarming
-
     def setEnabled(self, enabled):
         """
         :param enabled: (Optional) 规则状态：1为启用，0为禁用
         """
         self.enabled = enabled
 
-    def setPageNumber(self, pageNumber):
+    def setIsAlarming(self, isAlarming):
         """
-        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞)
+        :param isAlarming: (Optional) 是否为正在报警的规则，0为忽略，1为是，与 status 同时只能生效一个,isAlarming 优先生效
         """
-        self.pageNumber = pageNumber
+        self.isAlarming = isAlarming
 
-    def setPageSize(self, pageSize):
+    def setAlarmId(self, alarmId):
         """
-        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
+        :param alarmId: (Optional) 规则的id
         """
-        self.pageSize = pageSize
+        self.alarmId = alarmId
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 服务码或资源Id列表
+filter name 为serviceCodes表示查询多个产品线的规则
+filter name 为resourceIds表示查询多个资源的规则
+        """
+        self.filters = filters
 

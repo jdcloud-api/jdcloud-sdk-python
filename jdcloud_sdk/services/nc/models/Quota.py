@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,11 +19,13 @@
 
 class Quota(object):
 
-    def __init__(self, limit=None, used=None):
+    def __init__(self, resourceType=None, limit=None, used=None):
         """
+        :param resourceType: (Optional) 类型
         :param limit: (Optional) 配额
         :param used: (Optional) 已使用的数目
         """
 
+        self.resourceType = resourceType
         self.limit = limit
         self.used = used

@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetDomainsRequest(JDCloudRequest):
     """
-    查询用户名下的主域名列表
+    查询用户名下的主域名列表。<br>    
+请在调用域名相关的API之前，调用此API获取相关的domainId和domainName。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

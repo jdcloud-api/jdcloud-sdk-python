@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,17 +19,17 @@
 
 class ContainerSpec(object):
 
-    def __init__(self, instanceType, az, name, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, image=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None):
+    def __init__(self, instanceType, az, name, image, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None):
         """
         :param instanceType:  实例类型；参考[文档](https://www.jdcloud.com/help/detail/1992/isCatalog/1)
         :param az:  容器所属可用区
         :param name:  容器名称
-        :param hostAliases: (Optional) 域名和IP映射的信息；&lt;/br&gt; 最大10个alias
+        :param hostAliases: (Optional) 域名和IP映射的信息；</br> 最大10个alias
         :param hostname: (Optional) 主机名，规范请参考说明文档；默认容器ID
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT
         :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD
-        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；&lt;/br&gt; 最大10对
-        :param image: (Optional) 镜像名称 &lt;/br&gt; 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 &lt;/br&gt; &lt;/br&gt; repository长度最大256个字符，tag最大128个字符，registry最大255个字符 &lt;/br&gt; 下载镜像超时时间：10分钟
+        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大10对
+        :param image:  镜像名称 </br> 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> </br> repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br> 下载镜像超时时间：10分钟
         :param secret: (Optional) secret引用名称；使用Docker Hub和京东云CR的镜像不需要secret
         :param tty: (Optional) 容器是否分配tty。默认不分配
         :param workingDir: (Optional) 容器的工作目录。如果不指定，默认是根目录（/）；必须是绝对路径

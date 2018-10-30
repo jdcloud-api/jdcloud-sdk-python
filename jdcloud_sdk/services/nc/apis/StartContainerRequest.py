@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StartContainerRequest(JDCloudRequest):
     """
-    启动单个实例
+    启动处于关闭状态的单个容器，处在任务执行中的容器无法启动。<br>
+容器实例或其绑定的云盘已欠费时，容器将无法正常启动。<br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

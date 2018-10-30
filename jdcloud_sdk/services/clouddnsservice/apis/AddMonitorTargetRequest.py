@@ -35,7 +35,7 @@ class AddMonitorTargetParameters(object):
     def __init__(self, regionId, domainId, subDomainName, targets):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
         :param subDomainName: 子域名
         :param targets: 子域名可用监控对象的数组
         """

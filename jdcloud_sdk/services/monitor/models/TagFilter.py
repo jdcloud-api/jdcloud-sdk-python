@@ -21,7 +21,7 @@ class TagFilter(object):
 
     def __init__(self, key=None, values=None):
         """
-        :param key: (Optional) Tag键
+        :param key: (Optional) 
         :param values: (Optional) Tag值
         """
 

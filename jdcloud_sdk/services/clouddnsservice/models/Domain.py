@@ -25,7 +25,7 @@ class Domain(object):
         :param domainName: (Optional) 域名字符串
         :param createTime: (Optional) 创建时间，格式Unix timestamp
         :param expirationDate: (Optional) 过期时间，格式Unix timestamp
-        :param packId: (Optional) 套餐类型，0->免费 1->企业版 2->高级版
+        :param packId: (Optional) 套餐类型，0->免费 1->企业版 2->企业高级版
         """
 
         self.id = id

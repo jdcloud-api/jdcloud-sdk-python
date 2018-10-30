@@ -35,7 +35,7 @@ class UpdateRRParameters(object):
     def __init__(self, regionId, domainId, req):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
         :param req: updateRR参数
         """
 

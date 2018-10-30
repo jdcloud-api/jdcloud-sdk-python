@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetLogsRequest(JDCloudRequest):
     """
-    查询容器日志
+    查询单个容器日志
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -46,19 +47,22 @@ class GetLogsParameters(object):
 
     def setTailLines(self, tailLines):
         """
-        :param tailLines: (Optional) 
+        :param tailLines: (Optional) 返回日志文件中倒数 tailLines 行，如不指定，默认从容器启动时或 sinceSeconds 指定的时间读取。
+
         """
         self.tailLines = tailLines
 
     def setSinceSeconds(self, sinceSeconds):
         """
-        :param sinceSeconds: (Optional) 
+        :param sinceSeconds: (Optional) 返回相对于当前时间之前sinceSeconds之内的日志。
+
         """
         self.sinceSeconds = sinceSeconds
 
     def setLimitBytes(self, limitBytes):
         """
-        :param limitBytes: (Optional) 
+        :param limitBytes: (Optional) 限制返回的日志文件内容字节数，取值范围 [1-4]KB，最大 4KB.
+
         """
         self.limitBytes = limitBytes
 

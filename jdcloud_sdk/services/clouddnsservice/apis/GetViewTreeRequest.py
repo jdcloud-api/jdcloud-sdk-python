@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetViewTreeRequest(JDCloudRequest):
     """
-    查询云解析所有的基础解析线路
+    查询云解析所有的基础解析线路。<br>
+在使用解析线路的参数之前，请调用此接口获取解析线路的ID。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,8 +37,8 @@ class GetViewTreeParameters(object):
     def __init__(self, regionId, domainId, packId, viewId):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
-        :param packId: 套餐ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
+        :param packId: 套餐ID，0->免费版 1->企业版 2->企业高级版
         :param viewId: view ID，默认为0
         """
 
@@ -48,7 +50,7 @@ class GetViewTreeParameters(object):
 
     def setLoadMode(self, loadMode):
         """
-        :param loadMode: (Optional) 展示方式
+        :param loadMode: (Optional) 展示方式，暂时不使用
         """
         self.loadMode = loadMode
 

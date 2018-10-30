@@ -56,7 +56,7 @@ class AddDomainParameters(object):
 
     def setBuyType(self, buyType):
         """
-        :param buyType: (Optional) 1->新购买、2->升级，收费套餐的域名必填
+        :param buyType: (Optional) 1->新购买、3->升级，收费套餐的域名必填
         """
         self.buyType = buyType
 

@@ -35,7 +35,7 @@ class OperateMonitorParameters(object):
     def __init__(self, regionId, domainId, action, ids, ):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
         :param action: 删除del, 暂停stop, 开启start, 手动恢复recover，手动切换switch
         :param ids: 监控项ID
         """

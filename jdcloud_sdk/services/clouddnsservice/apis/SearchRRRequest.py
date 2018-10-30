@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SearchRRRequest(JDCloudRequest):
     """
-    查询主域名的解析记录
+    查询主域名的解析记录。<br>
+在使用解析记录相关的接口之前，请调用此接口获取解析记录的列表。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +37,7 @@ class SearchRRParameters(object):
     def __init__(self, regionId, domainId, ):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
         """
 
         self.regionId = regionId

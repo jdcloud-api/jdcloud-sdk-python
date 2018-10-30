@@ -35,7 +35,7 @@ class GetMonitorParameters(object):
     def __init__(self, regionId, domainId, ):
         """
         :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID
+        :param domainId: 域名ID，请使用getDomains接口获取。
         """
 
         self.regionId = regionId

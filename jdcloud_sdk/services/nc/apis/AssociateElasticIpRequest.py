@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AssociateElasticIpRequest(JDCloudRequest):
     """
-    容器绑定公网IP 绑定的是主网卡、主内网IP对应的弹性IP
+    容器绑定弹性公网 IP，绑定的是主网卡、主内网IP对应的弹性IP. <br>
+一台云主机只能绑定一个弹性公网 IP(主网卡)，若主网卡已存在弹性公网IP，会返回错误。<br>
+如果是黑名单中的用户，会返回错误。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -19,23 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetAppsRequest(JDCloudRequest):
+class CreateRequest(JDCloudRequest):
     """
-    获取账户下所有应用
+    创建多级筛选
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetAppsRequest, self).__init__(
-            '/regions/{regionId}/apps', 'GET', header, version)
+        super(CreateRequest, self).__init__(
+            '/v1/regions/{regionId}/profileMultiLevel/create', 'POST', header, version)
         self.parameters = parameters
 
 
-class GetAppsParameters(object):
+class CreateParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, mallId, profileId, dimensions):
         """
-        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param regionId: 地域ID
+        :param mallId: 商场ID
+        :param profileId: 定制画像任务ID
+        :param dimensions: 多级筛选的标签，多个标签请用英文逗号分隔，最多只能传三个标签
         """
 
         self.regionId = regionId
+        self.mallId = mallId
+        self.profileId = profileId
+        self.dimensions = dimensions
 

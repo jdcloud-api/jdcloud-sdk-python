@@ -19,23 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetAppsRequest(JDCloudRequest):
+class AppDetailRequest(JDCloudRequest):
     """
-    获取账户下所有应用
+    运营后台获取应用详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetAppsRequest, self).__init__(
-            '/regions/{regionId}/apps', 'GET', header, version)
+        super(AppDetailRequest, self).__init__(
+            '/regions/{regionId}/operate_backend/app/{clientId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class GetAppsParameters(object):
+class AppDetailParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, clientId, ):
         """
-        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param regionId: 
+        :param clientId: 
         """
 
         self.regionId = regionId
+        self.clientId = clientId
 

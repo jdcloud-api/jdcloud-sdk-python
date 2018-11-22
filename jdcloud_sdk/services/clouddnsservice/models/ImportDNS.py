@@ -19,19 +19,19 @@
 
 class ImportDNS(object):
 
-    def __init__(self, domainId=None, hostRecord=None, hostValue=None, id=None, jcloudRes=None, mxPriority=None, port=None, ttl=None, type=None, weight=None, viewValue=None):
+    def __init__(self, domainId, hostRecord, hostValue, ttl, type, viewValue, id=None, jcloudRes=None, mxPriority=None, port=None, weight=None):
         """
-        :param domainId: (Optional) 解析记录对应的域名的ID
-        :param hostRecord: (Optional) 主机记录
-        :param hostValue: (Optional) 解析记录的值
+        :param domainId:  解析记录对应的域名的ID
+        :param hostRecord:  主机记录
+        :param hostValue:  解析记录的值
         :param id: (Optional) 解析记录的ID
         :param jcloudRes: (Optional) 是否是京东云资源
         :param mxPriority: (Optional) 优先级，只存在于MX, SRV解析记录类型
         :param port: (Optional) 端口，只存在于SRV解析记录类型
-        :param ttl: (Optional) 解析记录的生存时间
-        :param type: (Optional) 解析的类型
+        :param ttl:  解析记录的生存时间
+        :param type:  解析的类型
         :param weight: (Optional) 解析记录的权重
-        :param viewValue: (Optional) 解析线路的ID
+        :param viewValue:  解析线路的ID
         """
 
         self.domainId = domainId

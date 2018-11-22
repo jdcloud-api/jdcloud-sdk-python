@@ -39,7 +39,7 @@ class Monitor(object):
         :param manualBackupStatus: (Optional) 手动切换的地址的状态，0正常，1异常
         :param manualBackupType: (Optional) 手动切换的地址的类型，1为ip 2为域名
         :param monitorEnable: (Optional) 监控状况 开启监控 2，暂停监控 4
-        :param monitorFreq: (Optional) 监控频率，单位s
+        :param monitorFreq: (Optional) 监控频率，单位秒
         :param monitorPort: (Optional) 监控端口
         :param monitorRule: (Optional) 不做任何修改0，强制暂停解析记录1，自动切换到备用地址2
         :param monitorUri: (Optional) 监控路径

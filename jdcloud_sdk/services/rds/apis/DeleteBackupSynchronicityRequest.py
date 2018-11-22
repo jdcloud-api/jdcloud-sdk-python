@@ -19,23 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetAppsRequest(JDCloudRequest):
+class DeleteBackupSynchronicityRequest(JDCloudRequest):
     """
-    获取账户下所有应用
+    删除一个跨地域备份同步服务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetAppsRequest, self).__init__(
-            '/regions/{regionId}/apps', 'GET', header, version)
+        super(DeleteBackupSynchronicityRequest, self).__init__(
+            '/regions/{regionId}/backupSynchronicities/{serviceId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class GetAppsParameters(object):
+class DeleteBackupSynchronicityParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, serviceId, ):
         """
-        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param serviceId: 跨地域备份同步服务ID
         """
 
         self.regionId = regionId
+        self.serviceId = serviceId
 

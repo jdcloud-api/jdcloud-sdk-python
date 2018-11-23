@@ -19,12 +19,12 @@
 
 class DelViewIP(object):
 
-    def __init__(self, domainId=None, viewId=None, viewName=None, ipRanges=None):
+    def __init__(self, domainId, viewId, viewName, ipRanges, ):
         """
-        :param domainId: (Optional) 域名ID
-        :param viewId: (Optional) 自定义线路ID
-        :param viewName: (Optional) 自定义线路名称, 最多64个字符
-        :param ipRanges: (Optional) 此线路需要删除的ip段。<br>
+        :param domainId:  域名ID
+        :param viewId:  自定义线路ID
+        :param viewName:  自定义线路名称, 最多64个字符
+        :param ipRanges:  此线路需要删除的ip段。<br>
 ip段支持1.2.3.4-5.6.7.8和1.2.3.4/16两种格式。    
 
         """

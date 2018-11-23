@@ -26,4 +26,4 @@ class IasClient(JDCloudClient):
         if config is None:
             config = Config('ias.jdcloud-api.com')
 
-        super(IasClient, self).__init__(credential, config, 'ias', '0.2.0', logger)
+        super(IasClient, self).__init__(credential, config, 'ias', '0.2.1', logger)

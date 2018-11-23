@@ -26,4 +26,4 @@ class RdsClient(JDCloudClient):
         if config is None:
             config = Config('rds.jdcloud-api.com')
 
-        super(RdsClient, self).__init__(credential, config, 'rds', '0.3.3', logger)
+        super(RdsClient, self).__init__(credential, config, 'rds', '0.3.6', logger)

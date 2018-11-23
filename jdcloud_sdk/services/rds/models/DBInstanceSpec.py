@@ -19,7 +19,7 @@
 
 class DBInstanceSpec(object):
 
-    def __init__(self, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None):
+    def __init__(self, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None):
         """
         :param instanceName: (Optional) 实例名，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param engine:  实例引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
@@ -29,6 +29,7 @@ class DBInstanceSpec(object):
         :param azId:  可用区ID， 第一个ID必须为主实例所在的可用区。如两个可用区一样，也需输入两个azId
         :param vpcId:  VPC的ID
         :param subnetId:  子网ID
+        :param parameterGroup: (Optional) 参数组ID, 缺省系统会创建一个默认参数组<br>- 仅支持MySQL
         :param chargeSpec:  计费规格，包括计费类型，计费周期等
         """
 
@@ -40,4 +41,5 @@ class DBInstanceSpec(object):
         self.azId = azId
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.parameterGroup = parameterGroup
         self.chargeSpec = chargeSpec

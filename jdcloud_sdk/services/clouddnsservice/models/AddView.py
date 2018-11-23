@@ -19,12 +19,12 @@
 
 class AddView(object):
 
-    def __init__(self, domainId=None, domainName=None, viewName=None, ipRanges=None):
+    def __init__(self, domainId, domainName, viewName, ipRanges, ):
         """
-        :param domainId: (Optional) 域名ID
-        :param domainName: (Optional) 主域名
-        :param viewName: (Optional) 自定义线路名称, 最多64个字符
-        :param ipRanges: (Optional) 用户输入的此线路的ip段。<br>
+        :param domainId:  域名ID
+        :param domainName:  主域名
+        :param viewName:  自定义线路名称, 最多64个字符
+        :param ipRanges:  用户输入的此线路的ip段。<br>
 ip段支持1.2.3.4-5.6.7.8和1.2.3.4/16两种格式。
 
         """

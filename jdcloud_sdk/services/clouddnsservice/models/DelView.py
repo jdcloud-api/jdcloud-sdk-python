@@ -19,12 +19,12 @@
 
 class DelView(object):
 
-    def __init__(self, domainId=None, domainName=None, viewName=None, viewId=None):
+    def __init__(self, domainId, domainName, viewName, viewId, ):
         """
-        :param domainId: (Optional) 域名ID
-        :param domainName: (Optional) 主域名
-        :param viewName: (Optional) 自定义线路名称, 最多64个字符
-        :param viewId: (Optional) 自定义线路ID
+        :param domainId:  域名ID
+        :param domainName:  主域名
+        :param viewName:  自定义线路名称, 最多64个字符
+        :param viewId:  自定义线路ID
         """
 
         self.domainId = domainId

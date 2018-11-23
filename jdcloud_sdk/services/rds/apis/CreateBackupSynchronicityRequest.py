@@ -19,23 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetAppsRequest(JDCloudRequest):
+class CreateBackupSynchronicityRequest(JDCloudRequest):
     """
-    获取账户下所有应用
+    创建一个跨地域备份同步服务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetAppsRequest, self).__init__(
-            '/regions/{regionId}/apps', 'GET', header, version)
+        super(CreateBackupSynchronicityRequest, self).__init__(
+            '/regions/{regionId}/backupSynchronicities', 'POST', header, version)
         self.parameters = parameters
 
 
-class GetAppsParameters(object):
+class CreateBackupSynchronicityParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, instanceId, destRegion):
         """
-        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: 源实例ID
+        :param destRegion: 备份同步的目标地域
         """
 
         self.regionId = regionId
+        self.instanceId = instanceId
+        self.destRegion = destRegion
 

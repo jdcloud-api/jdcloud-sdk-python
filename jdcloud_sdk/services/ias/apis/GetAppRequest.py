@@ -34,8 +34,8 @@ class GetAppParameters(object):
 
     def __init__(self, regionId, clientId, ):
         """
-        :param regionId: 
-        :param clientId: 
+        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param clientId: 应用ID，应用创建时由京东云分配的16位数字ID
         """
 
         self.regionId = regionId

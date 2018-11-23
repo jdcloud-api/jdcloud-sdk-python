@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetPackageIdRequest(JDCloudRequest):
     """
-    根据设备ID查询人群包ID
+    根据设备ID获取是否有匹配的人群包
     """
 
     def __init__(self, parameters, header=None, version="v1"):

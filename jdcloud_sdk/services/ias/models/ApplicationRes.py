@@ -21,29 +21,29 @@ class ApplicationRes(object):
 
     def __init__(self, clientId, clientName, tokenEndpointAuthMethod, grantTypes, responseTypes, redirectUris, clientUri, logoUri, tosUri, policyUri, scope, jwksUri, jwks, contacts, extension, accessTokenValiditySeconds, refreshTokenValiditySeconds, multiTenant, secretUpdateTime, updateTime, createTime, account, userType, ):
         """
-        :param clientId:  应用
+        :param clientId:  应用ID，由京东云分配的16位数字ID
         :param clientName:  应用名
-        :param tokenEndpointAuthMethod:  tokenEndpointAuthMethod
-        :param grantTypes:  grantTypes
-        :param responseTypes:  responseTypes
-        :param redirectUris:  redirectUris
-        :param clientUri:  clientUri
-        :param logoUri:  logoUri
-        :param tosUri:  tosUri
-        :param policyUri:  policyUri
-        :param scope:  scope
-        :param jwksUri:  jwksUri
-        :param jwks:  jwks
-        :param contacts:  contacts
-        :param extension:  extension
-        :param accessTokenValiditySeconds:  accessTokenValiditySeconds
-        :param refreshTokenValiditySeconds:  refreshTokenValiditySeconds
-        :param multiTenant:  multiTenant
-        :param secretUpdateTime:  secretUpdateTime
-        :param updateTime:  updateTime
-        :param createTime:  createTime
-        :param account:  account
-        :param userType:  userType
+        :param tokenEndpointAuthMethod:  客户端认证方式
+        :param grantTypes:  支持的OAuth类型
+        :param responseTypes:  当grantTypes为authorization_code时，responseTypes为code；当grantTypes为implicit时，responseTypes为token
+        :param redirectUris:  回调地址
+        :param clientUri:  应用介绍地址
+        :param logoUri:  应用logo地址
+        :param tosUri:  应用服务协议地址
+        :param policyUri:  应用隐私条款地址
+        :param scope:  OAuth scope授权范围
+        :param jwksUri:  JWKS地址
+        :param jwks:  JWKS
+        :param contacts:  应用联系信息
+        :param extension:  应用扩展信息
+        :param accessTokenValiditySeconds:  访问令牌有效期
+        :param refreshTokenValiditySeconds:  刷新令牌有效期
+        :param multiTenant:  是否为多租户应用
+        :param secretUpdateTime:  应用密码更新时间
+        :param updateTime:  应用更新时间
+        :param createTime:  应用创建时间
+        :param account:  创建应用的账户用户名
+        :param userType:  允许登录应用的账号类型
         """
 
         self.clientId = clientId

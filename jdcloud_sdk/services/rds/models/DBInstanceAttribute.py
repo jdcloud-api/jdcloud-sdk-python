@@ -19,7 +19,7 @@
 
 class DBInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, primaryNode=None, secondaryNode=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -42,6 +42,8 @@ class DBInstanceAttribute(object):
         :param instanceStatus: (Optional) 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param createTime: (Optional) 实例创建时间
         :param charge: (Optional) 计费配置
+        :param primaryNode: (Optional) 高可用集群中主节点的信息<br>- 仅支持SQL Server
+        :param secondaryNode: (Optional) 高可用集群中从节点的信息<br>- 仅支持SQL Server
         """
 
         self.instanceId = instanceId
@@ -65,3 +67,5 @@ class DBInstanceAttribute(object):
         self.instanceStatus = instanceStatus
         self.createTime = createTime
         self.charge = charge
+        self.primaryNode = primaryNode
+        self.secondaryNode = secondaryNode

@@ -19,23 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetAppsRequest(JDCloudRequest):
+class GetResultRequest(JDCloudRequest):
     """
-    获取账户下所有应用
+    多级筛选结果查询接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetAppsRequest, self).__init__(
-            '/regions/{regionId}/apps', 'GET', header, version)
+        super(GetResultRequest, self).__init__(
+            '/v1/regions/{regionId}/profileMultiLevel/getResult', 'GET', header, version)
         self.parameters = parameters
 
 
-class GetAppsParameters(object):
+class GetResultParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, profileSelectRecordId):
         """
-        :param regionId: 地域编码，参考OpenAPI公共说明
+        :param regionId: 地域ID
+        :param profileSelectRecordId: 多级筛选任务ID
         """
 
         self.regionId = regionId
+        self.profileSelectRecordId = profileSelectRecordId
 

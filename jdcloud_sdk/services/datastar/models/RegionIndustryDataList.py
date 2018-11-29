@@ -21,7 +21,7 @@ class RegionIndustryDataList(object):
 
     def __init__(self, dataList=None):
         """
-        :param dataList: (Optional) 区域
+        :param dataList: (Optional) 查询结果的数组类型
         """
 
         self.dataList = dataList

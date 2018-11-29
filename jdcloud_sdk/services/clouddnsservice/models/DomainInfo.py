@@ -23,8 +23,8 @@ class DomainInfo(object):
         """
         :param id: (Optional) 域名的唯一ID
         :param domainName: (Optional) 域名字符串
-        :param createTime: (Optional) 创建时间，格式Unix timestamp
-        :param expirationDate: (Optional) 过期时间，格式Unix timestamp
+        :param createTime: (Optional) 创建时间，格式Unix timestamp，时间单位：毫秒
+        :param expirationDate: (Optional) 过期时间，格式Unix timestamp，时间单位：毫秒
         :param packId: (Optional) 套餐类型，0->免费 1->企业版 2->企业高级版
         :param packName: (Optional) 套餐的名字
         :param resolvingStatus: (Optional) 解析的状态

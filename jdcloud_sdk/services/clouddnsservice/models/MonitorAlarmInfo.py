@@ -19,13 +19,14 @@
 
 class MonitorAlarmInfo(object):
 
-    def __init__(self, domainId=None, subDomainName=None, host=None, id=None, startTime=None):
+    def __init__(self, domainId=None, subDomainName=None, host=None, id=None, startTime=None, endTime=None):
         """
         :param domainId: (Optional) 域名ID
         :param subDomainName: (Optional) 子域名
         :param host: (Optional) 故障IP/域名
         :param id: (Optional) null
-        :param startTime: (Optional) 故障开始时间
+        :param startTime: (Optional) 故障开始时间，格式Unix timestamp，时间单位：毫秒
+        :param endTime: (Optional) 故障结束时间，格式Unix timestamp，时间单位：毫秒
         """
 
         self.domainId = domainId
@@ -33,3 +34,4 @@ class MonitorAlarmInfo(object):
         self.host = host
         self.id = id
         self.startTime = startTime
+        self.endTime = endTime

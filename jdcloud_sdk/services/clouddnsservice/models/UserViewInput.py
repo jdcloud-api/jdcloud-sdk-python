@@ -27,9 +27,9 @@ class UserViewInput(object):
         :param ipRanges: (Optional) 用户输入的IP段
         :param isDelete: (Optional) 是否删除，0:没有删除，1:已删除
         :param creator: (Optional) 创建者
-        :param createTime: (Optional) 创建时间
+        :param createTime: (Optional) 创建时间，格式Unix timestamp，时间单位：秒
         :param updator: (Optional) 更新者
-        :param updateTime: (Optional) 更新时间
+        :param updateTime: (Optional) 更新时间，格式Unix timestamp，时间单位：秒
         """
 
         self.viewId = viewId

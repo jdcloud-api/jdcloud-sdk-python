@@ -26,7 +26,7 @@ class DescribeAlarmContactsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeAlarmContactsRequest, self).__init__(
-            '/regions/:regionId/alarms/:alarmId/contacts', 'GET', header, version)
+            '/regions/{regionId}/alarms/{alarmId}/contacts', 'GET', header, version)
         self.parameters = parameters
 
 

@@ -36,7 +36,7 @@ class AssociateNetworkAclParameters(object):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID
-        :param subnetIds: 修改networkAcl属性
+        :param subnetIds: networkAcl要绑定的子网ID列表, subnet已被其他networkAcl绑定时，自动解绑
         """
 
         self.regionId = regionId

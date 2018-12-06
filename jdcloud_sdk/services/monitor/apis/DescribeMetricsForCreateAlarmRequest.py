@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeMetricsForCreateAlarmRequest(JDCloudRequest):
     """
-    查询可用创建监控规则的指标列表
+    查询可用创建监控规则的指标列表,metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
     def __init__(self, parameters, header=None, version="v1"):

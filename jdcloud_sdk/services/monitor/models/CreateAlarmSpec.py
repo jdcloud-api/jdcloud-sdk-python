@@ -19,25 +19,11 @@
 
 class CreateAlarmSpec(object):
 
-    def __init__(self, metric, resourceIds, serviceCode, threshold, times, contactGroups=None, contactPersons=None, downSample=None, noticePeriod=None):
+    def __init__(self, clientToken, createAlarmSpec, ):
         """
-        :param contactGroups: (Optional) 报警规则通知的联系组，必须在控制台上已创建，例如" ['联系组1','联系组2']"
-        :param contactPersons: (Optional) 报警规则通知的联系人，必须在控制台上已创建，例如 [“联系人1”,”联系人2”]
-        :param downSample: (Optional) 取样频次
-        :param metric:  根据产品线查询可用监控项列表 接口 返回的Metric字段
-        :param noticePeriod: (Optional) 通知周期 单位：小时
-        :param resourceIds:  报警规则对应实例列表，每次最多100个，例如"['resourceId1','resourceId2']"
-        :param serviceCode:  产品名称
-        :param threshold:  查询指标的周期，单位为分钟,目前支持的取值：2，5，15，30，60
-        :param times:  连续探测几次都满足阈值条件时报警，可选值:1,2,3,5
+        :param clientToken:  幂等性校验参数,最长36位
+        :param createAlarmSpec:  
         """
 
-        self.contactGroups = contactGroups
-        self.contactPersons = contactPersons
-        self.downSample = downSample
-        self.metric = metric
-        self.noticePeriod = noticePeriod
-        self.resourceIds = resourceIds
-        self.serviceCode = serviceCode
-        self.threshold = threshold
-        self.times = times
+        self.clientToken = clientToken
+        self.createAlarmSpec = createAlarmSpec

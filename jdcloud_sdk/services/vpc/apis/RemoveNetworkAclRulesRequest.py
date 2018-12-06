@@ -36,7 +36,7 @@ class RemoveNetworkAclRulesParameters(object):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID
-        :param ruleIds: 修改networkAcl属性
+        :param ruleIds: networkAcl规则ID列表
         """
 
         self.regionId = regionId

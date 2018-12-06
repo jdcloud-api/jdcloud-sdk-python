@@ -26,7 +26,7 @@ class BatchEnableAlarmsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(BatchEnableAlarmsRequest, self).__init__(
-            '/regions/{regionId}/alarms:enable', 'POST', header, version)
+            '/regions/{regionId}/alarms/enable', 'POST', header, version)
         self.parameters = parameters
 
 

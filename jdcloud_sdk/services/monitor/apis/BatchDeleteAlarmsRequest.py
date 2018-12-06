@@ -32,12 +32,12 @@ class BatchDeleteAlarmsRequest(JDCloudRequest):
 
 class BatchDeleteAlarmsParameters(object):
 
-    def __init__(self, regionId, filter):
+    def __init__(self, regionId, filters):
         """
         :param regionId: 地域 Id
-        :param filter: filter name为'ids'为要删除的告警id
+        :param filters: filter name为'ids'为要删除的告警id
         """
 
         self.regionId = regionId
-        self.filter = filter
+        self.filters = filters
 

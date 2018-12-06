@@ -26,7 +26,7 @@ class DisableAlarmRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DisableAlarmRequest, self).__init__(
-            '/regions/{regionId}/alarms/{alarmId}:disable', 'POST', header, version)
+            '/regions/{regionId}/alarms/{alarmId}/disable', 'POST', header, version)
         self.parameters = parameters
 
 
@@ -34,8 +34,8 @@ class DisableAlarmParameters(object):
 
     def __init__(self, regionId, alarmId, ):
         """
-        :param regionId: 地域 Id
-        :param alarmId: 规则id
+        :param regionId: region
+        :param alarmId: 规则 id
         """
 
         self.regionId = regionId

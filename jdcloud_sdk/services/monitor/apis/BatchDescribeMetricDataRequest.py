@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class BatchDescribeMetricDataRequest(JDCloudRequest):
     """
-    查看某资源多个监控项数据
+    查看某资源多个监控项数据，metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,12 +42,20 @@ class BatchDescribeMetricDataParameters(object):
         self.regionId = regionId
         self.serviceCode = serviceCode
         self.resourceId = resourceId
+        self.aggrType = None
         self.startTime = None
         self.endTime = None
         self.timeInterval = None
         self.tags = None
         self.groupBy = None
+        self.multiResources = None
         self.filters = None
+
+    def setAggrType(self, aggrType):
+        """
+        :param aggrType: (Optional) 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+        """
+        self.aggrType = aggrType
 
     def setStartTime(self, startTime):
         """
@@ -79,9 +87,15 @@ class BatchDescribeMetricDataParameters(object):
         """
         self.groupBy = groupBy
 
+    def setMultiResources(self, multiResources):
+        """
+        :param multiResources: (Optional) 是否跨资源查询，默认为false。当该字段为false时，取resourceId字段进行查询；当该子弹为true时，忽略resourceId字段，从tags中取resourceId作为实际的多资源id处理。
+        """
+        self.multiResources = multiResources
+
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 自定义标签
+        :param filters: (Optional) 自定义过滤标签，查询时必须在filters中指定要查询的metric，支持多个metric。如：  name='metric',values=["metric1","metric2"]
         """
         self.filters = filters
 

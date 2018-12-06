@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class LastDownsampleRequest(JDCloudRequest):
     """
-    查看某资源的最后一个点
+    查看某资源的最后一个点,metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -37,7 +37,7 @@ class LastDownsampleParameters(object):
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
         :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
-        :param resourceId: 资源的uuid
+        :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用|分隔。 如：id1|id2|id3|id4
         """
 
         self.regionId = regionId
@@ -49,6 +49,7 @@ class LastDownsampleParameters(object):
         self.endTime = None
         self.timeInterval = None
         self.aggrType = None
+        self.downAggrType = None
 
     def setTags(self, tags):
         """
@@ -70,13 +71,19 @@ class LastDownsampleParameters(object):
 
     def setTimeInterval(self, timeInterval):
         """
-        :param timeInterval: (Optional) 查询的时间间隔，仅支持分钟级别，例如：1m
+        :param timeInterval: (Optional) 查询的时间间隔，最大不超过30天，支持分钟级别,小时级别，天级别，例如：1m、1h、1d
         """
         self.timeInterval = timeInterval
 
     def setAggrType(self, aggrType):
         """
-        :param aggrType: (Optional) 聚合方式：max avg min等
+        :param aggrType: (Optional) 聚合方式：max avg min等,用于不同维度之间聚合
         """
         self.aggrType = aggrType
+
+    def setDownAggrType(self, downAggrType):
+        """
+        :param downAggrType: (Optional) 聚合方式：max avg min等,用于将维度内一个周期数据聚合为一个点的聚合方式
+        """
+        self.downAggrType = downAggrType
 

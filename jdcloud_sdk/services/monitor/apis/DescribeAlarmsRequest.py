@@ -80,7 +80,7 @@ class DescribeAlarmsParameters(object):
 
     def setRuleType(self, ruleType):
         """
-        :param ruleType: (Optional) 规则类型, 1表示资源监控，6表示站点监控
+        :param ruleType: (Optional) 规则类型, 1表示资源监控，6表示站点监控,7表示可用性监控
         """
         self.ruleType = ruleType
 

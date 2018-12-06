@@ -19,11 +19,12 @@
 
 class BatchCreateAlarmsSpec(object):
 
-    def __init__(self, clientToken, resourceIds, rules, serviceCode, contacts=None, datacenter=None, ruleType=None, saveTemplate=None, templateName=None, templateServiceCode=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
+    def __init__(self, clientToken, resourceIds, rules, serviceCode, contacts=None, datacenter=None, enabled=None, ruleType=None, saveTemplate=None, templateName=None, templateServiceCode=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
         """
         :param clientToken:  幂等性校验参数，最长36位
         :param contacts: (Optional) 通知的联系人
         :param datacenter: (Optional) 地域
+        :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
         :param resourceIds:  报警规则对应实例列表，每次最多100个，例如"['resourceId1','resourceId2']"
         :param ruleType: (Optional) 规则类型, 1表示资源监控，6表示站点监控，默认为1
         :param rules:  要批量创建的规则列表
@@ -40,6 +41,7 @@ class BatchCreateAlarmsSpec(object):
         self.clientToken = clientToken
         self.contacts = contacts
         self.datacenter = datacenter
+        self.enabled = enabled
         self.resourceIds = resourceIds
         self.ruleType = ruleType
         self.rules = rules

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeMetricDataRequest(JDCloudRequest):
     """
-    查看某资源的监控数据，metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
+    查看某资源多个监控项数据，metric介绍1：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -44,11 +44,18 @@ class DescribeMetricDataParameters(object):
         self.metric = metric
         self.serviceCode = serviceCode
         self.resourceId = resourceId
+        self.aggrType = None
         self.startTime = None
         self.endTime = None
         self.timeInterval = None
         self.tags = None
         self.groupBy = None
+
+    def setAggrType(self, aggrType):
+        """
+        :param aggrType: (Optional) 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+        """
+        self.aggrType = aggrType
 
     def setStartTime(self, startTime):
         """

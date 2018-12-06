@@ -45,6 +45,7 @@ class BatchCreateAlarmsParameters(object):
         self.clientToken = clientToken
         self.contacts = None
         self.datacenter = None
+        self.enabled = None
         self.resourceIds = resourceIds
         self.ruleType = None
         self.rules = rules
@@ -68,6 +69,12 @@ class BatchCreateAlarmsParameters(object):
         :param datacenter: (Optional) 地域
         """
         self.datacenter = datacenter
+
+    def setEnabled(self, enabled):
+        """
+        :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
+        """
+        self.enabled = enabled
 
     def setRuleType(self, ruleType):
         """

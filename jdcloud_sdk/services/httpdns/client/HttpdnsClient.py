@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class MonitorClient(JDCloudClient):
+class HttpdnsClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('monitor.jdcloud-api.com')
+            config = Config('httpdns.jdcloud-api.com')
 
-        super(MonitorClient, self).__init__(credential, config, 'monitor', '1.2.5', logger)
+        super(HttpdnsClient, self).__init__(credential, config, 'httpdns', '1.0.0', logger)

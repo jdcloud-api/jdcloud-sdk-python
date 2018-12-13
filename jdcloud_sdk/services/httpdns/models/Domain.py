@@ -19,19 +19,19 @@
 
 class Domain(object):
 
-    def __init__(self, id=None, domainName=None, createTime=None, expirationDate=None, packId=None, lockStatus=None):
+    def __init__(self, id=None, accountId=None, domainName=None, createTime=None, queryCount=None, isDelete=None):
         """
-        :param id: (Optional) 域名的唯一ID
-        :param domainName: (Optional) 域名字符串
-        :param createTime: (Optional) 创建时间，格式Unix timestamp，时间单位：毫秒
-        :param expirationDate: (Optional) 过期时间，格式Unix timestamp，时间单位：毫秒
-        :param packId: (Optional) 套餐类型，0->免费 1->企业版 2->企业高级版
-        :param lockStatus: (Optional) 域名的锁定状态，0:未锁定， 1:已锁定
+        :param id: (Optional) 索引ID
+        :param accountId: (Optional) 账户ID
+        :param domainName: (Optional) 服务的域名
+        :param createTime: (Optional) 域名创建时间
+        :param queryCount: (Optional) 从本月1号开始到现在的httpdns总查询次数
+        :param isDelete: (Optional) 是否删除
         """
 
         self.id = id
+        self.accountId = accountId
         self.domainName = domainName
         self.createTime = createTime
-        self.expirationDate = expirationDate
-        self.packId = packId
-        self.lockStatus = lockStatus
+        self.queryCount = queryCount
+        self.isDelete = isDelete

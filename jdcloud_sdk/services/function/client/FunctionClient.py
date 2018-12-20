@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class DatastarClient(JDCloudClient):
+class FunctionClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('datastar.jdcloud-api.com')
+            config = Config('function.jdcloud-api.com')
 
-        super(DatastarClient, self).__init__(credential, config, 'datastar', '1.0.6', logger)
+        super(FunctionClient, self).__init__(credential, config, 'function', '1.0.0', logger)

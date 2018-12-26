@@ -28,7 +28,6 @@ from jdcloud_sdk.services.rds.apis.DeleteAccountRequest import *
 from jdcloud_sdk.services.rds.apis.GrantPrivilegeRequest import *
 from jdcloud_sdk.services.rds.models.AccountPrivilege import *
 from jdcloud_sdk.services.rds.apis.ResetPasswordRequest import *
-from jdcloud_sdk.services.rds.apis.RestoreSingleDatabaseRequest import *
 from jdcloud_sdk.services.rds.apis.CreateBackupRequest import *
 from jdcloud_sdk.services.rds.models.BackupSpec import *
 
@@ -76,23 +75,19 @@ class RdsTest(unittest.TestCase):
         # self.assertTrue(resp.error is not None)
         # self.assertEqual(400, resp.error.code)
 
-    #单库备份恢复
-    def testRestoreSingleDatabaseRequest(self):
-        parameters = RestoreSingleDatabaseParameters(regionId="cn-north-1", instanceId="sqlserver-tw2hff8xqf", dbName="newtestforpython2",backupId="sqlserver-9bbd056c-2d8a-4b76-aae9-a812d3c623c0",backupFileName="newtestforpython2.bak")
-        request = RestoreSingleDatabaseRequest(parameters)
-        resp = self.client.send(request)
-
     #创建数据库备份
     def testCreateBackupRequest(self):
         dbNames=["newtestforpython2"]
         backup_spec = BackupSpec(backupName="testBackup",dbNames=dbNames)
-        parameters = CreateBackupParameters(regionId="cn-north-1", instanceId="sqlserver-tw2hff8xqf",backupSpec=backup_spec)
+        parameters = CreateBackupParameters(regionId="cn-north-1")
+        parameters.setInstanceId("sqlserver-tw2hff8xqf")
+        parameters.setBackupSpec(backup_spec)
         request = CreateBackupRequest(parameters)
         resp = self.client.send(request)
 
     #获取备份列表信息
     def testDescribeBackupsRequest(self):
-        parameters = DescribeBackupsParameters('cn-north-1', "sqlserver-tw2hff8xqf", None, 1, 20)
+        parameters = DescribeBackupsParameters('cn-north-1', "sqlserver-tw2hff8xqf", 1, 20)
         request = DescribeBackupsRequest(parameters)
 
         resp = self.client.send(request)
@@ -100,7 +95,8 @@ class RdsTest(unittest.TestCase):
 
     #获取备份下载链接
     def testDescribeBackupDoenloadURLRequest(self):
-        parameters = DescribeBackupDownloadURLParameters('cn-north-1', "sqlserver-9bbd056c-2d8a-4b76-aae9-a812d3c623c0", "newtestforpython2.bak")
+        parameters = DescribeBackupDownloadURLParameters('cn-north-1', "sqlserver-9bbd056c-2d8a-4b76-aae9-a812d3c623c0")
+        parameters.setFileName("newtestforpython2.bak")
         request = DescribeBackupDownloadURLRequest(parameters)
         resp = self.client.send(request)
         self.assertTrue(resp.error is None)

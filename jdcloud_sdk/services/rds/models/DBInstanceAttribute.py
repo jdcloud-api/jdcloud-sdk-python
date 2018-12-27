@@ -19,7 +19,7 @@
 
 class DBInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, primaryNode=None, secondaryNode=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, primaryNode=None, secondaryNode=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -44,6 +44,7 @@ class DBInstanceAttribute(object):
         :param charge: (Optional) 计费配置
         :param primaryNode: (Optional) 高可用集群中主节点的信息<br>- 仅支持SQL Server
         :param secondaryNode: (Optional) 高可用集群中从节点的信息<br>- 仅支持SQL Server
+        :param tags: (Optional) 标签信息
         """
 
         self.instanceId = instanceId
@@ -69,3 +70,4 @@ class DBInstanceAttribute(object):
         self.charge = charge
         self.primaryNode = primaryNode
         self.secondaryNode = secondaryNode
+        self.tags = tags

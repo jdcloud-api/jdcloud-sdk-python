@@ -19,7 +19,7 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryGB=None, azId=None, vpcId=None, subnetId=None, replicaSetName=None, instanceDomain=None, dBName=None, accountName=None, instancePort=None, instanceStatus=None, backupRetentionPeriod=None, createTime=None, preferredBackupWindow=None, preferredmaintenanceWindow=None, charge=None, isSetSecurityIps=None):
+    def __init__(self, instanceId=None, instanceName=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryGB=None, azId=None, vpcId=None, subnetId=None, replicaSetName=None, instanceDomain=None, dBName=None, accountName=None, instancePort=None, instanceStatus=None, backupRetentionPeriod=None, createTime=None, preferredBackupWindow=None, preferredmaintenanceWindow=None, charge=None, isSetSecurityIps=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -44,6 +44,7 @@ class DBInstance(object):
         :param preferredmaintenanceWindow: (Optional) 系统维护时间，如：00:00-02:00，表示0点到2点进行系统维护
         :param charge: (Optional) 计费信息
         :param isSetSecurityIps: (Optional) 是否设置白名单，true：已设置，false：未设置
+        :param tags: (Optional) 标签
         """
 
         self.instanceId = instanceId
@@ -69,3 +70,4 @@ class DBInstance(object):
         self.preferredmaintenanceWindow = preferredmaintenanceWindow
         self.charge = charge
         self.isSetSecurityIps = isSetSecurityIps
+        self.tags = tags

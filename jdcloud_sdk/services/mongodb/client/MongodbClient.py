@@ -26,4 +26,4 @@ class MongodbClient(JDCloudClient):
         if config is None:
             config = Config('mongodb.jdcloud-api.com')
 
-        super(MongodbClient, self).__init__(credential, config, 'mongodb', '1.0.2', logger)
+        super(MongodbClient, self).__init__(credential, config, 'mongodb', '1.0.5', logger)

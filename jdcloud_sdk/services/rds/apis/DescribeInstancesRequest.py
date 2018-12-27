@@ -40,6 +40,8 @@ class DescribeInstancesParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
+        self.tagFilters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -52,4 +54,24 @@ class DescribeInstancesParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
+支持以下属性的过滤：
+instanceId, 支持operator选项：eq
+instanceName, 支持operator选项：eq
+engine, 支持operator选项：eq
+engineVersion, 支持operator选项：eq
+instanceStatus, 支持operator选项：eq
+chargeMode, 支持operator选项：eq
+
+        """
+        self.filters = filters
+
+    def setTagFilters(self, tagFilters):
+        """
+        :param tagFilters: (Optional) 资源标签
+        """
+        self.tagFilters = tagFilters
 

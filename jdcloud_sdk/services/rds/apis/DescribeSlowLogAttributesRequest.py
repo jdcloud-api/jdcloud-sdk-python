@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeSlowLogAttributesRequest(JDCloudRequest):
     """
-    查询MySQL实例的慢日志的详细信息。<br>- 仅支持SQL Server
+    查询MySQL实例的慢日志的详细信息。<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -41,6 +41,7 @@ class DescribeInstancesParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tagFilters = None
         self.sorts = None
 
     def setPageNumber(self, pageNumber):
@@ -64,6 +65,12 @@ chargeMode - 计费类型，精确匹配
 
         """
         self.filters = filters
+
+    def setTagFilters(self, tagFilters):
+        """
+        :param tagFilters: (Optional) Tag筛选条件
+        """
+        self.tagFilters = tagFilters
 
     def setSorts(self, sorts):
         """

@@ -37,7 +37,7 @@ class RestoreDatabaseFromOSSParameters(object):
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param dbName: 库名称
-        :param ossURL: 用户上传到对象存储OSS上的备份文件的内链
+        :param ossURL: 用户上传到对象存储OSS上的备份文件的路径。<br>例如用户备份上传的bucket为db_backup，文件为test_server/db1.bak，那么ossULR为db_backup/test_server/db1.bak。<br>**授权说明**：需要授予账户ID：785455908940，对这个bucket的读取权限，具体步骤可以查看[文档](https://docs.jdcloud.com/cn/object-storage-service/set-bucket-policy-2)。
         """
 
         self.regionId = regionId

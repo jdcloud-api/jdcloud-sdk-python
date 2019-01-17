@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ExtendDiskRequest(JDCloudRequest):
     """
-    扩容云硬盘到指定大小
+    -   扩容云硬盘到指定大小，云硬盘状态必须为 available。
+-   当云硬盘正在创建快照时，不允许扩容。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

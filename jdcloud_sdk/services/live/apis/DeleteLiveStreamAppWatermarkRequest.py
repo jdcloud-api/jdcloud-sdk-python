@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveStreamAppWatermarkRequest(JDCloudRequest):
     """
-    删除app水印配置
+    删除APP水印配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

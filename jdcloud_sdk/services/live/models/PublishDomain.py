@@ -19,14 +19,13 @@
 
 class PublishDomain(object):
 
-    def __init__(self, publishDomain=None, publishDomainCname=None, domainStatus=None, createTime=None, updateTime=None, regionId=None):
+    def __init__(self, publishDomain=None, publishDomainCname=None, domainStatus=None, createTime=None, updateTime=None):
         """
         :param publishDomain: (Optional) 推流域名
         :param publishDomainCname: (Optional) 推流域名(Cname)
         :param domainStatus: (Optional) 直播域名状态
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 更新时间
-        :param regionId: (Optional) 地域编码
         """
 
         self.publishDomain = publishDomain
@@ -34,4 +33,3 @@ class PublishDomain(object):
         self.domainStatus = domainStatus
         self.createTime = createTime
         self.updateTime = updateTime
-        self.regionId = regionId

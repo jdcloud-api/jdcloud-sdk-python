@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLiveAppRequest(JDCloudRequest):
     """
-    查询域名下的app列表
+    查询域名下的APP列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,7 +42,7 @@ class DescribeLiveAppParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1
+        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
         """
         self.pageNum = pageNum
 

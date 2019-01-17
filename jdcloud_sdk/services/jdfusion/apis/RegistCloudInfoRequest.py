@@ -32,12 +32,12 @@ class RegistCloudInfoRequest(JDCloudRequest):
 
 class RegistCloudInfoParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, cloud):
         """
         :param regionId: 地域ID
-        :param body: 
+        :param cloud: 
         """
 
         self.regionId = regionId
-        self.body = body
+        self.cloud = cloud
 

@@ -32,12 +32,12 @@ class CreateVmKeypairRequest(JDCloudRequest):
 
 class CreateVmKeypairParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, keypair):
         """
         :param regionId: 地域ID
-        :param body: 创建keypair
+        :param keypair: 创建keypair
         """
 
         self.regionId = regionId
-        self.body = body
+        self.keypair = keypair
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteCustomLiveStreamRecordTemplateRequest(JDCloudRequest):
     """
-    删除录制模板
+    删除用户自定义录制模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -32,14 +32,14 @@ class DetachDiskToVmInstanceByDiskIdRequest(JDCloudRequest):
 
 class DetachDiskToVmInstanceByDiskIdParameters(object):
 
-    def __init__(self, regionId, id, body):
+    def __init__(self, regionId, id, detach):
         """
         :param regionId: 地域ID
         :param id: 云硬盘 ID
-        :param body: 从虚拟机卸载云硬盘
+        :param detach: 从虚拟机卸载云硬盘
         """
 
         self.regionId = regionId
         self.id = id
-        self.body = body
+        self.detach = detach
 

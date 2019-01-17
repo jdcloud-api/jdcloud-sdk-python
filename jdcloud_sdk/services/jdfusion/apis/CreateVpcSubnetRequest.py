@@ -32,12 +32,12 @@ class CreateVpcSubnetRequest(JDCloudRequest):
 
 class CreateVpcSubnetParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, subnet):
         """
         :param regionId: 地域ID
-        :param body: 创建subnet
+        :param subnet: 创建subnet
         """
 
         self.regionId = regionId
-        self.body = body
+        self.subnet = subnet
 

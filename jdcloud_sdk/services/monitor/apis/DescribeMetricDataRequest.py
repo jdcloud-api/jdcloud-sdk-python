@@ -32,7 +32,7 @@ class DescribeMetricDataRequest(JDCloudRequest):
 
 class DescribeMetricDataParameters(object):
 
-    def __init__(self, regionId, metric, serviceCode, resourceId, ):
+    def __init__(self, regionId, metric, serviceCode, resourceId):
         """
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
@@ -42,24 +42,32 @@ class DescribeMetricDataParameters(object):
 
         self.regionId = regionId
         self.metric = metric
-        self.serviceCode = serviceCode
-        self.resourceId = resourceId
         self.aggrType = None
+        self.downSampleType = None
         self.startTime = None
         self.endTime = None
         self.timeInterval = None
         self.tags = None
         self.groupBy = None
+        self.rate = None
+        self.serviceCode = serviceCode
+        self.resourceId = resourceId
 
     def setAggrType(self, aggrType):
         """
-        :param aggrType: (Optional) 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=zimsum#available-aggregators
         """
         self.aggrType = aggrType
 
+    def setDownSampleType(self, downSampleType):
+        """
+        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=avg#available-aggregators
+        """
+        self.downSampleType = downSampleType
+
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ
         """
         self.startTime = startTime
 
@@ -71,13 +79,13 @@ class DescribeMetricDataParameters(object):
 
     def setTimeInterval(self, timeInterval):
         """
-        :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
+        :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
         """
         self.timeInterval = timeInterval
 
     def setTags(self, tags):
         """
-        :param tags: (Optional) 自定义标签
+        :param tags: (Optional) 自定义标签/tag；至少要传一个tag，且tag.Values不为空
         """
         self.tags = tags
 
@@ -86,4 +94,10 @@ class DescribeMetricDataParameters(object):
         :param groupBy: (Optional) 是否对查询的tags分组
         """
         self.groupBy = groupBy
+
+    def setRate(self, rate):
+        """
+        :param rate: (Optional) 是否求速率
+        """
+        self.rate = rate
 

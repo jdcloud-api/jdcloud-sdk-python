@@ -19,14 +19,16 @@
 
 class AlarmVo(object):
 
-    def __init__(self, calculateUnit=None, calculation=None, contacts=None, createTime=None, deleted=None, id=None, metricId=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, ruleType=None, serviceCode=None, tag=None, tags=None, threshold=None, times=None, updateTime=None):
+    def __init__(self, calculateUnit=None, calculation=None, contacts=None, createTime=None, deleted=None, downSample=None, id=None, metric=None, metricId=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, ruleType=None, serviceCode=None, tag=None, tags=None, threshold=None, times=None, updateTime=None):
         """
         :param calculateUnit: (Optional) 监控项单位
         :param calculation: (Optional) 统计方法：平均值=avg、最大值=max、最小值=min
         :param contacts: (Optional) 联系人列表
         :param createTime: (Optional) 
         :param deleted: (Optional) 是否删除 1正常，0删除
+        :param downSample: (Optional) downSample
         :param id: (Optional) 规则ID
+        :param metric: (Optional) 监控项
         :param metricId: (Optional) 监控项ID
         :param metricName: (Optional) 监控项名称
         :param noticeLevel: (Optional) 
@@ -47,7 +49,9 @@ class AlarmVo(object):
         self.contacts = contacts
         self.createTime = createTime
         self.deleted = deleted
+        self.downSample = downSample
         self.id = id
+        self.metric = metric
         self.metricId = metricId
         self.metricName = metricName
         self.noticeLevel = noticeLevel

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StopLiveDomainRequest(JDCloudRequest):
     """
-    停止域名
+    停用域名
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class StopLiveDomainParameters(object):
 
     def __init__(self, publishDomain):
         """
-        :param publishDomain: 要启动的域名
+        :param publishDomain: 要停用的域名
         """
 
         self.publishDomain = publishDomain

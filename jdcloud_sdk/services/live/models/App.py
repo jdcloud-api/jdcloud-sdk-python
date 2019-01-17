@@ -19,11 +19,15 @@
 
 class App(object):
 
-    def __init__(self, publishDomain=None, transcodeConfig=None):
+    def __init__(self, appName=None, appStatus=None, createTime=None, updateTime=None):
         """
-        :param publishDomain: (Optional) 推流域名
-        :param transcodeConfig: (Optional) config
+        :param appName: (Optional) 应用名
+        :param appStatus: (Optional) 应用状态
+        :param createTime: (Optional) 创建时间
+        :param updateTime: (Optional) 更新时间
         """
 
-        self.publishDomain = publishDomain
-        self.transcodeConfig = transcodeConfig
+        self.appName = appName
+        self.appStatus = appStatus
+        self.createTime = createTime
+        self.updateTime = updateTime

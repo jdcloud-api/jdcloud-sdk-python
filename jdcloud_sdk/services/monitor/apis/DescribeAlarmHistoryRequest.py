@@ -23,11 +23,12 @@ class DescribeAlarmHistoryRequest(JDCloudRequest):
     """
     查询报警历史
 检索条件组合优先级从高到低为
-1. serviceCode
-1.1 serviceCode + resourceId
-1.2 serviceCode + resourceIds
-2. serviceCodes
-3. 用户所有规则
+1. alarmId
+2. serviceCode
+2.1 serviceCode + resourceId
+2.2 serviceCode + resourceIds
+3. serviceCodes
+4. 用户所有规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -48,10 +49,13 @@ class DescribeAlarmHistoryParameters(object):
         self.pageSize = None
         self.serviceCode = None
         self.resourceId = None
+        self.resourceIdList = None
         self.alarmId = None
         self.alarming = None
+        self.serviceCodeList = None
         self.startTime = None
         self.endTime = None
+        self.ruleType = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -78,6 +82,12 @@ class DescribeAlarmHistoryParameters(object):
         """
         self.resourceId = resourceId
 
+    def setResourceIdList(self, resourceIdList):
+        """
+        :param resourceIdList: (Optional) resourceId列表
+        """
+        self.resourceIdList = resourceIdList
+
     def setAlarmId(self, alarmId):
         """
         :param alarmId: (Optional) 规则Id
@@ -90,6 +100,12 @@ class DescribeAlarmHistoryParameters(object):
         """
         self.alarming = alarming
 
+    def setServiceCodeList(self, serviceCodeList):
+        """
+        :param serviceCodeList: (Optional) 产品线列表
+        """
+        self.serviceCodeList = serviceCodeList
+
     def setStartTime(self, startTime):
         """
         :param startTime: (Optional) 开始时间
@@ -101,6 +117,12 @@ class DescribeAlarmHistoryParameters(object):
         :param endTime: (Optional) 结束时间
         """
         self.endTime = endTime
+
+    def setRuleType(self, ruleType):
+        """
+        :param ruleType: (Optional) 规则类型,默认查询1， 1表示资源监控，6表示站点监控,7表示可用性监控
+        """
+        self.ruleType = ruleType
 
     def setFilters(self, filters):
         """

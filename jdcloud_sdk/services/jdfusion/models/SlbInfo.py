@@ -19,7 +19,7 @@
 
 class SlbInfo(object):
 
-    def __init__(self, cloudID=None, id=None, name=None, status=None, ipAddress=None, addressType=None, subnetId=None, vpc=None, networkType=None, masterAz=None, slaveAz=None, createdTime=None):
+    def __init__(self, cloudID=None, id=None, name=None, status=None, ipAddress=None, addressType=None, subnetId=None, vpc=None, networkType=None, azs=None, createdTime=None):
         """
         :param cloudID: (Optional) 所属云ID
         :param id: (Optional) 负载均衡实例ID。
@@ -30,8 +30,7 @@ class SlbInfo(object):
         :param subnetId: (Optional) 私网负载均衡实例的交换机ID。
         :param vpc: (Optional) 私网负载均衡实例的专有网络ID。
         :param networkType: (Optional) 私网负载均衡实例的网络类型
-        :param masterAz: (Optional) 实例的主可用区ID。
-        :param slaveAz: (Optional) 实例的备可用区ID。
+        :param azs: (Optional) 可用区域。
         :param createdTime: (Optional) 创建时间
         """
 
@@ -44,6 +43,5 @@ class SlbInfo(object):
         self.subnetId = subnetId
         self.vpc = vpc
         self.networkType = networkType
-        self.masterAz = masterAz
-        self.slaveAz = slaveAz
+        self.azs = azs
         self.createdTime = createdTime

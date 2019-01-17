@@ -37,3 +37,5 @@ HEADER_REQUESTID = 'x-jdcloud-request-id'
 HEADER_CONTENT_LEN = 'Content-Length'
 HEADER_JCLOUD_PREFIX = 'x-jcloud'
 HEADER_JDCLOUD_PREFIX = 'x-jdcloud'
+HEADER_ERROR = ('x-jcloud-pin', 'x-jcloud-erp', 'x-jcloud-security-token')
+HEADER_BASE64 = ('x-jdcloud-pin', 'x-jdcloud-erp', 'x-jdcloud-security-token')

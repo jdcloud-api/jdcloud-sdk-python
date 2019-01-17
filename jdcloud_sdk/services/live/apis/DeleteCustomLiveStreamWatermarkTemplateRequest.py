@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteCustomLiveStreamWatermarkTemplateRequest(JDCloudRequest):
     """
-    删除直播水印模板
+    删除用户自定义水印模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):

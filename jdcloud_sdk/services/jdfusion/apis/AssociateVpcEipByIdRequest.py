@@ -32,14 +32,14 @@ class AssociateVpcEipByIdRequest(JDCloudRequest):
 
 class AssociateVpcEipByIdParameters(object):
 
-    def __init__(self, regionId, id, body):
+    def __init__(self, regionId, id, associate):
         """
         :param regionId: 地域ID
         :param id: 公网IP ID
-        :param body: 弹性公网IP绑定到虚拟机
+        :param associate: 弹性公网IP绑定到虚拟机
         """
 
         self.regionId = regionId
         self.id = id
-        self.body = body
+        self.associate = associate
 

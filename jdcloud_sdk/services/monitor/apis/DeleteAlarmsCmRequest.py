@@ -26,7 +26,7 @@ class DeleteAlarmsCmRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DeleteAlarmsCmRequest, self).__init__(
-            '/regions/{regionId}/cm/alarms', 'DELETE', header, version)
+            '/regions/{regionId}/cmAlarms', 'DELETE', header, version)
         self.parameters = parameters
 
 

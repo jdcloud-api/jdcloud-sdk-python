@@ -32,12 +32,12 @@ class CreateVpcRequest(JDCloudRequest):
 
 class CreateVpcParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, vpc):
         """
         :param regionId: 地域ID
-        :param body: 创建VPC
+        :param vpc: 创建VPC
         """
 
         self.regionId = regionId
-        self.body = body
+        self.vpc = vpc
 

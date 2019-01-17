@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDisksRequest(JDCloudRequest):
     """
-    查询云硬盘列表
+    -   查询您已经创建的云硬盘。
+-   filters多个过滤条件之间是逻辑与(AND)，每个条件内部的多个取值是逻辑或(OR)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -64,12 +66,14 @@ class DescribeDisksParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) diskId - 云硬盘ID，精确匹配，支持多个
-diskType - 云硬盘类型，精确匹配，支持多个，取值为 ssd 或 premium-hdd
+diskType - 云硬盘类型，精确匹配，支持多个，取值为 ssd,premium-hdd,ssd.io1,ssd.gp1,hdd.std1
 instanceId - 云硬盘所挂载主机的ID，精确匹配，支持多个
 instanceType - 云硬盘所挂载主机的类型，精确匹配，支持多个
 status - 可用区，精确匹配，支持多个
 az - 云硬盘状态，精确匹配，支持多个
 name - 云硬盘名称，模糊匹配，支持单个
+multiAttach - 云硬盘是否多点挂载，精确匹配，支持单个
+encrypted - 云硬盘是否加密，精确匹配，支持单个
 
         """
         self.filters = filters

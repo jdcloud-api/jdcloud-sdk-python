@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamAppTranscodeRequest(JDCloudRequest):
     """
-    添加app转码配置
+    添加APP转码配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

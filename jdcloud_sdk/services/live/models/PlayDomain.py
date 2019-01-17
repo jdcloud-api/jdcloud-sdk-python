@@ -19,14 +19,13 @@
 
 class PlayDomain(object):
 
-    def __init__(self, playDomain=None, playDomainCname=None, domainStatus=None, createTime=None, updateTime=None, regionId=None):
+    def __init__(self, playDomain=None, playDomainCname=None, domainStatus=None, createTime=None, updateTime=None):
         """
         :param playDomain: (Optional) 播放域名
         :param playDomainCname: (Optional) 播放域名(Cname)
         :param domainStatus: (Optional) 直播域名状态
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 更新时间
-        :param regionId: (Optional) 地域编码
         """
 
         self.playDomain = playDomain
@@ -34,4 +33,3 @@ class PlayDomain(object):
         self.domainStatus = domainStatus
         self.createTime = createTime
         self.updateTime = updateTime
-        self.regionId = regionId

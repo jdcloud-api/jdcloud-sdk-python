@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamAppWatermarkRequest(JDCloudRequest):
     """
-    添加app水印配置
+    添加APP水印配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

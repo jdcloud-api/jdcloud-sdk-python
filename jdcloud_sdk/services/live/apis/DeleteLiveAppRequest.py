@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveAppRequest(JDCloudRequest):
     """
-    删除app
+    删除APP
     """
 
     def __init__(self, parameters, header=None, version="v1"):

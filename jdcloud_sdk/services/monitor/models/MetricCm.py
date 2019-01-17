@@ -19,15 +19,23 @@
 
 class MetricCm(object):
 
-    def __init__(self, aggrPeriod=None, aggrType=None, metricName=None, metricUID=None):
+    def __init__(self, aggrPeriod=None, aggrType=None, calculateUnit=None, downSampleType=None, metric=None, metricName=None, metricUID=None, tags=None):
         """
         :param aggrPeriod: (Optional) 
         :param aggrType: (Optional) 
+        :param calculateUnit: (Optional) 
+        :param downSampleType: (Optional) 
+        :param metric: (Optional) 
         :param metricName: (Optional) 
         :param metricUID: (Optional) 
+        :param tags: (Optional) 
         """
 
         self.aggrPeriod = aggrPeriod
         self.aggrType = aggrType
+        self.calculateUnit = calculateUnit
+        self.downSampleType = downSampleType
+        self.metric = metric
         self.metricName = metricName
         self.metricUID = metricUID
+        self.tags = tags

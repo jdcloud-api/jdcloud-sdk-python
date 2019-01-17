@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveAppRequest(JDCloudRequest):
     """
-    添加 app 模板
+    添加直播APP
     """
 
     def __init__(self, parameters, header=None, version="v1"):

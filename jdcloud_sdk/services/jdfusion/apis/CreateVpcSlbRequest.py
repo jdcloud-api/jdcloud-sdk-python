@@ -32,12 +32,12 @@ class CreateVpcSlbRequest(JDCloudRequest):
 
 class CreateVpcSlbParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, slb):
         """
         :param regionId: 地域ID
-        :param body: 创建SLB
+        :param slb: 创建SLB
         """
 
         self.regionId = regionId
-        self.body = body
+        self.slb = slb
 

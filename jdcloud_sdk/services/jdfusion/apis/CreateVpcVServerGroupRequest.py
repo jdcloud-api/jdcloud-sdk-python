@@ -32,12 +32,12 @@ class CreateVpcVServerGroupRequest(JDCloudRequest):
 
 class CreateVpcVServerGroupParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, vserverGroup):
         """
         :param regionId: 地域ID
-        :param body: 创建虚拟服务器组
+        :param vserverGroup: 创建虚拟服务器组
         """
 
         self.regionId = regionId
-        self.body = body
+        self.vserverGroup = vserverGroup
 

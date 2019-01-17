@@ -19,21 +19,29 @@
 
 class Snapshot(object):
 
-    def __init__(self, snapshotId=None, diskId=None, snapshotSizeGB=None, name=None, description=None, status=None, createTime=None):
+    def __init__(self, snapshotId=None, snapshotSource=None, diskId=None, snapshotSizeGB=None, images=None, name=None, description=None, status=None, createTime=None, sharInfo=None, encrypted=None):
         """
         :param snapshotId: (Optional) 云硬盘快照ID
-        :param diskId: (Optional) 创建快照的云硬盘ID
+        :param snapshotSource: (Optional) 快照来源 可以有self，others两种来源
+        :param diskId: (Optional) 创建快照的云硬盘ID(snapshotSource为others时不展示)
         :param snapshotSizeGB: (Optional) 快照大小，单位为GiB
+        :param images: (Optional) 快照关联的所有镜像ID(snapshotSource为others时不展示)
         :param name: (Optional) 快照名称
         :param description: (Optional) 快照描述
         :param status: (Optional) 快照状态，取值为 creating、available、in-use、deleting、error_create、error_delete 之一
         :param createTime: (Optional) 创建时间
+        :param sharInfo: (Optional) 共享信息
+        :param encrypted: (Optional) 快照是否为加密盘的快照
         """
 
         self.snapshotId = snapshotId
+        self.snapshotSource = snapshotSource
         self.diskId = diskId
         self.snapshotSizeGB = snapshotSizeGB
+        self.images = images
         self.name = name
         self.description = description
         self.status = status
         self.createTime = createTime
+        self.sharInfo = sharInfo
+        self.encrypted = encrypted

@@ -32,14 +32,14 @@ class DisassociateVpcEipByIdRequest(JDCloudRequest):
 
 class DisassociateVpcEipByIdParameters(object):
 
-    def __init__(self, regionId, id, body):
+    def __init__(self, regionId, id, unassociate):
         """
         :param regionId: 地域ID
         :param id: 公网IP ID
-        :param body: 解绑公网IP
+        :param unassociate: 解绑公网IP
         """
 
         self.regionId = regionId
         self.id = id
-        self.body = body
+        self.unassociate = unassociate
 

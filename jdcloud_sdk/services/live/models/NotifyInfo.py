@@ -19,11 +19,11 @@
 
 class NotifyInfo(object):
 
-    def __init__(self, publishDoamin=None, notifyUrl=None):
+    def __init__(self, publishDomain=None, notifyUrl=None):
         """
-        :param publishDoamin: (Optional) 您的加速域名
+        :param publishDomain: (Optional) 您的加速域名
         :param notifyUrl: (Optional) 回调地址
         """
 
-        self.publishDoamin = publishDoamin
+        self.publishDomain = publishDomain
         self.notifyUrl = notifyUrl

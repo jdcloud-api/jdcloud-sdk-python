@@ -19,9 +19,9 @@
 
 class DescribeTemplateByIDSpec(object):
 
-    def __init__(self, templateType=None):
+    def __init__(self, templateType, ):
         """
-        :param templateType: (Optional) 模板类型，区分默认模板和用户自定义模板：1表示默认模板，2表示用户自定义模板
+        :param templateType:  模板类型，区分默认模板和用户自定义模板：1表示默认模板，2表示用户自定义模板
 in: query
         """
 

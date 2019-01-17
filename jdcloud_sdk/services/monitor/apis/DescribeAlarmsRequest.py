@@ -22,11 +22,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeAlarmsRequest(JDCloudRequest):
     """
     查询规则, 查询参数组合及优先级从高到低为：
-1：serviceCode不为空
-1.1：serviceCode + resourceId
-1.2: serviceCode + resourceIds
-2：serviceCodes不为空
-3: 所有规则
+1：alarmId不为空
+2：serviceCode不为空
+2.1：serviceCode + resourceId
+2.2: serviceCode + resourceIds
+3：serviceCodes不为空
+4: 所有规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -46,7 +47,7 @@ class DescribeAlarmsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.serviceCode = None
-        self.resourceID = None
+        self.resourceId = None
         self.ruleType = None
         self.status = None
         self.enabled = None
@@ -72,11 +73,11 @@ class DescribeAlarmsParameters(object):
         """
         self.serviceCode = serviceCode
 
-    def setResourceID(self, resourceID):
+    def setResourceId(self, resourceId):
         """
-        :param resourceID: (Optional) 资源ID
+        :param resourceId: (Optional) 资源ID
         """
-        self.resourceID = resourceID
+        self.resourceId = resourceId
 
     def setRuleType(self, ruleType):
         """

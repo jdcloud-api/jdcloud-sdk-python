@@ -32,14 +32,14 @@ class DetachVpcNetworkInterfaceByIdRequest(JDCloudRequest):
 
 class DetachVpcNetworkInterfaceByIdParameters(object):
 
-    def __init__(self, regionId, id, body):
+    def __init__(self, regionId, id, detach):
         """
         :param regionId: 地域ID
         :param id: 网卡 ID
-        :param body: 卸载网卡
+        :param detach: 卸载网卡
         """
 
         self.regionId = regionId
         self.id = id
-        self.body = body
+        self.detach = detach
 

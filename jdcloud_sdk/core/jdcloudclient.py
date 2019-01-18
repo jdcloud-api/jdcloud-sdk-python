@@ -90,8 +90,9 @@ class JDCloudClient(object):
 
         if request_header is not None and isinstance(request_header, dict):
             for key, value in request_header.items():
-                if key.lower().startswith(const.HEADER_JDCLOUD_PREFIX)\
-                        or key.lower().startswith(const.HEADER_JCLOUD_PREFIX):
+                if key.lower() in const.HEADER_ERROR:
+                    raise ClientException('Please use header with prefix x-jdcloud')
+                if key.lower() in const.HEADER_BASE64:
                     value = base64encode(value)
                 headers[key] = value
 

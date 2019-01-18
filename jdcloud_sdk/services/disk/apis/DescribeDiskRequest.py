@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDiskRequest(JDCloudRequest):
     """
-    查询云硬盘信息详情
+    查询某一块云硬盘的信息详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):

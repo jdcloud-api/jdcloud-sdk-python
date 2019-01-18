@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamAppRecordRequest(JDCloudRequest):
     """
-    添加app录制配置
+    添加APP录制配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

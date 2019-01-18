@@ -19,13 +19,15 @@
 
 class LiveRecordConfig(object):
 
-    def __init__(self, publishDomain=None, recordConfig=None, app=None):
+    def __init__(self, publishDomain=None, appName=None, streamName=None, recordConfig=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param recordConfig: (Optional) 录制模板配置
-        :param app: (Optional) 推流域名
+        :param appName: (Optional) 推流域名
+        :param streamName: (Optional) 直播流名称
+        :param recordConfig: (Optional) 
         """
 
         self.publishDomain = publishDomain
+        self.appName = appName
+        self.streamName = streamName
         self.recordConfig = recordConfig
-        self.app = app

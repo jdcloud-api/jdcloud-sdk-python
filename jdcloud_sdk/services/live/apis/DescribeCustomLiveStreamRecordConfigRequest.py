@@ -42,7 +42,7 @@ class DescribeCustomLiveStreamRecordConfigParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1
+        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
         """
         self.pageNum = pageNum
 

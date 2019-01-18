@@ -32,14 +32,14 @@ class AttachVpcNetworkInterfaceByIdRequest(JDCloudRequest):
 
 class AttachVpcNetworkInterfaceByIdParameters(object):
 
-    def __init__(self, regionId, id, body):
+    def __init__(self, regionId, id, attach):
         """
         :param regionId: 地域ID
         :param id: 网卡 ID
-        :param body: 网卡挂载虚拟机
+        :param attach: 网卡挂载虚拟机
         """
 
         self.regionId = regionId
         self.id = id
-        self.body = body
+        self.attach = attach
 

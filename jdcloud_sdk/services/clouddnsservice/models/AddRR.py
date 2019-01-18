@@ -29,7 +29,7 @@ class AddRR(object):
         :param ttl:  解析记录的生存时间
         :param type:  解析的类型
         :param weight: (Optional) 解析记录的权重
-        :param viewValue:  解析线路的ID
+        :param viewValue:  解析线路的ID，请调用getViewTree接口获取解析线路的ID。
         """
 
         self.hostRecord = hostRecord

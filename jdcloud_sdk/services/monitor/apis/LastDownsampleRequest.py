@@ -37,7 +37,7 @@ class LastDownsampleParameters(object):
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
         :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
-        :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用|分隔。 如：id1|id2|id3|id4
+        :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用竖线'|'分隔。 如：id1|id2|id3|id4
         """
 
         self.regionId = regionId

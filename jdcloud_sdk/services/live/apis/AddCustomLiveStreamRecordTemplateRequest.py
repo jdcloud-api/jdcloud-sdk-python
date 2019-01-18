@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddCustomLiveStreamRecordTemplateRequest(JDCloudRequest):
     """
-    添加录制模板
+    添加直播录制模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):

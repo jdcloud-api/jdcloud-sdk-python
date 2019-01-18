@@ -32,12 +32,12 @@ class CreateVpcLBHttpListenerRequest(JDCloudRequest):
 
 class CreateVpcLBHttpListenerParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, httpListener):
         """
         :param regionId: 地域ID
-        :param body: 创建HTTP监听器
+        :param httpListener: 创建HTTP监听器
         """
 
         self.regionId = regionId
-        self.body = body
+        self.httpListener = httpListener
 

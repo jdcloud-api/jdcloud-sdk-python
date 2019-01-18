@@ -37,9 +37,8 @@ class Signer(object):
         host = uri_dict['host']
         port = uri_dict['port']
         query = uri_dict['query']
-        path = uri_dict['path']
+        canonical_uri = quote(uri_dict['path'])
 
-        canonical_uri = quote(path)
         if port and port not in ['80', '443']:
             full_host = host + ':' + port
         else:

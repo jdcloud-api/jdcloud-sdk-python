@@ -19,15 +19,17 @@
 
 class DiskSpec(object):
 
-    def __init__(self, az, name, diskType, diskSizeGB, description=None, snapshotId=None, charge=None):
+    def __init__(self, az, name, diskType, diskSizeGB, description=None, snapshotId=None, charge=None, multiAttachable=None, encrypt=None):
         """
         :param az:  云硬盘所属的可用区
         :param name:  云硬盘名称
         :param description: (Optional) 云硬盘描述
-        :param diskType:  云硬盘类型，取值为ssd、premium-hdd之一
+        :param diskType:  云硬盘类型，取值为ssd、premium-hdd、ssd.gp1、ssd.io1、hdd.std1之一
         :param diskSizeGB:  云硬盘大小，单位为 GiB，ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G
         :param snapshotId: (Optional) 用于创建云硬盘的快照ID
         :param charge: (Optional) 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
+        :param multiAttachable: (Optional) 云硬盘是否支持一盘多主机挂载，默认为false（不支持）
+        :param encrypt: (Optional) 云硬盘是否加密，默认为false（不加密）
         """
 
         self.az = az
@@ -37,3 +39,5 @@ class DiskSpec(object):
         self.diskSizeGB = diskSizeGB
         self.snapshotId = snapshotId
         self.charge = charge
+        self.multiAttachable = multiAttachable
+        self.encrypt = encrypt

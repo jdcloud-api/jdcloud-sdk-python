@@ -32,12 +32,12 @@ class CreateVpcEipRequest(JDCloudRequest):
 
 class CreateVpcEipParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, allocate):
         """
         :param regionId: 地域ID
-        :param body: 分配弹性公网ip
+        :param allocate: 分配弹性公网ip
         """
 
         self.regionId = regionId
-        self.body = body
+        self.allocate = allocate
 

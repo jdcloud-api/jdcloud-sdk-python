@@ -32,12 +32,12 @@ class CreateVmInstanceRequest(JDCloudRequest):
 
 class CreateVmInstanceParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, vm):
         """
         :param regionId: 地域ID
-        :param body: 创建VM
+        :param vm: 创建VM
         """
 
         self.regionId = regionId
-        self.body = body
+        self.vm = vm
 

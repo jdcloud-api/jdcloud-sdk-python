@@ -32,14 +32,12 @@ class AddLiveDomainRequest(JDCloudRequest):
 
 class AddLiveDomainParameters(object):
 
-    def __init__(self, publishDomain, playDomain, region):
+    def __init__(self, publishDomain, playDomain):
         """
         :param publishDomain: 直播的推流域名
         :param playDomain: 直播的播放域名
-        :param region: 区域ID
         """
 
         self.publishDomain = publishDomain
         self.playDomain = playDomain
-        self.region = region
 

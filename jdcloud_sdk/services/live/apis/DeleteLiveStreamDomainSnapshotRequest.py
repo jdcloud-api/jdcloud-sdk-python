@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveStreamDomainSnapshotRequest(JDCloudRequest):
     """
-    删除域名直播截图配置
+    删除域名截图配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

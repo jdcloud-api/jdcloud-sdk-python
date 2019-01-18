@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveStreamAppRecordRequest(JDCloudRequest):
     """
-    删除app录制配置
+    删除APP录制配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteCustomLiveStreamSnapshotTemplateRequest(JDCloudRequest):
     """
-    删除直播截图模板
+    删除用户自定义直播截图模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):

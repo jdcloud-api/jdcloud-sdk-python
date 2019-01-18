@@ -19,12 +19,12 @@
 
 class SubnetInfo(object):
 
-    def __init__(self, id=None, vpcId=None, subnetName=None, addressPrefix=None, availableIpCount=None, description=None, endIp=None, routeTableId=None, startIp=None, cloudID=None):
+    def __init__(self, id=None, vpcId=None, subnetName=None, cidrBlock=None, availableIpCount=None, description=None, endIp=None, routeTableId=None, startIp=None, cloudID=None):
         """
         :param id: (Optional) Subnet的Id
         :param vpcId: (Optional) 子网所属VPC的Id
         :param subnetName: (Optional) 子网名称
-        :param addressPrefix: (Optional) 子网网段
+        :param cidrBlock: (Optional) 子网网段
         :param availableIpCount: (Optional) 子网可用ip数量
         :param description: (Optional) 子网描述信息
         :param endIp: (Optional) 子网的结束地址
@@ -36,7 +36,7 @@ class SubnetInfo(object):
         self.id = id
         self.vpcId = vpcId
         self.subnetName = subnetName
-        self.addressPrefix = addressPrefix
+        self.cidrBlock = cidrBlock
         self.availableIpCount = availableIpCount
         self.description = description
         self.endIp = endIp

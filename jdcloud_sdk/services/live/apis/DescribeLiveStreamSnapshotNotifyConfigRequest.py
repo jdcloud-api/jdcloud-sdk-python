@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLiveStreamSnapshotNotifyConfigRequest(JDCloudRequest):
     """
-    查询截图信息回调配置
+    查询截图回调配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

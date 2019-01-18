@@ -32,12 +32,12 @@ class CreateVpcSecurityGroupRequest(JDCloudRequest):
 
 class CreateVpcSecurityGroupParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, securityGroup):
         """
         :param regionId: 地域ID
-        :param body: 创建securityGroup
+        :param securityGroup: 创建securityGroup
         """
 
         self.regionId = regionId
-        self.body = body
+        self.securityGroup = securityGroup
 

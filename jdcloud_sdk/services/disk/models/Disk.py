@@ -19,17 +19,22 @@
 
 class Disk(object):
 
-    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, status=None, attachments=None, snapshotId=None, createTime=None, charge=None, tags=None):
+    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enable=None, createTime=None, charge=None, tags=None):
         """
         :param diskId: (Optional) 云硬盘ID
         :param az: (Optional) 云硬盘所属AZ
-        :param name: (Optional) 云硬盘名称
-        :param description: (Optional) 云硬盘描述
-        :param diskType: (Optional) 磁盘类型，取值为 ssd 或 premium-hdd
-        :param diskSizeGB: (Optional) 磁盘大小，单位为 GiB
+        :param name: (Optional) 云硬盘名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
+        :param description: (Optional) 云硬盘描述，允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param diskType: (Optional) 云硬盘类型，取值为 ssd,premium-hdd,ssd.gp1,ssd.io1,hdd.std1
+        :param diskSizeGB: (Optional) 云硬盘大小，单位为 GiB
+        :param iops: (Optional) 该云硬盘实际应用的iops值
+        :param throughput: (Optional) 该云硬盘实际应用的吞吐量的数值
         :param status: (Optional) 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_create、error_delete、error_restore、error_extend 之一
         :param attachments: (Optional) 挂载信息
         :param snapshotId: (Optional) 创建该云硬盘的快照ID
+        :param multiAttachable: (Optional) 云盘是否支持多挂载
+        :param encrypted: (Optional) 云盘是否为加密盘
+        :param enable: (Optional) 云盘是否被暂停（IOPS限制为极低）
         :param createTime: (Optional) 创建云硬盘时间
         :param charge: (Optional) 云硬盘计费配置信息
         :param tags: (Optional) Tag信息
@@ -41,9 +46,14 @@ class Disk(object):
         self.description = description
         self.diskType = diskType
         self.diskSizeGB = diskSizeGB
+        self.iops = iops
+        self.throughput = throughput
         self.status = status
         self.attachments = attachments
         self.snapshotId = snapshotId
+        self.multiAttachable = multiAttachable
+        self.encrypted = encrypted
+        self.enable = enable
         self.createTime = createTime
         self.charge = charge
         self.tags = tags

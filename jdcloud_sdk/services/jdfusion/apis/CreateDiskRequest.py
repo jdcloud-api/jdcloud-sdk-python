@@ -32,12 +32,12 @@ class CreateDiskRequest(JDCloudRequest):
 
 class CreateDiskParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, disk):
         """
         :param regionId: 地域ID
-        :param body: 创建云硬盘
+        :param disk: 创建云硬盘
         """
 
         self.regionId = regionId
-        self.body = body
+        self.disk = disk
 

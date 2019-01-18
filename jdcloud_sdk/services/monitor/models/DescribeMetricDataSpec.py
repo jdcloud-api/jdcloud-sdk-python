@@ -19,26 +19,31 @@
 
 class DescribeMetricDataSpec(object):
 
-    def __init__(self, resourceId, serviceCode, aggrType=None, endTime=None, groupBy=None, startTime=None, tags=None, timeInterval=None):
+    def __init__(self, resourceId, serviceCode, aggrType=None, downSampleType=None, endTime=None, groupBy=None, rate=None, startTime=None, tags=None, timeInterval=None):
         """
-        :param aggrType: (Optional) 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=zimsum#available-aggregators
+        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=avg#available-aggregators
         :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
 in: query
         :param groupBy: (Optional) 是否对查询的tags分组
 in: query
+        :param rate: (Optional) 是否求速率
+in: query
         :param resourceId:  资源的uuid
         :param serviceCode:  资源的类型，取值vm, lb, ip, database 等
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ
 in: query
-        :param tags: (Optional) 自定义标签
+        :param tags: (Optional) 自定义标签/tag；至少要传一个tag，且tag.Values不为空
 in: query
-        :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
+        :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
 in: query
         """
 
         self.aggrType = aggrType
+        self.downSampleType = downSampleType
         self.endTime = endTime
         self.groupBy = groupBy
+        self.rate = rate
         self.resourceId = resourceId
         self.serviceCode = serviceCode
         self.startTime = startTime

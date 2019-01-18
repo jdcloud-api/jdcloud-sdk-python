@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamAppSnapshotRequest(JDCloudRequest):
     """
-    添加app直播截图配置
+    添加APP直播截图配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

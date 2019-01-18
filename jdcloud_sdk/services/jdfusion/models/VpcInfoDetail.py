@@ -19,11 +19,11 @@
 
 class VpcInfoDetail(object):
 
-    def __init__(self, id=None, name=None, addressPrefix=None, description=None, createdTime=None, cloudID=None, subnets=None, routeTableIds=None):
+    def __init__(self, id=None, name=None, cidrBlock=None, description=None, createdTime=None, cloudID=None, subnets=None, routeTableIds=None):
         """
         :param id: (Optional) Vpc的Id
         :param name: (Optional) 私有网络名称
-        :param addressPrefix: (Optional) 地址范围
+        :param cidrBlock: (Optional) 地址范围
         :param description: (Optional) VPC 描述
         :param createdTime: (Optional) 创建时间
         :param cloudID: (Optional) 所属云提供商ID
@@ -33,7 +33,7 @@ class VpcInfoDetail(object):
 
         self.id = id
         self.name = name
-        self.addressPrefix = addressPrefix
+        self.cidrBlock = cidrBlock
         self.description = description
         self.createdTime = createdTime
         self.cloudID = cloudID

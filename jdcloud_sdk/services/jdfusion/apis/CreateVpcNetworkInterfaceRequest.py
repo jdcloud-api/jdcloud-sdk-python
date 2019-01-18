@@ -32,12 +32,12 @@ class CreateVpcNetworkInterfaceRequest(JDCloudRequest):
 
 class CreateVpcNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId, body):
+    def __init__(self, regionId, netInterface):
         """
         :param regionId: 地域ID
-        :param body: 创建网卡
+        :param netInterface: 创建网卡
         """
 
         self.regionId = regionId
-        self.body = body
+        self.netInterface = netInterface
 

@@ -22,7 +22,7 @@ class Setlb(object):
     def __init__(self, id, weight, ):
         """
         :param id:  解析记录的ID。在getLB接口中获取。
-        :param weight:  此条解析记录的权重。
+        :param weight:  此条解析记录的权重。A,AAAA类型的权重范围为：0-100，CNAME, JNAME类型的权重范围为：1-100。
         """
 
         self.id = id

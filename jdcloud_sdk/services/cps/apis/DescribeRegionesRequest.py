@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeRegionesRequest(JDCloudRequest):
     """
-    查询云物理服务器区域列表
+    查询云物理服务器地域列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):

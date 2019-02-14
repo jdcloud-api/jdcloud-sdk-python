@@ -21,9 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ReinstallInstanceRequest(JDCloudRequest):
     """
-    重装云物理服务器，只能重装stopped状态的服务器<br>
+    重装云物理服务器，只能重装stopped状态的服务器<br/>
 - 可调用接口（describeOS）获取云物理服务器支持的操作系统列表
-- 可调用接口（describeSoftware）获取云物理服务器支持的软件列表，也可以不预装软件
 
     """
 

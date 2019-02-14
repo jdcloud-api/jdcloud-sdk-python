@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceRaidRequest(JDCloudRequest):
     """
-    查询单个云物理服务器raid信息
+    查询单个云物理服务器已安装的RAID信息，包括系统盘RAID信息和数据盘RAID信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

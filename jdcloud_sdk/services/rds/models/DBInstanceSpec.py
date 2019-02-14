@@ -24,7 +24,7 @@ class DBInstanceSpec(object):
         :param instanceName: (Optional) 实例名，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param engine:  实例引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param engineVersion:  实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
-        :param instanceClass:  实例规格代码，可以通过[describeInstanceClasses](../instance/describeInstanceClasses.md)接口获取
+        :param instanceClass:  实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
         :param instanceStorageGB:  磁盘大小，单位GB
         :param azId:  可用区ID， 第一个ID必须为主实例所在的可用区。如两个可用区一样，也需输入两个azId
         :param vpcId:  VPC的ID

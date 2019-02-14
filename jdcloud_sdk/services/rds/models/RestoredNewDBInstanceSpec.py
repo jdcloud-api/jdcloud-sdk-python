@@ -22,7 +22,7 @@ class RestoredNewDBInstanceSpec(object):
     def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None):
         """
         :param instanceName: (Optional) 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
-        :param instanceClass:  实例规格代码，可以通过[describeInstanceClasses](../instance/describeInstanceClasses.md)接口获取
+        :param instanceClass:  实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
         :param instanceStorageGB:  磁盘大小，单位GB
         :param azId:  可用区ID， 第一个ID必须为主实例所在的可用区。如两个可用区一样，也需输入两个azId
         :param vpcId:  VPC的ID

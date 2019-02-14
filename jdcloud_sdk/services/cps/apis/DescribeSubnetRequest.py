@@ -34,8 +34,8 @@ class DescribeSubnetParameters(object):
 
     def __init__(self, regionId, az):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的区域
-        :param az: 可用区, 如cn-east-1a；可调用接口（describeRegiones）获取云物理服务器支持的可用区
+        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param az: 可用区, 如cn-east-1a；可调用接口（describeRegiones）获取云物理服务器在该地域支持的可用区
         """
 
         self.regionId = regionId

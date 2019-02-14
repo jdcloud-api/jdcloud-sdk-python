@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDeviceRaidsRequest(JDCloudRequest):
     """
-    查询云物理服务器支持的raid类型
+    查询某种实例类型的云物理服务器支持的RAID类型，可查询系统盘RAID类型和数据盘RAID类型
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class DescribeDeviceRaidsParameters(object):
     def __init__(self, regionId, deviceType, ):
         """
         :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
-        :param deviceType: 云物理服务器类型，可查询describeDeviceTypes接口获取指定地域的服务器类型，例如：cps.s.normal,cps.c.normal
+        :param deviceType: 实例类型，可调用（describeDeviceTypes）接口获取指定地域的实例类型，例如：cps.c.normal
         """
 
         self.regionId = regionId

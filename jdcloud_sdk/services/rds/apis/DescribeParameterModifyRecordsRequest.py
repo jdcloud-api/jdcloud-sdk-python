@@ -19,36 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDatabasesRequest(JDCloudRequest):
+class DescribeParameterModifyRecordsRequest(JDCloudRequest):
     """
-    获取当前实例的所有数据库详细信息的列表
+    查看参数的修改历史<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDatabasesRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/databases', 'GET', header, version)
+        super(DescribeParameterModifyRecordsRequest, self).__init__(
+            '/regions/{regionId}/parameterGroups/{parameterGroupId}/records', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDatabasesParameters(object):
+class DescribeParameterModifyRecordsParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, parameterGroupId, ):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param regionId: Region ID
+        :param parameterGroupId: Parameter Group ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.dbName = None
+        self.parameterGroupId = parameterGroupId
         self.pageNumber = None
         self.pageSize = None
-
-    def setDbName(self, dbName):
-        """
-        :param dbName: (Optional) 数据库名。如果不指定数据库名，则返回所有数据库列表<br>- **MySQL：不支持该字段**<br>- **SQL Server：支持该字段**
-        """
-        self.dbName = dbName
+        self.startTime = None
+        self.endTime = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -58,7 +53,19 @@ class DescribeDatabasesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
         """
         self.pageSize = pageSize
+
+    def setStartTime(self, startTime):
+        """
+        :param startTime: (Optional) 查询开始时间，格式为：YYYY-MM-DD HH:mm:ss
+        """
+        self.startTime = startTime
+
+    def setEndTime(self, endTime):
+        """
+        :param endTime: (Optional) 查询结束时间，格式为：YYYY-MM-DD HH:mm:ss
+        """
+        self.endTime = endTime
 

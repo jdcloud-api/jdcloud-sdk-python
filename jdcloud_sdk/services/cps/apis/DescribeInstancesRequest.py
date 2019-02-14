@@ -81,7 +81,7 @@ class DescribeInstancesParameters(object):
 
     def setDeviceType(self, deviceType):
         """
-        :param deviceType: (Optional) 服务器类型，精确匹配，调用接口（describeDeviceTypes）获取物理服务器类型列表
+        :param deviceType: (Optional) 实例类型，精确匹配，调用接口（describeDeviceTypes）获取实例类型
         """
         self.deviceType = deviceType
 

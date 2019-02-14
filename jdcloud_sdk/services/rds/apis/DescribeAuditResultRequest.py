@@ -48,6 +48,7 @@ class DescribeAuditResultParameters(object):
         self.accountName = None
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setDbName(self, dbName):
         """
@@ -72,4 +73,13 @@ class DescribeAuditResultParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、50
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
+支持以下属性的过滤：
+operation
+
+        """
+        self.filters = filters
 

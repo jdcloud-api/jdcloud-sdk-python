@@ -26,4 +26,4 @@ class CpsClient(JDCloudClient):
         if config is None:
             config = Config('cps.jdcloud-api.com')
 
-        super(CpsClient, self).__init__(credential, config, 'cps', '1.0.0', logger)
+        super(CpsClient, self).__init__(credential, config, 'cps', '1.0.4', logger)

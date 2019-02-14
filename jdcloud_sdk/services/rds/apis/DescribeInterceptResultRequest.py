@@ -19,34 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class StartInstanceRequest(JDCloudRequest):
+class DescribeInterceptResultRequest(JDCloudRequest):
     """
-    对单个云物理服务器执行开机操作，只能启动stopped状态的服务器
+    查看开启高安全模式后，当前实例的 SQL 拦截记录<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(StartInstanceRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:startInstance', 'PUT', header, version)
+        super(DescribeInterceptResultRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/intercept:describeInterceptResult', 'GET', header, version)
         self.parameters = parameters
 
 
-class StartInstanceParameters(object):
+class DescribeInterceptResultParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
-        :param instanceId: 云物理服务器ID
+        :param regionId: Region ID
+        :param instanceId: Instance ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.clientToken = None
+        self.pageNumber = None
+        self.pageSize = None
 
-    def setClientToken(self, clientToken):
+    def setPageNumber(self, pageNumber):
         """
-        :param clientToken: (Optional) 由客户端生成，用于保证请求的幂等性，长度不能超过36个字符；<br/>
-如果多个请求使用了相同的clientToken，只会执行第一个请求，之后的请求直接返回第一个请求的结果<br/>
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页;
+        """
+        self.pageNumber = pageNumber
 
+    def setPageSize(self, pageSize):
         """
-        self.clientToken = clientToken
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
+        """
+        self.pageSize = pageSize
 

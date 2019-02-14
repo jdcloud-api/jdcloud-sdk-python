@@ -19,37 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupSynchronicitiesRequest(JDCloudRequest):
+class DescribeParameterGroupAttachedInstancesRequest(JDCloudRequest):
     """
-    查询跨地域备份同步服务列表。<br>- 仅支持MySQL
+    查看参数的修改历史<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupSynchronicitiesRequest, self).__init__(
-            '/regions/{regionId}/backupSynchronicities', 'GET', header, version)
+        super(DescribeParameterGroupAttachedInstancesRequest, self).__init__(
+            '/regions/{regionId}/parameterGroups/{parameterGroupId}/instances', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupSynchronicitiesParameters(object):
+class DescribeParameterGroupAttachedInstancesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, parameterGroupId, ):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param regionId: Region ID
+        :param parameterGroupId: Parameter Group ID
         """
 
         self.regionId = regionId
+        self.parameterGroupId = parameterGroupId
         self.pageNumber = None
         self.pageSize = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[1,∞)，页码超过总页数时，显示最后一页，用于查询列表的接口
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、30、50、100
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
         """
         self.pageSize = pageSize
 

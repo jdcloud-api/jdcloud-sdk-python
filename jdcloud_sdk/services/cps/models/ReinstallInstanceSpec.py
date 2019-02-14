@@ -19,15 +19,16 @@
 
 class ReinstallInstanceSpec(object):
 
-    def __init__(self, az, imageType, osTypeId, sysRaidTypeId, keepData, dataRaidTypeId, password, softwares=None):
+    def __init__(self, az, imageType, osTypeId, sysRaidTypeId, keepData, dataRaidTypeId, password, hostname=None, softwares=None):
         """
         :param az:  可用区, 如cn-east-1a
         :param imageType:  镜像类型, 取值范围：standard、standard_app
-        :param osTypeId:  OS类型Id
-        :param sysRaidTypeId:  系统盘raid类型Id
+        :param osTypeId:  操作系统类型ID
+        :param sysRaidTypeId:  系统盘RAID类型ID
         :param keepData:  是否保留数据盘数据, 取值为：yes、no
-        :param dataRaidTypeId:  数据盘raid类型Id
+        :param dataRaidTypeId:  数据盘RAID类型ID
         :param password:  密码
+        :param hostname: (Optional) 主机名
         :param softwares: (Optional) 
         """
 
@@ -38,4 +39,5 @@ class ReinstallInstanceSpec(object):
         self.keepData = keepData
         self.dataRaidTypeId = dataRaidTypeId
         self.password = password
+        self.hostname = hostname
         self.softwares = softwares

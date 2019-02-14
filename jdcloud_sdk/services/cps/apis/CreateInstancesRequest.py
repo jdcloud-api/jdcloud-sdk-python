@@ -21,24 +21,23 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstancesRequest(JDCloudRequest):
     """
-    创建一台或多台指定配置的云物理服务器
-- 地域与可用区
-  - 调用接口（describeRegiones）获取云物理服务器支持的地域与可用区
-- 服务器规格类型
-  - 调用接口（describeDeviceTypes）获取物理服务器类型列表
-  - 不能使用已下线、或已售馨的规格ID
-- 操作系统和预装软件
-  - 可调用接口（describeOS）获取云物理服务器支持的操作系统列表
-  - 可调用接口（describeSoftware）获取云物理服务器支持的软件列表，也可以不预装软件
-- 存储
-  - 数据盘多种Raid可选，可调用接口（describeDeviceRaids）获取服务器支持的Raid列表
-- 网络
-  - 网络类型目前只支持basic
-  - 线路目前只支持bgp
-  - 支持不启用外网，如果启用外网，带宽范围[1,200] 单位Mbps
-- 其他
-  - 购买时长，可按年或月购买，最少购买时长1个月，最长36个月（3年）
-  - 密码设置参考公共参数规范
+    创建一台或多台指定配置的云物理服务器<br/>
+- 地域与可用区<br/>
+  - 调用接口（describeRegiones）获取云物理服务器支持的地域与可用区<br/>
+- 实例类型<br/>
+  - 调用接口（describeDeviceTypes）获取物理实例类型列表<br/>
+  - 不能使用已下线、或已售馨的实例类型<br/>
+- 操作系统和预装软件<br/>
+  - 可调用接口（describeOS）获取云物理服务器支持的操作系统列表<br/>
+- 存储<br/>
+  - 数据盘多种RAID可选，可调用接口（describeDeviceRaids）获取服务器支持的RAID列表<br/>
+- 网络<br/>
+  - 网络类型目前只支持basic<br/>
+  - 线路目前只支持bgp<br/>
+  - 支持不启用外网，如果启用外网，带宽范围[1,200] 单位Mbps<br/>
+- 其他<br/>
+  - 购买时长，可按年或月购买：月取值范围[1,9], 年取值范围[1,3]<br/>
+  - 密码设置参考公共参数规范<br/>
 
     """
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyBandwidthRequest(JDCloudRequest):
     """
-    升级云物理服务器外网带宽，只能操作running或者stopped状态的服务器<br>
+    升级云物理服务器外网带宽，只能操作running或者stopped状态的服务器<br/>
 - 不支持未启用外网的服务器升级带宽
 - 外网带宽不支持降级
 

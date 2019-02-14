@@ -19,12 +19,13 @@
 
 class DeviceType(object):
 
-    def __init__(self, nameEN=None, nameZH=None, useTypeEN=None, useTypeZH=None, region=None, cpuConcise=None, cpuDetail=None, memConcise=None, memDetail=None, ifConcise=None, ifDetail=None, systemDiskConcise=None, systemDiskDetail=None, dataDiskConcise=None, dataDiskDetail=None, gpuConcise=None, gpuDetail=None):
+    def __init__(self, nameEN=None, nameZH=None, family=None, useTypeEN=None, useTypeZH=None, region=None, cpuConcise=None, cpuDetail=None, memConcise=None, memDetail=None, ifConcise=None, ifDetail=None, systemDiskConcise=None, systemDiskDetail=None, dataDiskConcise=None, dataDiskDetail=None, gpuConcise=None, gpuDetail=None, isSoldOut=None):
         """
-        :param nameEN: (Optional) 服务器类型英文名称, 如 cps.c.normal
-        :param nameZH: (Optional) 服务器类型中文名称, 如 计算型
-        :param useTypeEN: (Optional) 使用场景类型英文描述, 如 standard
-        :param useTypeZH: (Optional) 使用场景类型中文描述, 如 标准型
+        :param nameEN: (Optional) 实例类型英文名称, 如 cps.c.normal
+        :param nameZH: (Optional) 实例类型中文名称, 如 计算型
+        :param family: (Optional) 实例所属规格系列，如 计算、存储、GPU
+        :param useTypeEN: (Optional) 镜像类型英文描述, 如 standard
+        :param useTypeZH: (Optional) 镜像类型中文描述, 如 标准型
         :param region: (Optional) 区域代码, 如 cn-east-1
         :param cpuConcise: (Optional) CPU概要描述
         :param cpuDetail: (Optional) CPU详细信息
@@ -34,14 +35,16 @@ class DeviceType(object):
         :param ifDetail: (Optional) 网口详细信息
         :param systemDiskConcise: (Optional) 系统磁盘概要信息
         :param systemDiskDetail: (Optional) 系统磁盘详细信息
-        :param dataDiskConcise: (Optional) 系统磁盘概要信息
-        :param dataDiskDetail: (Optional) 系统磁盘详细信息
+        :param dataDiskConcise: (Optional) 数据磁盘概要信息
+        :param dataDiskDetail: (Optional) 数据磁盘详细信息
         :param gpuConcise: (Optional) GPU概要信息
         :param gpuDetail: (Optional) GPU详细信息
+        :param isSoldOut: (Optional) 售罄状态
         """
 
         self.nameEN = nameEN
         self.nameZH = nameZH
+        self.family = family
         self.useTypeEN = useTypeEN
         self.useTypeZH = useTypeZH
         self.region = region
@@ -57,3 +60,4 @@ class DeviceType(object):
         self.dataDiskDetail = dataDiskDetail
         self.gpuConcise = gpuConcise
         self.gpuDetail = gpuDetail
+        self.isSoldOut = isSoldOut

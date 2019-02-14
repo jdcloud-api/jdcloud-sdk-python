@@ -19,30 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDeviceTypesRequest(JDCloudRequest):
+class DescribeParameterGroupParametersRequest(JDCloudRequest):
     """
-    查询云物理服务器实例类型
+    查看参数组的参数<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDeviceTypesRequest, self).__init__(
-            '/regions/{regionId}/deviceTypes', 'GET', header, version)
+        super(DescribeParameterGroupParametersRequest, self).__init__(
+            '/regions/{regionId}/parameterGroups/{parameterGroupId}/parameters', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDeviceTypesParameters(object):
+class DescribeParameterGroupParametersParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, parameterGroupId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: Region ID
+        :param parameterGroupId: Parameter Group ID
         """
 
         self.regionId = regionId
-        self.az = None
-
-    def setAz(self, az):
-        """
-        :param az: (Optional) 可用区，精确匹配
-        """
-        self.az = az
+        self.parameterGroupId = parameterGroupId
 

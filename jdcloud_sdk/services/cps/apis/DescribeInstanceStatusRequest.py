@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceStatusRequest(JDCloudRequest):
     """
-    查询单个云物理服务器监控信息
+    查询单个云物理服务器硬件监控信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

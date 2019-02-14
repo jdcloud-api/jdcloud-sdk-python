@@ -19,31 +19,33 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, lineType=None, subnetId=None, privateIp=None, publicIp=None, charge=None):
+    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, lineType=None, subnetId=None, privateIp=None, publicIp=None, publicIpv6=None, charge=None):
         """
         :param instanceId: (Optional) 云物理服务器实例ID
         :param region: (Optional) 区域代码, 如 cn-east-1
         :param az: (Optional) 可用区, 如 cn-east-1a
-        :param deviceType: (Optional) 设备类型, 如 cps.c.normal
+        :param deviceType: (Optional) 实例类型, 如 cps.c.normal
         :param name: (Optional) 云物理服务器名称
         :param description: (Optional) 云物理服务器描述
         :param status: (Optional) 云物理服务器生命周期状态
         :param enableInternet: (Optional) 是否启用外网, 如 yes/no
+        :param enableIpv6: (Optional) 是否启用IPv6, 如 yes/no
         :param bandwidth: (Optional) 带宽, 单位Mbps
         :param imageType: (Optional) 镜像类型, 如 standard/standard_app
         :param osTypeId: (Optional) 操作系统类型ID
         :param osName: (Optional) 操作系统名称
         :param osType: (Optional) 操作系统类型, 如 ubuntu/centos
         :param osVersion: (Optional) 操作系统版本, 如 16.04
-        :param sysRaidTypeId: (Optional) 系统盘raid类型Id
-        :param sysRaidType: (Optional) 系统盘raid类型, 如 NORAID, RAID0, RAID1
-        :param dataRaidTypeId: (Optional) 数据盘raid类型Id
-        :param dataRaidType: (Optional) 数据盘raid类型, 如 NORAID, RAID0, RAID1
+        :param sysRaidTypeId: (Optional) 系统盘RAID类型ID
+        :param sysRaidType: (Optional) 系统盘RAID类型, 如 NORAID, RAID0, RAID1
+        :param dataRaidTypeId: (Optional) 数据盘RAID类型ID
+        :param dataRaidType: (Optional) 数据盘RAID类型, 如 NORAID, RAID0, RAID1
         :param networkType: (Optional) 网络类型, 如 basic
         :param lineType: (Optional) 外网链路类型, 如 bgp
         :param subnetId: (Optional) 子网编号
         :param privateIp: (Optional) 内网IP
         :param publicIp: (Optional) 公网IP
+        :param publicIpv6: (Optional) 公网IPv6
         :param charge: (Optional) 计费信息
         """
 
@@ -55,6 +57,7 @@ class Instance(object):
         self.description = description
         self.status = status
         self.enableInternet = enableInternet
+        self.enableIpv6 = enableIpv6
         self.bandwidth = bandwidth
         self.imageType = imageType
         self.osTypeId = osTypeId
@@ -70,4 +73,5 @@ class Instance(object):
         self.subnetId = subnetId
         self.privateIp = privateIp
         self.publicIp = publicIp
+        self.publicIpv6 = publicIpv6
         self.charge = charge

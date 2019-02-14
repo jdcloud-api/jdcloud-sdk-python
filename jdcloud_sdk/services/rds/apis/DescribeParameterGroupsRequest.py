@@ -19,30 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDeviceTypesRequest(JDCloudRequest):
+class DescribeParameterGroupsRequest(JDCloudRequest):
     """
-    查询云物理服务器实例类型
+    获取当前账号下所有的参数组列表<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDeviceTypesRequest, self).__init__(
-            '/regions/{regionId}/deviceTypes', 'GET', header, version)
+        super(DescribeParameterGroupsRequest, self).__init__(
+            '/regions/{regionId}/parameterGroups', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDeviceTypesParameters(object):
+class DescribeParameterGroupsParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: Region ID
         """
 
         self.regionId = regionId
-        self.az = None
+        self.pageNumber = None
+        self.pageSize = None
 
-    def setAz(self, az):
+    def setPageNumber(self, pageNumber):
         """
-        :param az: (Optional) 可用区，精确匹配
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页;
         """
-        self.az = az
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
+        """
+        self.pageSize = pageSize
 

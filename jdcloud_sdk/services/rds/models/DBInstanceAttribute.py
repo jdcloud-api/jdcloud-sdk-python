@@ -34,8 +34,8 @@ class DBInstanceAttribute(object):
         :param azId: (Optional) 可用区ID，第一个为主实例在的可用区，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
         :param vpcId: (Optional) VPC的ID
         :param subnetId: (Optional) 子网的ID
-        :param internalDomainName: (Optional) 实例公网域名
-        :param publicDomainName: (Optional) 实例内网域名
+        :param internalDomainName: (Optional) 实例内网域名
+        :param publicDomainName: (Optional) 实例公网域名
         :param instancePort: (Optional) 应用访问端口
         :param connectionMode: (Optional) 访问模式，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param auditStatus: (Optional) 审计状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)

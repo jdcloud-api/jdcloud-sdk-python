@@ -19,30 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDeviceTypesRequest(JDCloudRequest):
+class GetSaleServiceByDeliverNumberRequest(JDCloudRequest):
     """
-    查询云物理服务器实例类型
+    根据交付单号查询交付单信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDeviceTypesRequest, self).__init__(
-            '/regions/{regionId}/deviceTypes', 'GET', header, version)
+        super(GetSaleServiceByDeliverNumberRequest, self).__init__(
+            '/regions/{regionId}/getSaleServiceByDeliverNumber', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDeviceTypesParameters(object):
+class GetSaleServiceByDeliverNumberParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, deliverNumber):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: 地域ID
+        :param deliverNumber: 交付单号
         """
 
         self.regionId = regionId
-        self.az = None
-
-    def setAz(self, az):
-        """
-        :param az: (Optional) 可用区，精确匹配
-        """
-        self.az = az
+        self.deliverNumber = deliverNumber
 

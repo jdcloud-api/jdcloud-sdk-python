@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteBackupSynchronicityRequest(JDCloudRequest):
     """
-    删除一个跨地域备份同步服务。
+    删除一个跨地域备份同步服务。<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

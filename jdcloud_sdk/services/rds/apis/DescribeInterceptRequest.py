@@ -19,30 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDeviceTypesRequest(JDCloudRequest):
+class DescribeInterceptRequest(JDCloudRequest):
     """
-    查询云物理服务器实例类型
+    查看当前实例已开启的安全模式。如果开启数据库的高安全模式，会返回配置信息<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDeviceTypesRequest, self).__init__(
-            '/regions/{regionId}/deviceTypes', 'GET', header, version)
+        super(DescribeInterceptRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/intercept', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDeviceTypesParameters(object):
+class DescribeInterceptParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: Region ID
+        :param instanceId: Instance ID
         """
 
         self.regionId = regionId
-        self.az = None
-
-    def setAz(self, az):
-        """
-        :param az: (Optional) 可用区，精确匹配
-        """
-        self.az = az
+        self.instanceId = instanceId
 

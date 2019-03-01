@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,11 +19,15 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, name=None, carrier=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, pin=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
+    def __init__(self, id=None, name=None, carrier=None, ipType=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
         """
-        :param instanceId: (Optional) 实例id
+        :param id: (Optional) 实例 Id
         :param name: (Optional) 实例名称
-        :param carrier: (Optional) 线路，UNICOM、TELECOM
+        :param carrier: (Optional) 链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
+        :param ipType: (Optional) 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
+- 0: IPV4,
+- 1: IPV4/IPV6
+
         :param elasticTriggerCount: (Optional) 触发弹性带宽的次数
         :param abovePeakCount: (Optional) 超峰次数
         :param inBitslimit: (Optional) 保底带宽
@@ -45,7 +49,6 @@ class Instance(object):
         :param ipBlackStatus: (Optional) ip黑名单状态，0关闭，1开启
         :param ipWhiteList: (Optional) ip白名单列表
         :param ipWhiteStatus: (Optional) ip白名单状态，0关闭，1开启
-        :param pin: (Optional) 用户pin
         :param urlWhitelist: (Optional) url白名单列表
         :param urlWhitelistStatus: (Optional) url白名单状态，0关闭，1开启
         :param hostQps: (Optional) ccProtectMode为自定义模式时，每个Host的防护阈值
@@ -54,9 +57,10 @@ class Instance(object):
         :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时，每个源IP对Host+URI的防护阈值
         """
 
-        self.instanceId = instanceId
+        self.id = id
         self.name = name
         self.carrier = carrier
+        self.ipType = ipType
         self.elasticTriggerCount = elasticTriggerCount
         self.abovePeakCount = abovePeakCount
         self.inBitslimit = inBitslimit
@@ -78,7 +82,6 @@ class Instance(object):
         self.ipBlackStatus = ipBlackStatus
         self.ipWhiteList = ipWhiteList
         self.ipWhiteStatus = ipWhiteStatus
-        self.pin = pin
         self.urlWhitelist = urlWhitelist
         self.urlWhitelistStatus = urlWhitelistStatus
         self.hostQps = hostQps

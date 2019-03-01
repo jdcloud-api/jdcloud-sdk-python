@@ -26,4 +26,4 @@ class ContainerregistryClient(JDCloudClient):
         if config is None:
             config = Config('containerregistry.jdcloud-api.com')
 
-        super(ContainerregistryClient, self).__init__(credential, config, 'containerregistry', '1.0.0', logger)
+        super(ContainerregistryClient, self).__init__(credential, config, 'containerregistry', '1.0.1', logger)

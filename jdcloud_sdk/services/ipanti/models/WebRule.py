@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,28 +19,34 @@
 
 class WebRule(object):
 
-    def __init__(self, id=None, instanceId=None, domain=None, cname=None, protocol=None, port=None, httpsPort=None, originType=None, originAddr=None, onlineAddr=None, originDomain=None, httpsCertContent=None, httpsRsaKey=None, httpCertStatus=None, status=None, ccStatus=None, algorithm=None, forceJump=None, customPortStatus=None, httpOrigin=None):
+    def __init__(self, id=None, instanceId=None, domain=None, cname=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None):
         """
-        :param id: (Optional) 规则id
-        :param instanceId: (Optional) 实例id
+        :param id: (Optional) 规则 Id
+        :param instanceId: (Optional) 实例 Id
         :param domain: (Optional) 子域名
-        :param cname: (Optional) 规则的cname
-        :param protocol: (Optional) 协议：HTTP、HTTPS、HTTP_HTTPS
-        :param port: (Optional) HTTP协议的端口号，如80,81，多个端口号使用逗号分隔
-        :param httpsPort: (Optional) HTTPS协议的端口号，如443,8443，多个端口号使用逗号分隔
-        :param originType: (Optional) 回源类型：A或者CNAME
+        :param cname: (Optional) 规则的 cname
+        :param protocol: (Optional) 
+        :param customPortStatus: (Optional) 是否为自定义端口号, 0: 为默认, 1: 为自定义
+        :param port: (Optional) HTTP 协议的端口号, 如 80,81
+        :param httpsPort: (Optional) HTTPS 协议的端口号, 如 443,8443
+        :param httpOrigin: (Optional) 是否开启 http 回源, 0: 为不开启, 1: 为开启, 当勾选 HTTPS 时可以配置该属性
+        :param status: (Optional) 0: 防御状态, 1: 回源状态
+        :param originType: (Optional) 回源类型: A 或者 CNAME
         :param originAddr: (Optional) 
+        :param originDomain: (Optional) 回源域名, originType 为 CNAME 时返回该字段
         :param onlineAddr: (Optional) 
-        :param originDomain: (Optional) 回源域名,originType为CNAME时返回该字段
+        :param httpCertStatus: (Optional) 证书状态, 0: 异常, 1: 正常, 2: 证书未上传
+        :param certId: (Optional) 证书 Id
+        :param certName: (Optional) 证书名称
         :param httpsCertContent: (Optional) 证书内容
         :param httpsRsaKey: (Optional) 证书私钥
-        :param httpCertStatus: (Optional) 证书状态：0异常，1正常
-        :param status: (Optional) 0防御状态，1回源状态
-        :param ccStatus: (Optional) 0 CC关闭 1 CC开启
-        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，rr->不带权重的轮询
-        :param forceJump: (Optional) 是否开启https强制跳转，当protocol为HTTP_HTTPS时可以配置该属性 0为不强跳 1为开启强跳
-        :param customPortStatus: (Optional) 是否为自定义端口号，0为默认 1为自定义
-        :param httpOrigin: (Optional) 是否开启http回源，0为不开启 1为开启，当勾选HTTPS时可以配置该属性
+        :param forceJump: (Optional) 是否开启https强制跳转, 当 protocol 为 HTTP_HTTPS 时可以配置该属性
+  - 0 不强跳
+  - 1 开启强跳
+
+        :param algorithm: (Optional) 转发规则,  wrr: 带权重的轮询, rr: 不带权重的轮询
+        :param ccStatus: (Optional) CC 状态, 0: CC 关闭, 1: CC 开启
+        :param webSocketStatus: (Optional) webSocketStatus, 0: 关闭, 1: 开启
         """
 
         self.id = id
@@ -48,18 +54,21 @@ class WebRule(object):
         self.domain = domain
         self.cname = cname
         self.protocol = protocol
+        self.customPortStatus = customPortStatus
         self.port = port
         self.httpsPort = httpsPort
+        self.httpOrigin = httpOrigin
+        self.status = status
         self.originType = originType
         self.originAddr = originAddr
-        self.onlineAddr = onlineAddr
         self.originDomain = originDomain
+        self.onlineAddr = onlineAddr
+        self.httpCertStatus = httpCertStatus
+        self.certId = certId
+        self.certName = certName
         self.httpsCertContent = httpsCertContent
         self.httpsRsaKey = httpsRsaKey
-        self.httpCertStatus = httpCertStatus
-        self.status = status
-        self.ccStatus = ccStatus
-        self.algorithm = algorithm
         self.forceJump = forceJump
-        self.customPortStatus = customPortStatus
-        self.httpOrigin = httpOrigin
+        self.algorithm = algorithm
+        self.ccStatus = ccStatus
+        self.webSocketStatus = webSocketStatus

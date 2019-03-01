@@ -40,6 +40,7 @@ class DescribeRepositoriesParameters(object):
 
         self.regionId = regionId
         self.filters = None
+        self.registryName = None
         self.pageNumber = None
         self.pageSize = None
 
@@ -49,6 +50,12 @@ class DescribeRepositoriesParameters(object):
 
         """
         self.filters = filters
+
+    def setRegistryName(self, registryName):
+        """
+        :param registryName: (Optional) 注册表名
+        """
+        self.registryName = registryName
 
     def setPageNumber(self, pageNumber):
         """

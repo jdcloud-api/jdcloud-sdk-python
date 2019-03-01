@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -44,13 +44,13 @@ class DescribeInstancesParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码, 默认为 1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小, 默认为 10, 取值范围[10, 100], 0 表示全量
         """
         self.pageSize = pageSize
 

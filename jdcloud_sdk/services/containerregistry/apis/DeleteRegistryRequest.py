@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteRegistryRequest(JDCloudRequest):
     """
     删除指定用户下某个 registry.
-
+ [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):

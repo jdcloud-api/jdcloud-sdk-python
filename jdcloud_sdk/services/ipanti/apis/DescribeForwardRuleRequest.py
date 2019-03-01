@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeForwardRuleRequest(JDCloudRequest):
     """
-    查询某条非网站类规则
+    查询非网站类规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +34,9 @@ class DescribeForwardRuleParameters(object):
 
     def __init__(self, regionId, instanceId, forwardRuleId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: 实例id
-        :param forwardRuleId: 转发规则id
+        :param regionId: 区域 Id
+        :param instanceId: 高防实例 Id
+        :param forwardRuleId: 转发规则 Id
         """
 
         self.regionId = regionId

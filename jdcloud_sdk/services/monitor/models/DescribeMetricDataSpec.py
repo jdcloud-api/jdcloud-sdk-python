@@ -21,8 +21,8 @@ class DescribeMetricDataSpec(object):
 
     def __init__(self, resourceId, serviceCode, aggrType=None, downSampleType=None, endTime=None, groupBy=None, rate=None, startTime=None, tags=None, timeInterval=None):
         """
-        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=zimsum#available-aggregators
-        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=avg#available-aggregators
+        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
+        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
         :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
 in: query
         :param groupBy: (Optional) 是否对查询的tags分组

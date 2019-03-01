@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,14 +32,14 @@ class ModifyInstanceNameRequest(JDCloudRequest):
 
 class ModifyInstanceNameParameters(object):
 
-    def __init__(self, regionId, instanceId, name):
+    def __init__(self, regionId, instanceId, renameInstanceSpec):
         """
         :param regionId: Region ID
-        :param instanceId: 实例id
-        :param name: 新的实例名称
+        :param instanceId: 实例 ID
+        :param renameInstanceSpec: 修改实例名称请求参数
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.name = name
+        self.renameInstanceSpec = renameInstanceSpec
 

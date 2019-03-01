@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,11 +25,16 @@ class ForwardRule(object):
         :param instanceId: (Optional) 实例id
         :param protocol: (Optional) TCP或UDP
         :param cname: (Optional) 规则的cname
-        :param originType: (Optional) 回源类型：ip或者domain
+        :param originType: (Optional) 回源类型: ip或者domain
         :param port: (Optional) 端口号
-        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，wlc->加权最小连接，rr->不带权重的轮询，sh->源地址hash
+        :param algorithm: (Optional) 转发规则
+- wrr 带权重的轮询
+- wlc 加权最小连接
+- rr  不带权重的轮询
+- sh  源地址hash
+
         :param originAddr: (Optional) 
-        :param onlineAddr: (Optional) 
+        :param onlineAddr: (Optional) 备用的回源地址列表
         :param originDomain: (Optional) 回源域名
         :param originPort: (Optional) 回源端口号
         :param status: (Optional) 0防御状态，1回源状态

@@ -33,12 +33,10 @@ class QueryDeviceCommandsRequest(JDCloudRequest):
 
 class QueryDeviceCommandsParameters(object):
 
-    def __init__(self, deviceId, deviceId, ):
+    def __init__(self, deviceId, ):
         """
         :param deviceId: Device 唯一标识
-        :param deviceId: 
         """
 
-        self.deviceId = deviceId
         self.deviceId = deviceId
 

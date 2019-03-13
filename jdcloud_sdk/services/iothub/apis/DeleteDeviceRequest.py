@@ -47,7 +47,7 @@ class DeleteDeviceParameters(object):
 
     def setInstanceId(self, instanceId):
         """
-        :param instanceId: (Optional) 设备目标实例的instanceId
+        :param instanceId: (Optional) hub实例instanceId
         """
         self.instanceId = instanceId
 

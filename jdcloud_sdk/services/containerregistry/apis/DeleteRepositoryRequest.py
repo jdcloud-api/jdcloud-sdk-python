@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteRepositoryRequest(JDCloudRequest):
     """
     删除指定用户下某个镜像仓库.
-
+ [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -43,4 +43,11 @@ class DeleteRepositoryParameters(object):
         self.regionId = regionId
         self.registryName = registryName
         self.repositoryName = repositoryName
+        self.force = None
+
+    def setForce(self, force):
+        """
+        :param force: (Optional) 是否强制删除有镜像的镜像仓库
+        """
+        self.force = force
 

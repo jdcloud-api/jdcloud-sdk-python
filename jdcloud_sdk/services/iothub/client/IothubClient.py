@@ -26,4 +26,4 @@ class IothubClient(JDCloudClient):
         if config is None:
             config = Config('iothub.jdcloud-api.com')
 
-        super(IothubClient, self).__init__(credential, config, 'iothub', '0.2.0', logger)
+        super(IothubClient, self).__init__(credential, config, 'iothub', '0.4.1', logger)

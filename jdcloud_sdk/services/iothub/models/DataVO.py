@@ -19,20 +19,21 @@
 
 class DataVO(object):
 
-    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, feetype=None, createTime=None):
+    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, feetype=None, createTime=None, instanceId=None):
         """
-        :param id: (Optional) 
-        :param name: (Optional) 
-        :param subNetId: (Optional) 
-        :param subNetName: (Optional) 
-        :param vpcId: (Optional) 
-        :param vpcName: (Optional) 
-        :param azName: (Optional) 
-        :param pubDomain: (Optional) 
-        :param priDomain: (Optional) 
-        :param status: (Optional) 
-        :param feetype: (Optional) 
-        :param createTime: (Optional) 
+        :param id: (Optional) 系统流水号
+        :param name: (Optional) 实例名称
+        :param subNetId: (Optional) 子网编号
+        :param subNetName: (Optional) 子网名称
+        :param vpcId: (Optional) VPC编号
+        :param vpcName: (Optional) VPC名称
+        :param azName: (Optional) 可用区名称
+        :param pubDomain: (Optional) 公网域名
+        :param priDomain: (Optional) 内网域名
+        :param status: (Optional) 实例状态
+        :param feetype: (Optional) 资费形式
+        :param createTime: (Optional) 创建时间
+        :param instanceId: (Optional) 实例编号
         """
 
         self.id = id
@@ -47,3 +48,4 @@ class DataVO(object):
         self.status = status
         self.feetype = feetype
         self.createTime = createTime
+        self.instanceId = instanceId

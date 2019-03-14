@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteAlarmsRequest(JDCloudRequest):
     """
-    批量删除已创建的报警规则
+    批量删除规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class DeleteAlarmsParameters(object):
     def __init__(self, regionId, ids):
         """
         :param regionId: 地域 Id
-        :param ids: 待删除的规则id，用"|"间隔
+        :param ids: 待删除的规则id，用竖线分隔
         """
 
         self.regionId = regionId

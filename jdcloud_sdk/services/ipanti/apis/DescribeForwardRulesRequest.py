@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -34,24 +34,38 @@ class DescribeForwardRulesParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
-        :param instanceId: 实例id
+        :param regionId: 区域 Id
+        :param instanceId: 高防实例 Id
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.pageNumber = None
         self.pageSize = None
+        self.searchType = None
+        self.searchValue = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码, 默认为1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小, 默认为10, 取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setSearchType(self, searchType):
+        """
+        :param searchType: (Optional) 查询类型名称, domain:源站域名, ip:源站 IP, port: 转发端口, originPort: 源站端口
+        """
+        self.searchType = searchType
+
+    def setSearchValue(self, searchValue):
+        """
+        :param searchValue: (Optional) 查询类型值
+        """
+        self.searchValue = searchValue
 

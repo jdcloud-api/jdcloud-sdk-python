@@ -19,13 +19,13 @@
 
 class DataTag(object):
 
-    def __init__(self, tagKey, tagValue, operation=None):
+    def __init__(self, operation=None, tagKey=None, tagValue=None):
         """
-        :param tagKey:  标签名称
-        :param tagValue:  标签值
-        :param operation: (Optional) 标签的处理方式，1 代表对于新增标签的时候，如果数据点存在该标签，跳过不处理，2、代表新增标签的时候，如果标签存在进行覆盖
+        :param operation: (Optional) 
+        :param tagKey: (Optional) 
+        :param tagValue: (Optional) 
         """
 
+        self.operation = operation
         self.tagKey = tagKey
         self.tagValue = tagValue
-        self.operation = operation

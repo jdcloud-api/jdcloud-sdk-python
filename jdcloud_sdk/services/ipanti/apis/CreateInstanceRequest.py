@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceRequest(JDCloudRequest):
     """
-    创建实例
+    新购或升级高防实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,12 +32,12 @@ class CreateInstanceRequest(JDCloudRequest):
 
 class CreateInstanceParameters(object):
 
-    def __init__(self, regionId, instanceSpec):
+    def __init__(self, regionId, createInstanceSpec):
         """
         :param regionId: Region ID
-        :param instanceSpec: 实例规格参数
+        :param createInstanceSpec: 新购或升级实例请求参数
         """
 
         self.regionId = regionId
-        self.instanceSpec = instanceSpec
+        self.createInstanceSpec = createInstanceSpec
 

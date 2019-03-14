@@ -19,7 +19,7 @@
 
 class InstanceDetailVO(object):
 
-    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, createTime=None, description=None, region=None, rdsInstanceId=None, rdsDatabase=None, rdsHostName=None, rdsUserName=None, jcqAccessPoint=None, jcqTopicName=None, jcqTopicType=None, jcqRegion=None):
+    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, createTime=None, description=None, region=None, rdsInstanceId=None, rdsDatabase=None, rdsHostName=None, rdsUserName=None, jcqId=None, jcqAccessPoint=None, jcqTopicName=None, jcqTopicType=None, jcqRegion=None, ak=None, sk=None):
         """
         :param id: (Optional) 
         :param name: (Optional) 
@@ -38,10 +38,13 @@ class InstanceDetailVO(object):
         :param rdsDatabase: (Optional) 
         :param rdsHostName: (Optional) 
         :param rdsUserName: (Optional) 
+        :param jcqId: (Optional) 
         :param jcqAccessPoint: (Optional) 
         :param jcqTopicName: (Optional) 
         :param jcqTopicType: (Optional) 
         :param jcqRegion: (Optional) 
+        :param ak: (Optional) ak
+        :param sk: (Optional) sk
         """
 
         self.id = id
@@ -61,7 +64,10 @@ class InstanceDetailVO(object):
         self.rdsDatabase = rdsDatabase
         self.rdsHostName = rdsHostName
         self.rdsUserName = rdsUserName
+        self.jcqId = jcqId
         self.jcqAccessPoint = jcqAccessPoint
         self.jcqTopicName = jcqTopicName
         self.jcqTopicType = jcqTopicType
         self.jcqRegion = jcqRegion
+        self.ak = ak
+        self.sk = sk

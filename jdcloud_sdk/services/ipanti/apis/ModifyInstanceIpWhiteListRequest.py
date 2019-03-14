@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyInstanceIpWhiteListRequest(JDCloudRequest):
     """
-    设置实例ip白名单
+    设置实例 IP 白名单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,14 +32,14 @@ class ModifyInstanceIpWhiteListRequest(JDCloudRequest):
 
 class ModifyInstanceIpWhiteListParameters(object):
 
-    def __init__(self, regionId, instanceId, ipWhiteList):
+    def __init__(self, regionId, instanceId, ipBwListSpec):
         """
         :param regionId: Region ID
-        :param instanceId: 实例id
-        :param ipWhiteList: ip白名单列表
+        :param instanceId: 实例 ID
+        :param ipBwListSpec: 设置 IP 白名单请求参数
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.ipWhiteList = ipWhiteList
+        self.ipBwListSpec = ipBwListSpec
 

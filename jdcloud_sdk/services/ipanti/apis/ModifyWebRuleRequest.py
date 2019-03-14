@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyWebRuleRequest(JDCloudRequest):
     """
-    更新某条网站类规则
+    修改网站类规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +34,10 @@ class ModifyWebRuleParameters(object):
 
     def __init__(self, regionId, instanceId, webRuleId, webRuleSpec):
         """
-        :param regionId: Region ID
-        :param instanceId: 实例id
-        :param webRuleId: 网站规则id
-        :param webRuleSpec: 网站类规则参数
+        :param regionId: 区域 Id
+        :param instanceId: 高防实例 Id
+        :param webRuleId: 网站规则 Id
+        :param webRuleSpec: 更新网站类规则请求参数
         """
 
         self.regionId = regionId

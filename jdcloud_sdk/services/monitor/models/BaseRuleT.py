@@ -19,13 +19,14 @@
 
 class BaseRuleT(object):
 
-    def __init__(self, calculation, metricId, noticePeriod, operation, period, ruleType, threshold, times, autoScalingPolicyId=None, calculateUnit=None, downSample=None, noticeLevel=None, tags=None):
+    def __init__(self, calculation, noticePeriod, operation, period, ruleType, threshold, times, autoScalingPolicyId=None, calculateUnit=None, downSample=None, metric=None, metricId=None, noticeLevel=None, tags=None):
         """
         :param autoScalingPolicyId: (Optional) 弹性伸缩组ID
         :param calculateUnit: (Optional) 监控项单位
         :param calculation:  统计方法，必须与定义的metric一致，可选值列表：avg,sum,max,min
         :param downSample: (Optional) 降采样函数
-        :param metricId:  监控项ID
+        :param metric: (Optional) 监控项
+        :param metricId: (Optional) 监控项ID
         :param noticeLevel: (Optional) 
         :param noticePeriod:  通知周期，单位：小时
         :param operation:  报警比较符，只能为以下几种lte(<=),lt(<),gt(>),gte(>=),eq(==),ne(!=)
@@ -40,6 +41,7 @@ class BaseRuleT(object):
         self.calculateUnit = calculateUnit
         self.calculation = calculation
         self.downSample = downSample
+        self.metric = metric
         self.metricId = metricId
         self.noticeLevel = noticeLevel
         self.noticePeriod = noticePeriod

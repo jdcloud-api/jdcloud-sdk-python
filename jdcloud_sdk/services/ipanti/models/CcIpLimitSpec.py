@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,10 +19,10 @@
 
 class CcIpLimitSpec(object):
 
-    def __init__(self, ccSpeedLimit=None, ccSpeedPeriod=None):
+    def __init__(self, ccSpeedLimit, ccSpeedPeriod, ):
         """
-        :param ccSpeedLimit: (Optional) cc防护每ip的限速大小
-        :param ccSpeedPeriod: (Optional) cc防护每ip的限速大小的统计周期
+        :param ccSpeedLimit:  cc防护每ip的限速大小
+        :param ccSpeedPeriod:  cc防护每ip的限速大小的统计周期
         """
 
         self.ccSpeedLimit = ccSpeedLimit

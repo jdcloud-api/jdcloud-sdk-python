@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,16 +19,21 @@
 
 class ForwardRuleSpec(object):
 
-    def __init__(self, protocol=None, port=None, algorithm=None, originType=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None):
+    def __init__(self, protocol, port, algorithm, originType, originPort, originAddr=None, onlineAddr=None, originDomain=None):
         """
-        :param protocol: (Optional) 协议：TCP或者UDP
-        :param port: (Optional) 端口号
-        :param algorithm: (Optional) 转发规则：wrr->带权重的轮询，wlc->加权最小连接，rr->不带权重的轮询，sh->源地址hash
-        :param originType: (Optional) 回源类型，ip或者domain
+        :param protocol:  协议: TCP或者UDP
+        :param port:  端口号, 取值范围[1, 65535]
+        :param algorithm:  转发规则
+- wrr 带权重的轮询
+- wlc 加权最小连接
+- rr  不带权重的轮询
+- sh  源地址hash
+
+        :param originType:  回源类型: A 或者 CNAME
         :param originAddr: (Optional) 
-        :param onlineAddr: (Optional) 
+        :param onlineAddr: (Optional) 备用的回源地址列表, 可以配置为一个域名或者多个 ip 地址
         :param originDomain: (Optional) 回源域名
-        :param originPort: (Optional) 回源端口号
+        :param originPort:  回源端口号, 取值范围[1, 65535]
         """
 
         self.protocol = protocol

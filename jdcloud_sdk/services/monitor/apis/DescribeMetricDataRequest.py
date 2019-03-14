@@ -55,13 +55,13 @@ class DescribeMetricDataParameters(object):
 
     def setAggrType(self, aggrType):
         """
-        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=zimsum#available-aggregators
+        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
         """
         self.aggrType = aggrType
 
     def setDownSampleType(self, downSampleType):
         """
-        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight=avg#available-aggregators
+        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
         """
         self.downSampleType = downSampleType
 

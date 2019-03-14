@@ -22,7 +22,7 @@ class SnapshotConfig(object):
     def __init__(self, publishDomain=None, appName=None, streamName=None, snapshotConfig=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param appName: (Optional) APP名称
+        :param appName: (Optional) 应用名称
         :param streamName: (Optional) 流名称
         :param snapshotConfig: (Optional) 
         """

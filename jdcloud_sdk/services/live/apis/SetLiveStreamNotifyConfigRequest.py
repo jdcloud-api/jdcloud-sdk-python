@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetLiveStreamNotifyConfigRequest(JDCloudRequest):
     """
-    设置直播流状态通知
+    设置推流回调配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,10 @@ class SetLiveStreamNotifyConfigParameters(object):
     def __init__(self, publishDomain, notifyUrl):
         """
         :param publishDomain: 您的加速域名
-        :param notifyUrl: 设置直播流信息推送到的 URL 地址
+        :param notifyUrl: 设置直播流信息推送到的 URL 地址:
+  - 必须以 http:// 开头
+  - 正则校验格式
+
         """
 
         self.publishDomain = publishDomain

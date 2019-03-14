@@ -19,11 +19,22 @@
 
 class PlayDomain(object):
 
-    def __init__(self, playDomain=None, playDomainCname=None, domainStatus=None, createTime=None, updateTime=None):
+    def __init__(self, playDomain=None, playDomainCname=None, domainStatus=None, playType=None, createTime=None, updateTime=None):
         """
         :param playDomain: (Optional) 播放域名
         :param playDomainCname: (Optional) 播放域名(Cname)
-        :param domainStatus: (Optional) 直播域名状态
+        :param domainStatus: (Optional) 直播域名状态:
+  - online表示启用
+  - offline表示停用
+  - configuring表示配置中
+  - configure_failed表示配置失败
+  - checking表示正在审核
+  - check_failed表示审核失败
+
+        :param playType: (Optional) 播放域名类型:
+  - normal  普通播放域名
+  - restart 回看域名
+
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 更新时间
         """
@@ -31,5 +42,6 @@ class PlayDomain(object):
         self.playDomain = playDomain
         self.playDomainCname = playDomainCname
         self.domainStatus = domainStatus
+        self.playType = playType
         self.createTime = createTime
         self.updateTime = updateTime

@@ -22,7 +22,7 @@ class TemplateConfig(object):
     def __init__(self, publishDomain=None, appName=None, streamName=None, transcodeConfig=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param appName: (Optional) APP 名称
+        :param appName: (Optional) 应用名称
         :param streamName: (Optional) 流名称
         :param transcodeConfig: (Optional) 
         """

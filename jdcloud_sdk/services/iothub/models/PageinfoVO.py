@@ -21,10 +21,10 @@ class PageinfoVO(object):
 
     def __init__(self, pageSize=None, nowPage=None, totalSize=None, totalPage=None):
         """
-        :param pageSize: (Optional) 
-        :param nowPage: (Optional) 
-        :param totalSize: (Optional) 
-        :param totalPage: (Optional) 
+        :param pageSize: (Optional) 每页显示条数
+        :param nowPage: (Optional) 当前页数
+        :param totalSize: (Optional) 总记录数
+        :param totalPage: (Optional) 总页数
         """
 
         self.pageSize = pageSize

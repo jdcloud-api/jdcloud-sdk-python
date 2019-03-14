@@ -34,12 +34,28 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
 
     def __init__(self, offsetX, offsetY, width, height, template, url):
         """
-        :param offsetX: x轴偏移量 单位：像素
-        :param offsetY: y轴偏移量 单位：像素
-        :param width: 宽
-        :param height: 高
-        :param template: 录制模板自定义名称
-        :param url: 高
+        :param offsetX: x轴偏移量:
+  - 单位：像素
+
+        :param offsetY: y轴偏移量:
+  - 单位：像素
+
+        :param width: 水印宽度:
+  - 取值: [0,1920]
+
+        :param height: 水印高度:
+  - 取值: [0,1920]
+
+        :param template: 水印模板自定义名称:
+  - 标准质量模板：sd、hd、hsd
+  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
+              取值要求：数字、大小写字母或短横线("-"),
+              首尾不能有特殊字符("-")
+  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+
+        :param url: 水印地址:
+  - 以 http开头，可访问地址
+
         """
 
         self.offsetX = offsetX

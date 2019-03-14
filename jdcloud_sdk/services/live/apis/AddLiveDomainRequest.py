@@ -34,8 +34,8 @@ class AddLiveDomainParameters(object):
 
     def __init__(self, publishDomain, playDomain):
         """
-        :param publishDomain: 直播的推流域名
-        :param playDomain: 直播的播放域名
+        :param publishDomain: 直播的推流域名（不支持泛域名）
+        :param playDomain: 直播的播放域名（不支持泛域名）
         """
 
         self.publishDomain = publishDomain

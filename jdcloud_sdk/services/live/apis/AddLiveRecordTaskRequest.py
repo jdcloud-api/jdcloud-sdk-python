@@ -22,6 +22,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class AddLiveRecordTaskRequest(JDCloudRequest):
     """
     添加录制打点任务
+  - 您可以调用此接口精确提取已录制的文件中所需要的部分
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -37,10 +39,13 @@ class AddLiveRecordTaskParameters(object):
         :param publishDomain: 推流加速域名
         :param appName: 直播流所属应用名称
         :param streamName: 直播流名称
-        :param recordTimes: 您的推流加速域名
+        :param recordTimes: 录制时间集合
         :param saveBucket: 存储桶
         :param saveEndpoint: 存储地址
-        :param recordFileType: 录制文件类型
+        :param recordFileType: 录制文件类型:
+  - 取值: ts,flv,mp4 (多种类型之前用;隔开)
+  - 不区分大小写
+
         """
 
         self.publishDomain = publishDomain
@@ -54,7 +59,9 @@ class AddLiveRecordTaskParameters(object):
 
     def setSaveObject(self, saveObject):
         """
-        :param saveObject: (Optional) 录制文件存储路径
+        :param saveObject: (Optional) 录制文件存储路径:
+  - 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}.{format}
+
         """
         self.saveObject = saveObject
 

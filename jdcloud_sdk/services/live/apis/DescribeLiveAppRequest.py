@@ -54,7 +54,10 @@ class DescribeLiveAppParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 域名下的app列表过滤条件, 不传递分页参数时默认返回10条
+        :param filters: (Optional) 域名下的app列表过滤条件:
+  - name:   publishDomain 直播的推流域名
+  - value:  如果参数为空，则查询全部
+
         """
         self.filters = filters
 

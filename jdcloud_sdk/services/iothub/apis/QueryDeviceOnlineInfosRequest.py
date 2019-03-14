@@ -40,7 +40,7 @@ class QueryDeviceOnlineInfosParameters(object):
 
     def setDeviceIds(self, deviceIds):
         """
-        :param deviceIds: (Optional) device标识符array
+        :param deviceIds: (Optional) 设备Id集合
         """
         self.deviceIds = deviceIds
 

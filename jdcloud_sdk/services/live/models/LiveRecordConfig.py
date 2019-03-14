@@ -22,7 +22,7 @@ class LiveRecordConfig(object):
     def __init__(self, publishDomain=None, appName=None, streamName=None, recordConfig=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param appName: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
         :param streamName: (Optional) 直播流名称
         :param recordConfig: (Optional) 
         """

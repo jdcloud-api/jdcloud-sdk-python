@@ -21,8 +21,11 @@ class App(object):
 
     def __init__(self, appName=None, appStatus=None, createTime=None, updateTime=None):
         """
-        :param appName: (Optional) 应用名
-        :param appStatus: (Optional) 应用状态
+        :param appName: (Optional) 应用名称
+        :param appStatus: (Optional) 应用状态：
+ - online    开启
+ - offline   关闭
+
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 更新时间
         """

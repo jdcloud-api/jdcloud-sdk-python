@@ -54,7 +54,10 @@ class DescribeCustomLiveStreamRecordTemplatesParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 域名列表查询过滤条件, 不传递分页参数时默认返回10条
+        :param filters: (Optional) 录制模板列表查询过滤条件:
+  - name:   template 录制模板自定义名称
+  - value:  如果参数为空，则查询全部
+
         """
         self.filters = filters
 

@@ -1,12 +1,12 @@
 # coding=utf8
 
-# Copyright 2018-2025 JDCLOUD.COM
+# Copyright 2018 JDCLOUD.COM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,15 +19,17 @@
 
 class CreateSubUserInfo(object):
 
-    def __init__(self, name, password, phone, email, passwordConfirm, createAk, description=None):
+    def __init__(self, name, password, phone, email, description=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None):
         """
-        :param name:  子账号用户名，4~20位数字、字母、中文、下划线、中划线
+        :param name:  子用户名：支持4-20位的字母，数字以及-和_，以字母开头
         :param description: (Optional) 描述，0~256个字符
-        :param password:  密码，6~20位，至少包含一个字母，至少包含一个数字或半角符号
-        :param phone:  手机号码，区号-手机号，目前只支持0086-中国手机号码
+        :param password:  按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
+        :param phone:  手机号码，区号-手机号
         :param email:  邮箱
-        :param passwordConfirm:  确认密码
-        :param createAk:  是否创建accessKey
+        :param createAk: (Optional) 是否创建accessKey，默认false
+        :param needResetPassword: (Optional) 子用户首次登录是否需要重置密码，默认false
+        :param consoleLogin: (Optional) 子用户是否支持控制台登录，默认true
+        :param autoGeneratePassword: (Optional) 是否自动生成密码，默认false
         """
 
         self.name = name
@@ -35,5 +37,7 @@ class CreateSubUserInfo(object):
         self.password = password
         self.phone = phone
         self.email = email
-        self.passwordConfirm = passwordConfirm
         self.createAk = createAk
+        self.needResetPassword = needResetPassword
+        self.consoleLogin = consoleLogin
+        self.autoGeneratePassword = autoGeneratePassword

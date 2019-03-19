@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveDomainRequest(JDCloudRequest):
     """
-    删除域名
+    删除直播域名
     """
 
     def __init__(self, parameters, header=None, version="v1"):

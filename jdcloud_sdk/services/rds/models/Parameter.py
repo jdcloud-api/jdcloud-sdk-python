@@ -19,10 +19,10 @@
 
 class Parameter(object):
 
-    def __init__(self, name=None, value=None):
+    def __init__(self, name, value, ):
         """
-        :param name: (Optional) 参数名称,目前支持以下参数:max_worker_threads,max_degree_of_parallelism,max_server_memory_(MB)
-        :param value: (Optional) 参数修改值
+        :param name:  参数名称
+        :param value:  参数修改值
         """
 
         self.name = name

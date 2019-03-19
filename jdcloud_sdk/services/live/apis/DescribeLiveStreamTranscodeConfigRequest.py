@@ -54,7 +54,14 @@ class DescribeLiveStreamTranscodeConfigParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 转码模板查询过滤条件, 不传递分页参数时默认返回10条
+        :param filters: (Optional) 模板配置查询过滤条件:
+  - name:   publishDomain，必填(直播推流域名)
+  - value:  参数
+  - name:   appName，必填(应用名称)
+  - value:  参数
+  - name:   streamName，非必填(推流名称)
+  - value:  参数
+
         """
         self.filters = filters
 

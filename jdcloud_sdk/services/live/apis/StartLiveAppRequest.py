@@ -35,7 +35,7 @@ class StartLiveAppParameters(object):
     def __init__(self, publishDomain, appName):
         """
         :param publishDomain: 直播的推流域名
-        :param appName: appName
+        :param appName: 应用名称
         """
 
         self.publishDomain = publishDomain

@@ -35,7 +35,10 @@ class SetLiveStreamSnapshotNotifyConfigParameters(object):
     def __init__(self, publishDomain, notifyUrl):
         """
         :param publishDomain: 您的推流加速域名
-        :param notifyUrl: 设置直播流信息推送到的 URL 地址
+        :param notifyUrl: 设置直播流信息推送到的 URL 地址:
+  - 以 http:// 开头
+  - 正则校验
+
         """
 
         self.publishDomain = publishDomain

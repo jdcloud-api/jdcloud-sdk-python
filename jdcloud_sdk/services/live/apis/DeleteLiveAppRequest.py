@@ -34,8 +34,8 @@ class DeleteLiveAppParameters(object):
 
     def __init__(self, publishDomain, appName, ):
         """
-        :param publishDomain: 推流域名
-        :param appName: 直播流所属应用名称
+        :param publishDomain: 直播推流域名
+        :param appName: 应用名称
         """
 
         self.publishDomain = publishDomain

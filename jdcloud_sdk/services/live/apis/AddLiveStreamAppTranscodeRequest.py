@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamAppTranscodeRequest(JDCloudRequest):
     """
-    添加APP转码配置
+    添加应用转码配置
+- 添加应用级别的转码模板配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,20 +34,21 @@ class AddLiveStreamAppTranscodeRequest(JDCloudRequest):
 
 class AddLiveStreamAppTranscodeParameters(object):
 
-    def __init__(self, publishDomain, template, appName):
+    def __init__(self, publishDomain, appName, template):
         """
-        :param publishDomain: 直播的推流域名
-        :param template: 转码模版:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param template: 转码模版
+- 取值范围: 系统标准转码模板, 用户自定义转码模板
+- 系统标准转码模板
+  ld (h.264/640*360/15f)
+  sd (h.264/854*480/24f)
+  hd (h.264/1280*720/25f)
+  shd (h.264/1920*1080/30f)
 
-        :param appName: 直播流所属应用名称
         """
 
         self.publishDomain = publishDomain
-        self.template = template
         self.appName = appName
+        self.template = template
 

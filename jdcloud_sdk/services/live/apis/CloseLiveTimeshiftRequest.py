@@ -34,7 +34,7 @@ class CloseLiveTimeshiftParameters(object):
 
     def __init__(self, playDomain):
         """
-        :param playDomain: 直播的推流域名
+        :param playDomain: 直播的播放域名
         """
 
         self.playDomain = playDomain

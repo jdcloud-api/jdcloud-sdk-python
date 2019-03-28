@@ -26,18 +26,23 @@ class OperateLiveDomainIpBlackListRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(OperateLiveDomainIpBlackListRequest, self).__init__(
-            '/liveDomain/{domain}/ipBlackList:{blackIpsEnable}', 'POST', header, version)
+            '/liveDomain/{domain}/ipBlackList:operate', 'POST', header, version)
         self.parameters = parameters
 
 
 class OperateLiveDomainIpBlackListParameters(object):
 
-    def __init__(self, domain, blackIpsEnable, ):
+    def __init__(self, domain, ):
         """
         :param domain: 用户域名
-        :param blackIpsEnable: 
         """
 
         self.domain = domain
+        self.blackIpsEnable = None
+
+    def setBlackIpsEnable(self, blackIpsEnable):
+        """
+        :param blackIpsEnable: (Optional) 
+        """
         self.blackIpsEnable = blackIpsEnable
 

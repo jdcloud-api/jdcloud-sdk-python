@@ -21,7 +21,7 @@ class RecordApp(object):
 
     def __init__(self, appName=None, recordConfig=None):
         """
-        :param appName: (Optional) appName
+        :param appName: (Optional) 应用名称
         :param recordConfig: (Optional) 自动录制周期
         """
 

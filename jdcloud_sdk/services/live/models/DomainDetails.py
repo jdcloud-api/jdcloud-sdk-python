@@ -22,7 +22,7 @@ class DomainDetails(object):
     def __init__(self, publishDomains=None, playDomains=None):
         """
         :param publishDomains: (Optional) 推流域名集合
-        :param playDomains: (Optional) 直播域名集合
+        :param playDomains: (Optional) 播放域名集合
         """
 
         self.publishDomains = publishDomains

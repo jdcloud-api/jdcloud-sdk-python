@@ -26,7 +26,7 @@ class CreateTransferTaskRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(CreateTransferTaskRequest, self).__init__(
-            '/regions/{regionId}/oss_transferTasks', 'POST', header, version)
+            '/regions/{regionId}/oss_transferTasks_simple', 'POST', header, version)
         self.parameters = parameters
 
 

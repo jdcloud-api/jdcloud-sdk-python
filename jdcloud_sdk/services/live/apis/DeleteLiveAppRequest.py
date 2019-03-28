@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveAppRequest(JDCloudRequest):
     """
-    删除APP
+    删除应用
+- 删除应用之前需要先停用应用
+- 删除应用同时会删除此应用下的所有数据
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +37,7 @@ class DeleteLiveAppParameters(object):
 
     def __init__(self, publishDomain, appName, ):
         """
-        :param publishDomain: 直播推流域名
+        :param publishDomain: 推流域名
         :param appName: 应用名称
         """
 

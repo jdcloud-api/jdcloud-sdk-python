@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveStreamDomainWatermarkRequest(JDCloudRequest):
     """
-    删除域名水印配置
+    删除域名级别水印模板配置
+- 删除域名级别水印模板配置,重新推流后生效
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,13 +36,9 @@ class DeleteLiveStreamDomainWatermarkParameters(object):
 
     def __init__(self, publishDomain, template, ):
         """
-        :param publishDomain: 推流加速域名
-        :param template: 水印模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param publishDomain: 推流域名
+        :param template: 水印模板
+
         """
 
         self.publishDomain = publishDomain

@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveAppRequest(JDCloudRequest):
     """
-    添加直播APP
+    添加直播应用名
+- 需要提前在应用(app)级别绑定功能模板时才需要提前新建应用名
+- 新的应用名可以推流时自动创建
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +37,10 @@ class AddLiveAppParameters(object):
 
     def __init__(self, publishDomain, appName):
         """
-        :param publishDomain: 直播的推流域名(不支持泛域名)
+        :param publishDomain: 直播的推流域名
         :param appName: 应用名称
+- 取值: 数字字母中划线("-")下划线("_") 50个字符以内
+
         """
 
         self.publishDomain = publishDomain

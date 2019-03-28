@@ -34,34 +34,32 @@ class AddCustomLiveStreamSnapshotTemplateParameters(object):
 
     def __init__(self, format, fillType, snapshotInterval, saveMode, saveBucket, saveEndpoint, template):
         """
-        :param format: 截图格式:
-  - 取值: jpg, png
-  - 不区分大小写
+        :param format: 截图格式
+- 取值: jpg, png
+- 不区分大小写
 
-        :param fillType: 截图与设定的宽高不匹配时的处理规则:
-  - 1-拉伸
-  - 2-留黑
-  - 3-留白
-  - 4-高斯模糊
-  - 默认值1,2,3,4是等比例的缩放，1是按照设定宽高拉伸
+        :param fillType: 截图与设定的宽高不匹配时的处理规则
+  1: 拉伸
+  2: 留黑
+  3: 留白
+  4: 高斯模糊
+- 1是按照设定宽高拉伸
+- 2,3,4是等比例的缩放多余或不足处按调置处理
 
-        :param snapshotInterval: 截图周期:
-  - MIN_INTEGER = 5
-  - MAX_INTEGER = 3600;
-  - 单位: 秒
+        :param snapshotInterval: 截图周期
+- 取值范围 [5,3600]
+- 单位: 秒
 
-        :param saveMode: 存储模式:
-  - 1-覆盖
-  - 2-顺序编号存储
+        :param saveMode: 存储模式
+  1: 覆盖存储
+  2: 顺序存储
 
         :param saveBucket: 存储桶
         :param saveEndpoint: 存储地址
         :param template: 截图模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-               取值要求：数字、大小写字母或短横线("-"),
-               首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+- 取值要求: 数字、大小写字母或短横线("-"),
+  首尾不能有特殊字符("-")
+- <b>注意: 不能与已定义命名重复</b>
 
         """
 
@@ -77,20 +75,20 @@ class AddCustomLiveStreamSnapshotTemplateParameters(object):
 
     def setWidth(self, width):
         """
-        :param width: (Optional) 截图宽度:
-  - 取值: [8,8192]
-  - 等比: 如果只填写一个参数,则按参数比例等比缩放截图
-  - 随源: 如果两个参数都不填写，则截取源流大小原图
+        :param width: (Optional) 截图宽度
+- 取值: [8,8192]
+- 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出截图
+- 如果(width,height)都不设置，则按源流大小输出截图
 
         """
         self.width = width
 
     def setHeight(self, height):
         """
-        :param height: (Optional) 截图高度:
-  - 取值: [8,8192]
-  - 等比: 如果只填写一个参数,则按参数比例等比缩放截图
-  - 随源: 如果两个参数都不填写，则截取源流大小原图
+        :param height: (Optional) 截图高度
+- 取值: [8,8192]
+- 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出截图
+- 如果(width,height)都不设置，则按源流大小输出截图
 
         """
         self.height = height

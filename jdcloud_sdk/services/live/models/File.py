@@ -21,11 +21,19 @@ class File(object):
 
     def __init__(self, publishDomain=None, appName=None, streamName=None, startTime=None, endTime=None, duration=None, height=None, width=None, ossBucket=None, ossEndpoint=None, ossObject=None):
         """
-        :param publishDomain: (Optional) 流所属加速域名
-        :param appName: (Optional) 流所属应用名称
-        :param streamName: (Optional) 直播流名称
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
         :param startTime: (Optional) 开始时间
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+
         :param endTime: (Optional) 结束时间
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+
         :param duration: (Optional) 录制时长
         :param height: (Optional) 视频高
         :param width: (Optional) 视频宽

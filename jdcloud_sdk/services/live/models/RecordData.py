@@ -21,15 +21,16 @@ class RecordData(object):
 
     def __init__(self, publishDomain=None, appName=None, streamName=None, date=None, total=None, detail=None):
         """
-        :param publishDomain: (Optional) 查询的推流域名
-        :param appName: (Optional) 查询的应用名称
-        :param streamName: (Optional) 查询的流名
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
         :param date: (Optional) 日期:
-  - yyyyMMdd 示例:20190308
+- yyyyMMdd
+- 示例: 20190308
 
-        :param total: (Optional) 单日录制总时长:
-  - 单位: 分
-  - 精确两位小数
+        :param total: (Optional) 录制时长:
+- 单位: 分钟
+- 精确两位小数
 
         :param detail: (Optional) 明细
         """

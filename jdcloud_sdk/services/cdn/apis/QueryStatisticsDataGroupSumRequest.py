@@ -26,7 +26,7 @@ class QueryStatisticsDataGroupSumRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(QueryStatisticsDataGroupSumRequest, self).__init__(
-            '/statistics:groupSum', 'POST', header, version)
+            '/vodStatistics:groupSum', 'POST', header, version)
         self.parameters = parameters
 
 

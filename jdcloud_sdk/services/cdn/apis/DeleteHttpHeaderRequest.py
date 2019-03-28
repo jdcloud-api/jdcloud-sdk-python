@@ -26,7 +26,7 @@ class DeleteHttpHeaderRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DeleteHttpHeaderRequest, self).__init__(
-            '/domain/{domain}/httpHeader', 'DELETE', header, version)
+            '/domain/{domain}/httpHeader', 'PUT', header, version)
         self.parameters = parameters
 
 

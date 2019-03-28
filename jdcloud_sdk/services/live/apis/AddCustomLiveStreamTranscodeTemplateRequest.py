@@ -22,6 +22,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class AddCustomLiveStreamTranscodeTemplateRequest(JDCloudRequest):
     """
     添加自定义转码模板
+- 系统为您预设了标准转码模板,如果不能满足您的转码需求,可以通过此接口添加自定义转码模板
+- 系统标准转码模板
+    ld (h.264/640*360/15f)
+    sd (h.264/854*480/24f)
+    hd (h.264/1280*720/25f)
+    shd (h.264/1920*1080/30f)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,38 +41,40 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 
     def __init__(self, videoCodeRate, videoFrameRate, template, audioCodec, audioFormat, audioSampleRate, audioChannel, audioCodeRate):
         """
-        :param videoCodeRate: 转码输出的码率值:
- - 取值范围:[200,3000]
- - 单位: kpbs
+        :param videoCodeRate: 转码输出的码率值
+- 取值范围: [200,3000]
+- 单位: kpbs
 
-        :param videoFrameRate: 转码输出的帧率值:
-  - 取值：15/1、25/1、30/1、60/1
+        :param videoFrameRate: 转码输出的帧率值
+- 取值：15、25、30、60
 
-        :param template: 转码模板后缀:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param template: 转码模板(转码流输出后缀)
+- 取值要求：数字、大小写字母或短横线("-"),必须以数字或字母作为开头和结尾,长度不超过50字符
+- <b>注意: 不能与系统的标准的转码模板和当前用户已自定义命名重复</b>
+- 系统标准转码模板
+  ld (h.264/640*360/15f)
+  sd (h.264/854*480/24f)
+  hd (h.264/1280*720/25f)
+  shd (h.264/1920*1080/30f)
 
-        :param audioCodec: 转码输出音频编码格式:
-  - 取值: aac、mp3
-  - 不区分大小写
+        :param audioCodec: 转码输出音频编码格式
+- 取值: aac、mp3
+- 不区分大小写
 
-        :param audioFormat: 转码输出音频格式:
-  - 取值: aac_lc，aac_low，aac_he，aac_he_v2
-  - 不区分大小写
+        :param audioFormat: 转码输出音频格式
+- 取值: aac_lc，aac_low，aac_he，aac_he_v2
+- 不区分大小写
 
-        :param audioSampleRate: 转码输出音频采样率:
-  - 取值: [44100,48000]
+        :param audioSampleRate: 转码输出音频采样率
+- 取值: [44100,48000]
 
-        :param audioChannel: 转码输出音频通道数:
-  - 1  单声道
-  - 2  双声道
+        :param audioChannel: 转码输出音频通道数
+  1: 单声道
+  2: 双声道
 
-        :param audioCodeRate: 转码输出音频码率:
-  - 取值: [16,128]
-  - 单位: kbps
+        :param audioCodeRate: 转码输出音频码率
+- 取值: [16,128]
+- 单位: kbps
 
         """
 
@@ -82,20 +91,20 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 
     def setWidth(self, width):
         """
-        :param width: (Optional) 转码输出视频宽度:
-  - 取值: [100,1920]
-  - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
-  - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
+        :param width: (Optional) 转码输出视频宽度
+- 取值: [100,1920]
+- 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
+- 如果(width,height)都不设置，则按源流大小输出转码
 
         """
         self.width = width
 
     def setHeight(self, height):
         """
-        :param height: (Optional) 转码输出视频宽度:
-  - 取值: [100,1920]
-  - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
-  - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
+        :param height: (Optional) 转码输出视频宽度
+- 取值: [100,1920]
+- 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
+- 如果(width,height)都不设置，则按源流大小输出转码
 
         """
         self.height = height

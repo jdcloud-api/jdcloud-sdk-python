@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteLiveStreamNotifyConfigRequest(JDCloudRequest):
     """
-    删除直播流状态通知
+    删除直播流状态回调地址
     """
 
     def __init__(self, parameters, header=None, version="v1"):

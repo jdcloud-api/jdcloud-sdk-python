@@ -34,7 +34,7 @@ class SetLivePlayAuthKeyParameters(object):
 
     def __init__(self, playDomain, ):
         """
-        :param playDomain: 您的播放加速域名
+        :param playDomain: 播放域名
         """
 
         self.playDomain = playDomain
@@ -44,12 +44,18 @@ class SetLivePlayAuthKeyParameters(object):
     def setAuthStatus(self, authStatus):
         """
         :param authStatus: (Optional) 播放鉴权状态
+  on: 开启
+  off: 关闭
+- 当推流鉴权状态on(开启)时,authKey不能为空
+
         """
         self.authStatus = authStatus
 
     def setAuthKey(self, authKey):
         """
         :param authKey: (Optional) 播放鉴权key
+- 取值: 支持大小写字母和数字 长度6-32位
+
         """
         self.authKey = authKey
 

@@ -35,6 +35,8 @@ class DescribeLiveDomainDetailParameters(object):
     def __init__(self, publishDomain, ):
         """
         :param publishDomain: 推流域名
+- 需要停用的域名对(推流域名,播放域名)中的推流域名
+
         """
 
         self.publishDomain = publishDomain

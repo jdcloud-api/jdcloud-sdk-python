@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLiveStreamOnlineListRequest(JDCloudRequest):
     """
-    查看域名下所有的正在推的流的信息
+    查询直播中的流的信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -44,19 +44,23 @@ class DescribeLiveStreamOnlineListParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围[1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围[10, 100]
+
         """
         self.pageSize = pageSize
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) 应用名称（APP）
+        :param appName: (Optional) 应用名称
         """
         self.appName = appName
 

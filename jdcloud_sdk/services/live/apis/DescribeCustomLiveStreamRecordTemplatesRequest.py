@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeCustomLiveStreamRecordTemplatesRequest(JDCloudRequest):
     """
-    查询录制模板列表
+    查询用户自定义直播录制模板列表
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,13 +43,17 @@ class DescribeCustomLiveStreamRecordTemplatesParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围[1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围[10, 100]
+
         """
         self.pageSize = pageSize
 

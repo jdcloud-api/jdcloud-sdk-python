@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetLiveStreamSnapshotNotifyConfigRequest(JDCloudRequest):
     """
-    设置截图回调通知
+    设置直播截图回调通知地址
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,10 +35,9 @@ class SetLiveStreamSnapshotNotifyConfigParameters(object):
 
     def __init__(self, publishDomain, notifyUrl):
         """
-        :param publishDomain: 您的推流加速域名
-        :param notifyUrl: 设置直播流信息推送到的 URL 地址:
-  - 以 http:// 开头
-  - 正则校验
+        :param publishDomain: 推流域名
+        :param notifyUrl: 截图回调通知的URL地址:
+- 以 http:// 开头,外网可访问的地址
 
         """
 

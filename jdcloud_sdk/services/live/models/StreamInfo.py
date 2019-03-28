@@ -19,17 +19,18 @@
 
 class StreamInfo(object):
 
-    def __init__(self, audioFrameRate=None, streamUrl=None, bitRate=None, videoFrameRate=None, time=None):
+    def __init__(self, publishDomain=None, appName=None, streamName=None, status=None):
         """
-        :param audioFrameRate: (Optional) 直播流的音频帧率
-        :param streamUrl: (Optional) 直播流的 URL
-        :param bitRate: (Optional) 直播流的码率
-        :param videoFrameRate: (Optional) 直播流的视频帧率
-        :param time: (Optional) 统计时刻
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
+        :param status: (Optional) 流状态
+  on: 推流中
+  off: 推流中断
+
         """
 
-        self.audioFrameRate = audioFrameRate
-        self.streamUrl = streamUrl
-        self.bitRate = bitRate
-        self.videoFrameRate = videoFrameRate
-        self.time = time
+        self.publishDomain = publishDomain
+        self.appName = appName
+        self.streamName = streamName
+        self.status = status

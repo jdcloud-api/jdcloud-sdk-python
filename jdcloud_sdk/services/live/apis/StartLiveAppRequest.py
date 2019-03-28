@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StartLiveAppRequest(JDCloudRequest):
     """
-    启用APP
+    启用应用
+- 启用 停用 状态的应用
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

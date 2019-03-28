@@ -19,7 +19,7 @@
 
 class VmInfo(object):
 
-    def __init__(self, id=None, region=None, az=None, name=None, hostName=None, imageType=None, instanceType=None, description=None, subnetId=None, tags=None, cloudID=None, keyNames=None, elasticIpAddress=None, privateIpAddress=None, status=None, createdTime=None):
+    def __init__(self, id=None, region=None, az=None, name=None, hostName=None, imageType=None, instanceType=None, description=None, subnetId=None, tags=None, cloudID=None, keyNames=None, elasticIpAddress=None, privateIpAddress=None, status=None, createdTime=None, imageId=None, securityGroupIds=None):
         """
         :param id: (Optional) 资源ID，如果为空，则执行创建操作，否则执行修改操作
         :param region: (Optional) 可用区,根据各云平台规范填写
@@ -37,6 +37,8 @@ class VmInfo(object):
         :param privateIpAddress: (Optional) 私有ip地址
         :param status: (Optional) 云主机状态
         :param createdTime: (Optional) 创建时间
+        :param imageId: (Optional) 镜像ID
+        :param securityGroupIds: (Optional) 安全组ID
         """
 
         self.id = id
@@ -55,3 +57,5 @@ class VmInfo(object):
         self.privateIpAddress = privateIpAddress
         self.status = status
         self.createdTime = createdTime
+        self.imageId = imageId
+        self.securityGroupIds = securityGroupIds

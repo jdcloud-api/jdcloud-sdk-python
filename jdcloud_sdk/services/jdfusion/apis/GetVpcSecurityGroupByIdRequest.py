@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetVpcSecurityGroupByIdRequest(JDCloudRequest):
     """
-    根据云提供商查询对应的安全组资源信息
+    查询指定的安全组资源信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

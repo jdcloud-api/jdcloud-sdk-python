@@ -34,14 +34,10 @@ class DeleteLiveStreamAppSnapshotParameters(object):
 
     def __init__(self, publishDomain, appName, template, ):
         """
-        :param publishDomain: 推流加速域名
-        :param appName: 直播流所属应用名称
-        :param template: 截图模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param template: 截图模板
+
         """
 
         self.publishDomain = publishDomain

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetRdsAccountsByInstIdAndAccountNameRequest(JDCloudRequest):
     """
-    根据过滤条件，取得指定RDS实例上的账号信息
+    取得指定RDS实例上的指定账号信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

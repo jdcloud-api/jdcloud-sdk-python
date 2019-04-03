@@ -21,14 +21,15 @@ class SnapshotData(object):
 
     def __init__(self, publishDomain=None, appName=None, streamName=None, date=None, total=None):
         """
-        :param publishDomain: (Optional) 查询的推流域名
-        :param appName: (Optional) 查询的应用名称
-        :param streamName: (Optional) 查询的流名
-        :param date: (Optional) 日期:
-  - yyyyMMdd 示例:20190308
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
+        :param date: (Optional) 日期
+- 格式: yyyyMMdd
+- 示例: 20190308
 
-        :param total: (Optional) 单日截图总张数:
-  - 单位: 张
+        :param total: (Optional) 截图张数
+- 单位: 张
 
         """
 

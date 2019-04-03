@@ -26,7 +26,7 @@ class QueryStatisticsDataGroupByAreaRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(QueryStatisticsDataGroupByAreaRequest, self).__init__(
-            '/statistics:groupByArea', 'POST', header, version)
+            '/vodStatistics:groupByArea', 'POST', header, version)
         self.parameters = parameters
 
 

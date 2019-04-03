@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLiveStreamPublishListRequest(JDCloudRequest):
     """
-    查看域名下推流记录
+    查看推流历史记录
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,12 @@ class DescribeLiveStreamPublishListParameters(object):
     def __init__(self, publishDomain, startTime, ):
         """
         :param publishDomain: 推流域名
-        :param startTime: 起始时间
+        :param startTime: 推流起始时间<br>
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+- 最大支持最近90天内的流历史查询
+
         """
 
         self.publishDomain = publishDomain
@@ -48,31 +53,41 @@ class DescribeLiveStreamPublishListParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码<br>
+- 取值范围[1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小<br>
+- 取值范围[10, 100]
+
         """
         self.pageSize = pageSize
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) 直播流所属应用名称
+        :param appName: (Optional) 应用名称
         """
         self.appName = appName
 
     def setStreamName(self, streamName):
         """
-        :param streamName: (Optional) 直播流名称
+        :param streamName: (Optional) 流名称
         """
         self.streamName = streamName
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 结束时间
+        :param endTime: (Optional) 推流结束时间<br>
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+- 最大支持最近90天内的流历史查询
+- 结束时间为空默认为当前时间
+
         """
         self.endTime = endTime
 

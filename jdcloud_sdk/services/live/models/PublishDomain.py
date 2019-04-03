@@ -22,17 +22,23 @@ class PublishDomain(object):
     def __init__(self, publishDomain=None, publishDomainCname=None, domainStatus=None, createTime=None, updateTime=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param publishDomainCname: (Optional) 推流域名(Cname)
-        :param domainStatus: (Optional) 直播域名状态：
-  - online表示启用
-  - offline表示停用
-  - configuring表示配置中
-  - configure_failed表示配置失败
-  - checking表示正在审核
-  - check_failed表示审核失败
+        :param publishDomainCname: (Optional) 推流域名Cname
+        :param domainStatus: (Optional) 直播域名状态
+  online: 启用
+  offline: 停用
+  configuring: 配置中
+  configure_failed: 配置失败
+  checking: 正在审核
+  check_failed: 审核失败
 
-        :param createTime: (Optional) 创建时间
-        :param updateTime: (Optional) 更新时间
+        :param createTime: (Optional) 域名创建时间
+- UTC时间
+  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
+
+        :param updateTime: (Optional) 域名更新时间
+- UTC时间
+  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
+
         """
 
         self.publishDomain = publishDomain

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RevokeRdsAccountRequest(JDCloudRequest):
     """
-    给RDS账号分配数据库权限
+    撤销RDS账号在指定数据库的所有权限
     """
 
     def __init__(self, parameters, header=None, version="v1"):

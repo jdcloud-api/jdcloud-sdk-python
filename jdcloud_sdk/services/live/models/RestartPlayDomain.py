@@ -21,14 +21,14 @@ class RestartPlayDomain(object):
 
     def __init__(self, playDomain=None, restartStatus=None, playType=None):
         """
-        :param playDomain: (Optional) 直播播放域名
-        :param restartStatus: (Optional) 直播时移状态:
-  - on表示开启
-  - off表示关闭
+        :param playDomain: (Optional) 播放域名
+        :param restartStatus: (Optional) 直播回看状态:
+  on: 开启
+  off: 关闭
 
         :param playType: (Optional) 播放域名类型:
-  - normal  一般的播放域名
-  - restart 回看播放域名
+  normal: 普通播放域名(时移播放域名)
+  restart: 回看播放域名
         """
 
         self.playDomain = playDomain

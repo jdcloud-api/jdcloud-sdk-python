@@ -19,7 +19,7 @@
 
 class NetInterfaceInfo(object):
 
-    def __init__(self, id=None, name=None, description=None, vpcId=None, type=None, subnetId=None, az=None, associatedPublicIp=None, privateIpAddress=None, macAddress=None, instanceId=None, createdTime=None, cloudID=None):
+    def __init__(self, id=None, name=None, description=None, vpcId=None, type=None, subnetId=None, az=None, associatedPublicIp=None, privateIpAddress=None, macAddress=None, instanceId=None, createdTime=None, cloudID=None, securityGroupIds=None, privateIps=None):
         """
         :param id: (Optional) 网卡的Id
         :param name: (Optional) 网卡名称
@@ -34,6 +34,8 @@ class NetInterfaceInfo(object):
         :param instanceId: (Optional) 弹性网卡附加的实例 ID
         :param createdTime: (Optional) 创建时间
         :param cloudID: (Optional) 所属云提供商ID
+        :param securityGroupIds: (Optional) 安全组id列表
+        :param privateIps: (Optional) 内网ip详情列表。
         """
 
         self.id = id
@@ -49,3 +51,5 @@ class NetInterfaceInfo(object):
         self.instanceId = instanceId
         self.createdTime = createdTime
         self.cloudID = cloudID
+        self.securityGroupIds = securityGroupIds
+        self.privateIps = privateIps

@@ -32,14 +32,14 @@ class ForbidLiveStreamRequest(JDCloudRequest):
 
 class ForbidLiveStreamParameters(object):
 
-    def __init__(self, appName, publishDomain, streamName):
+    def __init__(self, publishDomain, appName, streamName):
         """
+        :param publishDomain: 推流域名
         :param appName: 应用名称
-        :param publishDomain: 您的加速域名
         :param streamName: 流名称
         """
 
-        self.appName = appName
         self.publishDomain = publishDomain
+        self.appName = appName
         self.streamName = streamName
 

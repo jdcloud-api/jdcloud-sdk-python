@@ -38,4 +38,11 @@ class GetDisksParameters(object):
         """
 
         self.regionId = regionId
+        self.vmId = None
+
+    def setVmId(self, vmId):
+        """
+        :param vmId: (Optional) 云主机id
+        """
+        self.vmId = vmId
 

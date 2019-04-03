@@ -19,7 +19,7 @@
 
 class DeploymentBaseInfo(object):
 
-    def __init__(self, cloudId=None, version=None, readOnly=None, id=None, name=None, description=None, userId=None, createdTime=None, updatedTime=None):
+    def __init__(self, cloudId=None, version=None, readOnly=None, id=None, name=None, description=None, userId=None, createdTime=None, updatedTime=None, lastOperation=None):
         """
         :param cloudId: (Optional) 云ID
         :param version: (Optional) 版本
@@ -30,6 +30,7 @@ class DeploymentBaseInfo(object):
         :param userId: (Optional) 用户ID
         :param createdTime: (Optional) 创建时间
         :param updatedTime: (Optional) 更新时间
+        :param lastOperation: (Optional) 最近一次操作
         """
 
         self.cloudId = cloudId
@@ -41,3 +42,4 @@ class DeploymentBaseInfo(object):
         self.userId = userId
         self.createdTime = createdTime
         self.updatedTime = updatedTime
+        self.lastOperation = lastOperation

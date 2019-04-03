@@ -21,11 +21,15 @@ class OnlineStreamInfo(object):
 
     def __init__(self, publishDomain=None, appName=None, streamName=None, publishTime=None, publishUrl=None):
         """
-        :param publishDomain: (Optional) 您的加速域名
-        :param appName: (Optional) 您的APP
-        :param streamName: (Optional) 您的流名
-        :param publishTime: (Optional) 您的推流时间
-        :param publishUrl: (Optional) 您的推流地址
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
+        :param publishTime: (Optional) 推流时间
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+
+        :param publishUrl: (Optional) 推流地址
         """
 
         self.publishDomain = publishDomain

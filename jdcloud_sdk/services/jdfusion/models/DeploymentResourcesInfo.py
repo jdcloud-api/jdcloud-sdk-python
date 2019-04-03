@@ -19,7 +19,7 @@
 
 class DeploymentResourcesInfo(object):
 
-    def __init__(self, vms=None, eips=None, subnets=None, networkInterfaces=None, slbs=None, securityGroups=None, keypairs=None, disks=None, vpcs=None, vserverGroups=None, httpListeners=None, diskAttachment=None, netInterfaceAttachment=None, eipAssociate=None, variables=None):
+    def __init__(self, vms=None, eips=None, subnets=None, networkInterfaces=None, slbs=None, securityGroups=None, securityGroupRules=None, keypairs=None, disks=None, vpcs=None, vserverGroups=None, httpListeners=None, diskAttachment=None, netInterfaceAttachment=None, eipAssociate=None, rds=None, rdsDatabase=None, rdsAccount=None, rdsAccountGrant=None, bucket=None, variables=None):
         """
         :param vms: (Optional) 
         :param eips: (Optional) 
@@ -27,6 +27,7 @@ class DeploymentResourcesInfo(object):
         :param networkInterfaces: (Optional) 
         :param slbs: (Optional) 
         :param securityGroups: (Optional) 
+        :param securityGroupRules: (Optional) 
         :param keypairs: (Optional) 
         :param disks: (Optional) 
         :param vpcs: (Optional) 
@@ -35,6 +36,11 @@ class DeploymentResourcesInfo(object):
         :param diskAttachment: (Optional) 
         :param netInterfaceAttachment: (Optional) 
         :param eipAssociate: (Optional) 
+        :param rds: (Optional) 
+        :param rdsDatabase: (Optional) 
+        :param rdsAccount: (Optional) 
+        :param rdsAccountGrant: (Optional) 
+        :param bucket: (Optional) 
         :param variables: (Optional) 
         """
 
@@ -44,6 +50,7 @@ class DeploymentResourcesInfo(object):
         self.networkInterfaces = networkInterfaces
         self.slbs = slbs
         self.securityGroups = securityGroups
+        self.securityGroupRules = securityGroupRules
         self.keypairs = keypairs
         self.disks = disks
         self.vpcs = vpcs
@@ -52,4 +59,9 @@ class DeploymentResourcesInfo(object):
         self.diskAttachment = diskAttachment
         self.netInterfaceAttachment = netInterfaceAttachment
         self.eipAssociate = eipAssociate
+        self.rds = rds
+        self.rdsDatabase = rdsDatabase
+        self.rdsAccount = rdsAccount
+        self.rdsAccountGrant = rdsAccountGrant
+        self.bucket = bucket
         self.variables = variables

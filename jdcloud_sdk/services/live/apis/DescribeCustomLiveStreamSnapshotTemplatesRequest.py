@@ -42,21 +42,25 @@ class DescribeCustomLiveStreamSnapshotTemplatesParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围 [1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围 [10, 100]
+
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 截图模板查询过滤条件:
-  - name:   template 录制模板自定义名称
-  - value:  如果参数为空，则查询全部
+        :param filters: (Optional) 截图模板查询过滤条件
+- name:   template 录制模板自定义名称
+- value:  如果参数为空，则查询全部
 
         """
         self.filters = filters

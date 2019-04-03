@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLiveStreamNotifyConfigRequest(JDCloudRequest):
     """
-    查询直播流状态通知
+    查询直播流状态回调地址
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -22,6 +22,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteCustomLiveStreamRecordTemplateRequest(JDCloudRequest):
     """
     删除用户自定义录制模板
+- 删除用户自定义录制模板之前必须先删除此模板在各域名、应用、流级别的录制设置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,13 +36,7 @@ class DeleteCustomLiveStreamRecordTemplateParameters(object):
 
     def __init__(self, template, ):
         """
-        :param template: 录制模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-               取值要求：数字、大小写字母或短横线("-"),
-               首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
-
+        :param template: 录制模板
         """
 
         self.template = template

@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamDomainSnapshotRequest(JDCloudRequest):
     """
-    添加域名直播截图配置
+    添加域名截图配置
+- 添加域名级别的截图模板配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,13 +36,8 @@ class AddLiveStreamDomainSnapshotParameters(object):
 
     def __init__(self, publishDomain, template):
         """
-        :param publishDomain: 您的推流加速域名
-        :param template: 截图模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-               取值要求：数字、大小写字母或短横线("-"),
-               首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param publishDomain: 推流域名
+        :param template: 截图模板
 
         """
 

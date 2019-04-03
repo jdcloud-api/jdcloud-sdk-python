@@ -22,6 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeLiveStreamSnapshotNotifyConfigRequest(JDCloudRequest):
     """
     查询截图回调配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +35,7 @@ class DescribeLiveStreamSnapshotNotifyConfigParameters(object):
 
     def __init__(self, publishDomain, ):
         """
-        :param publishDomain: 推流加速域名
+        :param publishDomain: 推流域名
         """
 
         self.publishDomain = publishDomain

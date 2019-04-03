@@ -34,7 +34,9 @@ class DescribeLivePlayAuthKeyParameters(object):
 
     def __init__(self, playDomain):
         """
-        :param playDomain: 您的播放加速域名
+        :param playDomain: 直播的播放域名
+- 仅支持精确匹配
+
         """
 
         self.playDomain = playDomain

@@ -39,7 +39,11 @@ class AddLiveRecordTaskParameters(object):
         :param publishDomain: 推流域名
         :param appName: 应用名称
         :param streamName: 流名称
-        :param recordTimes: 录制时间集合 - 最大支持10段,多段合并成一个文件 - 多段时间跨度最小不能小于10s - 多段时间跨度最大不能超过8小时
+        :param recordTimes: 录制时间集合
+- 最大支持10段,多段合并成一个文件
+- 多段时间跨度最小不能小于10s
+- 多段时间跨度最大不能超过8小时
+
         :param saveBucket: 存储桶
         :param saveEndpoint: 存储地址
         :param recordFileType: 录制文件类型:
@@ -56,12 +60,20 @@ class AddLiveRecordTaskParameters(object):
         self.saveEndpoint = saveEndpoint
         self.recordFileType = recordFileType
         self.saveObject = None
+        self.taskExternalId = None
 
     def setSaveObject(self, saveObject):
         """
         :param saveObject: (Optional) 录制文件存储路径:
-- 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}.{format}
+- 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}
 
         """
         self.saveObject = saveObject
+
+    def setTaskExternalId(self, taskExternalId):
+        """
+        :param taskExternalId: (Optional) 打点录制任务外键
+
+        """
+        self.taskExternalId = taskExternalId
 

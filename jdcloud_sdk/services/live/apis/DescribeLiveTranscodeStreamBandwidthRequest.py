@@ -22,6 +22,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeLiveTranscodeStreamBandwidthRequest(JDCloudRequest):
     """
     查询转码流播放带宽
+- 查询1分钟粒度的数据时，时间跨度不超过7天，其他粒度时时间跨度不超过30天
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

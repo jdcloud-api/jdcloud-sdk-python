@@ -23,7 +23,7 @@ class DescribeLiveStreamTrafficDataRequest(JDCloudRequest):
     """
     查询流量数据
 - 查询某个时间段内的流量数据。
-- 查询时间跨度：30天
+- 查询1分钟粒度的数据时，时间跨度不超过7天，其他粒度时时间跨度不超过30天
 
     """
 
@@ -35,9 +35,9 @@ class DescribeLiveStreamTrafficDataRequest(JDCloudRequest):
 
 class DescribeLiveStreamTrafficDataParameters(object):
 
-    def __init__(self, endTime):
+    def __init__(self, startTime, ):
         """
-        :param endTime: 查询截至时间，UTC时间，格式：yyyy-MM-dd'T'HH:mm:ss'Z'，为空时默认为当前时间
+        :param startTime: 查询起始时间，UTC时间，格式：yyyy-MM-dd'T'HH:mm:ss'Z'
 
         """
 
@@ -48,8 +48,8 @@ class DescribeLiveStreamTrafficDataParameters(object):
         self.locationName = None
         self.protocolType = None
         self.period = None
-        self.startTime = None
-        self.endTime = endTime
+        self.startTime = startTime
+        self.endTime = None
 
     def setDomainName(self, domainName):
         """
@@ -100,10 +100,10 @@ class DescribeLiveStreamTrafficDataParameters(object):
         """
         self.period = period
 
-    def setStartTime(self, startTime):
+    def setEndTime(self, endTime):
         """
-        :param startTime: (Optional) 查询起始时间，UTC时间，格式：yyyy-MM-dd'T'HH:mm:ss'Z'
+        :param endTime: (Optional) 查询截至时间，UTC时间，格式：yyyy-MM-dd'T'HH:mm:ss'Z'，为空时默认为当前时间
 
         """
-        self.startTime = startTime
+        self.endTime = endTime
 

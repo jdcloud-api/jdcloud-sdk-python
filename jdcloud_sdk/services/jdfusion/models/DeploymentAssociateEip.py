@@ -19,11 +19,13 @@
 
 class DeploymentAssociateEip(object):
 
-    def __init__(self, eipId=None, instanceId=None):
+    def __init__(self, eipId=None, instanceId=None, instanceType=None):
         """
         :param eipId: (Optional) 公网IP id
         :param instanceId: (Optional) 云产品的实例ID
+        :param instanceType: (Optional) 要解绑的资源类型  虚拟机：vm 负载均衡：slb
         """
 
         self.eipId = eipId
         self.instanceId = instanceId
+        self.instanceType = instanceType

@@ -21,14 +21,14 @@ class RecordDetail(object):
 
     def __init__(self, format=None, duration=None):
         """
-        :param format: (Optional) 格式:
-  - MP4
-  - FLV
-  - TS
+        :param format: (Optional) 格式
+  mp4
+  flv
+  ts
 
         :param duration: (Optional) 时长:
-  - 单位: 分
-  - 精确两位小数
+- 单位: 分钟
+- 精确两位小数
 
         """
 

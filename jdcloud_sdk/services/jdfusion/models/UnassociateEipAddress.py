@@ -19,13 +19,11 @@
 
 class UnassociateEipAddress(object):
 
-    def __init__(self, instanceId=None, instanceType=None, force=None):
+    def __init__(self, instanceId=None, instanceType=None):
         """
         :param instanceId: (Optional) 云产品的实例ID
         :param instanceType: (Optional) 要解绑的资源类型
-        :param force: (Optional) 是否强制解绑
         """
 
         self.instanceId = instanceId
         self.instanceType = instanceType
-        self.force = force

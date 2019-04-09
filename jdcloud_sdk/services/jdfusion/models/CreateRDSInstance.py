@@ -19,7 +19,7 @@
 
 class CreateRDSInstance(object):
 
-    def __init__(self, payType, engine, engineVersion, instanceClass, storageGB, vpcId, subnetId, id=None, name=None, azs=None, status=None, instanceType=None, cloudID=None):
+    def __init__(self, payType, engine, engineVersion, instanceClass, storageGB, vpcId, subnetId, id=None, name=None, azs=None, status=None, instanceType=None, cloudID=None, createTime=None):
         """
         :param id: (Optional) RDS实例ID
         :param name: (Optional) RDS实例名称
@@ -34,6 +34,7 @@ class CreateRDSInstance(object):
         :param storageGB:  磁盘大小，单位GB
         :param vpcId:  VPC ID
         :param subnetId:  子网ID
+        :param createTime: (Optional) 创建时间
         """
 
         self.id = id
@@ -49,3 +50,4 @@ class CreateRDSInstance(object):
         self.storageGB = storageGB
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.createTime = createTime

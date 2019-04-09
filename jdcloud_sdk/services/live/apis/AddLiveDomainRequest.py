@@ -22,6 +22,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class AddLiveDomainRequest(JDCloudRequest):
     """
     添加直播域名
+- 创建直播域名之前,必须先开通直播服务
+- 直播域名必须已经备案完成
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +37,12 @@ class AddLiveDomainParameters(object):
 
     def __init__(self, publishDomain, playDomain):
         """
-        :param publishDomain: 直播的推流域名（不支持泛域名）
-        :param playDomain: 直播的播放域名（不支持泛域名）
+        :param publishDomain: 直播的推流域名
+- 不支持泛域名
+
+        :param playDomain: 直播的播放域名
+- 不支持泛域名
+
         """
 
         self.publishDomain = publishDomain

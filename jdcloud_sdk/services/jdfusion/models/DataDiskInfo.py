@@ -19,8 +19,9 @@
 
 class DataDiskInfo(object):
 
-    def __init__(self, diskSize=None, diskMediumType=None, diskName=None, autoDelete=None, status=None):
+    def __init__(self, diskId=None, diskSize=None, diskMediumType=None, diskName=None, autoDelete=None, status=None):
         """
+        :param diskId: (Optional) 硬盘ID
         :param diskSize: (Optional) 硬盘大小
         :param diskMediumType: (Optional) 磁盘介质分类，目前为预留，可以为空
         :param diskName: (Optional) 磁盘名称
@@ -28,6 +29,7 @@ class DataDiskInfo(object):
         :param status: (Optional) 磁盘状态
         """
 
+        self.diskId = diskId
         self.diskSize = diskSize
         self.diskMediumType = diskMediumType
         self.diskName = diskName

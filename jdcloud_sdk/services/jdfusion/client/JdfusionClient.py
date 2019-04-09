@@ -26,4 +26,4 @@ class JdfusionClient(JDCloudClient):
         if config is None:
             config = Config('jdfusion.jdcloud-api.com')
 
-        super(JdfusionClient, self).__init__(credential, config, 'jdfusion', '0.2.0', logger)
+        super(JdfusionClient, self).__init__(credential, config, 'jdfusion', '0.3.0', logger)

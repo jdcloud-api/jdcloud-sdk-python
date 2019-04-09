@@ -34,22 +34,28 @@ class DescribeLiveTimeshiftConfigsParameters(object):
 
     def __init__(self, playDomain):
         """
-        :param playDomain: 直播的推流域名
+        :param playDomain: 直播的播放域名
+- 目前仅支持精确匹配
+
         """
 
-        self.pageNum = None
+        self.pageNumber = None
         self.pageSize = None
         self.playDomain = playDomain
 
-    def setPageNum(self, pageNum):
+    def setPageNumber(self, pageNumber):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNumber: (Optional) 页码
+- 取值范围[1, 100000]
+
         """
-        self.pageNum = pageNum
+        self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围[10, 100]
+
         """
         self.pageSize = pageSize
 

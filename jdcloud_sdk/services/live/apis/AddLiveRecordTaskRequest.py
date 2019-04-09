@@ -21,8 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveRecordTaskRequest(JDCloudRequest):
     """
-    添加录制打点任务
-  - 您可以调用此接口精确提取已录制的文件中所需要的部分
+    添加打点录制任务
+- 您可以调用此接口精确提取已录制的文件中所需要的部分
 
     """
 
@@ -36,15 +36,19 @@ class AddLiveRecordTaskParameters(object):
 
     def __init__(self, publishDomain, appName, streamName, recordTimes, saveBucket, saveEndpoint, recordFileType, ):
         """
-        :param publishDomain: 推流加速域名
-        :param appName: 直播流所属应用名称
-        :param streamName: 直播流名称
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param streamName: 流名称
         :param recordTimes: 录制时间集合
+- 最大支持10段,多段合并成一个文件
+- 多段时间跨度最小不能小于10s
+- 多段时间跨度最大不能超过8小时
+
         :param saveBucket: 存储桶
         :param saveEndpoint: 存储地址
         :param recordFileType: 录制文件类型:
-  - 取值: ts,flv,mp4 (多种类型之前用;隔开)
-  - 不区分大小写
+- 取值: ts,flv,mp4 (多种类型之前用;隔开)
+- 不区分大小写
 
         """
 
@@ -56,12 +60,20 @@ class AddLiveRecordTaskParameters(object):
         self.saveEndpoint = saveEndpoint
         self.recordFileType = recordFileType
         self.saveObject = None
+        self.taskExternalId = None
 
     def setSaveObject(self, saveObject):
         """
         :param saveObject: (Optional) 录制文件存储路径:
-  - 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}.{format}
+- 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}
 
         """
         self.saveObject = saveObject
+
+    def setTaskExternalId(self, taskExternalId):
+        """
+        :param taskExternalId: (Optional) 打点录制任务外键
+
+        """
+        self.taskExternalId = taskExternalId
 

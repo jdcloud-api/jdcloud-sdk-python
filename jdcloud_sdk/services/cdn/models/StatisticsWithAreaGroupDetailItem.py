@@ -22,7 +22,7 @@ class StatisticsWithAreaGroupDetailItem(object):
     def __init__(self, area=None, ispStat=None):
         """
         :param area: (Optional) 
-        :param ispStat: (Optional) 查询结果,类型为HashMap<String, Object>
+        :param ispStat: (Optional) 
         """
 
         self.area = area

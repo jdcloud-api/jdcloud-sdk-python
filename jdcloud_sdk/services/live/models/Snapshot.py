@@ -22,18 +22,18 @@ class Snapshot(object):
     def __init__(self, publishDomain=None, appName=None, streamName=None, snapshotTime=None, height=None, width=None, ossBucket=None, ossEndpoint=None, ossObject=None):
         """
         :param publishDomain: (Optional) 推流域名
-        :param appName: (Optional) 流所属应用名称
-        :param streamName: (Optional) 直播流名称
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
         :param snapshotTime: (Optional) 截图时间
         :param height: (Optional) 截图高度:
-  - 取值: [8,8192]
-  - 等比: 如果只填写一个参数,则按参数比例等比缩放截图
-  - 随源: 如果两个参数都不填写，则截取源流大小原图
+- 取值: [8,8192]
+- 等比: 如果只填写一个参数,则按参数比例等比缩放截图
+- 随源: 如果两个参数都不填写，则截取源流大小原图
 
         :param width: (Optional) 截图宽度:
-  - 取值: [8,8192]
-  - 等比: 如果只填写一个参数,则按参数比例等比缩放截图
-  - 随源: 如果两个参数都不填写，则截取源流大小原图
+- 取值: [8,8192]
+- 等比: 如果只填写一个参数,则按参数比例等比缩放截图
+- 随源: 如果两个参数都不填写，则截取源流大小原图
 
         :param ossBucket: (Optional) OSSBucket的名称
         :param ossEndpoint: (Optional) OSSEndpoint域名

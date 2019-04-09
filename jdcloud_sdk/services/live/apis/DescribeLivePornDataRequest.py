@@ -34,9 +34,12 @@ class DescribeLivePornDataParameters(object):
 
     def __init__(self, publishDomain, startTime, ):
         """
-        :param publishDomain: 您的推流加速域名
-        :param startTime: 起始时间:
-  - UTC 时间格式 e.g: 2019-03-12T00:00:00Z
+        :param publishDomain: 推流域名
+        :param startTime: 起始时间
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+- 支持最大查询90天以内的数据
 
         """
 
@@ -48,20 +51,23 @@ class DescribeLivePornDataParameters(object):
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) 直播流所属应用名称
+        :param appName: (Optional) 应用名称
         """
         self.appName = appName
 
     def setStreamName(self, streamName):
         """
-        :param streamName: (Optional) 直播流名称
+        :param streamName: (Optional) 流名称
         """
         self.streamName = streamName
 
     def setEndTime(self, endTime):
         """
         :param endTime: (Optional) 结束时间:
-  - UTC 时间格式 e.g: 2019-03-12T00:00:00Z
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+- 为空,默认为当前时间
 
         """
         self.endTime = endTime

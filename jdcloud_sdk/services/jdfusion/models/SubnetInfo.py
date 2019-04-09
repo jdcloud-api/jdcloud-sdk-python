@@ -19,7 +19,7 @@
 
 class SubnetInfo(object):
 
-    def __init__(self, id=None, vpcId=None, subnetName=None, cidrBlock=None, availableIpCount=None, description=None, endIp=None, routeTableId=None, startIp=None, cloudID=None):
+    def __init__(self, id=None, vpcId=None, subnetName=None, cidrBlock=None, availableIpCount=None, description=None, endIp=None, routeTableId=None, startIp=None, cloudID=None, az=None, createdTime=None):
         """
         :param id: (Optional) Subnet的Id
         :param vpcId: (Optional) 子网所属VPC的Id
@@ -31,6 +31,8 @@ class SubnetInfo(object):
         :param routeTableId: (Optional) 子网关联的路由表Id
         :param startIp: (Optional) 子网的起始地址
         :param cloudID: (Optional) 所属云提供商ID
+        :param az: (Optional) 可用区
+        :param createdTime: (Optional) 子网创建时间
         """
 
         self.id = id
@@ -43,3 +45,5 @@ class SubnetInfo(object):
         self.routeTableId = routeTableId
         self.startIp = startIp
         self.cloudID = cloudID
+        self.az = az
+        self.createdTime = createdTime

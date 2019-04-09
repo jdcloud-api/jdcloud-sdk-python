@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StopLiveAppRequest(JDCloudRequest):
     """
-    停用APP
+    停用 运行中 状态的应用
+- 停用应用之后,不能再用此应用名推流
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -42,19 +42,26 @@ class DescribeLiveDomainsParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围[1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围[10, 100]
+
         """
         self.pageSize = pageSize
 
     def setPublishDomain(self, publishDomain):
         """
-        :param publishDomain: (Optional) 域名
+        :param publishDomain: (Optional) 推流域名
+- 目前仅支持精确查询
+- 为空时,查询用户所有直播域名
+
         """
         self.publishDomain = publishDomain
 

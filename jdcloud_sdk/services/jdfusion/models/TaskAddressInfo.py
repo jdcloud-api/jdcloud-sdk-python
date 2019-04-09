@@ -19,7 +19,7 @@
 
 class TaskAddressInfo(object):
 
-    def __init__(self, storageType=None, accessKey=None, secretKey=None, endpoint=None, bucket=None, prefix=None):
+    def __init__(self, storageType=None, accessKey=None, secretKey=None, endpoint=None, bucket=None, prefix=None, cloudID=None):
         """
         :param storageType: (Optional) 任务类型:源地址中支持 s3file, aliyunfile，目标现在只支持s3file
         :param accessKey: (Optional) 源地址的accesskey
@@ -27,6 +27,7 @@ class TaskAddressInfo(object):
         :param endpoint: (Optional) 源地址的Endpoint
         :param bucket: (Optional) 源地址的Bucket
         :param prefix: (Optional) 源地址的Prefix，不能以/开头
+        :param cloudID: (Optional) 云信息ID
         """
 
         self.storageType = storageType
@@ -35,3 +36,4 @@ class TaskAddressInfo(object):
         self.endpoint = endpoint
         self.bucket = bucket
         self.prefix = prefix
+        self.cloudID = cloudID

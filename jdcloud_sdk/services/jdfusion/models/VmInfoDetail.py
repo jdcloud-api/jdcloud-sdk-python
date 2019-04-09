@@ -19,13 +19,14 @@
 
 class VmInfoDetail(object):
 
-    def __init__(self, id=None, region=None, az=None, name=None, hostName=None, imageType=None, instanceType=None, description=None, subnetId=None, tags=None, cloudID=None, keyNames=None, elasticIpAddress=None, privateIpAddress=None, status=None, createdTime=None, sysDiskInfo=None, dataDiskAttachments=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, metadata=None):
+    def __init__(self, id=None, region=None, az=None, name=None, hostName=None, imageId=None, imageType=None, instanceType=None, description=None, subnetId=None, tags=None, cloudID=None, keyNames=None, elasticIpAddress=None, privateIpAddress=None, securityGroupIds=None, status=None, createdTime=None, sysDiskInfo=None, dataDiskAttachments=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, metadata=None):
         """
         :param id: (Optional) 资源ID，如果为空，则执行创建操作，否则执行修改操作
         :param region: (Optional) 可用区,根据各云平台规范填写
         :param az: (Optional) 云主机所属的可用区
         :param name: (Optional) 云主机名称
         :param hostName: (Optional) 云主机
+        :param imageId: (Optional) 镜像ID
         :param imageType: (Optional) 
         :param instanceType: (Optional) 
         :param description: (Optional) 云主机描述
@@ -35,6 +36,7 @@ class VmInfoDetail(object):
         :param keyNames: (Optional) 密钥对名称,jd当前只支持传入一个
         :param elasticIpAddress: (Optional) 主网卡主IP绑定弹性IP的地址
         :param privateIpAddress: (Optional) 私有ip地址
+        :param securityGroupIds: (Optional) 安全组ID
         :param status: (Optional) 云主机状态
         :param createdTime: (Optional) 创建时间
         :param sysDiskInfo: (Optional) 
@@ -49,6 +51,7 @@ class VmInfoDetail(object):
         self.az = az
         self.name = name
         self.hostName = hostName
+        self.imageId = imageId
         self.imageType = imageType
         self.instanceType = instanceType
         self.description = description
@@ -58,6 +61,7 @@ class VmInfoDetail(object):
         self.keyNames = keyNames
         self.elasticIpAddress = elasticIpAddress
         self.privateIpAddress = privateIpAddress
+        self.securityGroupIds = securityGroupIds
         self.status = status
         self.createdTime = createdTime
         self.sysDiskInfo = sysDiskInfo

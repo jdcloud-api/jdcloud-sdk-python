@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetRdsByInstIdRequest(JDCloudRequest):
     """
-    根据云提供商查询对应的RDS实例信息
+    查询指定ID的RDS实例信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

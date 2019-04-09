@@ -22,6 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeCustomLiveStreamTranscodeTemplatesRequest(JDCloudRequest):
     """
     查询用户自定义转码模板列表
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,13 +43,17 @@ class DescribeCustomLiveStreamTranscodeTemplatesParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围 [1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围 [10, 100]
+
         """
         self.pageSize = pageSize
 
@@ -57,6 +62,7 @@ class DescribeCustomLiveStreamTranscodeTemplatesParameters(object):
         :param filters: (Optional) 转码模板查询过滤条件:
   - name:   template 录制模板自定义名称
   - value:  如果参数为空，则查询全部
+  - 如果为空,则表示查询该用下所有自定义的转码模板
 
         """
         self.filters = filters

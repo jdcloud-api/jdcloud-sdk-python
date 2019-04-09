@@ -42,21 +42,26 @@ class DescribeLiveAppParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围: [1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围: [10, 100]
+
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
         :param filters: (Optional) 域名下的app列表过滤条件:
-  - name:   publishDomain 直播的推流域名
-  - value:  如果参数为空，则查询全部
+  - name: publishDomain 直播的推流域名
+  - values: 如果参数为空,则查询全部
+  - 过滤条件为空,则表示查询用户下的所有应用名
 
         """
         self.filters = filters

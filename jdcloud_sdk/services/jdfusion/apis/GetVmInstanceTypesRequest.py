@@ -38,4 +38,11 @@ class GetVmInstanceTypesParameters(object):
         """
 
         self.regionId = regionId
+        self.az = None
+
+    def setAz(self, az):
+        """
+        :param az: (Optional) 可用区
+        """
+        self.az = az
 

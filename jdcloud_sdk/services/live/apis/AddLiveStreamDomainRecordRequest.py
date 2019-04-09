@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddLiveStreamDomainRecordRequest(JDCloudRequest):
     """
-    添加域名录制配置
+    添加域名级别直播录制配置
+- 添加域名级别的直播录制模板配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +36,7 @@ class AddLiveStreamDomainRecordParameters(object):
 
     def __init__(self, publishDomain, template):
         """
-        :param publishDomain: 您的推流加速域名
+        :param publishDomain: 推流域名
         :param template: 录制模版
         """
 

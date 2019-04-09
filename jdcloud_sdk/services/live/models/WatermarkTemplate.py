@@ -22,16 +22,20 @@ class WatermarkTemplate(object):
     def __init__(self, offSetX=None, offSetY=None, width=None, height=None, url=None, template=None):
         """
         :param offSetX: (Optional) x轴偏移量
+- 单位: 像素
+
         :param offSetY: (Optional) y轴偏移量
-        :param width: (Optional) 宽
-        :param height: (Optional) 高
-        :param url: (Optional) url
-        :param template: (Optional) 水印模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+- 单位: 像素
+
+        :param width: (Optional) 水印宽度
+- 单位: 像素
+
+        :param height: (Optional) 水印高度
+- 单位: 像素
+
+        :param url: (Optional) 水印地址
+
+        :param template: (Optional) 水印模板自定义名称
 
         """
 

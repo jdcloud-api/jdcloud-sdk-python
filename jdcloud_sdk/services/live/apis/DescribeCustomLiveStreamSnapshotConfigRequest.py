@@ -22,6 +22,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeCustomLiveStreamSnapshotConfigRequest(JDCloudRequest):
     """
     查询直播截图配置
+- 截图模板配置按照 域名,应用,流 3级配置添加,以最小的粒度配置生效
+- 域名、应用、流 依次粒度递减 即: 域名>应用>流
+- 该查询旨在查询域名、应用、流最终生效的截图模板配置,并非各级的模板绑定情况
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,25 +46,29 @@ class DescribeCustomLiveStreamSnapshotConfigParameters(object):
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码；默认为1；取值范围[1, 100000]
+        :param pageNum: (Optional) 页码
+- 取值范围 [1, 100000]
+
         """
         self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小
+- 取值范围 [10, 100]
+
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
         :param filters: (Optional) 直播截图查询过滤条件:
-  - name:   publishDomain，必填(直播推流域名)
-  - value:  参数
-  - name:   appName，必填(应用名称)
-  - value:  参数
-  - name:   streamName，非必填(推流名称)
-  - value:  参数
+- name:   publishDomain 必填(推流域名)
+- value:  参数
+- name:   appName 必填(应用名称)
+- value:  参数
+- name:   streamName 非必填(流名称)
+- value:  参数
 
         """
         self.filters = filters

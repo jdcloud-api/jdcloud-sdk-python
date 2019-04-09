@@ -22,6 +22,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class StartLiveDomainRequest(JDCloudRequest):
     """
     启动域名
+- 启用状态为 停用 的直播域名对(推流域名,播放域名)将DomainStatus变更为online
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +36,9 @@ class StartLiveDomainParameters(object):
 
     def __init__(self, publishDomain):
         """
-        :param publishDomain: 要启动的域名
+        :param publishDomain: 推流域名
+- 需要启动的域名对(推流域名,播放域名)中的推流域名
+
         """
 
         self.publishDomain = publishDomain

@@ -22,7 +22,15 @@ class RecordTime(object):
     def __init__(self, startTime, endTime, ):
         """
         :param startTime:  开始时间
+- UTC时间
+  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例: 2018-10-21T10:00:00Z
+
         :param endTime:  结束时间
+- UTC时间
+  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例: 2018-10-21T10:00:00Z
+
         """
 
         self.startTime = startTime

@@ -21,11 +21,17 @@ class LiveStreamPublishInfo(object):
 
     def __init__(self, publishDomain=None, appName=None, streamName=None, publishUpTime=None, publishDownTime=None):
         """
-        :param publishDomain: (Optional) 您的加速域名
-        :param appName: (Optional) 您的APP
-        :param streamName: (Optional) 您的流名
-        :param publishUpTime: (Optional) 开始推流时刻 UTC 时间
-        :param publishDownTime: (Optional) 开始推流时刻 UTC 时间
+        :param publishDomain: (Optional) 推流域名
+        :param appName: (Optional) 应用名称
+        :param streamName: (Optional) 流名称
+        :param publishUpTime: (Optional) 推流开始时间
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+
+        :param publishDownTime: (Optional) 推流结束时刻
+- UTC时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+
         """
 
         self.publishDomain = publishDomain

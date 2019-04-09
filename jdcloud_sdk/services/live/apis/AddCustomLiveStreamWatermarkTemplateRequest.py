@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddCustomLiveStreamWatermarkTemplateRequest(JDCloudRequest):
     """
-    添加直播水印模板
+    添加用户自定义水印模板
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,28 +35,27 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
 
     def __init__(self, offsetX, offsetY, width, height, template, url):
         """
-        :param offsetX: x轴偏移量:
-  - 单位：像素
+        :param offsetX: x轴偏移量
+- 单位: 像素
 
         :param offsetY: y轴偏移量:
-  - 单位：像素
+- 单位: 像素
 
         :param width: 水印宽度:
-  - 取值: [0,1920]
+- 取值: [0,1920]
+- 单位: 像素
 
         :param height: 水印高度:
-  - 取值: [0,1920]
+- 取值: [0,1920]
+- 单位: 像素
 
-        :param template: 水印模板自定义名称:
-  - 标准质量模板：sd、hd、hsd
-  - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
-              取值要求：数字、大小写字母或短横线("-"),
-              首尾不能有特殊字符("-")
-  - <b>注意: 不能与标准的转码模板和已定义命名重复</b>
+        :param template: 自定义水印模板名称
+-&ensp;取值要求: 数字、大小写字母或短横线("-"),
+&ensp;&ensp;首尾不能有特殊字符("-"),
+&ensp;&ensp;不超过50字符,utf-8格式
+-&ensp;<b>注意: 不能与已定义命名重复</b>
 
-        :param url: 水印地址:
-  - 以 http开头，可访问地址
-
+        :param url: 水印地址<br>-&ensp;以&ensp;http:// 开头,可公开访问地址<br>
         """
 
         self.offsetX = offsetX

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DelUserViewRequest(JDCloudRequest):
     """
-    删除域名的自定义解析线路
+    删除主域名的自定义解析线路
     """
 
     def __init__(self, parameters, header=None, version="v1"):

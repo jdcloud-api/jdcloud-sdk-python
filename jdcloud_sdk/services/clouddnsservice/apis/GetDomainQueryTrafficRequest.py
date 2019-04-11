@@ -36,9 +36,9 @@ class GetDomainQueryTrafficParameters(object):
         """
         :param regionId: 实例所属的地域ID
         :param domainId: 域名ID，请使用getDomains接口获取。
-        :param domainName: 域名
-        :param start: 起始时间, UTC时间例如2017-11-10T23:00:00Z
-        :param end: 终止时间, UTC时间例如2017-11-10T23:00:00Z
+        :param domainName: 主域名，请使用getDomains接口获取
+        :param start: 时间段的起始时间, UTC时间，例如2017-11-10T23:00:00Z
+        :param end: 时间段的终止时间, UTC时间，例如2017-11-10T23:00:00Z
         """
 
         self.regionId = regionId

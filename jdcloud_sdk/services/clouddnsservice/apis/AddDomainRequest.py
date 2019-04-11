@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddDomainRequest(JDCloudRequest):
     """
-    添加主域名
+    添加主域名  
+如何添加免费域名，详细情况请查阅<a href="https://docs.jdcloud.com/cn/jd-cloud-dns/domainadd">文档</a>
+添加收费域名，请查阅<a href="https://docs.jdcloud.com/cn/jd-cloud-dns/purchase-process">文档</a>，
+添加收费域名前，请确保用户的京东云账户有足够的资金支付，Openapi接口回返回订单号，可以用此订单号向计费系统查阅详情。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,8 +39,8 @@ class AddDomainParameters(object):
     def __init__(self, regionId, packId, domainName, ):
         """
         :param regionId: 实例所属的地域ID
-        :param packId: 域名的套餐类型, 0->免费 ,1->企业版, 2->高级版
-        :param domainName: 要添加的域名
+        :param packId: 主域名的套餐类型, 0->免费 ,1->企业版, 2->高级版
+        :param domainName: 要添加的主域名
         """
 
         self.regionId = regionId
@@ -50,7 +54,7 @@ class AddDomainParameters(object):
 
     def setDomainId(self, domainId):
         """
-        :param domainId: (Optional) 域名ID，升级高级版必填
+        :param domainId: (Optional) 主域名的ID，升级套餐必填，请使用getDomains获取
         """
         self.domainId = domainId
 
@@ -62,19 +66,19 @@ class AddDomainParameters(object):
 
     def setTimeSpan(self, timeSpan):
         """
-        :param timeSpan: (Optional) 1，2，3 ，时长，收费套餐的域名必填
+        :param timeSpan: (Optional) 取值1，2，3 ，含义：时长，收费套餐的域名必填
         """
         self.timeSpan = timeSpan
 
     def setTimeUnit(self, timeUnit):
         """
-        :param timeUnit: (Optional) 时间单位，收费套餐的域名必填
+        :param timeUnit: (Optional) 时间单位，收费套餐的域名必填，1：小时，2：天，3：月，4：年
         """
         self.timeUnit = timeUnit
 
     def setBillingType(self, billingType):
         """
-        :param billingType: (Optional) 计费类型，收费套餐的域名必填
+        :param billingType: (Optional) 计费类型，可以不传此参数。
         """
         self.billingType = billingType
 

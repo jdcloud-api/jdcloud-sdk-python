@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class BatchSetDnsResolveRequest(JDCloudRequest):
     """
-    同一个主域名下，批量新增、更新导入解析记录<br>
+    同一个主域名下，批量新增或者批量更新导入解析记录。
 如果解析记录的ID为0，是新增解析记录，如果不为0，则是更新解析记录。
 
     """

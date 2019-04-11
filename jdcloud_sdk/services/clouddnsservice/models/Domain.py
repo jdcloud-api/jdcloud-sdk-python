@@ -21,12 +21,16 @@ class Domain(object):
 
     def __init__(self, id=None, domainName=None, createTime=None, expirationDate=None, packId=None, lockStatus=None):
         """
-        :param id: (Optional) 域名的唯一ID
+        :param id: (Optional) 域名在云解析里唯一的ID
         :param domainName: (Optional) 域名字符串
-        :param createTime: (Optional) 创建时间，格式Unix timestamp，时间单位：毫秒
-        :param expirationDate: (Optional) 过期时间，格式Unix timestamp，时间单位：毫秒
-        :param packId: (Optional) 套餐类型，0->免费 1->企业版 2->企业高级版
+        :param createTime: (Optional) 域名的创建时间，Unix timestamp格式，时间单位：毫秒
+        :param expirationDate: (Optional) 域名的过期时间，Unix timestamp格式，时间单位：毫秒
+        :param packId: (Optional) 域名的套餐类型，0->免费 1->企业版 2->企业高级版  
+不同套餐的描述，请查阅<a href="https://docs.jdcloud.com/cn/jd-cloud-dns/price-overview">文档</a>
+
         :param lockStatus: (Optional) 域名的锁定状态，0:未锁定， 1:已锁定
+锁定的含义，请查阅<a href="https://docs.jdcloud.com/cn/jd-cloud-dns/lock-domain">文档</a>
+
         """
 
         self.id = id

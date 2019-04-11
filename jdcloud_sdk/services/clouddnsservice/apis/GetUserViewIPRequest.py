@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetUserViewIPRequest(JDCloudRequest):
     """
-    查询域名的自定义解析线路的IP段
+    查询主域名的自定义解析线路的IP段
     """
 
     def __init__(self, parameters, header=None, version="v1"):

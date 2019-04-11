@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SearchRRRequest(JDCloudRequest):
     """
-    查询主域名的解析记录。<br>
+    查询主域名的解析记录。  
 在使用解析记录相关的接口之前，请调用此接口获取解析记录的列表。
 
     """

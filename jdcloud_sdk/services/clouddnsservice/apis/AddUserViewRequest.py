@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddUserViewRequest(JDCloudRequest):
     """
-    添加域名的自定义解析线路
+    添加主域名的自定义解析线路
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetDomainQueryCountRequest(JDCloudRequest):
     """
-    查看域名的解析次数
+    查看主域名的解析次数
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,9 +36,9 @@ class GetDomainQueryCountParameters(object):
         """
         :param regionId: 实例所属的地域ID
         :param domainId: 域名ID，请使用getDomains接口获取。
-        :param domainName: 查询的域名
-        :param start: 起始时间, UTC时间例如2017-11-10T23:00:00Z
-        :param end: 终止时间, UTC时间例如2017-11-10T23:00:00Z
+        :param domainName: 查询的主域名，，请使用getDomains接口获取
+        :param start: 查询时间段的起始时间, UTC时间，例如2017-11-10T23:00:00Z
+        :param end: 查询时间段的终止时间, UTC时间，例如2017-11-10T23:00:00Z
         """
 
         self.regionId = regionId

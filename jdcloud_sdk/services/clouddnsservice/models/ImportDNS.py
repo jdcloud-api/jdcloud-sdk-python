@@ -29,9 +29,9 @@ class ImportDNS(object):
         :param mxPriority: (Optional) 优先级，只存在于MX, SRV解析记录类型
         :param port: (Optional) 端口，只存在于SRV解析记录类型
         :param ttl:  解析记录的生存时间
-        :param type:  解析的类型
-        :param weight: (Optional) 解析记录的权重
-        :param viewValue:  解析线路的ID，请调用getViewTree接口获取解析线路的ID。
+        :param type:  解析的类型，请参考<a href="https://docs.jdcloud.com/cn/jd-cloud-dns/detailed-interpretation-of-parsed-records">解析记录类型详解</a>
+        :param weight: (Optional) 解析记录的权重，目前支持权重的有：A/AAAA/CNAME/JNAME。
+        :param viewValue:  解析线路的ID，请调用getViewTree接口获取基础解析线路的ID，使用getUserView接口获取自定义线路的ID。
         """
 
         self.domainId = domainId

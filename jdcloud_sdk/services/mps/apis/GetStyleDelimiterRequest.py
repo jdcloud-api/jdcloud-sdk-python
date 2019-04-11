@@ -19,33 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetDomainStatisticsRequest(JDCloudRequest):
+class GetStyleDelimiterRequest(JDCloudRequest):
     """
-    查看域名的查询流量
+    获取bucket的图片样式分隔符配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetDomainStatisticsRequest, self).__init__(
-            '/regions/{regionId}/domain/{domainId}/stat', 'GET', header, version)
+        super(GetStyleDelimiterRequest, self).__init__(
+            '/regions/{regionId}/buckets/{bucketName}/styleDelimiter/', 'GET', header, version)
         self.parameters = parameters
 
 
-class GetDomainStatisticsParameters(object):
+class GetStyleDelimiterParameters(object):
 
-    def __init__(self, regionId, domainId, action, domainName, start, end):
+    def __init__(self, regionId, bucketName, ):
         """
-        :param regionId: Region ID
-        :param domainId: 域名ID
-        :param action: 查询动作，"query"查询流量，"resolve"解析流量
-        :param domainName: 域名
-        :param start: 起始时间, UTC时间例如2017-11-10T23:00:00Z
-        :param end: 终止时间, UTC时间例如2017-11-10T23:00:00Z
+        :param regionId: 区域ID
+        :param bucketName: Bucket名称
         """
 
         self.regionId = regionId
-        self.domainId = domainId
-        self.action = action
-        self.domainName = domainName
-        self.start = start
-        self.end = end
+        self.bucketName = bucketName
 

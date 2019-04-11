@@ -21,7 +21,7 @@ class DelView(object):
 
     def __init__(self, domainId, domainName, viewName, viewId, ):
         """
-        :param domainId:  域名ID
+        :param domainId:  主域名ID，请使用getDomains接口获取
         :param domainName:  主域名
         :param viewName:  自定义线路名称, 最多64个字符
         :param viewId:  自定义线路ID

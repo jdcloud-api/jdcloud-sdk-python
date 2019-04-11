@@ -21,8 +21,8 @@ class Getalb(object):
 
     def __init__(self, balance=None, record=None, type=None, viewName=None, viewValue=None, items=None):
         """
-        :param balance: (Optional) 负载均衡的解析记录的列表中解析记录是否是相同的权重<br>
-true: 均等负载<br>
+        :param balance: (Optional) 负载均衡的解析记录的列表中解析记录是否是相同的权重 
+true: 均等负载 
 false: 按权重分配负载
 
         :param record: (Optional) 主机记录

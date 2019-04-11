@@ -27,8 +27,8 @@ class RRInfo(object):
         :param hostRecord: (Optional) 主机记录
         :param hostValue: (Optional) 解析记录的值
         :param jcloudRes: (Optional) 是否是京东云资源
-        :param mxPriority: (Optional) 优先级，只存在于某些解析记录类型
-        :param port: (Optional) 端口，只存在于某些解析记录类型
+        :param mxPriority: (Optional) 优先级，只存在于MX, SRV解析记录类型
+        :param port: (Optional) 端口，只存在于SRV解析记录类型
         :param ttl: (Optional) 解析记录的生存时间
         :param type: (Optional) 解析记录的类型
         :param weight: (Optional) 解析记录的权重

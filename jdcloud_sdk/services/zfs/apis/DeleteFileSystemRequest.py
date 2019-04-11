@@ -19,29 +19,26 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetLBRequest(JDCloudRequest):
+class DeleteFileSystemRequest(JDCloudRequest):
     """
-    设置域名解析记录的负载均衡
+    -   删除一个文件系统，一旦删除，该文件系统将不存在，也无法访问已删除的文件系统里的任何内容。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetLBRequest, self).__init__(
-            '/regions/{regionId}/domain/{domainId}/SetLB', 'POST', header, version)
+        super(DeleteFileSystemRequest, self).__init__(
+            '/regions/{regionId}/fileSystems/{fileSystemId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class SetLBParameters(object):
+class DeleteFileSystemParameters(object):
 
-    def __init__(self, regionId, domainId, idWeights, type):
+    def __init__(self, regionId, fileSystemId, ):
         """
-        :param regionId: 实例所属的地域ID
-        :param domainId: 域名ID，请使用getDomains接口获取。
-        :param idWeights: 要设置解析记录的权重参数列表
-        :param type: 这几条解析记录的类型。可以设置权重的类型有：A、AAAA、CNAME、JNAME
+        :param regionId: 地域ID
+        :param fileSystemId: 文件系统ID
         """
 
         self.regionId = regionId
-        self.domainId = domainId
-        self.idWeights = idWeights
-        self.type = type
+        self.fileSystemId = fileSystemId
 

@@ -23,7 +23,7 @@ class UserViewInput(object):
         """
         :param viewId: (Optional) 自定义线路ID
         :param viewName: (Optional) 自定义线路名称, 最多64个字符
-        :param domainId: (Optional) 域名ID
+        :param domainId: (Optional) 主域名ID
         :param ipRanges: (Optional) 用户输入的IP段
         :param isDelete: (Optional) 是否删除，0:没有删除，1:已删除
         :param creator: (Optional) 创建者

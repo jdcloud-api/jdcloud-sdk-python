@@ -36,7 +36,7 @@ class OperateRRParameters(object):
         """
         :param regionId: 实例所属的地域ID
         :param domainId: 域名ID，请使用getDomains接口获取。
-        :param ids: 需要操作的解析记录ID
+        :param ids: 需要操作的解析记录ID，请使用searchRR接口获取。
         :param action: 操作类型，on->启用 off->停用 del->删除
         """
 

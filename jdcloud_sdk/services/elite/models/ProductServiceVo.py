@@ -19,7 +19,7 @@
 
 class ProductServiceVo(object):
 
-    def __init__(self, deliverNumber=None, orderNumber=None, productId=None, skuId=None, skuName=None, serviceCode=None, num=None, period=None, periodType=None, periodTypeName=None, accountNum=None, deliverStatus=None, deliverStatusName=None, effectiveDt=None, failureDt=None, extraInfo=None, remark=None):
+    def __init__(self, deliverNumber=None, orderNumber=None, productId=None, skuId=None, skuName=None, serviceCode=None, num=None, period=None, periodType=None, periodTypeName=None, accountNum=None, deliverStatus=None, deliverStatusName=None, effectiveDt=None, failureDt=None, extraInfo=None, remark=None, orderTotalFee=None, orderActualFee=None, paymentDt=None, extraChargeInfo=None, orderItemExtraChargeInfos=None):
         """
         :param deliverNumber: (Optional) 交付单号
         :param orderNumber: (Optional) 订单号
@@ -38,6 +38,11 @@ class ProductServiceVo(object):
         :param failureDt: (Optional) 服务过期时间，格式：yyyy-MM-dd HH:mm:ss
         :param extraInfo: (Optional) 商品属性
         :param remark: (Optional) 交付单备注
+        :param orderTotalFee: (Optional) 订单金额
+        :param orderActualFee: (Optional) 订单实付金额
+        :param paymentDt: (Optional) 订单支付时间
+        :param extraChargeInfo: (Optional) 额外计费项信息
+        :param orderItemExtraChargeInfos: (Optional) 额外计费详情信息
         """
 
         self.deliverNumber = deliverNumber
@@ -57,3 +62,8 @@ class ProductServiceVo(object):
         self.failureDt = failureDt
         self.extraInfo = extraInfo
         self.remark = remark
+        self.orderTotalFee = orderTotalFee
+        self.orderActualFee = orderActualFee
+        self.paymentDt = paymentDt
+        self.extraChargeInfo = extraChargeInfo
+        self.orderItemExtraChargeInfos = orderItemExtraChargeInfos

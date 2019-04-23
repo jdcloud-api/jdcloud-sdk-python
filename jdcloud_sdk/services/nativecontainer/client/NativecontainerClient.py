@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class EliteClient(JDCloudClient):
+class NativecontainerClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('elite.jdcloud-api.com')
+            config = Config('nativecontainer.jdcloud-api.com')
 
-        super(EliteClient, self).__init__(credential, config, 'elite', '1.0.4', logger)
+        super(NativecontainerClient, self).__init__(credential, config, 'nativecontainer', '1.0.0', logger)

@@ -1,7 +1,10 @@
 # 简介 #
-  欢迎使用京东云开发者Python工具套件（Python SDK）。使用京东云Python SDK，您无需复杂编程就可以访问京东云提供的各种服务。 
 
-  为了方便您理解SDK中的一些概念和参数的含义，使用SDK前建议您先查看OpenAPI使用入门。要了解每个API的具体参数和含义，请参考程序注释或参考OpenAPI&SDK下具体产品线的API文档。
+[![Build Status](https://travis-ci.com/jdcloud-api/jdcloud-sdk-python.svg?branch=master)](https://travis-ci.com/jdcloud-api/jdcloud-sdk-python)
+
+欢迎使用京东云开发者Python工具套件（Python SDK）。使用京东云Python SDK，您无需复杂编程就可以访问京东云提供的各种服务。 
+
+为了方便您理解SDK中的一些概念和参数的含义，使用SDK前建议您先查看OpenAPI使用入门。要了解每个API的具体参数和含义，请参考程序注释或参考OpenAPI&SDK下具体产品线的API文档。
 
 # 环境准备 #
 

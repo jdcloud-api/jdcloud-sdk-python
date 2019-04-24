@@ -7,4 +7,4 @@ python:
 install:
   - python setup.py install
 # command to run tests
-script: pytest
+script: pylint -E jdcloud_sdk/services

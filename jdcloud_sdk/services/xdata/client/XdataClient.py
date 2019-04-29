@@ -26,4 +26,4 @@ class XdataClient(JDCloudClient):
         if config is None:
             config = Config('xdata.jdcloud-api.com')
 
-        super(XdataClient, self).__init__(credential, config, 'xdata', '1.0.0', logger)
+        super(XdataClient, self).__init__(credential, config, 'xdata', '1.1.0', logger)

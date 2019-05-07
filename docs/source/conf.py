@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 project = 'jdcloud_sdk'
 copyright = '2019, jdcloud.com'
 author = 'jdcloud.com'
-
+master_doc = 'index'
 
 # -- General configuration ---------------------------------------------------
 

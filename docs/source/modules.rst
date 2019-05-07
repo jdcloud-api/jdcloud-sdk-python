@@ -2,6 +2,6 @@ jdcloud_sdk
 ===========
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 4
 
    jdcloud_sdk

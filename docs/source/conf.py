@@ -20,7 +20,8 @@ sys.path.insert(0, os.path.abspath('../..'))
 project = 'jdcloud_sdk'
 copyright = '2019, jdcloud.com'
 author = 'jdcloud.com'
-
+master_doc = 'index'
+html_split_index = True
 
 # -- General configuration ---------------------------------------------------
 
@@ -31,7 +32,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.viewcode',
+    'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -48,11 +50,9 @@ autoclass_content = 'both'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "classic"
-html_theme_options = {
-    "rightsidebar": "true",
-    "relbarbgcolor": "black"
-}
+html_theme = "sphinx_rtd_theme"
+# html_theme_options = {
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

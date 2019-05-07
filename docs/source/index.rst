@@ -15,7 +15,6 @@ Welcome to jdcloud_sdk's documentation!
 Indices and tables
 ==================
 
-* :ref:`README`
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`

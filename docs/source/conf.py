@@ -21,6 +21,7 @@ project = 'jdcloud_sdk'
 copyright = '2019, jdcloud.com'
 author = 'jdcloud.com'
 master_doc = 'index'
+html_split_index = True
 
 # -- General configuration ---------------------------------------------------
 

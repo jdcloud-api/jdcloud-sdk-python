@@ -1,8 +1,10 @@
 # 简介 #
 
 [![Build Status](https://travis-ci.com/jdcloud-api/jdcloud-sdk-python.svg?branch=master)](https://travis-ci.com/jdcloud-api/jdcloud-sdk-python)
+[![Documentation Status](https://readthedocs.org/projects/jdcloud-sdk-python/badge/?version=latest)](https://jdcloud-sdk-python.readthedocs.io/en/latest/?badge=latest)
 
-欢迎使用京东云开发者Python工具套件（Python SDK）。使用京东云Python SDK，您无需复杂编程就可以访问京东云提供的各种服务。 
+
+欢迎使用京东云开发者Python工具套件（Python SDK）。使用京东云Python SDK，您无需复杂编程就可以访问京东云提供的各种服务。
 
 为了方便您理解SDK中的一些概念和参数的含义，使用SDK前建议您先查看OpenAPI使用入门。要了解每个API的具体参数和含义，请参考程序注释或参考OpenAPI&SDK下具体产品线的API文档。
 
@@ -20,11 +22,11 @@
 使用源码安装您可以如下方式执行：
 
 	python setup.py install
- 
+
 SDK使用中的任何问题，欢迎您在Issues页面交流。
 
 **注意：京东云并没有提供其他下载方式，请务必使用上述官方下载方式！**
- 
+
 调用SDK
 Python SDK的调用主要分为4步：
 
@@ -62,6 +64,13 @@ except Exception as e:
 如果需要设置额外的header，例如要调用开启了MFA操作保护的接口，需要传递x-jdcloud-security-token，则按照如下方式：
 ```python
 parameters = DeleteInstanceParameters('cn-north-1', 'i-xxx')
-header = {'x-jdcloud-security-token': 'xxx'} 
+header = {'x-jdcloud-security-token': 'xxx'}
 request = DeleteInstanceRequest(parameters, header)
+```
+
+# 生成文档
+
+```sh
+pip3 install -U sphinx
+cd docs && make apidoc && make html
 ```

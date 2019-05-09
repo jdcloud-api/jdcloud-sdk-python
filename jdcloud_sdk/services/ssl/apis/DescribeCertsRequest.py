@@ -19,28 +19,42 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeProductsRequest(JDCloudRequest):
+class DescribeCertsRequest(JDCloudRequest):
     """
-    产品页列表查询接口
-
+    查看证书列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeProductsRequest, self).__init__(
-            '/regions/{regionId}/products', 'GET', header, version)
+        super(DescribeCertsRequest, self).__init__(
+            '/sslCert', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeProductsParameters(object):
+class DescribeCertsParameters(object):
 
-    def __init__(self, regionId, lang, ak):
+    def __init__(self, ):
         """
-        :param regionId: Region ID （cn-north-1：华北-北京）
-        :param lang: 语言类型；中文cn；英文en；
-        :param ak: 外部使用ak；
         """
 
-        self.regionId = regionId
-        self.lang = lang
-        self.ak = ak
+        self.pageNumber = None
+        self.pageSize = None
+        self.domainName = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 第几页，从1开始计数
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页显示的数目
+        """
+        self.pageSize = pageSize
+
+    def setDomainName(self, domainName):
+        """
+        :param domainName: (Optional) 域名，支持按照域名检索证书
+        """
+        self.domainName = domainName
 

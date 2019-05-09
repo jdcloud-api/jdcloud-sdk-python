@@ -21,8 +21,8 @@ class AzId(object):
 
     def __init__(self, master=None, slave=None):
         """
-        :param master: (Optional) 缓存Redis主实例所在区域可用区ID
-        :param slave: (Optional) 缓存Redis从实例所在区域可用区ID
+        :param master: (Optional) 缓存Redis主实例所在区域的可用区ID
+        :param slave: (Optional) 缓存Redis从实例所在区域的可用区ID
         """
 
         self.master = master

@@ -37,7 +37,7 @@ class ResetPasswordParameters(object):
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
         :param accountName: 账号名，在同一个实例中账号名不能重复
-        :param accountPassword: 新密码，密码的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param accountPassword: 新密码，密码的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         """
 
         self.regionId = regionId

@@ -19,9 +19,9 @@
 
 class RestoredNewDBInstanceSpec(object):
 
-    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None):
+    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, storageEncrypted=None, instanceType=None):
         """
-        :param instanceName: (Optional) 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param instanceName: (Optional) 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param instanceClass:  实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
         :param instanceStorageGB:  磁盘大小，单位GB
         :param azId:  可用区ID， 第一个ID必须为主实例所在的可用区。如两个可用区一样，也需输入两个azId
@@ -29,6 +29,9 @@ class RestoredNewDBInstanceSpec(object):
         :param subnetId:  子网ID
         :param parameterGroup: (Optional) 参数组ID, 缺省系统会创建一个默认参数组<br>- 仅支持MySQL
         :param chargeSpec:  计费规格，包括计费类型，计费周期等
+        :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md), 缺省值为：LOCAL_SSD<br>- 仅支持MySQL
+        :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false<br>- 仅支持MySQL
+        :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster<br>- 仅支持SQL Server
         """
 
         self.instanceName = instanceName
@@ -39,3 +42,6 @@ class RestoredNewDBInstanceSpec(object):
         self.subnetId = subnetId
         self.parameterGroup = parameterGroup
         self.chargeSpec = chargeSpec
+        self.instanceStorageType = instanceStorageType
+        self.storageEncrypted = storageEncrypted
+        self.instanceType = instanceType

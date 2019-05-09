@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateBackupSynchronicityRequest(JDCloudRequest):
     """
-    创建一个跨地域备份同步服务。<br>- 仅支持MySQL
+    创建一个跨地域备份同步服务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

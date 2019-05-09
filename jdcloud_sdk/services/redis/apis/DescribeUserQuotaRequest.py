@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeUserQuotaRequest(JDCloudRequest):
     """
-    查询账户配额信息
+    查询账户的缓存Redis配额信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DescribeUserQuotaParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
+        :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         """
 
         self.regionId = regionId

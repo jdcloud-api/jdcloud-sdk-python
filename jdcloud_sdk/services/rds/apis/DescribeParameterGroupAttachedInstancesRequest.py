@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeParameterGroupAttachedInstancesRequest(JDCloudRequest):
     """
-    查看参数的修改历史<br>- 仅支持MySQL
+    查看参数组绑定的云数据库实例<br>- 仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

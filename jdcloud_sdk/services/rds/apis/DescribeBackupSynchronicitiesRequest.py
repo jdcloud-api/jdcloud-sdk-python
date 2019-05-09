@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupSynchronicitiesRequest(JDCloudRequest):
     """
-    查询跨地域备份同步服务列表。<br>- 仅支持MySQL
+    查询跨地域备份同步服务列表。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

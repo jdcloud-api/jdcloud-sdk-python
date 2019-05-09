@@ -22,9 +22,9 @@ class OrderStatus(object):
     def __init__(self, total=None, success=None, fail=None, inProcess=None, resourceIds=None):
         """
         :param total: (Optional) 订单总数
-        :param success: (Optional) 成功数
-        :param fail: (Optional) 失败数
-        :param inProcess: (Optional) 正在处理数
+        :param success: (Optional) 成功的订单数
+        :param fail: (Optional) 失败的订单数
+        :param inProcess: (Optional) 正在处理的订单数
         :param resourceIds: (Optional) 成功的资源Id
         """
 

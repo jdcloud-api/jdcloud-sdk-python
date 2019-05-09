@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeCacheInstancesRequest(JDCloudRequest):
     """
-    查询缓存Redis实例列表及其实例信息，可分页查询，查询指定页码，指定分页大小和指定过滤条件
+    查询缓存Redis实例列表，可分页、可排序、可搜索、可过滤
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DescribeCacheInstancesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 缓存Redis实例所在区域的Region ID。目前缓存Redis有华北、华南、华东区域，对应Region ID为cn-north-1、cn-south-1、cn-east-2
+        :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         """
 
         self.regionId = regionId
@@ -42,32 +42,44 @@ class DescribeCacheInstancesParameters(object):
         self.pageSize = None
         self.filters = None
         self.sorts = None
+        self.tagFilters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 请求查询缓存实例的页码；默认为1
+        :param pageNumber: (Optional) 页码：取值范围[1,∞)，默认为1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 请求查询缓存实例的分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小：取值范围[10, 100]，默认为10
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) cacheInstanceId -缓存实例Id，精确匹配，支持多个
-cacheInstanceName - 缓存实例名称，模糊匹配，支持单个
-cacheInstanceStatus - 缓存你实例状态，精确匹配，支持多个(running：运行，error：错误，creating：创建中，changing：变配中，deleting：删除中)
+        :param filters: (Optional) 过滤属性：
+cacheInstanceId - 实例Id，精确匹配，可选择多个
+cacheInstanceName - 实例名称，模糊匹配
+cacheInstanceStatus - 实例状态，精确匹配，可选择多个(running：运行中，error：错误，creating：创建中，changing：变配中，configuring：参数修改中，restoring：备份恢复中，deleting：删除中)
+redisVersion - redis引擎版本，精确匹配，可选择2.8和4.0
+instanceType - 实例类型，精确匹配（redis表示主从版，redis_cluster表示集群版）
+chargeMode - 计费类型，精确匹配（prepaid_by_duration表示包年包月预付费，postpaid_by_duration表示按配置后付费）
 
         """
         self.filters = filters
 
     def setSorts(self, sorts):
         """
-        :param sorts: (Optional) createTime - 创建时间(asc：正序，desc：倒序)
+        :param sorts: (Optional) 排序属性：
+createTime - 按创建时间排序(asc表示按时间正序，desc表示按时间倒序)
 
         """
         self.sorts = sorts
+
+    def setTagFilters(self, tagFilters):
+        """
+        :param tagFilters: (Optional) 标签的过滤条件
+        """
+        self.tagFilters = tagFilters
 

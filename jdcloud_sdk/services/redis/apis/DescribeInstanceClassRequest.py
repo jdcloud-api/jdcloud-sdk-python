@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceClassRequest(JDCloudRequest):
     """
-    查询某区域下的实例规格列表
+    查询某区域下的缓存Redis实例规格列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,8 +34,15 @@ class DescribeInstanceClassParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         """
 
         self.regionId = regionId
+        self.redisVersion = None
+
+    def setRedisVersion(self, redisVersion):
+        """
+        :param redisVersion: (Optional) 缓存Redis的版本号：目前有2.8和4.0，默认为2.8
+        """
+        self.redisVersion = redisVersion
 

@@ -26,4 +26,4 @@ class PortalClient(JDCloudClient):
         if config is None:
             config = Config('portal.jdcloud-api.com')
 
-        super(PortalClient, self).__init__(credential, config, 'portal', '0.1.2', logger)
+        super(PortalClient, self).__init__(credential, config, 'portal', '0.1.4', logger)

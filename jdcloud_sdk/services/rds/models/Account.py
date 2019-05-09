@@ -21,7 +21,7 @@ class Account(object):
 
     def __init__(self, accountName=None, accountStatus=None, accountPrivileges=None):
         """
-        :param accountName: (Optional) 账号名，账号名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+        :param accountName: (Optional) 账号名，账号名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param accountStatus: (Optional) 账号状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)<br>- **MySQL：不支持，不返回该字段**<br>- **SQL Server：返回该字段**
         :param accountPrivileges: (Optional) 具有的权限
         """

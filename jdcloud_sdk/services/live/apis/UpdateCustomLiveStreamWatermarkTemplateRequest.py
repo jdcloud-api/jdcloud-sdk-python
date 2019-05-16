@@ -19,19 +19,19 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AddCustomLiveStreamWatermarkTemplateRequest(JDCloudRequest):
+class UpdateCustomLiveStreamWatermarkTemplateRequest(JDCloudRequest):
     """
-    添加用户自定义水印模板
+    修改用户自定义水印模板
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AddCustomLiveStreamWatermarkTemplateRequest, self).__init__(
-            '/watermarkCustoms:template', 'POST', header, version)
+        super(UpdateCustomLiveStreamWatermarkTemplateRequest, self).__init__(
+            '/watermarkCustoms:template', 'PUT', header, version)
         self.parameters = parameters
 
 
-class AddCustomLiveStreamWatermarkTemplateParameters(object):
+class UpdateCustomLiveStreamWatermarkTemplateParameters(object):
 
     def __init__(self, offsetX, offsetY, width, height, template, url):
         """
@@ -50,7 +50,7 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
 - 单位: 像素
 
         :param template: 自定义水印模板名称
--&ensp;取值要求: 数字、大小写字母、短横线("-")、下划线("_"),
+-&ensp;取值要求: 数字、大小写字母或短横线("-")、下划线("_"),
 &ensp;&ensp;首尾不能有特殊字符("-"),
 &ensp;&ensp;不超过50字符,utf-8格式
 -&ensp;<b>注意: 不能与已定义命名重复</b>

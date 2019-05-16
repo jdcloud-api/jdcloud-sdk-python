@@ -19,7 +19,7 @@
 
 class TranscodeInfo(object):
 
-    def __init__(self, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None):
+    def __init__(self, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, templateName=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None):
         """
         :param videoCodeRate: (Optional) 转码输出的码率值:
   - 取值: [200,3000]
@@ -43,6 +43,8 @@ class TranscodeInfo(object):
               取值要求：数字、大小写字母或短横线("-"),
               首尾不能有特殊字符("-")
   - 注意: 不能与标准的转码模板和已定义命名重复
+
+        :param templateName: (Optional) 转码模板名称
 
         :param audioCodec: (Optional) 转码输出音频编码格式:
   - 取值: aac、mp3
@@ -70,6 +72,7 @@ class TranscodeInfo(object):
         self.width = width
         self.height = height
         self.template = template
+        self.templateName = templateName
         self.audioCodec = audioCodec
         self.audioFormat = audioFormat
         self.audioSampleRate = audioSampleRate

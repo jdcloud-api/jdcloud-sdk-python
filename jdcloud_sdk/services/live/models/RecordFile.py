@@ -19,7 +19,7 @@
 
 class RecordFile(object):
 
-    def __init__(self, fileId=None, format=None, width=None, height=None, startTime=None, endTime=None, duration=None, size=None, bitrate=None, fps=None, imgUrl=None, createTime=None):
+    def __init__(self, fileId=None, format=None, width=None, height=None, startTime=None, endTime=None, duration=None, size=None, bitrate=None, fps=None, fileUrl=None, createTime=None):
         """
         :param fileId: (Optional) 录制文件ID
 
@@ -35,15 +35,15 @@ class RecordFile(object):
 
         :param endTime: (Optional) 录制结束时间
 
-        :param duration: (Optional) 视频时长
+        :param duration: (Optional) 视频时长，单位：毫秒
 
-        :param size: (Optional) 文件大小
+        :param size: (Optional) 文件大小，单位：B
 
         :param bitrate: (Optional) 码率
 
         :param fps: (Optional) 帧率
 
-        :param imgUrl: (Optional) 文件地址
+        :param fileUrl: (Optional) 文件地址
 
         :param createTime: (Optional) 创建时间
 
@@ -59,5 +59,5 @@ class RecordFile(object):
         self.size = size
         self.bitrate = bitrate
         self.fps = fps
-        self.imgUrl = imgUrl
+        self.fileUrl = fileUrl
         self.createTime = createTime

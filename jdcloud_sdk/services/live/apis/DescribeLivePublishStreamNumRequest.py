@@ -44,6 +44,8 @@ class DescribeLivePublishStreamNumParameters(object):
         self.domainName = None
         self.appName = None
         self.protocolType = None
+        self.ispName = None
+        self.locationName = None
         self.period = None
         self.startTime = startTime
         self.endTime = None
@@ -66,6 +68,20 @@ class DescribeLivePublishStreamNumParameters(object):
 
         """
         self.protocolType = protocolType
+
+    def setIspName(self, ispName):
+        """
+        :param ispName: (Optional) 运营商
+
+        """
+        self.ispName = ispName
+
+    def setLocationName(self, locationName):
+        """
+        :param locationName: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
+
+        """
+        self.locationName = locationName
 
     def setPeriod(self, period):
         """

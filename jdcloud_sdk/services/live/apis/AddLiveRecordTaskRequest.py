@@ -34,7 +34,7 @@ class AddLiveRecordTaskRequest(JDCloudRequest):
 
 class AddLiveRecordTaskParameters(object):
 
-    def __init__(self, publishDomain, appName, streamName, recordTimes, saveBucket, saveEndpoint, recordFileType, ):
+    def __init__(self, publishDomain, appName, streamName, recordTimes, recordFileType, ):
         """
         :param publishDomain: 推流域名
         :param appName: 应用名称
@@ -44,8 +44,6 @@ class AddLiveRecordTaskParameters(object):
 - 多段时间跨度最小不能小于10s
 - 多段时间跨度最大不能超过8小时
 
-        :param saveBucket: 存储桶
-        :param saveEndpoint: 存储地址
         :param recordFileType: 录制文件类型:
 - 取值: ts,flv,mp4 (多种类型之前用;隔开)
 - 不区分大小写
@@ -56,11 +54,23 @@ class AddLiveRecordTaskParameters(object):
         self.appName = appName
         self.streamName = streamName
         self.recordTimes = recordTimes
-        self.saveBucket = saveBucket
-        self.saveEndpoint = saveEndpoint
+        self.saveBucket = None
+        self.saveEndpoint = None
         self.recordFileType = recordFileType
         self.saveObject = None
         self.taskExternalId = None
+
+    def setSaveBucket(self, saveBucket):
+        """
+        :param saveBucket: (Optional) 存储桶
+        """
+        self.saveBucket = saveBucket
+
+    def setSaveEndpoint(self, saveEndpoint):
+        """
+        :param saveEndpoint: (Optional) 存储地址
+        """
+        self.saveEndpoint = saveEndpoint
 
     def setSaveObject(self, saveObject):
         """

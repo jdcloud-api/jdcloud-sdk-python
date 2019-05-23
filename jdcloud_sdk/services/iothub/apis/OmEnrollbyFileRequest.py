@@ -33,17 +33,12 @@ class OmEnrollbyFileRequest(JDCloudRequest):
 
 class OmEnrollbyFileParameters(object):
 
-    def __init__(self, fileName, ):
+    def __init__(self, fileName, instanceId):
         """
-        :param fileName: 
+        :param fileName: 物模型文件名称
+        :param instanceId: 待上传物模型的IoT Hub实例编号
         """
 
         self.fileName = fileName
-        self.instanceId = None
-
-    def setInstanceId(self, instanceId):
-        """
-        :param instanceId: (Optional) 
-        """
         self.instanceId = instanceId
 

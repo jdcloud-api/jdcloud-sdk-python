@@ -32,7 +32,7 @@ class DescribeOSRequest(JDCloudRequest):
 
 class DescribeOSParameters(object):
 
-    def __init__(self, regionId, deviceType):
+    def __init__(self, regionId, deviceType, ):
         """
         :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
         :param deviceType: 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：cps.c.normal
@@ -40,4 +40,11 @@ class DescribeOSParameters(object):
 
         self.regionId = regionId
         self.deviceType = deviceType
+        self.osType = None
+
+    def setOsType(self, osType):
+        """
+        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
+        """
+        self.osType = osType
 

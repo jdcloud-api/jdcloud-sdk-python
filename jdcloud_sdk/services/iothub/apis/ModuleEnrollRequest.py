@@ -21,50 +21,56 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModuleEnrollRequest(JDCloudRequest):
     """
-    客户用该接口可以登记模块
-
+    计算模块登记
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(ModuleEnrollRequest, self).__init__(
-            '/module/{moduleName}/enroll', 'POST', header, version)
+            '/edge/{edgeId}/module:enroll', 'POST', header, version)
         self.parameters = parameters
 
 
 class ModuleEnrollParameters(object):
 
-    def __init__(self, moduleName, ):
+    def __init__(self, edgeId, ):
         """
-        :param moduleName: moduleName 唯一标识
+        :param edgeId: 边缘计算节点编号
         """
 
-        self.moduleName = moduleName
-        self.instanceId = None
-        self.modelName = None
-        self.parentDeviceName = None
-        self.name = None
+        self.edgeId = edgeId
+        self.deviceId = None
+        self.moduleId = None
+        self.moduleTypeId = None
+        self.moduleConfId = None
+        self.isDeploy = None
 
-    def setInstanceId(self, instanceId):
+    def setDeviceId(self, deviceId):
         """
-        :param instanceId: (Optional) 
+        :param deviceId: (Optional) 待添加的设备编号
         """
-        self.instanceId = instanceId
+        self.deviceId = deviceId
 
-    def setModelName(self, modelName):
+    def setModuleId(self, moduleId):
         """
-        :param modelName: (Optional) 
+        :param moduleId: (Optional) 边缘计算模块名称
         """
-        self.modelName = modelName
+        self.moduleId = moduleId
 
-    def setParentDeviceName(self, parentDeviceName):
+    def setModuleTypeId(self, moduleTypeId):
         """
-        :param parentDeviceName: (Optional) 
+        :param moduleTypeId: (Optional) 边缘计算模块类型编号
         """
-        self.parentDeviceName = parentDeviceName
+        self.moduleTypeId = moduleTypeId
 
-    def setName(self, name):
+    def setModuleConfId(self, moduleConfId):
         """
-        :param name: (Optional) 
+        :param moduleConfId: (Optional) 边缘计算模块配置编号
         """
-        self.name = name
+        self.moduleConfId = moduleConfId
+
+    def setIsDeploy(self, isDeploy):
+        """
+        :param isDeploy: (Optional) 是否立即部署[0-立即部署,1-暂不部署]
+        """
+        self.isDeploy = isDeploy
 

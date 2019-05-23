@@ -25,7 +25,7 @@ class Os(object):
         :param osName: (Optional) 操作系统系统名称, 如 Ubuntu 16.04(x86_64)
         :param osType: (Optional) 操作系统类型, 如 ubuntu/centos
         :param osVersion: (Optional) 操作系统版本, 如 14.04/16.04
-        :param deviceType: (Optional) 实例类型, 如 cps.c.normal,
+        :param deviceType: (Optional) 实例类型, 如 cps.c.normal
         """
 
         self.osTypeId = osTypeId

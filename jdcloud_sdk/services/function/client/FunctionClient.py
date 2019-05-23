@@ -26,4 +26,4 @@ class FunctionClient(JDCloudClient):
         if config is None:
             config = Config('function.jdcloud-api.com')
 
-        super(FunctionClient, self).__init__(credential, config, 'function', '1.0.2', logger)
+        super(FunctionClient, self).__init__(credential, config, 'function', '1.0.3', logger)

@@ -32,31 +32,31 @@ class CreateFunctionRequest(JDCloudRequest):
 
 class CreateFunctionParameters(object):
 
-    def __init__(self, regionId, name, entrance, memory, runTime, overTime, code, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: Region ID
-        :param name: 函数名称
-        :param entrance: 函数入口，格式为入口文件.入口函数名
-        :param memory: 函数运行最大内存
-        :param runTime: 函数运行环境
-        :param overTime: 函数运行超时时间
-        :param code: 函数代码包
         """
 
         self.regionId = regionId
-        self.name = name
+        self.name = None
         self.description = None
-        self.entrance = entrance
-        self.memory = memory
-        self.runTime = runTime
-        self.overTime = overTime
+        self.entrance = None
+        self.memory = None
+        self.runTime = None
+        self.overTime = None
         self.version = None
-        self.code = code
+        self.code = None
         self.environment = None
         self.logSetId = None
         self.logTopicId = None
         self.vpcId = None
         self.subnetId = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 函数名称
+        """
+        self.name = name
 
     def setDescription(self, description):
         """
@@ -64,11 +64,41 @@ class CreateFunctionParameters(object):
         """
         self.description = description
 
+    def setEntrance(self, entrance):
+        """
+        :param entrance: (Optional) 函数入口，格式为入口文件.入口函数名
+        """
+        self.entrance = entrance
+
+    def setMemory(self, memory):
+        """
+        :param memory: (Optional) 函数运行最大内存
+        """
+        self.memory = memory
+
+    def setRunTime(self, runTime):
+        """
+        :param runTime: (Optional) 函数运行环境
+        """
+        self.runTime = runTime
+
+    def setOverTime(self, overTime):
+        """
+        :param overTime: (Optional) 函数运行超时时间
+        """
+        self.overTime = overTime
+
     def setVersion(self, version):
         """
         :param version: (Optional) 函数版本，默认为LATEST
         """
         self.version = version
+
+    def setCode(self, code):
+        """
+        :param code: (Optional) 函数代码包
+        """
+        self.code = code
 
     def setEnvironment(self, environment):
         """

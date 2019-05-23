@@ -40,6 +40,7 @@ class DescribeNodeGroupsParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -53,6 +54,12 @@ class DescribeNodeGroupsParameters(object):
         :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 
     def setFilters(self, filters):
         """

@@ -19,13 +19,11 @@
 
 class DeviceType(object):
 
-    def __init__(self, nameEN=None, nameZH=None, family=None, useTypeEN=None, useTypeZH=None, region=None, cpuConcise=None, cpuDetail=None, memConcise=None, memDetail=None, ifConcise=None, ifDetail=None, systemDiskConcise=None, systemDiskDetail=None, dataDiskConcise=None, dataDiskDetail=None, gpuConcise=None, gpuDetail=None, isSoldOut=None):
+    def __init__(self, deviceType=None, name=None, family=None, region=None, cpuConcise=None, cpuDetail=None, memConcise=None, memDetail=None, ifConcise=None, ifDetail=None, gpuConcise=None, gpuDetail=None, systemDiskAmount=None, systemDiskSize=None, systemDiskModel=None, dataDiskAmount=None, dataDiskSize=None, dataDiskModel=None, isSoldOut=None):
         """
-        :param nameEN: (Optional) 实例类型英文名称, 如 cps.c.normal
-        :param nameZH: (Optional) 实例类型中文名称, 如 计算型
+        :param deviceType: (Optional) 实例类型, 如 cps.c.normal
+        :param name: (Optional) 实例类型名称, 如 标准计算型
         :param family: (Optional) 实例所属规格系列，如 计算、存储、GPU
-        :param useTypeEN: (Optional) 镜像类型英文描述, 如 standard
-        :param useTypeZH: (Optional) 镜像类型中文描述, 如 标准型
         :param region: (Optional) 区域代码, 如 cn-east-1
         :param cpuConcise: (Optional) CPU概要描述
         :param cpuDetail: (Optional) CPU详细信息
@@ -33,20 +31,20 @@ class DeviceType(object):
         :param memDetail: (Optional) 内存详细信息
         :param ifConcise: (Optional) 网口概要信息
         :param ifDetail: (Optional) 网口详细信息
-        :param systemDiskConcise: (Optional) 系统磁盘概要信息
-        :param systemDiskDetail: (Optional) 系统磁盘详细信息
-        :param dataDiskConcise: (Optional) 数据磁盘概要信息
-        :param dataDiskDetail: (Optional) 数据磁盘详细信息
         :param gpuConcise: (Optional) GPU概要信息
         :param gpuDetail: (Optional) GPU详细信息
+        :param systemDiskAmount: (Optional) 系统盘数量
+        :param systemDiskSize: (Optional) 系统盘单盘大小（GB）
+        :param systemDiskModel: (Optional) 系统盘规格
+        :param dataDiskAmount: (Optional) 数据盘数量
+        :param dataDiskSize: (Optional) 数据盘单盘大小（GB）
+        :param dataDiskModel: (Optional) 数据盘规格
         :param isSoldOut: (Optional) 售罄状态
         """
 
-        self.nameEN = nameEN
-        self.nameZH = nameZH
+        self.deviceType = deviceType
+        self.name = name
         self.family = family
-        self.useTypeEN = useTypeEN
-        self.useTypeZH = useTypeZH
         self.region = region
         self.cpuConcise = cpuConcise
         self.cpuDetail = cpuDetail
@@ -54,10 +52,12 @@ class DeviceType(object):
         self.memDetail = memDetail
         self.ifConcise = ifConcise
         self.ifDetail = ifDetail
-        self.systemDiskConcise = systemDiskConcise
-        self.systemDiskDetail = systemDiskDetail
-        self.dataDiskConcise = dataDiskConcise
-        self.dataDiskDetail = dataDiskDetail
         self.gpuConcise = gpuConcise
         self.gpuDetail = gpuDetail
+        self.systemDiskAmount = systemDiskAmount
+        self.systemDiskSize = systemDiskSize
+        self.systemDiskModel = systemDiskModel
+        self.dataDiskAmount = dataDiskAmount
+        self.dataDiskSize = dataDiskSize
+        self.dataDiskModel = dataDiskModel
         self.isSoldOut = isSoldOut

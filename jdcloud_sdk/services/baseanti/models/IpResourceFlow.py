@@ -19,11 +19,15 @@
 
 class IpResourceFlow(object):
 
-    def __init__(self, bps=None, pps=None):
+    def __init__(self, time=None, postProtect=None, preProtect=None, unit=None):
         """
-        :param bps: (Optional) 
-        :param pps: (Optional) 
+        :param time: (Optional) UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
+        :param postProtect: (Optional) 防护后流量
+        :param preProtect: (Optional) 防护前流量
+        :param unit: (Optional) 流量单位
         """
 
-        self.bps = bps
-        self.pps = pps
+        self.time = time
+        self.postProtect = postProtect
+        self.preProtect = preProtect
+        self.unit = unit

@@ -32,13 +32,29 @@ class ListFunctionRequest(JDCloudRequest):
 
 class ListFunctionParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, listAll, ):
         """
         :param regionId: Region ID
+        :param listAll: 是否返回所有函数
         """
 
         self.regionId = regionId
+        self.listAll = listAll
+        self.pageNumber = None
+        self.pageSize = None
         self.filters = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小
+        """
+        self.pageSize = pageSize
 
     def setFilters(self, filters):
         """

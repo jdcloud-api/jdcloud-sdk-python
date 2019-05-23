@@ -27,12 +27,12 @@ class CreateInstancesRequest(JDCloudRequest):
 - 实例类型<br/>
   - 调用接口（describeDeviceTypes）获取物理实例类型列表<br/>
   - 不能使用已下线、或已售馨的实例类型<br/>
-- 操作系统和预装软件<br/>
+- 操作系统<br/>
   - 可调用接口（describeOS）获取云物理服务器支持的操作系统列表<br/>
 - 存储<br/>
   - 数据盘多种RAID可选，可调用接口（describeDeviceRaids）获取服务器支持的RAID列表<br/>
 - 网络<br/>
-  - 网络类型目前只支持basic<br/>
+  - 网络类型目前支持basic、vpc<br/>
   - 线路目前只支持bgp<br/>
   - 支持不启用外网，如果启用外网，带宽范围[1,200] 单位Mbps<br/>
 - 其他<br/>

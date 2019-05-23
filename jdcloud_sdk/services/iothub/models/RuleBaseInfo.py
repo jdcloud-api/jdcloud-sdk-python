@@ -19,13 +19,17 @@
 
 class RuleBaseInfo(object):
 
-    def __init__(self, id=None, name=None, desc=None):
+    def __init__(self, id=None, name=None, desc=None, status=None, createdTime=None):
         """
-        :param id: (Optional) 
-        :param name: (Optional) 
-        :param desc: (Optional) 
+        :param id: (Optional) 规则Id
+        :param name: (Optional) 规则名称
+        :param desc: (Optional) 规则说明
+        :param status: (Optional) 状态，停止:disable,启动:enable
+        :param createdTime: (Optional) 创建时间，精确到毫秒
         """
 
         self.id = id
         self.name = name
         self.desc = desc
+        self.status = status
+        self.createdTime = createdTime

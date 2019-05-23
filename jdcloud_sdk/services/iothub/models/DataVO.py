@@ -30,7 +30,7 @@ class DataVO(object):
         :param azName: (Optional) 可用区名称
         :param pubDomain: (Optional) 公网域名
         :param priDomain: (Optional) 内网域名
-        :param status: (Optional) 实例状态
+        :param status: (Optional) 实例状态[0-创建中，1-运行中，2-停止]
         :param feetype: (Optional) 资费形式
         :param createTime: (Optional) 创建时间
         :param instanceId: (Optional) 实例编号

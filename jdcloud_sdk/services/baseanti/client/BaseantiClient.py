@@ -26,4 +26,4 @@ class BaseantiClient(JDCloudClient):
         if config is None:
             config = Config('baseanti.jdcloud-api.com')
 
-        super(BaseantiClient, self).__init__(credential, config, 'baseanti', '1.0.1', logger)
+        super(BaseantiClient, self).__init__(credential, config, 'baseanti', '1.1.0', logger)

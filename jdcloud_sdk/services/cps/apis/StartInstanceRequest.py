@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StartInstanceRequest(JDCloudRequest):
     """
-    对单个云物理服务器执行开机操作，只能启动stopped状态的服务器
+    对单台云物理服务器执行开机操作，只能启动stopped状态的服务器
     """
 
     def __init__(self, parameters, header=None, version="v1"):

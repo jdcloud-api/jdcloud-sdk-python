@@ -19,20 +19,21 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, password, count, charge, hostname=None, subnetId=None, enableInternet=None, enableIpv6=None, cidr=None, lineType=None, bandwidth=None, description=None, softwares=None):
+    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, password, count, charge, hostname=None, subnetId=None, enableInternet=None, enableIpv6=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, description=None):
         """
         :param az:  可用区, 如 cn-east-1
         :param deviceType:  实例类型, 如 cps.c.normal
         :param hostname: (Optional) 主机名
-        :param imageType:  镜像类型, 取值范围：standard、standard_app
+        :param imageType:  镜像类型, 取值范围：standard
         :param osTypeId:  操作系统类型ID
         :param sysRaidTypeId:  系统盘RAID类型ID
         :param dataRaidTypeId:  数据盘RAID类型ID
         :param subnetId: (Optional) 子网编号
         :param enableInternet: (Optional) 是否启用外网，取值范围：yes、no
         :param enableIpv6: (Optional) 是否启用IPv6，取值范围：yes、no
-        :param networkType:  网络类型，目前只支持basic
+        :param networkType:  网络类型，取值范围：basic、vpc
         :param cidr: (Optional) 网络CIDR
+        :param privateIp: (Optional) 内网IP
         :param lineType: (Optional) 外网链路类型, 目前只支持bgp
         :param bandwidth: (Optional) 外网带宽, 范围[1,200] 单位Mbps
         :param name:  云物理服务器名称
@@ -40,7 +41,6 @@ class InstanceSpec(object):
         :param password:  密码
         :param count:  购买数量
         :param charge:  计费配置
-        :param softwares: (Optional) 
         """
 
         self.az = az
@@ -55,6 +55,7 @@ class InstanceSpec(object):
         self.enableIpv6 = enableIpv6
         self.networkType = networkType
         self.cidr = cidr
+        self.privateIp = privateIp
         self.lineType = lineType
         self.bandwidth = bandwidth
         self.name = name
@@ -62,4 +63,3 @@ class InstanceSpec(object):
         self.password = password
         self.count = count
         self.charge = charge
-        self.softwares = softwares

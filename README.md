@@ -38,7 +38,7 @@ Python SDK的调用主要分为4步：
 
 以下是查询云主机实例类型的调用示例
 
-```python
+```
 # coding=utf-8
 from jdcloud_sdk.core.credential import Credential
 from jdcloud_sdk.services.vm.client.VmClient import VmClient
@@ -62,7 +62,7 @@ except Exception as e:
 ```
 
 如果需要设置额外的header，例如要调用开启了MFA操作保护的接口，需要传递x-jdcloud-security-token，则按照如下方式：
-```python
+```
 parameters = DeleteInstanceParameters('cn-north-1', 'i-xxx')
 header = {'x-jdcloud-security-token': 'xxx'}
 request = DeleteInstanceRequest(parameters, header)

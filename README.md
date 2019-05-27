@@ -17,7 +17,6 @@
 建议使用pip安装京东云Python SDK，如下所示：
 
 	pip install -U jdcloud_sdk
-	
 您还可以下载sdk源代码自行使用。
 
 使用源码安装您可以如下方式执行：
@@ -38,38 +37,40 @@ Python SDK的调用主要分为4步：
 
 以下是查询云主机实例类型的调用示例
 
-    # coding=utf-8
-    from jdcloud_sdk.core.credential import Credential
-    from jdcloud_sdk.services.vm.client.VmClient import VmClient
-    from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest import DescribeInstanceTypesParameters, DescribeInstanceTypesRequest
-    
-    access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    credential = Credential(access_key, secret_key)
-    client = VmClient(credential)
-    
-    try:
+```python
+# coding=utf-8
+from jdcloud_sdk.core.credential import Credential
+from jdcloud_sdk.services.vm.client.VmClient import VmClient
+from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest \
+    import DescribeInstanceTypesParameters, DescribeInstanceTypesRequest
+
+access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+credential = Credential(access_key, secret_key)
+client = VmClient(credential)
+
+try:
     parameters = DescribeInstanceTypesParameters('cn-north-1')
     request = DescribeInstanceTypesRequest(parameters)
     resp = client.send(request)
     if resp.error is not None:
-    print(resp.error.code, resp.error.message)
+        print(resp.error.code, resp.error.message)
     print(resp.result)
-    except Exception as e:
+except Exception as e:
     print(e)
     # 错误处理
-
+```
 
 如果需要设置额外的header，例如要调用开启了MFA操作保护的接口，需要传递x-jdcloud-security-token，则按照如下方式：
-
-    parameters = DeleteInstanceParameters('cn-north-1', 'i-xxx')
-    header = {'x-jdcloud-security-token': 'xxx'}
-    request = DeleteInstanceRequest(parameters, header)
-
+```python
+parameters = DeleteInstanceParameters('cn-north-1', 'i-xxx')
+header = {'x-jdcloud-security-token': 'xxx'}
+request = DeleteInstanceRequest(parameters, header)
+```
 
 # 生成文档
 
-
-    pip3 install -U sphinx
-    cd docs && make apidoc && make html
-
+```sh
+pip3 install -U sphinx
+cd docs && make apidoc && make html
+```

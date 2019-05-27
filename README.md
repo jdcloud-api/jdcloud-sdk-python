@@ -42,8 +42,7 @@ Python SDK的调用主要分为4步：
 # coding=utf-8
 from jdcloud_sdk.core.credential import Credential
 from jdcloud_sdk.services.vm.client.VmClient import VmClient
-from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest \
-    import DescribeInstanceTypesParameters, DescribeInstanceTypesRequest
+from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest import DescribeInstanceTypesParameters, DescribeInstanceTypesRequest
 
 access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'

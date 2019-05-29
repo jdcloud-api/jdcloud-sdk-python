@@ -44,20 +44,23 @@ class JcqTest(unittest.TestCase):
         request_param = DescribeAccessPointParameters('region_id', 'topic_name')
         request = DescribeAccessPointRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         # sdkAddress sdk access point
         # httpAddress httpProxy access point
         access_point = AccessPoint(resp.result['accessPoint']['sdkAddress'], resp.result['accessPoint']['httpAddress'])
+        self.assertIsNotNone(access_point.httpAddress)
+        self.assertIsNotNone(access_point.sdkAddress)
 
     # get message by message id
     def testDescribeMessageRequest(self):
         request_param = DescribeMessageParameters('region_id', 'topic_name', 'message_id')
         request = DescribeMessageRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         message_res = resp.result['message']
         message = Message(message_res['messageId'], message_res['body'], message_res['tag'], message_res['properties'],
                           message_res['storeTime'])
+        self.assertIsNotNone(message.messageId)
 
     # batch get message
     def testDescribeMessagesRequest(self):
@@ -65,46 +68,48 @@ class JcqTest(unittest.TestCase):
                                                    '2019-05-22T16:00:00Z')
         request = DescribeMessagesRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         res_list = resp.result['messages']
         messages = []
         for msg in res_list:
             messages.append(Message(msg['messageId'], msg['body'], msg['tag'], msg['properties'],
                                     msg['storeTime']))
+        self.assertTrue(len(messages) > 0)
 
     # create topic
     def testCreateTopicRequest(self):
-        request_param = CreateTopicParameters('region_id', 'topic_name''normal')
+        request_param = CreateTopicParameters('region_id', 'topic_name', 'normal')
         request = CreateTopicRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # delete topic
     def testDeleteTopicRequest(self):
         request_param = DeleteTopicParameters('region_id', 'topic_name')
         request = DeleteTopicRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # query topic
     def testDescribeTopicRequest(self):
         request_param = DescribeTopicParameters('region_id', 'topic_name')
         request = DescribeTopicRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         topic_res = resp.result['topic']
         topic = Topic(topic_res['topicId'], topic_res['topicName'], topic_res['description'], topic_res['createTime'],
                       topic_res['lastUpdateTime'], topic_res['topicStatus'], topic_res['subscriptionCount'],
                       topic_res['messageLifeTimeInHours'], topic_res['topicConfig'], topic_res['own'],
                       topic_res['authorizedPermission'],
                       topic_res['tags'])
+        self.assertIsNotNone(topic.topicId)
 
     # batch query topic
     def testDescribeTopicsRequest(self):
         request_param = DescribeTopicsParameters('region_id')
         request = DescribeTopicsRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         resp_list = resp.result['topics']
         topics = []
         for topic_res in resp_list:
@@ -114,39 +119,41 @@ class JcqTest(unittest.TestCase):
                       topic_res['messageLifeTimeInHours'], topic_res['topicConfig'], topic_res['own'],
                       topic_res['authorizedPermission'],
                       topic_res['tags']))
+        self.assertTrue(len(topics) > 0)
 
     # create subscription
     def testCreateSubscriptionRequest(self):
         request_param = CreateSubscriptionParameters('region_id', 'topic_name', 'consumer_group_id')
         request = CreateSubscriptionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # delete subscription
     def testDeleteSubscriptionRequest(self):
         request_param = DeleteSubscriptionParameters('regiond_id', 'topic_name', 'consumer_group_id')
         request = DeleteSubscriptionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # query subscription
     def testDescribeSubscriptionRequest(self):
         request_param = DescribeSubscriptionParameters('region_id', 'topic_name', 'consumer_group_id')
         request = DescribeSubscriptionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         sub_res = resp.result['subscription']
         subscription = Subscription(sub_res['consumerGroupId'], sub_res['endPoint'],
                                     sub_res['messageInvisibleTimeInSeconds'], sub_res['subscriptionType'],
                                     sub_res['tags'], sub_res['dlqEnable'], sub_res['maxRetryTimes'],
                                     sub_res['createTime'], sub_res['lastUpdateTime'], sub_res['consumerNumbers'])
+        self.assertIsNotNone(subscription.consumerGroupId)
 
     # query subscriptions
     def testDescribeSubscriptionsRequest(self):
         request_param = DescribeSubscriptionsParameters('region_id', 'topic_name')
         request = DescribeSubscriptionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         sub_list = resp.result['subscriptions']
         subscriptions = []
         for sub_res in sub_list:
@@ -155,6 +162,7 @@ class JcqTest(unittest.TestCase):
                                               sub_res['tags'], sub_res['dlqEnable'], sub_res['maxRetryTimes'],
                                               sub_res['createTime'], sub_res['lastUpdateTime'],
                                               sub_res['consumerNumbers']))
+        self.assertTrue(len(subscriptions) > 0)
 
     # reset consume offset
     def testResetConsumeOffsetRequest(self):
@@ -162,14 +170,14 @@ class JcqTest(unittest.TestCase):
                                                      '2019-05-21T16:00:00Z')
         request = ResetConsumeOffsetRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # reset consume offset to the latest
     def testCleanMessagesRequest(self):
         requst_param = CleanMessagesParameters('region_id', 'topic_name', 'consume_group_id')
         request = CleanMessagesRequest(requst_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # query dead letter
     def testDescribeDeadLetterNumbersRequest(self):
@@ -177,34 +185,37 @@ class JcqTest(unittest.TestCase):
         request_param.setConsumerGroupId('consume_group_id')
         request = DescribeDeadLetterNumbersRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         result = resp.result['deadLetterNumbers']
         dead_letter_numbers = []
         for dead_letter in result:
             dead_letter_numbers.append(
                 DeadLetterNumber(dead_letter['topicId'], dead_letter['topicName'], dead_letter['consumerGroupId'],
                                  dead_letter['deadLetterNumber']))
+        self.assertTrue(len(dead_letter_numbers) > 0)
 
     # query dead letter by topic
     def testDescribeDeadLetterNumbersWithTopicRequest(self):
         request_param = DescribeDeadLetterNumbersWithTopicParameters('region_id', 'topic_name')
         request = DescribeDeadLetterNumbersWithTopicRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         result = resp.result['deadLetterNumbers']
         dead_letter_numbers = []
         for dead_letter in result:
             dead_letter_numbers.append(
                 DeadLetterNumber(dead_letter['topicId'], dead_letter['topicName'], dead_letter['consumerGroupId'],
                                  dead_letter['deadLetterNumber']))
+        self.assertTrue(len(dead_letter_numbers) > 0)
 
     # delete dead letter
     def testDeleteDeadLettersRequest(self):
         request_param = DeleteDeadLettersParameters('region_id', 'topic_name', 'consumer_group_id')
         request = DeleteDeadLettersRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         message_ids = resp.result['messageIds']
+        self.assertTrue(len(message_ids) > 0)
 
     # query dead letter
     def testListDeadLettersRequest(self):
@@ -213,48 +224,52 @@ class JcqTest(unittest.TestCase):
 
         request = ListDeadLettersRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         dead_letters = []
         dead_letters_res = resp.result['deadLetters']
         for dead_letter in dead_letters_res:
             dead_letters.append(DeadLetter(dead_letter['messageId'], dead_letter['expireTime']))
+        self.assertTrue(len(dead_letters) > 0)
 
     # resend dead letter
     def testResendDeadLettersRequest(self):
         request_param = ResendDeadLettersParameters('region_id', 'topic_name', 'consumer_group_id')
         request = ResendDeadLettersRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         message_ids = resp.result['messageIds']
+        self.assertIsNotNone(message_ids)
 
     # query permission
     def AddPermissionRequest(self):
         request_param = AddPermissionParameters('region_id', 'topic_name', 'PUB', 'user_id')
         request = AddPermissionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # query permissions
     def DescribePermissionRequest(self):
         request_param = DescribePermissionParameters('region_id', 'topic_name')
         request = DescribePermissionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         permissions = []
         for permission in resp.result['permissions']:
             permissions.append(Permission(permission['userId'], permission['permission']))
+        self.assertTrue(len(permissions) > 0)
 
     # delete permission
     def testRemovePermissionRequest(self):
         request_param = RemovePermissionParameters('region_id', 'topic_name', 'PUB', 'user_id')
         request = RemovePermissionRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
 
     # query consumer group
     def testDescribeConsumerGroupIdsRequest(self):
         request_param = DescribeConsumerGroupIdsParameters('region_id')
         request = DescribeConsumerGroupIdsRequest(request_param)
         resp = self.client.send(request)
-        self.assertTrue(resp.error is None)
+        self.assertIsNone(resp.error)
         consumer_group_ids = resp.result['consumerGroupIds']
+        self.assertIsNone(consumer_group_ids)

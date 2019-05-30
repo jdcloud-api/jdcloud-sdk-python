@@ -19,17 +19,31 @@
 
 class Subnet(object):
 
-    def __init__(self, region=None, az=None, cidr=None, subnetId=None, networkType=None):
+    def __init__(self, region=None, az=None, subnetId=None, name=None, cidr=None, vpcId=None, vpcName=None, availableIpCount=None, totalIpCount=None, networkType=None, description=None, createTime=None):
         """
         :param region: (Optional) 地域代码, 如cn-east-1
         :param az: (Optional) 可用区, 如cn-east-1a
-        :param cidr: (Optional) 子网CIDR
         :param subnetId: (Optional) 子网ID
+        :param name: (Optional) 子网名称
+        :param cidr: (Optional) 子网CIDR
+        :param vpcId: (Optional) 私有网络Id
+        :param vpcName: (Optional) 私有网络名称
+        :param availableIpCount: (Optional) 可用ip数量
+        :param totalIpCount: (Optional) 总ip数量
         :param networkType: (Optional) 网络类型
+        :param description: (Optional) 描述
+        :param createTime: (Optional) 创建时间
         """
 
         self.region = region
         self.az = az
-        self.cidr = cidr
         self.subnetId = subnetId
+        self.name = name
+        self.cidr = cidr
+        self.vpcId = vpcId
+        self.vpcName = vpcName
+        self.availableIpCount = availableIpCount
+        self.totalIpCount = totalIpCount
         self.networkType = networkType
+        self.description = description
+        self.createTime = createTime

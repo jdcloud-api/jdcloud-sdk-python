@@ -32,9 +32,8 @@ class DescribeLiveSnapshotDataRequest(JDCloudRequest):
 
 class DescribeLiveSnapshotDataParameters(object):
 
-    def __init__(self, publishDomain, startTime, ):
+    def __init__(self, startTime, ):
         """
-        :param publishDomain: 推流域名
         :param startTime: 起始时间:
 - UTC时间
   格式: yyyy-MM-dd'T'HH:mm:ss'Z'
@@ -43,11 +42,17 @@ class DescribeLiveSnapshotDataParameters(object):
 
         """
 
-        self.publishDomain = publishDomain
+        self.publishDomain = None
         self.appName = None
         self.streamName = None
         self.startTime = startTime
         self.endTime = None
+
+    def setPublishDomain(self, publishDomain):
+        """
+        :param publishDomain: (Optional) 推流域名
+        """
+        self.publishDomain = publishDomain
 
     def setAppName(self, appName):
         """

@@ -39,7 +39,7 @@ class DescribeLiveStreamPublishListParameters(object):
 - UTC时间
   格式:yyyy-MM-dd'T'HH:mm:ss'Z'
   示例:2018-10-21T10:00:00Z
-- 最大支持最近90天内的流历史查询
+- 最大支持最近30天内的流历史查询
 
         """
 
@@ -85,7 +85,7 @@ class DescribeLiveStreamPublishListParameters(object):
 - UTC时间
   格式:yyyy-MM-dd'T'HH:mm:ss'Z'
   示例:2018-10-21T10:00:00Z
-- 最大支持最近90天内的流历史查询
+- 最大支持最近30天内的流历史查询
 - 结束时间为空默认为当前时间
 
         """

@@ -19,35 +19,25 @@
 
 class DevicePageVo(object):
 
-    def __init__(self, uuid=None, instanceId=None, deviceId=None, displayName=None, deviceType=None, deviceState=None, omId=None, deviceFilePath=None, omName=None, createTime=None, userPin=None, parentUuid=None, parentName=None, lastConnectTime=None):
+    def __init__(self, uuid=None, instanceId=None, resourceId=None, edgeId=None, edgeName=None, edgeState=None, omId=None, omName=None, lastOnlineTime=None):
         """
-        :param uuid: (Optional) 
-        :param instanceId: (Optional) 
-        :param deviceId: (Optional) 
-        :param displayName: (Optional) 
-        :param deviceType: (Optional) 
-        :param deviceState: (Optional) 
-        :param omId: (Optional) 
-        :param deviceFilePath: (Optional) 
-        :param omName: (Optional) 
-        :param createTime: (Optional) 
-        :param userPin: (Optional) 
-        :param parentUuid: (Optional) 
-        :param parentName: (Optional) 
-        :param lastConnectTime: (Optional) 
+        :param uuid: (Optional) Edge唯一标识
+        :param instanceId: (Optional) IoT Hub实例唯一标识
+        :param resourceId: (Optional) 资源唯一标识
+        :param edgeId: (Optional) Edge编号
+        :param edgeName: (Optional) Edge显示名称
+        :param edgeState: (Optional) Edge状态
+        :param omId: (Optional) 物模型编号
+        :param omName: (Optional) 物模型名称
+        :param lastOnlineTime: (Optional) 最后在线时间
         """
 
         self.uuid = uuid
         self.instanceId = instanceId
-        self.deviceId = deviceId
-        self.displayName = displayName
-        self.deviceType = deviceType
-        self.deviceState = deviceState
+        self.resourceId = resourceId
+        self.edgeId = edgeId
+        self.edgeName = edgeName
+        self.edgeState = edgeState
         self.omId = omId
-        self.deviceFilePath = deviceFilePath
         self.omName = omName
-        self.createTime = createTime
-        self.userPin = userPin
-        self.parentUuid = parentUuid
-        self.parentName = parentName
-        self.lastConnectTime = lastConnectTime
+        self.lastOnlineTime = lastOnlineTime

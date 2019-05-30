@@ -21,23 +21,23 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeSubnetRequest(JDCloudRequest):
     """
-    查询子网
+    查询子网详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeSubnetRequest, self).__init__(
-            '/regions/{regionId}/subnet', 'GET', header, version)
+            '/regions/{regionId}/subnets/{subnetId}', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeSubnetParameters(object):
 
-    def __init__(self, regionId, az):
+    def __init__(self, regionId, subnetId, ):
         """
         :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
-        :param az: 可用区, 如cn-east-1a；可调用接口（describeRegiones）获取云物理服务器在该地域支持的可用区
+        :param subnetId: 子网ID
         """
 
         self.regionId = regionId
-        self.az = az
+        self.subnetId = subnetId
 

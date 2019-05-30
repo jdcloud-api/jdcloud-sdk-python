@@ -21,12 +21,12 @@ class IpResourceInfo(object):
 
     def __init__(self, ip=None, safeStatus=None, region=None, blackHoleThreshold=None, cleanThresholdBps=None, cleanThresholdPps=None):
         """
-        :param ip: (Optional) 公网IP
-        :param safeStatus: (Optional) 0->安全 1->清洗 2->黑洞
-        :param region: (Optional) 地域，cn-north-1、cn-south-1、cn-east-1、cn-east-2
-        :param blackHoleThreshold: (Optional) 黑洞阈值，单位bps
-        :param cleanThresholdBps: (Optional) 触发清洗的流量速率，单位bps
-        :param cleanThresholdPps: (Optional) 触发清洗的包速率，单位pps
+        :param ip: (Optional) 公网 IP 地址
+        :param safeStatus: (Optional) 安全状态, 0: 安全, 1: 清洗, 2: 黑洞
+        :param region: (Optional) 公网 IP 所属地域编码
+        :param blackHoleThreshold: (Optional) 黑洞阈值，单位 bps
+        :param cleanThresholdBps: (Optional) 触发清洗的流量速率，单位 bps
+        :param cleanThresholdPps: (Optional) 触发清洗的包速率，单位 pps
         """
 
         self.ip = ip

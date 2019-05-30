@@ -32,41 +32,96 @@ class UpdateFunctionRequest(JDCloudRequest):
 
 class UpdateFunctionParameters(object):
 
-    def __init__(self, regionId, functionName, description, entrance, memory, runTime, overTime, code, environment, logSetId, logTopicId, vpcId, subnetId):
+    def __init__(self, regionId, functionName, ):
         """
         :param regionId: Region ID
         :param functionName: 函数名称
-        :param description: 函数描述信息
-        :param entrance: 函数入口，格式为入口文件.入口函数名
-        :param memory: 函数运行最大内存
-        :param runTime: 函数运行环境
-        :param overTime: 函数运行超时时间
-        :param code: 函数代码包
-        :param environment: 函数运行时环境变量
-        :param logSetId: 函数指定的日志集Id
-        :param logTopicId: 函数指定的日志主题Id
-        :param vpcId: 函数配置的VPCId
-        :param subnetId: 函数配置的子网Id
         """
 
         self.regionId = regionId
         self.functionName = functionName
-        self.description = description
-        self.entrance = entrance
-        self.memory = memory
-        self.runTime = runTime
-        self.overTime = overTime
+        self.description = None
+        self.entrance = None
+        self.memory = None
+        self.runTime = None
+        self.overTime = None
         self.version = None
-        self.code = code
-        self.environment = environment
-        self.logSetId = logSetId
-        self.logTopicId = logTopicId
-        self.vpcId = vpcId
-        self.subnetId = subnetId
+        self.code = None
+        self.environment = None
+        self.logSetId = None
+        self.logTopicId = None
+        self.vpcId = None
+        self.subnetId = None
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 函数描述信息
+        """
+        self.description = description
+
+    def setEntrance(self, entrance):
+        """
+        :param entrance: (Optional) 函数入口，格式为入口文件.入口函数名
+        """
+        self.entrance = entrance
+
+    def setMemory(self, memory):
+        """
+        :param memory: (Optional) 函数运行最大内存
+        """
+        self.memory = memory
+
+    def setRunTime(self, runTime):
+        """
+        :param runTime: (Optional) 函数运行环境
+        """
+        self.runTime = runTime
+
+    def setOverTime(self, overTime):
+        """
+        :param overTime: (Optional) 函数运行超时时间
+        """
+        self.overTime = overTime
 
     def setVersion(self, version):
         """
         :param version: (Optional) 函数版本
         """
         self.version = version
+
+    def setCode(self, code):
+        """
+        :param code: (Optional) 函数代码包
+        """
+        self.code = code
+
+    def setEnvironment(self, environment):
+        """
+        :param environment: (Optional) 函数运行时环境变量
+        """
+        self.environment = environment
+
+    def setLogSetId(self, logSetId):
+        """
+        :param logSetId: (Optional) 函数指定的日志集Id
+        """
+        self.logSetId = logSetId
+
+    def setLogTopicId(self, logTopicId):
+        """
+        :param logTopicId: (Optional) 函数指定的日志主题Id
+        """
+        self.logTopicId = logTopicId
+
+    def setVpcId(self, vpcId):
+        """
+        :param vpcId: (Optional) 函数配置的VPCId
+        """
+        self.vpcId = vpcId
+
+    def setSubnetId(self, subnetId):
+        """
+        :param subnetId: (Optional) 函数配置的子网Id
+        """
+        self.subnetId = subnetId
 

@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeIpResourcesRequest(JDCloudRequest):
     """
-    查询区域下的公网Ip资源列表
+    查询公网 IP 的安全信息列表. 包括私有网络的弹性公网 IP(运营商级 NAT 保留地址除外), 云物理服务器的公网 IP 和弹性公网 IP. (已废弃, 建议使用 <a href="http://docs.jdcloud.com/anti-ddos-basic/api/describeelasticipresources">describeElasticIpResources</a>, <a href="http://docs.jdcloud.com/anti-ddos-basic/api/describecpsipresources">describeCpsIpResources</a> 接口)"
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +35,8 @@ class DescribeIpResourcesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域编码. 基础防护已支持华北-北京, 华东-宿迁, 华东-上海, 华南-广州
+
         """
 
         self.regionId = regionId
@@ -42,7 +44,7 @@ class DescribeIpResourcesParameters(object):
 
     def setIp(self, ip):
         """
-        :param ip: (Optional) IP模糊匹配
+        :param ip: (Optional) IP 模糊匹配
         """
         self.ip = ip
 

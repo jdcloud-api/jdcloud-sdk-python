@@ -46,7 +46,7 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 - 单位: kpbs
 
         :param videoFrameRate: 转码输出的帧率值
-- 取值：15、25、30、60
+- 取值：[1,30]
 
         :param template: 转码模板(转码流输出后缀)
 - 取值要求：数字、大小写字母或短横线("-"),必须以数字或字母作为开头和结尾,长度不超过50字符
@@ -78,6 +78,7 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 
         """
 
+        self.templateName = None
         self.videoCodeRate = videoCodeRate
         self.videoFrameRate = videoFrameRate
         self.width = None
@@ -88,6 +89,14 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
         self.audioSampleRate = audioSampleRate
         self.audioChannel = audioChannel
         self.audioCodeRate = audioCodeRate
+
+    def setTemplateName(self, templateName):
+        """
+        :param templateName: (Optional) 转码模板名称
+- 长度范围：[1,50]
+
+        """
+        self.templateName = templateName
 
     def setWidth(self, width):
         """

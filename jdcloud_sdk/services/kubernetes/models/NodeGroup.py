@@ -19,7 +19,7 @@
 
 class NodeGroup(object):
 
-    def __init__(self, clusterId=None, nodeGroupId=None, name=None, description=None, nodeConfig=None, version=None, nodeNetwork=None, currentCount=None, expectCount=None, agId=None, instanceTemplateId=None, state=None, updateTime=None, stateMessage=None, autoRepair=None, createdTime=None):
+    def __init__(self, clusterId=None, nodeGroupId=None, name=None, description=None, nodeConfig=None, version=None, nodeNetwork=None, currentCount=None, expectCount=None, agId=None, instanceTemplateId=None, state=None, tags=None, updateTime=None, stateMessage=None, autoRepair=None, createdTime=None):
         """
         :param clusterId: (Optional) 集群id
         :param nodeGroupId: (Optional) node group id
@@ -33,6 +33,7 @@ class NodeGroup(object):
         :param agId: (Optional) node group的ag id ，通过agid可以查询该node group下的实例
         :param instanceTemplateId: (Optional) node group的ag id对应的实例模板
         :param state: (Optional) 状态  [pending,running,resizing,reconciling,deleting,deleted,error,running_with_error(部分节点有问题)]
+        :param tags: (Optional) 
         :param updateTime: (Optional) 更新时间
         :param stateMessage: (Optional) 状态变更原因
         :param autoRepair: (Optional) 是否开启自动修复
@@ -51,6 +52,7 @@ class NodeGroup(object):
         self.agId = agId
         self.instanceTemplateId = instanceTemplateId
         self.state = state
+        self.tags = tags
         self.updateTime = updateTime
         self.stateMessage = stateMessage
         self.autoRepair = autoRepair

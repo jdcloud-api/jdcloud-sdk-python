@@ -50,7 +50,7 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
 - 单位: 像素
 
         :param template: 自定义水印模板名称
--&ensp;取值要求: 数字、大小写字母或短横线("-"),
+-&ensp;取值要求: 数字、大小写字母、短横线("-")、下划线("_"),
 &ensp;&ensp;首尾不能有特殊字符("-"),
 &ensp;&ensp;不超过50字符,utf-8格式
 -&ensp;<b>注意: 不能与已定义命名重复</b>
@@ -63,5 +63,13 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
         self.width = width
         self.height = height
         self.template = template
+        self.uploadId = None
         self.url = url
+
+    def setUploadId(self, uploadId):
+        """
+        :param uploadId: (Optional) 创建上传任务时返回的uploadId参数，当通过接口上传水印图片时，uploadId必填
+
+        """
+        self.uploadId = uploadId
 

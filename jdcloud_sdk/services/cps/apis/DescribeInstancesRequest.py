@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeInstancesRequest(JDCloudRequest):
     """
     批量查询云物理服务器详细信息<br/>
-支持分页查询，默认每页10条<br/>
+支持分页查询，默认每页20条<br/>
 
     """
 
@@ -46,7 +46,8 @@ class DescribeInstancesParameters(object):
         self.name = None
         self.networkType = None
         self.deviceType = None
-        self.status = None
+        self.subnetId = None
+        self.enableInternet = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -57,7 +58,7 @@ class DescribeInstancesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[20, 100]
         """
         self.pageSize = pageSize
 
@@ -75,7 +76,7 @@ class DescribeInstancesParameters(object):
 
     def setNetworkType(self, networkType):
         """
-        :param networkType: (Optional) 网络类型，精确匹配，目前只支持basic
+        :param networkType: (Optional) 网络类型，精确匹配，支持basic，vpc
         """
         self.networkType = networkType
 
@@ -85,15 +86,23 @@ class DescribeInstancesParameters(object):
         """
         self.deviceType = deviceType
 
-    def setStatus(self, status):
+    def setSubnetId(self, subnetId):
         """
-        :param status: (Optional) 云物理服务器状态，参考云物理服务器状态
+        :param subnetId: (Optional) 子网ID
         """
-        self.status = status
+        self.subnetId = subnetId
+
+    def setEnableInternet(self, enableInternet):
+        """
+        :param enableInternet: (Optional) 是否启用外网, yes/no
+        """
+        self.enableInternet = enableInternet
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceId - 云物理服务器ID，精确匹配，支持多个
+        :param filters: (Optional) instanceId - 云物理服务器ID，精确匹配，支持多个<br/>
+privateIp - 云物理服务器内网IP，精确匹配，支持多个<br/>
+status - 云物理服务器状态，参考云物理服务器状态，精确匹配，支持多个
 
         """
         self.filters = filters

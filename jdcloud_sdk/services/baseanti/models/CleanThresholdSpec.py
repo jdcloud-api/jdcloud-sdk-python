@@ -19,10 +19,12 @@
 
 class CleanThresholdSpec(object):
 
-    def __init__(self, cleanThresholdBps=None, cleanThresholdPps=None):
+    def __init__(self, cleanThresholdBps, cleanThresholdPps, ):
         """
-        :param cleanThresholdBps: (Optional) 触发清洗的流量速率，单位bps，范围是10000000到300000000
-        :param cleanThresholdPps: (Optional) 触发清洗的包速率，单位pps，范围是2000到70000
+        :param cleanThresholdBps:  触发清洗的流量速率, 单位 bps. 取值范围由 <a href="http://docs.jdcloud.com/anti-ddos-basic/api/describeipcleanthresholdrange">describeIpCleanThresholdRange</a> 接口查询可知
+
+        :param cleanThresholdPps:  触发清洗的报文流量速率, 单位 bps. 取值范围由 <a href="http://docs.jdcloud.com/anti-ddos-basic/api/describeipcleanthresholdrange">describeIpCleanThresholdRange</a> 接口查询可知
+
         """
 
         self.cleanThresholdBps = cleanThresholdBps

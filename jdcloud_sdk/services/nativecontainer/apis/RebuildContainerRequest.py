@@ -56,7 +56,7 @@ class RebuildContainerParameters(object):
         self.args = None
         self.tty = None
         self.workingDir = None
-        self.evns = None
+        self.envs = None
 
     def setImage(self, image):
         """
@@ -94,9 +94,9 @@ class RebuildContainerParameters(object):
         """
         self.workingDir = workingDir
 
-    def setEvns(self, evns):
+    def setEnvs(self, envs):
         """
-        :param evns: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大10对
+        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大10对
         """
-        self.evns = evns
+        self.envs = envs
 

@@ -19,17 +19,15 @@
 
 class CreateRoleInfo(object):
 
-    def __init__(self, roleName, type, assumeRolePolicyDocument, path=None, description=None, maxSessionDuration=None):
+    def __init__(self, roleName, type, assumeRolePolicyDocument, description=None, maxSessionDuration=None):
         """
-        :param path: (Optional) 角色路径
-        :param roleName:  角色名：支持4-64位的字母，数字以及-和_, 以字母开头
+        :param roleName:  角色名，支持4~64位的字母，数字以及-和_, 以字母开头
         :param type:  角色类型，3-服务角色，4-用户角色
         :param assumeRolePolicyDocument:  角色信任关系策略
         :param description: (Optional) 描述，0~256个字符
         :param maxSessionDuration: (Optional) 最大会话时长3600~43200秒，默认3600秒
         """
 
-        self.path = path
         self.roleName = roleName
         self.type = type
         self.assumeRolePolicyDocument = assumeRolePolicyDocument

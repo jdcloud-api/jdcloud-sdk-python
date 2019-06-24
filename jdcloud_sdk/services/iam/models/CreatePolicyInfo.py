@@ -21,7 +21,7 @@ class CreatePolicyInfo(object):
 
     def __init__(self, name, content, description=None):
         """
-        :param name:  策略名：支持4-64位的字母，数字以及-和_, 以字母开头
+        :param name:  策略名，支持4~64位的字母，数字以及-和_, 以字母开头
         :param description: (Optional) 描述，0~256个字符
         :param content:  策略文档，最多6144个字符
         """

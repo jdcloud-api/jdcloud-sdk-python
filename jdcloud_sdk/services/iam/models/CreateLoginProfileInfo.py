@@ -24,7 +24,7 @@ class CreateLoginProfileInfo(object):
         :param passwordResetRequired: (Optional) 子用户登录是否需要重置密码，默认false
         :param password: (Optional) 指定密码，密码必须符合密码强度要求。关于密码强度设置接口，请参考describePasswordPolicy
         :param autoGeneratePassword: (Optional) 是否自动生成密码，默认false
-        :param mFABindRequired: (Optional) 指定子用户在下次登录时是否必须绑定多因素认证器
+        :param mFABindRequired: (Optional) 指定子用户在下次登录时是否必须绑定虚拟MFA设备
         """
 
         self.passwordResetRequired = passwordResetRequired

@@ -21,9 +21,9 @@ class SubUserInfo(object):
 
     def __init__(self, name=None, description=None, createTime=None):
         """
-        :param name: (Optional) 用户名
+        :param name: (Optional) 子用户名
         :param description: (Optional) 描述信息
-        :param createTime: (Optional) 用户更新时间
+        :param createTime: (Optional) 用户创建时间
         """
 
         self.name = name

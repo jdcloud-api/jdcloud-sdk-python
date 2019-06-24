@@ -21,7 +21,7 @@ class CreateSubUserInfo(object):
 
     def __init__(self, name, password, phone, email, description=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None):
         """
-        :param name:  子用户名：支持4-20位的字母，数字以及-和_，以字母开头
+        :param name:  子用户名，支持4~20位的字母，数字以及-和_，以字母开头
         :param description: (Optional) 描述，0~256个字符
         :param password:  按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
         :param phone:  手机号码，区号-手机号

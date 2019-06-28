@@ -19,20 +19,20 @@
 
 class SendStatus(object):
 
-    def __init__(self, pin=None, appId=None, taskId=None, templateId=None, mobileNum=None, stateFlag=None, sendTime=None):
+    def __init__(self, pin=None, appId=None, sequenceNumber=None, templateId=None, mobileNum=None, stateFlag=None, sendTime=None):
         """
         :param pin: (Optional) 用户pin
         :param appId: (Optional) 应用ID
-        :param taskId: (Optional) 任务ID
+        :param sequenceNumber: (Optional) 任务序列号
         :param templateId: (Optional) 短信ID
         :param mobileNum: (Optional) 手机号
         :param stateFlag: (Optional) 发送状态 -1：初始状态；0：成功发送到网关；1：下载成功；2：发送失败；3：未发送至网关，过期失败；4：发送到网关，过期失败
-        :param sendTime: (Optional) 发送时间
+        :param sendTime: (Optional) 发送时间 yyyy-MM-dd HH:mm:ss
         """
 
         self.pin = pin
         self.appId = appId
-        self.taskId = taskId
+        self.sequenceNumber = sequenceNumber
         self.templateId = templateId
         self.mobileNum = mobileNum
         self.stateFlag = stateFlag

@@ -19,8 +19,11 @@
 
 class WatermarkTemplate(object):
 
-    def __init__(self, offSetX=None, offSetY=None, width=None, height=None, url=None, template=None):
+    def __init__(self, position=None, offSetX=None, offSetY=None, width=None, height=None, url=None, template=None):
         """
+        :param position: (Optional) 水印位置
+- 取值范围：左上：1，右上：3， 左下：7，右下：9，默认：1
+
         :param offSetX: (Optional) x轴偏移量
 - 单位: 像素
 
@@ -39,6 +42,7 @@ class WatermarkTemplate(object):
 
         """
 
+        self.position = position
         self.offSetX = offSetX
         self.offSetY = offSetY
         self.width = width

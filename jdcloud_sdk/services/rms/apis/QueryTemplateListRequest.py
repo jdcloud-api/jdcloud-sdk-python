@@ -24,7 +24,7 @@ class QueryTemplateListRequest(JDCloudRequest):
     查询富媒体短信内容列表接口
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(QueryTemplateListRequest, self).__init__(
             '/regions/{regionId}/queryTemplateList', 'POST', header, version)
         self.parameters = parameters
@@ -32,66 +32,44 @@ class QueryTemplateListRequest(JDCloudRequest):
 
 class QueryTemplateListParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, appId, pageNum, pageLimit, ):
         """
         :param regionId: Region ID
+        :param appId: 应用ID
+        :param pageNum: 第几页
+        :param pageLimit: 每页多少条记录
         """
 
         self.regionId = regionId
-        self.appId = None
-        self.searchKey = None
-        self.pageNum = None
-        self.pageLimit = None
-        self.status = None
+        self.appId = appId
         self.title = None
+        self.pageNum = pageNum
+        self.pageLimit = pageLimit
+        self.status = None
         self.startTime = None
         self.endTime = None
 
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) appId参数
-        """
-        self.appId = appId
-
-    def setSearchKey(self, searchKey):
-        """
-        :param searchKey: (Optional) searchKey参数
-        """
-        self.searchKey = searchKey
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) pageNum参数
-        """
-        self.pageNum = pageNum
-
-    def setPageLimit(self, pageLimit):
-        """
-        :param pageLimit: (Optional) pageLimit参数
-        """
-        self.pageLimit = pageLimit
-
-    def setStatus(self, status):
-        """
-        :param status: (Optional) status参数
-        """
-        self.status = status
-
     def setTitle(self, title):
         """
-        :param title: (Optional) title参数
+        :param title: (Optional) 查询标题关键词
         """
         self.title = title
 
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 审核状态：0: 审核中 1: 通过 2: 未通过 4:待提交
+        """
+        self.status = status
+
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) startTime参数
+        :param startTime: (Optional) 开始时间,格式YYYY-MM-DD
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) endTime参数
+        :param endTime: (Optional) 结束时间,格式YYYY-MM-DD
         """
         self.endTime = endTime
 

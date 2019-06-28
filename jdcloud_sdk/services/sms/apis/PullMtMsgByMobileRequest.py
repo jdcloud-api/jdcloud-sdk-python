@@ -32,12 +32,14 @@ class PullMtMsgByMobileRequest(JDCloudRequest):
 
 class PullMtMsgByMobileParameters(object):
 
-    def __init__(self, regionId, pullMtMsgByMobileSpec):
+    def __init__(self, regionId, appId, phone):
         """
         :param regionId: Region ID
-        :param pullMtMsgByMobileSpec: 拉取单个手机短信状态请求参数
+        :param appId: 应用Id
+        :param phone: 手机号码
         """
 
         self.regionId = regionId
-        self.pullMtMsgByMobileSpec = pullMtMsgByMobileSpec
+        self.appId = appId
+        self.phone = phone
 

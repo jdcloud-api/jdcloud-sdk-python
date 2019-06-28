@@ -24,7 +24,7 @@ class QuerySendStatusRequest(JDCloudRequest):
     获取发送状态
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(QuerySendStatusRequest, self).__init__(
             '/regions/{regionId}/querySendStatus', 'POST', header, version)
         self.parameters = parameters
@@ -32,12 +32,21 @@ class QuerySendStatusRequest(JDCloudRequest):
 
 class QuerySendStatusParameters(object):
 
-    def __init__(self, regionId, querySendStatusSpec):
+    def __init__(self, regionId, appId, sequenceNumber, ):
         """
         :param regionId: Region ID
-        :param querySendStatusSpec: 获取发送状态请求参数
+        :param appId: 应用ID
+        :param sequenceNumber: 序列号
         """
 
         self.regionId = regionId
-        self.querySendStatusSpec = querySendStatusSpec
+        self.appId = appId
+        self.sequenceNumber = sequenceNumber
+        self.phone = None
+
+    def setPhone(self, phone):
+        """
+        :param phone: (Optional) 手机号
+        """
+        self.phone = phone
 

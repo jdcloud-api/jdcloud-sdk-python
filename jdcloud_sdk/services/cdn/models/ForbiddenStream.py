@@ -19,15 +19,17 @@
 
 class ForbiddenStream(object):
 
-    def __init__(self, stream=None, app=None, type=None, ttl=None):
+    def __init__(self, stream=None, app=None, forbiddenType=None, ttl=None, forbiddenTypeDesc=None):
         """
         :param stream: (Optional) 禁播流
         :param app: (Optional) 封禁推流的app
-        :param type: (Optional) 禁播类型:forever永不禁播limit限时禁播
+        :param forbiddenType: (Optional) 禁播类型:forever永不禁播limit限时禁播
         :param ttl: (Optional) 禁播时长
+        :param forbiddenTypeDesc: (Optional) 禁播类型说明
         """
 
         self.stream = stream
         self.app = app
-        self.type = type
+        self.forbiddenType = forbiddenType
         self.ttl = ttl
+        self.forbiddenTypeDesc = forbiddenTypeDesc

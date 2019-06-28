@@ -33,11 +33,13 @@ class AddCustomLiveStreamRecordTemplateRequest(JDCloudRequest):
 
 class AddCustomLiveStreamRecordTemplateParameters(object):
 
-    def __init__(self, recordPeriod, recordFileType, template):
+    def __init__(self, recordPeriod, saveBucket, recordFileType, template):
         """
         :param recordPeriod: 自动录制周期
 - 取值: [15,360]
 - 单位: 分钟
+
+        :param saveBucket: 存储桶
 
         :param recordFileType: 录制文件格式:
 - 取值: ts,flv,mp4 (多种类型之间用;隔开)
@@ -51,17 +53,10 @@ class AddCustomLiveStreamRecordTemplateParameters(object):
         """
 
         self.recordPeriod = recordPeriod
-        self.saveBucket = None
+        self.saveBucket = saveBucket
         self.saveEndpoint = None
         self.recordFileType = recordFileType
         self.template = template
-
-    def setSaveBucket(self, saveBucket):
-        """
-        :param saveBucket: (Optional) 存储桶
-
-        """
-        self.saveBucket = saveBucket
 
     def setSaveEndpoint(self, saveEndpoint):
         """

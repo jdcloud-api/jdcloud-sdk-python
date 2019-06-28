@@ -42,6 +42,10 @@ class SetHttpTypeParameters(object):
         self.certificate = None
         self.rsaKey = None
         self.jumpType = None
+        self.certFrom = None
+        self.sslCertId = None
+        self.syncToSsl = None
+        self.certName = None
 
     def setHttpType(self, httpType):
         """
@@ -66,4 +70,28 @@ class SetHttpTypeParameters(object):
         :param jumpType: (Optional) 有三种类型：default、http、https
         """
         self.jumpType = jumpType
+
+    def setCertFrom(self, certFrom):
+        """
+        :param certFrom: (Optional) 证书来源有两种类型：default,ssl
+        """
+        self.certFrom = certFrom
+
+    def setSslCertId(self, sslCertId):
+        """
+        :param sslCertId: (Optional) ssl证书id
+        """
+        self.sslCertId = sslCertId
+
+    def setSyncToSsl(self, syncToSsl):
+        """
+        :param syncToSsl: (Optional) 是否同步到ssl,boolean值，取值true或者false
+        """
+        self.syncToSsl = syncToSsl
+
+    def setCertName(self, certName):
+        """
+        :param certName: (Optional) syncToSsl是true时，certName是必填项
+        """
+        self.certName = certName
 

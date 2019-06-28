@@ -19,17 +19,17 @@
 
 class TopNRespItem(object):
 
-    def __init__(self, topKey=None, topValue=None, topFlowValue=None, topFlowPercent=None, details=None):
+    def __init__(self, topKey=None, topValue=None, topDataValue=None, topDataPercent=None, details=None):
         """
         :param topKey: (Optional) 
         :param topValue: (Optional) 
-        :param topFlowValue: (Optional) 
-        :param topFlowPercent: (Optional) 
+        :param topDataValue: (Optional) 
+        :param topDataPercent: (Optional) 
         :param details: (Optional) 
         """
 
         self.topKey = topKey
         self.topValue = topValue
-        self.topFlowValue = topFlowValue
-        self.topFlowPercent = topFlowPercent
+        self.topDataValue = topDataValue
+        self.topDataPercent = topDataPercent
         self.details = details

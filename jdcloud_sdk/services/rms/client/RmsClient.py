@@ -26,4 +26,4 @@ class RmsClient(JDCloudClient):
         if config is None:
             config = Config('rms.jdcloud-api.com')
 
-        super(RmsClient, self).__init__(credential, config, 'rms', '1.0.0', logger)
+        super(RmsClient, self).__init__(credential, config, 'rms', '1.1.0', logger)

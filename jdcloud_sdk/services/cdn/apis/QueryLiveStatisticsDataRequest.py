@@ -39,8 +39,8 @@ class QueryLiveStatisticsDataParameters(object):
         self.startTime = None
         self.endTime = None
         self.domain = None
-        self.appname = None
-        self.streamname = None
+        self.appName = None
+        self.streamName = None
         self.subDomain = None
         self.fields = None
         self.area = None
@@ -67,17 +67,17 @@ class QueryLiveStatisticsDataParameters(object):
         """
         self.domain = domain
 
-    def setAppname(self, appname):
+    def setAppName(self, appName):
         """
-        :param appname: (Optional) app名
+        :param appName: (Optional) app名
         """
-        self.appname = appname
+        self.appName = appName
 
-    def setStreamname(self, streamname):
+    def setStreamName(self, streamName):
         """
-        :param streamname: (Optional) 流名
+        :param streamName: (Optional) 流名
         """
-        self.streamname = streamname
+        self.streamName = streamName
 
     def setSubDomain(self, subDomain):
         """

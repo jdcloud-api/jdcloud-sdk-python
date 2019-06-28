@@ -58,6 +58,7 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
         :param url: 水印地址<br>-&ensp;以&ensp;http:// 开头,可公开访问地址<br>
         """
 
+        self.position = None
         self.offsetX = offsetX
         self.offsetY = offsetY
         self.width = width
@@ -65,6 +66,14 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
         self.template = template
         self.uploadId = None
         self.url = url
+
+    def setPosition(self, position):
+        """
+        :param position: (Optional) 水印位置
+- 取值范围：左上：1，右上：3， 左下：7，右下：9，默认：1
+
+        """
+        self.position = position
 
     def setUploadId(self, uploadId):
         """

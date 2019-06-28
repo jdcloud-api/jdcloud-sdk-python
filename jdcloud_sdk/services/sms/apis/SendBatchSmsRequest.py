@@ -32,12 +32,25 @@ class SendBatchSmsRequest(JDCloudRequest):
 
 class SendBatchSmsParameters(object):
 
-    def __init__(self, regionId, sendBatchSmsSpec):
+    def __init__(self, regionId, appId, signId, templateId, phone, ):
         """
         :param regionId: Region ID
-        :param sendBatchSmsSpec: 指定模板群发短信请求参数
+        :param appId: 应用Id
+        :param signId: 短信签名名称
+        :param templateId: 模板Id
+        :param phone: 群发的国内电话号码,群发时一次最多不要超过200个手机号
         """
 
         self.regionId = regionId
-        self.sendBatchSmsSpec = sendBatchSmsSpec
+        self.appId = appId
+        self.signId = signId
+        self.templateId = templateId
+        self.phone = phone
+        self.params = None
+
+    def setParams(self, params):
+        """
+        :param params: (Optional) 短信模板变量对应的数据值,Array格式
+        """
+        self.params = params
 

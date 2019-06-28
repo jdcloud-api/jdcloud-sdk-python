@@ -19,13 +19,19 @@
 
 class DomainbdwItem(object):
 
-    def __init__(self, domain=None, domainType=None, timeStamp=None):
+    def __init__(self, domain=None, domainType=None, topTimeStamp=None, pv=None, flow=None, avgbandwidth=None):
         """
         :param domain: (Optional) 
         :param domainType: (Optional) 
-        :param timeStamp: (Optional) 
+        :param topTimeStamp: (Optional) 
+        :param pv: (Optional) 
+        :param flow: (Optional) 
+        :param avgbandwidth: (Optional) 
         """
 
         self.domain = domain
         self.domainType = domainType
-        self.timeStamp = timeStamp
+        self.topTimeStamp = topTimeStamp
+        self.pv = pv
+        self.flow = flow
+        self.avgbandwidth = avgbandwidth

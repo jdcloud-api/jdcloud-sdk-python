@@ -71,13 +71,13 @@ class SetSourceParameters(object):
 
     def setOssSource(self, ossSource):
         """
-        :param ossSource: (Optional) 
+        :param ossSource: (Optional) oss回源域名
         """
         self.ossSource = ossSource
 
     def setDefaultSourceHost(self, defaultSourceHost):
         """
-        :param defaultSourceHost: (Optional) 
+        :param defaultSourceHost: (Optional) 默认回源host
         """
         self.defaultSourceHost = defaultSourceHost
 

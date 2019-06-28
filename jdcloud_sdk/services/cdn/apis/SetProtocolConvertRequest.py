@@ -40,6 +40,10 @@ class SetProtocolConvertParameters(object):
         self.domain = domain
         self.certificate = None
         self.rsaKey = None
+        self.certFrom = None
+        self.sslCertId = None
+        self.syncToSsl = None
+        self.certName = None
         self.protocolConverts = None
 
     def setCertificate(self, certificate):
@@ -53,6 +57,30 @@ class SetProtocolConvertParameters(object):
         :param rsaKey: (Optional) https私钥，转https格式时必传
         """
         self.rsaKey = rsaKey
+
+    def setCertFrom(self, certFrom):
+        """
+        :param certFrom: (Optional) 证书来源有两种类型：default,ssl
+        """
+        self.certFrom = certFrom
+
+    def setSslCertId(self, sslCertId):
+        """
+        :param sslCertId: (Optional) ssl证书id
+        """
+        self.sslCertId = sslCertId
+
+    def setSyncToSsl(self, syncToSsl):
+        """
+        :param syncToSsl: (Optional) 是否同步到ssl,boolean值，取值true或者false
+        """
+        self.syncToSsl = syncToSsl
+
+    def setCertName(self, certName):
+        """
+        :param certName: (Optional) syncToSsl是true时，certName是必填项
+        """
+        self.certName = certName
 
     def setProtocolConverts(self, protocolConverts):
         """

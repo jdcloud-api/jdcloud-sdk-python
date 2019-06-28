@@ -19,14 +19,17 @@
 
 class TranscodeInfo(object):
 
-    def __init__(self, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, templateName=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None):
+    def __init__(self, videoCodec=None, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, templateName=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None):
         """
+        :param videoCodec: (Optional) 视频编码格式
+  - 取值：h264,h265，默认h264
+
         :param videoCodeRate: (Optional) 转码输出的码率值:
   - 取值: [200,3000]
   - 单位: kpbs
 
         :param videoFrameRate: (Optional) 转码输出的帧率值:
-  - 取值: 15/1、25/1、30/1、60/1
+  - 取值：[1,30]
 
         :param width: (Optional) 转码输出视频宽度:
   - 取值: [100,1920]
@@ -67,6 +70,7 @@ class TranscodeInfo(object):
 
         """
 
+        self.videoCodec = videoCodec
         self.videoCodeRate = videoCodeRate
         self.videoFrameRate = videoFrameRate
         self.width = width

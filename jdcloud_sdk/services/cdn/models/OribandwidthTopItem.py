@@ -19,13 +19,13 @@
 
 class OribandwidthTopItem(object):
 
-    def __init__(self, name=None, total=None, detail=None):
+    def __init__(self, name=None, total=None, details=None):
         """
         :param name: (Optional) 
         :param total: (Optional) 
-        :param detail: (Optional) 
+        :param details: (Optional) 
         """
 
         self.name = name
         self.total = total
-        self.detail = detail
+        self.details = details

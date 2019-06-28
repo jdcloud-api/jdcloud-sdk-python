@@ -19,15 +19,9 @@
 
 class SendBatchMsg(object):
 
-    def __init__(self, status=None, code=None, message=None, sequenceNumber=None):
+    def __init__(self, sequenceNumber=None):
         """
-        :param status: (Optional) 请求状态
-        :param code: (Optional) 错误码
-        :param message: (Optional) 错误消息
         :param sequenceNumber: (Optional) 本次发送请求的序列号
         """
 
-        self.status = status
-        self.code = code
-        self.message = message
         self.sequenceNumber = sequenceNumber

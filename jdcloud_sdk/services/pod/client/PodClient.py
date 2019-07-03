@@ -26,4 +26,4 @@ class PodClient(JDCloudClient):
         if config is None:
             config = Config('pod.jdcloud-api.com')
 
-        super(PodClient, self).__init__(credential, config, 'pod', '1.0.0', logger)
+        super(PodClient, self).__init__(credential, config, 'pod', '1.0.4', logger)

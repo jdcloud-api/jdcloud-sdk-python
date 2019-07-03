@@ -28,10 +28,10 @@ class AddCustomLiveStreamTranscodeTemplateRequest(JDCloudRequest):
     sd (h.264/960*540/24f)
     hd (h.264/1280*720/25f)
     shd (h.264/1920*1080/30f)
-    ld.265 (h.265/640*360/15f)
-    sd.265 (h.265/960*540/24f)
-    hd.265 (h.265/1280*720/25f)
-    shd.265 (h.265/1920*1080/30f)
+    ld-265 (h-265/640*360/15f)
+    sd-265 (h-265/960*540/24f)
+    hd-265 (h-265/1280*720/25f)
+    shd-265 (h-265/1920*1080/30f)
 
     """
 
@@ -60,10 +60,10 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
   sd (h.264/960*540/24f)
   hd (h.264/1280*720/25f)
   shd (h.264/1920*1080/30f)
-  ld.265 (h.265/640*360/15f)
-  sd.265 (h.265/960*540/24f)
-  hd.265 (h.265/1280*720/25f)
-  shd.265 (h.265/1920*1080/30f)
+  ld-265 (h-265/640*360/15f)
+  sd-265 (h-265/960*540/24f)
+  hd-265 (h-265/1280*720/25f)
+  shd-265 (h-265/1920*1080/30f)
 
         :param audioCodec: 转码输出音频编码格式
 - 取值: aac、mp3

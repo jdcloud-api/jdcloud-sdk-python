@@ -43,6 +43,7 @@ class DescribePodsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -68,4 +69,10 @@ subnetId - 镜像ID，模糊匹配，支持单个
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 

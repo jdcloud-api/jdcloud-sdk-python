@@ -19,7 +19,7 @@
 
 class JDCloudVolumeSource(object):
 
-    def __init__(self, fsType, volumeId=None, name=None, snapshot=None, diskType=None, sizeGB=None, formatVolume=None, autoDelete=None):
+    def __init__(self, fsType, volumeId=None, name=None, snapshot=None, diskType=None, sizeGB=None, formatVolume=None, iops=None, autoDelete=None):
         """
         :param volumeId: (Optional) 云盘id，使用已有云盘
         :param name: (Optional) 云盘名称
@@ -28,6 +28,7 @@ class JDCloudVolumeSource(object):
         :param sizeGB: (Optional) 云盘size,单位 GB,要求
         :param fsType:  指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
         :param formatVolume: (Optional) 随容器自动创建的新盘，会自动格式化成指定的文件系统类型；挂载已有的盘，默认不会格式化，只会按照指定的fsType去挂载；如果希望格式化，必须设置此字段为true
+        :param iops: (Optional) 云盘的 iops 值，目前只有 ssd.io1 类型有效
         :param autoDelete: (Optional) 是否随pod删除。默认：true
         """
 
@@ -38,4 +39,5 @@ class JDCloudVolumeSource(object):
         self.sizeGB = sizeGB
         self.fsType = fsType
         self.formatVolume = formatVolume
+        self.iops = iops
         self.autoDelete = autoDelete

@@ -19,7 +19,7 @@
 
 class QueryInstanceParam(object):
 
-    def __init__(self, appCode, serviceCode, pageNumber=None, pageSize=None, renewStatus=None, expireTime=None, instanceName=None, instanceId=None, billingType=None):
+    def __init__(self, appCode, serviceCode, pageNumber=None, pageSize=None, renewStatus=None, expireTime=None, instanceName=None, instanceId=None, ipAddress=None, billingType=None):
         """
         :param appCode:  业务线
         :param serviceCode:  产品线
@@ -29,6 +29,7 @@ class QueryInstanceParam(object):
         :param expireTime: (Optional) 到期时间 0:已过期,n:n天内到期,-1:全部,-2:未到期,默认全部
         :param instanceName: (Optional) 资源名称
         :param instanceId: (Optional) 资源ID
+        :param ipAddress: (Optional) 主机绑定的内网ip地址
         :param billingType: (Optional) 资源计费类型 1:按配置,3:包年包月,默认不筛选
         """
 
@@ -40,4 +41,5 @@ class QueryInstanceParam(object):
         self.expireTime = expireTime
         self.instanceName = instanceName
         self.instanceId = instanceId
+        self.ipAddress = ipAddress
         self.billingType = billingType

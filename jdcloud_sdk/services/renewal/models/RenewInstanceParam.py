@@ -19,7 +19,7 @@
 
 class RenewInstanceParam(object):
 
-    def __init__(self, appCode, serviceCode, timeUnit, timeSpan, sign, instanceIds, unifyDate=None, returnURL=None):
+    def __init__(self, appCode, serviceCode, timeUnit, timeSpan, sign, instanceIds, unifyDate=None, autoPay=None, returnURL=None):
         """
         :param appCode:  业务线
         :param serviceCode:  产品线
@@ -28,6 +28,7 @@ class RenewInstanceParam(object):
         :param sign:  签名 md5(pin+serviceCode+key)
         :param instanceIds:  待续费资源id列表,英文逗号分隔
         :param unifyDate: (Optional) 是否统一续费到期日续费 1-是 0-否（默认为0）
+        :param autoPay: (Optional) 是否自动支付 true-是 false-否（默认为true）
         :param returnURL: (Optional) 回调地址
         """
 
@@ -38,4 +39,5 @@ class RenewInstanceParam(object):
         self.sign = sign
         self.instanceIds = instanceIds
         self.unifyDate = unifyDate
+        self.autoPay = autoPay
         self.returnURL = returnURL

@@ -19,15 +19,13 @@
 
 class CategoryTreeNode(object):
 
-    def __init__(self, id=None, name=None, level=None, description=None, children=None, createTime=None, updateTime=None):
+    def __init__(self, id=None, name=None, level=None, description=None, children=None):
         """
         :param id: (Optional) 分类ID
         :param name: (Optional) 分类名称
         :param level: (Optional) 分类级别
         :param description: (Optional) 分类描述信息
         :param children: (Optional) 
-        :param createTime: (Optional) 创建时间
-        :param updateTime: (Optional) 修改时间
         """
 
         self.id = id
@@ -35,5 +33,3 @@ class CategoryTreeNode(object):
         self.level = level
         self.description = description
         self.children = children
-        self.createTime = createTime
-        self.updateTime = updateTime

@@ -37,7 +37,6 @@ class CreateCategoryParameters(object):
         """
 
         self.name = None
-        self.level = None
         self.parentId = None
         self.description = None
 
@@ -46,12 +45,6 @@ class CreateCategoryParameters(object):
         :param name: (Optional) 分类名称
         """
         self.name = name
-
-    def setLevel(self, level):
-        """
-        :param level: (Optional) 分类级别
-        """
-        self.level = level
 
     def setParentId(self, parentId):
         """

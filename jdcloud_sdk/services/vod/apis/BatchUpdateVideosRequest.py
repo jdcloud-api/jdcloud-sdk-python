@@ -36,11 +36,11 @@ class BatchUpdateVideosParameters(object):
         """
         """
 
-        self.contents = None
+        self.bulk = None
 
-    def setContents(self, contents):
+    def setBulk(self, bulk):
         """
-        :param contents: (Optional) 
+        :param bulk: (Optional) 批量更新视频的条目列表信息
         """
-        self.contents = contents
+        self.bulk = bulk
 

@@ -39,7 +39,6 @@ class DeleteHeaderParameters(object):
 
         self.domainId = domainId
         self.headerName = None
-        self.headerValue = None
         self.headerType = None
 
     def setHeaderName(self, headerName):
@@ -47,12 +46,6 @@ class DeleteHeaderParameters(object):
         :param headerName: (Optional) 头参数名
         """
         self.headerName = headerName
-
-    def setHeaderValue(self, headerValue):
-        """
-        :param headerValue: (Optional) 头参数值
-        """
-        self.headerValue = headerValue
 
     def setHeaderType(self, headerType):
         """

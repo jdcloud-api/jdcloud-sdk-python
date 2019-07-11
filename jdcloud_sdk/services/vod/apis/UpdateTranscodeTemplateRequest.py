@@ -38,18 +38,11 @@ class UpdateTranscodeTemplateParameters(object):
         """
 
         self.templateId = templateId
-        self.id = None
         self.name = None
         self.video = None
         self.audio = None
         self.encapsulation = None
         self.definition = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 模板ID
-        """
-        self.id = id
 
     def setName(self, name):
         """
@@ -59,19 +52,19 @@ class UpdateTranscodeTemplateParameters(object):
 
     def setVideo(self, video):
         """
-        :param video: (Optional) 视频参数
+        :param video: (Optional) 
         """
         self.video = video
 
     def setAudio(self, audio):
         """
-        :param audio: (Optional) 音频参数
+        :param audio: (Optional) 
         """
         self.audio = audio
 
     def setEncapsulation(self, encapsulation):
         """
-        :param encapsulation: (Optional) 封装配置
+        :param encapsulation: (Optional) 
         """
         self.encapsulation = encapsulation
 

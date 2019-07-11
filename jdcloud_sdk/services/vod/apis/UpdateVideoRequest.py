@@ -38,18 +38,11 @@ class UpdateVideoParameters(object):
         """
 
         self.videoId = videoId
-        self.id = None
         self.name = None
         self.categoryId = None
         self.tags = None
         self.coverUrl = None
         self.description = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 视频ID
-        """
-        self.id = id
 
     def setName(self, name):
         """
@@ -77,7 +70,7 @@ class UpdateVideoParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 视频描述
+        :param description: (Optional) 视频描述信息
         """
         self.description = description
 

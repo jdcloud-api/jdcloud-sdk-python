@@ -19,25 +19,25 @@
 
 class TranscodeInfo(object):
 
-    def __init__(self, videoCodec=None, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, templateName=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None):
+    def __init__(self, videoCodec=None, videoCodeRate=None, videoFrameRate=None, width=None, height=None, template=None, templateName=None, audioCodec=None, audioFormat=None, audioSampleRate=None, audioChannel=None, audioCodeRate=None, jdchd=None, audioComfort=None):
         """
         :param videoCodec: (Optional) 视频编码格式
   - 取值：h264,h265，默认h264
 
         :param videoCodeRate: (Optional) 转码输出的码率值:
-  - 取值: [200,3000]
+  - 取值: [200,15000]
   - 单位: kpbs
 
         :param videoFrameRate: (Optional) 转码输出的帧率值:
   - 取值：[1,30]
 
         :param width: (Optional) 转码输出视频宽度:
-  - 取值: [100,1920]
+  - 取值: [100,3840]
   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
 
-        :param height: (Optional) 转码输出视频宽度:
-  - 取值: [100,1920]
+        :param height: (Optional) 转码输出视频高度:
+  - 取值: [100,2160]
   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
 
@@ -68,6 +68,12 @@ class TranscodeInfo(object):
   - 取值: [16,128]
   - 单位: kbps
 
+        :param jdchd: (Optional) 京享超清
+- 取值: jdchd-1.0,off
+
+        :param audioComfort: (Optional) 舒适音频
+- 取值: on,off
+
         """
 
         self.videoCodec = videoCodec
@@ -82,3 +88,5 @@ class TranscodeInfo(object):
         self.audioSampleRate = audioSampleRate
         self.audioChannel = audioChannel
         self.audioCodeRate = audioCodeRate
+        self.jdchd = jdchd
+        self.audioComfort = audioComfort

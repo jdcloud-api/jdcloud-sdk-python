@@ -31,7 +31,7 @@ class InstanceDiskAttachment(object):
 
         :param localDisk: (Optional) 本地磁盘配置
         :param cloudDisk: (Optional) 云硬盘配置
-        :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi
+        :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm
         :param status: (Optional) 数据盘挂载状态，取值范围：attaching,detaching,attached,detached,error_attach,error_detach
         """
 

@@ -21,10 +21,10 @@ class VideoPlayInfo(object):
 
     def __init__(self, taskId=None, definition=None, mediaType=None, status=None, url=None, size=None, duration=None, bitrate=None, codec=None, format=None, width=None, height=None, fps=None, createTime=None, updateTime=None):
         """
-        :param taskId: (Optional) 生成播放信息的任务ID
+        :param taskId: (Optional) 生成播放信息的转码任务ID
         :param definition: (Optional) 清晰度规格
         :param mediaType: (Optional) 媒体类型
-        :param status: (Optional) 播放信息状态，目前只有完成状态
+        :param status: (Optional) 播放信息状态，目前只有正常状态(normal)
         :param url: (Optional) CDN地址，原始地址或者鉴权地址
         :param size: (Optional) 
         :param duration: (Optional) 视频时长

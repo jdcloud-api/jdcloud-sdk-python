@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DetachDiskRequest(JDCloudRequest):
     """
-    云主机缷载数据盘，云主机和云硬盘没有正在进行中的任务时才可缷载。<br>
+    云主机缷载云硬盘，云主机和云硬盘没有正在进行中的任务时才可缷载。<br>
 
     """
 

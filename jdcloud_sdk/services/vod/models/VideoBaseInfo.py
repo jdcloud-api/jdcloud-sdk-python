@@ -19,7 +19,7 @@
 
 class VideoBaseInfo(object):
 
-    def __init__(self, videoId=None, videoName=None, description=None, categoryId=None, categoryName=None, tags=None, duration=None, coverImgUrl=None):
+    def __init__(self, videoId=None, videoName=None, description=None, categoryId=None, categoryName=None, tags=None, duration=None, coverUrl=None):
         """
         :param videoId: (Optional) 视频ID
         :param videoName: (Optional) 视频名称
@@ -28,7 +28,7 @@ class VideoBaseInfo(object):
         :param categoryName: (Optional) 分类名称
         :param tags: (Optional) 标签
         :param duration: (Optional) 视频时长
-        :param coverImgUrl: (Optional) 封面地址
+        :param coverUrl: (Optional) 封面地址
         """
 
         self.videoId = videoId
@@ -38,4 +38,4 @@ class VideoBaseInfo(object):
         self.categoryName = categoryName
         self.tags = tags
         self.duration = duration
-        self.coverImgUrl = coverImgUrl
+        self.coverUrl = coverUrl

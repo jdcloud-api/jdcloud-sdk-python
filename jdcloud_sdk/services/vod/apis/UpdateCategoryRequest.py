@@ -38,29 +38,15 @@ class UpdateCategoryParameters(object):
         """
 
         self.categoryId = categoryId
-        self.id = None
         self.name = None
-        self.level = None
         self.parentId = None
         self.description = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 分类ID
-        """
-        self.id = id
 
     def setName(self, name):
         """
         :param name: (Optional) 分类名称
         """
         self.name = name
-
-    def setLevel(self, level):
-        """
-        :param level: (Optional) 分类级别
-        """
-        self.level = level
 
     def setParentId(self, parentId):
         """

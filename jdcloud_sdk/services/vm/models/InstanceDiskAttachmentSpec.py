@@ -30,7 +30,7 @@ class InstanceDiskAttachmentSpec(object):
 如果云主机中的数据盘(cloud)是共享型数据盘，此参数不生效。
 
         :param cloudDiskSpec: (Optional) 数据盘配置
-        :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi
+        :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm
         :param noDevice: (Optional) 排除设备，使用此参数noDevice配合deviceName一起使用。
 创建整机镜像：如deviceName:vdb、noDevice:true，则表示云主机中的数据盘vdb不参与创建镜像。
 创建模板：如deviceName:vdb、noDevice:true，则表示镜像中的数据盘vdb不参与创建主机。

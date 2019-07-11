@@ -34,7 +34,7 @@ class DescribeLiveStatisticGroupByStreamParameters(object):
 
     def __init__(self, domainName, appName, streamName, startTime, ):
         """
-        :param domainName: 推流域名
+        :param domainName: 播放域名
         :param appName: 应用名称
         :param streamName: 流名称
         :param startTime: 起始时间

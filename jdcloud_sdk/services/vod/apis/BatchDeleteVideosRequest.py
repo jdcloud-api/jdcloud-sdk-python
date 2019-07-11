@@ -40,7 +40,7 @@ class BatchDeleteVideosParameters(object):
 
     def setVideoIds(self, videoIds):
         """
-        :param videoIds: (Optional) 
+        :param videoIds: (Optional) 需要删除的视频ID列表
         """
         self.videoIds = videoIds
 

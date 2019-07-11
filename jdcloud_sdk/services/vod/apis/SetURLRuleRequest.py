@@ -38,15 +38,8 @@ class SetURLRuleParameters(object):
         """
 
         self.domainId = domainId
-        self.ruleType = None
         self.config = None
         self.enabled = None
-
-    def setRuleType(self, ruleType):
-        """
-        :param ruleType: (Optional) 规则类型，取值 'url'
-        """
-        self.ruleType = ruleType
 
     def setConfig(self, config):
         """

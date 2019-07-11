@@ -26,4 +26,4 @@ class VodClient(JDCloudClient):
         if config is None:
             config = Config('vod.jdcloud-api.com')
 
-        super(VodClient, self).__init__(credential, config, 'vod', '1.1.1', logger)
+        super(VodClient, self).__init__(credential, config, 'vod', '1.1.2', logger)

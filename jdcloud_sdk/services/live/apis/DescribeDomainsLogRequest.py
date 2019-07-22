@@ -44,21 +44,17 @@ class DescribeDomainsLogParameters(object):
 
         self.domains = domains
         self.interval = None
-        self.logType = None
         self.startTime = startTime
         self.endTime = None
 
     def setInterval(self, interval):
         """
-        :param interval: (Optional) 时间间隔，取值(hour，day，fiveMin),不传默认小时
+        :param interval: (Optional) 时间间隔，取值(hour，day),不传默认小时
+- 按小时（hour）下载时是.log文件
+- 按天（day）下载时是.zip文件
+
         """
         self.interval = interval
-
-    def setLogType(self, logType):
-        """
-        :param logType: (Optional) 日志后缀格式，取值（zip，log，gz）,默认值为log
-        """
-        self.logType = logType
 
     def setEndTime(self, endTime):
         """

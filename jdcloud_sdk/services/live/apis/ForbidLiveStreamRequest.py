@@ -32,7 +32,7 @@ class ForbidLiveStreamRequest(JDCloudRequest):
 
 class ForbidLiveStreamParameters(object):
 
-    def __init__(self, publishDomain, appName, streamName):
+    def __init__(self, publishDomain, appName, streamName, ):
         """
         :param publishDomain: 推流域名
         :param appName: 应用名称
@@ -42,4 +42,11 @@ class ForbidLiveStreamParameters(object):
         self.publishDomain = publishDomain
         self.appName = appName
         self.streamName = streamName
+        self.forbidTime = None
+
+    def setForbidTime(self, forbidTime):
+        """
+        :param forbidTime: (Optional) 禁流时长,单位:s 0表示永久禁流;大于0为限时禁流,超过时长自动解禁
+        """
+        self.forbidTime = forbidTime
 

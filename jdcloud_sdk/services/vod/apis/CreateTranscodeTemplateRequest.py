@@ -32,43 +32,34 @@ class CreateTranscodeTemplateRequest(JDCloudRequest):
 
 class CreateTranscodeTemplateParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, name, video, audio, encapsulation, definition, ):
         """
+        :param name: 模板名称
+        :param video: 视频参数配置
+        :param audio: 音频参数配置
+        :param encapsulation: 封装配置
+        :param definition: 清晰度规格标记。取值范围：
+  SD - 标清
+  HD - 高清
+  FHD - 超清
+  2K
+  4K
+
         """
 
-        self.name = None
-        self.video = None
-        self.audio = None
-        self.encapsulation = None
-        self.definition = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 模板名称
-        """
         self.name = name
-
-    def setVideo(self, video):
-        """
-        :param video: (Optional) 
-        """
         self.video = video
-
-    def setAudio(self, audio):
-        """
-        :param audio: (Optional) 
-        """
         self.audio = audio
-
-    def setEncapsulation(self, encapsulation):
-        """
-        :param encapsulation: (Optional) 
-        """
         self.encapsulation = encapsulation
-
-    def setDefinition(self, definition):
-        """
-        :param definition: (Optional) 清晰度规格
-        """
         self.definition = definition
+        self.templateType = None
+
+    def setTemplateType(self, templateType):
+        """
+        :param templateType: (Optional) 模板类型。取值范围：
+  jdchd - 京享超清
+  jdchs - 极速转码
+
+        """
+        self.templateType = templateType
 

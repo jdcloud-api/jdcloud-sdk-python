@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetURLRuleRequest(JDCloudRequest):
     """
-    查询CDN域名URL规则
+    查询CDN域名URL鉴权规则配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

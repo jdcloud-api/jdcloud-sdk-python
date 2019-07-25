@@ -25,7 +25,6 @@ class ForwardRuleSpec(object):
         :param port:  端口号, 取值范围[1, 65535]
         :param algorithm:  转发规则
 - wrr 带权重的轮询
-- wlc 加权最小连接
 - rr  不带权重的轮询
 - sh  源地址hash
 

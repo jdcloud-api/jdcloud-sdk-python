@@ -19,13 +19,13 @@
 
 class CreateInstanceSpec(object):
 
-    def __init__(self, buyType, carrier, ipType, bp, ep, bw, id=None, name=None, timeSpan=None, timeUnit=None, returnUrl=None):
+    def __init__(self, buyType, carrier, bp, ep, bw, id=None, name=None, ipType=None, timeSpan=None, timeUnit=None, returnUrl=None):
         """
         :param id: (Optional) 实例 Id, 升级时必传
         :param name: (Optional) 实例名称, 新购时必传
         :param buyType:  购买类型：1新购 3升级
         :param carrier:  链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
-        :param ipType:  可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
+        :param ipType: (Optional) 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
 - 0: IPV4,
 - 1: IPV4/IPV6
 

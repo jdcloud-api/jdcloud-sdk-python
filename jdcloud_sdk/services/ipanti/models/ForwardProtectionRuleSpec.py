@@ -32,7 +32,7 @@ class ForwardProtectionRuleSpec(object):
         :param dstConcurrentConnLimitValue:  目的并发连接速率
         :param datagramRangeMin:  报文最小长度, 取值范围[0, datagramRangeMax)
         :param datagramRangeMax:  报文最大长度, 取值范围(datagramRangeMin, 1518]
-        :param geoBlackList: (Optional) geo 拦截地域编码列表, 可设置编码列表由 describeGeoAreas 接口查询可得
+        :param geoBlackList: (Optional) geo 拦截地域编码列表. 查询 <a href="http://docs.jdcloud.com/anti-ddos-pro/api/describegeoareas">describeGeoAreas</a> 接口获取可设置的地域编码列表
         """
 
         self.spoofIpEnable = spoofIpEnable

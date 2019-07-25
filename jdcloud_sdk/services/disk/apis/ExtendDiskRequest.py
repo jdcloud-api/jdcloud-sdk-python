@@ -34,7 +34,7 @@ class ExtendDiskRequest(JDCloudRequest):
 
 class ExtendDiskParameters(object):
 
-    def __init__(self, regionId, diskId, diskSizeGB):
+    def __init__(self, regionId, diskId, diskSizeGB, ):
         """
         :param regionId: 地域ID
         :param diskId: 云硬盘ID
@@ -44,4 +44,11 @@ class ExtendDiskParameters(object):
         self.regionId = regionId
         self.diskId = diskId
         self.diskSizeGB = diskSizeGB
+        self.iops = None
+
+    def setIops(self, iops):
+        """
+        :param iops: (Optional) 修改ssd.io1型云硬盘的iops数量，当且仅当ssd.io1型的云盘类型有效，步长是10.
+        """
+        self.iops = iops
 

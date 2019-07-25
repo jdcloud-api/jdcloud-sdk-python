@@ -21,23 +21,24 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeCCAttackLogDetailsRequest(JDCloudRequest):
     """
-    查询 CC 攻击日志详情
+    查询 CC 攻击日志详情.
+- 参数 attackId 优先级高于 instanceId, attackId 不为空时, 忽略 instanceId
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeCCAttackLogDetailsRequest, self).__init__(
-            '/regions/{regionId}/attacklog:CCDetail', 'GET', header, version)
+            '/regions/{regionId}/attacklog:describeCCAttackLogDetails', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeCCAttackLogDetailsParameters(object):
 
-    def __init__(self, regionId, startTime, endTime, instanceId, ):
+    def __init__(self, regionId, startTime, endTime, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
         :param endTime: 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
-        :param instanceId: 高防实例 ID
         """
 
         self.regionId = regionId
@@ -45,8 +46,9 @@ class DescribeCCAttackLogDetailsParameters(object):
         self.pageSize = None
         self.startTime = startTime
         self.endTime = endTime
-        self.instanceId = instanceId
+        self.instanceId = None
         self.subDomain = None
+        self.attackId = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -60,9 +62,21 @@ class DescribeCCAttackLogDetailsParameters(object):
         """
         self.pageSize = pageSize
 
+    def setInstanceId(self, instanceId):
+        """
+        :param instanceId: (Optional) 高防实例 ID
+        """
+        self.instanceId = instanceId
+
     def setSubDomain(self, subDomain):
         """
-        :param subDomain: (Optional) 子域名
+        :param subDomain: (Optional) 查询的子域名，只有选中某一个实例后才能多选子域名
         """
         self.subDomain = subDomain
+
+    def setAttackId(self, attackId):
+        """
+        :param attackId: (Optional) CC 攻击记录Id
+        """
+        self.attackId = attackId
 

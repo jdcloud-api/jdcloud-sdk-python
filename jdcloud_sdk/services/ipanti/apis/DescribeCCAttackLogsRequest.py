@@ -26,7 +26,7 @@ class DescribeCCAttackLogsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeCCAttackLogsRequest, self).__init__(
-            '/regions/{regionId}/attacklog:CC', 'GET', header, version)
+            '/regions/{regionId}/attacklog:describeCCAttackLogs', 'GET', header, version)
         self.parameters = parameters
 
 
@@ -34,7 +34,7 @@ class DescribeCCAttackLogsParameters(object):
 
     def __init__(self, regionId, startTime, endTime, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
         :param endTime: 查询的结束时间, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
         """

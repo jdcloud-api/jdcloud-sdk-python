@@ -22,7 +22,7 @@ class GetIPRuleResultObject(object):
     def __init__(self, ruleType=None, config=None, enabled=None):
         """
         :param ruleType: (Optional) 规则类型，取值 'ip'
-        :param config: (Optional) 规则配置对象
+        :param config: (Optional) IP黑名单规则配置对象
         :param enabled: (Optional) 是否启用该规则
         """
 

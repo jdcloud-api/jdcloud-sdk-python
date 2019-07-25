@@ -21,8 +21,8 @@ class GetPlayInfoResultObject(object):
 
     def __init__(self, baseInfo=None, playInfoList=None):
         """
-        :param baseInfo: (Optional) 
-        :param playInfoList: (Optional) 
+        :param baseInfo: (Optional) 视频基础信息
+        :param playInfoList: (Optional) 视频播放信息列表
         """
 
         self.baseInfo = baseInfo

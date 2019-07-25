@@ -32,7 +32,7 @@ class Pod(object):
         :param vpcId: (Optional) 主网卡所属vpcId
         :param subnetId: (Optional) 主网卡所属子网的ID
         :param privateIpAddress: (Optional) 主网卡主IP地址
-        :param dnsConfig: (Optional) pod内容器的/etc/resolv.conf配置 [DnsConfig](DnsConfig.md)      pod内容器的/etc/resolv.conf配置
+        :param dnsConfig: (Optional) pod内容器的/etc/resolv.conf配置
         :param logConfig: (Optional) 容器日志配置信息；默认会在本地分配10MB的存储空间
         :param hostAliases: (Optional) pod内容器的/etc/hosts配置
         :param volumes: (Optional) 属于Pod的volume列表，提供挂载到containers上。

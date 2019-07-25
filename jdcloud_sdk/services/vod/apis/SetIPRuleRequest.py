@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetIPRuleRequest(JDCloudRequest):
     """
-    设置CDN域名IP规则
+    设置CDN域名IP黑名单规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,24 +32,14 @@ class SetIPRuleRequest(JDCloudRequest):
 
 class SetIPRuleParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId, config, enabled):
         """
         :param domainId: 域名ID
+        :param config: IP黑名单规则配置对象
+        :param enabled: 是否启用该规则
         """
 
         self.domainId = domainId
-        self.config = None
-        self.enabled = None
-
-    def setConfig(self, config):
-        """
-        :param config: (Optional) 规则配置对象
-        """
         self.config = config
-
-    def setEnabled(self, enabled):
-        """
-        :param enabled: (Optional) 是否启用该规则
-        """
         self.enabled = enabled
 

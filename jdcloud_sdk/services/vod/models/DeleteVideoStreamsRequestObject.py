@@ -19,9 +19,9 @@
 
 class DeleteVideoStreamsRequestObject(object):
 
-    def __init__(self, taskIds=None):
+    def __init__(self, taskIds, ):
         """
-        :param taskIds: (Optional) 
+        :param taskIds:  
         """
 
         self.taskIds = taskIds

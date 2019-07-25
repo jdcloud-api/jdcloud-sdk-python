@@ -22,6 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class CreateCategoryRequest(JDCloudRequest):
     """
     添加分类
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,23 +33,19 @@ class CreateCategoryRequest(JDCloudRequest):
 
 class CreateCategoryParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, name, ):
         """
+        :param name: 分类名称
         """
 
-        self.name = None
+        self.name = name
         self.parentId = None
         self.description = None
 
-    def setName(self, name):
-        """
-        :param name: (Optional) 分类名称
-        """
-        self.name = name
-
     def setParentId(self, parentId):
         """
-        :param parentId: (Optional) 父分类ID
+        :param parentId: (Optional) 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+
         """
         self.parentId = parentId
 

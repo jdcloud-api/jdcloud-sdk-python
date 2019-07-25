@@ -22,7 +22,8 @@ class UpdateCategoryRequestObject(object):
     def __init__(self, name=None, parentId=None, description=None):
         """
         :param name: (Optional) 分类名称
-        :param parentId: (Optional) 父分类ID
+        :param parentId: (Optional) 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+
         :param description: (Optional) 分类描述信息
         """
 

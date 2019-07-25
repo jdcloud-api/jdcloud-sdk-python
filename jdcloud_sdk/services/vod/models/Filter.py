@@ -21,9 +21,9 @@ class Filter(object):
 
     def __init__(self, name, values, operator=None):
         """
-        :param name:  筛选属性名
-        :param operator: (Optional) 筛选操作符，默认eq
-        :param values:  筛选值列表
+        :param name:  过滤器属性名
+        :param operator: (Optional) 过滤器操作符，默认值为 eq
+        :param values:  过滤器属性值
         """
 
         self.name = name

@@ -23,9 +23,14 @@ class UpdateWatermarkRequestObject(object):
         """
         :param name: (Optional) 水印名称
         :param imgUrl: (Optional) 图片地址
-        :param width: (Optional) 宽度
-        :param height: (Optional) 高度
-        :param position: (Optional) 水印位置
+        :param width: (Optional) 水印宽度
+        :param height: (Optional) 水印高度
+        :param position: (Optional) 水印位置。取值范围：
+  LT - 左上
+  RT - 右上
+  LB - 左下
+  RB - 右下
+
         :param unit: (Optional) 偏移单位
         :param offsetX: (Optional) 水平偏移
         :param offsetY: (Optional) 竖直偏移

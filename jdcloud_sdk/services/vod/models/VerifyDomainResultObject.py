@@ -23,7 +23,7 @@ class VerifyDomainResultObject(object):
         """
         :param domainName: (Optional) 校验域名
         :param verified: (Optional) 校验是否通过
-        :param icpInfo: (Optional) ICP信息
+        :param icpInfo: (Optional) ICP备案信息
         """
 
         self.domainName = domainName

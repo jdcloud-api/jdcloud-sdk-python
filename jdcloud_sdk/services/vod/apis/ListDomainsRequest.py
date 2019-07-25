@@ -42,13 +42,13 @@ class ListDomainsParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认值为1
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认值为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
         """
         self.pageSize = pageSize
 

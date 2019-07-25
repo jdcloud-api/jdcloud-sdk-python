@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ListTranscodeTemplatesRequest(JDCloudRequest):
     """
-    查询转码模板列表
+    查询转码模板列表。允许通过条件过滤查询，支持的过滤字段如下：
+- source 模板来源。枚举值，取值范围为：
+  - system 系统预置
+  - custom 用户自建
+- templateType 模板类型。枚举值，取值范围：
+  - jdchd 京享超清
+  - jdchs 极速转码
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -38,16 +45,23 @@ class ListTranscodeTemplatesParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认值为1
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认值为10；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 
+        """
+        self.filters = filters
 

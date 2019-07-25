@@ -19,7 +19,7 @@
 
 class Disk(object):
 
-    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enable=None, createTime=None, charge=None, tags=None):
+    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enabled=None, createTime=None, charge=None, tags=None):
         """
         :param diskId: (Optional) 云硬盘ID
         :param az: (Optional) 云硬盘所属AZ
@@ -34,7 +34,7 @@ class Disk(object):
         :param snapshotId: (Optional) 创建该云硬盘的快照ID
         :param multiAttachable: (Optional) 云盘是否支持多挂载
         :param encrypted: (Optional) 云盘是否为加密盘
-        :param enable: (Optional) 云盘是否被暂停（IOPS限制为极低）
+        :param enabled: (Optional) 云盘是否被暂停（IOPS限制为极低）
         :param createTime: (Optional) 创建云硬盘时间
         :param charge: (Optional) 云硬盘计费配置信息
         :param tags: (Optional) Tag信息
@@ -53,7 +53,7 @@ class Disk(object):
         self.snapshotId = snapshotId
         self.multiAttachable = multiAttachable
         self.encrypted = encrypted
-        self.enable = enable
+        self.enabled = enabled
         self.createTime = createTime
         self.charge = charge
         self.tags = tags

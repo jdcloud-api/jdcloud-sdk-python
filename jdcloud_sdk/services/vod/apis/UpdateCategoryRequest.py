@@ -50,7 +50,8 @@ class UpdateCategoryParameters(object):
 
     def setParentId(self, parentId):
         """
-        :param parentId: (Optional) 父分类ID
+        :param parentId: (Optional) 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+
         """
         self.parentId = parentId
 

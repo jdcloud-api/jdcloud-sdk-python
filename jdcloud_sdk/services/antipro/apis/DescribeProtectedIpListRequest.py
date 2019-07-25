@@ -34,7 +34,7 @@ class DescribeProtectedIpListParameters(object):
 
     def __init__(self, type, ):
         """
-        :param type: 被防护 IP类型: 0: 全部, 1: 弹性公网 IP, 2: 云物理服务器公网 IP
+        :param type: 被防护 IP类型: 0: 全部, 1: 弹性公网 IP, 2: 云物理服务器公网 IP, 4: 托管区公网 IP
         """
 
         self.pageNumber = None

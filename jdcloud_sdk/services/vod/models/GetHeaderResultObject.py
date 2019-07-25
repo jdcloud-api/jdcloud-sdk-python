@@ -23,7 +23,7 @@ class GetHeaderResultObject(object):
         """
         :param headerName: (Optional) 头参数名
         :param headerValue: (Optional) 头参数值
-        :param headerType: (Optional) 头参数类型
+        :param headerType: (Optional) 头参数类型，取值范围：req、resp
         """
 
         self.headerName = headerName

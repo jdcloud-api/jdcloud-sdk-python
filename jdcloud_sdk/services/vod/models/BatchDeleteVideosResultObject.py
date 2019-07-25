@@ -21,9 +21,9 @@ class BatchDeleteVideosResultObject(object):
 
     def __init__(self, okVideoIds=None, notFoundVideoIds=None, failedVideoIds=None):
         """
-        :param okVideoIds: (Optional) 删除成功的视频ID列表
-        :param notFoundVideoIds: (Optional) 未找到的视频ID列表
-        :param failedVideoIds: (Optional) 删除失败的视频ID列表
+        :param okVideoIds: (Optional) 删除成功的视频ID集合
+        :param notFoundVideoIds: (Optional) 未找到的视频ID集合
+        :param failedVideoIds: (Optional) 删除失败的视频ID集合
         """
 
         self.okVideoIds = okVideoIds

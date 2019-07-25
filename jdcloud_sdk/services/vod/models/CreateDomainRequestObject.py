@@ -19,9 +19,9 @@
 
 class CreateDomainRequestObject(object):
 
-    def __init__(self, name=None):
+    def __init__(self, name, ):
         """
-        :param name: (Optional) 域名名称
+        :param name:  域名名称
         """
 
         self.name = name

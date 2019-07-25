@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None):
+    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None):
         """
         :param agId: (Optional) 高可用组Id。指定了此参数后，只能通过高可用组关联的实例模板创建虚机，并且实例模板中的参数不可覆盖替换。实例模板以外的参数还可以指定。
         :param instanceTemplateId: (Optional) 实例模板id，如果没有使用高可用组，那么对于实例模板中没有的信息，需要使用创建虚机的参数进行补充，或者选择覆盖启动模板中的参数。
@@ -37,6 +37,10 @@ class InstanceSpec(object):
 云主机不支持按用量方式计费，默认为按配置计费。
 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
+
+        :param userdata: (Optional) 元数据信息，目前只支持传入一个key为"launch-script"，表示首次启动脚本。value为base64格式。
+launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
+launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd></cmd> 和 <powershell></powershell> 作为内容首、尾行。
 
         :param description: (Optional) 主机描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         :param noPassword: (Optional) 不使用模板中的密码。
@@ -65,6 +69,7 @@ class InstanceSpec(object):
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.charge = charge
+        self.userdata = userdata
         self.description = description
         self.noPassword = noPassword
         self.noKeyNames = noKeyNames

@@ -19,9 +19,9 @@
 
 class BatchDeleteVideosRequestObject(object):
 
-    def __init__(self, videoIds=None):
+    def __init__(self, videoIds, ):
         """
-        :param videoIds: (Optional) 需要删除的视频ID列表
+        :param videoIds:  视频ID集合
         """
 
         self.videoIds = videoIds

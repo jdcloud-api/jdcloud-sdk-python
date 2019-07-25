@@ -19,9 +19,9 @@
 
 class BatchUpdateVideosRequestObject(object):
 
-    def __init__(self, bulk=None):
+    def __init__(self, bulkItems, ):
         """
-        :param bulk: (Optional) 批量更新视频的条目列表信息
+        :param bulkItems:  批量更新视频的条目集合
         """
 
-        self.bulk = bulk
+        self.bulkItems = bulkItems

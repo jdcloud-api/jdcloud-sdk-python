@@ -19,10 +19,10 @@
 
 class SetRefererRuleRequestObject(object):
 
-    def __init__(self, config=None, enabled=None):
+    def __init__(self, config, enabled, ):
         """
-        :param config: (Optional) 规则配置对象
-        :param enabled: (Optional) 是否启用该规则
+        :param config:  Referer防盗链规则配置对象
+        :param enabled:  是否启用该规则
         """
 
         self.config = config

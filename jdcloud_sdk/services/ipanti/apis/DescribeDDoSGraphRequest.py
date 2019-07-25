@@ -34,7 +34,7 @@ class DescribeDDoSGraphParameters(object):
 
     def __init__(self, regionId, startTime, endTime, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 最多查最近 60 天, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
         :param endTime: 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
         """

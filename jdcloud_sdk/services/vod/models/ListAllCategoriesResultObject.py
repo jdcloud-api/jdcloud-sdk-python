@@ -21,8 +21,8 @@ class ListAllCategoriesResultObject(object):
 
     def __init__(self, flatResult=None, treeResult=None):
         """
-        :param flatResult: (Optional) 
-        :param treeResult: (Optional) 
+        :param flatResult: (Optional) 平坦结构结果
+        :param treeResult: (Optional) 树结构结果
         """
 
         self.flatResult = flatResult

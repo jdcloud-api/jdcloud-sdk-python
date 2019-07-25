@@ -19,13 +19,23 @@
 
 class CreateTranscodeTemplateRequestObject(object):
 
-    def __init__(self, name=None, video=None, audio=None, encapsulation=None, definition=None):
+    def __init__(self, name, video, audio, encapsulation, definition, templateType=None):
         """
-        :param name: (Optional) 模板名称
-        :param video: (Optional) 
-        :param audio: (Optional) 
-        :param encapsulation: (Optional) 
-        :param definition: (Optional) 清晰度规格
+        :param name:  模板名称
+        :param video:  视频参数配置
+        :param audio:  音频参数配置
+        :param encapsulation:  封装配置
+        :param definition:  清晰度规格标记。取值范围：
+  SD - 标清
+  HD - 高清
+  FHD - 超清
+  2K
+  4K
+
+        :param templateType: (Optional) 模板类型。取值范围：
+  jdchd - 京享超清
+  jdchs - 极速转码
+
         """
 
         self.name = name
@@ -33,3 +43,4 @@ class CreateTranscodeTemplateRequestObject(object):
         self.audio = audio
         self.encapsulation = encapsulation
         self.definition = definition
+        self.templateType = templateType

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeVpcIpListRequest(JDCloudRequest):
     """
-    查询用户的京东云 IP 资源
+    查询用户可设置为网站类规则回源 IP 的京东云云内弹性公网 IP 资源
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DescribeVpcIpListParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         """
 
         self.regionId = regionId

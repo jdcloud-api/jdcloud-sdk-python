@@ -37,7 +37,7 @@ class IpResource(object):
         :param cleanThresholdBps: (Optional) 请求流量清洗触发值, 单位 bps/s
         :param cleanThresholdPps: (Optional) 报文请求清洗触发值, 单位 pps/s
         :param balckHoleThreshold: (Optional) 黑洞阈值
-        :param instanceId: (Optional) 绑定防护包 ID, 为 0 时表示未绑定防护包
+        :param instanceId: (Optional) 绑定防护包 ID, 为空字符时表示未绑定防护包
         :param instanceName: (Optional) 绑定防护包名称, 为空字符串时表示未绑定防护包
         :param safeStatus: (Optional) 安全状态, 0: 安全, 1: 清洗, 2: 黑洞
         """

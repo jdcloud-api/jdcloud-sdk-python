@@ -21,11 +21,11 @@ class Video(object):
 
     def __init__(self, codec=None, bitrate=None, fps=None, width=None, height=None):
         """
-        :param codec: (Optional) 视频编码
-        :param bitrate: (Optional) 码率
-        :param fps: (Optional) 帧率
-        :param width: (Optional) 宽度
-        :param height: (Optional) 高度
+        :param codec: (Optional) 视频编码。取值范围：h265、h264
+        :param bitrate: (Optional) 视频码率。取值范围 [128、10000]，单位为 Kbps
+        :param fps: (Optional) 视频帧率。取值范围为 [1、60]，单位为 fps
+        :param width: (Optional) 视频输出宽度。取值范围 [128，4096]，取值需为2的倍数
+        :param height: (Optional) 视频输出高度。取值范围 [128，4096]，取值需为2的倍数
         """
 
         self.codec = codec

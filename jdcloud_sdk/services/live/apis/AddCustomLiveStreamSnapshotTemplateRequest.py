@@ -32,7 +32,7 @@ class AddCustomLiveStreamSnapshotTemplateRequest(JDCloudRequest):
 
 class AddCustomLiveStreamSnapshotTemplateParameters(object):
 
-    def __init__(self, format, fillType, snapshotInterval, saveMode, template):
+    def __init__(self, format, fillType, snapshotInterval, saveMode, saveBucket, template):
         """
         :param format: 截图格式
 - 取值: jpg, png
@@ -54,6 +54,7 @@ class AddCustomLiveStreamSnapshotTemplateParameters(object):
   1: 覆盖存储
   2: 顺序存储
 
+        :param saveBucket: 存储桶
         :param template: 截图模板自定义名称:
 - 取值要求: 数字、大小写字母或短横线("-")、下划线("_"),
   首尾不能有特殊字符("-")
@@ -68,7 +69,7 @@ class AddCustomLiveStreamSnapshotTemplateParameters(object):
         self.fillType = fillType
         self.snapshotInterval = snapshotInterval
         self.saveMode = saveMode
-        self.saveBucket = None
+        self.saveBucket = saveBucket
         self.saveEndpoint = None
         self.template = template
 
@@ -91,12 +92,6 @@ class AddCustomLiveStreamSnapshotTemplateParameters(object):
 
         """
         self.height = height
-
-    def setSaveBucket(self, saveBucket):
-        """
-        :param saveBucket: (Optional) 存储桶
-        """
-        self.saveBucket = saveBucket
 
     def setSaveEndpoint(self, saveEndpoint):
         """

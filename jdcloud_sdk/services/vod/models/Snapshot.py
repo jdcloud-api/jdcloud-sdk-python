@@ -23,8 +23,8 @@ class Snapshot(object):
         """
         :param imgId: (Optional) 截图ID
         :param imgUrl: (Optional) 截图URL
-        :param width: (Optional) 宽度
-        :param height: (Optional) 高度
+        :param width: (Optional) 截图宽度
+        :param height: (Optional) 截图高度
         """
 
         self.imgId = imgId

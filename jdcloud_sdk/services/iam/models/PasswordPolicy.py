@@ -21,11 +21,11 @@ class PasswordPolicy(object):
 
     def __init__(self, length, age, expirationOperation, reusePrevention, retryTimes, validLoginDuration, rule, ):
         """
-        :param length:  密码长度，6-20之间
-        :param age:  密码有效期，0-1095之间
-        :param expirationOperation:  过期重置类型：0-主账号重置，1-子账号重置
-        :param reusePrevention:  历史密码检查次数,0-10之间
-        :param retryTimes:  密码重试次数,1-16之间
+        :param length:  密码长度，6~20位，默认8位
+        :param age:  密码有效期（天），0~1095，0表示永不过期
+        :param expirationOperation:  密码过期后重置方式：0-联系主账号重置，1-子用户登录后重置
+        :param reusePrevention:  历史密码检查策略，禁止使用前(0~10)次密码，0表示不启用
+        :param retryTimes:  1小时内使用错误密码最多(1~16)次
         :param validLoginDuration:  
         :param rule:  密码字符类型，至少包含一种
         """

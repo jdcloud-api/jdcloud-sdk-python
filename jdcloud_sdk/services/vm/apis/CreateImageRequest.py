@@ -36,19 +36,24 @@ class CreateImageRequest(JDCloudRequest):
 
 class CreateImageParameters(object):
 
-    def __init__(self, regionId, instanceId, name, description, ):
+    def __init__(self, regionId, instanceId, name, ):
         """
         :param regionId: 地域ID
         :param instanceId: 云主机ID
         :param name: 镜像名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
-        :param description: 镜像描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.name = name
-        self.description = description
+        self.description = None
         self.dataDisks = None
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 镜像描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        """
+        self.description = description
 
     def setDataDisks(self, dataDisks):
         """

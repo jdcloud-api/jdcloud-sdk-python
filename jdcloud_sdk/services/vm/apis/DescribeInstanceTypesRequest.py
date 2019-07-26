@@ -39,7 +39,14 @@ class DescribeInstanceTypesParameters(object):
         """
 
         self.regionId = regionId
+        self.serviceName = None
         self.filters = None
+
+    def setServiceName(self, serviceName):
+        """
+        :param serviceName: (Optional) 服务类型，取值为{vm、nc}，vm代表虚机、nc代表原生容器
+        """
+        self.serviceName = serviceName
 
     def setFilters(self, filters):
         """

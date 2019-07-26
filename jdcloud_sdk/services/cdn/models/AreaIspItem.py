@@ -19,11 +19,11 @@
 
 class AreaIspItem(object):
 
-    def __init__(self, name=None, code=None):
+    def __init__(self, description=None, code=None):
         """
-        :param name: (Optional) 
+        :param description: (Optional) 
         :param code: (Optional) 
         """
 
-        self.name = name
+        self.description = description
         self.code = code

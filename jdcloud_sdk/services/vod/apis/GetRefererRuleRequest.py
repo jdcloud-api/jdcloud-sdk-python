@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetRefererRuleRequest(JDCloudRequest):
     """
-    查询CDN域名Referer规则
+    查询CDN域名Referer防盗链规则配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

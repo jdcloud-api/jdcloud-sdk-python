@@ -19,12 +19,12 @@
 
 class Instance(object):
 
-    def __init__(self, id=None, name=None, carrier=None, ipType=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
+    def __init__(self, id=None, name=None, carrier=None, ipType=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
         """
-        :param id: (Optional) 实例 Id
+        :param id: (Optional) 实例 ID
         :param name: (Optional) 实例名称
         :param carrier: (Optional) 链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
-        :param ipType: (Optional) 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
+        :param ipType: (Optional) 可防护 IP 类型, 目前仅电信线路支持 IPV6 线路:
 - 0: IPV4,
 - 1: IPV4/IPV6
 
@@ -33,22 +33,41 @@ class Instance(object):
         :param inBitslimit: (Optional) 保底带宽
         :param resilientBitslimit: (Optional) 弹性带宽
         :param businessBitslimit: (Optional) 业务带宽大小
-        :param ccThreshold: (Optional) cc阈值大小
+        :param ccThreshold: (Optional) CC 阈值大小
+        :param ccPeakQPS: (Optional) CC 防护峰值, 单位: QPS
         :param ruleCount: (Optional) 非网站类规则数
         :param webRuleCount: (Optional) 网站类规则数
         :param chargeStatus: (Optional) PAID|ARREARS|EXPIRED
         :param securityStatus: (Optional) SAFE|CLEANING|BLOCKING
         :param createTime: (Optional) 实例的创建的时间
         :param expireTime: (Optional) 实例的过期时间
-        :param resourceId: (Optional) 资源id，升级和续费时使用
-        :param ccProtectMode: (Optional) cc防护模式，0正常、1紧急、2宽松、3自定义
-        :param ccProtectStatus: (Optional) cc开关状态，0关闭，1开启
-        :param ccSpeedLimit: (Optional) cc防护模式为自定义时的限速大小
-        :param ccSpeedPeriod: (Optional) cc防护模式为自定义时的限速周期
-        :param ipBlackList: (Optional) ip黑名单列表
-        :param ipBlackStatus: (Optional) ip黑名单状态，0关闭，1开启
-        :param ipWhiteList: (Optional) ip白名单列表
-        :param ipWhiteStatus: (Optional) ip白名单状态，0关闭，1开启
+        :param resourceId: (Optional) 资源 ID, 升级和续费时使用
+        :param ccObserveMode: (Optional) CC 防护观察者模式.
+- 0: 关闭
+- 1: 开启
+
+        :param ccProtectMode: (Optional) CC 防护模式.
+- 0: 正常
+- 1: 紧急
+- 2: 宽松
+- 3: 自定义
+
+        :param ccProtectStatus: (Optional) CC 开关状态.
+- 0: 关闭
+- 1: 开启
+
+        :param ccSpeedLimit: (Optional) CC 防护模式为自定义时的限速大小
+        :param ccSpeedPeriod: (Optional) CC 防护模式为自定义时的限速周期
+        :param ipBlackList: (Optional) IP 黑名单列表
+        :param ipBlackStatus: (Optional) IP 黑名单状态.
+- 0: 关闭
+- 1: 开启
+
+        :param ipWhiteList: (Optional) IP 白名单列表
+        :param ipWhiteStatus: (Optional) IP 白名单状态.
+- 0: 关闭
+- 1: 开启
+
         :param urlWhitelist: (Optional) url白名单列表
         :param urlWhitelistStatus: (Optional) url白名单状态，0关闭，1开启
         :param hostQps: (Optional) ccProtectMode为自定义模式时，每个Host的防护阈值
@@ -67,6 +86,7 @@ class Instance(object):
         self.resilientBitslimit = resilientBitslimit
         self.businessBitslimit = businessBitslimit
         self.ccThreshold = ccThreshold
+        self.ccPeakQPS = ccPeakQPS
         self.ruleCount = ruleCount
         self.webRuleCount = webRuleCount
         self.chargeStatus = chargeStatus
@@ -74,6 +94,7 @@ class Instance(object):
         self.createTime = createTime
         self.expireTime = expireTime
         self.resourceId = resourceId
+        self.ccObserveMode = ccObserveMode
         self.ccProtectMode = ccProtectMode
         self.ccProtectStatus = ccProtectStatus
         self.ccSpeedLimit = ccSpeedLimit

@@ -19,15 +19,17 @@
 
 class Audio(object):
 
-    def __init__(self, codec=None, bitrate=None, sampleRate=None, channels=None):
+    def __init__(self, codec=None, bitrate=None, sampleRate=None, channels=None, comfortable=None):
         """
-        :param codec: (Optional) 音频编码
-        :param bitrate: (Optional) 码率
-        :param sampleRate: (Optional) 采样率
-        :param channels: (Optional) 声道数
+        :param codec: (Optional) 音频编码。取值范围：aac
+        :param bitrate: (Optional) 音频目标码率。取值范围：[8，1000]，单位为 Kbps
+        :param sampleRate: (Optional) 音频采样率。取值范围：8000、11025、12000、16000、22050、24000、32000、44100、48000、64000、88200、96000
+        :param channels: (Optional) 音频声道数：1、2
+        :param comfortable: (Optional) 是否开启舒适音频：true、false
         """
 
         self.codec = codec
         self.bitrate = bitrate
         self.sampleRate = sampleRate
         self.channels = channels
+        self.comfortable = comfortable

@@ -29,7 +29,6 @@ class ForwardRule(object):
         :param port: (Optional) 端口号
         :param algorithm: (Optional) 转发规则
 - wrr 带权重的轮询
-- wlc 加权最小连接
 - rr  不带权重的轮询
 - sh  源地址hash
 

@@ -21,19 +21,25 @@ class VideoPlayInfo(object):
 
     def __init__(self, taskId=None, definition=None, mediaType=None, status=None, url=None, size=None, duration=None, bitrate=None, codec=None, format=None, width=None, height=None, fps=None, createTime=None, updateTime=None):
         """
-        :param taskId: (Optional) 生成播放信息的任务ID
-        :param definition: (Optional) 清晰度规格
+        :param taskId: (Optional) 生成播放信息的转码任务ID
+        :param definition: (Optional) 清晰度规格标记。取值范围：
+  SD - 标清
+  HD - 高清
+  FHD - 超清
+  2K
+  4K
+
         :param mediaType: (Optional) 媒体类型
-        :param status: (Optional) 播放信息状态，目前只有完成状态
+        :param status: (Optional) 播放信息状态，目前只有正常状态(normal)
         :param url: (Optional) CDN地址，原始地址或者鉴权地址
         :param size: (Optional) 
         :param duration: (Optional) 视频时长
         :param bitrate: (Optional) 码率
         :param codec: (Optional) 编码格式
         :param format: (Optional) 封装格式
-        :param width: (Optional) 宽度
-        :param height: (Optional) 高度
-        :param fps: (Optional) 帧率
+        :param width: (Optional) 视频宽度
+        :param height: (Optional) 视频高度
+        :param fps: (Optional) 视频帧率
         :param createTime: (Optional) 
         :param updateTime: (Optional) 
         """

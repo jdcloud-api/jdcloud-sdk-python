@@ -32,31 +32,24 @@ class SetHeaderRequest(JDCloudRequest):
 
 class SetHeaderParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId, headerName, headerValue, headerType):
         """
         :param domainId: 域名ID
+        :param headerName: 头参数名。当前支持的访问头参数取值范围：
+  Content-Disposition
+  Content-Language
+  Expires
+  Access-Control-Allow-Origin
+  Access-Control-Allow-Methods
+  Access-Control-Max-Age
+  Access-Control-Expose-Headers
+
+        :param headerValue: 头参数值
+        :param headerType: 头参数类型，取值范围：req、resp
         """
 
         self.domainId = domainId
-        self.headerName = None
-        self.headerValue = None
-        self.headerType = None
-
-    def setHeaderName(self, headerName):
-        """
-        :param headerName: (Optional) 头参数名
-        """
         self.headerName = headerName
-
-    def setHeaderValue(self, headerValue):
-        """
-        :param headerValue: (Optional) 头参数值
-        """
         self.headerValue = headerValue
-
-    def setHeaderType(self, headerType):
-        """
-        :param headerType: (Optional) 头参数类型
-        """
         self.headerType = headerType
 

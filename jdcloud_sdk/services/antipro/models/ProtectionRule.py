@@ -19,7 +19,7 @@
 
 class ProtectionRule(object):
 
-    def __init__(self, type=None, cleanThresholdBps=None, cleanThresholdPps=None, spoofIpEnable=None, srcNewConnLimitEnable=None, srcNewConnLimitValue=None, dstNewConnLimitEnable=None, dstNewConnLimitValue=None, datagramRangeMin=None, datagramRangeMax=None, geoBlackList=None):
+    def __init__(self, type=None, cleanThresholdBps=None, cleanThresholdPps=None, spoofIpEnable=None, srcNewConnLimitEnable=None, srcNewConnLimitValue=None, dstNewConnLimitEnable=None, dstNewConnLimitValue=None, datagramRangeMin=None, datagramRangeMax=None, geoBlackList=None, ipBlackList=None, ipWhiteList=None):
         """
         :param type: (Optional) 防护规则类型: 0: 默认防护包规则, 1: IP 自定义规则
         :param cleanThresholdBps: (Optional) 清洗触发值 bps
@@ -32,6 +32,8 @@ class ProtectionRule(object):
         :param datagramRangeMin: (Optional) 报文最小长度
         :param datagramRangeMax: (Optional) 报文最大长度
         :param geoBlackList: (Optional) geo 拦截地域列表
+        :param ipBlackList: (Optional) IP 黑名单列表
+        :param ipWhiteList: (Optional) IP 白名单列表
         """
 
         self.type = type
@@ -45,3 +47,5 @@ class ProtectionRule(object):
         self.datagramRangeMin = datagramRangeMin
         self.datagramRangeMax = datagramRangeMax
         self.geoBlackList = geoBlackList
+        self.ipBlackList = ipBlackList
+        self.ipWhiteList = ipWhiteList

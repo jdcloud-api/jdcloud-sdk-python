@@ -19,7 +19,7 @@
 
 class CloudDiskSpec(object):
 
-    def __init__(self, volumeId=None, name=None, snapshot=None, diskType=None, sizeGB=None, fsType=None, autoDelete=None):
+    def __init__(self, volumeId=None, name=None, snapshot=None, diskType=None, sizeGB=None, fsType=None, iops=None, autoDelete=None):
         """
         :param volumeId: (Optional) 云盘id，使用已有云盘
         :param name: (Optional) 云盘名称
@@ -27,6 +27,7 @@ class CloudDiskSpec(object):
         :param diskType: (Optional) 云盘类型：ssd,premium-hdd,hdd.std1,ssd.gp1,ssd.io1
         :param sizeGB: (Optional) 云盘size,单位 GB,要求
         :param fsType: (Optional) 指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
+        :param iops: (Optional) 云盘的 iops 值，目前只有 ssd.io1 类型有效
         :param autoDelete: (Optional) 是否随pod删除。默认：true
         """
 
@@ -36,4 +37,5 @@ class CloudDiskSpec(object):
         self.diskType = diskType
         self.sizeGB = sizeGB
         self.fsType = fsType
+        self.iops = iops
         self.autoDelete = autoDelete

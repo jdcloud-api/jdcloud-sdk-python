@@ -32,15 +32,10 @@ class CreateDomainRequest(JDCloudRequest):
 
 class CreateDomainParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, name):
         """
+        :param name: 域名名称
         """
 
-        self.name = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 域名名称
-        """
         self.name = name
 

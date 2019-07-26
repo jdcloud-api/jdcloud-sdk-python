@@ -23,7 +23,7 @@ class PolicyDetail(object):
         """
         :param policyId: (Optional) 策略id
         :param name: (Optional) 策略名称
-        :param jrn: (Optional) jrn描述
+        :param jrn: (Optional) 京东云资源标识(jrn)
         :param description: (Optional) 描述
         :param policyType: (Optional) 策略类型
         :param version: (Optional) 策略版本号

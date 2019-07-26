@@ -38,18 +38,12 @@ class UpdateTranscodeTemplateParameters(object):
         """
 
         self.templateId = templateId
-        self.id = None
         self.name = None
         self.video = None
         self.audio = None
         self.encapsulation = None
         self.definition = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 模板ID
-        """
-        self.id = id
+        self.templateType = None
 
     def setName(self, name):
         """
@@ -59,13 +53,13 @@ class UpdateTranscodeTemplateParameters(object):
 
     def setVideo(self, video):
         """
-        :param video: (Optional) 视频参数
+        :param video: (Optional) 视频参数配置
         """
         self.video = video
 
     def setAudio(self, audio):
         """
-        :param audio: (Optional) 音频参数
+        :param audio: (Optional) 音频参数配置
         """
         self.audio = audio
 
@@ -77,7 +71,22 @@ class UpdateTranscodeTemplateParameters(object):
 
     def setDefinition(self, definition):
         """
-        :param definition: (Optional) 清晰度规格
+        :param definition: (Optional) 清晰度规格标记。取值范围：
+  SD - 标清
+  HD - 高清
+  FHD - 超清
+  2K
+  4K
+
         """
         self.definition = definition
+
+    def setTemplateType(self, templateType):
+        """
+        :param templateType: (Optional) 模板类型。取值范围：
+  jdchd - 京享超清
+  jdchs - 极速转码
+
+        """
+        self.templateType = templateType
 

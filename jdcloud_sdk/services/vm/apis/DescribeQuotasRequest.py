@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeQuotasRequest(JDCloudRequest):
     """
-    查询配额，支持：云主机、镜像、密钥、模板、镜像共享
+    查询配额，支持的类型：云主机、镜像、密钥、模板、镜像共享。
 
     """
 

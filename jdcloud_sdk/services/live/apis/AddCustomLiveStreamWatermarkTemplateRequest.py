@@ -36,18 +36,24 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
     def __init__(self, offsetX, offsetY, width, height, template, url):
         """
         :param offsetX: x轴偏移量
-- 单位: 像素
+- 取值范围
+  percent: (0,100]
+  pixel: (0,1920]
 
         :param offsetY: y轴偏移量:
-- 单位: 像素
+- 取值范围
+  percent: (0,100]
+  pixel: (0,1920]
 
         :param width: 水印宽度:
-- 取值: [0,1920]
-- 单位: 像素
+- 取值范围
+  percent: (0,100]
+  pixel: (0,1920]
 
         :param height: 水印高度:
-- 取值: [0,1920]
-- 单位: 像素
+- 取值范围
+  percent: (0,100]
+  pixel: (0,1920]
 
         :param template: 自定义水印模板名称
 -&ensp;取值要求: 数字、大小写字母、短横线("-")、下划线("_"),
@@ -58,13 +64,42 @@ class AddCustomLiveStreamWatermarkTemplateParameters(object):
         :param url: 水印地址<br>-&ensp;以&ensp;http:// 开头,可公开访问地址<br>
         """
 
+        self.position = None
+        self.offsetUnit = None
         self.offsetX = offsetX
         self.offsetY = offsetY
+        self.sizeUnit = None
         self.width = width
         self.height = height
         self.template = template
         self.uploadId = None
         self.url = url
+
+    def setPosition(self, position):
+        """
+        :param position: (Optional) 水印位置
+- 取值范围：左上：1，右上：3， 左下：7，右下：9，默认：1
+
+        """
+        self.position = position
+
+    def setOffsetUnit(self, offsetUnit):
+        """
+        :param offsetUnit: (Optional) 偏移量单位
+- 取值: percent,pixel
+- percent:按百分比; pixel:像素 默认:pixel
+
+        """
+        self.offsetUnit = offsetUnit
+
+    def setSizeUnit(self, sizeUnit):
+        """
+        :param sizeUnit: (Optional) 水印大小单位
+- 取值: percent,pixel
+- percent:按百分比; pixel:像素 默认:pixel
+
+        """
+        self.sizeUnit = sizeUnit
 
     def setUploadId(self, uploadId):
         """

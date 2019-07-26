@@ -25,7 +25,7 @@ class CategoryTreeNode(object):
         :param name: (Optional) 分类名称
         :param level: (Optional) 分类级别
         :param description: (Optional) 分类描述信息
-        :param children: (Optional) 
+        :param children: (Optional) 子分类
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 修改时间
         """

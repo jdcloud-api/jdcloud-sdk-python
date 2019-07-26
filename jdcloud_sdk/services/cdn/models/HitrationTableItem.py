@@ -19,17 +19,19 @@
 
 class HitrationTableItem(object):
 
-    def __init__(self, domain=None, domainType=None, pv=None, hitpv=None, hitRatio=None):
+    def __init__(self, domain=None, domainType=None, pv=None, hitPv=None, oriPV=None, hitRatio=None):
         """
         :param domain: (Optional) 
         :param domainType: (Optional) 
         :param pv: (Optional) 
-        :param hitpv: (Optional) 
+        :param hitPv: (Optional) 
+        :param oriPV: (Optional) 
         :param hitRatio: (Optional) 
         """
 
         self.domain = domain
         self.domainType = domainType
         self.pv = pv
-        self.hitpv = hitpv
+        self.hitPv = hitPv
+        self.oriPV = oriPV
         self.hitRatio = hitRatio

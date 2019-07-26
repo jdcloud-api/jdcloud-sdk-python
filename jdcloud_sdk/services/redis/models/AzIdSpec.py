@@ -19,10 +19,10 @@
 
 class AzIdSpec(object):
 
-    def __init__(self, master=None, slave=None):
+    def __init__(self, master, slave, ):
         """
-        :param master: (Optional) 缓存Redis主实例所在区域可用区ID
-        :param slave: (Optional) 缓存Redis从实例所在区域可用区ID
+        :param master:  缓存Redis主实例所在的可用区ID
+        :param slave:  缓存Redis从实例所在的可用区ID
         """
 
         self.master = master

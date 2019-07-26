@@ -23,7 +23,7 @@ class GroupDetail(object):
         """
         :param groupId: (Optional) 用户组ID
         :param name: (Optional) 用户组名
-        :param jrn: (Optional) jrn描述
+        :param jrn: (Optional) 京东云资源标识(jrn)
         :param description: (Optional) 用户组描述
         :param createTime: (Optional) 用户组创建时间
         :param updateTime: (Optional) 用户组更新时间

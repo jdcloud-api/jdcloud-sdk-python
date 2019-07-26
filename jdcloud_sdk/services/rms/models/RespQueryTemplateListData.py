@@ -19,21 +19,23 @@
 
 class RespQueryTemplateListData(object):
 
-    def __init__(self, reason=None, createTime=None, contentSize=None, description=None, templateId=None, title=None, status=None):
+    def __init__(self, templateId=None, title=None, status=None, reason=None, createTime=None, contentSize=None, aptitudesId=None, description=None):
         """
-        :param reason: (Optional) reason参数
-        :param createTime: (Optional) createTime参数
-        :param contentSize: (Optional) contentSize参数
-        :param description: (Optional) description参数
-        :param templateId: (Optional) templateId参数
-        :param title: (Optional) title参数
-        :param status: (Optional) status参数
+        :param templateId: (Optional) 短信ID
+        :param title: (Optional) 短信标题
+        :param status: (Optional) 审核状态 0: 审核中 1: 通过 2: 未通过 4:待提交
+        :param reason: (Optional) 审核未通过原因
+        :param createTime: (Optional) 短信创建时间 yyyy-MM-dd HH:mm:ss
+        :param contentSize: (Optional) 短信内容大小
+        :param aptitudesId: (Optional) 资质Id
+        :param description: (Optional) 短信描述
         """
 
-        self.reason = reason
-        self.createTime = createTime
-        self.contentSize = contentSize
-        self.description = description
         self.templateId = templateId
         self.title = title
         self.status = status
+        self.reason = reason
+        self.createTime = createTime
+        self.contentSize = contentSize
+        self.aptitudesId = aptitudesId
+        self.description = description

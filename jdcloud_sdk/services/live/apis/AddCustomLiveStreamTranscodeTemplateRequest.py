@@ -25,9 +25,13 @@ class AddCustomLiveStreamTranscodeTemplateRequest(JDCloudRequest):
 - 系统为您预设了标准转码模板,如果不能满足您的转码需求,可以通过此接口添加自定义转码模板
 - 系统标准转码模板
     ld (h.264/640*360/15f)
-    sd (h.264/854*480/24f)
+    sd (h.264/960*540/25f)
     hd (h.264/1280*720/25f)
     shd (h.264/1920*1080/30f)
+    ld-265 (h.265/640*360/15f)
+    sd-265 (h.265/960*540/25f)
+    hd-265 (h.265/1280*720/25f)
+    shd-265 (h.265/1920*1080/30f)
 
     """
 
@@ -39,10 +43,10 @@ class AddCustomLiveStreamTranscodeTemplateRequest(JDCloudRequest):
 
 class AddCustomLiveStreamTranscodeTemplateParameters(object):
 
-    def __init__(self, videoCodeRate, videoFrameRate, template, audioCodec, audioFormat, audioSampleRate, audioChannel, audioCodeRate):
+    def __init__(self, videoCodeRate, videoFrameRate, template, audioCodec, audioSampleRate, audioChannel, audioCodeRate, ):
         """
         :param videoCodeRate: 转码输出的码率值
-- 取值范围: [200,3000]
+- 取值范围: [128,15000]
 - 单位: kpbs
 
         :param videoFrameRate: 转码输出的帧率值
@@ -53,16 +57,16 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 - <b>注意: 不能与系统的标准的转码模板和当前用户已自定义命名重复</b>
 - 系统标准转码模板
   ld (h.264/640*360/15f)
-  sd (h.264/854*480/24f)
+  sd (h.264/960*540/25f)
   hd (h.264/1280*720/25f)
   shd (h.264/1920*1080/30f)
+  ld-265 (h.265/640*360/15f)
+  sd-265 (h.265/960*540/25f)
+  hd-265 (h.265/1280*720/25f)
+  shd-265 (h.265/1920*1080/30f)
 
         :param audioCodec: 转码输出音频编码格式
 - 取值: aac、mp3
-- 不区分大小写
-
-        :param audioFormat: 转码输出音频格式
-- 取值: aac_lc，aac_low，aac_he，aac_he_v2
 - 不区分大小写
 
         :param audioSampleRate: 转码输出音频采样率
@@ -79,16 +83,19 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
         """
 
         self.templateName = None
+        self.videoCodec = None
         self.videoCodeRate = videoCodeRate
         self.videoFrameRate = videoFrameRate
         self.width = None
         self.height = None
         self.template = template
         self.audioCodec = audioCodec
-        self.audioFormat = audioFormat
+        self.audioFormat = None
         self.audioSampleRate = audioSampleRate
         self.audioChannel = audioChannel
         self.audioCodeRate = audioCodeRate
+        self.jdchd = None
+        self.audioComfort = None
 
     def setTemplateName(self, templateName):
         """
@@ -98,10 +105,19 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
         """
         self.templateName = templateName
 
+    def setVideoCodec(self, videoCodec):
+        """
+        :param videoCodec: (Optional) 视频编码格式，取值：h264,h265，默认h264
+- h264时,分辨率小于等于1080p
+- h265时,分辨率小于等于4k
+
+        """
+        self.videoCodec = videoCodec
+
     def setWidth(self, width):
         """
         :param width: (Optional) 转码输出视频宽度
-- 取值: [100,1920]
+- 取值: [128,4096]
 - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
 - 如果(width,height)都不设置，则按源流大小输出转码
 
@@ -110,11 +126,37 @@ class AddCustomLiveStreamTranscodeTemplateParameters(object):
 
     def setHeight(self, height):
         """
-        :param height: (Optional) 转码输出视频宽度
-- 取值: [100,1920]
+        :param height: (Optional) 转码输出视频高度
+- 取值: [128,4096]
 - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
 - 如果(width,height)都不设置，则按源流大小输出转码
 
         """
         self.height = height
+
+    def setAudioFormat(self, audioFormat):
+        """
+        :param audioFormat: (Optional) 转码输出音频格式
+- 取值: aac_lc,aac_low,aac_he,aac_he_v2; 默认:aac_he
+- 不区分大小写
+
+        """
+        self.audioFormat = audioFormat
+
+    def setJdchd(self, jdchd):
+        """
+        :param jdchd: (Optional) 京享超清开关
+- 取值: jdchd-1.0,off
+- 京享超清暂时只支持h.264
+
+        """
+        self.jdchd = jdchd
+
+    def setAudioComfort(self, audioComfort):
+        """
+        :param audioComfort: (Optional) 舒适音频
+- 取值: on,off
+
+        """
+        self.audioComfort = audioComfort
 

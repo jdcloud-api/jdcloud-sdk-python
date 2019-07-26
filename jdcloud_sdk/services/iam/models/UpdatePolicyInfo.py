@@ -21,7 +21,7 @@ class UpdatePolicyInfo(object):
 
     def __init__(self, content, ):
         """
-        :param content:  策略信息详情，最多2048个字符
+        :param content:  策略信息详情，最多6144个字符
         """
 
         self.content = content

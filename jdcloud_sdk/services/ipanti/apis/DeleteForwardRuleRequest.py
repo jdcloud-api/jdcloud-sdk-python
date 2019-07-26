@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteForwardRuleRequest(JDCloudRequest):
     """
-    删除非网站规则
+    删除非网站规则, 批量操作时, 返回 result.code 为 1 表示操作成功, 为 0 时可能全部失败, 也可能部分失败
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DeleteForwardRuleParameters(object):
 
     def __init__(self, regionId, instanceId, forwardRuleId, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 高防实例 Id
         :param forwardRuleId: 转发规则 Id
         """

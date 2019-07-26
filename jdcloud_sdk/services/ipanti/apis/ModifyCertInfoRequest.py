@@ -34,7 +34,7 @@ class ModifyCertInfoParameters(object):
 
     def __init__(self, regionId, instanceId, webRuleId, certInfoModifySpec):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 高防实例 Id
         :param webRuleId: 网站规则 Id
         :param certInfoModifySpec: 编辑网站规则证书信息请求参数

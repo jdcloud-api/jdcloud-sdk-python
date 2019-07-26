@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetIPRuleRequest(JDCloudRequest):
     """
-    查询CDN域名IP规则
+    查询CDN域名IP黑名单规则配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):

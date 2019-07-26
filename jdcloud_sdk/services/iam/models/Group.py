@@ -23,7 +23,7 @@ class Group(object):
         """
         :param groupId: (Optional) 用户组ID
         :param name: (Optional) 用户组名
-        :param jrn: (Optional) jrn描述
+        :param jrn: (Optional) 京东云资源标识(jrn)
         :param description: (Optional) 用户组描述
         :param subUserSum: (Optional) 子用户个数
         :param policySum: (Optional) 绑定策略个数

@@ -26,7 +26,7 @@ class DescribeAttackStatisticsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeAttackStatisticsRequest, self).__init__(
-            '/regions/{regionId}/attacklog/describeAttackStatistics', 'GET', header, version)
+            '/regions/{regionId}/attacklog:describeAttackStatistics', 'GET', header, version)
         self.parameters = parameters
 
 
@@ -34,10 +34,10 @@ class DescribeAttackStatisticsParameters(object):
 
     def __init__(self, regionId, startTime, endTime, type):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
         :param endTime: 查询的结束时间, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
-        :param type: 攻击类型, 0 为 DDos, 1 为 CC
+        :param type: 攻击类型, 0 为 DDoS, 1 为 CC
         """
 
         self.regionId = regionId

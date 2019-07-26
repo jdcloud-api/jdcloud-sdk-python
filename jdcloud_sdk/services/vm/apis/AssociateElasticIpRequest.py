@@ -21,8 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AssociateElasticIpRequest(JDCloudRequest):
     """
-    为云主机主网卡下的主内网IP绑定弹性公网IP。<br>
-一台云主机只能绑定一个弹性公网IP(主网卡)，若主网卡已存在弹性公网IP，会返回错误。<br>
+    为云主机主网卡的主内网IP绑定弹性公网IP。<br>
+一台云主机的主网卡的主内网IP只能绑定一个弹性公网IP，若已绑定弹性公网IP，操作绑定会返回错误。<br>
 
     """
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisableWebRuleCCRequest(JDCloudRequest):
     """
-    网站类规则禁用 CC
+    关闭网站类规则 CC 防护, 网站类规则的 CC 防护规则和 CC 防护配置失效。支持批量操作, 批量操作时 webRuleId 传多个, 以 ',' 分隔, 返回 result.code 为 1 表示操作成功, 为 0 时可能全部失败, 也可能部分失败
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +34,7 @@ class DisableWebRuleCCParameters(object):
 
     def __init__(self, regionId, instanceId, webRuleId, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 高防实例 Id
         :param webRuleId: 网站规则 Id
         """

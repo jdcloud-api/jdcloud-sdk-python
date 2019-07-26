@@ -51,13 +51,13 @@ class GetDomainListByFilterParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) pageNumber
+        :param pageNumber: (Optional) pageNumber,默认值为1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) pageSize
+        :param pageSize: (Optional) pageSize,默认值为20,最大值为50
         """
         self.pageSize = pageSize
 
@@ -69,7 +69,7 @@ class GetDomainListByFilterParameters(object):
 
     def setType(self, type):
         """
-        :param type: (Optional) type
+        :param type: (Optional) 域名类型，(web:静态小文件，download:大文件加速，vod:视频加速，live:直播加速),不传查所有
         """
         self.type = type
 

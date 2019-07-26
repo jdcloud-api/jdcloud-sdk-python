@@ -19,21 +19,19 @@
 
 class RoleInfo(object):
 
-    def __init__(self, path=None, roleId=None, roleName=None, type=None, assumeRolePolicyDocument=None, description=None, maxSessionDuration=None, jrn=None, createTime=None, account=None):
+    def __init__(self, roleId=None, roleName=None, type=None, assumeRolePolicyDocument=None, description=None, maxSessionDuration=None, jrn=None, createTime=None, account=None):
         """
-        :param path: (Optional) 角色路径
         :param roleId: (Optional) 角色ID
         :param roleName: (Optional) 角色名称
         :param type: (Optional) 角色类型，2-服务相关角色，3-服务角色，4-用户角色
-        :param assumeRolePolicyDocument: (Optional) 角色代入policy
+        :param assumeRolePolicyDocument: (Optional) 信任实体信息
         :param description: (Optional) 描述，0~256个字符
         :param maxSessionDuration: (Optional) 最大会话时长3600~43200秒，默认3600秒
-        :param jrn: (Optional) 资源描述
+        :param jrn: (Optional) 京东云资源标识(jrn)
         :param createTime: (Optional) 创建角色的时间
         :param account: (Optional) 角色所属主账号
         """
 
-        self.path = path
         self.roleId = roleId
         self.roleName = roleName
         self.type = type

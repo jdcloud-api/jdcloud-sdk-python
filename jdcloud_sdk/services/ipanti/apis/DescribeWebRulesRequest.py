@@ -34,7 +34,7 @@ class DescribeWebRulesParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 高防实例 Id
         """
 

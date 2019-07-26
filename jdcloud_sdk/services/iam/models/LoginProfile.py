@@ -23,7 +23,7 @@ class LoginProfile(object):
         """
         :param name: (Optional) 子用户名
         :param passwordResetRequired: (Optional) 要求下次登录时重设密码
-        :param mFABindRequired: (Optional) 要求必须绑定多因素认证设备
+        :param mFABindRequired: (Optional) 要求必须绑定虚拟MFA设备
         """
 
         self.name = name

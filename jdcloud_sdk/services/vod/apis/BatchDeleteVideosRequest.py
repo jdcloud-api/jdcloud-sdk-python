@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class BatchDeleteVideosRequest(JDCloudRequest):
     """
-    批量删除视频信息，调用该接口会同时删除与指定视频相关的所有信息
+    批量删除视频，调用该接口会同时删除与指定视频相关的所有信息，包括转码任务信息、转码流数据等，同时清除云存储中相关文件资源。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,15 +32,10 @@ class BatchDeleteVideosRequest(JDCloudRequest):
 
 class BatchDeleteVideosParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, videoIds):
         """
+        :param videoIds: 视频ID集合
         """
 
-        self.videoIds = None
-
-    def setVideoIds(self, videoIds):
-        """
-        :param videoIds: (Optional) 
-        """
         self.videoIds = videoIds
 

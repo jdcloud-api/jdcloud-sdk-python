@@ -27,7 +27,7 @@ class CCProtectionRuleSpec(object):
         :param detectPeriod:  检测周期, 单位为秒, 取值范围[5, 10800]
         :param singleIpLimit:  ip 访问次数, 取值范围[2, 2000]
         :param blockType:  阻断类型, 1: 封禁, 2: 人机交互
-        :param blockTime:  阻断持续时间, 单位为分钟, 取值范围[1, 1440]
+        :param blockTime:  阻断持续时间, 单位为秒, 取值范围[10, 86400]
         """
 
         self.name = name

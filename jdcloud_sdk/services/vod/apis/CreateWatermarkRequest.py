@@ -32,64 +32,34 @@ class CreateWatermarkRequest(JDCloudRequest):
 
 class CreateWatermarkParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, name, imgUrl, width, height, position, offsetX, offsetY):
         """
+        :param name: 水印名称
+        :param imgUrl: 图片地址
+        :param width: 水印宽度
+        :param height: 水印高度
+        :param position: 水印位置。取值范围：
+  LT - 左上
+  RT - 右上
+  LB - 左下
+  RB - 右下
+
+        :param offsetX: 水平偏移
+        :param offsetY: 竖直偏移
         """
 
-        self.name = None
-        self.imgUrl = None
-        self.width = None
-        self.height = None
-        self.position = None
-        self.unit = None
-        self.offsetX = None
-        self.offsetY = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 水印名称
-        """
         self.name = name
-
-    def setImgUrl(self, imgUrl):
-        """
-        :param imgUrl: (Optional) 图片地址
-        """
         self.imgUrl = imgUrl
-
-    def setWidth(self, width):
-        """
-        :param width: (Optional) 宽度
-        """
         self.width = width
-
-    def setHeight(self, height):
-        """
-        :param height: (Optional) 高度
-        """
         self.height = height
-
-    def setPosition(self, position):
-        """
-        :param position: (Optional) 水印位置
-        """
         self.position = position
+        self.unit = None
+        self.offsetX = offsetX
+        self.offsetY = offsetY
 
     def setUnit(self, unit):
         """
         :param unit: (Optional) 偏移单位
         """
         self.unit = unit
-
-    def setOffsetX(self, offsetX):
-        """
-        :param offsetX: (Optional) 水平偏移
-        """
-        self.offsetX = offsetX
-
-    def setOffsetY(self, offsetY):
-        """
-        :param offsetY: (Optional) 竖直偏移
-        """
-        self.offsetY = offsetY
 

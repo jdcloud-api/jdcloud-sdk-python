@@ -26,4 +26,4 @@ class SmsClient(JDCloudClient):
         if config is None:
             config = Config('sms.jdcloud-api.com')
 
-        super(SmsClient, self).__init__(credential, config, 'sms', '1.0.0', logger)
+        super(SmsClient, self).__init__(credential, config, 'sms', '1.2.0', logger)

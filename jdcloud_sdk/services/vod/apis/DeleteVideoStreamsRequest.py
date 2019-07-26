@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteVideoStreamsRequest(JDCloudRequest):
     """
-    删除视频码流信息
+    删除视频转码流
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,17 +32,12 @@ class DeleteVideoStreamsRequest(JDCloudRequest):
 
 class DeleteVideoStreamsParameters(object):
 
-    def __init__(self, videoId, ):
+    def __init__(self, videoId, taskIds):
         """
         :param videoId: 视频ID
+        :param taskIds: 
         """
 
         self.videoId = videoId
-        self.taskIds = None
-
-    def setTaskIds(self, taskIds):
-        """
-        :param taskIds: (Optional) 
-        """
         self.taskIds = taskIds
 

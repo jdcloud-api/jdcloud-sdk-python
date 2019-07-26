@@ -38,17 +38,9 @@ class UpdateCategoryParameters(object):
         """
 
         self.categoryId = categoryId
-        self.id = None
         self.name = None
-        self.level = None
         self.parentId = None
         self.description = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 分类ID
-        """
-        self.id = id
 
     def setName(self, name):
         """
@@ -56,15 +48,10 @@ class UpdateCategoryParameters(object):
         """
         self.name = name
 
-    def setLevel(self, level):
-        """
-        :param level: (Optional) 分类级别
-        """
-        self.level = level
-
     def setParentId(self, parentId):
         """
-        :param parentId: (Optional) 父分类ID
+        :param parentId: (Optional) 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+
         """
         self.parentId = parentId
 

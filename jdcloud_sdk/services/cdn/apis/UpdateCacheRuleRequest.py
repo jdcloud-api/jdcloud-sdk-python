@@ -70,7 +70,7 @@ class UpdateCacheRuleParameters(object):
 
     def setConfigId(self, configId):
         """
-        :param configId: (Optional) 配置id
+        :param configId: (Optional) 缓存规则配置ID
         """
         self.configId = configId
 

@@ -36,11 +36,11 @@ class BatchSubmitTranscodeJobsParameters(object):
         """
         """
 
-        self.jobs = None
+        self.bulkItems = None
 
-    def setJobs(self, jobs):
+    def setBulkItems(self, bulkItems):
         """
-        :param jobs: (Optional) 
+        :param bulkItems: (Optional) 
         """
-        self.jobs = jobs
+        self.bulkItems = bulkItems
 

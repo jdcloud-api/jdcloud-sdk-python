@@ -19,7 +19,7 @@
 
 class ProtectionRuleSpec(object):
 
-    def __init__(self, ip=None, type=None, cleanThresholdBps=None, cleanThresholdPps=None, spoofIpEnable=None, srcNewConnLimitEnable=None, srcNewConnLimitValue=None, dstNewConnLimitEnable=None, dstNewConnLimitValue=None, datagramRangeMin=None, datagramRangeMax=None, geoBlackList=None):
+    def __init__(self, ip=None, type=None, cleanThresholdBps=None, cleanThresholdPps=None, spoofIpEnable=None, srcNewConnLimitEnable=None, srcNewConnLimitValue=None, dstNewConnLimitEnable=None, dstNewConnLimitValue=None, datagramRangeMin=None, datagramRangeMax=None, geoBlackList=None, ipBlackList=None, ipWhiteList=None):
         """
         :param ip: (Optional) 被防护 IP, 缺省时修改防护包实例防护规则
         :param type: (Optional) 防护规则类型, 修改 ip 防护规则时必传, 0: 设置 ip 使用防护包规则, 1: 设置 IP 使用自定义规则
@@ -33,6 +33,9 @@ class ProtectionRuleSpec(object):
         :param datagramRangeMin: (Optional) 报文最小长度, 取值范围 [1, datagramRangeMax)
         :param datagramRangeMax: (Optional) 报文最大长度, 取值范围 (datagramRangeMin, 1518]
         :param geoBlackList: (Optional) geo 拦截地域编码列表. 查询 <a href="http://docs.jdcloud.com/anti-ddos-protection-package/api/describegeoareas">describeGeoAreas</a> 接口获取可设置的地域编码列表
+
+        :param ipBlackList: (Optional) IP 黑名单列表
+        :param ipWhiteList: (Optional) IP 白名单列表
         """
 
         self.ip = ip
@@ -47,3 +50,5 @@ class ProtectionRuleSpec(object):
         self.datagramRangeMin = datagramRangeMin
         self.datagramRangeMax = datagramRangeMax
         self.geoBlackList = geoBlackList
+        self.ipBlackList = ipBlackList
+        self.ipWhiteList = ipWhiteList

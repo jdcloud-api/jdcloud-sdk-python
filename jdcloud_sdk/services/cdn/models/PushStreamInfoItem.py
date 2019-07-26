@@ -19,17 +19,21 @@
 
 class PushStreamInfoItem(object):
 
-    def __init__(self, stream=None, clientIp=None, startTimeStamp=None, endTimeStamp=None, duration=None):
+    def __init__(self, app=None, stream=None, clientIp=None, nodeIp=None, startTime=None, endTime=None, duration=None):
         """
+        :param app: (Optional) 
         :param stream: (Optional) 
         :param clientIp: (Optional) 
-        :param startTimeStamp: (Optional) 
-        :param endTimeStamp: (Optional) 
+        :param nodeIp: (Optional) 
+        :param startTime: (Optional) 任务创建时间,UTC时间
+        :param endTime: (Optional) 任务创建时间,UTC时间
         :param duration: (Optional) 
         """
 
+        self.app = app
         self.stream = stream
         self.clientIp = clientIp
-        self.startTimeStamp = startTimeStamp
-        self.endTimeStamp = endTimeStamp
+        self.nodeIp = nodeIp
+        self.startTime = startTime
+        self.endTime = endTime
         self.duration = duration

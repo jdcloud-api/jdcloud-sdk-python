@@ -24,7 +24,7 @@ class AddTemplateRequest(JDCloudRequest):
     增加富媒体短信内容接口
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(AddTemplateRequest, self).__init__(
             '/regions/{regionId}/addTemplate', 'POST', header, version)
         self.parameters = parameters
@@ -32,73 +32,28 @@ class AddTemplateRequest(JDCloudRequest):
 
 class AddTemplateParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, appId, signType, purpose, signCardType, aptitudes, title, description, unsubscribe, content):
         """
         :param regionId: Region ID
+        :param appId: 应用ID
+        :param signType: 签名类型 0:公司 1:app 2:网站 3:公众号 4:商标 5:政府机关
+        :param purpose: 用途 0:自用 1:他用
+        :param signCardType: 资质证明类型 0:三证合一 1:企业营业执照 2:组织机构代码证书 3:社会信用代码证书
+        :param aptitudes: 资质证明图片必须是jpg图片的base64编码，只支持jpg图片
+        :param title: 多媒体内容的标题
+        :param description: 多媒体内容的描述
+        :param unsubscribe: 是否支持退订 0:不支持退订 1:支持退订
+        :param content: 短信内容
         """
 
         self.regionId = regionId
-        self.appId = None
-        self.signType = None
-        self.purpose = None
-        self.signCardType = None
-        self.aptitudes = None
-        self.title = None
-        self.description = None
-        self.isTuiding = None
-        self.content = None
-
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) appId参数
-        """
         self.appId = appId
-
-    def setSignType(self, signType):
-        """
-        :param signType: (Optional) signType参数
-        """
         self.signType = signType
-
-    def setPurpose(self, purpose):
-        """
-        :param purpose: (Optional) purpose参数
-        """
         self.purpose = purpose
-
-    def setSignCardType(self, signCardType):
-        """
-        :param signCardType: (Optional) signCardType参数
-        """
         self.signCardType = signCardType
-
-    def setAptitudes(self, aptitudes):
-        """
-        :param aptitudes: (Optional) aptitudes参数
-        """
         self.aptitudes = aptitudes
-
-    def setTitle(self, title):
-        """
-        :param title: (Optional) title参数
-        """
         self.title = title
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) description参数
-        """
         self.description = description
-
-    def setIsTuiding(self, isTuiding):
-        """
-        :param isTuiding: (Optional) isTuiding参数
-        """
-        self.isTuiding = isTuiding
-
-    def setContent(self, content):
-        """
-        :param content: (Optional) content参数
-        """
+        self.unsubscribe = unsubscribe
         self.content = content
 

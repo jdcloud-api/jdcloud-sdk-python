@@ -38,7 +38,6 @@ class UpdateWatermarkParameters(object):
         """
 
         self.watermarkId = watermarkId
-        self.id = None
         self.name = None
         self.imgUrl = None
         self.width = None
@@ -47,12 +46,6 @@ class UpdateWatermarkParameters(object):
         self.unit = None
         self.offsetX = None
         self.offsetY = None
-
-    def setId(self, id):
-        """
-        :param id: (Optional) 水印ID
-        """
-        self.id = id
 
     def setName(self, name):
         """
@@ -68,19 +61,24 @@ class UpdateWatermarkParameters(object):
 
     def setWidth(self, width):
         """
-        :param width: (Optional) 宽度
+        :param width: (Optional) 水印宽度
         """
         self.width = width
 
     def setHeight(self, height):
         """
-        :param height: (Optional) 高度
+        :param height: (Optional) 水印高度
         """
         self.height = height
 
     def setPosition(self, position):
         """
-        :param position: (Optional) 水印位置
+        :param position: (Optional) 水印位置。取值范围：
+  LT - 左上
+  RT - 右上
+  LB - 左下
+  RB - 右下
+
         """
         self.position = position
 

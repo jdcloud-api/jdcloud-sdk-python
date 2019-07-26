@@ -22,7 +22,7 @@ class UpdateSubUserInfo(object):
     def __init__(self, description=None, phone=None, email=None):
         """
         :param description: (Optional) 描述，0~256个字符
-        :param phone: (Optional) 手机号码，区号-手机号，目前只支持0086-中国手机号码
+        :param phone: (Optional) 手机号码，区号-手机号
         :param email: (Optional) 邮箱
         """
 

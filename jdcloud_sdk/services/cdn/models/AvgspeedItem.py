@@ -19,13 +19,16 @@
 
 class AvgspeedItem(object):
 
-    def __init__(self, area=None, avgspeed=None, firstpkgtime=None, errorRatio=None, flow=None, flowPercent=None, pv=None, hitRatio=None):
+    def __init__(self, area=None, avgspeed=None, avgspeedUnit=None, firstpkgtime=None, firstpkgtimeUnit=None, errorRatio=None, flow=None, flowUnit=None, flowPercent=None, pv=None, hitRatio=None):
         """
         :param area: (Optional) 
         :param avgspeed: (Optional) 
+        :param avgspeedUnit: (Optional) 
         :param firstpkgtime: (Optional) 
+        :param firstpkgtimeUnit: (Optional) 
         :param errorRatio: (Optional) 
         :param flow: (Optional) 
+        :param flowUnit: (Optional) 
         :param flowPercent: (Optional) 
         :param pv: (Optional) 
         :param hitRatio: (Optional) 
@@ -33,9 +36,12 @@ class AvgspeedItem(object):
 
         self.area = area
         self.avgspeed = avgspeed
+        self.avgspeedUnit = avgspeedUnit
         self.firstpkgtime = firstpkgtime
+        self.firstpkgtimeUnit = firstpkgtimeUnit
         self.errorRatio = errorRatio
         self.flow = flow
+        self.flowUnit = flowUnit
         self.flowPercent = flowPercent
         self.pv = pv
         self.hitRatio = hitRatio

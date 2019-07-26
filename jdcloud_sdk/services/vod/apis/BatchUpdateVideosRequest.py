@@ -32,15 +32,10 @@ class BatchUpdateVideosRequest(JDCloudRequest):
 
 class BatchUpdateVideosParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, bulkItems):
         """
+        :param bulkItems: 批量更新视频的条目集合
         """
 
-        self.contents = None
-
-    def setContents(self, contents):
-        """
-        :param contents: (Optional) 
-        """
-        self.contents = contents
+        self.bulkItems = bulkItems
 

@@ -56,7 +56,7 @@ class SetMonitorParameters(object):
 
     def setHttpRequestHeader(self, httpRequestHeader):
         """
-        :param httpRequestHeader: (Optional) 
+        :param httpRequestHeader: (Optional) http请求头
         """
         self.httpRequestHeader = httpRequestHeader
 

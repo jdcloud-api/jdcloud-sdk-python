@@ -34,7 +34,7 @@ class CreateWebRuleParameters(object):
 
     def __init__(self, regionId, instanceId, webRuleSpec):
         """
-        :param regionId: 区域 Id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 高防实例 Id
         :param webRuleSpec: 添加网站类规则请求参数
         """

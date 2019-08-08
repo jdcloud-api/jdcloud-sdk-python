@@ -19,7 +19,7 @@
 
 class DescribedAlarm(object):
 
-    def __init__(self, calculateUnit=None, calculation=None, createTime=None, downSample=None, enabled=None, id=None, metric=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, region=None, resourceId=None, serviceCode=None, status=None, tags=None, threshold=None, times=None):
+    def __init__(self, calculateUnit=None, calculation=None, createTime=None, downSample=None, enabled=None, id=None, metric=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, region=None, resourceId=None, ruleName=None, serviceCode=None, status=None, tags=None, threshold=None, times=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
         """
         :param calculateUnit: (Optional) 计算单位
         :param calculation: (Optional) 统计方法：平均值=avg、最大值=max、最小值=min
@@ -35,11 +35,16 @@ class DescribedAlarm(object):
         :param period: (Optional) 统计周期（单位：分钟）
         :param region: (Optional) 地域信息
         :param resourceId: (Optional) 资源id
+        :param ruleName: (Optional) 规则名称
         :param serviceCode: (Optional) 产品线编码
         :param status: (Optional) 监控项状态：1正常，2告警，4数据不足
         :param tags: (Optional) 标签
         :param threshold: (Optional) 告警阈值
         :param times: (Optional) 告警次数
+        :param webHookContent: (Optional) 回调content
+        :param webHookProtocol: (Optional) webHook协议
+        :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
+        :param webHookUrl: (Optional) 回调url
         """
 
         self.calculateUnit = calculateUnit
@@ -56,8 +61,13 @@ class DescribedAlarm(object):
         self.period = period
         self.region = region
         self.resourceId = resourceId
+        self.ruleName = ruleName
         self.serviceCode = serviceCode
         self.status = status
         self.tags = tags
         self.threshold = threshold
         self.times = times
+        self.webHookContent = webHookContent
+        self.webHookProtocol = webHookProtocol
+        self.webHookSecret = webHookSecret
+        self.webHookUrl = webHookUrl

@@ -19,11 +19,9 @@
 
 class TcpSocket(object):
 
-    def __init__(self, port, host=None):
+    def __init__(self, port=None):
         """
-        :param host: (Optional) 连接到pod的host信息，默认使用pod_ip
-        :param port:  范围：[1-65535]
+        :param port: (Optional) 端口号，范围：[1-65535]
         """
 
-        self.host = host
         self.port = port

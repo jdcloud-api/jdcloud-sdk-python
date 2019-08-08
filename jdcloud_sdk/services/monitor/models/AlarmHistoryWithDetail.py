@@ -19,9 +19,11 @@
 
 class AlarmHistoryWithDetail(object):
 
-    def __init__(self, contacts=None, noticeLevel=None, noticeTime=None, rule=None, value=None):
+    def __init__(self, contacts=None, durationTimes=None, noticeDurationTime=None, noticeLevel=None, noticeTime=None, rule=None, value=None):
         """
         :param contacts: (Optional) 告警联系人
+        :param durationTimes: (Optional) 告警持续次数
+        :param noticeDurationTime: (Optional) 告警持续时间，单位分钟
         :param noticeLevel: (Optional) 用于前端显示的‘触发告警级别’。从低到高分别为‘普通’, ‘紧急’, ‘严重’
         :param noticeTime: (Optional) noticeTime
         :param rule: (Optional) 
@@ -29,6 +31,8 @@ class AlarmHistoryWithDetail(object):
         """
 
         self.contacts = contacts
+        self.durationTimes = durationTimes
+        self.noticeDurationTime = noticeDurationTime
         self.noticeLevel = noticeLevel
         self.noticeTime = noticeTime
         self.rule = rule

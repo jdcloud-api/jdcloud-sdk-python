@@ -19,15 +19,17 @@
 
 class ServiceMetricItem(object):
 
-    def __init__(self, aggregates=None, calculateUnit=None, metric=None, name=None):
+    def __init__(self, aggregates=None, calculateUnit=None, metric=None, name=None, serviceCode=None):
         """
         :param aggregates: (Optional) 
         :param calculateUnit: (Optional) 
         :param metric: (Optional) 
         :param name: (Optional) 
+        :param serviceCode: (Optional) 
         """
 
         self.aggregates = aggregates
         self.calculateUnit = calculateUnit
         self.metric = metric
         self.name = name
+        self.serviceCode = serviceCode

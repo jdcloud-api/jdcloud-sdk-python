@@ -19,13 +19,17 @@
 
 class SiteMonitorUdpOption(object):
 
-    def __init__(self, reqContent=None, resCheck=None, timeout=None):
+    def __init__(self, reqContent=None, reqContentType=None, resCheck=None, resCheckType=None, timeout=None):
         """
         :param reqContent: (Optional) 
+        :param reqContentType: (Optional) 
         :param resCheck: (Optional) 
+        :param resCheckType: (Optional) 
         :param timeout: (Optional) 
         """
 
         self.reqContent = reqContent
+        self.reqContentType = reqContentType
         self.resCheck = resCheck
+        self.resCheckType = resCheckType
         self.timeout = timeout

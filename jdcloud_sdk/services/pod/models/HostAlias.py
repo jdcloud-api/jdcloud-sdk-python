@@ -19,12 +19,11 @@
 
 class HostAlias(object):
 
-    def __init__(self, hostnames, ip, ):
+    def __init__(self, hostnames=None, ip=None):
         """
-        :param hostnames:  域名列表。<br>
-eg  ["foo.local", "bar.local"]。长度范围 1-10; 元素符合hostname命名规范。
+        :param hostnames: (Optional) 域名列表。
 
-        :param ip:  ipv4信息；eg "127.0.0.1"
+        :param ip: (Optional) ipv4地址。
         """
 
         self.hostnames = hostnames

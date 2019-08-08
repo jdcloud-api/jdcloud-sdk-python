@@ -21,7 +21,7 @@ class TcpSocketSpec(object):
 
     def __init__(self, port, ):
         """
-        :param port:  范围：[1-65535]
+        :param port:  端口号，范围：[1-65535]
         """
 
         self.port = port

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyPodAttributeRequest(JDCloudRequest):
     """
-    修改 pod 的 名称 和 描述。
+    修改 pod 的描述。
 
     """
 
@@ -45,7 +45,7 @@ class ModifyPodAttributeParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) pod name 和 description 必须要指定一个
+        :param description: (Optional) 修改后的描述
         """
         self.description = description
 

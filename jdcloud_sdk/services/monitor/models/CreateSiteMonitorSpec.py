@@ -19,7 +19,7 @@
 
 class CreateSiteMonitorSpec(object):
 
-    def __init__(self, address=None, advanceChecked=None, createdTime=None, cycle=None, defaultSource=None, enabled=None, hawkeyeId=None, httpOption=None, id=None, isDeleted=None, name=None, pin=None, port=None, source=None, stats=None, tcpOption=None, type=None, udpOption=None, updatedTime=None):
+    def __init__(self, address=None, advanceChecked=None, createdTime=None, cycle=None, defaultSource=None, enabled=None, ftpOption=None, hawkeyeId=None, httpOption=None, id=None, isDeleted=None, name=None, pin=None, port=None, smtpOption=None, source=None, stats=None, taskType=None, tcpOption=None, udpOption=None, updatedTime=None):
         """
         :param address: (Optional) 
         :param advanceChecked: (Optional) 
@@ -27,6 +27,7 @@ class CreateSiteMonitorSpec(object):
         :param cycle: (Optional) 
         :param defaultSource: (Optional) 
         :param enabled: (Optional) 
+        :param ftpOption: (Optional) 
         :param hawkeyeId: (Optional) 
         :param httpOption: (Optional) 
         :param id: (Optional) 
@@ -34,10 +35,11 @@ class CreateSiteMonitorSpec(object):
         :param name: (Optional) 
         :param pin: (Optional) 
         :param port: (Optional) 
+        :param smtpOption: (Optional) 
         :param source: (Optional) 
         :param stats: (Optional) 
+        :param taskType: (Optional) 
         :param tcpOption: (Optional) 
-        :param type: (Optional) 
         :param udpOption: (Optional) 
         :param updatedTime: (Optional) 
         """
@@ -48,6 +50,7 @@ class CreateSiteMonitorSpec(object):
         self.cycle = cycle
         self.defaultSource = defaultSource
         self.enabled = enabled
+        self.ftpOption = ftpOption
         self.hawkeyeId = hawkeyeId
         self.httpOption = httpOption
         self.id = id
@@ -55,9 +58,10 @@ class CreateSiteMonitorSpec(object):
         self.name = name
         self.pin = pin
         self.port = port
+        self.smtpOption = smtpOption
         self.source = source
         self.stats = stats
+        self.taskType = taskType
         self.tcpOption = tcpOption
-        self.type = type
         self.udpOption = udpOption
         self.updatedTime = updatedTime

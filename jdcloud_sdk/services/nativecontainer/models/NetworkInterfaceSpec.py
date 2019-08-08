@@ -22,12 +22,12 @@ class NetworkInterfaceSpec(object):
     def __init__(self, subnetId, az, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, securityGroups=None, sanityCheck=None, description=None):
         """
         :param subnetId:  子网ID
-        :param az:  可用区，用户的默认可用区
+        :param az:  可用区，用户的默认可用区，暂不支持
         :param primaryIpAddress: (Optional) 网卡主IP
         :param secondaryIpAddresses: (Optional) SecondaryIp列表
         :param secondaryIpCount: (Optional) 自动分配的SecondaryIp数量
-        :param securityGroups: (Optional) 安全组ID列表
-        :param sanityCheck: (Optional) PortSecurity，取值为0或者1，默认为1
+        :param securityGroups: (Optional) 要绑定的安全组ID列表，最多指定5个安全组
+        :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1，默认为1，暂不支持此功能
         :param description: (Optional) 描述
         """
 

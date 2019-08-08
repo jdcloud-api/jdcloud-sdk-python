@@ -22,13 +22,13 @@ class Container(object):
     def __init__(self, name=None, command=None, args=None, env=None, image=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, systemDisk=None, volumeMounts=None, containerStatus=None):
         """
         :param name: (Optional) 容器名称
-        :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT。总长度256个字符。
-        :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD。总长度2048个字符。
-        :param env: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值。长度范围：[0-100]
-        :param image: (Optional) 镜像名称 </br> 容器镜像名字。 nginx:latest。长度范围：[1-500] 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> 2. repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br>
-        :param secret: (Optional) 镜像仓库secret名字。如果目前不传，默认选择dockerHub镜像
-        :param tty: (Optional) 容器是否分配tty。默认不分配
-        :param workingDir: (Optional) 容器的工作目录。如果不指定，默认是根目录（/）；必须是绝对路径；长度范围：[0-1024]
+        :param command: (Optional) 容器执行的命令。
+        :param args: (Optional) 容器执行命令的参数。
+        :param env: (Optional) 容器执行的环境变量。
+        :param image: (Optional) 容器镜像名称。
+        :param secret: (Optional) 容器镜像仓库认证信息。
+        :param tty: (Optional) 容器是否分配tty。
+        :param workingDir: (Optional) 容器的工作目录。
         :param livenessProbe: (Optional) 容器存活探针配置
         :param readinessProbe: (Optional) 容器服务就绪探针配置
         :param resources: (Optional) 容器计算资源配置

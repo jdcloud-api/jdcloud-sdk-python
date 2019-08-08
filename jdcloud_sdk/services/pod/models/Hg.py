@@ -19,14 +19,13 @@
 
 class Hg(object):
 
-    def __init__(self, port, path, scheme=None, host=None, httpHeader=None):
+    def __init__(self, scheme=None, host=None, port=None, path=None, httpHeader=None):
         """
-        :param scheme: (Optional) 默认值： http；可选值 http, https
-        :param host: (Optional) 连接到pod的host信息，默认使用pod_ip，满足hostname或者ipv4格式
-        :param port:  范围：[1-65535]
-        :param path:  HTTP的路径。范围：[1-256]
-        :param httpHeader: (Optional) 对指定的端口和路径上的容器的 IP 地址执行 HTTP Get 请求。<br>
-如果响应的状态码大于等于200 且小于 400，则诊断被认为是成功的。 
+        :param scheme: (Optional) 默认值：http。
+        :param host: (Optional) 连接到pod的host信息。
+        :param port: (Optional) 端口号。
+        :param path: (Optional) HTTP的路径。
+        :param httpHeader: (Optional) 自定义Http headers
         """
 
         self.scheme = scheme

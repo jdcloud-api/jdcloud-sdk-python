@@ -21,10 +21,10 @@ class Secret(object):
 
     def __init__(self, name=None, type=None, createdAt=None, data=None):
         """
-        :param name: (Optional) 机密数据名称
-        :param type: (Optional) 私密数据的类型，目前仅支持如下类型：docker-registry：用来和docker registry认证的类型
-        :param createdAt: (Optional) 创建时间
-        :param data: (Optional) 机密的数据
+        :param name: (Optional) 镜像仓库认证信息名称
+        :param type: (Optional) 镜像仓库认证信息类型
+        :param createdAt: (Optional) 镜像仓库认证信息创建时间
+        :param data: (Optional) 镜像仓库认证信息数据
         """
 
         self.name = name

@@ -21,7 +21,7 @@ class LogConfig(object):
 
     def __init__(self, logDriver=None):
         """
-        :param logDriver: (Optional) 日志Driver名称，目前只支持默认为每一个容器在本地分配10MB的存储空间，自动rotate。默认值：default。
+        :param logDriver: (Optional) 日志Driver名称。
         """
 
         self.logDriver = logDriver

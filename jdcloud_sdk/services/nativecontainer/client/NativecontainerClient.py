@@ -26,4 +26,4 @@ class NativecontainerClient(JDCloudClient):
         if config is None:
             config = Config('nativecontainer.jdcloud-api.com')
 
-        super(NativecontainerClient, self).__init__(credential, config, 'nativecontainer', '1.0.2', logger)
+        super(NativecontainerClient, self).__init__(credential, config, 'nativecontainer', '2.1.0', logger)

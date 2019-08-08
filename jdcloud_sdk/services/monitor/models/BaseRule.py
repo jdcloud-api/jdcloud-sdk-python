@@ -19,7 +19,7 @@
 
 class BaseRule(object):
 
-    def __init__(self, calculateUnit, calculation, downSample, metric, noticePeriod, operation, period, threshold, times, autoScalingPolicyId=None, noticeLevel=None, ruleType=None, tags=None):
+    def __init__(self, calculateUnit, calculation, downSample, metric, noticePeriod, operation, period, threshold, times, autoScalingPolicyId=None, noticeLevel=None, ruleName=None, ruleType=None, tags=None):
         """
         :param autoScalingPolicyId: (Optional) 弹性伸缩组ID
         :param calculateUnit:  单位
@@ -29,7 +29,8 @@ class BaseRule(object):
         :param noticeLevel: (Optional) 
         :param noticePeriod:  通知周期，单位：小时
         :param operation:  报警比较符，只能为以下几种lte(<=),lt(<),gt(>),gte(>=),eq(==),ne(!=)
-        :param period:  查询指标的周期，单位为分钟,目前支持的取值：1,2，5，15，30，60
+        :param period:  查询指标的周期，单位为分钟,目前支持的取值：1,2，5，10,15，30，60
+        :param ruleName: (Optional) 规则名称，规则名称，最大长度42个字符，只允许中英文、数字、''-''和"_"
         :param ruleType: (Optional) 规则类型, 1云监控的规则， 6站点监控。默认为1
         :param tags: (Optional) 多值标签
         :param threshold:  报警阈值，目前只开放数值类型功能
@@ -45,6 +46,7 @@ class BaseRule(object):
         self.noticePeriod = noticePeriod
         self.operation = operation
         self.period = period
+        self.ruleName = ruleName
         self.ruleType = ruleType
         self.tags = tags
         self.threshold = threshold

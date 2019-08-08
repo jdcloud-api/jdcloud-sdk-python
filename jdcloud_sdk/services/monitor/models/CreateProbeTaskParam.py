@@ -19,10 +19,9 @@
 
 class CreateProbeTaskParam(object):
 
-    def __init__(self, address, name, probeType, probes, taskType, frequency=None, httpBody=None, httpCookie=None, httpHeader=None, httpType=None, port=None, targetId=None, targetRegion=None, timeout=None):
+    def __init__(self, address, name, probeType, probes, taskType, httpBody=None, httpCookie=None, httpHeader=None, httpType=None, port=None, targetId=None, targetRegion=None):
         """
         :param address:  探测地址，探测类型为http：内容为url（校验http或https头）；探测类型为telnet：内容为ip或域名（只允许中英文 、数字、中划线（-）、小数点（.）、开头及结尾均不能含有“-”）
-        :param frequency: (Optional) 探测间隔（单位：秒）：默认值：300，取值范围[60,1200]
         :param httpBody: (Optional) http body：选择探测类型为1=http时有效，最长不超过1024字节
 in: query
         :param httpCookie: (Optional) http cookie：选择探测类型为1=http时有效，最大允许20个key、value对，最长不超过1024字节
@@ -37,11 +36,9 @@ in: query
         :param targetRegion: (Optional) 探测目标region：该探测对象所在region，任务类型为2：rds、3：redis时必填
 in: query
         :param taskType:  task类型：1=url/ip、2=RDS、3=redis
-        :param timeout: (Optional) 探测超时时间（单位：秒）：默认值:5，取值范围 [1,300]
         """
 
         self.address = address
-        self.frequency = frequency
         self.httpBody = httpBody
         self.httpCookie = httpCookie
         self.httpHeader = httpHeader
@@ -53,4 +50,3 @@ in: query
         self.targetId = targetId
         self.targetRegion = targetRegion
         self.taskType = taskType
-        self.timeout = timeout

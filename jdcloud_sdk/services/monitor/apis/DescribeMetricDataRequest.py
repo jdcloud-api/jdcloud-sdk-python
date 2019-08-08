@@ -67,13 +67,13 @@ class DescribeMetricDataParameters(object):
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：2016-12-11T00:00:00+0800（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
+        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
         """
         self.endTime = endTime
 
@@ -85,7 +85,7 @@ class DescribeMetricDataParameters(object):
 
     def setTags(self, tags):
         """
-        :param tags: (Optional) 自定义标签/tag；至少要传一个tag，且tag.Values不为空
+        :param tags: (Optional) 监控指标数据的维度信息,根据tags来筛选指标数据不同的维度
         """
         self.tags = tags
 

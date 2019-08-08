@@ -19,10 +19,12 @@
 
 class DescribedAlarmHistory(object):
 
-    def __init__(self, alarm=None, contacts=None, noticeLevelTriggered=None, noticeTime=None, value=None):
+    def __init__(self, alarm=None, contacts=None, durationTimes=None, noticeDurationTime=None, noticeLevelTriggered=None, noticeTime=None, value=None):
         """
         :param alarm: (Optional) 
         :param contacts: (Optional) 告警联系人
+        :param durationTimes: (Optional) 告警持续次数
+        :param noticeDurationTime: (Optional) 告警持续时间，单位分钟
         :param noticeLevelTriggered: (Optional) 触发的告警级别。从低到高分别为‘common’, ‘critical’, ‘fatal’
         :param noticeTime: (Optional) 告警时间
         :param value: (Optional) 告警值
@@ -30,6 +32,8 @@ class DescribedAlarmHistory(object):
 
         self.alarm = alarm
         self.contacts = contacts
+        self.durationTimes = durationTimes
+        self.noticeDurationTime = noticeDurationTime
         self.noticeLevelTriggered = noticeLevelTriggered
         self.noticeTime = noticeTime
         self.value = value

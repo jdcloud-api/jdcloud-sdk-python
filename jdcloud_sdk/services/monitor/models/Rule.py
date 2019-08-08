@@ -19,7 +19,7 @@
 
 class Rule(object):
 
-    def __init__(self, autoScalingPolicyId=None, calculateUnit=None, calculation=None, createTime=None, dataMeaning=None, datacenter=None, deleted=None, downSample=None, enableTime=None, enabled=None, id=None, idpk=None, isLatest=None, metric=None, metricId=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, pin=None, preVersionId=None, region=None, resourceId=None, rootRuleId=None, ruleType=None, serviceCode=None, status=None, statusTime=None, tags=None, tagsNonGrouping=None, threshold=None, times=None, updateTime=None, version=None):
+    def __init__(self, autoScalingPolicyId=None, calculateUnit=None, calculation=None, createTime=None, dataMeaning=None, datacenter=None, deleted=None, downSample=None, enableTime=None, enabled=None, id=None, idpk=None, isLatest=None, metric=None, metricId=None, metricName=None, noticeLevel=None, noticePeriod=None, operation=None, period=None, pin=None, preVersionId=None, region=None, resourceId=None, rootRuleId=None, ruleName=None, ruleType=None, serviceCode=None, status=None, statusTime=None, tags=None, tagsNonGrouping=None, threshold=None, times=None, updateTime=None, version=None):
         """
         :param autoScalingPolicyId: (Optional) AutoScalingPolicyID
         :param calculateUnit: (Optional) calculateUnit
@@ -46,6 +46,7 @@ class Rule(object):
         :param region: (Optional) region
         :param resourceId: (Optional) 资源 id
         :param rootRuleId: (Optional) rootRuleID
+        :param ruleName: (Optional) 规则名称
         :param ruleType: (Optional) rutye 1:经典监控  5：自定义监控   6：站点监控 7：可用性监控
         :param serviceCode: (Optional) serviceCode
         :param status: (Optional) status
@@ -83,6 +84,7 @@ class Rule(object):
         self.region = region
         self.resourceId = resourceId
         self.rootRuleId = rootRuleId
+        self.ruleName = ruleName
         self.ruleType = ruleType
         self.serviceCode = serviceCode
         self.status = status

@@ -19,7 +19,7 @@
 
 class CreateAlarmParam(object):
 
-    def __init__(self, calculateUnit, calculation, downSample, metric, operation, period, resourceIds, serviceCode, threshold, times, contactGroups=None, contactPersons=None, noticeLevel=None, noticePeriod=None, tags=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
+    def __init__(self, calculateUnit, calculation, downSample, metric, operation, period, resourceIds, serviceCode, threshold, times, contactGroups=None, contactPersons=None, noticeLevel=None, noticePeriod=None, ruleName=None, tags=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
         """
         :param calculateUnit:  单位
         :param calculation:  统计方法，必须与定义的metric一致，可选值列表：avg,sum,max,min
@@ -30,16 +30,17 @@ class CreateAlarmParam(object):
         :param noticeLevel: (Optional) 
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param operation:  报警比较符，只能为以下几种lte(<=),lt(<),gt(>),gte(>=),eq(==),ne(!=)
-        :param period:  查询指标的周期，单位为分钟,目前支持的取值：1，2，5，15，30，60
+        :param period:  查询指标的周期，单位为分钟,目前支持的取值：1，2，5，10,15，30，60
         :param resourceIds:  报警规则对应实例列表，每次最多100个，例如"['resourceId1','resourceId2']"
+        :param ruleName: (Optional) 规则名称，最大长度42个字符，只允许中英文、数字、''-''和"_"
         :param serviceCode:  产品名称
         :param tags: (Optional) 多值标签
         :param threshold:  报警阈值，目前只开放数值类型功能
         :param times:  连续探测几次都满足阈值条件时报警，可选值:1,2,3,5,10,15,30,60
         :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookContent均不为空时，才会创建webHook
-        :param webHookProtocol: (Optional) webHook协议
+        :param webHookProtocol: (Optional) webHook协议，目前支持http，https
         :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
-        :param webHookUrl: (Optional) 回调url
+        :param webHookUrl: (Optional) 回调url，例如http://www.jdcloud.com
         """
 
         self.calculateUnit = calculateUnit
@@ -53,6 +54,7 @@ class CreateAlarmParam(object):
         self.operation = operation
         self.period = period
         self.resourceIds = resourceIds
+        self.ruleName = ruleName
         self.serviceCode = serviceCode
         self.tags = tags
         self.threshold = threshold

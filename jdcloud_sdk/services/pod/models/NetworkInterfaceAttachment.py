@@ -21,7 +21,7 @@ class NetworkInterfaceAttachment(object):
 
     def __init__(self, autoDelete=None, deviceIndex=None, attachStatus=None, attachTime=None, networkInterface=None):
         """
-        :param autoDelete: (Optional) 指明删除pod时是否删除网卡，默认True；当前只能是True
+        :param autoDelete: (Optional) 指明删除pod时是否删除网卡。
         :param deviceIndex: (Optional) 设备Index，目前pod只支持一个网卡，所以只能设置为1
         :param attachStatus: (Optional) 绑定状态
         :param attachTime: (Optional) 绑定时间

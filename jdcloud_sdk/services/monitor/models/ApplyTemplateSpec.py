@@ -19,12 +19,13 @@
 
 class ApplyTemplateSpec(object):
 
-    def __init__(self, clientToken, dataCenters, resourceIds, serviceCode, templateType, contacts=None, tagsArray=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
+    def __init__(self, clientToken, dataCenters, resourceIds, serviceCode, templateType, contacts=None, ruleName=None, tagsArray=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
         """
         :param clientToken:  幂等性校验参数,最长36位
         :param contacts: (Optional) 联系人列表
         :param dataCenters:  dataCenters，该资源所处地域，与resourceIds一一对应
         :param resourceIds:  资源ID列表，resourceIds数量为1--40，每一项不能为空或包含*
+        :param ruleName: (Optional) 规则名称，规则名称，最大长度42个字符，只允许中英文、数字、''-''和"_"
         :param serviceCode:  资源类型
         :param tagsArray: (Optional) 标签组，模板下面规则对应的tags，与resourceIds一一对应
         :param templateType:  模板类型，1表示默认模板，2表示用户自定义模板
@@ -38,6 +39,7 @@ class ApplyTemplateSpec(object):
         self.contacts = contacts
         self.dataCenters = dataCenters
         self.resourceIds = resourceIds
+        self.ruleName = ruleName
         self.serviceCode = serviceCode
         self.tagsArray = tagsArray
         self.templateType = templateType

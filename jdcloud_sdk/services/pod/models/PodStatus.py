@@ -24,8 +24,8 @@ class PodStatus(object):
         :param phase: (Optional) pod当前状态
         :param reason: (Optional) （简要）pod处于当前状态的原因
         :param message: (Optional) pod处于当前状态原因的详细信息
-        :param podIP: (Optional) IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
-        :param conditions: (Optional) Current service state of pod.
+        :param podIP: (Optional) 分配给pod的IP地址。至少在集群内是可路由的。未分配则为空。
+        :param conditions: (Optional) 目前pod的状态。
         :param startTime: (Optional) Pod生命周期开始的时间。
         """
 

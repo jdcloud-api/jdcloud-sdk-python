@@ -19,10 +19,10 @@
 
 class Hh(object):
 
-    def __init__(self, name, value, ):
+    def __init__(self, name=None, value=None):
         """
-        :param name:  http header key，需满足http的规则
-        :param value:  容器探活方式
+        :param name: (Optional) http header 键
+        :param value: (Optional) http header 值
         """
 
         self.name = name

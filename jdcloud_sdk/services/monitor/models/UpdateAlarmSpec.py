@@ -24,9 +24,9 @@ class UpdateAlarmSpec(object):
         :param contacts: (Optional) 通知联系人
         :param rule:  
         :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookContent均不为空时，才会创建webHook
-        :param webHookProtocol: (Optional) webHook协议
+        :param webHookProtocol: (Optional) webHook协议，目前支持http，https
         :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
-        :param webHookUrl: (Optional) 回调url
+        :param webHookUrl: (Optional) 回调url，例如http://www.jdcloud.com
         """
 
         self.contacts = contacts

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RestartInstanceRequest(JDCloudRequest):
     """
-    重启单台云物理服务器，只能重启running状态的服务器
+    重启单台云物理服务器，只能重启running状态的服务器 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):

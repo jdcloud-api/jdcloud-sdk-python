@@ -22,7 +22,7 @@ class NetworkInterfacePrivateIp(object):
     def __init__(self, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None):
         """
         :param privateIpAddress: (Optional) 私有IP的IPV4地址
-        :param elasticIpId: (Optional) 私有IP的IPV4地址
+        :param elasticIpId: (Optional) 弹性IP实例ID
         :param elasticIpAddress: (Optional) 弹性IP实例地址
         """
 

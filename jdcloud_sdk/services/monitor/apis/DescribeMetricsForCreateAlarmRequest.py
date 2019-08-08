@@ -37,10 +37,17 @@ class DescribeMetricsForCreateAlarmParameters(object):
         """
 
         self.serviceCode = None
+        self.type = None
 
     def setServiceCode(self, serviceCode):
         """
         :param serviceCode: (Optional) 资源的类型，取值vm, lb, ip, database 等
         """
         self.serviceCode = serviceCode
+
+    def setType(self, type):
+        """
+        :param type: (Optional) metric类型，取值0、1；默认值：0（常规指标，用于控制台创建报警规则）、1（其它）
+        """
+        self.type = type
 

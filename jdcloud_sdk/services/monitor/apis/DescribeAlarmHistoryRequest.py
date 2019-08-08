@@ -23,12 +23,17 @@ class DescribeAlarmHistoryRequest(JDCloudRequest):
     """
     查询报警历史
 检索条件组合优先级从高到低为
-1. alarmId
-2. serviceCode
-2.1 serviceCode + resourceId
-2.2 serviceCode + resourceIds
-3. serviceCodes
-4. 用户所有规则
+1：alarmIds不为空
+2：alarmId不为空
+3：serviceCode不为空
+3.1：serviceCode + resourceId
+3.2: serviceCode + resourceIds
+3.3: serviceCode + ruleName
+4：serviceCodes不为空
+4.1：serviceCode + resourceId
+4.2: serviceCode + resourceIds
+4.3: serviceCode + ruleName
+5: 所有规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -48,6 +53,7 @@ class DescribeAlarmHistoryParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.serviceCode = None
+        self.groupCode = None
         self.resourceId = None
         self.resourceIdList = None
         self.alarmId = None
@@ -72,9 +78,15 @@ class DescribeAlarmHistoryParameters(object):
 
     def setServiceCode(self, serviceCode):
         """
-        :param serviceCode: (Optional) 产品线
+        :param serviceCode: (Optional) 产品线标识,默认返回该serviceCode下所有group的数据。eg:serviceCode=jdw（jdw产品线下包含jdw-master与jdw-segment两个分组)会返回jdw-master和jdw-segment的数据。
         """
         self.serviceCode = serviceCode
+
+    def setGroupCode(self, groupCode):
+        """
+        :param groupCode: (Optional) 分组标识、指定该参数时，查询只返回该group的数据。groupCode参数仅在与serviceCode匹配时生效；eg:serviceCode=jdw、groupCode=jdw-master,只返回jdw-master分组的数据，不返回jdw-segment的数据。
+        """
+        self.groupCode = groupCode
 
     def setResourceId(self, resourceId):
         """
@@ -84,7 +96,7 @@ class DescribeAlarmHistoryParameters(object):
 
     def setResourceIdList(self, resourceIdList):
         """
-        :param resourceIdList: (Optional) resourceId列表
+        :param resourceIdList: (Optional) resourceId列表，必须指定serviceCode才会生效
         """
         self.resourceIdList = resourceIdList
 
@@ -126,9 +138,10 @@ class DescribeAlarmHistoryParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 服务码或资源Id列表
-filter name 为serviceCodes表示查询多个产品线的规则
-filter name 为resourceIds表示查询多个资源的规则
+        :param filters: (Optional) serviceCodes - 产品线servicecode，精确匹配，支持多个
+resourceIds - 资源Id，精确匹配，支持多个（必须指定serviceCode才会在该serviceCode下根据resourceIds过滤，否则该参数不生效）
+alarmIds - 规则Id，精确匹配，支持多个
+ruleName - 规则名称，模糊匹配，支持单个
         """
         self.filters = filters
 

@@ -19,11 +19,9 @@
 
 class LogConfiguration(object):
 
-    def __init__(self, logDriver=None, options=None):
+    def __init__(self, logDriver=None):
         """
         :param logDriver: (Optional) 日志Driver名称  default：默认在本地分配10MB的存储空间，自动rotate
-        :param options: (Optional) 日志Driver的配置选项
         """
 
         self.logDriver = logDriver
-        self.options = options

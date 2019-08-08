@@ -31,9 +31,9 @@ class PodSpec(object):
         :param dnsConfig: (Optional) pod内容器的/etc/resolv.conf配置
         :param logConfig: (Optional) 容器日志配置信息；默认会在本地分配10MB的存储空间
         :param hostAliases: (Optional) 域名和IP映射的信息；</br> 最大10个alias
-        :param volumes: (Optional) 域名和IP映射的信息；</br> 最大10个alias
-        :param containers:  域名和IP映射的信息；</br> 最大10个alias
-        :param charge: (Optional) 预付费（prepaid_by_duration）, 按配置后付费（postpaid_by_duration）。默认：按配置后付费
+        :param volumes: (Optional) Pod的volume列表，可以挂载到container上。长度范围：[0,7]
+        :param containers:  Pod的容器列表，至少一个容器。长度范围[1,8]
+        :param charge: (Optional) 计费模式：包年包月预付费（prepaid_by_duration）, 按配置后付费（postpaid_by_duration）。默认：按配置后付费
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param primaryNetworkInterface:  主网卡配置信息
         """

@@ -19,13 +19,14 @@
 
 class MaintainAuxiliaryTags(object):
 
-    def __init__(self, appCode, groupCode, resourceIds, serviceCode, tags, filter=None):
+    def __init__(self, appCode, groupCode, resourceIds, serviceCode, srcServiceCode, tags, filter=None):
         """
         :param appCode:  应用码。调用此API前需找云监控提供
         :param filter: (Optional) 详细的过滤条件。
         :param groupCode:  组id。须确保在一个APP范围内全局唯一
         :param resourceIds:  资源列表。
-        :param serviceCode:  资源的产品线
+        :param serviceCode:  资源的产品线，要对哪个产品线的资源打标签
+        :param srcServiceCode:  打标签操作所属产品线的serviceCode
         :param tags:  
         """
 
@@ -34,4 +35,5 @@ class MaintainAuxiliaryTags(object):
         self.groupCode = groupCode
         self.resourceIds = resourceIds
         self.serviceCode = serviceCode
+        self.srcServiceCode = srcServiceCode
         self.tags = tags

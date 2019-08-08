@@ -19,22 +19,20 @@
 
 class JDCloudVolumeSource(object):
 
-    def __init__(self, fsType, volumeId=None, name=None, snapshot=None, diskType=None, sizeGB=None, formatVolume=None, iops=None, autoDelete=None):
+    def __init__(self, volumeId=None, snapshotId=None, diskType=None, sizeGB=None, fsType=None, formatVolume=None, iops=None, autoDelete=None):
         """
         :param volumeId: (Optional) 云盘id，使用已有云盘
-        :param name: (Optional) 云盘名称
-        :param snapshot: (Optional) 云盘快照id，根据云盘快照创建云盘。
-        :param diskType: (Optional) 云盘类型：ssd,premium-hdd,hdd.std1,ssd.gp1,ssd.io1
+        :param snapshotId: (Optional) 云盘快照id，根据云盘快照创建云盘。
+        :param diskType: (Optional) 云盘类型：hdd.std1,ssd.gp1,ssd.io1
         :param sizeGB: (Optional) 云盘size,单位 GB,要求
-        :param fsType:  指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
+        :param fsType: (Optional) 指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
         :param formatVolume: (Optional) 随容器自动创建的新盘，会自动格式化成指定的文件系统类型；挂载已有的盘，默认不会格式化，只会按照指定的fsType去挂载；如果希望格式化，必须设置此字段为true
         :param iops: (Optional) 云盘的 iops 值，目前只有 ssd.io1 类型有效
         :param autoDelete: (Optional) 是否随pod删除。默认：true
         """
 
         self.volumeId = volumeId
-        self.name = name
-        self.snapshot = snapshot
+        self.snapshotId = snapshotId
         self.diskType = diskType
         self.sizeGB = sizeGB
         self.fsType = fsType

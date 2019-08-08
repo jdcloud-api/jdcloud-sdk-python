@@ -19,10 +19,11 @@
 
 class TaskInfo(object):
 
-    def __init__(self, abnormalCount=None, address=None, enabled=None, name=None, probeAvailability=None, probeCount=None, probeType=None, responseTime=None, taskId=None):
+    def __init__(self, abnormalCount=None, address=None, deleted=None, enabled=None, name=None, probeAvailability=None, probeCount=None, probeType=None, responseTime=None, taskId=None):
         """
         :param abnormalCount: (Optional) 探测异常数  ，null代表缺值。只统计探测失败，超时的个数。
         :param address: (Optional) task的探测地址
+        :param deleted: (Optional) 该task状态[true:被删除]
         :param enabled: (Optional) 任务状态[false：己禁用，true：己启用]
         :param name: (Optional) task名称
         :param probeAvailability: (Optional) task的可用率
@@ -34,6 +35,7 @@ class TaskInfo(object):
 
         self.abnormalCount = abnormalCount
         self.address = address
+        self.deleted = deleted
         self.enabled = enabled
         self.name = name
         self.probeAvailability = probeAvailability

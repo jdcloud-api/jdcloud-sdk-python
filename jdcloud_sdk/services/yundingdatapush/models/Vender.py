@@ -19,13 +19,13 @@
 
 class Vender(object):
 
-    def __init__(self, appkey, ydRdsInstanceId, venderPin, ):
+    def __init__(self, appkey, ydRdsInstanceId, venderId, ):
         """
         :param appkey:  appkey
         :param ydRdsInstanceId:  云鼎数据库实例ID
-        :param venderPin:  商家PIN
+        :param venderId:  商家ID
         """
 
         self.appkey = appkey
         self.ydRdsInstanceId = ydRdsInstanceId
-        self.venderPin = venderPin
+        self.venderId = venderId

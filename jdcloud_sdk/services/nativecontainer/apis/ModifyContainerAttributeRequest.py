@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyContainerAttributeRequest(JDCloudRequest):
     """
-    修改容器的 名称 和 描述。
+    修改容器的 名称 和 描述。<br>
+name 和 description 必须要指定一个
 
     """
 
@@ -52,7 +53,7 @@ class ModifyContainerAttributeParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 容器描述；和description必须要指定一个
+        :param description: (Optional) 容器描述
         """
         self.description = description
 

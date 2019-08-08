@@ -21,11 +21,11 @@ class ContainerStateTerminated(object):
 
     def __init__(self, signal=None, exitCode=None, reason=None, message=None, finishedAt=None, startedAt=None):
         """
-        :param signal: (Optional) 容器被termination的信号。
-        :param exitCode: (Optional) 容器被termination的退出码。
-        :param reason: (Optional) （简要）容器被termination的原因。
-        :param message: (Optional) 容器被termination的详细信息。
-        :param finishedAt: (Optional) 容器被termination的时间。
+        :param signal: (Optional) 容器被终止的信号。
+        :param exitCode: (Optional) 容器被终止的退出码。
+        :param reason: (Optional) （简要）容器被终止的原因。
+        :param message: (Optional) 容器被终止的详细信息。
+        :param finishedAt: (Optional) 容器被终止的时间。
         :param startedAt: (Optional) 容器开始执行的时间。
         """
 

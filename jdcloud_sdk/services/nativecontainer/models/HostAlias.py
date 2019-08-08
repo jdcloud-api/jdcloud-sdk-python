@@ -19,10 +19,10 @@
 
 class HostAlias(object):
 
-    def __init__(self, hostnames, ip, ):
+    def __init__(self, hostnames=None, ip=None):
         """
-        :param hostnames:  域名列表
-        :param ip:  IP地址
+        :param hostnames: (Optional) 域名列表
+        :param ip: (Optional) IP地址
         """
 
         self.hostnames = hostnames

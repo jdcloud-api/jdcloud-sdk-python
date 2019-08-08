@@ -25,7 +25,7 @@ class InstanceCloudDisk(object):
         :param az: (Optional) 所属AZ
         :param name: (Optional) 硬盘名称
         :param description: (Optional) 硬盘描述
-        :param diskType: (Optional) 磁盘类型，取值为 ssd, premium-hdd 之一
+        :param diskType: (Optional) 磁盘类型
         :param diskSize: (Optional) 磁盘大小（GiB）
         :param iops: (Optional) 用户指定购买的iops值，目前只支持 ssd.io1 类型云盘
         :param status: (Optional) 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_creating、error_deleting、error_restoring、error_extending 之一

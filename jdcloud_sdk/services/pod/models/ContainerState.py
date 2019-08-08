@@ -21,9 +21,9 @@ class ContainerState(object):
 
     def __init__(self, running=None, terminated=None, waiting=None):
         """
-        :param running: (Optional) 容器running的详细信息
-        :param terminated: (Optional) 容器Terminated的详细信息
-        :param waiting: (Optional) 容器waiting的详细信息
+        :param running: (Optional) 容器运行的详细信息
+        :param terminated: (Optional) 容器终止的详细信息
+        :param waiting: (Optional) 容器等待的详细信息
         """
 
         self.running = running

@@ -32,10 +32,17 @@ class DescribeMetricsRequest(JDCloudRequest):
 
 class DescribeMetricsParameters(object):
 
-    def __init__(self, serviceCode):
+    def __init__(self, serviceCode, ):
         """
         :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
         """
 
         self.serviceCode = serviceCode
+        self.type = None
+
+    def setType(self, type):
+        """
+        :param type: (Optional) metric的类型，取值0(控制台展示)、1(内部使用，控制台不展示)、2(所有).默认取0
+        """
+        self.type = type
 

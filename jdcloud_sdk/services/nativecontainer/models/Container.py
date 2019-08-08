@@ -32,7 +32,7 @@ class Container(object):
         :param args: (Optional) 容器执行命令的参数
         :param envs: (Optional) 动态指定的容器执行的环境变量
         :param image: (Optional) 镜像名称
-        :param secret: (Optional) secret引用的名称
+        :param secret: (Optional) 镜像仓库认证信息名称
         :param tty: (Optional) 容器是否分配tty
         :param workingDir: (Optional) 容器的工作目录
         :param rootVolume: (Optional) 根Volume信息

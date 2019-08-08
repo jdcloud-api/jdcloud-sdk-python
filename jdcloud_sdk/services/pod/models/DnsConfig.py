@@ -21,14 +21,11 @@ class DnsConfig(object):
 
     def __init__(self, nameservers=None, searches=None, options=None):
         """
-        :param nameservers: (Optional) DNS服务器IP地址列表，重复的将会被移除。<br>
-eg ["8.8.8.8", "4.2.2.2"]。列表长度：[0-20]，元素符合IPv4格式。
+        :param nameservers: (Optional) DNS服务器IP地址列表。
 
-        :param searches: (Optional) DNS搜索域列表，用于主机名查找。<br>
-eg ["ns1.svc.cluster.local", "my.dns.search.suffix"]。列表长度：[0-6]，列表中所有字符总长度不超过256个。
+        :param searches: (Optional) DNS搜索域列表，用于主机名查找。
 
-        :param options: (Optional) DNS解析器选项列表。<br>
-eg  ["ndots":"2", "edns0":""]。列表长度：[0-10]
+        :param options: (Optional) DNS解析器选项列表。
         """
 
         self.nameservers = nameservers

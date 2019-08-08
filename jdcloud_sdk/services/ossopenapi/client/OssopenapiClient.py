@@ -26,4 +26,4 @@ class OssopenapiClient(JDCloudClient):
         if config is None:
             config = Config('ossopenapi.jdcloud-api.com')
 
-        super(OssopenapiClient, self).__init__(credential, config, 'ossopenapi', '0.4.5', logger)
+        super(OssopenapiClient, self).__init__(credential, config, 'ossopenapi', '0.8.0', logger)

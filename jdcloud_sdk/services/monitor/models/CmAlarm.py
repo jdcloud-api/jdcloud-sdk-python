@@ -19,7 +19,7 @@
 
 class CmAlarm(object):
 
-    def __init__(self, calculation=None, contactGroups=None, contactPersons=None, createTime=None, enabled=None, id=None, metric=None, metricName=None, namespace=None, namespaceUID=None, noticePeriod=None, noticeTime=None, obj=None, objUID=None, operation=None, period=None, region=None, resourceId=None, rootRuleId=None, ruleId=None, serviceCode=None, status=None, tag=None, threshold=None, times=None, value=None):
+    def __init__(self, calculation=None, contactGroups=None, contactPersons=None, createTime=None, enabled=None, id=None, metric=None, metricName=None, namespace=None, namespaceUID=None, noticePeriod=None, noticeTime=None, obj=None, objUID=None, operation=None, period=None, region=None, resourceId=None, rootRuleId=None, ruleId=None, ruleName=None, serviceCode=None, status=None, tag=None, threshold=None, times=None, value=None):
         """
         :param calculation: (Optional) 统计方法：平均值=avg、最大值=max、最小值=min
         :param contactGroups: (Optional) 
@@ -41,6 +41,7 @@ class CmAlarm(object):
         :param resourceId: (Optional) 此规则所应用的资源id
         :param rootRuleId: (Optional) root rule id
         :param ruleId: (Optional) rule id
+        :param ruleName: (Optional) 规则名称
         :param serviceCode: (Optional) 报警规则对应的产品
         :param status: (Optional) 监控项状态:1正常，2告警，4数据不足
         :param tag: (Optional) 监控项附属信息
@@ -69,6 +70,7 @@ class CmAlarm(object):
         self.resourceId = resourceId
         self.rootRuleId = rootRuleId
         self.ruleId = ruleId
+        self.ruleName = ruleName
         self.serviceCode = serviceCode
         self.status = status
         self.tag = tag

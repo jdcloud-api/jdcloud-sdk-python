@@ -34,7 +34,7 @@ class UpdateAlarmParameters(object):
 
     def __init__(self, regionId, alarmId, rule, ):
         """
-        :param regionId: 地域 Id
+        :param regionId: 地域 Id，对于类似CDN这种没有地域属性的产品，regionId为cn-north-1
         :param alarmId: 规则id
         :param rule: 
         """
@@ -62,7 +62,7 @@ class UpdateAlarmParameters(object):
 
     def setWebHookProtocol(self, webHookProtocol):
         """
-        :param webHookProtocol: (Optional) webHook协议
+        :param webHookProtocol: (Optional) webHook协议，目前支持http，https
         """
         self.webHookProtocol = webHookProtocol
 
@@ -74,7 +74,7 @@ class UpdateAlarmParameters(object):
 
     def setWebHookUrl(self, webHookUrl):
         """
-        :param webHookUrl: (Optional) 回调url
+        :param webHookUrl: (Optional) 回调url，例如http://www.jdcloud.com
         """
         self.webHookUrl = webHookUrl
 

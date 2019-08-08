@@ -21,12 +21,12 @@ class PodCondition(object):
 
     def __init__(self, lastProbeTime=None, lastTransitionTime=None, reason=None, status=None, message=None, conditionType=None):
         """
-        :param lastProbeTime: (Optional) Last time we probed the condition.
-        :param lastTransitionTime: (Optional) Last time the condition transitioned from one status to another.
-        :param reason: (Optional) Unique, one-word, CamelCase reason for the condition's last transition.
+        :param lastProbeTime: (Optional) 最后一次探测状态的时间
+        :param lastTransitionTime: (Optional) 最后一次改变状态的时间
+        :param reason: (Optional) 最后一次状态改变的简要原因
         :param status: (Optional) Status is the status of the condition. Can be True, False, Unknown.
-        :param message: (Optional) Human-readable message indicating details about last transition.
-        :param conditionType: (Optional) Type is the type of the condition. Currently only Ready.
+        :param message: (Optional) 最后一次状态改变的信息
+        :param conditionType: (Optional) 状态的条件。目前仅限 Ready.
         """
 
         self.lastProbeTime = lastProbeTime

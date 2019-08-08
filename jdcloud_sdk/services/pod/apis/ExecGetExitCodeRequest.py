@@ -32,21 +32,16 @@ class ExecGetExitCodeRequest(JDCloudRequest):
 
 class ExecGetExitCodeParameters(object):
 
-    def __init__(self, regionId, podId, containerName, ):
+    def __init__(self, regionId, podId, containerName, execId):
         """
         :param regionId: Region ID
         :param podId: Pod ID
         :param containerName: container name
+        :param execId: 
         """
 
         self.regionId = regionId
         self.podId = podId
         self.containerName = containerName
-        self.execId = None
-
-    def setExecId(self, execId):
-        """
-        :param execId: (Optional) 
-        """
         self.execId = execId
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AttachRequest(JDCloudRequest):
     """
-    查询单个容器日志
+    将容器连接到本地标准输入输出
 
     """
 

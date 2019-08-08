@@ -32,35 +32,25 @@ class ResizeTTYRequest(JDCloudRequest):
 
 class ResizeTTYParameters(object):
 
-    def __init__(self, regionId, podId, containerName, ):
+    def __init__(self, regionId, podId, containerName, height, width, ):
         """
         :param regionId: Region ID
         :param podId: Pod ID
         :param containerName: container name
+        :param height: tty row，取值范围：[10, 2000]
+        :param width: tty column，取值范围：[10, 1000]
         """
 
         self.regionId = regionId
         self.podId = podId
         self.containerName = containerName
-        self.height = None
-        self.width = None
-        self.execId = None
-
-    def setHeight(self, height):
-        """
-        :param height: (Optional) tty row，取值范围：[10, 2000]
-        """
         self.height = height
-
-    def setWidth(self, width):
-        """
-        :param width: (Optional) tty column，取值范围：[10, 1000]
-        """
         self.width = width
+        self.execId = None
 
     def setExecId(self, execId):
         """
-        :param execId: (Optional) tty column，取值范围：[10, 1000]
+        :param execId: (Optional) exec ID
         """
         self.execId = execId
 

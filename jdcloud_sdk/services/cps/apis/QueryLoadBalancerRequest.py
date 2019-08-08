@@ -19,27 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DecribeContainerRequest(JDCloudRequest):
+class QueryLoadBalancerRequest(JDCloudRequest):
     """
-    获取 pod 中某个容器的详情
+    查询负载均衡实例详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DecribeContainerRequest, self).__init__(
-            '/regions/{regionId}/pods/{podId}/containers/{containerName}', 'GET', header, version)
+        super(QueryLoadBalancerRequest, self).__init__(
+            '/regions/{regionId}/slbs/{loadBalancerId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DecribeContainerParameters(object):
+class QueryLoadBalancerParameters(object):
 
-    def __init__(self, regionId, podId, containerName, ):
+    def __init__(self, regionId, loadBalancerId, ):
         """
-        :param regionId: Region ID
-        :param podId: Pod ID
-        :param containerName: container name
+        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param loadBalancerId: 负载均衡实例ID
         """
 
         self.regionId = regionId
-        self.podId = podId
-        self.containerName = containerName
+        self.loadBalancerId = loadBalancerId
 

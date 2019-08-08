@@ -19,9 +19,9 @@
 
 class Exec(object):
 
-    def __init__(self, command, ):
+    def __init__(self, command=None):
         """
-        :param command:  执行的命令,总长度256个字符。 s
+        :param command: (Optional) 执行的命令。
         """
 
         self.command = command

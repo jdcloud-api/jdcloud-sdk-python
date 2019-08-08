@@ -42,15 +42,16 @@ class RebuildContainerRequest(JDCloudRequest):
 
 class RebuildContainerParameters(object):
 
-    def __init__(self, regionId, containerId, ):
+    def __init__(self, regionId, containerId, image, ):
         """
         :param regionId: Region ID
         :param containerId: Container ID
+        :param image: 镜像名称 </br> 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> </br> repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br> 下载镜像超时时间：10分钟
         """
 
         self.regionId = regionId
         self.containerId = containerId
-        self.image = None
+        self.image = image
         self.secret = None
         self.command = None
         self.args = None
@@ -58,27 +59,21 @@ class RebuildContainerParameters(object):
         self.workingDir = None
         self.envs = None
 
-    def setImage(self, image):
-        """
-        :param image: (Optional) 镜像名称 </br> 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> </br> repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br> 下载镜像超时时间：10分钟
-        """
-        self.image = image
-
     def setSecret(self, secret):
         """
-        :param secret: (Optional) secret引用名称；使用Docker Hub和京东云CR的镜像不需要secret
+        :param secret: (Optional) 镜像仓库认证信息；使用Docker Hub和京东云CR的镜像不需要secret
         """
         self.secret = secret
 
     def setCommand(self, command):
         """
-        :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT
+        :param command: (Optional) 容器启动执行的命令, 如果不指定默认是镜像的ENTRYPOINT. 数组字符总长度范围：[0-256]
         """
         self.command = command
 
     def setArgs(self, args):
         """
-        :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD
+        :param args: (Optional) 容器启动执行命令的参数, 如果不指定默认是镜像的CMD. 数组字符总长度范围：[0-2048]
         """
         self.args = args
 
@@ -90,13 +85,13 @@ class RebuildContainerParameters(object):
 
     def setWorkingDir(self, workingDir):
         """
-        :param workingDir: (Optional) 容器的工作目录。如果不指定，默认是根目录（/）；必须是绝对路径
+        :param workingDir: (Optional) 容器的工作目录。如果不指定，默认是根目录（/），必须是绝对路径。字符长度范围：[0-1024]
         """
         self.workingDir = workingDir
 
     def setEnvs(self, envs):
         """
-        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大10对
+        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大100对
         """
         self.envs = envs
 

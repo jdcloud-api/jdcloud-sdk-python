@@ -28,9 +28,9 @@ class ContainerSpec(object):
         :param hostname: (Optional) 主机名，规范请参考说明文档；默认容器ID
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT
         :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD
-        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大10对
-        :param image:  镜像名称 </br> 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> </br> repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br> 下载镜像超时时间：10分钟
-        :param secret: (Optional) secret引用名称；使用Docker Hub和京东云CR的镜像不需要secret
+        :param envs: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；</br> 最大100对
+        :param image:  镜像名称 </br> 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> </br> repository长度最大256个字符，tag最大128个字符，registry最大255个字符
+        :param secret: (Optional) 镜像仓库认证信息；使用Docker Hub和京东云CR的镜像不需要secret
         :param tty: (Optional) 容器是否分配tty。默认不分配
         :param workingDir: (Optional) 容器的工作目录。如果不指定，默认是根目录（/）；必须是绝对路径
         :param rootVolume:  根Volume信息

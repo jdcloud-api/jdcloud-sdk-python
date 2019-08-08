@@ -21,9 +21,9 @@ class RuleState(object):
 
     def __init__(self, resourceId=None, ruleCount=None, state=None):
         """
-        :param resourceId: (Optional) 
-        :param ruleCount: (Optional) 
-        :param state: (Optional) 
+        :param resourceId: (Optional) 资源id
+        :param ruleCount: (Optional) 规则个数
+        :param state: (Optional) 资源的规则状态。1：正常、 2：报警、4：数据不足 -1:没有规则 -2:未启用
         """
 
         self.resourceId = resourceId

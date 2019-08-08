@@ -19,8 +19,9 @@
 
 class ServiceInfo(object):
 
-    def __init__(self, metricGroup=None, metricsTimeDelay=None, serviceCode=None, serviceName=None, timeInterval=None):
+    def __init__(self, groupTree=None, metricGroup=None, metricsTimeDelay=None, serviceCode=None, serviceName=None, timeInterval=None):
         """
+        :param groupTree: (Optional) 
         :param metricGroup: (Optional) 产品线下的分组信息
         :param metricsTimeDelay: (Optional) 上报延迟
         :param serviceCode: (Optional) 产品线ServiceCode
@@ -28,6 +29,7 @@ class ServiceInfo(object):
         :param timeInterval: (Optional) 上报的时间间隔
         """
 
+        self.groupTree = groupTree
         self.metricGroup = metricGroup
         self.metricsTimeDelay = metricsTimeDelay
         self.serviceCode = serviceCode

@@ -59,13 +59,13 @@ class LastDownsampleParameters(object):
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：2016-12-11T00:00:00+0800（早于30d时，将被重置为30d）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
+        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
         """
         self.endTime = endTime
 
@@ -83,7 +83,7 @@ class LastDownsampleParameters(object):
 
     def setDownAggrType(self, downAggrType):
         """
-        :param downAggrType: (Optional) 聚合方式：max avg min等,用于将维度内一个周期数据聚合为一个点的聚合方式
+        :param downAggrType: (Optional) 聚合方式：max avg min等,用于将维度内一个周期数据聚合为一个点的聚合方式,默认last
         """
         self.downAggrType = downAggrType
 

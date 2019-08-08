@@ -19,15 +19,21 @@
 
 class CloudDisk(object):
 
-    def __init__(self, volumeId=None, diskType=None, fsType=None, autoDelete=None):
+    def __init__(self, volumeId=None, snapshotId=None, diskType=None, sizeGB=None, fsType=None, iops=None, autoDelete=None):
         """
-        :param volumeId: (Optional) 云盘id，使用已有云盘
-        :param diskType: (Optional) 云盘类型：ssd,premium-hdd,hdd.std1,ssd.gp1,ssd.io1
-        :param fsType: (Optional) 指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
-        :param autoDelete: (Optional) 是否随pod删除。默认：true
+        :param volumeId: (Optional) 云盘ID。
+        :param snapshotId: (Optional) 云盘快照ID。
+        :param diskType: (Optional) 云盘类型：hdd.std1,ssd.gp1,ssd.io1。
+        :param sizeGB: (Optional) 云盘size,单位 GB。
+        :param fsType: (Optional) 指定volume文件系统类型，目前支持[xfs, ext4]。
+        :param iops: (Optional) 云盘的 iops 值，目前只有 ssd.io1 类型有效。
+        :param autoDelete: (Optional) 是否随pod删除。
         """
 
         self.volumeId = volumeId
+        self.snapshotId = snapshotId
         self.diskType = diskType
+        self.sizeGB = sizeGB
         self.fsType = fsType
+        self.iops = iops
         self.autoDelete = autoDelete

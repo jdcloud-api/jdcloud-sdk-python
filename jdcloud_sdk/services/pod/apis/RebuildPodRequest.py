@@ -33,19 +33,14 @@ class RebuildPodRequest(JDCloudRequest):
 
 class RebuildPodParameters(object):
 
-    def __init__(self, regionId, podId, ):
+    def __init__(self, regionId, podId, containers):
         """
         :param regionId: Region ID
         :param podId: Pod ID
+        :param containers: 重置容器相关参数
         """
 
         self.regionId = regionId
         self.podId = podId
-        self.containers = None
-
-    def setContainers(self, containers):
-        """
-        :param containers: (Optional) 重置容器相关参数
-        """
         self.containers = containers
 

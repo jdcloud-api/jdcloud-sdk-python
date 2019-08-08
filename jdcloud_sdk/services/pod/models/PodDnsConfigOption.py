@@ -19,9 +19,9 @@
 
 class PodDnsConfigOption(object):
 
-    def __init__(self, name, value=None):
+    def __init__(self, name=None, value=None):
         """
-        :param name:  长度范围：[1-63]，需满足linux resolver限制
+        :param name: (Optional) 长度范围：[1-63]，需满足linux resolver限制
         :param value: (Optional) 长度范围：[0-100]，仅限timeout, attempts, ndots
         """
 

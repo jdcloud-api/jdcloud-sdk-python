@@ -19,10 +19,10 @@
 
 class Volume(object):
 
-    def __init__(self, name, jdcloudDisk, ):
+    def __init__(self, name=None, jdcloudDisk=None):
         """
-        :param name:  volume名字，必须是DNS_LABEL，在一个Pod是唯一的。
-        :param jdcloudDisk:  提供给Pod的cloud disk.
+        :param name: (Optional) volume名字，在一个Pod唯一。
+        :param jdcloudDisk: (Optional) 提供给Pod的cloud disk.
         """
 
         self.name = name

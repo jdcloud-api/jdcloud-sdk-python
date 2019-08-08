@@ -21,9 +21,9 @@ class DescribeMetricDataSpec(object):
 
     def __init__(self, resourceId, serviceCode, aggrType=None, downSampleType=None, endTime=None, groupBy=None, rate=None, startTime=None, tags=None, timeInterval=None):
         """
-        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
+        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、min、max
         :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
-        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd'T'HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
+        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
 in: query
         :param groupBy: (Optional) 是否对查询的tags分组
 in: query
@@ -31,9 +31,9 @@ in: query
 in: query
         :param resourceId:  资源的uuid
         :param serviceCode:  资源的类型，取值vm, lb, ip, database 等
-        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd'T'HH:mm:ssZ
+        :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：2016-12-11T00:00:00+0800（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
 in: query
-        :param tags: (Optional) 自定义标签/tag；至少要传一个tag，且tag.Values不为空
+        :param tags: (Optional) 监控指标数据的维度信息,根据tags来筛选指标数据不同的维度
 in: query
         :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
 in: query

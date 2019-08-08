@@ -19,12 +19,13 @@
 
 class AddTagsSpec(object):
 
-    def __init__(self, appCode, groupCode, resourceIds, serviceCode, tagK, tagV, ):
+    def __init__(self, appCode, groupCode, resourceIds, serviceCode, srcServiceCode, tagK, tagV, ):
         """
         :param appCode:  应用码。调用此API前需找云监控提供
         :param groupCode:  组id。须确保在一个APP范围内全局唯一
         :param resourceIds:  资源列表。总资源不能超过100个
         :param serviceCode:  资源的产品线
+        :param srcServiceCode:  打标签操作所属产品线的serviceCode
         :param tagK:  标签名称。调用此API前需要与云监控确认可以使用的标签名称
         :param tagV:  标签值
         """
@@ -33,5 +34,6 @@ class AddTagsSpec(object):
         self.groupCode = groupCode
         self.resourceIds = resourceIds
         self.serviceCode = serviceCode
+        self.srcServiceCode = srcServiceCode
         self.tagK = tagK
         self.tagV = tagV

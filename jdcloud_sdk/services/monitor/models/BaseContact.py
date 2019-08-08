@@ -21,8 +21,8 @@ class BaseContact(object):
 
     def __init__(self, referenceId, referenceType, ):
         """
-        :param referenceId:  联系人id
-        :param referenceType:  联系人id类型：0,联系人分组id;1,联系人id
+        :param referenceId:  联系人id。  注：ReferenceType=2时，联系人id请填0
+        :param referenceType:  联系人id类型：0,联系人分组id;1,联系人id，2，pin帐号主联系人
         """
 
         self.referenceId = referenceId

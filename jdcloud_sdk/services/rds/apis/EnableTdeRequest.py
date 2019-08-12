@@ -19,36 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class RestoreDatabaseFromFileRequest(JDCloudRequest):
+class EnableTdeRequest(JDCloudRequest):
     """
-    从用户通过单库上云工具上传到云上的备份文件中恢复单个数据库<br>- 仅支持SQL Server
+    开启数据库的TDE功能
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(RestoreDatabaseFromFileRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/databases/{dbName}:restoreDatabaseFromFile', 'POST', header, version)
+        super(EnableTdeRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/tde:enableTde', 'POST', header, version)
         self.parameters = parameters
 
 
-class RestoreDatabaseFromFileParameters(object):
+class EnableTdeParameters(object):
 
-    def __init__(self, regionId, instanceId, dbName, fileName):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param dbName: 库名称
-        :param fileName: 用户上传的备份文件名称（包括文件后缀名），例如mydb1.bak
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.dbName = dbName
-        self.sharedFileGid = None
-        self.fileName = fileName
-
-    def setSharedFileGid(self, sharedFileGid):
-        """
-        :param sharedFileGid: (Optional) 共享文件的全局ID，可从上传文件查询接口[describeImportFiles](../Cloud-on-Single-Database/describeImportFiles.md)获取；如果该文件不是共享文件，则不用输入该参数
-        """
-        self.sharedFileGid = sharedFileGid
 

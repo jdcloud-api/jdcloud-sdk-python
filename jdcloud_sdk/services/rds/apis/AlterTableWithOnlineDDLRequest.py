@@ -19,36 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class RestoreDatabaseFromFileRequest(JDCloudRequest):
+class AlterTableWithOnlineDDLRequest(JDCloudRequest):
     """
-    从用户通过单库上云工具上传到云上的备份文件中恢复单个数据库<br>- 仅支持SQL Server
+    通过 PT-OSC 服务来处理 DDL 命令, 避免锁表。此接口暂是对部分用户开放
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(RestoreDatabaseFromFileRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/databases/{dbName}:restoreDatabaseFromFile', 'POST', header, version)
+        super(AlterTableWithOnlineDDLRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:alterTableWithOnlineDDL', 'POST', header, version)
         self.parameters = parameters
 
 
-class RestoreDatabaseFromFileParameters(object):
+class AlterTableWithOnlineDDLParameters(object):
 
-    def __init__(self, regionId, instanceId, dbName, fileName):
+    def __init__(self, regionId, instanceId, database, table, command):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param dbName: 库名称
-        :param fileName: 用户上传的备份文件名称（包括文件后缀名），例如mydb1.bak
+        :param database: DDL命令修改的库名
+        :param table: DDL命令修改的表名
+        :param command: 需要执行的的DDL命令
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.dbName = dbName
-        self.sharedFileGid = None
-        self.fileName = fileName
-
-    def setSharedFileGid(self, sharedFileGid):
-        """
-        :param sharedFileGid: (Optional) 共享文件的全局ID，可从上传文件查询接口[describeImportFiles](../Cloud-on-Single-Database/describeImportFiles.md)获取；如果该文件不是共享文件，则不用输入该参数
-        """
-        self.sharedFileGid = sharedFileGid
+        self.database = database
+        self.table = table
+        self.command = command
 

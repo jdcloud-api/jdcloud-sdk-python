@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyInstanceSpecRequest(JDCloudRequest):
     """
-    实例扩容，支持升级实例的CPU，内存及磁盘。目前暂不支持实例降配<br>- 仅支持MySQL
+    实例扩容，支持升级实例的CPU，内存及磁盘。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

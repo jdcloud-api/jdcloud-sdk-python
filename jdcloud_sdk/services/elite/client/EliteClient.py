@@ -26,4 +26,4 @@ class EliteClient(JDCloudClient):
         if config is None:
             config = Config('elite.jdcloud-api.com')
 
-        super(EliteClient, self).__init__(credential, config, 'elite', '1.0.5', logger)
+        super(EliteClient, self).__init__(credential, config, 'elite', '1.0.6', logger)

@@ -19,32 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetUserMetricsRequest(JDCloudRequest):
+class SetAddonsRequest(JDCloudRequest):
     """
-    Deprecated 建议使用 setAddons 接口 <br>设置用户自定义监控状态
+    设置集群组件
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetUserMetricsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:setUserMetrics', 'POST', header, version)
+        super(SetAddonsRequest, self).__init__(
+            '/regions/{regionId}/clusters/{clusterId}:setAddons', 'POST', header, version)
         self.parameters = parameters
 
 
-class SetUserMetricsParameters(object):
+class SetAddonsParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self, regionId, clusterId, addonsConfig):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID
+        :param addonsConfig: 需要设置的集群组件配置
         """
 
         self.regionId = regionId
         self.clusterId = clusterId
-        self.enabled = None
-
-    def setEnabled(self, enabled):
-        """
-        :param enabled: (Optional) 是否开启自定义监控
-        """
-        self.enabled = enabled
+        self.addonsConfig = addonsConfig
 

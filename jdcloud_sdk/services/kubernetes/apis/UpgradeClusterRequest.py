@@ -32,19 +32,19 @@ class UpgradeClusterRequest(JDCloudRequest):
 
 class UpgradeClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, scope, verison):
+    def __init__(self, regionId, clusterId, scope, version):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID
         :param scope: 升级范围
-        :param verison: 指定升级到的版本
+        :param version: 指定升级到的版本
         """
 
         self.regionId = regionId
         self.clusterId = clusterId
         self.scope = scope
         self.nodeGroupIds = None
-        self.verison = verison
+        self.version = version
 
     def setNodeGroupIds(self, nodeGroupIds):
         """

@@ -71,6 +71,7 @@ class CreateClusterParameters(object):
         self.accessKey = accessKey
         self.secretKey = secretKey
         self.userMetrics = None
+        self.addonsConfig = None
 
     def setDescription(self, description):
         """
@@ -98,7 +99,13 @@ class CreateClusterParameters(object):
 
     def setUserMetrics(self, userMetrics):
         """
-        :param userMetrics: (Optional) 是否启用用户自定义监控，默认不启用
+        :param userMetrics: (Optional) deprecated 在addonsConfig中同时指定，将被addonsConfig的设置覆盖 <br>是否启用用户自定义监控
         """
         self.userMetrics = userMetrics
+
+    def setAddonsConfig(self, addonsConfig):
+        """
+        :param addonsConfig: (Optional) 集群组件配置
+        """
+        self.addonsConfig = addonsConfig
 

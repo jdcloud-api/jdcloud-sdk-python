@@ -65,6 +65,7 @@ engine, 支持operator选项：eq
 engineVersion, 支持operator选项：eq
 instanceStatus, 支持operator选项：eq
 chargeMode, 支持operator选项：eq
+vpcId, 支持operator选项：eq
 
         """
         self.filters = filters

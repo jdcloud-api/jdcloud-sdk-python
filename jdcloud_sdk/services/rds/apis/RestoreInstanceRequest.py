@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RestoreInstanceRequest(JDCloudRequest):
     """
-    使用实例的全量备份覆盖恢复当前实例<br>- 仅支持MySQL
+    使用实例的全量备份覆盖恢复当前实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):

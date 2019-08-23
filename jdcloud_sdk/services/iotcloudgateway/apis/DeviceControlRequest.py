@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyInstanceAzRequest(JDCloudRequest):
+class DeviceControlRequest(JDCloudRequest):
     """
-    修改实例的可用区，例如将实例的可用区从单可用区调整为多可用区
+    下发设备控制指令
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyInstanceAzRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:modifyInstanceAz', 'POST', header, version)
+        super(DeviceControlRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:deviceControl', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyInstanceAzParameters(object):
+class DeviceControlParameters(object):
 
-    def __init__(self, regionId, instanceId, newAzId):
+    def __init__(self, regionId, instanceId, devicecmd):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param newAzId: 新可用区ID。 如果是单机实例，只需输入一个可用区；如果是主备实例，则必须输入两个可用区ID：第一个为主节点所在可用区，第二个为备节点所在可用区。主备两个可用区可以相同，也可以不同
+        :param regionId: regionId
+        :param instanceId: 实例ID
+        :param devicecmd: iotcloudgateway实例下发设备控制指令
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.newAzId = newAzId
+        self.devicecmd = devicecmd
 

@@ -36,7 +36,7 @@ class CreateAuditParameters(object):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param enabled: 要开启的审计选项，各个选项之间用英文逗号或空格进行分割，例如：DATABASE_OBJECT_ACCESS_GROUP,ACKUP_RESTORE_GROU等<br>各个数据库版本支持的审计选项可以通过接口[getAuditOptions](./getAuditOptions.md)获得，各个审计项的具体含义可以参看微软的官方文档
+        :param enabled: 要开启的审计选项，各个选项之间用英文逗号或空格进行分割，例如：DATABASE_OBJECT_ACCESS_GROUP,ACKUP_RESTORE_GROU等<br>各个数据库版本支持的审计选项可以通过接口[describeAuditOptions](./describeAuditOptions.md)获得，各个审计项的具体含义可以参看微软的官方文档
         """
 
         self.regionId = regionId

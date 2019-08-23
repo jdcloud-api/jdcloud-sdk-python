@@ -19,7 +19,7 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, endpoint=None, endpointPort=None, dashboardPort=None, userMetrics=None):
+    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, endpoint=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None):
         """
         :param clusterId: (Optional) 集群id
         :param name: (Optional) 名称
@@ -39,7 +39,12 @@ class Cluster(object):
         :param endpoint: (Optional) 用户访问的ip
         :param endpointPort: (Optional) endpoint的port
         :param dashboardPort: (Optional) endpoint的dashboard port
-        :param userMetrics: (Optional) 用户是否启用集群自定义监控
+        :param userMetrics: (Optional) deprecated 优先以addonsConfig中的配置为准 <br>用户是否启用集群自定义监控，true 表示开启用，false 表示未开启用
+        :param addonsConfig: (Optional) 集群组件配置信息
+        :param autoUpgrade: (Optional) 是否开启集群自动升级，true 表示开启，false 表示未开启
+        :param maintenanceWindow: (Optional) 配置集群维护策略
+        :param upgradePlan: (Optional) 集群升级计划信息, 仅展示最新一条升级计划信息
+        :param masterProgress: (Optional) 控制节点操作进度
         """
 
         self.clusterId = clusterId
@@ -61,3 +66,8 @@ class Cluster(object):
         self.endpointPort = endpointPort
         self.dashboardPort = dashboardPort
         self.userMetrics = userMetrics
+        self.addonsConfig = addonsConfig
+        self.autoUpgrade = autoUpgrade
+        self.maintenanceWindow = maintenanceWindow
+        self.upgradePlan = upgradePlan
+        self.masterProgress = masterProgress

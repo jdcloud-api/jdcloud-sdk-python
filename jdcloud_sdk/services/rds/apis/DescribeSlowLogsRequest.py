@@ -36,8 +36,8 @@ class DescribeSlowLogsParameters(object):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param startTime: 慢日志开始时间,格式为：YYYY-MM-DD HH:mm:ss,开始时间到结束时间不能大于30天,结束时间不能大于当前时间
-        :param endTime: 慢日志结束时间,格式为：YYYY-MM-DD HH:mm:ss,开始时间到结束时间不能大于30天,结束时间不能大于当前时间
+        :param startTime: 慢日志开始时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间到当前时间不能大于 7 天，开始时间不能大于结束时间，结束时间不能大于当前时间
+        :param endTime: 慢日志结束时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间到当前时间不能大于 7 天，开始时间不能大于结束时间，结束时间不能大于当前时间
         """
 
         self.regionId = regionId

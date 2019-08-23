@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetUserMetricsRequest(JDCloudRequest):
     """
-    设置用户自定义监控状态
+    Deprecated 建议使用 setAddons 接口 <br>设置用户自定义监控状态
     """
 
     def __init__(self, parameters, header=None, version="v1"):

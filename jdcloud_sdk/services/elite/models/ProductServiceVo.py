@@ -19,10 +19,13 @@
 
 class ProductServiceVo(object):
 
-    def __init__(self, deliverNumber=None, orderNumber=None, productId=None, skuId=None, skuName=None, serviceCode=None, num=None, period=None, periodType=None, periodTypeName=None, accountNum=None, deliverStatus=None, deliverStatusName=None, effectiveDt=None, failureDt=None, extraInfo=None, remark=None, orderTotalFee=None, orderActualFee=None, paymentDt=None, extraChargeInfo=None, orderItemExtraChargeInfos=None):
+    def __init__(self, deliverNumber=None, orderNumber=None, buyerPin=None, mappingCode=None, supportAutoDeliver=None, productId=None, skuId=None, skuName=None, serviceCode=None, num=None, period=None, periodType=None, periodTypeName=None, accountNum=None, deliverStatus=None, deliverStatusName=None, effectiveDt=None, failureDt=None, extraInfo=None, remark=None, orderTotalFee=None, orderActualFee=None, paymentDt=None, extraChargeInfo=None, orderItemExtraChargeInfos=None):
         """
         :param deliverNumber: (Optional) 交付单号
         :param orderNumber: (Optional) 订单号
+        :param buyerPin: (Optional) 购买人
+        :param mappingCode: (Optional) 映射编号
+        :param supportAutoDeliver: (Optional) 是否支持自动交付：0表示不支持，1表示支持
         :param productId: (Optional) 产品ID
         :param skuId: (Optional) sku ID
         :param skuName: (Optional) sku名称
@@ -47,6 +50,9 @@ class ProductServiceVo(object):
 
         self.deliverNumber = deliverNumber
         self.orderNumber = orderNumber
+        self.buyerPin = buyerPin
+        self.mappingCode = mappingCode
+        self.supportAutoDeliver = supportAutoDeliver
         self.productId = productId
         self.skuId = skuId
         self.skuName = skuName

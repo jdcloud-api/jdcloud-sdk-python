@@ -21,7 +21,7 @@ class InstanceName(object):
 
     def __init__(self, resourceId, resourceName, serviceCode, ):
         """
-        :param resourceId:  资源Id（即实例id）
+        :param resourceId:  资源id（即实例id）
         :param resourceName:  资源名称（即实例名称）
         :param serviceCode:  service code（redis）
         """

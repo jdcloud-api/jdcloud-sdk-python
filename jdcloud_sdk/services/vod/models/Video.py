@@ -24,8 +24,12 @@ class Video(object):
         :param codec: (Optional) 视频编码。取值范围：h265、h264
         :param bitrate: (Optional) 视频码率。取值范围 [128、10000]，单位为 Kbps
         :param fps: (Optional) 视频帧率。取值范围为 [1、60]，单位为 fps
-        :param width: (Optional) 视频输出宽度。取值范围 [128，4096]，取值需为2的倍数
-        :param height: (Optional) 视频输出高度。取值范围 [128，4096]，取值需为2的倍数
+        :param width: (Optional) 视频输出宽度。取值范围 [128，4096] 整数。
+当值为空时，若 height 也为空，则 width 和 height 与原视频保持一致；若 height 不为空，则 width 按照原视频的分辨率等比缩放。
+
+        :param height: (Optional) 视频输出高度。取值范围 [128，4096] 整数。
+当值为空时，若 width 也为空，则 width 和 height 与原视频保持一致；若 width 不为空，则 height 按照原视频的分辨率等比缩放。
+
         """
 
         self.codec = codec

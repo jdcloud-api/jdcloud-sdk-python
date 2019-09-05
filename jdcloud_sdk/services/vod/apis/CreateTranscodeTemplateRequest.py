@@ -34,7 +34,8 @@ class CreateTranscodeTemplateParameters(object):
 
     def __init__(self, name, video, audio, encapsulation, definition, ):
         """
-        :param name: 模板名称
+        :param name: 模板名称。长度不超过128个字符。UTF-8编码。
+
         :param video: 视频参数配置
         :param audio: 音频参数配置
         :param encapsulation: 封装配置

@@ -19,14 +19,15 @@
 
 class RecordDescDetail(object):
 
-    def __init__(self, recordId=None, orderId=None, certName=None, brand=None, certType=None, domainCount=None, certValidity=None, commonName=None, state=None, canceledReason=None, recordValidate=None, corpName=None, corpAddr=None, dnsNames=None, email=None):
+    def __init__(self, recordId=None, orderId=None, certName=None, brand=None, certType=None, domainCount=None, wildcardDomainCount=None, certValidity=None, commonName=None, state=None, canceledReason=None, recordValidate=None, corpName=None, corpAddr=None, dnsNames=None, email=None, errorMessage=None):
         """
         :param recordId: (Optional) 证书申购记录Id
         :param orderId: (Optional) 交易系统订单Id
         :param certName: (Optional) 证书名称
         :param brand: (Optional) 证书品牌
         :param certType: (Optional) 证书类型
-        :param domainCount: (Optional) 域名个数
+        :param domainCount: (Optional) 域名的个数
+        :param wildcardDomainCount: (Optional) 泛域名的个数
         :param certValidity: (Optional) 证书年限
         :param commonName: (Optional) 证书绑定域名
         :param state: (Optional) 证书状态,1:未支付,2:待补全信息,3:待下单,4:待域名验证,5:已完成,6:审核不通过,7:已取消
@@ -36,6 +37,7 @@ class RecordDescDetail(object):
         :param corpAddr: (Optional) 公司地址
         :param dnsNames: (Optional) 备用域名
         :param email: (Optional) 联系人邮箱
+        :param errorMessage: (Optional) 自动DNS验证结果信息
         """
 
         self.recordId = recordId
@@ -44,6 +46,7 @@ class RecordDescDetail(object):
         self.brand = brand
         self.certType = certType
         self.domainCount = domainCount
+        self.wildcardDomainCount = wildcardDomainCount
         self.certValidity = certValidity
         self.commonName = commonName
         self.state = state
@@ -53,3 +56,4 @@ class RecordDescDetail(object):
         self.corpAddr = corpAddr
         self.dnsNames = dnsNames
         self.email = email
+        self.errorMessage = errorMessage

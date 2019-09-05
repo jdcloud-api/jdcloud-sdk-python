@@ -38,4 +38,18 @@ class DescribeCertParameters(object):
         """
 
         self.certId = certId
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 第几页，从1开始计数
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页显示的数目
+        """
+        self.pageSize = pageSize
 

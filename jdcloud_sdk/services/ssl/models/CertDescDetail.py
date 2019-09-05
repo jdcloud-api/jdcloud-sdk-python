@@ -19,7 +19,7 @@
 
 class CertDescDetail(object):
 
-    def __init__(self, certId=None, certName=None, commonName=None, certType=None, issuer=None, startTime=None, endTime=None, dnsNames=None, digest=None, usedBy=None):
+    def __init__(self, certId=None, certName=None, commonName=None, certType=None, issuer=None, startTime=None, endTime=None, dnsNames=None, digest=None, totalCount=None, usedBy=None):
         """
         :param certId: (Optional) 证书Id
         :param certName: (Optional) 证书名称
@@ -30,6 +30,7 @@ class CertDescDetail(object):
         :param endTime: (Optional) 结束时间
         :param dnsNames: (Optional) 域名
         :param digest: (Optional) 对私钥文件使用sha256算法计算的摘要信息
+        :param totalCount: (Optional) 绑定信息的总数量
         :param usedBy: (Optional) 证书关联信息
         """
 
@@ -42,4 +43,5 @@ class CertDescDetail(object):
         self.endTime = endTime
         self.dnsNames = dnsNames
         self.digest = digest
+        self.totalCount = totalCount
         self.usedBy = usedBy

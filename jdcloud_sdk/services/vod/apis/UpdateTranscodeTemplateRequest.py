@@ -47,7 +47,8 @@ class UpdateTranscodeTemplateParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 模板名称
+        :param name: (Optional) 模板名称。长度不超过128个字符。UTF-8编码。
+
         """
         self.name = name
 

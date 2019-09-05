@@ -19,7 +19,7 @@
 
 class CertListDetail(object):
 
-    def __init__(self, certId=None, certName=None, commonName=None, certType=None, startTime=None, endTime=None, deletable=None, digest=None, aliasName=None, dnsNames=None, downloadable=None):
+    def __init__(self, certId=None, certName=None, commonName=None, certType=None, startTime=None, endTime=None, deletable=None, digest=None, aliasName=None, dnsNames=None, downloadable=None, updateable=None, certStatus=None):
         """
         :param certId: (Optional) 证书Id
         :param certName: (Optional) 证书名称
@@ -32,6 +32,8 @@ class CertListDetail(object):
         :param aliasName: (Optional) 证书别名
         :param dnsNames: (Optional) 域名
         :param downloadable: (Optional) 是否允许被下载,0->不允许,1->允许
+        :param updateable: (Optional) 是否允许被更新,0->不允许,1->允许
+        :param certStatus: (Optional) 证书状态
         """
 
         self.certId = certId
@@ -45,3 +47,5 @@ class CertListDetail(object):
         self.aliasName = aliasName
         self.dnsNames = dnsNames
         self.downloadable = downloadable
+        self.updateable = updateable
+        self.certStatus = certStatus

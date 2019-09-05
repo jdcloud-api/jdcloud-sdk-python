@@ -39,6 +39,7 @@ class DescribeCertsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.domainName = None
+        self.certIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -57,4 +58,10 @@ class DescribeCertsParameters(object):
         :param domainName: (Optional) 域名，支持按照域名检索证书
         """
         self.domainName = domainName
+
+    def setCertIds(self, certIds):
+        """
+        :param certIds: (Optional) 证书id/别名
+        """
+        self.certIds = certIds
 

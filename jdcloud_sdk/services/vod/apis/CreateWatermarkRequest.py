@@ -32,34 +32,62 @@ class CreateWatermarkRequest(JDCloudRequest):
 
 class CreateWatermarkParameters(object):
 
-    def __init__(self, name, imgUrl, width, height, position, offsetX, offsetY):
+    def __init__(self, name, imgUrl, width, height, position, offsetX, offsetY, ):
         """
-        :param name: 水印名称
+        :param name: 水印名称。只支持中英文、数字。长度不超过128个字符。UTF-8编码。
+
         :param imgUrl: 图片地址
-        :param width: 水印宽度
-        :param height: 水印高度
+        :param width: 水印宽度。
+当 sizeUnit = pixel 时，取值范围为 [8, 4096] 整数
+当 sizeUnit = percent 时，取值范围为 [0, 100] 小数
+
+        :param height: 水印高度。
+当 sizeUnit = pixel 时，取值范围为 [8, 4096] 整数
+当 sizeUnit = percent 时，取值范围为 [0, 100] 小数
+
         :param position: 水印位置。取值范围：
   LT - 左上
   RT - 右上
   LB - 左下
   RB - 右下
 
-        :param offsetX: 水平偏移
-        :param offsetY: 竖直偏移
+        :param offsetX: 水平偏移。
+当 offsetUnit = pixel 时，取值范围为 [8, 4088] 整数
+当 offsetUnit = percent 时，取值范围为 [0, 100] 小数
+
+        :param offsetY: 竖直偏移。
+当 offsetUnit = pixel 时，取值范围为 [8, 4088] 整数
+当 offsetUnit = percent 时，取值范围为 [0, 100] 小数
+
         """
 
         self.name = name
         self.imgUrl = imgUrl
         self.width = width
         self.height = height
+        self.sizeUnit = None
         self.position = position
-        self.unit = None
         self.offsetX = offsetX
         self.offsetY = offsetY
+        self.offsetUnit = None
 
-    def setUnit(self, unit):
+    def setSizeUnit(self, sizeUnit):
         """
-        :param unit: (Optional) 偏移单位
+        :param sizeUnit: (Optional) 尺寸单位。取值范围：
+  pixel - 像素
+  percent - 百分比
+默认值为 pixel
+
         """
-        self.unit = unit
+        self.sizeUnit = sizeUnit
+
+    def setOffsetUnit(self, offsetUnit):
+        """
+        :param offsetUnit: (Optional) 偏移单位。取值范围：
+  pixel - 像素
+  percent - 百分比
+默认值为 pixel
+
+        """
+        self.offsetUnit = offsetUnit
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteDomainRequest(JDCloudRequest):
     """
-    删除域名
+    删除域名。执行该操作，需确保域名已被停用。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

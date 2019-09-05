@@ -22,7 +22,6 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class CreateCategoryRequest(JDCloudRequest):
     """
     添加分类
-
     """
 
     def __init__(self, parameters, header=None, version="v1"):

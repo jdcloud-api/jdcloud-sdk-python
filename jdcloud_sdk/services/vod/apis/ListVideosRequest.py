@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ListVideosRequest(JDCloudRequest):
     """
-    查询视频列表信息
+    查询视频列表信息。
+允许通过条件过滤查询，支持的过滤字段如下：
+  - status[eq] 按视频状态精确查询
+  - categoryId[eq] 按分类ID精确查询
+  - videoId[eq] 按视频ID精确查询
+  - name[eq] 按视频名称精确查询
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

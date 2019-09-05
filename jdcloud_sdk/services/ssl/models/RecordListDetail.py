@@ -19,7 +19,7 @@
 
 class RecordListDetail(object):
 
-    def __init__(self, recordId=None, orderId=None, commonName=None, supplier=None, brand=None, certType=None, certValidity=None, state=None, partnerOrderId=None, domainCount=None, dnsNames=None):
+    def __init__(self, recordId=None, orderId=None, commonName=None, supplier=None, brand=None, certType=None, certValidity=None, state=None, partnerOrderId=None, domainCount=None, wildcardDomainCount=None, dnsNames=None, certId=None):
         """
         :param recordId: (Optional) 证书申购记录Id
         :param orderId: (Optional) 交易系统订单Id
@@ -31,7 +31,9 @@ class RecordListDetail(object):
         :param state: (Optional) 证书状态,1:未支付,2:待补全信息,3:待下单,4:待域名验证,5:已完成,6:审核不通过,7:已取消
         :param partnerOrderId: (Optional) 厂商订单ID
         :param domainCount: (Optional) 购买域名数量
+        :param wildcardDomainCount: (Optional) 购买泛域名数量
         :param dnsNames: (Optional) 备用域名
+        :param certId: (Optional) 证书Id
         """
 
         self.recordId = recordId
@@ -44,4 +46,6 @@ class RecordListDetail(object):
         self.state = state
         self.partnerOrderId = partnerOrderId
         self.domainCount = domainCount
+        self.wildcardDomainCount = wildcardDomainCount
         self.dnsNames = dnsNames
+        self.certId = certId

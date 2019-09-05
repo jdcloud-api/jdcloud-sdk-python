@@ -21,8 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ListCategoriesRequest(JDCloudRequest):
     """
-    查询分类列表，按照分页方式，返回分类列表信息
-
+    查询分类列表。按照分页方式，返回分类列表信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

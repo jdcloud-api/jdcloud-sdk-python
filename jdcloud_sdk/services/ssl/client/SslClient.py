@@ -26,4 +26,4 @@ class SslClient(JDCloudClient):
         if config is None:
             config = Config('ssl.jdcloud-api.com')
 
-        super(SslClient, self).__init__(credential, config, 'ssl', '0.2.9', logger)
+        super(SslClient, self).__init__(credential, config, 'ssl', '1.0.1', logger)

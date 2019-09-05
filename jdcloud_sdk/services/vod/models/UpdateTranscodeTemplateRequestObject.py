@@ -21,7 +21,8 @@ class UpdateTranscodeTemplateRequestObject(object):
 
     def __init__(self, name=None, video=None, audio=None, encapsulation=None, definition=None, templateType=None):
         """
-        :param name: (Optional) 模板名称
+        :param name: (Optional) 模板名称。长度不超过128个字符。UTF-8编码。
+
         :param video: (Optional) 视频参数配置
         :param audio: (Optional) 音频参数配置
         :param encapsulation: (Optional) 封装配置

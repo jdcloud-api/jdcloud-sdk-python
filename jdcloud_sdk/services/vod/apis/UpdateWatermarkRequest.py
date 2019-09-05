@@ -42,14 +42,16 @@ class UpdateWatermarkParameters(object):
         self.imgUrl = None
         self.width = None
         self.height = None
+        self.sizeUnit = None
         self.position = None
-        self.unit = None
         self.offsetX = None
         self.offsetY = None
+        self.offsetUnit = None
 
     def setName(self, name):
         """
-        :param name: (Optional) 水印名称
+        :param name: (Optional) 水印名称。只支持中英文、数字。长度不超过128个字符。UTF-8编码。
+
         """
         self.name = name
 
@@ -61,15 +63,31 @@ class UpdateWatermarkParameters(object):
 
     def setWidth(self, width):
         """
-        :param width: (Optional) 水印宽度
+        :param width: (Optional) 水印宽度。
+当 sizeUnit = pixel 时，取值范围为 [8, 4096] 整数
+当 sizeUnit = percent 时，取值范围为 [0, 100] 小数
+
         """
         self.width = width
 
     def setHeight(self, height):
         """
-        :param height: (Optional) 水印高度
+        :param height: (Optional) 水印高度。
+当 sizeUnit = pixel 时，取值范围为 [8, 4096] 整数
+当 sizeUnit = percent 时，取值范围为 [0, 100] 小数
+
         """
         self.height = height
+
+    def setSizeUnit(self, sizeUnit):
+        """
+        :param sizeUnit: (Optional) 尺寸单位。取值范围：
+  pixel - 像素
+  percent - 百分比
+默认值为 pixel
+
+        """
+        self.sizeUnit = sizeUnit
 
     def setPosition(self, position):
         """
@@ -82,21 +100,31 @@ class UpdateWatermarkParameters(object):
         """
         self.position = position
 
-    def setUnit(self, unit):
-        """
-        :param unit: (Optional) 偏移单位
-        """
-        self.unit = unit
-
     def setOffsetX(self, offsetX):
         """
-        :param offsetX: (Optional) 水平偏移
+        :param offsetX: (Optional) 水平偏移。
+当 offsetUnit = pixel 时，取值范围为 [8, 4088] 整数
+当 offsetUnit = percent 时，取值范围为 [0, 100] 小数
+
         """
         self.offsetX = offsetX
 
     def setOffsetY(self, offsetY):
         """
-        :param offsetY: (Optional) 竖直偏移
+        :param offsetY: (Optional) 竖直偏移。
+当 offsetUnit = pixel 时，取值范围为 [8, 4088] 整数
+当 offsetUnit = percent 时，取值范围为 [0, 100] 小数
+
         """
         self.offsetY = offsetY
+
+    def setOffsetUnit(self, offsetUnit):
+        """
+        :param offsetUnit: (Optional) 偏移单位。取值范围：
+  pixel - 像素
+  percent - 百分比
+默认值为 pixel
+
+        """
+        self.offsetUnit = offsetUnit
 

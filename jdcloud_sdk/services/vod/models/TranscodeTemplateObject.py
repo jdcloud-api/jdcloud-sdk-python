@@ -22,7 +22,8 @@ class TranscodeTemplateObject(object):
     def __init__(self, id=None, name=None, video=None, audio=None, encapsulation=None, definition=None, source=None, templateType=None, createTime=None, updateTime=None):
         """
         :param id: (Optional) 模板ID
-        :param name: (Optional) 模板名称
+        :param name: (Optional) 模板名称。长度不超过128个字符。UTF-8编码。
+
         :param video: (Optional) 视频参数配置
         :param audio: (Optional) 音频参数配置
         :param encapsulation: (Optional) 封装配置

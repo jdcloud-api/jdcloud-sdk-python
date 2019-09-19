@@ -24,21 +24,19 @@ class DescribeAlarmContactsRequest(JDCloudRequest):
     查询规则的报警联系人
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeAlarmContactsRequest, self).__init__(
-            '/regions/{regionId}/alarms/{alarmId}/contacts', 'GET', header, version)
+            '/groupAlarms/{alarmId}/contacts', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeAlarmContactsParameters(object):
 
-    def __init__(self, regionId, alarmId, ):
+    def __init__(self, alarmId, ):
         """
-        :param regionId: 地域 Id
         :param alarmId: 规则id
         """
 
-        self.regionId = regionId
         self.alarmId = alarmId
         self.pageNumber = None
         self.pageSize = None

@@ -24,7 +24,7 @@ class DescribeMetricsRequest(JDCloudRequest):
     根据产品线查询可用监控项列表,metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeMetricsRequest, self).__init__(
             '/metrics', 'GET', header, version)
         self.parameters = parameters
@@ -34,7 +34,7 @@ class DescribeMetricsParameters(object):
 
     def __init__(self, serviceCode, ):
         """
-        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
+        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等。<a href="https://docs.jdcloud.com/cn/monitoring/api/describeservices?content=API&SOP=JDCloud">describeServices</a>：查询己接入云监控的产品线列表，当产品线下有多个分组时，查询分组对应的监控项，serviceCode请传对应分组的groupCode字段值
         """
 
         self.serviceCode = serviceCode

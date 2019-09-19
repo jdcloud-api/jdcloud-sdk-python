@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, subnetId=None, subnetName=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, publicIpv6=None, charge=None):
+    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, subnetId=None, subnetName=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, publicIpv6=None, keypairId=None, agentStatus=None, charge=None):
         """
         :param instanceId: (Optional) 云物理服务器实例ID
         :param region: (Optional) 区域代码, 如 cn-east-1
@@ -50,6 +50,8 @@ class Instance(object):
         :param elasticIpId: (Optional) 弹性公网IPID
         :param publicIp: (Optional) 公网IP
         :param publicIpv6: (Optional) 公网IPv6
+        :param keypairId: (Optional) 密钥对id
+        :param agentStatus: (Optional) agent状态
         :param charge: (Optional) 计费信息
         """
 
@@ -82,4 +84,6 @@ class Instance(object):
         self.elasticIpId = elasticIpId
         self.publicIp = publicIp
         self.publicIpv6 = publicIpv6
+        self.keypairId = keypairId
+        self.agentStatus = agentStatus
         self.charge = charge

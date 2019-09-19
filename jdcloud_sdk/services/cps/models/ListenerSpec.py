@@ -19,28 +19,21 @@
 
 class ListenerSpec(object):
 
-    def __init__(self, loadBalancerId, protocol, port, algorithm, stickySession, name, healthCheck, stickySessionTimeout=None, cookieType=None, realIp=None, certificateId=None, description=None, headers=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, healthCheckUri=None, healthCheckHttpCode=None, healthCheckIp=None, serverGroupId=None):
+    def __init__(self, loadBalancerId, protocol, port, algorithm, stickySession, name, healthCheck, realIp=None, description=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, serverGroupId=None):
         """
         :param loadBalancerId:  负载均衡实例ID
         :param protocol:  协议, 如TCP
         :param port:  端口1-65535
         :param algorithm:  调度算法，取值wrr（加权轮询）|wlc（加权最小连接数）|conhash（源IP）)
         :param stickySession:  是否开启会话保持，取值on|off
-        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
-        :param cookieType: (Optional) 会话类型，取值ImplantCookie|RewriteCookie
         :param realIp: (Optional) 是否获取真实ip，取值on|off
-        :param certificateId: (Optional) 证书ID
         :param name:  名称
         :param description: (Optional) 描述
-        :param headers: (Optional) HTTP扩展头部
         :param healthCheck:  是否开启健康检查，取值on|off
         :param healthCheckTimeout: (Optional) 健康检查响应的最大超时时间，单位s
         :param healthCheckInterval: (Optional) 健康检查响应的最大间隔时间，单位s
         :param healthyThreshold: (Optional) 健康检查结果为success的阈值
         :param unhealthyThreshold: (Optional) 健康检查结果为fail的阈值
-        :param healthCheckUri: (Optional) 健康检查的URI
-        :param healthCheckHttpCode: (Optional) 健康检查正常的HTTP状态码，多个用,隔开
-        :param healthCheckIp: (Optional) 健康检查ip
         :param serverGroupId: (Optional) 服务器组id
         """
 
@@ -49,19 +42,12 @@ class ListenerSpec(object):
         self.port = port
         self.algorithm = algorithm
         self.stickySession = stickySession
-        self.stickySessionTimeout = stickySessionTimeout
-        self.cookieType = cookieType
         self.realIp = realIp
-        self.certificateId = certificateId
         self.name = name
         self.description = description
-        self.headers = headers
         self.healthCheck = healthCheck
         self.healthCheckTimeout = healthCheckTimeout
         self.healthCheckInterval = healthCheckInterval
         self.healthyThreshold = healthyThreshold
         self.unhealthyThreshold = unhealthyThreshold
-        self.healthCheckUri = healthCheckUri
-        self.healthCheckHttpCode = healthCheckHttpCode
-        self.healthCheckIp = healthCheckIp
         self.serverGroupId = serverGroupId

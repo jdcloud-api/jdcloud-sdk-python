@@ -22,46 +22,31 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeAlarmHistoryRequest(JDCloudRequest):
     """
     查询报警历史
-检索条件组合优先级从高到低为
-1：alarmIds不为空
-2：alarmId不为空
-3：serviceCode不为空
-3.1：serviceCode + resourceId
-3.2: serviceCode + resourceIds
-3.3: serviceCode + ruleName
-4：serviceCodes不为空
-4.1：serviceCode + resourceId
-4.2: serviceCode + resourceIds
-4.3: serviceCode + ruleName
-5: 所有规则
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeAlarmHistoryRequest, self).__init__(
-            '/regions/{regionId}/alarmHistory', 'GET', header, version)
+            '/groupAlarmsHistory', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeAlarmHistoryParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, ):
         """
-        :param regionId: 地域 Id
         """
 
-        self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
         self.serviceCode = None
-        self.groupCode = None
-        self.resourceId = None
-        self.resourceIdList = None
-        self.alarmId = None
-        self.alarming = None
-        self.serviceCodeList = None
+        self.product = None
+        self.dimension = None
+        self.isAlarming = None
+        self.status = None
         self.startTime = None
         self.endTime = None
         self.ruleType = None
+        self.ruleName = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -78,45 +63,33 @@ class DescribeAlarmHistoryParameters(object):
 
     def setServiceCode(self, serviceCode):
         """
-        :param serviceCode: (Optional) 产品线标识,默认返回该serviceCode下所有group的数据。eg:serviceCode=jdw（jdw产品线下包含jdw-master与jdw-segment两个分组)会返回jdw-master和jdw-segment的数据。
+        :param serviceCode: (Optional) 产品线标识，同一个产品线下可能存在多个product，如(redis下有redis2.8cluster、redis4.0)
         """
         self.serviceCode = serviceCode
 
-    def setGroupCode(self, groupCode):
+    def setProduct(self, product):
         """
-        :param groupCode: (Optional) 分组标识、指定该参数时，查询只返回该group的数据。groupCode参数仅在与serviceCode匹配时生效；eg:serviceCode=jdw、groupCode=jdw-master,只返回jdw-master分组的数据，不返回jdw-segment的数据。
+        :param product: (Optional) 产品标识,默认返回该product下所有dimension的数据。eg:product=redis2.8cluster（redis2.8cluster产品下包含redis2.8-shard与redis2.8-proxy、redis2.8-instance多个维度)。
         """
-        self.groupCode = groupCode
+        self.product = product
 
-    def setResourceId(self, resourceId):
+    def setDimension(self, dimension):
         """
-        :param resourceId: (Optional) 资源Id
+        :param dimension: (Optional) 维度标识、指定该参数时，查询只返回该维度的数据。如redis2.8cluster下存在实例、分片等多个维度
         """
-        self.resourceId = resourceId
+        self.dimension = dimension
 
-    def setResourceIdList(self, resourceIdList):
+    def setIsAlarming(self, isAlarming):
         """
-        :param resourceIdList: (Optional) resourceId列表，必须指定serviceCode才会生效
+        :param isAlarming: (Optional) 正在报警, 取值为1
         """
-        self.resourceIdList = resourceIdList
+        self.isAlarming = isAlarming
 
-    def setAlarmId(self, alarmId):
+    def setStatus(self, status):
         """
-        :param alarmId: (Optional) 规则Id
+        :param status: (Optional) 报警的状态,1为报警恢复、2为报警、4为报警恢复无数据
         """
-        self.alarmId = alarmId
-
-    def setAlarming(self, alarming):
-        """
-        :param alarming: (Optional) 正在报警, 取值为1
-        """
-        self.alarming = alarming
-
-    def setServiceCodeList(self, serviceCodeList):
-        """
-        :param serviceCodeList: (Optional) 产品线列表
-        """
-        self.serviceCodeList = serviceCodeList
+        self.status = status
 
     def setStartTime(self, startTime):
         """
@@ -136,12 +109,17 @@ class DescribeAlarmHistoryParameters(object):
         """
         self.ruleType = ruleType
 
+    def setRuleName(self, ruleName):
+        """
+        :param ruleName: (Optional) 规则名称模糊搜索
+        """
+        self.ruleName = ruleName
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) serviceCodes - 产品线servicecode，精确匹配，支持多个
 resourceIds - 资源Id，精确匹配，支持多个（必须指定serviceCode才会在该serviceCode下根据resourceIds过滤，否则该参数不生效）
 alarmIds - 规则Id，精确匹配，支持多个
-ruleName - 规则名称，模糊匹配，支持单个
         """
         self.filters = filters
 

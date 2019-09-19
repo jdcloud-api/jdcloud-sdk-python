@@ -34,7 +34,7 @@ class CreateLoadBalancerParameters(object):
 
     def __init__(self, regionId, loadBalancerSpec):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
         :param loadBalancerSpec: 负载均衡配置
         """
 

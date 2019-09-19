@@ -19,21 +19,41 @@
 
 class DescribedAlarmHistory(object):
 
-    def __init__(self, alarm=None, contacts=None, durationTimes=None, noticeDurationTime=None, noticeLevelTriggered=None, noticeTime=None, value=None):
+    def __init__(self, alarmId=None, dimension=None, dimensionName=None, durationTimes=None, noticeDurationTime=None, noticeLevel=None, noticeLevelTriggered=None, noticeTime=None, product=None, productName=None, receivers=None, resourceId=None, rule=None, ruleType=None, status=None, tags=None, value=None):
         """
-        :param alarm: (Optional) 
-        :param contacts: (Optional) 告警联系人
+        :param alarmId: (Optional) 报警规则ID
+        :param dimension: (Optional) 资源维度
+        :param dimensionName: (Optional) 资源维度名称
         :param durationTimes: (Optional) 告警持续次数
         :param noticeDurationTime: (Optional) 告警持续时间，单位分钟
+        :param noticeLevel: (Optional) 用于前端显示的‘触发告警级别’。从低到高分别为‘普通’, ‘紧急’, ‘严重’
         :param noticeLevelTriggered: (Optional) 触发的告警级别。从低到高分别为‘common’, ‘critical’, ‘fatal’
         :param noticeTime: (Optional) 告警时间
+        :param product: (Optional) 资源类型
+        :param productName: (Optional) 资源类型名称
+        :param receivers: (Optional) 告警通知人
+        :param resourceId: (Optional) 资源Id
+        :param rule: (Optional) 
+        :param ruleType: (Optional) 规则类型
+        :param status: (Optional) 告警类型  1-告警恢复  2-告警 4-数据不足
+        :param tags: (Optional) 资源tags
         :param value: (Optional) 告警值
         """
 
-        self.alarm = alarm
-        self.contacts = contacts
+        self.alarmId = alarmId
+        self.dimension = dimension
+        self.dimensionName = dimensionName
         self.durationTimes = durationTimes
         self.noticeDurationTime = noticeDurationTime
+        self.noticeLevel = noticeLevel
         self.noticeLevelTriggered = noticeLevelTriggered
         self.noticeTime = noticeTime
+        self.product = product
+        self.productName = productName
+        self.receivers = receivers
+        self.resourceId = resourceId
+        self.rule = rule
+        self.ruleType = ruleType
+        self.status = status
+        self.tags = tags
         self.value = value

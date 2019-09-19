@@ -47,6 +47,7 @@ class DescribeInstancesParameters(object):
         self.networkType = None
         self.deviceType = None
         self.subnetId = None
+        self.keypairId = None
         self.enableInternet = None
         self.filters = None
 
@@ -91,6 +92,12 @@ class DescribeInstancesParameters(object):
         :param subnetId: (Optional) 子网ID
         """
         self.subnetId = subnetId
+
+    def setKeypairId(self, keypairId):
+        """
+        :param keypairId: (Optional) 密钥对ID
+        """
+        self.keypairId = keypairId
 
     def setEnableInternet(self, enableInternet):
         """

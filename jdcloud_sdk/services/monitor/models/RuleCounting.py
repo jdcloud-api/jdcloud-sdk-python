@@ -19,12 +19,12 @@
 
 class RuleCounting(object):
 
-    def __init__(self, alarmRuleCount=None, disableRuleCount=None, normalRuleCount=None, serviceCode=None, totalRuleCount=None, unknownRuleCount=None):
+    def __init__(self, alarmRuleCount=None, disableRuleCount=None, normalRuleCount=None, product=None, totalRuleCount=None, unknownRuleCount=None):
         """
         :param alarmRuleCount: (Optional) 处于报警状态的规则个数  status:2
         :param disableRuleCount: (Optional) 未启用的规则 数量
         :param normalRuleCount: (Optional) 处于正常状态的规则个数  status：1
-        :param serviceCode: (Optional) 报警联系人列表
+        :param product: (Optional) 产品标识
         :param totalRuleCount: (Optional) 监控规则 总数
         :param unknownRuleCount: (Optional) 处于数据不足状态的规则 个数  status:4
         """
@@ -32,6 +32,6 @@ class RuleCounting(object):
         self.alarmRuleCount = alarmRuleCount
         self.disableRuleCount = disableRuleCount
         self.normalRuleCount = normalRuleCount
-        self.serviceCode = serviceCode
+        self.product = product
         self.totalRuleCount = totalRuleCount
         self.unknownRuleCount = unknownRuleCount

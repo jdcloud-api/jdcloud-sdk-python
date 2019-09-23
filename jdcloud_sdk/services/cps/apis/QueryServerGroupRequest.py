@@ -34,7 +34,7 @@ class QueryServerGroupParameters(object):
 
     def __init__(self, regionId, serverGroupId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
         :param serverGroupId: 服务器组ID
         """
 

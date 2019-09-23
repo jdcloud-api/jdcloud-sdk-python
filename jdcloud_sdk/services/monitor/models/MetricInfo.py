@@ -19,17 +19,13 @@
 
 class MetricInfo(object):
 
-    def __init__(self, calculateUnit=None, metric=None, metricId=None, metricName=None, serviceCode=None):
+    def __init__(self, calculateUnit=None, metricName=None, metricUid=None):
         """
-        :param calculateUnit: (Optional) metric单位
-        :param metric: (Optional) metric
-        :param metricId: (Optional) metricID
-        :param metricName: (Optional) metric中文显示名称
-        :param serviceCode: (Optional) 资源的类型
+        :param calculateUnit: (Optional) metric 单位
+        :param metricName: (Optional) metric名称
+        :param metricUid: (Optional) metric uid
         """
 
         self.calculateUnit = calculateUnit
-        self.metric = metric
-        self.metricId = metricId
         self.metricName = metricName
-        self.serviceCode = serviceCode
+        self.metricUid = metricUid

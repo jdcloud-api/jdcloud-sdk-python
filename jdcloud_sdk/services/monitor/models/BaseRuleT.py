@@ -25,7 +25,7 @@ class BaseRuleT(object):
         :param calculateUnit: (Optional) 监控项单位
         :param calculation:  统计方法，必须与定义的metric一致，可选值列表：avg,sum,max,min
         :param downSample: (Optional) 降采样函数
-        :param metric:  监控项
+        :param metric:  监控项唯一标识，可根据DescribeMetricsForCreateAlarm接口查询各产品线可用的监控项（创建规则时使用Metric字段）。格式：metric:downsample
         :param metricId: (Optional) 监控项ID
         :param noticeLevel: (Optional) 
         :param noticePeriod:  通知周期，单位：小时

@@ -21,44 +21,30 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAlarmsRequest(JDCloudRequest):
     """
-    查询规则, 查询参数组合及优先级从高到低为：
-1：alarmIds不为空
-2：alarmId不为空
-3：serviceCode不为空
-3.1：serviceCode + resourceId
-3.2: serviceCode + resourceIds
-3.3: serviceCode + ruleName
-4：serviceCodes不为空
-4.1：serviceCode + resourceId
-4.2: serviceCode + resourceIds
-4.3: serviceCode + ruleName
-5: 所有规则
+    查询规则列表
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeAlarmsRequest, self).__init__(
-            '/regions/{regionId}/alarms', 'GET', header, version)
+            '/groupAlarms', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeAlarmsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, ):
         """
-        :param regionId: 地域 Id
         """
 
-        self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
         self.serviceCode = None
-        self.groupCode = None
-        self.resourceId = None
+        self.product = None
+        self.dimension = None
+        self.ruleName = None
         self.ruleType = None
-        self.status = None
         self.enabled = None
-        self.isAlarming = None
-        self.alarmId = None
+        self.ruleStatus = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -75,21 +61,27 @@ class DescribeAlarmsParameters(object):
 
     def setServiceCode(self, serviceCode):
         """
-        :param serviceCode: (Optional) 产品线标识,默认返回该serviceCode下所有group的数据。eg:serviceCode=jdw（jdw产品线下包含jdw-master与jdw-segment两个分组)会返回jdw-master和jdw-segment的数据。
+        :param serviceCode: (Optional) 产品线标识，同一个产品线下可能存在多个product，如(redis下有redis2.8cluster、redis4.0)
         """
         self.serviceCode = serviceCode
 
-    def setGroupCode(self, groupCode):
+    def setProduct(self, product):
         """
-        :param groupCode: (Optional) 分组标识、指定该参数时，查询只返回该group的数据。groupCode参数仅在与serviceCode匹配时生效；eg:serviceCode=jdw、groupCode=jdw-master,只返回jdw-master分组的数据，不返回jdw-segment的数据。
+        :param product: (Optional) 产品标识，如redis下分多个产品(redis2.8cluster、redis4.0)。同时指定serviceCode与product时，product优先生效
         """
-        self.groupCode = groupCode
+        self.product = product
 
-    def setResourceId(self, resourceId):
+    def setDimension(self, dimension):
         """
-        :param resourceId: (Optional) 资源ID,根据resourceId查询时必须指定serviceCode才会生效
+        :param dimension: (Optional) 产品下的维度标识，指定dimension时必须指定product
         """
-        self.resourceId = resourceId
+        self.dimension = dimension
+
+    def setRuleName(self, ruleName):
+        """
+        :param ruleName: (Optional) 规则名称
+        """
+        self.ruleName = ruleName
 
     def setRuleType(self, ruleType):
         """
@@ -97,37 +89,24 @@ class DescribeAlarmsParameters(object):
         """
         self.ruleType = ruleType
 
-    def setStatus(self, status):
-        """
-        :param status: (Optional) 规则报警状态, 1：正常, 2：报警，4：数据不足
-        """
-        self.status = status
-
     def setEnabled(self, enabled):
         """
         :param enabled: (Optional) 规则状态：1为启用，0为禁用
         """
         self.enabled = enabled
 
-    def setIsAlarming(self, isAlarming):
+    def setRuleStatus(self, ruleStatus):
         """
-        :param isAlarming: (Optional) 是否为正在报警的规则，0为忽略，1为是，与 status 同时只能生效一个,isAlarming 优先生效
+        :param ruleStatus: (Optional) 资源的规则状态  2：报警、4：数据不足
         """
-        self.isAlarming = isAlarming
-
-    def setAlarmId(self, alarmId):
-        """
-        :param alarmId: (Optional) 规则的id，若指定filter的alarmIds过滤时，忽略该参数
-        """
-        self.alarmId = alarmId
+        self.ruleStatus = ruleStatus
 
     def setFilters(self, filters):
         """
         :param filters: (Optional) 服务码或资源Id列表
-serviceCodes - 产品线servicecode，精确匹配，支持多个
-resourceIds - 资源Id，精确匹配，支持多个（必须指定serviceCode才会在该serviceCode下根据resourceIds过滤，否则该参数不生效）
+products - 产品product，精确匹配，支持多个
+resourceIds - 资源Id，精确匹配，支持多个（必须指定serviceCode、product或dimension，否则该参数不生效）
 alarmIds - 规则id，精确匹配，支持多个
-ruleName - 规则名称，模糊匹配，支持单个
         """
         self.filters = filters
 

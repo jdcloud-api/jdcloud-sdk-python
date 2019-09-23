@@ -34,7 +34,7 @@ class ModifyListenerParameters(object):
 
     def __init__(self, regionId, listenerId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
         :param listenerId: 监听器ID
         """
 
@@ -42,21 +42,14 @@ class ModifyListenerParameters(object):
         self.listenerId = listenerId
         self.algorithm = None
         self.stickySession = None
-        self.stickySessionTimeout = None
-        self.cookieType = None
         self.realIp = None
-        self.certificateId = None
         self.name = None
         self.description = None
-        self.headers = None
         self.healthCheck = None
         self.healthCheckTimeout = None
         self.healthCheckInterval = None
         self.healthyThreshold = None
         self.unhealthyThreshold = None
-        self.healthCheckUri = None
-        self.healthCheckHttpCode = None
-        self.healthCheckIp = None
         self.serverGroupId = None
 
     def setAlgorithm(self, algorithm):
@@ -71,29 +64,11 @@ class ModifyListenerParameters(object):
         """
         self.stickySession = stickySession
 
-    def setStickySessionTimeout(self, stickySessionTimeout):
-        """
-        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
-        """
-        self.stickySessionTimeout = stickySessionTimeout
-
-    def setCookieType(self, cookieType):
-        """
-        :param cookieType: (Optional) 会话类型ImplantCookie|RewriteCookie
-        """
-        self.cookieType = cookieType
-
     def setRealIp(self, realIp):
         """
         :param realIp: (Optional) 是否获取真实ip，取值范围on|off
         """
         self.realIp = realIp
-
-    def setCertificateId(self, certificateId):
-        """
-        :param certificateId: (Optional) 证书ID
-        """
-        self.certificateId = certificateId
 
     def setName(self, name):
         """
@@ -106,12 +81,6 @@ class ModifyListenerParameters(object):
         :param description: (Optional) 描述
         """
         self.description = description
-
-    def setHeaders(self, headers):
-        """
-        :param headers: (Optional) HTTP扩展头部
-        """
-        self.headers = headers
 
     def setHealthCheck(self, healthCheck):
         """
@@ -142,24 +111,6 @@ class ModifyListenerParameters(object):
         :param unhealthyThreshold: (Optional) 健康检查结果为fail的阈值
         """
         self.unhealthyThreshold = unhealthyThreshold
-
-    def setHealthCheckUri(self, healthCheckUri):
-        """
-        :param healthCheckUri: (Optional) 健康检查的URI
-        """
-        self.healthCheckUri = healthCheckUri
-
-    def setHealthCheckHttpCode(self, healthCheckHttpCode):
-        """
-        :param healthCheckHttpCode: (Optional) 健康检查正常的HTTP状态码
-        """
-        self.healthCheckHttpCode = healthCheckHttpCode
-
-    def setHealthCheckIp(self, healthCheckIp):
-        """
-        :param healthCheckIp: (Optional) 健康检查ip
-        """
-        self.healthCheckIp = healthCheckIp
 
     def setServerGroupId(self, serverGroupId):
         """

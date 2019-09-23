@@ -19,10 +19,11 @@
 
 class DescribeMetricDataSpec(object):
 
-    def __init__(self, resourceId, serviceCode, aggrType=None, downSampleType=None, endTime=None, groupBy=None, rate=None, startTime=None, tags=None, timeInterval=None):
+    def __init__(self, resourceId, aggrType=None, dimension=None, downSampleType=None, endTime=None, groupBy=None, rate=None, serviceCode=None, startTime=None, tags=None, timeInterval=None):
         """
-        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、min、max
-        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
+        :param aggrType: (Optional) 聚合方式，可选值参考:sum、avg、min、max
+        :param dimension: (Optional) 资源的维度。当serviceCode下存在多个维度时，查询数据必须指定相应的维度
+        :param downSampleType: (Optional) 采样方式，可选值参考：sum、avg、last、min、max
         :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
 in: query
         :param groupBy: (Optional) 是否对查询的tags分组
@@ -30,7 +31,7 @@ in: query
         :param rate: (Optional) 是否求速率
 in: query
         :param resourceId:  资源的uuid
-        :param serviceCode:  资源的类型，取值vm, lb, ip, database 等
+        :param serviceCode: (Optional) 资源的类型，取值vm, lb, ip, database 等,<a href="https://docs.jdcloud.com/cn/monitoring/api/describeservices?content=API&SOP=JDCloud">describeServices</a>：查询己接入云监控的产品线列表，当产品线下有多个分组时，查询分组对应的监控项，serviceCode请传对应分组的groupCode字段值
         :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：2016-12-11T00:00:00+0800（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
 in: query
         :param tags: (Optional) 监控指标数据的维度信息,根据tags来筛选指标数据不同的维度
@@ -40,6 +41,7 @@ in: query
         """
 
         self.aggrType = aggrType
+        self.dimension = dimension
         self.downSampleType = downSampleType
         self.endTime = endTime
         self.groupBy = groupBy

@@ -21,10 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeMetricDataRequest(JDCloudRequest):
     """
-    查看某资源多个监控项数据，metric介绍1：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
+    查看某资源单个监控项数据，metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>，可以使用接口<a href="https://docs.jdcloud.com/cn/monitoring/metrics">describeMetrics</a>：查询产品线可用的metric列表。
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeMetricDataRequest, self).__init__(
             '/regions/{regionId}/metrics/{metric}/metricData', 'GET', header, version)
         self.parameters = parameters
@@ -32,11 +32,10 @@ class DescribeMetricDataRequest(JDCloudRequest):
 
 class DescribeMetricDataParameters(object):
 
-    def __init__(self, regionId, metric, serviceCode, resourceId):
+    def __init__(self, regionId, metric, resourceId):
         """
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
-        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
         :param resourceId: 资源的uuid
         """
 
@@ -50,18 +49,19 @@ class DescribeMetricDataParameters(object):
         self.tags = None
         self.groupBy = None
         self.rate = None
-        self.serviceCode = serviceCode
+        self.serviceCode = None
+        self.dimension = None
         self.resourceId = resourceId
 
     def setAggrType(self, aggrType):
         """
-        :param aggrType: (Optional) 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
+        :param aggrType: (Optional) 聚合方式，用于不同时间轴上的聚合。如balance产品同一个resourceId下存在port=80和port=8080等多种维度。可选值参考:sum、avg、min、max
         """
         self.aggrType = aggrType
 
     def setDownSampleType(self, downSampleType):
         """
-        :param downSampleType: (Optional) 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
+        :param downSampleType: (Optional) 采样方式，用于在时间轴维度上将聚合周期内的数据聚合为一个点。可选值参考：sum(聚合周期内的数据求和)、avg(求平均)、last(最新值)、min(最小值)、max(最大值)
         """
         self.downSampleType = downSampleType
 
@@ -100,4 +100,16 @@ class DescribeMetricDataParameters(object):
         :param rate: (Optional) 是否求速率
         """
         self.rate = rate
+
+    def setServiceCode(self, serviceCode):
+        """
+        :param serviceCode: (Optional) 资源的类型，取值vm, lb, ip, database 等,<a href="https://docs.jdcloud.com/cn/monitoring/api/describeservices?content=API&SOP=JDCloud">describeServices</a>：查询己接入云监控的产品线列表
+        """
+        self.serviceCode = serviceCode
+
+    def setDimension(self, dimension):
+        """
+        :param dimension: (Optional) 资源的维度。查询serviceCode下可用的维度请使用describeServices接口
+        """
+        self.dimension = dimension
 

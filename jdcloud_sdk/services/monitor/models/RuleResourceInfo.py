@@ -19,11 +19,15 @@
 
 class RuleResourceInfo(object):
 
-    def __init__(self, resourceId=None, serviceCode=None):
+    def __init__(self, dimension=None, product=None, region=None, resourceId=None):
         """
-        :param resourceId: (Optional) RuleCnt     int64  `json:"ruleCnt" xorm:"cnt"`
-        :param serviceCode: (Optional) 
+        :param dimension: (Optional) 维度
+        :param product: (Optional) 产品类型
+        :param region: (Optional) 
+        :param resourceId: (Optional) 
         """
 
+        self.dimension = dimension
+        self.product = product
+        self.region = region
         self.resourceId = resourceId
-        self.serviceCode = serviceCode

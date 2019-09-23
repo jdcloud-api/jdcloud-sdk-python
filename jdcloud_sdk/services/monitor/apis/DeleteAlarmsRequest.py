@@ -24,20 +24,18 @@ class DeleteAlarmsRequest(JDCloudRequest):
     删除规则
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DeleteAlarmsRequest, self).__init__(
-            '/regions/{regionId}/alarms', 'DELETE', header, version)
+            '/groupAlarms/{alarmId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
 class DeleteAlarmsParameters(object):
 
-    def __init__(self, regionId, ids):
+    def __init__(self, alarmId, ):
         """
-        :param regionId: 地域 Id
-        :param ids: 待删除的规则id，用逗号,分隔
+        :param alarmId: 规则id
         """
 
-        self.regionId = regionId
-        self.ids = ids
+        self.alarmId = alarmId
 

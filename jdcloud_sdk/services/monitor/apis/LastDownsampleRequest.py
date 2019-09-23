@@ -21,10 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class LastDownsampleRequest(JDCloudRequest):
     """
-    查看某资源的最后一个点,metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
+    根据不同的聚合方式将metric的数据聚合为一个点。downAggrType：last(最后一个点)、max(最大值)、min(最小值)、avg(平均值)。该接口返回值为上报metric的原始值，没有做单位转换。metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(LastDownsampleRequest, self).__init__(
             '/regions/{regionId}/metrics/{metric}/lastDownsample', 'GET', header, version)
         self.parameters = parameters
@@ -36,13 +36,14 @@ class LastDownsampleParameters(object):
         """
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
-        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等
+        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等。可用的serviceCode请使用describeServices接口查询
         :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用竖线分隔。 如：id1|id2|id3|id4
         """
 
         self.regionId = regionId
         self.metric = metric
         self.serviceCode = serviceCode
+        self.dimension = None
         self.resourceId = resourceId
         self.tags = None
         self.startTime = None
@@ -50,6 +51,12 @@ class LastDownsampleParameters(object):
         self.timeInterval = None
         self.aggrType = None
         self.downAggrType = None
+
+    def setDimension(self, dimension):
+        """
+        :param dimension: (Optional) 资源的维度。serviceCode下可用的dimension请使用describeServices接口查询
+        """
+        self.dimension = dimension
 
     def setTags(self, tags):
         """

@@ -19,7 +19,7 @@
 
 class Listener(object):
 
-    def __init__(self, listenerId=None, loadBalancerId=None, protocol=None, port=None, algorithm=None, stickySession=None, stickySessionTimeout=None, cookieType=None, realIp=None, certificateId=None, status=None, name=None, description=None, headers=None, healthCheck=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, healthCheckUri=None, healthCheckHttpCode=None, healthCheckIp=None, serverGroupId=None):
+    def __init__(self, listenerId=None, loadBalancerId=None, protocol=None, port=None, algorithm=None, stickySession=None, realIp=None, status=None, name=None, description=None, healthCheck=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, healthCheckIp=None, serverGroupId=None):
         """
         :param listenerId: (Optional) 监听器ID
         :param loadBalancerId: (Optional) 负载均衡ID
@@ -27,21 +27,15 @@ class Listener(object):
         :param port: (Optional) 端口
         :param algorithm: (Optional) 调度算法
         :param stickySession: (Optional) 会话保持状态，取值on|off
-        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
-        :param cookieType: (Optional) 会话类型
         :param realIp: (Optional) 获取真实ip
-        :param certificateId: (Optional) 证书ID
         :param status: (Optional) 状态
         :param name: (Optional) 名称
         :param description: (Optional) 描述
-        :param headers: (Optional) HTTP扩展头部
         :param healthCheck: (Optional) 健康检查状态，取值on|off
         :param healthCheckTimeout: (Optional) 健康检查响应的最大超时时间，单位s
         :param healthCheckInterval: (Optional) 健康检查响应的最大间隔时间，单位s
         :param healthyThreshold: (Optional) 健康检查结果为success的阈值
         :param unhealthyThreshold: (Optional) 健康检查结果为fail的阈值
-        :param healthCheckUri: (Optional) 健康检查的URI
-        :param healthCheckHttpCode: (Optional) 健康检查正常的HTTP状态码
         :param healthCheckIp: (Optional) 健康检查ip
         :param serverGroupId: (Optional) 服务器组id
         """
@@ -52,20 +46,14 @@ class Listener(object):
         self.port = port
         self.algorithm = algorithm
         self.stickySession = stickySession
-        self.stickySessionTimeout = stickySessionTimeout
-        self.cookieType = cookieType
         self.realIp = realIp
-        self.certificateId = certificateId
         self.status = status
         self.name = name
         self.description = description
-        self.headers = headers
         self.healthCheck = healthCheck
         self.healthCheckTimeout = healthCheckTimeout
         self.healthCheckInterval = healthCheckInterval
         self.healthyThreshold = healthyThreshold
         self.unhealthyThreshold = unhealthyThreshold
-        self.healthCheckUri = healthCheckUri
-        self.healthCheckHttpCode = healthCheckHttpCode
         self.healthCheckIp = healthCheckIp
         self.serverGroupId = serverGroupId

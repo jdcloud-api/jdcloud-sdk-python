@@ -21,10 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeServicesRequest(JDCloudRequest):
     """
-    概览页产品线信息接口
+    查询监控图可用的产品线列表
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
+    def __init__(self, parameters, header=None, version="v2"):
         super(DescribeServicesRequest, self).__init__(
             '/services', 'GET', header, version)
         self.parameters = parameters

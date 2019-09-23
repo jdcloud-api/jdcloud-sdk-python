@@ -19,19 +19,29 @@
 
 class UpdateAlarmSpec(object):
 
-    def __init__(self, rule, contacts=None, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
+    def __init__(self, product, resourceOption, ruleName, ruleOption, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
         """
-        :param contacts: (Optional) 通知联系人
-        :param rule:  
-        :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookContent均不为空时，才会创建webHook
-        :param webHookProtocol: (Optional) webHook协议，目前支持http，https
-        :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
-        :param webHookUrl: (Optional) 回调url，例如http://www.jdcloud.com
+        :param baseContact: (Optional) 告警通知联系人
+        :param dimension: (Optional) 资源维度，可用的维度请使用 describeProductsForAlarm接口查询
+        :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
+        :param noticeOption: (Optional) 通知策略
+        :param product:  资源类型, 可用的资源类型列表请使用 describeProductsForAlarm接口查询。
+        :param resourceOption:  
+        :param ruleName:  规则名称，规则名称，最大长度42个字符，只允许中英文、数字、''-''和"_"
+        :param ruleOption:  
+        :param ruleType: (Optional) 规则类型, 默认为resourceMonitor
+        :param tags: (Optional) 资源维度，指定监控数据实例的维度标签,如resourceId=id。(请确认资源的监控数据带有该标签，否则规则会报数据不足)
+        :param webHookOption: (Optional) 
         """
 
-        self.contacts = contacts
-        self.rule = rule
-        self.webHookContent = webHookContent
-        self.webHookProtocol = webHookProtocol
-        self.webHookSecret = webHookSecret
-        self.webHookUrl = webHookUrl
+        self.baseContact = baseContact
+        self.dimension = dimension
+        self.enabled = enabled
+        self.noticeOption = noticeOption
+        self.product = product
+        self.resourceOption = resourceOption
+        self.ruleName = ruleName
+        self.ruleOption = ruleOption
+        self.ruleType = ruleType
+        self.tags = tags
+        self.webHookOption = webHookOption

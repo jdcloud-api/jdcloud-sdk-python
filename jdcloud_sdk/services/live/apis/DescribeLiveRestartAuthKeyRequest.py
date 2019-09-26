@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLivePlayAuthKeyRequest(JDCloudRequest):
+class DescribeLiveRestartAuthKeyRequest(JDCloudRequest):
     """
-    查询(直播or时移)播放鉴权KEY
+    查询直播回看播放鉴权KEY
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'GET', header, version)
+        super(DescribeLiveRestartAuthKeyRequest, self).__init__(
+            '/liveRestartAuthKey', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLivePlayAuthKeyParameters(object):
+class DescribeLiveRestartAuthKeyParameters(object):
 
-    def __init__(self, playDomain):
+    def __init__(self, restartDomain):
         """
-        :param playDomain: (直播or时移)播放域名
+        :param restartDomain: 直播回看播放域名
 - 仅支持精确匹配
 
         """
 
-        self.playDomain = playDomain
+        self.restartDomain = restartDomain
 

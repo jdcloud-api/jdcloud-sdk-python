@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLivePlayAuthKeyRequest(JDCloudRequest):
+class DescribeLiveDomainCertificateRequest(JDCloudRequest):
     """
-    查询(直播or时移)播放鉴权KEY
+    查询直播播放证书
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'GET', header, version)
+        super(DescribeLiveDomainCertificateRequest, self).__init__(
+            '/liveDomainCertificate', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLivePlayAuthKeyParameters(object):
+class DescribeLiveDomainCertificateParameters(object):
 
     def __init__(self, playDomain):
         """

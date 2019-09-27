@@ -19,25 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLivePlayAuthKeyRequest(JDCloudRequest):
+class DescribeAttachedGroupPoliciesRequest(JDCloudRequest):
     """
-    查询(直播or时移)播放鉴权KEY
+    列举用户组的策略
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'GET', header, version)
+        super(DescribeAttachedGroupPoliciesRequest, self).__init__(
+            '/group/{groupName}/policies', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLivePlayAuthKeyParameters(object):
+class DescribeAttachedGroupPoliciesParameters(object):
 
-    def __init__(self, playDomain):
+    def __init__(self, groupName, ):
         """
-        :param playDomain: (直播or时移)播放域名
-- 仅支持精确匹配
-
+        :param groupName: 用户组名称
         """
 
-        self.playDomain = playDomain
+        self.groupName = groupName
 

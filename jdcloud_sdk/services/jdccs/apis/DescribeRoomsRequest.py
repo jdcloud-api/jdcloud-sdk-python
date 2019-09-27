@@ -19,43 +19,45 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetLivePlayAuthKeyRequest(JDCloudRequest):
+class DescribeRoomsRequest(JDCloudRequest):
     """
-    设置(直播or时移)播放鉴权KEY
+    查询机房房间号列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'POST', header, version)
+        super(DescribeRoomsRequest, self).__init__(
+            '/idcs/{idc}/rooms', 'GET', header, version)
         self.parameters = parameters
 
 
-class SetLivePlayAuthKeyParameters(object):
+class DescribeRoomsParameters(object):
 
-    def __init__(self, playDomain, ):
+    def __init__(self, idc, ):
         """
-        :param playDomain: (直播or时移)播放域名
+        :param idc: IDC机房id
         """
 
-        self.playDomain = playDomain
-        self.authStatus = None
-        self.authKey = None
+        self.idc = idc
+        self.pageNumber = None
+        self.pageSize = None
+        self.filters = None
 
-    def setAuthStatus(self, authStatus):
+    def setPageNumber(self, pageNumber):
         """
-        :param authStatus: (Optional) (直播or时移)播放鉴权状态
-  on: 开启
-  off: 关闭
-- 当播放鉴权状态on(开启)时,authKey不能为空
+        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞)
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
+        """
+        self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) roomNo - 房间号，精确匹配，支持多个
 
         """
-        self.authStatus = authStatus
-
-    def setAuthKey(self, authKey):
-        """
-        :param authKey: (Optional) (直播or时移)播放鉴权key
-- 取值: 支持大小写字母和数字 长度6-32位
-
-        """
-        self.authKey = authKey
+        self.filters = filters
 

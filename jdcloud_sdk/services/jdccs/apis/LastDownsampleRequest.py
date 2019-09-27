@@ -19,25 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLivePlayAuthKeyRequest(JDCloudRequest):
+class LastDownsampleRequest(JDCloudRequest):
     """
-    查询(直播or时移)播放鉴权KEY
+    查看某资源的最后一个监控数据点
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'GET', header, version)
+        super(LastDownsampleRequest, self).__init__(
+            '/idcs/{idc}/metrics/{metric}/lastDownsample', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLivePlayAuthKeyParameters(object):
+class LastDownsampleParameters(object):
 
-    def __init__(self, playDomain):
+    def __init__(self, idc, metric, resourceId):
         """
-        :param playDomain: (直播or时移)播放域名
-- 仅支持精确匹配
-
+        :param idc: 机房名称（英文标识）
+        :param metric: 监控项英文标识(id)
+        :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用竖线 | 分隔
         """
 
-        self.playDomain = playDomain
+        self.idc = idc
+        self.metric = metric
+        self.resourceId = resourceId
 

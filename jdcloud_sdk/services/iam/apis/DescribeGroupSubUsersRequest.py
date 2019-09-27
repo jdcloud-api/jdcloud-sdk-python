@@ -19,25 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLivePlayAuthKeyRequest(JDCloudRequest):
+class DescribeGroupSubUsersRequest(JDCloudRequest):
     """
-    查询(直播or时移)播放鉴权KEY
+    查询用户组内的子用户列表 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'GET', header, version)
+        super(DescribeGroupSubUsersRequest, self).__init__(
+            '/group/{groupName}/subUsers', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLivePlayAuthKeyParameters(object):
+class DescribeGroupSubUsersParameters(object):
 
-    def __init__(self, playDomain):
+    def __init__(self, groupName, ):
         """
-        :param playDomain: (直播or时移)播放域名
-- 仅支持精确匹配
-
+        :param groupName: 用户组名称
         """
 
-        self.playDomain = playDomain
+        self.groupName = groupName
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码，默认1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小，默认50，取值范围[10, 100]
+        """
+        self.pageSize = pageSize
 

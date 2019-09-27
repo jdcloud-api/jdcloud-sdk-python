@@ -19,41 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetLivePlayAuthKeyRequest(JDCloudRequest):
+class SetLiveRestartAuthKeyRequest(JDCloudRequest):
     """
-    设置(直播or时移)播放鉴权KEY
+    设置直播回看播放鉴权KEY
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetLivePlayAuthKeyRequest, self).__init__(
-            '/livePlayAuthKey', 'POST', header, version)
+        super(SetLiveRestartAuthKeyRequest, self).__init__(
+            '/liveRestartAuthKey', 'POST', header, version)
         self.parameters = parameters
 
 
-class SetLivePlayAuthKeyParameters(object):
+class SetLiveRestartAuthKeyParameters(object):
 
-    def __init__(self, playDomain, ):
+    def __init__(self, restartDomain, ):
         """
-        :param playDomain: (直播or时移)播放域名
+        :param restartDomain: 直播回看播放域名
         """
 
-        self.playDomain = playDomain
+        self.restartDomain = restartDomain
         self.authStatus = None
         self.authKey = None
 
     def setAuthStatus(self, authStatus):
         """
-        :param authStatus: (Optional) (直播or时移)播放鉴权状态
+        :param authStatus: (Optional) 直播回看播放鉴权状态
   on: 开启
   off: 关闭
-- 当播放鉴权状态on(开启)时,authKey不能为空
+- 当回看播放鉴权状态on(开启)时,authKey不能为空
 
         """
         self.authStatus = authStatus
 
     def setAuthKey(self, authKey):
         """
-        :param authKey: (Optional) (直播or时移)播放鉴权key
+        :param authKey: (Optional) 直播回看播放鉴权key
 - 取值: 支持大小写字母和数字 长度6-32位
 
         """

@@ -100,10 +100,14 @@ class JDCloudClient(object):
         return headers
 
     def __get_region_id(self, request):
-        if not hasattr(request.parameters, 'regionId') or request.parameters.regionId is None:
-            return 'jdcloud-api'  # when no region, use this value to fill field for sign
+        if isinstance(request.parameters, dict):
+            if 'regionId' in request.parameters and request.parameters['regionId'] is not None:
+                return request.parameters['regionId']
+        else:
+            if hasattr(request.parameters, 'regionId') and request.parameters.regionId is not None:
+                return request.parameters.regionId
 
-        return request.parameters.regionId
+        return 'jdcloud-api'  # when no region, use this value to fill field for sign
 
     def __process_response(self, method, response):
         jd_resp = JDCloudResponse()

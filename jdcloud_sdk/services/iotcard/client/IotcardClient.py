@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class EliteClient(JDCloudClient):
+class IotcardClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('elite.jdcloud-api.com')
+            config = Config('iotcard.jdcloud-api.com')
 
-        super(EliteClient, self).__init__(credential, config, 'elite', '1.0.8', logger)
+        super(IotcardClient, self).__init__(credential, config, 'iotcard', '1.0.0', logger)

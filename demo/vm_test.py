@@ -17,6 +17,9 @@
 import unittest
 import time
 from jdcloud_sdk.core.credential import Credential
+from jdcloud_sdk.core.const import SCHEME_HTTP
+from jdcloud_sdk.core.config import Config
+from jdcloud_sdk.core.logger import Logger
 from jdcloud_sdk.services.vm.client.VmClient import VmClient
 from jdcloud_sdk.services.vm.apis.DescribeInstanceTypesRequest import *
 from jdcloud_sdk.services.vm.apis.DescribeInstancesRequest import *
@@ -37,7 +40,10 @@ class VmTest(unittest.TestCase):
         access_key = 'ak'
         secret_key = 'sk'
         self.credential = Credential(access_key, secret_key)
-        self.client = VmClient(self.credential)
+        # 指定使用http方式访问vpc专用域名，超时为20s
+        config = Config('vm.internal.cn-north-1.jdcloud-api.com', SCHEME_HTTP, 20)
+        logger = Logger(3) # FATAL = 0 ERROR = 1 WARN = 2 INFO = 3；如果不想输出日志，可将日志级别设置为0（FATAL）；不设置logger，则默认为INFO
+        self.client = VmClient(self.credential, config, logger)
 
     def testDescribeInstanceTypes(self):
         parameters = DescribeInstanceTypesParameters('cn-north-1')

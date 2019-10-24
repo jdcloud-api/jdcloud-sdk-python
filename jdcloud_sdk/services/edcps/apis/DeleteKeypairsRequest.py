@@ -19,32 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeOSRequest(JDCloudRequest):
+class DeleteKeypairsRequest(JDCloudRequest):
     """
-    查询分布式云物理服务器支持的操作系统
+    删除密钥对
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeOSRequest, self).__init__(
-            '/regions/{regionId}/os', 'GET', header, version)
+        super(DeleteKeypairsRequest, self).__init__(
+            '/regions/{regionId}/keypairs/{keypairId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DescribeOSParameters(object):
+class DeleteKeypairsParameters(object):
 
-    def __init__(self, regionId, deviceType, ):
+    def __init__(self, regionId, keypairId, ):
         """
         :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
-        :param deviceType: 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：edcps.c.normal1
+        :param keypairId: 密钥对ID
         """
 
         self.regionId = regionId
-        self.deviceType = deviceType
-        self.osType = None
-
-    def setOsType(self, osType):
-        """
-        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
-        """
-        self.osType = osType
+        self.keypairId = keypairId
 

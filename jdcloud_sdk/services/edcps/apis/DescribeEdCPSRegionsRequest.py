@@ -19,32 +19,21 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeOSRequest(JDCloudRequest):
+class DescribeEdCPSRegionsRequest(JDCloudRequest):
     """
-    查询分布式云物理服务器支持的操作系统
+    查询分布式分布式云物理服务器地域列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeOSRequest, self).__init__(
-            '/regions/{regionId}/os', 'GET', header, version)
+        super(DescribeEdCPSRegionsRequest, self).__init__(
+            '/edgeRegions', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeOSParameters(object):
+class DescribeEdCPSRegionsParameters(object):
 
-    def __init__(self, regionId, deviceType, ):
+    def __init__(self, ):
         """
-        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
-        :param deviceType: 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：edcps.c.normal1
         """
 
-        self.regionId = regionId
-        self.deviceType = deviceType
-        self.osType = None
-
-    def setOsType(self, osType):
-        """
-        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
-        """
-        self.osType = osType
 

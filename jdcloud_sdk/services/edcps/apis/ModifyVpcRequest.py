@@ -35,7 +35,7 @@ class ModifyVpcParameters(object):
 
     def __init__(self, regionId, vpcId, ):
         """
-        :param regionId: 地域ID，可调用接口（queryEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
         :param vpcId: 私有网络ID
         """
 

@@ -36,7 +36,7 @@ class DescribeInstancesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID，可调用接口（queryEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
         """
 
         self.regionId = regionId
@@ -48,6 +48,7 @@ class DescribeInstancesParameters(object):
         self.deviceType = None
         self.subnetId = None
         self.enableInternet = None
+        self.keypairId = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -97,6 +98,12 @@ class DescribeInstancesParameters(object):
         :param enableInternet: (Optional) 是否启用外网, yes/no
         """
         self.enableInternet = enableInternet
+
+    def setKeypairId(self, keypairId):
+        """
+        :param keypairId: (Optional) 密钥对id
+        """
+        self.keypairId = keypairId
 
     def setFilters(self, filters):
         """

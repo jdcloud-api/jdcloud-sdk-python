@@ -19,12 +19,13 @@
 
 class ElasticIp(object):
 
-    def __init__(self, region=None, elasticIpId=None, elasticIp=None, bandwidth=None, lineType=None, status=None, instanceType=None, instanceId=None, createTime=None, charge=None):
+    def __init__(self, region=None, elasticIpId=None, elasticIp=None, bandwidth=None, extraUplinkBandwidth=None, lineType=None, status=None, instanceType=None, instanceId=None, createTime=None, charge=None):
         """
         :param region: (Optional) 地域代码, 如cn-east-tz1
         :param elasticIpId: (Optional) 弹性公网IPID
         :param elasticIp: (Optional) 弹性公网IP
         :param bandwidth: (Optional) 带宽, 单位Mbps
+        :param extraUplinkBandwidth: (Optional) 额外上行带宽, 单位Mbps
         :param lineType: (Optional) 链路类型
         :param status: (Optional) 状态
         :param instanceType: (Optional) 实例类型
@@ -37,6 +38,7 @@ class ElasticIp(object):
         self.elasticIpId = elasticIpId
         self.elasticIp = elasticIp
         self.bandwidth = bandwidth
+        self.extraUplinkBandwidth = extraUplinkBandwidth
         self.lineType = lineType
         self.status = status
         self.instanceType = instanceType

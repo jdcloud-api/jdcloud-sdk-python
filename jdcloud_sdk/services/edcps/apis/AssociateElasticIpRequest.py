@@ -33,9 +33,9 @@ class AssociateElasticIpRequest(JDCloudRequest):
 
 class AssociateElasticIpParameters(object):
 
-    def __init__(self, regionId, instanceId, elasticIpId):
+    def __init__(self, regionId, instanceId, elasticIpId, ):
         """
-        :param regionId: 地域ID，可调用接口（queryEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
         :param instanceId: 分布式云物理服务器ID
         :param elasticIpId: 弹性公网IPID
         """
@@ -44,6 +44,7 @@ class AssociateElasticIpParameters(object):
         self.instanceId = instanceId
         self.clientToken = None
         self.elasticIpId = elasticIpId
+        self.targetIp = None
 
     def setClientToken(self, clientToken):
         """
@@ -52,4 +53,10 @@ class AssociateElasticIpParameters(object):
 
         """
         self.clientToken = clientToken
+
+    def setTargetIp(self, targetIp):
+        """
+        :param targetIp: (Optional) 私有IP
+        """
+        self.targetIp = targetIp
 

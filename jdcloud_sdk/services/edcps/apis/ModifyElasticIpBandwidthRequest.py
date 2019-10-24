@@ -33,17 +33,18 @@ class ModifyElasticIpBandwidthRequest(JDCloudRequest):
 
 class ModifyElasticIpBandwidthParameters(object):
 
-    def __init__(self, regionId, elasticIpId, bandwidth):
+    def __init__(self, regionId, elasticIpId, bandwidth, ):
         """
-        :param regionId: 地域ID，可调用接口（queryEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
         :param elasticIpId: 弹性公网IPID
-        :param bandwidth: 带宽，单位Mbps，取值范围[1,200]
+        :param bandwidth: 带宽，单位Mbps，取值范围[1,10240]
         """
 
         self.regionId = regionId
         self.elasticIpId = elasticIpId
         self.clientToken = None
         self.bandwidth = bandwidth
+        self.extraUplinkBandwidth = None
 
     def setClientToken(self, clientToken):
         """
@@ -52,4 +53,10 @@ class ModifyElasticIpBandwidthParameters(object):
 
         """
         self.clientToken = clientToken
+
+    def setExtraUplinkBandwidth(self, extraUplinkBandwidth):
+        """
+        :param extraUplinkBandwidth: (Optional) 额外上行带宽，单位Mbps，取值范围[0,10240]
+        """
+        self.extraUplinkBandwidth = extraUplinkBandwidth
 

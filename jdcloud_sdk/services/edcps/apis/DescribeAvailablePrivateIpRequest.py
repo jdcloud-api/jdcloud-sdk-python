@@ -19,32 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeOSRequest(JDCloudRequest):
+class DescribeAvailablePrivateIpRequest(JDCloudRequest):
     """
-    查询分布式云物理服务器支持的操作系统
+    查询可用的私有IP列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeOSRequest, self).__init__(
-            '/regions/{regionId}/os', 'GET', header, version)
+        super(DescribeAvailablePrivateIpRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/availablePrivateIps', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeOSParameters(object):
+class DescribeAvailablePrivateIpParameters(object):
 
-    def __init__(self, regionId, deviceType, ):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
-        :param deviceType: 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：edcps.c.normal1
+        :param instanceId: 分布式云物理服务器ID
         """
 
         self.regionId = regionId
-        self.deviceType = deviceType
-        self.osType = None
-
-    def setOsType(self, osType):
-        """
-        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
-        """
-        self.osType = osType
+        self.instanceId = instanceId
 

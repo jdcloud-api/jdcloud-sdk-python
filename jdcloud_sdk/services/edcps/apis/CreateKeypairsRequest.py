@@ -19,32 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeOSRequest(JDCloudRequest):
+class CreateKeypairsRequest(JDCloudRequest):
     """
-    查询分布式云物理服务器支持的操作系统
+    创建密钥对
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeOSRequest, self).__init__(
-            '/regions/{regionId}/os', 'GET', header, version)
+        super(CreateKeypairsRequest, self).__init__(
+            '/regions/{regionId}/keypairs', 'PUT', header, version)
         self.parameters = parameters
 
 
-class DescribeOSParameters(object):
+class CreateKeypairsParameters(object):
 
-    def __init__(self, regionId, deviceType, ):
+    def __init__(self, regionId, name):
         """
         :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
-        :param deviceType: 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：edcps.c.normal1
+        :param name: 密钥对名称
         """
 
         self.regionId = regionId
-        self.deviceType = deviceType
-        self.osType = None
+        self.clientToken = None
+        self.name = name
 
-    def setOsType(self, osType):
+    def setClientToken(self, clientToken):
         """
-        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
+        :param clientToken: (Optional) 由客户端生成，用于保证请求的幂等性，长度不能超过36个字符；<br/>
+如果多个请求使用了相同的clientToken，只会执行第一个请求，之后的请求直接返回第一个请求的结果<br/>
+
         """
-        self.osType = osType
+        self.clientToken = clientToken
 

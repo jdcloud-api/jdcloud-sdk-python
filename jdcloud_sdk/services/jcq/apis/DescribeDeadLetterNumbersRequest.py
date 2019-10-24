@@ -56,7 +56,7 @@ class DescribeDeadLetterNumbersParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页数
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
         """
         self.pageSize = pageSize
 

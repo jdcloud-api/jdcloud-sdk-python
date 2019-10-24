@@ -19,46 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeSubscriptionsRequest(JDCloudRequest):
+class DescribeMessagesByBusinessIdRequest(JDCloudRequest):
     """
-    订阅列表
+    根据businessId查询消息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeSubscriptionsRequest, self).__init__(
-            '/regions/{regionId}/topics/{topicName}/subscriptions', 'GET', header, version)
+        super(DescribeMessagesByBusinessIdRequest, self).__init__(
+            '/regions/{regionId}/topics/{topicName}/messagesWithBusinessId', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeSubscriptionsParameters(object):
+class DescribeMessagesByBusinessIdParameters(object):
 
-    def __init__(self, regionId, topicName, ):
+    def __init__(self, regionId, topicName, businessId):
         """
         :param regionId: 所在区域的Region ID
         :param topicName: topic 名称
+        :param businessId: business id
         """
 
         self.regionId = regionId
         self.topicName = topicName
-        self.consumerGroupFilter = None
-        self.pageSize = None
-        self.pageNumber = None
-
-    def setConsumerGroupFilter(self, consumerGroupFilter):
-        """
-        :param consumerGroupFilter: (Optional) consumerGroupFilter，consumerGroupId的过滤条件
-        """
-        self.consumerGroupFilter = consumerGroupFilter
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
-        """
-        self.pageSize = pageSize
-
-    def setPageNumber(self, pageNumber):
-        """
-        :param pageNumber: (Optional) 页码
-        """
-        self.pageNumber = pageNumber
+        self.businessId = businessId
 

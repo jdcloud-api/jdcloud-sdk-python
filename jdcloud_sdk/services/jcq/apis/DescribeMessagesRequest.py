@@ -32,7 +32,7 @@ class DescribeMessagesRequest(JDCloudRequest):
 
 class DescribeMessagesParameters(object):
 
-    def __init__(self, regionId, topicName, startTime, endTime):
+    def __init__(self, regionId, topicName, startTime, endTime, ):
         """
         :param regionId: 所在区域的Region ID
         :param topicName: topic 名称
@@ -44,4 +44,18 @@ class DescribeMessagesParameters(object):
         self.topicName = topicName
         self.startTime = startTime
         self.endTime = endTime
+        self.pageSize = None
+        self.pageNumber = None
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        """
+        self.pageSize = pageSize
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码
+        """
+        self.pageNumber = pageNumber
 

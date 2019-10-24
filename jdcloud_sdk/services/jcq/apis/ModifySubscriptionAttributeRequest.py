@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateSubscriptionRequest(JDCloudRequest):
+class ModifySubscriptionAttributeRequest(JDCloudRequest):
     """
-    创建订阅
+    修改订阅
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateSubscriptionRequest, self).__init__(
-            '/regions/{regionId}/topics/{topicName}/subscriptions', 'POST', header, version)
+        super(ModifySubscriptionAttributeRequest, self).__init__(
+            '/regions/{regionId}/topics/{topicName}/subscriptions/{consumerGroupId}', 'PATCH', header, version)
         self.parameters = parameters
 
 
-class CreateSubscriptionParameters(object):
+class ModifySubscriptionAttributeParameters(object):
 
     def __init__(self, regionId, topicName, consumerGroupId, ):
         """
@@ -42,13 +42,19 @@ class CreateSubscriptionParameters(object):
         self.regionId = regionId
         self.topicName = topicName
         self.consumerGroupId = consumerGroupId
+        self.maxRetryTimes = None
         self.messageInvisibleTimeInSeconds = None
         self.dlqEnable = None
-        self.maxRetryTimes = None
+
+    def setMaxRetryTimes(self, maxRetryTimes):
+        """
+        :param maxRetryTimes: (Optional) 最大重试次数
+        """
+        self.maxRetryTimes = maxRetryTimes
 
     def setMessageInvisibleTimeInSeconds(self, messageInvisibleTimeInSeconds):
         """
-        :param messageInvisibleTimeInSeconds: (Optional) 消息隐藏时间单位秒
+        :param messageInvisibleTimeInSeconds: (Optional) 消息ack超时时间
         """
         self.messageInvisibleTimeInSeconds = messageInvisibleTimeInSeconds
 
@@ -57,10 +63,4 @@ class CreateSubscriptionParameters(object):
         :param dlqEnable: (Optional) 是否开启死信队列[true, false]
         """
         self.dlqEnable = dlqEnable
-
-    def setMaxRetryTimes(self, maxRetryTimes):
-        """
-        :param maxRetryTimes: (Optional) 最大重试次数dlqEnable为true必填,范围[0,16]
-        """
-        self.maxRetryTimes = maxRetryTimes
 

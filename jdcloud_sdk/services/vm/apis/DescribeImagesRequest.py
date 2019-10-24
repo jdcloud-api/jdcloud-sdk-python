@@ -45,13 +45,14 @@ class DescribeImagesParameters(object):
         self.platform = None
         self.ids = None
         self.rootDeviceType = None
+        self.launchPermission = None
         self.status = None
         self.pageNumber = None
         self.pageSize = None
 
     def setImageSource(self, imageSource):
         """
-        :param imageSource: (Optional) 镜像来源，如果没有指定ids参数，此参数必传；取值范围：public、shared、thirdparty、private
+        :param imageSource: (Optional) 镜像来源，如果没有指定ids参数，此参数必传；取值范围：public、shared、thirdparty、private、community
         """
         self.imageSource = imageSource
 
@@ -72,6 +73,12 @@ class DescribeImagesParameters(object):
         :param rootDeviceType: (Optional) 镜像支持的系统盘类型，[localDisk,cloudDisk]
         """
         self.rootDeviceType = rootDeviceType
+
+    def setLaunchPermission(self, launchPermission):
+        """
+        :param launchPermission: (Optional) 镜像的使用权限[all, specifiedUsers，ownerOnly]，可选参数，仅当imageSource取值private时有效
+        """
+        self.launchPermission = launchPermission
 
     def setStatus(self, status):
         """

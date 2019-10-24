@@ -19,7 +19,7 @@
 
 class Image(object):
 
-    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None):
+    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None):
         """
         :param imageId: (Optional) 镜像ID
         :param name: (Optional) 镜像名称
@@ -33,6 +33,8 @@ class Image(object):
         :param createTime: (Optional) 创建时间
         :param sizeMB: (Optional) 镜像文件实际大小
         :param desc: (Optional) 镜像描述
+        :param ownerPin: (Optional) 该镜像所有者的用户PIN
+        :param launchPermission: (Optional) 镜像的使用权限，取值：all（所有人可用）， specifiedUsers（共享用户可用），ownerOnly（镜像所有者自己可用）
         :param systemDisk: (Optional) 镜像系统盘配置
         :param dataDisks: (Optional) 镜像数据盘映射信息
         :param snapshotId: (Optional) 创建云盘系统盘所使用的云硬盘快照ID。系统盘类型为本地盘的镜像，此参数为空。
@@ -52,6 +54,8 @@ class Image(object):
         self.createTime = createTime
         self.sizeMB = sizeMB
         self.desc = desc
+        self.ownerPin = ownerPin
+        self.launchPermission = launchPermission
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.snapshotId = snapshotId

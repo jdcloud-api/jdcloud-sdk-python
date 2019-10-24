@@ -19,21 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryEdCPSRegionsRequest(JDCloudRequest):
+class SetLiveStreamQualityDetectionNotifyConfigRequest(JDCloudRequest):
     """
-    查询分布式分布式云物理服务器地域列表
+    设置直播质量检测回调通知地址
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryEdCPSRegionsRequest, self).__init__(
-            '/edgeRegions', 'GET', header, version)
+        super(SetLiveStreamQualityDetectionNotifyConfigRequest, self).__init__(
+            '/qualityDetectionNotifys:config', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryEdCPSRegionsParameters(object):
+class SetLiveStreamQualityDetectionNotifyConfigParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, publishDomain, notifyUrl):
         """
+        :param publishDomain: 推流域名
+        :param notifyUrl: 质量检测回调通知的URL地址:
+- 以 http:// 开头,外网可访问的地址
+
         """
 
+        self.publishDomain = publishDomain
+        self.notifyUrl = notifyUrl
 

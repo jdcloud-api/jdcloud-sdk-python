@@ -19,7 +19,7 @@
 
 class DomainInfo(object):
 
-    def __init__(self, id=None, domainName=None, createTime=None, expirationDate=None, packId=None, packName=None, resolvingStatus=None, creator=None, jcloudNs=None, lockStatus=None):
+    def __init__(self, id=None, domainName=None, createTime=None, expirationDate=None, packId=None, packName=None, resolvingStatus=None, creator=None, jcloudNs=None, lockStatus=None, probeNsList=None, defNsList=None):
         """
         :param id: (Optional) 域名的唯一ID
         :param domainName: (Optional) 域名字符串
@@ -27,10 +27,12 @@ class DomainInfo(object):
         :param expirationDate: (Optional) 过期时间，格式Unix timestamp，时间单位：毫秒
         :param packId: (Optional) 套餐类型，免费:0 企业版:1 企业高级版:2
         :param packName: (Optional) 套餐的名字
-        :param resolvingStatus: (Optional) 解析的状态, 暂无解析:1，正常解析:2， 部分解析:3， 暂停解析:4 NS未修改:5
+        :param resolvingStatus: (Optional) 解析的状态, 暂无解析:1，正常解析:2， 部分解析:3， 暂停解析:4 NS未修改:5，域名探测错误:7，域名未注册:8，注册局暂停解析:9
         :param creator: (Optional) 创建者
         :param jcloudNs: (Optional) 是否是京东云资源
         :param lockStatus: (Optional) 域名的锁定状态，0:未锁定， 1:已锁定
+        :param probeNsList: (Optional) 主域名当前的Nameserver列表
+        :param defNsList: (Optional) 主域名应该设置的Nameserver列表
         """
 
         self.id = id
@@ -43,3 +45,5 @@ class DomainInfo(object):
         self.creator = creator
         self.jcloudNs = jcloudNs
         self.lockStatus = lockStatus
+        self.probeNsList = probeNsList
+        self.defNsList = defNsList

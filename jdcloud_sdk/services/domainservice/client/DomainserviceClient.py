@@ -26,4 +26,4 @@ class DomainserviceClient(JDCloudClient):
         if config is None:
             config = Config('domainservice.jdcloud-api.com')
 
-        super(DomainserviceClient, self).__init__(credential, config, 'domainservice', '2.0.0', logger)
+        super(DomainserviceClient, self).__init__(credential, config, 'domainservice', '2.0.3', logger)

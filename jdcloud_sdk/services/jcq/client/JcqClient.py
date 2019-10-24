@@ -26,4 +26,4 @@ class JcqClient(JDCloudClient):
         if config is None:
             config = Config('jcq.jdcloud-api.com')
 
-        super(JcqClient, self).__init__(credential, config, 'jcq', '1.0.1', logger)
+        super(JcqClient, self).__init__(credential, config, 'jcq', '1.0.2', logger)

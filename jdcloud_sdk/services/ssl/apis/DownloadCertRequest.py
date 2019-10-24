@@ -26,7 +26,7 @@ class DownloadCertRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DownloadCertRequest, self).__init__(
-            '/sslCert:download', 'POST', header, version)
+            '/sslCert/{certId}:download', 'GET', header, version)
         self.parameters = parameters
 
 
@@ -34,7 +34,7 @@ class DownloadCertParameters(object):
 
     def __init__(self, certId, serverType):
         """
-        :param certId: 证书Id,以逗号分隔多个Id
+        :param certId: 证书 Id
         :param serverType: 证书应用的服务器类型(Nginx Apache Tomcat IIS Other)
         """
 

@@ -26,4 +26,4 @@ class EdcpsClient(JDCloudClient):
         if config is None:
             config = Config('edcps.jdcloud-api.com')
 
-        super(EdcpsClient, self).__init__(credential, config, 'edcps', '1.0.0', logger)
+        super(EdcpsClient, self).__init__(credential, config, 'edcps', '1.1.0', logger)

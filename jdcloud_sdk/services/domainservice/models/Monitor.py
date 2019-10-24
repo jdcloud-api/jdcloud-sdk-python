@@ -19,7 +19,7 @@
 
 class Monitor(object):
 
-    def __init__(self, alarmLimit=None, canRecover=None, canSwitch=None, clusters=None, domainName=None, hostStatus=None, hostValue=None, id=None, ipBackup01=None, ipBackup01Status=None, ipBackup01Type=None, ipBackup02=None, ipBackup02Status=None, ipBackup02Type=None, manualBackup=None, manualBackupStatus=None, manualBackupType=None, monitorEnable=None, monitorFreq=None, monitorPort=None, monitorRule=None, monitorUri=None, notifyEmail=None, notifyEmailEnable=None, notifyMsgBarEnable=None, notifySms=None, notifySmsEnable=None, protocol=None, stopRecoverRule=None, subDomainName=None, switchRecoverRule=None, type=None, usedType=None):
+    def __init__(self, alarmLimit=None, canRecover=None, canSwitch=None, clusters=None, domainName=None, hostStatus=None, hostValue=None, id=None, ipBackup01=None, ipBackup01Status=None, ipBackup01Type=None, ipBackup02=None, ipBackup02Status=None, ipBackup02Type=None, manualBackup=None, manualBackupStatus=None, manualBackupType=None, monitorEnable=None, monitorFreq=None, monitorPort=None, monitorRule=None, monitorUri=None, notifyEmail=None, notifyEmailEnable=None, notifyMsgBarEnable=None, notifySms=None, notifySmsEnable=None, protocol=None, stopRecoverRule=None, subDomainName=None, switchRecoverRule=None, type=None, usedType=None, backupAddressList=None, requestHeaders=None, responseBodyMatch=None, responseCodeRanges=None, effectAddr=None):
         """
         :param alarmLimit: (Optional) 连续几次触发报警
         :param canRecover: (Optional) 现在是否可以恢复
@@ -54,6 +54,11 @@ class Monitor(object):
         :param switchRecoverRule: (Optional) 自动恢复至主host:0 手动恢复至主host:1
         :param type: (Optional) 1为A记录，2为CNAME
         :param usedType: (Optional) 使用记录，host_value 0，ip_backup_01 1，ip_backup_02 2，cname_backup 3
+        :param backupAddressList: (Optional) 备用地址及其状态列表
+        :param requestHeaders: (Optional) 探测请求携带自定义头域及其域值列表
+        :param responseBodyMatch: (Optional) 探测响应Body体中包含的字符串
+        :param responseCodeRanges: (Optional) 探测响应码范围列表
+        :param effectAddr: (Optional) 正在使用的有效解析地址
         """
 
         self.alarmLimit = alarmLimit
@@ -89,3 +94,8 @@ class Monitor(object):
         self.switchRecoverRule = switchRecoverRule
         self.type = type
         self.usedType = usedType
+        self.backupAddressList = backupAddressList
+        self.requestHeaders = requestHeaders
+        self.responseBodyMatch = responseBodyMatch
+        self.responseCodeRanges = responseCodeRanges
+        self.effectAddr = effectAddr

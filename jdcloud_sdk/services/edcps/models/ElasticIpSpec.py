@@ -19,13 +19,15 @@
 
 class ElasticIpSpec(object):
 
-    def __init__(self, bandwidth, count, charge, ):
+    def __init__(self, bandwidth, count, charge, extraUplinkBandwidth=None):
         """
-        :param bandwidth:  带宽, 范围[1,200] 单位Mbps
+        :param bandwidth:  带宽, 范围[1,10240] 单位Mbps
+        :param extraUplinkBandwidth: (Optional) 额外上行带宽, 范围[0,10240] 单位Mbps
         :param count:  购买数量
         :param charge:  计费配置
         """
 
         self.bandwidth = bandwidth
+        self.extraUplinkBandwidth = extraUplinkBandwidth
         self.count = count
         self.charge = charge

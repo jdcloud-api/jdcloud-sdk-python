@@ -32,7 +32,7 @@ class CreateSubscriptionRequest(JDCloudRequest):
 
 class CreateSubscriptionParameters(object):
 
-    def __init__(self, regionId, topicName, consumerGroupId):
+    def __init__(self, regionId, topicName, consumerGroupId, ):
         """
         :param regionId: 所在区域的Region ID
         :param topicName: topic 名称
@@ -42,4 +42,25 @@ class CreateSubscriptionParameters(object):
         self.regionId = regionId
         self.topicName = topicName
         self.consumerGroupId = consumerGroupId
+        self.messageInvisibleTimeInSeconds = None
+        self.dlqEnable = None
+        self.maxRetryTimes = None
+
+    def setMessageInvisibleTimeInSeconds(self, messageInvisibleTimeInSeconds):
+        """
+        :param messageInvisibleTimeInSeconds: (Optional) 消息隐藏时间单位秒
+        """
+        self.messageInvisibleTimeInSeconds = messageInvisibleTimeInSeconds
+
+    def setDlqEnable(self, dlqEnable):
+        """
+        :param dlqEnable: (Optional) 是否开启死信队列[true, false]
+        """
+        self.dlqEnable = dlqEnable
+
+    def setMaxRetryTimes(self, maxRetryTimes):
+        """
+        :param maxRetryTimes: (Optional) 最大重试次数dlqEnable为true必填,范围[0,16]
+        """
+        self.maxRetryTimes = maxRetryTimes
 

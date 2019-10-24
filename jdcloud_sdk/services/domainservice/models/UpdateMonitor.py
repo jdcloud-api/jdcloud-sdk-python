@@ -19,7 +19,7 @@
 
 class UpdateMonitor(object):
 
-    def __init__(self, alarmLimit, id, ipBackup01, ipBackup02, monitorEnable, monitorFreq, monitorPort, monitorRule, monitorUri, notifyEmailEnable, notifyMsgBarEnable, protocol, stopRecoverRule, switchRecoverRule, backupAddressList=None, notifySmsEnable=None):
+    def __init__(self, alarmLimit, id, ipBackup01, ipBackup02, monitorEnable, monitorFreq, monitorPort, monitorRule, monitorUri, notifyEmailEnable, notifyMsgBarEnable, protocol, stopRecoverRule, switchRecoverRule, backupAddressList=None, notifySmsEnable=None, requestHeaders=None, responseBodyMatch=None, responseCodeRanges=None):
         """
         :param alarmLimit:  连续几次触发报警
         :param id:  监控项ID
@@ -37,6 +37,9 @@ class UpdateMonitor(object):
         :param protocol:  https 0，https 1
         :param stopRecoverRule:  0自动恢复 1手动恢复
         :param switchRecoverRule:  0自动恢复至主host 1手动恢复至主host
+        :param requestHeaders: (Optional) 探测请求携带自定义头域及其域值列表
+        :param responseBodyMatch: (Optional) 探测响应Body体中包含的字符串
+        :param responseCodeRanges: (Optional) 探测响应码范围列表
         """
 
         self.alarmLimit = alarmLimit
@@ -55,3 +58,6 @@ class UpdateMonitor(object):
         self.protocol = protocol
         self.stopRecoverRule = stopRecoverRule
         self.switchRecoverRule = switchRecoverRule
+        self.requestHeaders = requestHeaders
+        self.responseBodyMatch = responseBodyMatch
+        self.responseCodeRanges = responseCodeRanges

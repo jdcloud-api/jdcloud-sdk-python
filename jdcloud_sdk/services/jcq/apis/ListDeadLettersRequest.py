@@ -51,13 +51,13 @@ class ListDeadLettersParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
         """
         self.pageSize = pageSize
 

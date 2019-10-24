@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, description=None, password=None, userData=None):
+    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, extraUplinkBandwidth=None, description=None, password=None, userData=None, keypairId=None):
         """
         :param az:  可用区, 如 cn-east-tz1
         :param deviceType:  实例类型, 如 edcps.c.normal1
@@ -34,12 +34,14 @@ class InstanceSpec(object):
         :param cidr: (Optional) 网络CIDR
         :param privateIp: (Optional) 内网IP
         :param lineType: (Optional) 外网链路类型, 目前支持联通un、电信ct、移动cm
-        :param bandwidth: (Optional) 外网带宽, 范围[1,200] 单位Mbps
+        :param bandwidth: (Optional) 外网带宽, 范围[1,10240] 单位Mbps
+        :param extraUplinkBandwidth: (Optional) 额外上行带宽, 范围[0,10240] 单位Mbps
         :param name:  云物理服务器名称
         :param description: (Optional) 云物理服务器描述
         :param password: (Optional) 密码，不传值会随机生成密码
         :param count:  购买数量
         :param userData: (Optional) 可执行脚本Base64编码后的内容，支持shell和python脚本
+        :param keypairId: (Optional) 密钥对id
         :param charge:  计费配置
         """
 
@@ -57,9 +59,11 @@ class InstanceSpec(object):
         self.privateIp = privateIp
         self.lineType = lineType
         self.bandwidth = bandwidth
+        self.extraUplinkBandwidth = extraUplinkBandwidth
         self.name = name
         self.description = description
         self.password = password
         self.count = count
         self.userData = userData
+        self.keypairId = keypairId
         self.charge = charge

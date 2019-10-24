@@ -19,33 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyBandwidthRequest(JDCloudRequest):
+class CreateKeypairsRequest(JDCloudRequest):
     """
-    升级分布式云物理服务器外网带宽，只能操作running或者stopped状态的服务器<br/>
-- 不支持未启用外网的服务器升级带宽
-- 外网带宽不支持降级
-
+    创建密钥对
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyBandwidthRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:modifyBandwidth', 'PUT', header, version)
+        super(CreateKeypairsRequest, self).__init__(
+            '/regions/{regionId}/keypairs', 'PUT', header, version)
         self.parameters = parameters
 
 
-class ModifyBandwidthParameters(object):
+class CreateKeypairsParameters(object):
 
-    def __init__(self, regionId, instanceId, bandwidth):
+    def __init__(self, regionId, name):
         """
-        :param regionId: 地域ID，可调用接口（queryEdCPSRegions）获取分布式云物理服务器支持的地域
-        :param instanceId: 分布式云物理服务器ID
-        :param bandwidth: 外网带宽，单位Mbps，取值范围[1,200]
+        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param name: 密钥对名称
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
         self.clientToken = None
-        self.bandwidth = bandwidth
+        self.name = name
 
     def setClientToken(self, clientToken):
         """

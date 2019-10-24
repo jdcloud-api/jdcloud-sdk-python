@@ -19,21 +19,17 @@
 
 class DomainTemplateConfig(object):
 
-    def __init__(self, appName=None, streamName=None, templateId=None, templateName=None, recordPeriod=None, recordFileType=None, createTime=None):
+    def __init__(self, appName=None, streamName=None, templateId=None, template=None, modules=None):
         """
         :param appName: (Optional) 应用名称
         :param streamName: (Optional) 流名称
         :param templateId: (Optional) 模板ID
-        :param templateName: (Optional) 模板名称
-        :param recordPeriod: (Optional) 录制周期
-        :param recordFileType: (Optional) 录制格式
-        :param createTime: (Optional) 创建时间
+        :param template: (Optional) 模板名称
+        :param modules: (Optional) 检测项列表
         """
 
         self.appName = appName
         self.streamName = streamName
         self.templateId = templateId
-        self.templateName = templateName
-        self.recordPeriod = recordPeriod
-        self.recordFileType = recordFileType
-        self.createTime = createTime
+        self.template = template
+        self.modules = modules

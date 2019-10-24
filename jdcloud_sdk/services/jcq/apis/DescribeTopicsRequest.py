@@ -45,13 +45,13 @@ class DescribeTopicsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页之中的每页大小
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
         """
         self.pageSize = pageSize
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 分页之中的页码
+        :param pageNumber: (Optional) 页码
         """
         self.pageNumber = pageNumber
 

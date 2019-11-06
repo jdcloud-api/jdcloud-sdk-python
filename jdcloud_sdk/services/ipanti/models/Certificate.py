@@ -19,14 +19,14 @@
 
 class Certificate(object):
 
-    def __init__(self, id=None, name=None, content=None, rsaKey=None, domain=None, from=None, to=None, sigAlgName=None, issuer=None, organization=None, uploadTime=None, associatedDomains=None, sanDomains=None):
+    def __init__(self, id=None, name=None, content=None, rsaKey=None, domain=None, from_=None, to=None, sigAlgName=None, issuer=None, organization=None, uploadTime=None, associatedDomains=None, sanDomains=None):
         """
         :param id: (Optional) 证书 Id
         :param name: (Optional) 证书名称
         :param content: (Optional) 证书
         :param rsaKey: (Optional) 秘钥
         :param domain: (Optional) 绑定域名
-        :param from: (Optional) 证书生效时间
+        :param from_: (Optional) 证书生效时间
         :param to: (Optional) 证书到期时间
         :param sigAlgName: (Optional) 加密算法
         :param issuer: (Optional) 颁发者
@@ -41,7 +41,7 @@ class Certificate(object):
         self.content = content
         self.rsaKey = rsaKey
         self.domain = domain
-        self.from = from
+        self.from_ = from_
         self.to = to
         self.sigAlgName = sigAlgName
         self.issuer = issuer

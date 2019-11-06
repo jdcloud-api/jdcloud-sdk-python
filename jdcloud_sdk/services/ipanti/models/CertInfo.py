@@ -19,10 +19,10 @@
 
 class CertInfo(object):
 
-    def __init__(self, domain=None, from=None, to=None, user=None, sigAlgName=None, issuer=None):
+    def __init__(self, domain=None, from_=None, to=None, user=None, sigAlgName=None, issuer=None):
         """
         :param domain: (Optional) 通用名称
-        :param from: (Optional) 证书生效时间
+        :param from_: (Optional) 证书生效时间
         :param to: (Optional) 证书到期时间
         :param user: (Optional) 证书组织
         :param sigAlgName: (Optional) 加密算法
@@ -30,7 +30,7 @@ class CertInfo(object):
         """
 
         self.domain = domain
-        self.from = from
+        self.from_ = from_
         self.to = to
         self.user = user
         self.sigAlgName = sigAlgName

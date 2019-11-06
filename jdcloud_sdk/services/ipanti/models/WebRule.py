@@ -30,22 +30,19 @@ class WebRule(object):
         :param customPortStatus: (Optional) 是否为自定义端口号, 0: 为默认, 1: 为自定义
         :param port: (Optional) HTTP 协议的端口号, 如 80,81
         :param httpsPort: (Optional) HTTPS 协议的端口号, 如 443,8443
-        :param httpOrigin: (Optional) 是否开启 http 回源, 0: 为不开启, 1: 为开启, 当勾选 HTTPS 时可以配置该属性
+        :param httpOrigin: (Optional) 是否开启 HTTP 回源, 0: 为不开启, 1: 为开启, 当勾选 HTTPS 时可以配置该属性
         :param status: (Optional) 0: 防御状态, 1: 回源状态
         :param originType: (Optional) 回源类型: A 或者 CNAME
-        :param originAddr: (Optional) 
+        :param originAddr: (Optional) 回源域名, originType 为 A 时返回该字段
         :param originDomain: (Optional) 回源域名, originType 为 CNAME 时返回该字段
-        :param onlineAddr: (Optional) 
-        :param httpCertStatus: (Optional) 证书状态, 0: 异常, 1: 正常, 2: 证书未上传
+        :param onlineAddr: (Optional) 备用的回源地址列表, 为一个域名或者多个 IP 地址
+        :param httpCertStatus: (Optional) 证书状态. <br>- 0: 异常<br>- 1: 正常<br>- 2: 证书未上传
         :param certId: (Optional) 证书 Id
         :param certName: (Optional) 证书名称
         :param httpsCertContent: (Optional) 证书内容
         :param httpsRsaKey: (Optional) 证书私钥
-        :param forceJump: (Optional) 是否开启https强制跳转, 当 protocol 为 HTTP_HTTPS 时可以配置该属性
-  - 0 不强跳
-  - 1 开启强跳
-
-        :param algorithm: (Optional) 转发规则,  wrr: 带权重的轮询, rr: 不带权重的轮询
+        :param forceJump: (Optional) 是否开启 HTTPS 强制跳转, 当 protocol 为 HTTP_HTTPS 时可以配置该属性<br>- 0: 不强跳<br>- 1: 开启强跳
+        :param algorithm: (Optional) 转发规则. <br>- wrr: 带权重的轮询<br>- rr:  不带权重的轮询<br>- sh:  源地址hash
         :param ccStatus: (Optional) CC 状态, 0: CC 关闭, 1: CC 开启
         :param webSocketStatus: (Optional) webSocket 状态, 0: 关闭, 1: 开启
         :param blackListEnable: (Optional) 黑名单状态, 0: 关闭, 1: 开启

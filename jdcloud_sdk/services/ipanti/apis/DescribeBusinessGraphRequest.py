@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCCGraphRequest(JDCloudRequest):
+class DescribeBusinessGraphRequest(JDCloudRequest):
     """
-    CC 防护流量报表
+    业务流量报表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCCGraphRequest, self).__init__(
-            '/regions/{regionId}/charts:CCGraph', 'GET', header, version)
+        super(DescribeBusinessGraphRequest, self).__init__(
+            '/regions/{regionId}/charts:businessGraph', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeCCGraphParameters(object):
+class DescribeBusinessGraphParameters(object):
 
     def __init__(self, regionId, startTime, ):
         """
@@ -42,7 +42,6 @@ class DescribeCCGraphParameters(object):
         self.startTime = startTime
         self.endTime = None
         self.instanceId = None
-        self.subDomain = None
 
     def setEndTime(self, endTime):
         """
@@ -55,10 +54,4 @@ class DescribeCCGraphParameters(object):
         :param instanceId: (Optional) 高防实例 Id 列表
         """
         self.instanceId = instanceId
-
-    def setSubDomain(self, subDomain):
-        """
-        :param subDomain: (Optional) 规则域名列表
-        """
-        self.subDomain = subDomain
 

@@ -23,11 +23,8 @@ class Instance(object):
         """
         :param id: (Optional) 实例 ID
         :param name: (Optional) 实例名称
-        :param carrier: (Optional) 链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
-        :param ipType: (Optional) 可防护 IP 类型, 目前仅电信线路支持 IPV6 线路:
-- 0: IPV4,
-- 1: IPV4/IPV6
-
+        :param carrier: (Optional) 链路类型. <br>- 1: 电信<br>- 3: 电信、联通和移动
+        :param ipType: (Optional) 可防护 IP 类型, 目前仅电信线路支持 IPV6 线路. <br>- 0: IPV4. <br>- 1: IPV4/IPV6
         :param elasticTriggerCount: (Optional) 触发弹性带宽的次数
         :param abovePeakCount: (Optional) 超峰次数
         :param inBitslimit: (Optional) 保底带宽
@@ -37,43 +34,26 @@ class Instance(object):
         :param ccPeakQPS: (Optional) CC 防护峰值, 单位: QPS
         :param ruleCount: (Optional) 非网站类规则数
         :param webRuleCount: (Optional) 网站类规则数
-        :param chargeStatus: (Optional) PAID|ARREARS|EXPIRED
-        :param securityStatus: (Optional) SAFE|CLEANING|BLOCKING
+        :param chargeStatus: (Optional) 计费状态. <br>- PAID: 已支付<br>- ARREARS: 欠费<br>- EXPIRED: 过期
+        :param securityStatus: (Optional) 安全状态. <br>- SAFE: 安全<br>- CLEANING: 清洗中<br>- BLOCKING: 封禁中
         :param createTime: (Optional) 实例的创建的时间
         :param expireTime: (Optional) 实例的过期时间
         :param resourceId: (Optional) 资源 ID, 升级和续费时使用
-        :param ccObserveMode: (Optional) CC 防护观察者模式.
-- 0: 关闭
-- 1: 开启
-
-        :param ccProtectMode: (Optional) CC 防护模式.
-- 0: 正常
-- 1: 紧急
-- 2: 宽松
-- 3: 自定义
-
-        :param ccProtectStatus: (Optional) CC 开关状态.
-- 0: 关闭
-- 1: 开启
-
+        :param ccObserveMode: (Optional) CC 防护观察者模式. <br>- 0: 关闭 <br>- 1: 开启
+        :param ccProtectMode: (Optional) CC 防护模式. <br>- 0: 正常 <br>- 1: 紧急 <br>- 2: 宽松 <br>- 3: 自定义
+        :param ccProtectStatus: (Optional) CC 开关状态. <br>- 0: 关闭 <br>- 1: 开启
         :param ccSpeedLimit: (Optional) CC 防护模式为自定义时的限速大小
         :param ccSpeedPeriod: (Optional) CC 防护模式为自定义时的限速周期
         :param ipBlackList: (Optional) IP 黑名单列表
-        :param ipBlackStatus: (Optional) IP 黑名单状态.
-- 0: 关闭
-- 1: 开启
-
+        :param ipBlackStatus: (Optional) IP 黑名单状态. <br>- 0: 关闭 <br>- 1: 开启
         :param ipWhiteList: (Optional) IP 白名单列表
-        :param ipWhiteStatus: (Optional) IP 白名单状态.
-- 0: 关闭
-- 1: 开启
-
+        :param ipWhiteStatus: (Optional) IP 白名单状态. <br>- 0: 关闭<br>- 1: 开启
         :param urlWhitelist: (Optional) url白名单列表
-        :param urlWhitelistStatus: (Optional) url白名单状态，0关闭，1开启
-        :param hostQps: (Optional) ccProtectMode为自定义模式时，每个Host的防护阈值
-        :param hostUrlQps: (Optional) ccProtectMode为自定义模式时，每个Host+URI的防护阈值
-        :param ipHostQps: (Optional) ccProtectMode为自定义模式时，每个源IP对Host的防护阈值
-        :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时，每个源IP对Host+URI的防护阈值
+        :param urlWhitelistStatus: (Optional) url白名单状态. <br>- 0: 关闭<br>- 1: 开启
+        :param hostQps: (Optional) ccProtectMode为自定义模式时, 每个Host的防护阈值
+        :param hostUrlQps: (Optional) ccProtectMode为自定义模式时, 每个Host+URI的防护阈值
+        :param ipHostQps: (Optional) ccProtectMode为自定义模式时, 每个源IP对Host的防护阈值
+        :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时, 每个源IP对Host+URI的防护阈值
         """
 
         self.id = id

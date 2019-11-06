@@ -19,46 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCCGraphRequest(JDCloudRequest):
+class BindCertRequest(JDCloudRequest):
     """
-    CC 防护流量报表
+    网站类规则绑定 SSL 证书
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCCGraphRequest, self).__init__(
-            '/regions/{regionId}/charts:CCGraph', 'GET', header, version)
+        super(BindCertRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/webRules/{webRuleId}:bindCert', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeCCGraphParameters(object):
+class BindCertParameters(object):
 
-    def __init__(self, regionId, startTime, ):
+    def __init__(self, regionId, instanceId, webRuleId, certId):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param startTime: 开始时间, 最多查最近 90 天, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
+        :param instanceId: 高防实例 Id
+        :param webRuleId: 网站规则 Id
+        :param certId: 证书 Id. 使用 <a href='https://docs.jdcloud.com/cn/ssl-certificate/api/describecerts'>describeCerts</a> 接口, 按照域名检索可绑定的证书, 域名不匹配将导致证书配置失败
         """
 
         self.regionId = regionId
-        self.startTime = startTime
-        self.endTime = None
-        self.instanceId = None
-        self.subDomain = None
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
-        """
-        self.endTime = endTime
-
-    def setInstanceId(self, instanceId):
-        """
-        :param instanceId: (Optional) 高防实例 Id 列表
-        """
         self.instanceId = instanceId
-
-    def setSubDomain(self, subDomain):
-        """
-        :param subDomain: (Optional) 规则域名列表
-        """
-        self.subDomain = subDomain
+        self.webRuleId = webRuleId
+        self.certId = certId
 

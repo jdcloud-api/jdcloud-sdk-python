@@ -19,53 +19,43 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCCAttackLogsRequest(JDCloudRequest):
+class DescribeMetricTasksRequest(JDCloudRequest):
     """
-    查询 CC 攻击日志
+    查询监控任务列表，返回该主题下的所有监控任务信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCCAttackLogsRequest, self).__init__(
-            '/regions/{regionId}/attacklog:describeCCAttackLogs', 'GET', header, version)
+        super(DescribeMetricTasksRequest, self).__init__(
+            '/regions/{regionId}/logsets/{logsetUID}/logtopics/{logtopicUID}/metrictasks', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeCCAttackLogsParameters(object):
+class DescribeMetricTasksParameters(object):
 
-    def __init__(self, regionId, startTime, ):
+    def __init__(self, regionId, logsetUID, logtopicUID, ):
         """
-        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param startTime: 开始时间, 只能查询最近 90 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
+        :param regionId: 地域 Id
+        :param logsetUID: 日志集 UID
+        :param logtopicUID: 日志主题 UID
         """
 
         self.regionId = regionId
+        self.logsetUID = logsetUID
+        self.logtopicUID = logtopicUID
         self.pageNumber = None
         self.pageSize = None
-        self.startTime = startTime
-        self.endTime = None
-        self.instanceId = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1
+        :param pageNumber: (Optional) 当前所在页，默认为1
+in: query
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小, 默认为10, 取值范围[10, 100]
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+in: query
         """
         self.pageSize = pageSize
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
-        """
-        self.endTime = endTime
-
-    def setInstanceId(self, instanceId):
-        """
-        :param instanceId: (Optional) 高防实例 ID
-        """
-        self.instanceId = instanceId
 

@@ -21,22 +21,18 @@ class ForwardRule(object):
 
     def __init__(self, id=None, instanceId=None, protocol=None, cname=None, originType=None, port=None, algorithm=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None, status=None):
         """
-        :param id: (Optional) 规则id
-        :param instanceId: (Optional) 实例id
-        :param protocol: (Optional) TCP或UDP
-        :param cname: (Optional) 规则的cname
-        :param originType: (Optional) 回源类型: ip或者domain
+        :param id: (Optional) 规则 Id
+        :param instanceId: (Optional) 实例 Id
+        :param protocol: (Optional) TCP 或 UDP
+        :param cname: (Optional) 规则的 CNAME
+        :param originType: (Optional) 回源类型: ip 或者 domain
         :param port: (Optional) 端口号
-        :param algorithm: (Optional) 转发规则
-- wrr 带权重的轮询
-- rr  不带权重的轮询
-- sh  源地址hash
-
+        :param algorithm: (Optional) 转发规则. <br>- wrr: 带权重的轮询<br>- rr:  不带权重的轮询<br>- sh:  源地址hash
         :param originAddr: (Optional) 
         :param onlineAddr: (Optional) 备用的回源地址列表
         :param originDomain: (Optional) 回源域名
         :param originPort: (Optional) 回源端口号
-        :param status: (Optional) 0防御状态，1回源状态
+        :param status: (Optional) 0: 防御状态<br>1: 回源状态
         """
 
         self.id = id

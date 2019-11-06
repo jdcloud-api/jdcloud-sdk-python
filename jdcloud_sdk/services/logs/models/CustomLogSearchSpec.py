@@ -19,10 +19,10 @@
 
 class CustomLogSearchSpec(object):
 
-    def __init__(self, appName, timeRange, from=None, logTopicId=None, match=None, recordId=None, resp=None, size=None, sort=None, uuid=None):
+    def __init__(self, appName, timeRange, from_=None, logTopicId=None, match=None, recordId=None, resp=None, size=None, sort=None, uuid=None):
         """
         :param appName:  
-        :param from: (Optional) 
+        :param from_: (Optional) 
         :param logTopicId: (Optional) 
         :param match: (Optional) 
         :param recordId: (Optional) 
@@ -34,7 +34,7 @@ class CustomLogSearchSpec(object):
         """
 
         self.appName = appName
-        self.from = from
+        self.from_ = from_
         self.logTopicId = logTopicId
         self.match = match
         self.recordId = recordId

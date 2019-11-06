@@ -23,10 +23,10 @@ class CCAttackLog(object):
         """
         :param attackId: (Optional) CC 攻击记录Id
         :param attackTraffic: (Optional) 攻击流量大小
-        :param blackHole: (Optional) 是否触发黑洞，0否 1是
+        :param blackHole: (Optional) 是否触发黑洞, 0否 1是
         :param startTime: (Optional) 攻击开始时间
         :param endTime: (Optional) 攻击结束时间
-        :param unit: (Optional) 流量单位，bps、Kbps、Mbps、Gbps
+        :param unit: (Optional) 流量单位, bps、Kbps、Mbps、Gbps
         :param instanceId: (Optional) 高防实例id
         :param name: (Optional) 高防实例名称
         """

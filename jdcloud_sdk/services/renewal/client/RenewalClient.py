@@ -26,4 +26,4 @@ class RenewalClient(JDCloudClient):
         if config is None:
             config = Config('renewal.jdcloud-api.com')
 
-        super(RenewalClient, self).__init__(credential, config, 'renewal', '0.1.1', logger)
+        super(RenewalClient, self).__init__(credential, config, 'renewal', '0.2.2', logger)

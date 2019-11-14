@@ -51,7 +51,7 @@ class DescribeBackupDownloadURLParameters(object):
 
     def setUrlExpirationSecond(self, urlExpirationSecond):
         """
-        :param urlExpirationSecond: (Optional) 指定下载链接的过期时间，单位秒,缺省为86400秒，即24小时。<br>- MySQL：不支持该参数，只能是默认值<br>- SQL Server：支持
+        :param urlExpirationSecond: (Optional) 指定下载链接的过期时间，单位秒, 取值范围为 1 ~ 86400 秒；支持 SQL Server：缺省为 86400 秒。支持 MySQL, Percona, MariaDB：缺省为 300 秒。
         """
         self.urlExpirationSecond = urlExpirationSecond
 

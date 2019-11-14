@@ -19,25 +19,27 @@
 
 class RelationResource(object):
 
-    def __init__(self, resourceId=None, resourceName=None, serviceCode=None, billingType=None, expireTime=None, dataCenter=None, autoRenew=None, lastTime=None, remark=None):
+    def __init__(self, appCode=None, serviceCode=None, resourceId=None, resourceName=None, region=None, billingType=None, expireTime=None, lastTime=None, autoRenewStatus=None, extendField=None):
         """
+        :param appCode: (Optional) 业务线
+        :param serviceCode: (Optional) 产品线
         :param resourceId: (Optional) 资源ID
         :param resourceName: (Optional) 资源名称
-        :param serviceCode: (Optional) 产品线
-        :param billingType: (Optional) 计费类型
-        :param expireTime: (Optional) 到期时间
-        :param dataCenter: (Optional) 地域
-        :param autoRenew: (Optional) 是否开通自动续费(0:未开通,1:已开通)
+        :param region: (Optional) 地域
+        :param billingType: (Optional) 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)
+        :param expireTime: (Optional) 资源到期时间
         :param lastTime: (Optional) 倒计时
-        :param remark: (Optional) 关联资源特殊需求
+        :param autoRenewStatus: (Optional) 开通自动续费状态(UNOPENED-未开通,OPENED-已开通)
+        :param extendField: (Optional) 扩展字段，包括数据库类型、资源特殊说明等
         """
 
+        self.appCode = appCode
+        self.serviceCode = serviceCode
         self.resourceId = resourceId
         self.resourceName = resourceName
-        self.serviceCode = serviceCode
+        self.region = region
         self.billingType = billingType
         self.expireTime = expireTime
-        self.dataCenter = dataCenter
-        self.autoRenew = autoRenew
         self.lastTime = lastTime
-        self.remark = remark
+        self.autoRenewStatus = autoRenewStatus
+        self.extendField = extendField

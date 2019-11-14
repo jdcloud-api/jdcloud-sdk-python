@@ -26,4 +26,4 @@ class ZfsClient(JDCloudClient):
         if config is None:
             config = Config('zfs.jdcloud-api.com')
 
-        super(ZfsClient, self).__init__(credential, config, 'zfs', '1.0.1', logger)
+        super(ZfsClient, self).__init__(credential, config, 'zfs', '1.0.5', logger)

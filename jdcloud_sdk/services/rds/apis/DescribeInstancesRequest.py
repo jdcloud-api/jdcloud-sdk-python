@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstancesRequest(JDCloudRequest):
     """
-    获取当前账号下所有RDS实例及MySQL只读实例的概要信息，例如实例类型，版本，计费信息等
+    获取当前账号下所有RDS实例及MySQL/PostgreSQL只读实例的概要信息，例如实例类型，版本，计费信息等
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -51,7 +51,7 @@ class DescribeInstancesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
         """
         self.pageSize = pageSize
 
@@ -60,12 +60,14 @@ class DescribeInstancesParameters(object):
         :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
 支持以下属性的过滤：
 instanceId, 支持operator选项：eq
-instanceName, 支持operator选项：eq
+instanceName, 支持operator选项：eq, like
 engine, 支持operator选项：eq
 engineVersion, 支持operator选项：eq
 instanceStatus, 支持operator选项：eq
-chargeMode, 支持operator选项：eq
 vpcId, 支持operator选项：eq
+instanceType, 支持operator选项：eq
+internalDomainName, 支持operator选项：eq
+publicDomainName, 支持operator选项：eq
 
         """
         self.filters = filters

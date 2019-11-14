@@ -19,33 +19,33 @@
 
 class ListQuery(object):
 
-    def __init__(self, expireTime=None, serviceCode=None, lastTime=None, resourceName=None, resourceId=None, dataCenter=None, billingType=None, autoRenew=None, associateResource=None, renewTime=None, databaseType=None, remark=None, relationList=None):
+    def __init__(self, appCode=None, serviceCode=None, resourceId=None, resourceName=None, region=None, billingType=None, expireTime=None, lastTime=None, autoRenewStatus=None, autoRenewPeriod=None, associateResource=None, extendField=None, relationList=None):
         """
-        :param expireTime: (Optional) 到期时间
+        :param appCode: (Optional) 业务线
         :param serviceCode: (Optional) 产品线
-        :param lastTime: (Optional) 倒计时
-        :param resourceName: (Optional) 资源名称
         :param resourceId: (Optional) 资源ID
-        :param dataCenter: (Optional) 地域
-        :param billingType: (Optional) 计费类型
-        :param autoRenew: (Optional) 是否开通自动续费(0:未开通,1:已开通)
-        :param associateResource: (Optional) 1:关联包年包月资源一并自动续费 2：关联包年包月资源不自动续费
-        :param renewTime: (Optional) 续费周期
-        :param databaseType: (Optional) 数据库类型
-        :param remark: (Optional) 特殊需求
+        :param resourceName: (Optional) 资源名称
+        :param region: (Optional) 地域
+        :param billingType: (Optional) 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)
+        :param expireTime: (Optional) 资源到期时间
+        :param lastTime: (Optional) 倒计时
+        :param autoRenewStatus: (Optional) 开通自动续费状态(UNOPENED-未开通,OPENED-已开通)
+        :param autoRenewPeriod: (Optional) 自动续费周期，单位为月
+        :param associateResource: (Optional) 是否绑定关联资源一并开通自动续费(AUTO_RENEW:关联包年包月资源一并自动续费 UN_AUTO_RENEW：关联包年包月资源不自动续费)
+        :param extendField: (Optional) 扩展字段，包括数据库类型、资源特殊说明等
         :param relationList: (Optional) 绑定资源列表
         """
 
-        self.expireTime = expireTime
+        self.appCode = appCode
         self.serviceCode = serviceCode
-        self.lastTime = lastTime
-        self.resourceName = resourceName
         self.resourceId = resourceId
-        self.dataCenter = dataCenter
+        self.resourceName = resourceName
+        self.region = region
         self.billingType = billingType
-        self.autoRenew = autoRenew
+        self.expireTime = expireTime
+        self.lastTime = lastTime
+        self.autoRenewStatus = autoRenewStatus
+        self.autoRenewPeriod = autoRenewPeriod
         self.associateResource = associateResource
-        self.renewTime = renewTime
-        self.databaseType = databaseType
-        self.remark = remark
+        self.extendField = extendField
         self.relationList = relationList

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisableAuditRequest(JDCloudRequest):
     """
-    仅支持MySQL实例关闭数据库审计
+    仅支持MySQL实例关闭数据库审计<br>- 仅支持 MySQL 5.6, MySQL 5.7, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):

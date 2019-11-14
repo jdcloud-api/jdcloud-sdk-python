@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAuditResultRequest(JDCloudRequest):
     """
-    仅支持查看MySQL实例的审计内容
+    仅支持查看MySQL实例的审计内容<br>- 仅支持 MySQL 5.6, MySQL 5.7, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):

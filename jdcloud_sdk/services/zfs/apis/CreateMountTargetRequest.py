@@ -34,13 +34,12 @@ class CreateMountTargetRequest(JDCloudRequest):
 
 class CreateMountTargetParameters(object):
 
-    def __init__(self, regionId, fileSystemId, subnetId, vpcId, securityGroupId, clientToken):
+    def __init__(self, regionId, fileSystemId, subnetId, vpcId, clientToken):
         """
         :param regionId: 地域ID
         :param fileSystemId: 创建挂载目标的文件系统
         :param subnetId: 子网id
         :param vpcId: vpcId
-        :param securityGroupId: 安全组id
         :param clientToken: 幂等性参数(只支持数字、大小写字母，且不能超过64字符)
         """
 
@@ -48,6 +47,12 @@ class CreateMountTargetParameters(object):
         self.fileSystemId = fileSystemId
         self.subnetId = subnetId
         self.vpcId = vpcId
-        self.securityGroupId = securityGroupId
+        self.securityGroupId = None
         self.clientToken = clientToken
+
+    def setSecurityGroupId(self, securityGroupId):
+        """
+        :param securityGroupId: (Optional) 安全组id
+        """
+        self.securityGroupId = securityGroupId
 

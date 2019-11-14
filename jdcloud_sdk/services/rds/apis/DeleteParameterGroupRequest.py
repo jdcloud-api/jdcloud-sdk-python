@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteParameterGroupRequest(JDCloudRequest):
     """
-    删除参数组<br>- 仅支持MySQL
+    删除参数组<br>- 仅支持MySQL，Percona，MariaDB，PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

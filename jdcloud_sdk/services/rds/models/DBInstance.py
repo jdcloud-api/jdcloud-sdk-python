@@ -19,7 +19,7 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -35,11 +35,13 @@ class DBInstance(object):
         :param vpcId: (Optional) VPC的ID
         :param subnetId: (Optional) 子网的ID
         :param instanceStatus: (Optional) 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param publicDomainName: (Optional) 实例公网域名<br>- 仅支持MySQL
+        :param internalDomainName: (Optional) 实例内网域名<br>- 仅支持MySQL
         :param createTime: (Optional) 实例创建时间
         :param backupSynchronicity: (Optional) 实例跨地域备份服务开启相关信息
         :param charge: (Optional) 计费配置
         :param tags: (Optional) 标签信息
-        :param sourceInstanceId: (Optional) MySQL只读实例对应的主实例ID
+        :param sourceInstanceId: (Optional) MySQL、PostgreSQL只读实例对应的主实例ID
         """
 
         self.instanceId = instanceId
@@ -56,6 +58,8 @@ class DBInstance(object):
         self.vpcId = vpcId
         self.subnetId = subnetId
         self.instanceStatus = instanceStatus
+        self.publicDomainName = publicDomainName
+        self.internalDomainName = internalDomainName
         self.createTime = createTime
         self.backupSynchronicity = backupSynchronicity
         self.charge = charge

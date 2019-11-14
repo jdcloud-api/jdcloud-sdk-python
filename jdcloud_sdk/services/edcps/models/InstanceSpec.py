@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, extraUplinkBandwidth=None, description=None, password=None, userData=None, keypairId=None):
+    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, extraUplinkBandwidth=None, description=None, password=None, userData=None, keypairId=None, aliasIps=None):
         """
         :param az:  可用区, 如 cn-east-tz1
         :param deviceType:  实例类型, 如 edcps.c.normal1
@@ -43,6 +43,7 @@ class InstanceSpec(object):
         :param userData: (Optional) 可执行脚本Base64编码后的内容，支持shell和python脚本
         :param keypairId: (Optional) 密钥对id
         :param charge:  计费配置
+        :param aliasIps: (Optional) 别名ip配置
         """
 
         self.az = az
@@ -67,3 +68,4 @@ class InstanceSpec(object):
         self.userData = userData
         self.keypairId = keypairId
         self.charge = charge
+        self.aliasIps = aliasIps

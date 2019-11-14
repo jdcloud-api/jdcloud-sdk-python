@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateParameterGroupRequest(JDCloudRequest):
     """
-    创建一个参数组<br>- 仅支持MySQL
+    创建一个参数组<br>- 仅支持MySQL，Percona，MariaDB，PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

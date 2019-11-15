@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetRenewalRequest(JDCloudRequest):
     """
-    开通、取消实例自动续费
+    为一个或多个实例设置自动续费服务。
     """
 
     def __init__(self, parameters, header=None, version="v2"):

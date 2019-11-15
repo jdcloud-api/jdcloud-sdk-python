@@ -33,7 +33,7 @@ class CreateFileSystemRequest(JDCloudRequest):
 
 class CreateFileSystemParameters(object):
 
-    def __init__(self, regionId, name, description, clientToken):
+    def __init__(self, regionId, name, description, clientToken, ):
         """
         :param regionId: 地域ID
         :param name: 文件系统名称
@@ -45,4 +45,11 @@ class CreateFileSystemParameters(object):
         self.name = name
         self.description = description
         self.clientToken = clientToken
+        self.fileSystemType = None
+
+    def setFileSystemType(self, fileSystemType):
+        """
+        :param fileSystemType: (Optional) 文件系统类型(通用型:gp1,容量型:std1),默认为通用型
+        """
+        self.fileSystemType = fileSystemType
 

@@ -32,18 +32,17 @@ class DescribeCCAttackLogsRequest(JDCloudRequest):
 
 class DescribeCCAttackLogsParameters(object):
 
-    def __init__(self, regionId, startTime, endTime, ):
+    def __init__(self, regionId, startTime, ):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param startTime: 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
-        :param endTime: 查询的结束时间, UTC 时间, 格式：yyyy-MM-dd'T'HH:mm:ssZ
+        :param startTime: 开始时间, 只能查询最近 90 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
         """
 
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
         self.startTime = startTime
-        self.endTime = endTime
+        self.endTime = None
         self.instanceId = None
 
     def setPageNumber(self, pageNumber):
@@ -57,6 +56,12 @@ class DescribeCCAttackLogsParameters(object):
         :param pageSize: (Optional) 分页大小, 默认为10, 取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setEndTime(self, endTime):
+        """
+        :param endTime: (Optional) 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
+        """
+        self.endTime = endTime
 
     def setInstanceId(self, instanceId):
         """

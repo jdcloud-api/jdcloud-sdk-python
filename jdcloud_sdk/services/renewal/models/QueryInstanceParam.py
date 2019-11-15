@@ -19,27 +19,27 @@
 
 class QueryInstanceParam(object):
 
-    def __init__(self, appCode, serviceCode, pageNumber=None, pageSize=None, renewStatus=None, expireTime=None, instanceName=None, instanceId=None, ipAddress=None, billingType=None):
+    def __init__(self, appCode, serviceCode, instanceName=None, instanceId=None, renewStatus=None, billingType=None, expireType=None, ipAddress=None, pageNumber=None, pageSize=None):
         """
         :param appCode:  业务线
         :param serviceCode:  产品线
-        :param pageNumber: (Optional) 当前页码
-        :param pageSize: (Optional) 每页条数
-        :param renewStatus: (Optional) 资源续费状态 0:手动续费资源 1:全部资源 2:自动续费资源,默认全部
-        :param expireTime: (Optional) 到期时间 0:已过期,n:n天内到期,-1:全部,-2:未到期,默认全部
         :param instanceName: (Optional) 资源名称
         :param instanceId: (Optional) 资源ID
-        :param ipAddress: (Optional) 主机绑定的内网ip地址
-        :param billingType: (Optional) 资源计费类型 1:按配置,3:包年包月,默认不筛选
+        :param renewStatus: (Optional) 资源续费状态(AUTO-开通自动续费资源,MANUAL-未开通自动续费资源,ALL-全部资源)，默认为全部
+        :param billingType: (Optional) 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)，不传显示全部计费类型的资源
+        :param expireType: (Optional) 资源到期类型(EXPIRED-已到期,UNEXPIRED-未到期,ONE-1天内到期,THREE-3天内到期,SEVEN-7天内到期,ALL_TIME-全部)，默认为全部
+        :param ipAddress: (Optional) 主机绑定的内网IP地址
+        :param pageNumber: (Optional) 当前页码，不传默认为1
+        :param pageSize: (Optional) 每页条数，不传默认为10
         """
 
         self.appCode = appCode
         self.serviceCode = serviceCode
-        self.pageNumber = pageNumber
-        self.pageSize = pageSize
-        self.renewStatus = renewStatus
-        self.expireTime = expireTime
         self.instanceName = instanceName
         self.instanceId = instanceId
-        self.ipAddress = ipAddress
+        self.renewStatus = renewStatus
         self.billingType = billingType
+        self.expireType = expireType
+        self.ipAddress = ipAddress
+        self.pageNumber = pageNumber
+        self.pageSize = pageSize

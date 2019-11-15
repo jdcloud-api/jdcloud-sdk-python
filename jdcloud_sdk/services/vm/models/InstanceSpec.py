@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None):
+    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None):
         """
         :param agId: (Optional) 高可用组Id。指定了此参数后，只能通过高可用组关联的实例模板创建虚机，并且实例模板中的参数不可覆盖替换。实例模板以外的参数还可以指定。
         :param instanceTemplateId: (Optional) 实例模板id，如果没有使用高可用组，那么对于实例模板中没有的信息，需要使用创建虚机的参数进行补充，或者选择覆盖启动模板中的参数。
@@ -54,6 +54,8 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
         :param noElasticIp: (Optional) 不使用模板中的弹性公网IP。
 仅当不使用Ag，并且使用了模板，并且elasticIp参数为空时，此参数(值为true)生效。
 若使用模板创建虚机时，又指定了elasticIp参数时，此参数无效，以新指定的为准。
+
+        :param userTags: (Optional) 用户普通标签集合
         """
 
         self.agId = agId
@@ -74,3 +76,4 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
         self.noPassword = noPassword
         self.noKeyNames = noKeyNames
         self.noElasticIp = noElasticIp
+        self.userTags = userTags

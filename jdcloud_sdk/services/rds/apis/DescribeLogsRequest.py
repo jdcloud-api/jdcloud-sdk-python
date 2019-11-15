@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLogsRequest(JDCloudRequest):
     """
-    获取 PostgreSQL 的日志文件列表
+    获取日志文件列表<br>- 仅支持PostgreSQL, MySQL, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,6 +42,7 @@ class DescribeLogsParameters(object):
         self.instanceId = instanceId
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -54,4 +55,12 @@ class DescribeLogsParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
+支持以下属性的过滤：logType, 支持operator选项：eq, 仅支持 MySQL，Percona，MariaDB
+
+        """
+        self.filters = filters
 

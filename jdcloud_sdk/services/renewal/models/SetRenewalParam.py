@@ -19,21 +19,21 @@
 
 class SetRenewalParam(object):
 
-    def __init__(self, instanceIds, autoRenewStatus, appCode, serviceCode, timeSpan=None, timeUnit=None, allAutoPay=None):
+    def __init__(self, appCode, serviceCode, instanceIds, autoRenewStatus, timeSpan=None, timeUnit=None, allAutoPay=None):
         """
-        :param instanceIds:  资源id列表,英文逗号分隔
-        :param autoRenewStatus:  自动续费状态 0-关闭自动续费,1-开通或修改自动续费
         :param appCode:  业务线
         :param serviceCode:  产品线
-        :param timeSpan: (Optional) 续费周期（autoRenewStatus=1时必传）
-        :param timeUnit: (Optional) 时间单位 1-小时 2-天 3-月 4-年（autoRenewStatus=1时必传）
-        :param allAutoPay: (Optional) 是否绑定关联资源一并续费 0-不绑定,1-绑定（autoRenewStatus=1时必传）
+        :param timeSpan: (Optional) 续费时长
+        :param timeUnit: (Optional) 时间单位(MONTH-月,YEAR-年)
+        :param instanceIds:  资源ID列表,英文逗号分隔
+        :param autoRenewStatus:  自动续费状态(OPEN-开通自动续费,CLOSE-关闭自动续费,MODIFY-修改自动续费)
+        :param allAutoPay: (Optional) 是否绑定关联资源一并开通自动续费(UNBIND：不绑定，BIND：绑定)
         """
 
-        self.instanceIds = instanceIds
-        self.autoRenewStatus = autoRenewStatus
         self.appCode = appCode
         self.serviceCode = serviceCode
         self.timeSpan = timeSpan
         self.timeUnit = timeUnit
+        self.instanceIds = instanceIds
+        self.autoRenewStatus = autoRenewStatus
         self.allAutoPay = allAutoPay

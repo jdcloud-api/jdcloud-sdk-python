@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeParameterGroupsRequest(JDCloudRequest):
     """
-    获取当前账号下所有的参数组列表<br>- 仅支持MySQL
+    获取当前账号下所有的参数组列表<br>- 仅支持MySQL，Percona，MariaDB，PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

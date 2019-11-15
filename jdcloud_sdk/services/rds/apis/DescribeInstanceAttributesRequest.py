@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceAttributesRequest(JDCloudRequest):
     """
-    查询RDS实例（MySQL、SQL Server等）的详细信息以及MySQL只读实例详细信息
+    查询RDS实例（MySQL、SQL Server等）的详细信息以及MySQL/PostgreSQL只读实例详细信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

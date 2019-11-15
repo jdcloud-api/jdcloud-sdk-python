@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBinlogsRequest(JDCloudRequest):
     """
-    获取MySQL实例中binlog的详细信息<br>- 仅支持MySQL
+    获取MySQL实例中binlog的详细信息<br>- 仅支持 MySQL, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):

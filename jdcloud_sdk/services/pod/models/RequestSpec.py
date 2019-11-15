@@ -21,8 +21,8 @@ class RequestSpec(object):
 
     def __init__(self, cpu=None, memoryMB=None):
         """
-        :param cpu: (Optional) 容器必需的计算资源
-        :param memoryMB: (Optional) 容器使用计算资源上限
+        :param cpu: (Optional) 容器必需的计算资源，例：300m，1000m
+        :param memoryMB: (Optional) 容器使用计算资源上限，例：1024Mi，16384Mi
         """
 
         self.cpu = cpu

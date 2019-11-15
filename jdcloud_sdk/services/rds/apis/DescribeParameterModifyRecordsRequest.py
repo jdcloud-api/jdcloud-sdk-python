@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeParameterModifyRecordsRequest(JDCloudRequest):
     """
-    查看参数的修改历史<br>- 仅支持MySQL
+    查看参数的修改历史<br>- 仅支持MySQL，Percona，MariaDB，PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -24,31 +24,11 @@ class WebWhiteListRule(object):
         :param id: (Optional) 白名单规则 Id
         :param name: (Optional) 白名单规则名称
         :param mode: (Optional) 匹配模式:<br>- 0: uri<br>- 1: ip<br>- 2: cookie<br>- 3: geo<br>- 4: header
-        :param key: (Optional) 匹配 key.
-- mode 为 cookie 时, 为 cookie 的 name
-- mode 为 header 时, 为 header 的 key
-
-        :param value: (Optional) 匹配 value.
-- mode 为 uri 时, 为要匹配的 uri
-- mode 为 ip 时, 为引用的 ip 黑白名单 Id
-- mode 为 cookie 时, 为 cookie 的 value
-- mode 为 header 时, 为 header 的 value
-
-        :param pattern: (Optional) 匹配规则. mode 为 uri, cookie 和 header 时必传. 包含以下匹配规则
-- 0: 完全匹配
-- 1: 前缀匹配
-- 2: 包含
-- 3: 正则匹配
-- 4: 后缀匹配
-
-        :param action: (Optional) 命中后处理动作.
-- 0: 放行
-- 1: CC 防护
-
-        :param status: (Optional) 规则状态.
-- 0: 关闭
-- 1: 开启
-
+        :param key: (Optional) 匹配 key. <br>- mode 为 cookie 时, 为 cookie 的 name<br>- mode 为 header 时, 为 header 的 key
+        :param value: (Optional) 匹配 value. <br>- mode 为 uri 时, 为要匹配的 uri<br>- mode 为 ip 时, 为引用的 ip 黑白名单 Id<br>- mode 为 cookie 时, 为 cookie 的 value<br>- mode 为 header 时, 为 header 的 value
+        :param pattern: (Optional) 匹配规则, mode 为 uri, cookie 和 header 时有效. 包含以下匹配规则: <br>- 0: 完全匹配<br>- 1: 前缀匹配<br>- 2: 包含<br>- 3: 正则匹配<br>- 4: 后缀匹配
+        :param action: (Optional) 命中后处理动作. <br>- 0: 放行<br>- 1: CC 防护
+        :param status: (Optional) 规则状态. <br>- 0: 关闭<br>- 1: 开启
         :param geoList: (Optional) geo 白名单地域列表
         """
 

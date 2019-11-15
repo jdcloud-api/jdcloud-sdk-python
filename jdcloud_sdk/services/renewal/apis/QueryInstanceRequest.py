@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class QueryInstanceRequest(JDCloudRequest):
     """
-    查询可续费实例
+    提供可续费的实例信息查询。
     """
 
     def __init__(self, parameters, header=None, version="v2"):

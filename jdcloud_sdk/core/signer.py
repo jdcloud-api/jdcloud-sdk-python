@@ -103,7 +103,7 @@ class Signer(object):
                   for s in query.split('&')
                   if len(s) > 0)
 
-        normalized = '&'.join('%s=%s' % (p[0], p[1] if len(p) > 1 else '')
+        normalized = '&'.join('%s=%s' % (p[0], p[1] if len(p) == 2 else ('%3D'.join(p[1:]) if len(p) > 2 else ''))
                               for p in sorted(params))
         return normalized
 

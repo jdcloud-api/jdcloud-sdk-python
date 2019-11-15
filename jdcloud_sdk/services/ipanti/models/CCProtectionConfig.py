@@ -29,7 +29,7 @@ class CCProtectionConfig(object):
         :param hostUrlQps: (Optional) Host + Url 的防护阈值
         :param ipHostQps: (Optional) 每个源 IP 对 Host 的防护阈值
         :param ipHostUrlQps: (Optional) 每个源 IP 对 Host + Url 的防护阈值
-        :param ccProtectionRuleEnableCount: (Optional) 开启的 cc 防护规则数量
+        :param ccProtectionRuleEnableCount: (Optional) 开启的 CC 防护规则数量
         """
 
         self.enable = enable

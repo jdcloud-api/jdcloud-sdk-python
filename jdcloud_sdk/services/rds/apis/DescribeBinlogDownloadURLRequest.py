@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBinlogDownloadURLRequest(JDCloudRequest):
     """
-    获取MySQL实例的binlog的下载链接<br>- 仅支持MySQL
+    获取MySQL实例的binlog的下载链接<br>- 仅支持 MySQL, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,4 +42,11 @@ class DescribeBinlogDownloadURLParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.binlogBackupId = binlogBackupId
+        self.seconds = None
+
+    def setSeconds(self, seconds):
+        """
+        :param seconds: (Optional) 设置链接地址的过期时间，单位是秒，默认值是 300 秒，最长不能超过取值范围为 1 ~ 86400 秒
+        """
+        self.seconds = seconds
 

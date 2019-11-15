@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CopyParameterGroupRequest(JDCloudRequest):
     """
-    拷贝参数组<br>- 仅支持MySQL
+    拷贝参数组
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -19,10 +19,10 @@
 
 class Match(object):
 
-    def __init__(self, eq=None, not=None, range=None, regexp=None, simple_query_string=None, simpleQuery=None, substring=None):
+    def __init__(self, eq=None, not_=None, range=None, regexp=None, simple_query_string=None, simpleQuery=None, substring=None):
         """
         :param eq: (Optional) 
-        :param not: (Optional) 
+        :param not_: (Optional) 
         :param range: (Optional) 
         :param regexp: (Optional) 
         :param simple_query_string: (Optional) 
@@ -31,7 +31,7 @@ class Match(object):
         """
 
         self.eq = eq
-        self.not = not
+        self.not_ = not_
         self.range = range
         self.regexp = regexp
         self.simple_query_string = simple_query_string

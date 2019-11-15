@@ -19,14 +19,14 @@
 
 class ProbeSpec(object):
 
-    def __init__(self, initialDelaySeconds=None, periodSeconds=None, timeoutSeconds=None, failureThreshold=None, successThreshold=None, exec=None, httpGet=None, tcpSocket=None):
+    def __init__(self, initialDelaySeconds=None, periodSeconds=None, timeoutSeconds=None, failureThreshold=None, successThreshold=None, exec_=None, httpGet=None, tcpSocket=None):
         """
         :param initialDelaySeconds: (Optional) 容器启动多长时间后，触发探针。默认值：10秒；范围:[0-300]
         :param periodSeconds: (Optional) 探测的时间间隔。默认值 10秒，范围:[1-300]
         :param timeoutSeconds: (Optional) 探测的超时时间。默认值 1秒；范围:[1-300]
         :param failureThreshold: (Optional) 在成功状态后，连续探活失败的次数，认为探活失败。默认值 3次；范围:[1-10]
         :param successThreshold: (Optional) 在失败状态后，连续探活成功的次数，认为探活成功。默认值 1次；范围:[1-10]
-        :param exec: (Optional) 在容器内执行指定命令；如果命令退出时返回码为 0 则认为诊断成功。
+        :param exec_: (Optional) 在容器内执行指定命令；如果命令退出时返回码为 0 则认为诊断成功。
         :param httpGet: (Optional) 对指定的端口和路径上的容器的 IP 地址执行 HTTP Get 请求。<br>
 如果响应的状态码大于等于200 且小于 400，则诊断被认为是成功的。 
 
@@ -38,6 +38,6 @@ class ProbeSpec(object):
         self.timeoutSeconds = timeoutSeconds
         self.failureThreshold = failureThreshold
         self.successThreshold = successThreshold
-        self.exec = exec
+        self.exec_ = exec_
         self.httpGet = httpGet
         self.tcpSocket = tcpSocket

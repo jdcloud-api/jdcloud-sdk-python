@@ -32,7 +32,7 @@ class ModifyInstanceSpecRequest(JDCloudRequest):
 
 class ModifyInstanceSpecParameters(object):
 
-    def __init__(self, regionId, instanceId, newInstanceClass, newInstanceStorageGB):
+    def __init__(self, regionId, instanceId, newInstanceClass, newInstanceStorageGB, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -44,4 +44,18 @@ class ModifyInstanceSpecParameters(object):
         self.instanceId = instanceId
         self.newInstanceClass = newInstanceClass
         self.newInstanceStorageGB = newInstanceStorageGB
+        self.newInstanceStorageType = None
+        self.storageEncrypted = None
+
+    def setNewInstanceStorageType(self, newInstanceStorageType):
+        """
+        :param newInstanceStorageType: (Optional) 存储类型，如果不指定，默认会采用实例原存储类型.
+        """
+        self.newInstanceStorageType = newInstanceStorageType
+
+    def setStorageEncrypted(self, storageEncrypted):
+        """
+        :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密). false：不加密; true：加密. 如果实例从本地盘变为云硬盘，缺省为false. 如果实例本来就是使用云硬盘的，缺省和源实例保持一致
+        """
+        self.storageEncrypted = storageEncrypted
 

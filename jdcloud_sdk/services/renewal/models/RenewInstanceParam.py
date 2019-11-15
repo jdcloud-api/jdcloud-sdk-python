@@ -19,24 +19,22 @@
 
 class RenewInstanceParam(object):
 
-    def __init__(self, appCode, serviceCode, timeUnit, timeSpan, sign, instanceIds, unifyDate=None, autoPay=None, returnURL=None):
+    def __init__(self, appCode, serviceCode, timeSpan, timeUnit, instanceIds, unifyDate=None, autoPay=None, returnURL=None):
         """
         :param appCode:  业务线
         :param serviceCode:  产品线
-        :param timeUnit:  时间单位 1:小时 2:天 3:月 4:年
-        :param timeSpan:  时长
-        :param sign:  签名 md5(pin+serviceCode+key)
-        :param instanceIds:  待续费资源id列表,英文逗号分隔
-        :param unifyDate: (Optional) 是否统一续费到期日续费 1-是 0-否（默认为0）
-        :param autoPay: (Optional) 是否自动支付 true-是 false-否（默认为true）
-        :param returnURL: (Optional) 回调地址
+        :param timeSpan:  续费时长(timeUnit=MONTH时只能传1、2、3、4、5、6、7、8、9,timeUnit=YEAR时只能传1、2、3)
+        :param timeUnit:  时间单位(MONTH-月,YEAR-年)
+        :param instanceIds:  待续费资源ID列表,英文逗号分隔
+        :param unifyDate: (Optional) 是否统一到期日续费(YES-是,NO-否)，默认为NO
+        :param autoPay: (Optional) 是否自动支付，默认为true，外部用户调用时只能传true
+        :param returnURL: (Optional) 支付成功后的回调地址
         """
 
         self.appCode = appCode
         self.serviceCode = serviceCode
-        self.timeUnit = timeUnit
         self.timeSpan = timeSpan
-        self.sign = sign
+        self.timeUnit = timeUnit
         self.instanceIds = instanceIds
         self.unifyDate = unifyDate
         self.autoPay = autoPay

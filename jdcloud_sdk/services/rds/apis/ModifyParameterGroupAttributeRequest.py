@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyParameterGroupAttributeRequest(JDCloudRequest):
     """
-    修改参数组名称，描述<br>- 仅支持MySQL
+    修改参数组名称，描述<br>- 仅支持MySQL，Percona，MariaDB，PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):

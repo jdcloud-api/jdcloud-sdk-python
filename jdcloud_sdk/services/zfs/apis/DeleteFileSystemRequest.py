@@ -22,7 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteFileSystemRequest(JDCloudRequest):
     """
     -   删除一个文件系统，一旦删除，该文件系统将不存在，也无法访问已删除的文件系统里的任何内容。
-
+ [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):

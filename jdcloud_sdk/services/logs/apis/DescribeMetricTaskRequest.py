@@ -19,29 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCertInfoRequest(JDCloudRequest):
+class DescribeMetricTaskRequest(JDCloudRequest):
     """
-    编辑网站规则证书信息
+    查询指定监控任务的详情信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCertInfoRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/webRules/{webRuleId}:modifyCertInfo', 'POST', header, version)
+        super(DescribeMetricTaskRequest, self).__init__(
+            '/regions/{regionId}/logsets/{logsetUID}/logtopics/{logtopicUID}/metrictasks/{logmetrictaskUID}', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyCertInfoParameters(object):
+class DescribeMetricTaskParameters(object):
 
-    def __init__(self, regionId, instanceId, webRuleId, certInfoModifySpec):
+    def __init__(self, regionId, logsetUID, logtopicUID, logmetrictaskUID, ):
         """
-        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param instanceId: 高防实例 Id
-        :param webRuleId: 网站规则 Id
-        :param certInfoModifySpec: 编辑网站规则证书信息请求参数
+        :param regionId: 地域 Id
+        :param logsetUID: 日志集 UID
+        :param logtopicUID: 日志主题 UID
+        :param logmetrictaskUID: 
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.webRuleId = webRuleId
-        self.certInfoModifySpec = certInfoModifySpec
+        self.logsetUID = logsetUID
+        self.logtopicUID = logtopicUID
+        self.logmetrictaskUID = logmetrictaskUID
 

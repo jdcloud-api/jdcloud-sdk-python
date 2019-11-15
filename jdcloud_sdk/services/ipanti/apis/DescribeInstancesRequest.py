@@ -56,7 +56,7 @@ class DescribeInstancesParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 实例名称，可模糊匹配
+        :param name: (Optional) 实例名称, 可模糊匹配
         """
         self.name = name
 

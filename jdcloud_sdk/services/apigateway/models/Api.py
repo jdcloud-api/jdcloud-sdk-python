@@ -19,7 +19,7 @@
 
 class Api(object):
 
-    def __init__(self, apiId=None, apiGroupId=None, apiName=None, action=None, path=None, matchType=None, backServiceType=None, description=None, reqParams=None, reqBody=None, resBody=None, reqBodyType=None, resBodyType=None, apiBackendConfig=None, hufuAppTypeId=None, deploymentEnvironment=None, editableReqBodyType=None, editableResBodyType=None):
+    def __init__(self, apiId=None, apiGroupId=None, apiName=None, action=None, path=None, matchType=None, backServiceType=None, description=None, reqParams=None, reqBody=None, resBody=None, reqBodyType=None, resBodyType=None, apiBackendConfig=None, hufuAppTypeId=None, deploymentEnvironment=None, editableReqBodyType=None, editableResBodyType=None, wafStatus=None):
         """
         :param apiId: (Optional) apiId
         :param apiGroupId: (Optional) 分组ID
@@ -39,6 +39,7 @@ class Api(object):
         :param deploymentEnvironment: (Optional) 当前分组版本，发布的环境信息
         :param editableReqBodyType: (Optional) 请求格式类型,当reqBodyType等于3时,使用该请求格式类型
         :param editableResBodyType: (Optional) 响应格式类型,当resBodyType等于3时,使用该响应格式类型
+        :param wafStatus: (Optional) waf状态，如：observe,deny,off
         """
 
         self.apiId = apiId
@@ -59,3 +60,4 @@ class Api(object):
         self.deploymentEnvironment = deploymentEnvironment
         self.editableReqBodyType = editableReqBodyType
         self.editableResBodyType = editableResBodyType
+        self.wafStatus = wafStatus

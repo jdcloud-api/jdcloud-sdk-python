@@ -25,7 +25,7 @@ class AccessAuth(object):
         :param authUserType: (Optional) 授权用户类型
         :param accessKey: (Optional) Access Key
         :param description: (Optional) 描述
-        :param bindGroups: (Optional) 绑定分组
+        :param bindGroups: (Optional) 绑定分组,用英文逗号分隔
         :param appId: (Optional) api调用者的appid
         """
 

@@ -19,7 +19,7 @@
 
 class DebugApi(object):
 
-    def __init__(self, host, uri, method, authType, region, reqBodyType, assessKey=None, secretKey=None, queryString=None, body=None, editableReqBodyType=None, headerString=None):
+    def __init__(self, host, uri, method, authType, region, reqBodyType, environment, assessKey=None, secretKey=None, queryString=None, body=None, editableReqBodyType=None, headerString=None, isApiProduct=None):
         """
         :param assessKey: (Optional) assessKey：京东云用户、API调用者、订阅密钥key
         :param secretKey: (Optional) secretKey：京东云用户、API调用者
@@ -33,6 +33,8 @@ class DebugApi(object):
         :param reqBodyType:  请求格式类型,1:application/json,2:text/xml,3:其他
         :param editableReqBodyType: (Optional) 请求格式类型,当reqBodyType等于3时,使用该请求格式类型
         :param headerString: (Optional) header参数，传json字符串
+        :param environment:  发布的环境信息，如：online,preview,test
+        :param isApiProduct: (Optional) 是否API产品, 1为是
         """
 
         self.assessKey = assessKey
@@ -47,3 +49,5 @@ class DebugApi(object):
         self.reqBodyType = reqBodyType
         self.editableReqBodyType = editableReqBodyType
         self.headerString = headerString
+        self.environment = environment
+        self.isApiProduct = isApiProduct

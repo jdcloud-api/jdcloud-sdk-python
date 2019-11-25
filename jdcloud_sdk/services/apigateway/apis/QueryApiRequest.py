@@ -44,4 +44,12 @@ class QueryApiParameters(object):
         self.apiGroupId = apiGroupId
         self.revision = revision
         self.apiId = apiId
+        self.filters = None
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) isApiProduct - 是否API产品，精确匹配，1为是
+
+        """
+        self.filters = filters
 

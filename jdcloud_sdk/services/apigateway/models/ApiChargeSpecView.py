@@ -19,9 +19,19 @@
 
 class ApiChargeSpecView(object):
 
-    def __init__(self, apiChargeSpecs, ):
+    def __init__(self, apiChargeSpecs, appCode=None, serviceCode=None, showStatus=None, chargeType=None, accessSuccessType=None):
         """
+        :param appCode: (Optional) appCode
+        :param serviceCode: (Optional) serviceCode
+        :param showStatus: (Optional) api中心展示，1展示，0 不展示 默认不展示
+        :param chargeType: (Optional) 计费类型 0 标准计费 1 阶梯计费
+        :param accessSuccessType: (Optional) 计费方式 0 200请求计费 1 后端处理计费
         :param apiChargeSpecs:  请求参数列表
         """
 
+        self.appCode = appCode
+        self.serviceCode = serviceCode
+        self.showStatus = showStatus
+        self.chargeType = chargeType
+        self.accessSuccessType = accessSuccessType
         self.apiChargeSpecs = apiChargeSpecs

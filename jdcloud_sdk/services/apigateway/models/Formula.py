@@ -19,10 +19,10 @@
 
 class Formula(object):
 
-    def __init__(self, key=None, value=None, unit=None):
+    def __init__(self, key, value, unit=None):
         """
-        :param key: (Optional) key
-        :param value: (Optional) value
+        :param key:  key
+        :param value:  value
         :param unit: (Optional) 单位
         """
 

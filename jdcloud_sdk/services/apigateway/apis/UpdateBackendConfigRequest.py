@@ -45,7 +45,6 @@ class UpdateBackendConfigParameters(object):
         self.regionId = regionId
         self.apiGroupId = apiGroupId
         self.backendConfigId = backendConfigId
-        self.backendConfigId = None
         self.baseGroupId = None
         self.environment = environment
         self.backendUrl = None
@@ -60,12 +59,6 @@ class UpdateBackendConfigParameters(object):
         self.jdsfParam = None
         self.jdsfRegion = None
         self.jdsfPin = None
-
-    def setBackendConfigId(self, backendConfigId):
-        """
-        :param backendConfigId: (Optional) 接口ID
-        """
-        self.backendConfigId = backendConfigId
 
     def setBaseGroupId(self, baseGroupId):
         """

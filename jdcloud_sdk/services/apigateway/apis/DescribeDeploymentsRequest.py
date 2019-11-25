@@ -40,4 +40,12 @@ class DescribeDeploymentsParameters(object):
 
         self.regionId = regionId
         self.apiGroupId = apiGroupId
+        self.filters = None
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) isApiProduct - 是否API产品，精确匹配，1为是
+
+        """
+        self.filters = filters
 

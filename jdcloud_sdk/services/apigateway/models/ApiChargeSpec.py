@@ -19,13 +19,11 @@
 
 class ApiChargeSpec(object):
 
-    def __init__(self, apiGroupId, formulas, apiId=None):
+    def __init__(self, apiId, formulas=None):
         """
-        :param apiGroupId:  分组ID
-        :param apiId: (Optional) 接口ID
-        :param formulas:  计费项
+        :param apiId:  API ID
+        :param formulas: (Optional) 计费项
         """
 
-        self.apiGroupId = apiGroupId
         self.apiId = apiId
         self.formulas = formulas

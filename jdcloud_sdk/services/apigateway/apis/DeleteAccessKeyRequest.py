@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeVpcRequest(JDCloudRequest):
+class DeleteAccessKeyRequest(JDCloudRequest):
     """
-    查询Vpc信息详情
+    删除密钥
     """
 
-    def __init__(self, parameters, header=None, version="v2"):
-        super(DescribeVpcRequest, self).__init__(
-            '/regions/{regionId}/ydVpcs/{vpcId}', 'GET', header, version)
+    def __init__(self, parameters, header=None, version="v1"):
+        super(DeleteAccessKeyRequest, self).__init__(
+            '/regions/{regionId}/accessKeys/{accessKeyId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DescribeVpcParameters(object):
+class DeleteAccessKeyParameters(object):
 
-    def __init__(self, regionId, vpcId, ):
+    def __init__(self, regionId, accessKeyId, ):
         """
         :param regionId: 地域ID
-        :param vpcId: Vpc ID
+        :param accessKeyId: access key id
         """
 
         self.regionId = regionId
-        self.vpcId = vpcId
+        self.accessKeyId = accessKeyId
 

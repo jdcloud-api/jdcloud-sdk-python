@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeServerConfigRequest(JDCloudRequest):
     """
-    查询(k8s 集群)服务配置信息
+    查询 kubernetes 集群服务配置信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

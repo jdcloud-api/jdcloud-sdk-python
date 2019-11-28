@@ -51,6 +51,7 @@ class BatchCreateParameters(object):
         self.ipSource = None
         self.domainSource = None
         self.ossSource = None
+        self.accelerateRegion = None
 
     def setDomains(self, domains):
         """
@@ -141,4 +142,10 @@ class BatchCreateParameters(object):
         :param ossSource: (Optional) 
         """
         self.ossSource = ossSource
+
+    def setAccelerateRegion(self, accelerateRegion):
+        """
+        :param accelerateRegion: (Optional) 加速区域 (mainLand:中国大陆，nonMainLand:海外加港澳台，all:全球)默认为中国大陆
+        """
+        self.accelerateRegion = accelerateRegion
 

@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UpdateKeyDescriptionRequest(JDCloudRequest):
     """
-    修改密钥配置，包括key的名称、用途、是否自动轮换和轮换周期等
+    -   修改对称密钥配置，包括key的名称、用途、是否自动轮换和轮换周期等;
+-   修改非对称密钥配置，包括key的名称、用途等。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

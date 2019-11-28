@@ -31,6 +31,7 @@ class InstanceinfoVO(object):
         :param pubDomain: (Optional) IoT Hub实例提供的公网域名
         :param priDomain: (Optional) IoT Hub实例提供的内网域名
         :param instanceStatus: (Optional) IoT Hub实例状态
+PREPARING-准备资源 |
 BUILDING-创建中 |
 RUNNING-运行中 |
 SUSPENDING-暂停使用

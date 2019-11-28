@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetAutoRepairRequest(JDCloudRequest):
     """
-    设置节点组的自动修复
+    设置工作节点组的自动修复
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class SetAutoRepairParameters(object):
     def __init__(self, regionId, nodeGroupId, enabled):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
+        :param nodeGroupId: 工作节点组 ID
         :param enabled: 是否开启自动修复
         """
 

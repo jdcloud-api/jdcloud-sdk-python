@@ -19,13 +19,15 @@
 
 class LifeStatusResp(object):
 
-    def __init__(self, iccid=None, msisdn=None, status=None):
+    def __init__(self, iccid=None, msisdn=None, imsi=None, status=None):
         """
         :param iccid: (Optional) 物联网卡iccid
         :param msisdn: (Optional) 物联网卡msisdn
+        :param imsi: (Optional) 物联网卡imsi
         :param status: (Optional) 生命周期状态(00:可激活;01:已激活;02:已停用;03:已失效;04:未知;05:可测试)
         """
 
         self.iccid = iccid
         self.msisdn = msisdn
+        self.imsi = imsi
         self.status = status

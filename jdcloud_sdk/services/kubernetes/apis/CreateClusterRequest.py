@@ -53,7 +53,7 @@ class CreateClusterParameters(object):
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 允许重名）
         :param azs: 集群所在的az
-        :param nodeGroup: pod 创建参数
+        :param nodeGroup: 集群节点组
         :param masterCidr: k8s的master的cidr
         :param accessKey: 用户的AccessKey，插件调用open-api时的认证凭证
         :param secretKey: 用户的SecretKey，插件调用open-api时的认证凭证

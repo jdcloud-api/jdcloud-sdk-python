@@ -19,7 +19,7 @@
 
 class ConsumptionProduct(object):
 
-    def __init__(self, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, productDetails=None, productDetailList=None):
+    def __init__(self, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, productDetails=None, productDetailList=None, groupTagValue=None):
         """
         :param appCode: (Optional) appCode
         :param appCodeName: (Optional) appCodeName
@@ -32,6 +32,7 @@ class ConsumptionProduct(object):
         :param arrearFee: (Optional) 欠费金额
         :param productDetails: (Optional) 
         :param productDetailList: (Optional) 
+        :param groupTagValue: (Optional) 分组显示值
         """
 
         self.appCode = appCode
@@ -45,3 +46,4 @@ class ConsumptionProduct(object):
         self.arrearFee = arrearFee
         self.productDetails = productDetails
         self.productDetailList = productDetailList
+        self.groupTagValue = groupTagValue

@@ -19,15 +19,11 @@
 
 class AccessUserlogModel(object):
 
-    def __init__(self, logUrl=None, logSize=None, startTime=None, endTime=None):
+    def __init__(self, domain=None, urls=None):
         """
-        :param logUrl: (Optional) 日志下载url地址
-        :param logSize: (Optional) 日志大小，单位：Byte（字节）
-        :param startTime: (Optional) 日志开始时间，格式：yyyy-MM-dd HH:ss，如：2019-04-12 00:00
-        :param endTime: (Optional) 日志结束时间，格式：yyyy-MM-dd HH:ss 如：2019-04-12 00:05
+        :param domain: (Optional) 域名
+        :param urls: (Optional) 日志对象
         """
 
-        self.logUrl = logUrl
-        self.logSize = logSize
-        self.startTime = startTime
-        self.endTime = endTime
+        self.domain = domain
+        self.urls = urls

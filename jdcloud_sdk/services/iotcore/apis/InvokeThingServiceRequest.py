@@ -32,30 +32,32 @@ class InvokeThingServiceRequest(JDCloudRequest):
 
 class InvokeThingServiceParameters(object):
 
-    def __init__(self, instanceId, regionId, identifier, productKey, ):
+    def __init__(self, instanceId, regionId, identifier, productKey, name, ):
         """
         :param instanceId: 设备归属的实例ID
         :param regionId: 设备归属的实例所在区域
         :param identifier: 设备唯一标识
         :param productKey: 产品Key
+        :param name: 服务名称
         """
 
         self.instanceId = instanceId
         self.regionId = regionId
         self.identifier = identifier
         self.productKey = productKey
-        self.name = None
-        self.input = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 服务名称
-        """
         self.name = name
+        self.input = None
+        self.callbackBeanName = None
 
     def setInput(self, input):
         """
         :param input: (Optional) 输入参数,object的key为参数名称，value为参数值
         """
         self.input = input
+
+    def setCallbackBeanName(self, callbackBeanName):
+        """
+        :param callbackBeanName: (Optional) 回调spring的bean的名称
+        """
+        self.callbackBeanName = callbackBeanName
 

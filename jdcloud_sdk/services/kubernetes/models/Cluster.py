@@ -34,8 +34,8 @@ class Cluster(object):
         :param updateTime: (Optional) 更新时间
         :param createTime: (Optional) 创建时间
         :param accessKey: (Optional) 用户的AccessKey，插件调用open-api时的认证凭证
-        :param basicAuth: (Optional) 
-        :param clientCertificate: (Optional) 
+        :param basicAuth: (Optional) 基本验证方式
+        :param clientCertificate: (Optional) 证书验证方式
         :param endpoint: (Optional) 用户访问的ip
         :param endpointPort: (Optional) endpoint的port
         :param dashboardPort: (Optional) endpoint的dashboard port

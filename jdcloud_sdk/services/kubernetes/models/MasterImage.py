@@ -27,8 +27,8 @@ class MasterImage(object):
         :param innerVersion: (Optional) 内部版本号
         :param isDefault: (Optional) 是否默认镜像
         :param visibility: (Optional) 可见度:0：所有人可见；1：授权用户可见；2：只有白名单用户可见
-        :param defaultNodeImageCode: (Optional) 默认ndoe镜像编码
-        :param nodeImages: (Optional) node 节点的配置
+        :param defaultNodeImageCode: (Optional) 默认节点镜像编码
+        :param nodeImages: (Optional) 工作节点镜像
         """
 
         self.code = code

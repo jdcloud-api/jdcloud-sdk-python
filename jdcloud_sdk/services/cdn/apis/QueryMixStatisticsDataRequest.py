@@ -43,6 +43,7 @@ class QueryMixStatisticsDataParameters(object):
         self.area = None
         self.isp = None
         self.period = None
+        self.scheme = None
 
     def setStartTime(self, startTime):
         """
@@ -85,4 +86,10 @@ class QueryMixStatisticsDataParameters(object):
         :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
         """
         self.period = period
+
+    def setScheme(self, scheme):
+        """
+        :param scheme: (Optional) 查询协议，可选值:[http,https,all],传空默认返回全部协议汇总后的数据
+        """
+        self.scheme = scheme
 

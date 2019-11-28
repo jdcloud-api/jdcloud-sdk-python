@@ -19,14 +19,13 @@
 
 class DeviceVO(object):
 
-    def __init__(self, deviceId=None, deviceName=None, parentId=None, deviceType=None, status=None, productKey=None, identifier=None, secret=None, description=None, activatedTime=None, lastConnectedTime=None, createdTime=None, updatedTime=None, productName=None, model=None, manufacturer=None):
+    def __init__(self, deviceId=None, deviceName=None, parentId=None, deviceType=None, status=None, identifier=None, secret=None, description=None, activatedTime=None, lastConnectedTime=None, createdTime=None, updatedTime=None, productKey=None, productName=None, productSecret=None, model=None, manufacturer=None, dynamicRegister=None):
         """
         :param deviceId: (Optional) 设备ID
         :param deviceName: (Optional) 设备名称
         :param parentId: (Optional) 父级设备Id
         :param deviceType: (Optional) 设备类型，同产品类型，0-普通设备，1-网关，2-Edge
         :param status: (Optional) 设备状态，0-未激活，1-激活离线，2-激活在线
-        :param productKey: (Optional) 产品Key
         :param identifier: (Optional) 设备标识符
         :param secret: (Optional) 设备秘钥
         :param description: (Optional) 设备描述
@@ -34,9 +33,12 @@ class DeviceVO(object):
         :param lastConnectedTime: (Optional) 最后连接时间
         :param createdTime: (Optional) 注册时间
         :param updatedTime: (Optional) 修改时间
+        :param productKey: (Optional) 产品Key
         :param productName: (Optional) 产品名称
+        :param productSecret: (Optional) 产品秘钥
         :param model: (Optional) 设备型号
         :param manufacturer: (Optional) 设备厂商
+        :param dynamicRegister: (Optional) 是否开启动态注册,0:关闭,1:开启，开启动态注册的设备认证类型为一型一密，否则为一机一密
         """
 
         self.deviceId = deviceId
@@ -44,7 +46,6 @@ class DeviceVO(object):
         self.parentId = parentId
         self.deviceType = deviceType
         self.status = status
-        self.productKey = productKey
         self.identifier = identifier
         self.secret = secret
         self.description = description
@@ -52,6 +53,9 @@ class DeviceVO(object):
         self.lastConnectedTime = lastConnectedTime
         self.createdTime = createdTime
         self.updatedTime = updatedTime
+        self.productKey = productKey
         self.productName = productName
+        self.productSecret = productSecret
         self.model = model
         self.manufacturer = manufacturer
+        self.dynamicRegister = dynamicRegister

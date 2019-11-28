@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyNodeGroupRequest(JDCloudRequest):
     """
-    修改节点组的 名称 和 描述
+    修改工作节点组的 名称 和 描述<br>name 和 description 必须要指定一个
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class ModifyNodeGroupParameters(object):
     def __init__(self, regionId, nodeGroupId, ):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
+        :param nodeGroupId: 工作节点组 ID
         """
 
         self.regionId = regionId
@@ -45,13 +45,13 @@ class ModifyNodeGroupParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 节点组名称
+        :param name: (Optional) 工作节点组名称
         """
         self.name = name
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 集群 name 和 description 必须要指定一个
+        :param description: (Optional) 工作节点组描述
         """
         self.description = description
 

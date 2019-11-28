@@ -19,13 +19,15 @@
 
 class GprsStatusResp(object):
 
-    def __init__(self, iccid=None, msisdn=None, onlinestatus=None):
+    def __init__(self, iccid=None, msisdn=None, imsi=None, onlinestatus=None):
         """
         :param iccid: (Optional) 物联网卡iccid
         :param msisdn: (Optional) 物联网卡msisdn
+        :param imsi: (Optional) 物联网卡imsi
         :param onlinestatus: (Optional) GPRS在线状态(00:离线;01:在线;02:该运营商不支持查询;03:未知)
         """
 
         self.iccid = iccid
         self.msisdn = msisdn
+        self.imsi = imsi
         self.onlinestatus = onlinestatus

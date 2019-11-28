@@ -42,7 +42,7 @@ class OrderPriceDetail(object):
         :param taskId: (Optional) 自然单列表
         :param startTime: (Optional) 开始时间
         :param endTime: (Optional) 结束时间
-        :param processType: (Optional) 变配明细（1-升配补差价，2-降配延时）
+        :param processType: (Optional) 变配明细（1-升配补差价，2-降配延时，3-临时升配）
         :param sourceId: (Optional) 交易单模块sourceId
         """
 

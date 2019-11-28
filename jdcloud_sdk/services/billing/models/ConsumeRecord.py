@@ -19,7 +19,7 @@
 
 class ConsumeRecord(object):
 
-    def __init__(self, id=None, billingRecordId=None, appCode=None, serviceCode=None, region=None, resourceId=None, pin=None, formula=None, billingType=None, priceSnapShot=None, startTime=None, endTime=None, createTime=None, billFee=None, billFee2=None, discountFee=None, couponId=None, couponFee=None, transactionNo=None, isBillGenerated=None, subBillId=None, refundNo=None):
+    def __init__(self, id=None, billingRecordId=None, appCode=None, serviceCode=None, region=None, resourceId=None, pin=None, formula=None, billingType=None, priceSnapShot=None, startTime=None, endTime=None, createTime=None, billFee=None, billFee2=None, discountFee=None, couponId=None, couponFee=None, transactionNo=None, isBillGenerated=None, subBillId=None, refundNo=None, actualFee=None, formulaName=None):
         """
         :param id: (Optional) 消费记录数据库唯一id
         :param billingRecordId: (Optional) 消费记录id
@@ -43,6 +43,8 @@ class ConsumeRecord(object):
         :param isBillGenerated: (Optional) null
         :param subBillId: (Optional) 子账单id
         :param refundNo: (Optional) 退款单号
+        :param actualFee: (Optional) 优惠后金额
+        :param formulaName: (Optional) 规格名称
         """
 
         self.id = id
@@ -67,3 +69,5 @@ class ConsumeRecord(object):
         self.isBillGenerated = isBillGenerated
         self.subBillId = subBillId
         self.refundNo = refundNo
+        self.actualFee = actualFee
+        self.formulaName = formulaName

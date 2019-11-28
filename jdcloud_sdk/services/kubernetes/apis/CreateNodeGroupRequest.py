@@ -21,8 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateNodeGroupRequest(JDCloudRequest):
     """
-    创建k8s的nodeGroup
-要求集群状态为running
+    创建工作节点组<br>
+- 要求集群状态为running
 
     """
 
@@ -38,11 +38,11 @@ class CreateNodeGroupParameters(object):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 内部唯一）
-        :param clusterId: node group所属的cluster
-        :param nodeConfig: 节点组配置
-        :param initialNodeCount: nodeGroup初始化大小
-        :param vpcId: k8s运行的vpc
-        :param nodeCidr: k8s的node的cidr
+        :param clusterId: 工作节点所属的集群
+        :param nodeConfig: 工作节点配置信息
+        :param initialNodeCount: 工作节点组初始化大小
+        :param vpcId: 工作节点组初始化大小运行的VPC
+        :param nodeCidr: 工作节点组的cidr
         """
 
         self.regionId = regionId
@@ -50,6 +50,7 @@ class CreateNodeGroupParameters(object):
         self.description = None
         self.clusterId = clusterId
         self.nodeConfig = nodeConfig
+        self.azs = None
         self.initialNodeCount = initialNodeCount
         self.vpcId = vpcId
         self.nodeCidr = nodeCidr
@@ -61,9 +62,15 @@ class CreateNodeGroupParameters(object):
         """
         self.description = description
 
+    def setAzs(self, azs):
+        """
+        :param azs: (Optional) 工作节点组的 az，必须为集群az的子集，默认为集群az
+        """
+        self.azs = azs
+
     def setAutoRepair(self, autoRepair):
         """
-        :param autoRepair: (Optional) 是否开启 node group 的自动修复，默认关闭
+        :param autoRepair: (Optional) 是否开启工作节点组的自动修复，默认关闭
         """
         self.autoRepair = autoRepair
 

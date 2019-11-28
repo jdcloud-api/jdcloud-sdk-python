@@ -41,6 +41,7 @@ class GetDomainListByFilterParameters(object):
         self.pageSize = None
         self.status = None
         self.type = None
+        self.accelerateRegion = None
         self.tagFilters = None
 
     def setKeyWord(self, keyWord):
@@ -72,6 +73,12 @@ class GetDomainListByFilterParameters(object):
         :param type: (Optional) 域名类型，(web:静态小文件，download:大文件加速，vod:视频加速，live:直播加速),不传查所有
         """
         self.type = type
+
+    def setAccelerateRegion(self, accelerateRegion):
+        """
+        :param accelerateRegion: (Optional) 加速区域，(mainLand:中国大陆，nonMainLand:海外加港澳台，all:全球),不传为全球
+        """
+        self.accelerateRegion = accelerateRegion
 
     def setTagFilters(self, tagFilters):
         """

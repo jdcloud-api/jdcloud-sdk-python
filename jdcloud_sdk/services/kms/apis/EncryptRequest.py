@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EncryptRequest(JDCloudRequest):
     """
-    使用密钥对数据进行加密
+    使用密钥对数据进行加密，针对非对称密钥：使用公钥进行加密，仅支持RSA_PKCS1_PADDING填充方式，最大加密数据长度为245字节
     """
 
     def __init__(self, parameters, header=None, version="v1"):

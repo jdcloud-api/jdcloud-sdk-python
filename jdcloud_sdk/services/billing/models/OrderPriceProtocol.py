@@ -19,7 +19,7 @@
 
 class OrderPriceProtocol(object):
 
-    def __init__(self, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, formulaStr=None, pin=None, count=None, startTime=None, taskId=None, sourceId=None):
+    def __init__(self, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, formulaStr=None, pin=None, count=None, startTime=None, endTime=None, taskId=None, sourceId=None):
         """
         :param resourceId: (Optional) 资源id
         :param appCode: (Optional) 业务线
@@ -35,6 +35,7 @@ class OrderPriceProtocol(object):
         :param pin: (Optional) 用户pin
         :param count: (Optional) 具体商品数量，默认为1
         :param startTime: (Optional) 订单开始时间
+        :param endTime: (Optional) 临时升配结束时间,临时升配时必传
         :param taskId: (Optional) 自然单列表
         :param sourceId: (Optional) 交易单模块sourceId
         """
@@ -53,5 +54,6 @@ class OrderPriceProtocol(object):
         self.pin = pin
         self.count = count
         self.startTime = startTime
+        self.endTime = endTime
         self.taskId = taskId
         self.sourceId = sourceId

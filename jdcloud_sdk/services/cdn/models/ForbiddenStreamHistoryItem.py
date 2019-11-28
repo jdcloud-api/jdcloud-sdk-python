@@ -19,10 +19,11 @@
 
 class ForbiddenStreamHistoryItem(object):
 
-    def __init__(self, stream=None, app=None, forbiddenType=None, ttl=None, startTime=None, endTime=None, forbiddenTypeDesc=None):
+    def __init__(self, stream=None, app=None, publishIp=None, forbiddenType=None, ttl=None, startTime=None, endTime=None, forbiddenTypeDesc=None):
         """
         :param stream: (Optional) 禁播流
         :param app: (Optional) 封禁推流的app
+        :param publishIp: (Optional) 封禁的IP
         :param forbiddenType: (Optional) 禁播类型:forever永不禁播limit限时禁播
         :param ttl: (Optional) 禁播时长
         :param startTime: (Optional) 开始禁播时间
@@ -32,6 +33,7 @@ class ForbiddenStreamHistoryItem(object):
 
         self.stream = stream
         self.app = app
+        self.publishIp = publishIp
         self.forbiddenType = forbiddenType
         self.ttl = ttl
         self.startTime = startTime

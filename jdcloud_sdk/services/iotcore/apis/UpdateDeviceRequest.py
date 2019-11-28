@@ -45,6 +45,7 @@ class UpdateDeviceParameters(object):
         self.model = None
         self.manufacturer = None
         self.description = None
+        self.status = None
 
     def setModel(self, model):
         """
@@ -63,4 +64,10 @@ class UpdateDeviceParameters(object):
         :param description: (Optional) 设备描述
         """
         self.description = description
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 设备状态
+        """
+        self.status = status
 

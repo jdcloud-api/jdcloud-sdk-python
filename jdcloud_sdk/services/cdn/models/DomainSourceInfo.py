@@ -21,9 +21,9 @@ class DomainSourceInfo(object):
 
     def __init__(self, priority=None, sourceHost=None, domain=None):
         """
-        :param priority: (Optional) 
-        :param sourceHost: (Optional) 
-        :param domain: (Optional) 
+        :param priority: (Optional) 优先级（1-10）
+        :param sourceHost: (Optional) 回源host
+        :param domain: (Optional) 回源域名
         """
 
         self.priority = priority

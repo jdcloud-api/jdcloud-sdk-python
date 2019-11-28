@@ -19,17 +19,19 @@
 
 class NodeConfigSpec(object):
 
-    def __init__(self, instanceType, systemDiskSize, systemDiskType, version=None, labels=None):
+    def __init__(self, instanceType, version=None, password=None, keyNames=None, systemDisk=None, labels=None):
         """
         :param instanceType:  实例类型
-        :param version: (Optional) 镜像信息
-        :param systemDiskSize:  云盘系统盘的大小  单位(GB)
-        :param systemDiskType:  云盘系统盘的大小[ssd,premium-hdd]
-        :param labels: (Optional) Node的信息
+        :param version: (Optional) 工作节点版本，不指定则使用默认版本
+        :param password: (Optional) 云主机密码，默认为集群密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
+        :param keyNames: (Optional) 云主机SSH密钥对名称，当前仅支持一个。使用中的SSH密钥请勿删除。
+        :param systemDisk: (Optional) 云主机系统盘配置信息
+        :param labels: (Optional) 工作节点组标签，最多支持 10 个
         """
 
         self.instanceType = instanceType
         self.version = version
-        self.systemDiskSize = systemDiskSize
-        self.systemDiskType = systemDiskType
+        self.password = password
+        self.keyNames = keyNames
+        self.systemDisk = systemDisk
         self.labels = labels

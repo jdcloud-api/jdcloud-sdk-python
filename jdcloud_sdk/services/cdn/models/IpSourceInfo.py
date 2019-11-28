@@ -21,9 +21,9 @@ class IpSourceInfo(object):
 
     def __init__(self, master=None, ip=None, ratio=None):
         """
-        :param master: (Optional) 
-        :param ip: (Optional) 
-        :param ratio: (Optional) 
+        :param master: (Optional) 1：主；2：备
+        :param ip: (Optional) 回源IP
+        :param ratio: (Optional) 占比
         """
 
         self.master = master

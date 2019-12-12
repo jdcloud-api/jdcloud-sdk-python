@@ -19,23 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeIdcsRequest(JDCloudRequest):
+class DescribeBandwidthTrafficsRequest(JDCloudRequest):
     """
-    查询IDC机房列表
+    查询带宽（出口）流量列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeIdcsRequest, self).__init__(
-            '/idcs', 'GET', header, version)
+        super(DescribeBandwidthTrafficsRequest, self).__init__(
+            '/idcs/{idc}/bandwidthTraffics', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeIdcsParameters(object):
+class DescribeBandwidthTrafficsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, idc, ):
         """
+        :param idc: IDC机房ID
         """
 
+        self.idc = idc
         self.pageNumber = None
         self.pageSize = None
 

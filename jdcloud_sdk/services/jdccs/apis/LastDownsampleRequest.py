@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class LastDownsampleRequest(JDCloudRequest):
     """
-    查看某资源的最后一个监控数据点
+    查看某资源的最后一个监控数据点（目前只支持机柜电流）
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,9 +34,9 @@ class LastDownsampleParameters(object):
 
     def __init__(self, idc, metric, resourceId):
         """
-        :param idc: 机房名称（英文标识）
+        :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)
-        :param resourceId: 资源的uuid，支持多个resourceId批量查询，每个id用竖线 | 分隔
+        :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用竖线 | 分隔
         """
 
         self.idc = idc

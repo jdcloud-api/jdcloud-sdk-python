@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyClusterRequest(JDCloudRequest):
     """
-    修改集群的 名称 和 描述。
+    修改集群的 名称 和 描述。<br>集群 name 和 description 必须要指定一个
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -51,7 +51,7 @@ class ModifyClusterParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 集群 name 和 description 必须要指定一个
+        :param description: (Optional) 集群描述
         """
         self.description = description
 

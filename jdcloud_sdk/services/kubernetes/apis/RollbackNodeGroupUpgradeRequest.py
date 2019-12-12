@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RollbackNodeGroupUpgradeRequest(JDCloudRequest):
     """
-    回滚未升级完的节点组
+    回滚未升级完的工作节点组
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class RollbackNodeGroupUpgradeParameters(object):
     def __init__(self, regionId, nodeGroupId, ):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
+        :param nodeGroupId: 工作节点组 ID
         """
 
         self.regionId = regionId

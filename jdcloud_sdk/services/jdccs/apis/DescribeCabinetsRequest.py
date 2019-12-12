@@ -34,7 +34,7 @@ class DescribeCabinetsParameters(object):
 
     def __init__(self, idc, ):
         """
-        :param idc: IDC机房id
+        :param idc: IDC机房ID
         """
 
         self.idc = idc
@@ -44,13 +44,13 @@ class DescribeCabinetsParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞)
+        :param pageNumber: (Optional) 页码, 默认为1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
+        :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
 

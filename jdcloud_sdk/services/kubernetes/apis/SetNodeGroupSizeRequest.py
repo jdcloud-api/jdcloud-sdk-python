@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetNodeGroupSizeRequest(JDCloudRequest):
     """
-    调整节点组实例数量
+    调整工作节点组实例数量
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,8 +35,8 @@ class SetNodeGroupSizeParameters(object):
     def __init__(self, regionId, nodeGroupId, expectCount):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
-        :param expectCount: 创建集群请求参数模型
+        :param nodeGroupId: 工作节点组 ID
+        :param expectCount: 预期目标节点数量
         """
 
         self.regionId = regionId

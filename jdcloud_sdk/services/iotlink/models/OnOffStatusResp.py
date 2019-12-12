@@ -19,13 +19,15 @@
 
 class OnOffStatusResp(object):
 
-    def __init__(self, iccid=None, msisdn=None, status=None):
+    def __init__(self, iccid=None, msisdn=None, imsi=None, status=None):
         """
         :param iccid: (Optional) 物联网卡iccid
         :param msisdn: (Optional) 物联网卡msisdn
+        :param imsi: (Optional) 物联网卡imsi
         :param status: (Optional) 终端的开关机状态(00:关机;01:开机;02:该运营商不支持查询;03:未知)
         """
 
         self.iccid = iccid
         self.msisdn = msisdn
+        self.imsi = imsi
         self.status = status

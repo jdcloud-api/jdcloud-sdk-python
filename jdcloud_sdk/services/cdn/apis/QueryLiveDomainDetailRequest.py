@@ -21,12 +21,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class QueryLiveDomainDetailRequest(JDCloudRequest):
     """
-    查询直播域名详情
+    查询直播域名详情v1
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(QueryLiveDomainDetailRequest, self).__init__(
-            '/liveDomain/{domain}', 'GET', header, version)
+            '/liveDomains/{domain}', 'GET', header, version)
         self.parameters = parameters
 
 

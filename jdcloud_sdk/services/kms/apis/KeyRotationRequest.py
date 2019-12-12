@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class KeyRotationRequest(JDCloudRequest):
     """
-    立即轮换密钥，自动轮换周期顺延
+    立即轮换密钥，自动轮换周期顺延-支持对称密钥
     """
 
     def __init__(self, parameters, header=None, version="v1"):

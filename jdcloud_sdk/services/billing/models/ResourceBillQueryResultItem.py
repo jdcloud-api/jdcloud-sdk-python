@@ -19,7 +19,7 @@
 
 class ResourceBillQueryResultItem(object):
 
-    def __init__(self, billId=None, pin=None, appCode=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, region=None, regionName=None, billStartTime=None, billEndTime=None, startTime=None, endTime=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, arrearFee=None, timeSpan=None, timeUnit=None, opTypeName=None, timeSpanName=None, timeUnitName=None, settleTime=None, systemType=None, resourceName=None):
+    def __init__(self, billId=None, pin=None, appCode=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, region=None, regionName=None, billStartTime=None, billEndTime=None, startTime=None, endTime=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, arrearFee=None, timeSpan=None, timeUnit=None, opTypeName=None, timeSpanName=None, timeUnitName=None, settleTime=None, systemType=None, resourceName=None, tagDetails=None):
         """
         :param billId: (Optional) 账单id
         :param pin: (Optional) 用户pin
@@ -48,6 +48,7 @@ class ResourceBillQueryResultItem(object):
         :param settleTime: (Optional) 结算日期
         :param systemType: (Optional) 1：老计费 2：新计费
         :param resourceName: (Optional) 资源名称
+        :param tagDetails: (Optional) 标签明细
         """
 
         self.billId = billId
@@ -77,3 +78,4 @@ class ResourceBillQueryResultItem(object):
         self.settleTime = settleTime
         self.systemType = systemType
         self.resourceName = resourceName
+        self.tagDetails = tagDetails

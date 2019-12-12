@@ -19,7 +19,7 @@
 
 class ConsumeBillQueryResultItem(object):
 
-    def __init__(self, billId=None, pin=None, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, resourceId=None, billingType=None, billingTypeName=None, billStart=None, billEnd=None, settleTime=None, billTime=None, billFee=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, discountFee=None, arrearFee=None, payState=None, createTime=None, systemType=None, region=None, formula=None, formulaStr=None):
+    def __init__(self, billId=None, pin=None, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, resourceId=None, billingType=None, billingTypeName=None, billStart=None, billEnd=None, settleTime=None, billTime=None, billFee=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, discountFee=None, arrearFee=None, payState=None, createTime=None, systemType=None, region=None, formula=None, formulaStr=None, tagDetails=None):
         """
         :param billId: (Optional) 账单id
         :param pin: (Optional) 用户pin
@@ -47,6 +47,7 @@ class ConsumeBillQueryResultItem(object):
         :param region: (Optional) 区域
         :param formula: (Optional) 规格
         :param formulaStr: (Optional) 规格
+        :param tagDetails: (Optional) 标签明细
         """
 
         self.billId = billId
@@ -75,3 +76,4 @@ class ConsumeBillQueryResultItem(object):
         self.region = region
         self.formula = formula
         self.formulaStr = formulaStr
+        self.tagDetails = tagDetails

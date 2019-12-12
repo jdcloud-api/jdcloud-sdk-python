@@ -19,17 +19,23 @@
 
 class NodeConfig(object):
 
-    def __init__(self, instanceType=None, imageId=None, systemDiskSize=None, systemDiskType=None, labels=None):
+    def __init__(self, instanceType=None, imageId=None, keyNames=None, systemDiskCategory=None, systemDiskSize=None, systemDiskType=None, systemDiskIops=None, labels=None):
         """
         :param instanceType: (Optional) 实例类型
         :param imageId: (Optional) 镜像信息
-        :param systemDiskSize: (Optional) 云盘系统盘的大小  单位(GB)
-        :param systemDiskType: (Optional) 云盘系统盘的大小[ssd,premium-hdd]
-        :param labels: (Optional) Node的信息
+        :param keyNames: (Optional) 云主机SSH密钥对名称
+        :param systemDiskCategory: (Optional) 云主机磁盘类型
+        :param systemDiskSize: (Optional) 云主机云盘系统盘大小  单位(GB)
+        :param systemDiskType: (Optional) 云主机云盘系统盘类型
+        :param systemDiskIops: (Optional) 云主机云盘 iops，仅限 ssd 类型云盘有效
+        :param labels: (Optional) 工作节点组标签
         """
 
         self.instanceType = instanceType
         self.imageId = imageId
+        self.keyNames = keyNames
+        self.systemDiskCategory = systemDiskCategory
         self.systemDiskSize = systemDiskSize
         self.systemDiskType = systemDiskType
+        self.systemDiskIops = systemDiskIops
         self.labels = labels

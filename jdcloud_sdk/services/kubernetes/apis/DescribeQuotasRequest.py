@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeQuotasRequest(JDCloudRequest):
     """
-    查询(k8s 集群)配额
+    查询 kubernetes 集群配额
     """
 
     def __init__(self, parameters, header=None, version="v1"):

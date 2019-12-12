@@ -45,6 +45,7 @@ class QueryBillSummaryParameters(object):
         self.appCode = None
         self.serviceCode = None
         self.resourceIds = None
+        self.tags = None
         self.pageIndex = None
         self.pageSize = None
 
@@ -65,6 +66,12 @@ class QueryBillSummaryParameters(object):
         :param resourceIds: (Optional) 资源单id列表
         """
         self.resourceIds = resourceIds
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 标签
+        """
+        self.tags = tags
 
     def setPageIndex(self, pageIndex):
         """

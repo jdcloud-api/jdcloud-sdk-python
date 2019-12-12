@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteNodeGroupRequest(JDCloudRequest):
     """
-    cluster 摘除 nodeGroup 并删除 nodeGroup
+    集群摘除工作节点组并删除工作节点组
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class DeleteNodeGroupParameters(object):
     def __init__(self, regionId, nodeGroupId, ):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
+        :param nodeGroupId: 工作节点组 ID
         """
 
         self.regionId = regionId

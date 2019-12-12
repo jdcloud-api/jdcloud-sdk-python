@@ -23,7 +23,7 @@ class MasterVersion(object):
         """
         :param version: (Optional) 集群版本号
         :param isDefault: (Optional) 是否默认版本
-        :param defaultNodeVersion: (Optional) 默认ndoe版本号
+        :param defaultNodeVersion: (Optional) 默认工作节点版本号
         :param versionStatus: (Optional) 版本状态
         :param nodeVersions: (Optional) node 节点的配置
         """

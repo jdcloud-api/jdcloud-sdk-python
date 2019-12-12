@@ -49,6 +49,7 @@ class CreateProductParameters(object):
         self.productType = productType
         self.productDescription = None
         self.templateId = None
+        self.internalTags = None
 
     def setProductDescription(self, productDescription):
         """
@@ -61,4 +62,10 @@ class CreateProductParameters(object):
         :param templateId: (Optional) 物模型模板ID，内部参数，用户不可见，默认为自定义
         """
         self.templateId = templateId
+
+    def setInternalTags(self, internalTags):
+        """
+        :param internalTags: (Optional) 内部标签，内部参数，用户不可见，隐藏标签：hidden:true
+        """
+        self.internalTags = internalTags
 

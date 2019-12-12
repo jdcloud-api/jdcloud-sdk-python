@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DecryptRequest(JDCloudRequest):
     """
-    使用密钥对数据进行解密
+    使用密钥对数据进行解密，针对非对称密钥：使用私钥进行加密
     """
 
     def __init__(self, parameters, header=None, version="v1"):

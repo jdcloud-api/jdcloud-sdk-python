@@ -22,7 +22,7 @@ class LastDownsampleRespItem(object):
     def __init__(self, metric=None, resourceId=None, value=None):
         """
         :param metric: (Optional) 监控项英文标识
-        :param resourceId: (Optional) 资源的uuid
+        :param resourceId: (Optional) 资源ID
         :param value: (Optional) 采样值
         """
 

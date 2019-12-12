@@ -19,7 +19,7 @@
 
 class Service(object):
 
-    def __init__(self, name=None, serviceId=None, description=None, input=None, output=None, code=None, createdTime=None):
+    def __init__(self, name=None, serviceId=None, description=None, input=None, output=None, code=None, createdTime=None, msgId=None, message=None):
         """
         :param name: (Optional) 服务名称
         :param serviceId: (Optional) 服务ID
@@ -28,6 +28,8 @@ class Service(object):
         :param output: (Optional) 服务出参,object的key为参数名称，value为参数值
         :param code: (Optional) 结果码200:成功,400:参数错误
         :param createdTime: (Optional) 创建时间
+        :param msgId: (Optional) 记录ID
+        :param message: (Optional) 失败原因
         """
 
         self.name = name
@@ -37,3 +39,5 @@ class Service(object):
         self.output = output
         self.code = code
         self.createdTime = createdTime
+        self.msgId = msgId
+        self.message = message

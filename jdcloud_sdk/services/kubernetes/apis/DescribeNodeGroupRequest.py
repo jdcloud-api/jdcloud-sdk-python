@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeNodeGroupRequest(JDCloudRequest):
     """
-    查询单个节点组详情
+    查询单个工作节点组详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class DescribeNodeGroupParameters(object):
     def __init__(self, regionId, nodeGroupId, ):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 节点组 ID
+        :param nodeGroupId: 工作节点组 ID
         """
 
         self.regionId = regionId

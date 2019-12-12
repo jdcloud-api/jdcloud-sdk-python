@@ -19,11 +19,13 @@
 
 class DeleteStream(object):
 
-    def __init__(self, stream=None, app=None):
+    def __init__(self, stream=None, app=None, publishIp=None):
         """
         :param stream: (Optional) 禁播流
         :param app: (Optional) 封禁推流的app
+        :param publishIp: (Optional) 
         """
 
         self.stream = stream
         self.app = app
+        self.publishIp = publishIp

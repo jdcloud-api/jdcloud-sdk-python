@@ -45,6 +45,7 @@ class BatchCreateLiveDomainParameters(object):
         self.backSourceType = None
         self.ipSource = None
         self.domainSource = None
+        self.accelerateRegion = None
 
     def setPlayDomain(self, playDomain):
         """
@@ -99,4 +100,10 @@ class BatchCreateLiveDomainParameters(object):
         :param domainSource: (Optional) 
         """
         self.domainSource = domainSource
+
+    def setAccelerateRegion(self, accelerateRegion):
+        """
+        :param accelerateRegion: (Optional) 加速区域(mainLand:中国大陆，nonMainLand:海外加港澳台，all:全球)默认为中国大陆
+        """
+        self.accelerateRegion = accelerateRegion
 

@@ -19,7 +19,7 @@
 
 class BillSummary(object):
 
-    def __init__(self, pin=None, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, resourceName=None, region=None, actionTypeName=None, formula=None, startTime=None, endTime=None, billTime=None, totalFee=None, discountFee=None, realTotalFee=None, cashCouponPayFee=None, balancePayFee=None, cashPayFee=None, arrearFee=None):
+    def __init__(self, pin=None, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, resourceName=None, region=None, actionTypeName=None, formula=None, startTime=None, endTime=None, billTime=None, totalFee=None, discountFee=None, realTotalFee=None, cashCouponPayFee=None, balancePayFee=None, cashPayFee=None, arrearFee=None, tagDetails=None):
         """
         :param pin: (Optional) 用户pin
         :param appCode: (Optional) appCode
@@ -43,6 +43,7 @@ class BillSummary(object):
         :param balancePayFee: (Optional) 余额支付金额
         :param cashPayFee: (Optional) 现金支付金额
         :param arrearFee: (Optional) 欠费金额
+        :param tagDetails: (Optional) 标签明细
         """
 
         self.pin = pin
@@ -67,3 +68,4 @@ class BillSummary(object):
         self.balancePayFee = balancePayFee
         self.cashPayFee = cashPayFee
         self.arrearFee = arrearFee
+        self.tagDetails = tagDetails

@@ -26,4 +26,4 @@ class KubernetesClient(JDCloudClient):
         if config is None:
             config = Config('kubernetes.jdcloud-api.com')
 
-        super(KubernetesClient, self).__init__(credential, config, 'kubernetes', '0.5.1', logger)
+        super(KubernetesClient, self).__init__(credential, config, 'kubernetes', '0.6.1', logger)

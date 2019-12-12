@@ -26,4 +26,4 @@ class IotcoreClient(JDCloudClient):
         if config is None:
             config = Config('iotcore.jdcloud-api.com')
 
-        super(IotcoreClient, self).__init__(credential, config, 'iotcore', '1.0.1', logger)
+        super(IotcoreClient, self).__init__(credential, config, 'iotcore', '1.1.0', logger)

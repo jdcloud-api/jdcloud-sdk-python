@@ -19,7 +19,7 @@
 
 class ListDomainItemByFilter(object):
 
-    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, type=None, auditStatus=None, tags=None):
+    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, wafStatus=None, type=None, auditStatus=None, accelerateRegion=None, tags=None):
         """
         :param cname: (Optional) 
         :param description: (Optional) 
@@ -27,8 +27,10 @@ class ListDomainItemByFilter(object):
         :param created: (Optional) 
         :param modified: (Optional) 
         :param status: (Optional) 
+        :param wafStatus: (Optional) 
         :param type: (Optional) 
         :param auditStatus: (Optional) 
+        :param accelerateRegion: (Optional) 
         :param tags: (Optional) 
         """
 
@@ -38,6 +40,8 @@ class ListDomainItemByFilter(object):
         self.created = created
         self.modified = modified
         self.status = status
+        self.wafStatus = wafStatus
         self.type = type
         self.auditStatus = auditStatus
+        self.accelerateRegion = accelerateRegion
         self.tags = tags

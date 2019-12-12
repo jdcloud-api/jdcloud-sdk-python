@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeNodeGroupsRequest(JDCloudRequest):
     """
-    查询节点组列表
+    查询工作节点组列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -63,10 +63,10 @@ class DescribeNodeGroupsParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) name - 节点组名称，模糊匹配，支持单个      
-id - 节点组 id，支持多个     
-clusterId - 根据clusterId查询        
-clusterName - 根据名称查询 cluster             
+        :param filters: (Optional) name - 节点组名称，模糊匹配，支持单个
+id - 节点组 id，支持多个
+clusterId - 根据 clusterId 查询
+clusterName - 根据 cluster 名称查询
 
         """
         self.filters = filters

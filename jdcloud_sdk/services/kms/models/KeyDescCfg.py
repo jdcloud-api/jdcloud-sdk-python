@@ -19,11 +19,13 @@
 
 class KeyDescCfg(object):
 
-    def __init__(self, keyName, keyDesc, ):
+    def __init__(self, keyName, keyDesc, keyType=None):
         """
         :param keyName:  key名称，默认为""
         :param keyDesc:  key描述，默认为""
+        :param keyType: (Optional) 密钥类型： 1: rsa-2048, 0: aes-256，default: aes-256
         """
 
         self.keyName = keyName
         self.keyDesc = keyDesc
+        self.keyType = keyType

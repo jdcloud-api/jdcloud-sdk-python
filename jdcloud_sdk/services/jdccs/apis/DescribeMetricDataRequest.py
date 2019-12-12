@@ -34,9 +34,9 @@ class DescribeMetricDataParameters(object):
 
     def __init__(self, idc, metric, resourceId, startTime, endTime, ):
         """
-        :param idc: 机房名称（英文标识）
+        :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)
-        :param resourceId: 资源的uuid
+        :param resourceId: 资源ID
         :param startTime: 查询时间范围的开始时间， UNIX时间戳，（最多支持最近90天数据查询）
         :param endTime: 查询时间范围的结束时间， UNIX时间戳，（最多支持最近90天数据查询）
         """

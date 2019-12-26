@@ -26,7 +26,7 @@ class ModifyListenerRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(ModifyListenerRequest, self).__init__(
-            '/regions/{regionId}/listeners/{listenerId}:modifylistenerAttributes', 'POST', header, version)
+            '/regions/{regionId}/listeners/{listenerId}:modifyListenerAttributes', 'POST', header, version)
         self.parameters = parameters
 
 
@@ -34,7 +34,7 @@ class ModifyListenerParameters(object):
 
     def __init__(self, regionId, listenerId, ):
         """
-        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
         :param listenerId: 监听器ID
         """
 

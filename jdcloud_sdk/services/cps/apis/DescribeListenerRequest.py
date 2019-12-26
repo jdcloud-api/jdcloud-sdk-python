@@ -19,34 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateListenerRequest(JDCloudRequest):
+class DescribeListenerRequest(JDCloudRequest):
     """
-    创建监听器
+    查询监听器详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateListenerRequest, self).__init__(
-            '/regions/{regionId}/listeners', 'PUT', header, version)
+        super(DescribeListenerRequest, self).__init__(
+            '/regions/{regionId}/listeners/{listenerId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateListenerParameters(object):
+class DescribeListenerParameters(object):
 
-    def __init__(self, regionId, listenerSpec):
+    def __init__(self, regionId, listenerId, ):
         """
         :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
-        :param listenerSpec: 监听器配置
+        :param listenerId: 监听器ID
         """
 
         self.regionId = regionId
-        self.clientToken = None
-        self.listenerSpec = listenerSpec
-
-    def setClientToken(self, clientToken):
-        """
-        :param clientToken: (Optional) 由客户端生成，用于保证请求的幂等性，长度不能超过36个字符；<br/>
-如果多个请求使用了相同的clientToken，只会执行第一个请求，之后的请求直接返回第一个请求的结果<br/>
-
-        """
-        self.clientToken = clientToken
+        self.listenerId = listenerId
 

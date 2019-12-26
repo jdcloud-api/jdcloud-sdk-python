@@ -19,30 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAliasIpsRequest(JDCloudRequest):
+class DescribeLoadBalancersRequest(JDCloudRequest):
     """
-    查询别名IP列表
+    查询负载均衡实例列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAliasIpsRequest, self).__init__(
-            '/regions/{regionId}/aliasIps', 'GET', header, version)
+        super(DescribeLoadBalancersRequest, self).__init__(
+            '/regions/{regionId}/slbs', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAliasIpsParameters(object):
+class DescribeLoadBalancersParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
         """
 
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
-        self.subnetId = None
-        self.instanceId = None
-        self.cidr = None
+        self.status = None
+        self.name = None
+        self.vpcId = None
+        self.bindEip = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -57,27 +58,33 @@ class DescribeAliasIpsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setSubnetId(self, subnetId):
+    def setStatus(self, status):
         """
-        :param subnetId: (Optional) 子网ID
+        :param status: (Optional) 状态
         """
-        self.subnetId = subnetId
+        self.status = status
 
-    def setInstanceId(self, instanceId):
+    def setName(self, name):
         """
-        :param instanceId: (Optional) 实例ID
+        :param name: (Optional) 名称
         """
-        self.instanceId = instanceId
+        self.name = name
 
-    def setCidr(self, cidr):
+    def setVpcId(self, vpcId):
         """
-        :param cidr: (Optional) CIDR段，模糊搜索
+        :param vpcId: (Optional) 私有网络ID，精确匹配
         """
-        self.cidr = cidr
+        self.vpcId = vpcId
+
+    def setBindEip(self, bindEip):
+        """
+        :param bindEip: (Optional) 是否绑定eip
+        """
+        self.bindEip = bindEip
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) aliasIpId - 别名IP id<br/>
+        :param filters: (Optional) loadBalancerId - 负载均衡实例ID，精确匹配，支持多个
 
         """
         self.filters = filters

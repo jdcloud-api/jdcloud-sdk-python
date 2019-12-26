@@ -19,7 +19,7 @@
 
 class NodeGroupSpec(object):
 
-    def __init__(self, name, nodeConfig, initialNodeCount, vpcId, description=None, azs=None, nodeCidr=None, autoRepair=None):
+    def __init__(self, name, nodeConfig, initialNodeCount, vpcId, description=None, azs=None, nodeCidr=None, autoRepair=None, caConfig=None):
         """
         :param name:  名称
         :param description: (Optional) 
@@ -29,6 +29,7 @@ class NodeGroupSpec(object):
         :param vpcId:  工作节点组运行的vpc
         :param nodeCidr: (Optional) 工作节点组的cidr
         :param autoRepair: (Optional) 是否开启自动修复，默认不开启。
+        :param caConfig: (Optional) 自动伸缩配置
         """
 
         self.name = name
@@ -39,3 +40,4 @@ class NodeGroupSpec(object):
         self.vpcId = vpcId
         self.nodeCidr = nodeCidr
         self.autoRepair = autoRepair
+        self.caConfig = caConfig

@@ -19,30 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAliasIpsRequest(JDCloudRequest):
+class DescribeServerGroupsRequest(JDCloudRequest):
     """
-    查询别名IP列表
+    查询虚拟服务器组列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAliasIpsRequest, self).__init__(
-            '/regions/{regionId}/aliasIps', 'GET', header, version)
+        super(DescribeServerGroupsRequest, self).__init__(
+            '/regions/{regionId}/serverGroups', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAliasIpsParameters(object):
+class DescribeServerGroupsParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
         """
 
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
-        self.subnetId = None
-        self.instanceId = None
-        self.cidr = None
+        self.name = None
+        self.loadBalancerId = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -57,27 +56,21 @@ class DescribeAliasIpsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setSubnetId(self, subnetId):
+    def setName(self, name):
         """
-        :param subnetId: (Optional) 子网ID
+        :param name: (Optional) 名称
         """
-        self.subnetId = subnetId
+        self.name = name
 
-    def setInstanceId(self, instanceId):
+    def setLoadBalancerId(self, loadBalancerId):
         """
-        :param instanceId: (Optional) 实例ID
+        :param loadBalancerId: (Optional) 负载均衡ID
         """
-        self.instanceId = instanceId
-
-    def setCidr(self, cidr):
-        """
-        :param cidr: (Optional) CIDR段，模糊搜索
-        """
-        self.cidr = cidr
+        self.loadBalancerId = loadBalancerId
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) aliasIpId - 别名IP id<br/>
+        :param filters: (Optional) serverGroupId   - 虚拟服务器组ID，精确匹配，支持多个
 
         """
         self.filters = filters

@@ -19,30 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAliasIpsRequest(JDCloudRequest):
+class DescribeRouteTablesRequest(JDCloudRequest):
     """
-    查询别名IP列表
+    查询路由表列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAliasIpsRequest, self).__init__(
-            '/regions/{regionId}/aliasIps', 'GET', header, version)
+        super(DescribeRouteTablesRequest, self).__init__(
+            '/regions/{regionId}/routeTables', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAliasIpsParameters(object):
+class DescribeRouteTablesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeRegiones）获取云物理服务器支持的地域
         """
 
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
-        self.subnetId = None
-        self.instanceId = None
-        self.cidr = None
+        self.name = None
+        self.vpcId = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -57,27 +56,21 @@ class DescribeAliasIpsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setSubnetId(self, subnetId):
+    def setName(self, name):
         """
-        :param subnetId: (Optional) 子网ID
+        :param name: (Optional) 名称
         """
-        self.subnetId = subnetId
+        self.name = name
 
-    def setInstanceId(self, instanceId):
+    def setVpcId(self, vpcId):
         """
-        :param instanceId: (Optional) 实例ID
+        :param vpcId: (Optional) 私有网络ID，精确匹配
         """
-        self.instanceId = instanceId
-
-    def setCidr(self, cidr):
-        """
-        :param cidr: (Optional) CIDR段，模糊搜索
-        """
-        self.cidr = cidr
+        self.vpcId = vpcId
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) aliasIpId - 别名IP id<br/>
+        :param filters: (Optional) routeTableId - 路由表ID，精确匹配，支持多个
 
         """
         self.filters = filters

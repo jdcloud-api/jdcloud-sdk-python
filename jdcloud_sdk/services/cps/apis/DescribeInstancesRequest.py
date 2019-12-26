@@ -49,6 +49,7 @@ class DescribeInstancesParameters(object):
         self.subnetId = None
         self.keypairId = None
         self.enableInternet = None
+        self.privateIp = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -105,10 +106,15 @@ class DescribeInstancesParameters(object):
         """
         self.enableInternet = enableInternet
 
+    def setPrivateIp(self, privateIp):
+        """
+        :param privateIp: (Optional) 内网ip
+        """
+        self.privateIp = privateIp
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) instanceId - 云物理服务器ID，精确匹配，支持多个<br/>
-privateIp - 云物理服务器内网IP，精确匹配，支持多个<br/>
 status - 云物理服务器状态，参考云物理服务器状态，精确匹配，支持多个
 
         """

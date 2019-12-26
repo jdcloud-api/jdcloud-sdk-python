@@ -19,7 +19,7 @@
 
 class DescribeAlarm(object):
 
-    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None):
+    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, switchboard=None):
         """
         :param alarmId: (Optional) 规则实例ID
         :param name: (Optional) 规则名称
@@ -37,6 +37,7 @@ class DescribeAlarm(object):
         :param times: (Optional) 连续多少次后报警
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
+        :param switchboard: (Optional) 
         """
 
         self.alarmId = alarmId
@@ -55,3 +56,4 @@ class DescribeAlarm(object):
         self.times = times
         self.noticePeriod = noticePeriod
         self.status = status
+        self.switchboard = switchboard

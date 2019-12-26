@@ -19,25 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteListenerRequest(JDCloudRequest):
+class DeleteNodeInstancesRequest(JDCloudRequest):
     """
-    删除监听器
+    从工作节点组中删除指定实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteListenerRequest, self).__init__(
-            '/regions/{regionId}/listeners/{listenerId}', 'DELETE', header, version)
+        super(DeleteNodeInstancesRequest, self).__init__(
+            '/regions/{regionId}/nodeGroups/{nodeGroupId}:deleteNodeInstances', 'POST', header, version)
         self.parameters = parameters
 
 
-class DeleteListenerParameters(object):
+class DeleteNodeInstancesParameters(object):
 
-    def __init__(self, regionId, listenerId, ):
+    def __init__(self, regionId, nodeGroupId, instanceIds):
         """
-        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
-        :param listenerId: 监听器ID
+        :param regionId: 地域 ID
+        :param nodeGroupId: 工作节点组 ID
+        :param instanceIds: 需要从工作节点组中删除的实例
+- 不可将一个集群中的实例全部删除
+
         """
 
         self.regionId = regionId
-        self.listenerId = listenerId
+        self.nodeGroupId = nodeGroupId
+        self.instanceIds = instanceIds
 

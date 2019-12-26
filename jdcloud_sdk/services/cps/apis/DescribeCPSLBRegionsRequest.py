@@ -19,25 +19,21 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteListenerRequest(JDCloudRequest):
+class DescribeCPSLBRegionsRequest(JDCloudRequest):
     """
-    删除监听器
+    查询负载均衡地域列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteListenerRequest, self).__init__(
-            '/regions/{regionId}/listeners/{listenerId}', 'DELETE', header, version)
+        super(DescribeCPSLBRegionsRequest, self).__init__(
+            '/cpslbRegions', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteListenerParameters(object):
+class DescribeCPSLBRegionsParameters(object):
 
-    def __init__(self, regionId, listenerId, ):
+    def __init__(self, ):
         """
-        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
-        :param listenerId: 监听器ID
         """
 
-        self.regionId = regionId
-        self.listenerId = listenerId
 

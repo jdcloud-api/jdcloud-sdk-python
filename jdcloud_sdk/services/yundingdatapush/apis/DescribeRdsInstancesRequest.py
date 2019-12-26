@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeRdsInstancesRequest(JDCloudRequest):
     """
-    查询开通数据推送的数据库实例
+    查询已绑定数据推送的数据库实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):

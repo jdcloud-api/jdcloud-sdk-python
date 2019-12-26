@@ -42,7 +42,7 @@ class DescribeInstanceMonitorInfoParameters(object):
         self.instanceId = instanceId
         self.startTime = None
         self.endTime = None
-        self.metrics = None
+        self.filters = None
 
     def setStartTime(self, startTime):
         """
@@ -56,9 +56,10 @@ class DescribeInstanceMonitorInfoParameters(object):
         """
         self.endTime = endTime
 
-    def setMetrics(self, metrics):
+    def setFilters(self, filters):
         """
-        :param metrics: (Optional) cps.cpu.util - CPU使用率<br/>
+        :param filters: (Optional) metric - 监控指标，精确匹配，支持多个，具体如下<br/>
+cps.cpu.util - CPU使用率<br/>
 cps.memory.util - 内存使用率<br/>
 cps.memory.used - 内存使用量<br/>
 cps.disk.used - 磁盘使用量<br/>
@@ -79,5 +80,5 @@ cps.tcp.connect.established - TCP正常连接数<br/>
 cps.process.total - 总进程数
 
         """
-        self.metrics = metrics
+        self.filters = filters
 

@@ -19,11 +19,11 @@
 
 class NetworkInterface(object):
 
-    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, createdTime=None):
+    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None):
         """
         :param networkInterfaceName: (Optional) 弹性网卡名称
         :param networkInterfaceId: (Optional) 弹性网卡ID
-        :param az: (Optional) 可用区名称
+        :param az: (Optional) 可用区名称，该参数无效，不建议使用
         :param role: (Optional) 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡）
         :param macAddress: (Optional) 以太网地址
         :param vpcId: (Optional) 虚拟网络ID
@@ -37,6 +37,8 @@ class NetworkInterface(object):
         :param instanceOwnerId: (Optional) 实例所属的账号
         :param deviceIndex: (Optional) 网卡在实例上的设备索引号，取值范围：[0,8]，0：辅助网卡未绑定设备，1：主网卡，2-8：辅助网卡已绑定设备
         :param description: (Optional) 网卡描述信息
+        :param attachmentStatus: (Optional) 弹性网卡绑定实例状态，attached（已绑定）、detached（未绑定）
+        :param networkInterfaceStatus: (Optional) 弹性网卡可用状态，enabled（启用）、disabled（停用）
         :param createdTime: (Optional) 弹性网卡创建时间
         """
 
@@ -56,4 +58,6 @@ class NetworkInterface(object):
         self.instanceOwnerId = instanceOwnerId
         self.deviceIndex = deviceIndex
         self.description = description
+        self.attachmentStatus = attachmentStatus
+        self.networkInterfaceStatus = networkInterfaceStatus
         self.createdTime = createdTime

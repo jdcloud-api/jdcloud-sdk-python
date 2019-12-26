@@ -22,7 +22,7 @@ class NetworkInterfaceSpec(object):
     def __init__(self, subnetId, az=None, networkInterfaceName=None, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, securityGroups=None, sanityCheck=None, description=None):
         """
         :param subnetId:  子网ID
-        :param az: (Optional) 可用区，用户的默认可用区
+        :param az: (Optional) 可用区，用户的默认可用区，该参数无效，不建议使用
         :param networkInterfaceName: (Optional) 网卡名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param primaryIpAddress: (Optional) 网卡主IP，如果不指定，会自动从子网中分配
         :param secondaryIpAddresses: (Optional) SecondaryIp列表

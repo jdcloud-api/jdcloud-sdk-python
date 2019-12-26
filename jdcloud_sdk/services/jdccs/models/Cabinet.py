@@ -19,7 +19,7 @@
 
 class Cabinet(object):
 
-    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, startTime=None, endTime=None, deviceNum=None, rackUOccupy=None, rackUFree=None):
+    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, expireTime=None, reserveStartTime=None, reserveEndTime=None, deviceNum=None, rackUOccupy=None, rackUFree=None, billingType=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
@@ -31,11 +31,13 @@ class Cabinet(object):
         :param cabinetType: (Optional) 机柜类型 formal:正式机柜 reserved:预留机柜
         :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关闭中
         :param cabinetOpenTime: (Optional) 开通时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param startTime: (Optional) 起租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param endTime: (Optional) 退租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param expireTime: (Optional) 到期时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param reserveStartTime: (Optional) 预留开始时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param reserveEndTime: (Optional) 预留结束时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
         :param deviceNum: (Optional) 设备数量
         :param rackUOccupy: (Optional) 占用U数(U)
         :param rackUFree: (Optional) 空闲U数(U)
+        :param billingType: (Optional) 计费类型 1:按配置 2:按用量 3:包年包月 4:一次性（目前仅支持包年包月）
         """
 
         self.idc = idc
@@ -48,8 +50,10 @@ class Cabinet(object):
         self.cabinetType = cabinetType
         self.cabinetOpenStatus = cabinetOpenStatus
         self.cabinetOpenTime = cabinetOpenTime
-        self.startTime = startTime
-        self.endTime = endTime
+        self.expireTime = expireTime
+        self.reserveStartTime = reserveStartTime
+        self.reserveEndTime = reserveEndTime
         self.deviceNum = deviceNum
         self.rackUOccupy = rackUOccupy
         self.rackUFree = rackUFree
+        self.billingType = billingType

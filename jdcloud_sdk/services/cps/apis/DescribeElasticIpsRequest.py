@@ -43,6 +43,7 @@ class DescribeElasticIpsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.status = None
+        self.includeLB = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -62,6 +63,12 @@ class DescribeElasticIpsParameters(object):
         :param status: (Optional) 弹性公网IP状态，取值范围：associate、disassociate
         """
         self.status = status
+
+    def setIncludeLB(self, includeLB):
+        """
+        :param includeLB: (Optional) 是否包含负载均衡
+        """
+        self.includeLB = includeLB
 
     def setFilters(self, filters):
         """

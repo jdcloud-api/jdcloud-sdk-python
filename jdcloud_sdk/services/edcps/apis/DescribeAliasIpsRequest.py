@@ -43,6 +43,7 @@ class DescribeAliasIpsParameters(object):
         self.subnetId = None
         self.instanceId = None
         self.cidr = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -73,4 +74,11 @@ class DescribeAliasIpsParameters(object):
         :param cidr: (Optional) CIDR段，模糊搜索
         """
         self.cidr = cidr
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) aliasIpId - 别名IP id<br/>
+
+        """
+        self.filters = filters
 

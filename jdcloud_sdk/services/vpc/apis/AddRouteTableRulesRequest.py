@@ -36,7 +36,7 @@ class AddRouteTableRulesParameters(object):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID
-        :param routeTableRuleSpecs: 安全组规则信息
+        :param routeTableRuleSpecs: 路由表规则信息
         """
 
         self.regionId = regionId

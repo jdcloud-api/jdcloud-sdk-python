@@ -19,7 +19,7 @@
 
 class ElasticIp(object):
 
-    def __init__(self, elasticIpId=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None):
+    def __init__(self, elasticIpId=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None, tags=None):
         """
         :param elasticIpId: (Optional) 弹性IP的Id
         :param elasticIpAddress: (Optional) 弹性IP地址
@@ -28,10 +28,11 @@ class ElasticIp(object):
         :param privateIpAddress: (Optional) 私有IP的IPV4地址
         :param networkInterfaceId: (Optional) 配置弹性网卡Id
         :param instanceId: (Optional) 实例Id
-        :param instanceType: (Optional) 实例类型
+        :param instanceType: (Optional) 实例类型,取值为：compute、lb、container、pod
         :param charge: (Optional) 计费配置
         :param createdTime: (Optional) 弹性ip创建时间
         :param az: (Optional) 弹性ip可用区属性，如果为空，表示全可用区
+        :param tags: (Optional) Tag信息
         """
 
         self.elasticIpId = elasticIpId
@@ -45,3 +46,4 @@ class ElasticIp(object):
         self.charge = charge
         self.createdTime = createdTime
         self.az = az
+        self.tags = tags

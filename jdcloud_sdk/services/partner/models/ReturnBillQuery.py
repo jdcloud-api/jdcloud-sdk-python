@@ -19,7 +19,7 @@
 
 class ReturnBillQuery(object):
 
-    def __init__(self, id=None, retrunBillId=None, distributorId=None, pin=None, deptId=None, distributorType=None, distributorName=None, month=None, generateTime=None, billBegin=None, billEnd=None, circleType=None, returnType=None, returnMount=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, reason=None, beginTime=None, endTime=None, pageIndex=None, pageSize=None, offset=None):
+    def __init__(self, id=None, retrunBillId=None, distributorId=None, pin=None, deptId=None, distributorType=None, distributorName=None, month=None, generateTime=None, billBegin=None, billEnd=None, circleType=None, returnType=None, returnMount=None, returnMode=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, reason=None, beginTime=None, endTime=None, pageIndex=None, pageSize=None, offset=None):
         """
         :param id: (Optional) ID
         :param retrunBillId: (Optional) 返还单号
@@ -35,6 +35,7 @@ class ReturnBillQuery(object):
         :param circleType: (Optional) 周期类型
         :param returnType: (Optional) 返还类型
         :param returnMount: (Optional) 返还金额
+        :param returnMode: (Optional) 返还方式
         :param status: (Optional) 状态
         :param createTime: (Optional) 创建时间
         :param createUser: (Optional) 创建人
@@ -63,6 +64,7 @@ class ReturnBillQuery(object):
         self.circleType = circleType
         self.returnType = returnType
         self.returnMount = returnMount
+        self.returnMode = returnMode
         self.status = status
         self.createTime = createTime
         self.createUser = createUser

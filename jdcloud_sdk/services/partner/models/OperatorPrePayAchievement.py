@@ -19,7 +19,7 @@
 
 class OperatorPrePayAchievement(object):
 
-    def __init__(self, pin=None, name=None, realName=None, dept=None, deptName=None, distributorType=None, distributorTypeName=None, oneLevelDistributorName=None, secondLevelDistributorName=None, superDistributorName=None, superDistributorPin=None, serviceCode=None, serviceCodeName=None, opType=None, opTypeName=None, billTime=None, consumeDate=None, transactionNo=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None):
+    def __init__(self, pin=None, name=None, realName=None, dept=None, deptName=None, distributorType=None, distributorTypeName=None, oneLevelDistributorName=None, secondLevelDistributorName=None, superDistributorName=None, superDistributorPin=None, serviceCode=None, serviceCodeName=None, opType=None, opTypeName=None, loginName=None, billTime=None, consumeDate=None, transactionNo=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None):
         """
         :param pin: (Optional) pin
         :param name: (Optional) 名称
@@ -36,6 +36,7 @@ class OperatorPrePayAchievement(object):
         :param serviceCodeName: (Optional) serviceCodeName
         :param opType: (Optional) opType
         :param opTypeName: (Optional) opTypeName
+        :param loginName: (Optional) 帐户名
         :param billTime: (Optional) 开始时间
         :param consumeDate: (Optional) 完成时间
         :param transactionNo: (Optional) 交易单号
@@ -61,6 +62,7 @@ class OperatorPrePayAchievement(object):
         self.serviceCodeName = serviceCodeName
         self.opType = opType
         self.opTypeName = opTypeName
+        self.loginName = loginName
         self.billTime = billTime
         self.consumeDate = consumeDate
         self.transactionNo = transactionNo

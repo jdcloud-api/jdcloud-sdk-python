@@ -34,7 +34,7 @@ class CreateServerGroupParameters(object):
 
     def __init__(self, regionId, serverGroupSpec):
         """
-        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
+        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
         :param serverGroupSpec: 虚拟服务器组配置
         """
 

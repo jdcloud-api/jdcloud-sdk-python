@@ -47,10 +47,24 @@ class DescribeMetricDataParameters(object):
         self.startTime = startTime
         self.endTime = endTime
         self.timeInterval = None
+        self.ip = None
+        self.port = None
 
     def setTimeInterval(self, timeInterval):
         """
         :param timeInterval: (Optional) 时间间隔：分钟m、小时h、天d，如： 10分钟=10m、1小时=1h，3天=3d；默认5m，最小支持5m，最大90d
         """
         self.timeInterval = timeInterval
+
+    def setIp(self, ip):
+        """
+        :param ip: (Optional) 交换机IP，指定ip时须同时指定port
+        """
+        self.ip = ip
+
+    def setPort(self, port):
+        """
+        :param port: (Optional) 端口，指定port时须同时指定ip
+        """
+        self.port = port
 

@@ -19,12 +19,13 @@
 
 class CustomerVo(object):
 
-    def __init__(self, pin=None, distributorLevel1Name=None, distributorLevel2Name=None, relTime=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, dept=None, deptName=None, createTime=None, createUser=None, updateTime=None, accountTypeName=None, realName=None, name=None, updateUser=None):
+    def __init__(self, pin=None, distributorLevel1Name=None, distributorLevel2Name=None, relTime=None, loginName=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, dept=None, deptName=None, createTime=None, createUser=None, updateTime=None, accountTypeName=None, realName=None, name=None, updateUser=None):
         """
         :param pin: (Optional) 客户pin
         :param distributorLevel1Name: (Optional) 一级渠道商名称
         :param distributorLevel2Name: (Optional) 二级渠道商名称
         :param relTime: (Optional) 关联时间
+        :param loginName: (Optional) 账户名
         :param source: (Optional) 来源(0渠道商自身,1京东云客户)
         :param aliasName: (Optional) 客户昵称
         :param contracter: (Optional) 客户联系人
@@ -46,6 +47,7 @@ class CustomerVo(object):
         self.distributorLevel1Name = distributorLevel1Name
         self.distributorLevel2Name = distributorLevel2Name
         self.relTime = relTime
+        self.loginName = loginName
         self.source = source
         self.aliasName = aliasName
         self.contracter = contracter

@@ -26,7 +26,7 @@ class QueryMyCustomerListRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(QueryMyCustomerListRequest, self).__init__(
-            '/regions/{regionId}/customerManage/queryMyCustomerList', 'POST', header, version)
+            '/regions/{regionId}/customerManage:queryMyCustomerList', 'POST', header, version)
         self.parameters = parameters
 
 
@@ -40,6 +40,7 @@ class QueryMyCustomerListParameters(object):
         self.regionId = regionId
         self.customerPin = None
         self.aliasName = None
+        self.loginName = None
         self.startRelTime = None
         self.endRelTime = None
         self.pageIndex = None
@@ -47,7 +48,7 @@ class QueryMyCustomerListParameters(object):
 
     def setCustomerPin(self, customerPin):
         """
-        :param customerPin: (Optional) 客户pin（客户账户）
+        :param customerPin: (Optional) 客户pin
         """
         self.customerPin = customerPin
 
@@ -56,6 +57,12 @@ class QueryMyCustomerListParameters(object):
         :param aliasName: (Optional) 客户昵称
         """
         self.aliasName = aliasName
+
+    def setLoginName(self, loginName):
+        """
+        :param loginName: (Optional) 帐户名
+        """
+        self.loginName = loginName
 
     def setStartRelTime(self, startRelTime):
         """

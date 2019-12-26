@@ -19,7 +19,7 @@
 
 class DescribeCabinet(object):
 
-    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, startTime=None, endTime=None):
+    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, expireTime=None, reserveStartTime=None, reserveEndTime=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
@@ -31,8 +31,9 @@ class DescribeCabinet(object):
         :param cabinetType: (Optional) 机柜类型 formal:正式机柜 reserved:预留机柜
         :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关闭中
         :param cabinetOpenTime: (Optional) 开通时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param startTime: (Optional) 起租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param endTime: (Optional) 退租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param expireTime: (Optional) 到期时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param reserveStartTime: (Optional) 预留开始时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param reserveEndTime: (Optional) 预留结束时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
         """
 
         self.idc = idc
@@ -45,5 +46,6 @@ class DescribeCabinet(object):
         self.cabinetType = cabinetType
         self.cabinetOpenStatus = cabinetOpenStatus
         self.cabinetOpenTime = cabinetOpenTime
-        self.startTime = startTime
-        self.endTime = endTime
+        self.expireTime = expireTime
+        self.reserveStartTime = reserveStartTime
+        self.reserveEndTime = reserveEndTime

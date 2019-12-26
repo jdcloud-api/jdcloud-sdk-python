@@ -19,7 +19,7 @@
 
 class NetworkSecurityGroup(object):
 
-    def __init__(self, networkSecurityGroupId=None, networkSecurityGroupName=None, description=None, vpcId=None, securityGroupRules=None, createdTime=None):
+    def __init__(self, networkSecurityGroupId=None, networkSecurityGroupName=None, description=None, vpcId=None, securityGroupRules=None, createdTime=None, networkSecurityGroupType=None, networkInterfaceIds=None):
         """
         :param networkSecurityGroupId: (Optional) 安全组ID
         :param networkSecurityGroupName: (Optional) 安全组名称
@@ -27,6 +27,8 @@ class NetworkSecurityGroup(object):
         :param vpcId: (Optional) 安全组所在vpc的Id
         :param securityGroupRules: (Optional) 安全组规则信息
         :param createdTime: (Optional) 安全组创建时间
+        :param networkSecurityGroupType: (Optional) 安全组类型, default：默认安全组，custom：自定义安全组
+        :param networkInterfaceIds: (Optional) 安全组绑定的弹性网卡列表
         """
 
         self.networkSecurityGroupId = networkSecurityGroupId
@@ -35,3 +37,5 @@ class NetworkSecurityGroup(object):
         self.vpcId = vpcId
         self.securityGroupRules = securityGroupRules
         self.createdTime = createdTime
+        self.networkSecurityGroupType = networkSecurityGroupType
+        self.networkInterfaceIds = networkInterfaceIds

@@ -19,7 +19,7 @@
 
 class Device(object):
 
-    def __init__(self, idc=None, idcName=None, deviceId=None, snNo=None, cabinetNo=None, rackUIndex=None, uNum=None, brand=None, model=None, deviceType=None, assetBelong=None, assetStatus=None, cpuCore=None, memory=None, disk=None, networkCardBandwidth=None, startTime=None, endTime=None):
+    def __init__(self, idc=None, idcName=None, deviceId=None, snNo=None, cabinetNo=None, rackUIndex=None, uNum=None, brand=None, model=None, sysIp=None, manageIp=None, deviceType=None, assetBelong=None, assetStatus=None, deviceOpenTime=None, cpuCore=None, memory=None, disk=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
@@ -30,15 +30,15 @@ class Device(object):
         :param uNum: (Optional) U数（U）
         :param brand: (Optional) 品牌
         :param model: (Optional) 型号
+        :param sysIp: (Optional) 系统IP
+        :param manageIp: (Optional) 管理IP
         :param deviceType: (Optional) 设备类型 server:服务器 network:网络设备 storage:存储设备 other:其他设备
         :param assetBelong: (Optional) 资产归属 own:自备 lease:租赁
-        :param assetStatus: (Optional) 资产状态 inWarehouse:已入库 launched:已上架
-        :param cpuCore: (Optional) CPU逻辑核数(核)
-        :param memory: (Optional) 内存总容量(GB)
-        :param disk: (Optional) 硬盘总容量(GB)
-        :param networkCardBandwidth: (Optional) 网卡带宽(Mbps)
-        :param startTime: (Optional) 起租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param endTime: (Optional) 退租时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param assetStatus: (Optional) 资产状态 launched:已上架 opened:已开通 canceling:退订中 operating:操作中 modifing:变更中
+        :param deviceOpenTime: (Optional) 开通时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param cpuCore: (Optional) CPU
+        :param memory: (Optional) 内存
+        :param disk: (Optional) 磁盘
         """
 
         self.idc = idc
@@ -50,12 +50,12 @@ class Device(object):
         self.uNum = uNum
         self.brand = brand
         self.model = model
+        self.sysIp = sysIp
+        self.manageIp = manageIp
         self.deviceType = deviceType
         self.assetBelong = assetBelong
         self.assetStatus = assetStatus
+        self.deviceOpenTime = deviceOpenTime
         self.cpuCore = cpuCore
         self.memory = memory
         self.disk = disk
-        self.networkCardBandwidth = networkCardBandwidth
-        self.startTime = startTime
-        self.endTime = endTime

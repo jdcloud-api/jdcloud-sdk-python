@@ -48,6 +48,7 @@ class DescribeInstancesParameters(object):
         self.deviceType = None
         self.subnetId = None
         self.enableInternet = None
+        self.privateIp = None
         self.keypairId = None
         self.filters = None
 
@@ -99,6 +100,12 @@ class DescribeInstancesParameters(object):
         """
         self.enableInternet = enableInternet
 
+    def setPrivateIp(self, privateIp):
+        """
+        :param privateIp: (Optional) 内网ip
+        """
+        self.privateIp = privateIp
+
     def setKeypairId(self, keypairId):
         """
         :param keypairId: (Optional) 密钥对id
@@ -108,7 +115,6 @@ class DescribeInstancesParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) instanceId - 分布式云物理服务器ID，精确匹配，支持多个<br/>
-privateIp - 分布式云物理服务器内网IP，精确匹配，支持多个<br/>
 status - 分布式云物理服务器状态，参考分布式云物理服务器状态，精确匹配，支持多个
 
         """

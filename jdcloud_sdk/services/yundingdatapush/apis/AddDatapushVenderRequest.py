@@ -34,7 +34,7 @@ class AddDatapushVenderParameters(object):
 
     def __init__(self, datapushVender):
         """
-        :param datapushVender: 添加/删除数据推送用户对象
+        :param datapushVender: 添加数据推送用户对象
 
         """
 

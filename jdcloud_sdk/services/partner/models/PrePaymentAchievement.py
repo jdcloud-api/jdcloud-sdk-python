@@ -19,13 +19,14 @@
 
 class PrePaymentAchievement(object):
 
-    def __init__(self, pin=None, name=None, realName=None, serviceCode=None, serviceCodeName=None, consumeDate=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None, orderId=None, opType=None, opTypeName=None, billTime=None):
+    def __init__(self, pin=None, name=None, realName=None, serviceCode=None, serviceCodeName=None, loginName=None, consumeDate=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None, orderId=None, opType=None, opTypeName=None, billTime=None):
         """
         :param pin: (Optional) pin
         :param name: (Optional) 名称
         :param realName: (Optional) 真实名称
         :param serviceCode: (Optional) serviceCode
         :param serviceCodeName: (Optional) serviceCodeName
+        :param loginName: (Optional) 帐户名
         :param consumeDate: (Optional) 时间
         :param consumeCount: (Optional) 优惠前金额
         :param cashPayFeeCount: (Optional) 现金支付
@@ -43,6 +44,7 @@ class PrePaymentAchievement(object):
         self.realName = realName
         self.serviceCode = serviceCode
         self.serviceCodeName = serviceCodeName
+        self.loginName = loginName
         self.consumeDate = consumeDate
         self.consumeCount = consumeCount
         self.cashPayFeeCount = cashPayFeeCount

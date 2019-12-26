@@ -26,4 +26,4 @@ class YundingdatapushClient(JDCloudClient):
         if config is None:
             config = Config('yundingdatapush.jdcloud-api.com')
 
-        super(YundingdatapushClient, self).__init__(credential, config, 'yundingdatapush', '1.0.2', logger)
+        super(YundingdatapushClient, self).__init__(credential, config, 'yundingdatapush', '1.0.3', logger)

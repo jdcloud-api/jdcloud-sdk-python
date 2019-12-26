@@ -41,6 +41,7 @@ class DescribeElasticIpsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -62,4 +63,10 @@ chargeStatus	- eip的费用支付状态,normal(正常状态) or overdue(预付�
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 

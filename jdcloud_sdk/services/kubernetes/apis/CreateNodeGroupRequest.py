@@ -55,6 +55,7 @@ class CreateNodeGroupParameters(object):
         self.vpcId = vpcId
         self.nodeCidr = nodeCidr
         self.autoRepair = None
+        self.caConfig = None
 
     def setDescription(self, description):
         """
@@ -73,4 +74,10 @@ class CreateNodeGroupParameters(object):
         :param autoRepair: (Optional) 是否开启工作节点组的自动修复，默认关闭
         """
         self.autoRepair = autoRepair
+
+    def setCaConfig(self, caConfig):
+        """
+        :param caConfig: (Optional) 自动伸缩配置
+        """
+        self.caConfig = caConfig
 

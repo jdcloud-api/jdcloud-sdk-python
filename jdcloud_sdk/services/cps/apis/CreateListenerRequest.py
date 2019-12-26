@@ -32,15 +32,15 @@ class CreateListenerRequest(JDCloudRequest):
 
 class CreateListenerParameters(object):
 
-    def __init__(self, regionId, loadBalancerSpec):
+    def __init__(self, regionId, listenerSpec):
         """
-        :param regionId: 地域ID，可调用接口（queryCPSLBRegions）获取云物理服务器支持的地域
-        :param loadBalancerSpec: 监听器配置
+        :param regionId: 地域ID，可调用接口（describeCPSLBRegions）获取云物理服务器支持的地域
+        :param listenerSpec: 监听器配置
         """
 
         self.regionId = regionId
         self.clientToken = None
-        self.loadBalancerSpec = loadBalancerSpec
+        self.listenerSpec = listenerSpec
 
     def setClientToken(self, clientToken):
         """

@@ -60,7 +60,7 @@ class DescribeNetworkInterfacesParameters(object):
 networkInterfaceNames - 弹性网卡名称列表，支持多个
 vpcId - 弹性网卡所属vpc Id，支持单个
 subnetId	- 弹性网卡所属子网Id，支持单个
-role - 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡），支持单个
+role - 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡）、Managed （受管网卡），支持单个
 
         """
         self.filters = filters

@@ -19,7 +19,7 @@
 
 class ReturnItemDTO(object):
 
-    def __init__(self, id=None, itemId=None, itemName=None, deptId=None, deptName=None, distributorType=None, returnType=None, conditionItem=None, circleType=None, circleName=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, itemNameLike=None):
+    def __init__(self, id=None, itemId=None, itemName=None, deptId=None, deptName=None, distributorType=None, returnType=None, returnRuleType=None, conditionItem=None, circleType=None, circleName=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, itemNameLike=None):
         """
         :param id: (Optional) 
         :param itemId: (Optional) 项目编码
@@ -28,6 +28,7 @@ class ReturnItemDTO(object):
         :param deptName: (Optional) 部门名称
         :param distributorType: (Optional) 渠道商类型
         :param returnType: (Optional) 返还类型
+        :param returnRuleType: (Optional) 返还依据
         :param conditionItem: (Optional) 项目条件
         :param circleType: (Optional) 周期类型
         :param circleName: (Optional) 周期名称
@@ -47,6 +48,7 @@ class ReturnItemDTO(object):
         self.deptName = deptName
         self.distributorType = distributorType
         self.returnType = returnType
+        self.returnRuleType = returnRuleType
         self.conditionItem = conditionItem
         self.circleType = circleType
         self.circleName = circleName

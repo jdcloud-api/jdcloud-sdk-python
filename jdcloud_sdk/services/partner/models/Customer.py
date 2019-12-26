@@ -19,10 +19,11 @@
 
 class Customer(object):
 
-    def __init__(self, id=None, pin=None, distributorId=None, distributorPin=None, distributorName=None, distributorLevel=None, relTime=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, accountTypeName=None, realName=None, name=None, yn=None):
+    def __init__(self, id=None, pin=None, loginName=None, distributorId=None, distributorPin=None, distributorName=None, distributorLevel=None, relTime=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, accountTypeName=None, realName=None, name=None, yn=None):
         """
         :param id: (Optional) ID
         :param pin: (Optional) 客户pin
+        :param loginName: (Optional) 账户名
         :param distributorId: (Optional) 渠道商ID
         :param distributorPin: (Optional) 渠道商PIN
         :param distributorName: (Optional) 渠道商名称
@@ -46,6 +47,7 @@ class Customer(object):
 
         self.id = id
         self.pin = pin
+        self.loginName = loginName
         self.distributorId = distributorId
         self.distributorPin = distributorPin
         self.distributorName = distributorName

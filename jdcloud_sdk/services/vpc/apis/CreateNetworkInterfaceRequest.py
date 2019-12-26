@@ -51,7 +51,7 @@ class CreateNetworkInterfaceParameters(object):
 
     def setAz(self, az):
         """
-        :param az: (Optional) 可用区，用户的默认可用区
+        :param az: (Optional) 可用区，用户的默认可用区，该参数无效，不建议使用
         """
         self.az = az
 

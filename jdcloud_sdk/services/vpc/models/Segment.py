@@ -26,7 +26,7 @@ class Segment(object):
         :param description: (Optional) 网段描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         :param addressPrefix: (Optional) 网络地址段
         :param availableIpCount: (Optional) 网段可用ip数量
-        :param provider: (Optional) IP服务商，取值为bgp或no_bgp，cn-north-1：bgp；cn-south-1：[bgp，no_bgp]；cn-east-1：[bgp，no_bgp]；cn-east-2：bgp
+        :param provider: (Optional) IP服务商，取值为bgp或no_bgp，cn-north-1：bgp；cn-south-1：bgp；cn-east-1：[bgp，no_bgp]；cn-east-2：bgp
         :param startIp: (Optional) 网段的起始地址
         :param endIp: (Optional) 网段的结束地址
         """

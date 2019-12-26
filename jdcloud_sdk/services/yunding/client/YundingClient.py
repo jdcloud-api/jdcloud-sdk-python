@@ -26,4 +26,4 @@ class YundingClient(JDCloudClient):
         if config is None:
             config = Config('yunding.jdcloud-api.com')
 
-        super(YundingClient, self).__init__(credential, config, 'yunding', '2.0.0', logger)
+        super(YundingClient, self).__init__(credential, config, 'yunding', '2.0.1', logger)

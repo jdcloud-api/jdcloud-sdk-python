@@ -19,7 +19,7 @@
 
 class OperatorAchievement(object):
 
-    def __init__(self, pin=None, name=None, realName=None, oneLevelDistributorName=None, secondLevelDistributorName=None, dept=None, deptName=None, distributorType=None, distributorTypeName=None, superDistributorName=None, superDistributorPin=None, serviceCode=None, serviceCodeName=None, consumeDate=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None):
+    def __init__(self, pin=None, name=None, realName=None, oneLevelDistributorName=None, secondLevelDistributorName=None, dept=None, deptName=None, distributorType=None, distributorTypeName=None, superDistributorName=None, superDistributorPin=None, serviceCode=None, serviceCodeName=None, loginName=None, consumeDate=None, consumeCount=None, cashPayFeeCount=None, achievmentCount=None, payCouponFeeCount=None, freeCouponFeeCount=None):
         """
         :param pin: (Optional) pin
         :param name: (Optional) 名称
@@ -34,6 +34,7 @@ class OperatorAchievement(object):
         :param superDistributorPin: (Optional) 上级服务商pin
         :param serviceCode: (Optional) serviceCode
         :param serviceCodeName: (Optional) serviceCodeName
+        :param loginName: (Optional) 帐户名
         :param consumeDate: (Optional) 时间
         :param consumeCount: (Optional) 优惠前金额
         :param cashPayFeeCount: (Optional) 现金支付
@@ -55,6 +56,7 @@ class OperatorAchievement(object):
         self.superDistributorPin = superDistributorPin
         self.serviceCode = serviceCode
         self.serviceCodeName = serviceCodeName
+        self.loginName = loginName
         self.consumeDate = consumeDate
         self.consumeCount = consumeCount
         self.cashPayFeeCount = cashPayFeeCount

@@ -19,7 +19,7 @@
 
 class NetworkAclRule(object):
 
-    def __init__(self, ruleId=None, protocol=None, fromPort=None, toPort=None, direction=None, addressPrefix=None, ruleAction=None, priority=None, description=None, createdTime=None):
+    def __init__(self, ruleId=None, protocol=None, fromPort=None, toPort=None, direction=None, addressPrefix=None, ruleAction=None, priority=None, description=None, createdTime=None, ruleType=None):
         """
         :param ruleId: (Optional) networkAcl规则ID
         :param protocol: (Optional) 规则限定协议。取值范围：All,TCP,UDP,ICMP
@@ -31,6 +31,7 @@ class NetworkAclRule(object):
         :param priority: (Optional) 规则匹配优先级，取值范围为[1,32768]，优先级数字越小优先级越高
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         :param createdTime: (Optional) networkAclRule创建时间
+        :param ruleType: (Optional) 规则类型，default：默认规则，custom：自定义规则
         """
 
         self.ruleId = ruleId
@@ -43,3 +44,4 @@ class NetworkAclRule(object):
         self.priority = priority
         self.description = description
         self.createdTime = createdTime
+        self.ruleType = ruleType

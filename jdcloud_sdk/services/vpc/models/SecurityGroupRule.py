@@ -19,7 +19,7 @@
 
 class SecurityGroupRule(object):
 
-    def __init__(self, ruleId=None, direction=None, protocol=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None):
+    def __init__(self, ruleId=None, direction=None, protocol=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None, ruleType=None):
         """
         :param ruleId: (Optional) 安全组规则ID
         :param direction: (Optional) 安全组规则方向。0：入规则; 1：出规则
@@ -30,6 +30,7 @@ class SecurityGroupRule(object):
         :param toPort: (Optional) 规则限定终止传输层端口, 默认1 ，若protocal不是传输层协议，恒为0
         :param createdTime: (Optional) 安全组规则创建时间
         :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param ruleType: (Optional) 安全组规则类型, default：默认安全组规则，custom：自定义安全组规则
         """
 
         self.ruleId = ruleId
@@ -41,3 +42,4 @@ class SecurityGroupRule(object):
         self.toPort = toPort
         self.createdTime = createdTime
         self.description = description
+        self.ruleType = ruleType

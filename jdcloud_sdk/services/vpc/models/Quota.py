@@ -21,8 +21,8 @@ class Quota(object):
 
     def __init__(self, type=None, parentResourceId=None, maxLimit=None, count=None):
         """
-        :param type: (Optional) 资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）
-        :param parentResourceId: (Optional) vpc、elastic_ip、network_interface为空, subnet、security_group、vpcpeering为vpcId
+        :param type: (Optional) 资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）、acl、aclRule、routeTable、staticRoute、propagatedRoute、securityGroupRule
+        :param parentResourceId: (Optional) vpc、elastic_ip、network_interface为空, subnet、security_group、vpcpeering、acl、routeTable为vpcId, aclRule为aclId，staticRoute、propagatedRoute为routeTableId, securityGroupRule为securityGroupId
         :param maxLimit: (Optional) 配额大小
         :param count: (Optional) 已存在的资源数量
         """

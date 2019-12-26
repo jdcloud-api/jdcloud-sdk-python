@@ -22,7 +22,7 @@ class ElasticIpSpec(object):
     def __init__(self, bandwidthMbps, provider, chargeSpec=None):
         """
         :param bandwidthMbps:  弹性公网IP的限速（单位：Mbps），取值范围为[1-200]
-        :param provider:  IP服务商，取值为bgp或no_bgp，cn-north-1：bgp；cn-south-1：[bgp，no_bgp]；cn-east-1：[bgp，no_bgp]；cn-east-2：bgp
+        :param provider:  IP服务商，取值为bgp或no_bgp，cn-north-1：bgp；cn-south-1：bgp；cn-east-1：[bgp，no_bgp]；cn-east-2：bgp
         :param chargeSpec: (Optional) 计费配置
         """
 

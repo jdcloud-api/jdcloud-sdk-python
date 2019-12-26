@@ -32,7 +32,7 @@ class CreateElasticIpsRequest(JDCloudRequest):
 
 class CreateElasticIpsParameters(object):
 
-    def __init__(self, regionId, maxCount, elasticIpSpec):
+    def __init__(self, regionId, maxCount, elasticIpSpec, ):
         """
         :param regionId: Region ID
         :param maxCount: 购买弹性ip数量；取值范围：[1,100]
@@ -43,10 +43,17 @@ class CreateElasticIpsParameters(object):
         self.maxCount = maxCount
         self.elasticIpAddress = None
         self.elasticIpSpec = elasticIpSpec
+        self.userTags = None
 
     def setElasticIpAddress(self, elasticIpAddress):
         """
         :param elasticIpAddress: (Optional) 指定弹性ip地址进行创建，当申请创建多个弹性ip时，必须为空
         """
         self.elasticIpAddress = elasticIpAddress
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户标签
+        """
+        self.userTags = userTags
 

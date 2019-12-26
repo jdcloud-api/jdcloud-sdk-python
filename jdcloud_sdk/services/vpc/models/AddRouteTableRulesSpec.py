@@ -21,7 +21,7 @@ class AddRouteTableRulesSpec(object):
 
     def __init__(self, routeTableRuleSpecs, ):
         """
-        :param routeTableRuleSpecs:  安全组规则信息
+        :param routeTableRuleSpecs:  路由表规则信息
         """
 
         self.routeTableRuleSpecs = routeTableRuleSpecs

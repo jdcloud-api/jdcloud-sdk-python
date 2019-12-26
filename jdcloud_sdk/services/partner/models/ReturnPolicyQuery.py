@@ -19,14 +19,19 @@
 
 class ReturnPolicyQuery(object):
 
-    def __init__(self, id=None, deptId=None, distributorType=None, returnType=None, itemId=None, itemName=None, circleType=None, circleName=None, circleFlag=None, circleValue=None, condition=None, conditionRemark=None, returnRatio=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, itemNameLike=None, pageIndex=None, pageSize=None, offset=None):
+    def __init__(self, id=None, deptId=None, distributorType=None, returnType=None, returnPolicyId=None, returnPolicyName=None, itemId=None, itemName=None, returnRuleType=None, productId=None, productType=None, circleType=None, circleName=None, circleFlag=None, circleValue=None, condition=None, conditionRemark=None, returnRatio=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, itemNameLike=None, pageIndex=None, pageSize=None, offset=None):
         """
         :param id: (Optional) ID
         :param deptId: (Optional) 部门ID
         :param distributorType: (Optional) 渠道商类型
         :param returnType: (Optional) 返还类型
+        :param returnPolicyId: (Optional) 返还政策主ID
+        :param returnPolicyName: (Optional) 返还政策主名称
         :param itemId: (Optional) 项目编码
         :param itemName: (Optional) 项目名称
+        :param returnRuleType: (Optional) 返还依据类型
+        :param productId: (Optional) 产品ID
+        :param productType: (Optional) 产品类型
         :param circleType: (Optional) 周期类型
         :param circleName: (Optional) 周期名称
         :param circleFlag: (Optional) 指定周期标识
@@ -50,8 +55,13 @@ class ReturnPolicyQuery(object):
         self.deptId = deptId
         self.distributorType = distributorType
         self.returnType = returnType
+        self.returnPolicyId = returnPolicyId
+        self.returnPolicyName = returnPolicyName
         self.itemId = itemId
         self.itemName = itemName
+        self.returnRuleType = returnRuleType
+        self.productId = productId
+        self.productType = productType
         self.circleType = circleType
         self.circleName = circleName
         self.circleFlag = circleFlag

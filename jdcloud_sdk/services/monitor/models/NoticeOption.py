@@ -21,8 +21,8 @@ class NoticeOption(object):
 
     def __init__(self, effectiveIntervalEnd=None, effectiveIntervalStart=None, noticeCondition=None, noticePeriod=None, noticeWay=None):
         """
-        :param effectiveIntervalEnd: (Optional) 生效截止时间，默认值:23:59
-        :param effectiveIntervalStart: (Optional) 生效起始时间，默认值:00:00
+        :param effectiveIntervalEnd: (Optional) 生效截止时间，默认值:23:59:59
+        :param effectiveIntervalStart: (Optional) 生效起始时间，默认值:00:00:00
         :param noticeCondition: (Optional) 通知条件 1-告警 2-数据不足3-告警恢复
         :param noticePeriod: (Optional) 通知沉默周期,单位:分钟，默认值：24小时,目前支持的取值“24小时、12小时、6小时、3小时、1小时、30分钟、15分钟、10分钟、5分钟”
         :param noticeWay: (Optional) 通知方法    1-短信 2-邮件

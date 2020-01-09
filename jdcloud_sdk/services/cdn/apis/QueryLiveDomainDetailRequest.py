@@ -26,7 +26,7 @@ class QueryLiveDomainDetailRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(QueryLiveDomainDetailRequest, self).__init__(
-            '/liveDomains/{domain}', 'GET', header, version)
+            '/liveDomain/{domain}', 'GET', header, version)
         self.parameters = parameters
 
 

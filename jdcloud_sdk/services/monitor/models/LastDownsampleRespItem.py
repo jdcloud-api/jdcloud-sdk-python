@@ -19,15 +19,17 @@
 
 class LastDownsampleRespItem(object):
 
-    def __init__(self, metric=None, name=None, tags=None, value=None):
+    def __init__(self, metric=None, name=None, tags=None, unit=None, value=None):
         """
         :param metric: (Optional) 
         :param name: (Optional) 
         :param tags: (Optional) 
+        :param unit: (Optional) 
         :param value: (Optional) 
         """
 
         self.metric = metric
         self.name = name
         self.tags = tags
+        self.unit = unit
         self.value = value

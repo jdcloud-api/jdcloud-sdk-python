@@ -19,11 +19,13 @@
 
 class VideoUploadTaskObject(object):
 
-    def __init__(self, videoId=None, uploadUrl=None):
+    def __init__(self, videoId=None, uploadUrl=None, authToken=None):
         """
         :param videoId: (Optional) 视频ID
-        :param uploadUrl: (Optional) 视频上传地址
+        :param uploadUrl: (Optional) 上传地址
+        :param authToken: (Optional) 上传凭证
         """
 
         self.videoId = videoId
         self.uploadUrl = uploadUrl
+        self.authToken = authToken

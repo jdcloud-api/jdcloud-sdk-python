@@ -19,11 +19,11 @@
 
 class CreateVideoUploadTaskRequestObject(object):
 
-    def __init__(self, httpMethod=None, title=None, fileName=None, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateIds=None, watermarkIds=None):
+    def __init__(self, title, fileName, httpMethod=None, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateIds=None, watermarkIds=None):
         """
         :param httpMethod: (Optional) HTTP 请求方法，取值范围：GET、POST、PUT、DELETE、HEAD、PATCH，默认值为 PUT
-        :param title: (Optional) 视频标题
-        :param fileName: (Optional) 文件名称
+        :param title:  视频标题
+        :param fileName:  文件名称
         :param fileSize: (Optional) 文件大小
         :param coverUrl: (Optional) 封面地址
         :param description: (Optional) 视频描述

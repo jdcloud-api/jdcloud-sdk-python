@@ -32,7 +32,7 @@ class CreateAccountRequest(JDCloudRequest):
 
 class CreateAccountParameters(object):
 
-    def __init__(self, regionId, instanceId, accountName, accountPassword):
+    def __init__(self, regionId, instanceId, accountName, accountPassword, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -44,4 +44,11 @@ class CreateAccountParameters(object):
         self.instanceId = instanceId
         self.accountName = accountName
         self.accountPassword = accountPassword
+        self.notes = None
+
+    def setNotes(self, notes):
+        """
+        :param notes: (Optional) 备注信息，仅支持PostgreSQL
+        """
+        self.notes = notes
 

@@ -19,15 +19,11 @@
 
 class NsInfo(object):
 
-    def __init__(self, metricCount=None, nsName=None, nsUid=None, objCount=None):
+    def __init__(self, namespaceName=None, namespaceUuid=None):
         """
-        :param metricCount: (Optional) metric个数
-        :param nsName: (Optional) 命名空间名称
-        :param nsUid: (Optional) 命名空间uid
-        :param objCount: (Optional) obj个数
+        :param namespaceName: (Optional) namespace名字
+        :param namespaceUuid: (Optional) namespaceUUID
         """
 
-        self.metricCount = metricCount
-        self.nsName = nsName
-        self.nsUid = nsUid
-        self.objCount = objCount
+        self.namespaceName = namespaceName
+        self.namespaceUuid = namespaceUuid

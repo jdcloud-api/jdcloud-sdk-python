@@ -42,6 +42,7 @@ class UpdateAlarmParameters(object):
         """
 
         self.alarmId = alarmId
+        self.autoScalingPolicyId = None
         self.baseContact = None
         self.dimension = None
         self.enabled = None
@@ -53,6 +54,12 @@ class UpdateAlarmParameters(object):
         self.ruleType = None
         self.tags = None
         self.webHookOption = None
+
+    def setAutoScalingPolicyId(self, autoScalingPolicyId):
+        """
+        :param autoScalingPolicyId: (Optional) 弹性伸缩组Id。注：仅ag\asg产品线内部使用
+        """
+        self.autoScalingPolicyId = autoScalingPolicyId
 
     def setBaseContact(self, baseContact):
         """

@@ -26,4 +26,4 @@ class RedisClient(JDCloudClient):
         if config is None:
             config = Config('redis.jdcloud-api.com')
 
-        super(RedisClient, self).__init__(credential, config, 'redis', '1.7.0', logger)
+        super(RedisClient, self).__init__(credential, config, 'redis', '1.9.0', logger)

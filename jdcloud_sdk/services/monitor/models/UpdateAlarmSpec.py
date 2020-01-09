@@ -19,8 +19,9 @@
 
 class UpdateAlarmSpec(object):
 
-    def __init__(self, product, resourceOption, ruleName, ruleOption, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
+    def __init__(self, product, resourceOption, ruleName, ruleOption, autoScalingPolicyId=None, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
         """
+        :param autoScalingPolicyId: (Optional) 弹性伸缩组Id。注：仅ag\asg产品线内部使用
         :param baseContact: (Optional) 告警通知联系人
         :param dimension: (Optional) 资源维度，可用的维度请使用 describeProductsForAlarm接口查询
         :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
@@ -34,6 +35,7 @@ class UpdateAlarmSpec(object):
         :param webHookOption: (Optional) 
         """
 
+        self.autoScalingPolicyId = autoScalingPolicyId
         self.baseContact = baseContact
         self.dimension = dimension
         self.enabled = enabled

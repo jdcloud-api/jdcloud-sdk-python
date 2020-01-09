@@ -32,12 +32,13 @@ class CreateImageUploadTaskRequest(JDCloudRequest):
 
 class CreateImageUploadTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, fileName, ):
         """
+        :param fileName: 文件名称
         """
 
         self.httpMethod = None
-        self.fileName = None
+        self.fileName = fileName
         self.fileSize = None
 
     def setHttpMethod(self, httpMethod):
@@ -45,12 +46,6 @@ class CreateImageUploadTaskParameters(object):
         :param httpMethod: (Optional) HTTP 请求方法，取值范围：GET、POST、PUT、DELETE、HEAD、PATCH，默认值为 PUT
         """
         self.httpMethod = httpMethod
-
-    def setFileName(self, fileName):
-        """
-        :param fileName: (Optional) 文件名称
-        """
-        self.fileName = fileName
 
     def setFileSize(self, fileSize):
         """

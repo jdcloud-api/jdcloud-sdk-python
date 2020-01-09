@@ -32,13 +32,15 @@ class CreateVideoUploadTaskRequest(JDCloudRequest):
 
 class CreateVideoUploadTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, title, fileName, ):
         """
+        :param title: 视频标题
+        :param fileName: 文件名称
         """
 
         self.httpMethod = None
-        self.title = None
-        self.fileName = None
+        self.title = title
+        self.fileName = fileName
         self.fileSize = None
         self.coverUrl = None
         self.description = None
@@ -52,18 +54,6 @@ class CreateVideoUploadTaskParameters(object):
         :param httpMethod: (Optional) HTTP 请求方法，取值范围：GET、POST、PUT、DELETE、HEAD、PATCH，默认值为 PUT
         """
         self.httpMethod = httpMethod
-
-    def setTitle(self, title):
-        """
-        :param title: (Optional) 视频标题
-        """
-        self.title = title
-
-    def setFileName(self, fileName):
-        """
-        :param fileName: (Optional) 文件名称
-        """
-        self.fileName = fileName
 
     def setFileSize(self, fileSize):
         """

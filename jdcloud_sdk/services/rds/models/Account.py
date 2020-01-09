@@ -19,13 +19,21 @@
 
 class Account(object):
 
-    def __init__(self, accountName=None, accountStatus=None, accountPrivileges=None):
+    def __init__(self, accountName=None, accountStatus=None, accountType=None, createTime=None, updateTime=None, notes=None, accountPrivileges=None):
         """
         :param accountName: (Optional) 账号名，账号名的具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param accountStatus: (Optional) 账号状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)<br>- **MySQL：不支持，不返回该字段**<br>- **SQL Server：返回该字段**
+        :param accountType: (Optional) 账号类型，normal：普通，super：高权限<br>- 仅支持SQL Server
+        :param createTime: (Optional) 创建账号时间，格式为：YYYY-MM-DD HH:mm:ss<br>- 仅支持PostgreSQL
+        :param updateTime: (Optional) 修改账号时间，格式为：YYYY-MM-DD HH:mm:ss<br>- 仅支持PostgreSQL
+        :param notes: (Optional) 账号备注内容<br>- 仅支持PostgreSQL
         :param accountPrivileges: (Optional) 具有的权限
         """
 
         self.accountName = accountName
         self.accountStatus = accountStatus
+        self.accountType = accountType
+        self.createTime = createTime
+        self.updateTime = updateTime
+        self.notes = notes
         self.accountPrivileges = accountPrivileges

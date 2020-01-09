@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDownloadUrlRequest(JDCloudRequest):
     """
-    获取缓存Redis实例的备份文件临时下载地址
+    获取缓存Redis实例的备份文件临时下载地址（1个小时有效期）
     """
 
     def __init__(self, parameters, header=None, version="v1"):

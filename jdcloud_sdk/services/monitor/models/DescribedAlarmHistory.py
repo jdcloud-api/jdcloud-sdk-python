@@ -19,7 +19,7 @@
 
 class DescribedAlarmHistory(object):
 
-    def __init__(self, alarmId=None, dimension=None, dimensionName=None, durationTimes=None, noticeDurationTime=None, noticeLevel=None, noticeLevelTriggered=None, noticeTime=None, product=None, productName=None, receivers=None, resourceId=None, rule=None, ruleType=None, status=None, tags=None, value=None):
+    def __init__(self, alarmId=None, dimension=None, dimensionName=None, durationTimes=None, noticeDurationTime=None, noticeLevel=None, noticeLevelTriggered=None, noticeTime=None, noticeTimeUnix=None, product=None, productName=None, receivers=None, region=None, resourceId=None, rule=None, ruleType=None, status=None, tags=None, value=None):
         """
         :param alarmId: (Optional) 报警规则ID
         :param dimension: (Optional) 资源维度
@@ -29,9 +29,11 @@ class DescribedAlarmHistory(object):
         :param noticeLevel: (Optional) 用于前端显示的‘触发告警级别’。从低到高分别为‘普通’, ‘紧急’, ‘严重’
         :param noticeLevelTriggered: (Optional) 触发的告警级别。从低到高分别为‘common’, ‘critical’, ‘fatal’
         :param noticeTime: (Optional) 告警时间
+        :param noticeTimeUnix: (Optional) 告警时间对应的时间戳
         :param product: (Optional) 资源类型
         :param productName: (Optional) 资源类型名称
         :param receivers: (Optional) 告警通知人
+        :param region: (Optional) 资源Id对应的region
         :param resourceId: (Optional) 资源Id
         :param rule: (Optional) 
         :param ruleType: (Optional) 规则类型
@@ -48,9 +50,11 @@ class DescribedAlarmHistory(object):
         self.noticeLevel = noticeLevel
         self.noticeLevelTriggered = noticeLevelTriggered
         self.noticeTime = noticeTime
+        self.noticeTimeUnix = noticeTimeUnix
         self.product = product
         self.productName = productName
         self.receivers = receivers
+        self.region = region
         self.resourceId = resourceId
         self.rule = rule
         self.ruleType = ruleType

@@ -19,12 +19,13 @@
 
 class DomainlogModel(object):
 
-    def __init__(self, logUrl=None, logSize=None, startTime=None, endTime=None, md5=None):
+    def __init__(self, logUrl=None, logSize=None, startTime=None, endTime=None, lastModified=None, md5=None):
         """
         :param logUrl: (Optional) 日志下载url地址
         :param logSize: (Optional) 日志大小，单位：Byte（字节）
         :param startTime: (Optional) 日志开始时间，格式：yyyy-MM-dd HH:ss，如：2019-04-12 00:00
         :param endTime: (Optional) 日志结束时间，格式：yyyy-MM-dd HH:ss 如：2019-04-12 00:05
+        :param lastModified: (Optional) 日志修改时间，UTC时间
         :param md5: (Optional) MD5值
         """
 
@@ -32,4 +33,5 @@ class DomainlogModel(object):
         self.logSize = logSize
         self.startTime = startTime
         self.endTime = endTime
+        self.lastModified = lastModified
         self.md5 = md5

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupsRequest(JDCloudRequest):
     """
-    查询缓存Redis实例的备份结果（备份文件列表），可分页、可指定起止时间或备份任务ID
+    查询缓存Redis实例的备份任务（文件）列表，可分页、可指定起止时间或备份任务ID
     """
 
     def __init__(self, parameters, header=None, version="v1"):

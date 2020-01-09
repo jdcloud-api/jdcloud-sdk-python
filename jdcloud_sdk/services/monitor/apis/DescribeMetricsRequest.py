@@ -34,11 +34,18 @@ class DescribeMetricsParameters(object):
 
     def __init__(self, serviceCode, ):
         """
-        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等。<a href="https://docs.jdcloud.com/cn/monitoring/api/describeservices?content=API&SOP=JDCloud">describeServices</a>：查询己接入云监控的产品线列表，当产品线下有多个分组时，查询分组对应的监控项，serviceCode请传对应分组的groupCode字段值
+        :param serviceCode: 资源的类型，取值vm, lb, ip, database 等。<a href="https://docs.jdcloud.com/cn/monitoring/api/describeservices?content=API&SOP=JDCloud">describeServices</a>：查询己接入云监控的产品线列表
         """
 
         self.serviceCode = serviceCode
+        self.dimension = None
         self.type = None
+
+    def setDimension(self, dimension):
+        """
+        :param dimension: (Optional) 
+        """
+        self.dimension = dimension
 
     def setType(self, type):
         """

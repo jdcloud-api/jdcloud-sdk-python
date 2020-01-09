@@ -21,7 +21,7 @@ class CreateCmAlarmSpec(object):
 
     def __init__(self, clientToken, createCmAlarmSpec, ):
         """
-        :param clientToken:  幂等性校验参数,最长36位
+        :param clientToken:  幂等性校验参数,最长36位,若两个请求clientToken相等，则返回第一次创建的规则id，保证只创建一次规则
         :param createCmAlarmSpec:  
         """
 

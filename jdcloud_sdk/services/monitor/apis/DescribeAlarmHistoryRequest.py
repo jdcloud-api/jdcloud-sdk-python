@@ -41,6 +41,7 @@ class DescribeAlarmHistoryParameters(object):
         self.serviceCode = None
         self.product = None
         self.dimension = None
+        self.region = None
         self.isAlarming = None
         self.status = None
         self.startTime = None
@@ -78,6 +79,12 @@ class DescribeAlarmHistoryParameters(object):
         :param dimension: (Optional) 维度标识、指定该参数时，查询只返回该维度的数据。如redis2.8cluster下存在实例、分片等多个维度
         """
         self.dimension = dimension
+
+    def setRegion(self, region):
+        """
+        :param region: (Optional) 根据region筛选对应region的资源的报警历史
+        """
+        self.region = region
 
     def setIsAlarming(self, isAlarming):
         """

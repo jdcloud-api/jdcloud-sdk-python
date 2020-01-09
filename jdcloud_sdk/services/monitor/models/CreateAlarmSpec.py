@@ -19,8 +19,9 @@
 
 class CreateAlarmSpec(object):
 
-    def __init__(self, clientToken, product, resourceOption, ruleName, ruleOption, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
+    def __init__(self, clientToken, product, resourceOption, ruleName, ruleOption, autoScalingPolicyId=None, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
         """
+        :param autoScalingPolicyId: (Optional) 弹性伸缩组Id。注：仅ag\asg产品线内部使用
         :param baseContact: (Optional) 告警通知联系人
         :param clientToken:  幂等性校验参数,最长36位,若两个请求clientToken相等，则返回第一次创建的规则id，只创建一次规则
         :param dimension: (Optional) 资源维度，可用的维度请使用 describeProductsForAlarm接口查询
@@ -35,6 +36,7 @@ class CreateAlarmSpec(object):
         :param webHookOption: (Optional) 
         """
 
+        self.autoScalingPolicyId = autoScalingPolicyId
         self.baseContact = baseContact
         self.clientToken = clientToken
         self.dimension = dimension

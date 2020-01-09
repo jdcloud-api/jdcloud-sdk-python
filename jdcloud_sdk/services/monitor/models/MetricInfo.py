@@ -19,13 +19,13 @@
 
 class MetricInfo(object):
 
-    def __init__(self, calculateUnit=None, metricName=None, metricUid=None):
+    def __init__(self, calculateUnit=None, metricName=None, metricUID=None):
         """
-        :param calculateUnit: (Optional) metric 单位
-        :param metricName: (Optional) metric名称
-        :param metricUid: (Optional) metric uid
+        :param calculateUnit: (Optional) 单位
+        :param metricName: (Optional) metricName
+        :param metricUID: (Optional) metricUID
         """
 
         self.calculateUnit = calculateUnit
         self.metricName = metricName
-        self.metricUid = metricUid
+        self.metricUID = metricUID

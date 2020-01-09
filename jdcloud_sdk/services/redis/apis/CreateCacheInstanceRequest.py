@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateCacheInstanceRequest(JDCloudRequest):
     """
-    创建一个指定配置的缓存Redis实例：可选择主从版或集群版，每种类型又分为多种规格（按CPU核数、内存容量、磁盘容量、带宽等划分），具体可参考产品规格代码，https://docs.jdcloud.com/cn/jcs-for-redis/specifications
+    创建一个指定配置的缓存Redis实例：可选择主从版或集群版，每种类型又分为多种规格（按CPU核数、内存容量、磁盘容量、带宽等划分），不同规格价格也不同，具体可参考产品规格代码，https://docs.jdcloud.com/cn/jcs-for-redis/specifications
 
     """
 
@@ -36,7 +36,7 @@ class CreateCacheInstanceParameters(object):
     def __init__(self, regionId, cacheInstance, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
-        :param cacheInstance: 创建实例时指定的信息
+        :param cacheInstance: 实例的创建参数
         """
 
         self.regionId = regionId

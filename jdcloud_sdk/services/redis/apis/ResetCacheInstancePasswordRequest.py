@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ResetCacheInstancePasswordRequest(JDCloudRequest):
     """
-    重置缓存Redis实例的密码，可为空
+    修改缓存Redis实例的密码，可为空
     """
 
     def __init__(self, parameters, header=None, version="v1"):

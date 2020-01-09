@@ -19,19 +19,25 @@
 
 class DomainLog(object):
 
-    def __init__(self, url=None, md5=None, fileName=None, size=None, startTime=None, endTime=None):
+    def __init__(self, url=None, md5=None, fileName=None, logType=None, interval=None, size=None, startTime=None, endTime=None, lastModified=None):
         """
         :param url: (Optional) 下载链接
         :param md5: (Optional) md5值
         :param fileName: (Optional) 文件名
+        :param logType: (Optional) 日志格式
+        :param interval: (Optional) 日志粒度
         :param size: (Optional) 文件大小
         :param startTime: (Optional) 日志开始时间，UTC时间
         :param endTime: (Optional) 日志结束时间，UTC时间
+        :param lastModified: (Optional) 日志修改时间，UTC时间
         """
 
         self.url = url
         self.md5 = md5
         self.fileName = fileName
+        self.logType = logType
+        self.interval = interval
         self.size = size
         self.startTime = startTime
         self.endTime = endTime
+        self.lastModified = lastModified

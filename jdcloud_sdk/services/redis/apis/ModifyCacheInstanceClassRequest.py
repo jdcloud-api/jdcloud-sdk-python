@@ -21,8 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyCacheInstanceClassRequest(JDCloudRequest):
     """
-    变更缓存Redis实例规格（变配），只能变更运行状态的实例规格，变更的规格不能与之前的相同。
-预付费用户，从集群版变配到主从版，新规格的内存大小要大于老规格的内存大小，从主从版到集群版，新规格的内存大小要不小于老规格的内存大小。
+    变更缓存Redis实例规格（变配），实例运行时可以变配，新规格不能与之前的老规格相同，新规格内存大小不能小于实例的已使用内存。
 
     """
 
@@ -38,7 +37,7 @@ class ModifyCacheInstanceClassParameters(object):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
-        :param cacheInstanceClass: 变更后的实例规格
+        :param cacheInstanceClass: 新规格
         """
 
         self.regionId = regionId

@@ -19,11 +19,15 @@
 
 class ResourceInfo(object):
 
-    def __init__(self, resourceId=None, resourceName=None):
+    def __init__(self, resourceId=None, resourceName=None, remark=None, bind=None):
         """
         :param resourceId: (Optional) 实例id
         :param resourceName: (Optional) 实例名称
+        :param remark: (Optional) 备注
+        :param bind: (Optional) 绑定的资源
         """
 
         self.resourceId = resourceId
         self.resourceName = resourceName
+        self.remark = remark
+        self.bind = bind

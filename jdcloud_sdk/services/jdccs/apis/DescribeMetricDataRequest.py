@@ -52,7 +52,7 @@ class DescribeMetricDataParameters(object):
 
     def setTimeInterval(self, timeInterval):
         """
-        :param timeInterval: (Optional) 时间间隔：分钟m、小时h、天d，如： 10分钟=10m、1小时=1h，3天=3d；默认5m，最小支持5m，最大90d
+        :param timeInterval: (Optional) 时间间隔：分钟m、小时h、天d，如： 10分钟=10m、1小时=1h，3天=3d；默认5m，最小支持5m，最大90d 目前带宽上、下行流量查询，会根据时间范围是否超过2小时，设定时间间隔为1m或5m
         """
         self.timeInterval = timeInterval
 

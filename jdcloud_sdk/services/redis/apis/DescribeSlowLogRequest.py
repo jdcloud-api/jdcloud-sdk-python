@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeSlowLogRequest(JDCloudRequest):
     """
-    获取缓存Redis实例的慢查询日志
+    获取缓存Redis实例的慢查询日志，可分页、可搜索
     """
 
     def __init__(self, parameters, header=None, version="v1"):

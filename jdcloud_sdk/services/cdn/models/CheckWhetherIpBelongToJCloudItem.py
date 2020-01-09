@@ -19,12 +19,13 @@
 
 class CheckWhetherIpBelongToJCloudItem(object):
 
-    def __init__(self, ip=None, belongToJCloud=None, country=None, province=None, isp=None):
+    def __init__(self, ip=None, belongToJCloud=None, country=None, province=None, city=None, isp=None):
         """
         :param ip: (Optional) 
         :param belongToJCloud: (Optional) 
         :param country: (Optional) 
         :param province: (Optional) 
+        :param city: (Optional) 
         :param isp: (Optional) 
         """
 
@@ -32,4 +33,5 @@ class CheckWhetherIpBelongToJCloudItem(object):
         self.belongToJCloud = belongToJCloud
         self.country = country
         self.province = province
+        self.city = city
         self.isp = isp

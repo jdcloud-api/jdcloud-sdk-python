@@ -26,4 +26,4 @@ class VqdClient(JDCloudClient):
         if config is None:
             config = Config('vqd.jdcloud-api.com')
 
-        super(VqdClient, self).__init__(credential, config, 'vqd', '0.1.0', logger)
+        super(VqdClient, self).__init__(credential, config, 'vqd', '0.1.1', logger)

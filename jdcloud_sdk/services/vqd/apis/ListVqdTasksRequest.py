@@ -19,43 +19,47 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricTasksRequest(JDCloudRequest):
+class ListVqdTasksRequest(JDCloudRequest):
     """
-    查询监控任务列表，返回该主题下的所有监控任务信息。
+    查询视频质检任务列表
+支持过滤查询：
+  - createTime,ge 最早任务创建时间
+  - createTime,le 最晚任务创建时间
+  - status,in 任务状态
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricTasksRequest, self).__init__(
-            '/regions/{regionId}/logsets/{logsetUID}/logtopics/{logtopicUID}/metrictasks', 'GET', header, version)
+        super(ListVqdTasksRequest, self).__init__(
+            '/vqdTasks', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricTasksParameters(object):
+class ListVqdTasksParameters(object):
 
-    def __init__(self, regionId, logsetUID, logtopicUID, ):
+    def __init__(self, ):
         """
-        :param regionId: 地域 Id
-        :param logsetUID: 日志集 UID
-        :param logtopicUID: 日志主题 UID
         """
 
-        self.regionId = regionId
-        self.logsetUID = logsetUID
-        self.logtopicUID = logtopicUID
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 当前所在页，默认为1
-in: query
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
-in: query
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 
+        """
+        self.filters = filters
 

@@ -37,7 +37,7 @@ class Alarm(object):
         :param times: (Optional) 连续多少次后报警
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
-        :param switchboard: (Optional) 
+        :param switchboard: (Optional) 交换机信息
         """
 
         self.alarmId = alarmId

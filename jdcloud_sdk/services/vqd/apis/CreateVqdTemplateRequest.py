@@ -19,36 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetCallbackRequest(JDCloudRequest):
+class CreateVqdTemplateRequest(JDCloudRequest):
     """
-    设置回调配置
+    创建视频质检模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetCallbackRequest, self).__init__(
-            '/settings:setCallback', 'POST', header, version)
+        super(CreateVqdTemplateRequest, self).__init__(
+            '/vqdTemplates', 'POST', header, version)
         self.parameters = parameters
 
 
-class SetCallbackParameters(object):
+class CreateVqdTemplateParameters(object):
 
-    def __init__(self, callbackType, callbackEvents):
+    def __init__(self, templateName, detections):
         """
-        :param callbackType: 回调方式，目前只支持 http
-        :param callbackEvents: 回调事件列表。
-- VqdSuccess 视频质检成功
-- VqdFailure 视频质检失败
-- VqdStart 视频质检开始
+        :param templateName: 模板名称。长度不超过128个字符。UTF-8编码。
 
+        :param detections: 检测项列表
         """
 
-        self.callbackType = callbackType
-        self.httpUrl = None
-        self.callbackEvents = callbackEvents
+        self.templateName = templateName
+        self.threshold = None
+        self.detections = detections
 
-    def setHttpUrl(self, httpUrl):
+    def setThreshold(self, threshold):
         """
-        :param httpUrl: (Optional) HTTP方式的该字段为必选项
+        :param threshold: (Optional) 缺陷判定时间阈值，非必须，默认值为 3.0
         """
-        self.httpUrl = httpUrl
+        self.threshold = threshold
 

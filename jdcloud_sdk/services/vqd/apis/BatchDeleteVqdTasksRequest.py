@@ -32,15 +32,10 @@ class BatchDeleteVqdTasksRequest(JDCloudRequest):
 
 class BatchDeleteVqdTasksParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, taskIds):
         """
+        :param taskIds: 
         """
 
-        self.taskIds = None
-
-    def setTaskIds(self, taskIds):
-        """
-        :param taskIds: (Optional) 
-        """
         self.taskIds = taskIds
 

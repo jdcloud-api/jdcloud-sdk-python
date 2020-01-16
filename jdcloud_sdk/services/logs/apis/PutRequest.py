@@ -41,6 +41,7 @@ class PutParameters(object):
         self.logtopicUID = logtopicUID
         self.stream = None
         self.timestamp = None
+        self.tags = None
         self.entries = entries
 
     def setStream(self, stream):
@@ -54,4 +55,10 @@ class PutParameters(object):
         :param timestamp: (Optional) 全局时间戳，UTC格式，最多支持到纳秒级别，不传入则取服务器时间。如 2019-04-08T03:08:04.437670934Z、2019-04-08T03:08:04Z、2019-04-08T03:08:04.123Z
         """
         self.timestamp = timestamp
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 全局标签 map[string]string
+        """
+        self.tags = tags
 

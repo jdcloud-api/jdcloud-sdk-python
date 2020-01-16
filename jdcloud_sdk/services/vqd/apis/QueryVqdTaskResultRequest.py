@@ -19,29 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeMetricTaskRequest(JDCloudRequest):
+class QueryVqdTaskResultRequest(JDCloudRequest):
     """
-    查询指定监控任务的详情信息
+    查询视频质检任务结果
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeMetricTaskRequest, self).__init__(
-            '/regions/{regionId}/logsets/{logsetUID}/logtopics/{logtopicUID}/metrictasks/{logmetrictaskUID}', 'GET', header, version)
+        super(QueryVqdTaskResultRequest, self).__init__(
+            '/vqdTasks/{taskId}:queryResult', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeMetricTaskParameters(object):
+class QueryVqdTaskResultParameters(object):
 
-    def __init__(self, regionId, logsetUID, logtopicUID, logmetrictaskUID, ):
+    def __init__(self, taskId, ):
         """
-        :param regionId: 地域 Id
-        :param logsetUID: 日志集 UID
-        :param logtopicUID: 日志主题 UID
-        :param logmetrictaskUID: 
+        :param taskId: 任务ID，路径参数
         """
 
-        self.regionId = regionId
-        self.logsetUID = logsetUID
-        self.logtopicUID = logtopicUID
-        self.logmetrictaskUID = logmetrictaskUID
+        self.taskId = taskId
 

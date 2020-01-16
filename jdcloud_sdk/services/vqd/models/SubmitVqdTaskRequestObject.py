@@ -19,9 +19,9 @@
 
 class SubmitVqdTaskRequestObject(object):
 
-    def __init__(self, templateId, media=None):
+    def __init__(self, media, templateId, ):
         """
-        :param media: (Optional) 
+        :param media:  
         :param templateId:  检测模板ID
         """
 

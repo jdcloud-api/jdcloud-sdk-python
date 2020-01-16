@@ -19,9 +19,9 @@
 
 class VqdMediaObject(object):
 
-    def __init__(self, mediaUrl=None, mediaName=None):
+    def __init__(self, mediaUrl, mediaName=None):
         """
-        :param mediaUrl: (Optional) 媒体URL
+        :param mediaUrl:  媒体URL
         :param mediaName: (Optional) 媒体名称
         """
 

@@ -26,4 +26,4 @@ class LogsClient(JDCloudClient):
         if config is None:
             config = Config('logs.jdcloud-api.com')
 
-        super(LogsClient, self).__init__(credential, config, 'logs', '1.2.3', logger)
+        super(LogsClient, self).__init__(credential, config, 'logs', '1.2.4', logger)

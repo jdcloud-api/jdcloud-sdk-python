@@ -19,36 +19,45 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetCallbackRequest(JDCloudRequest):
+class ListVqdTemplatesRequest(JDCloudRequest):
     """
-    设置回调配置
+    查询视频质检模板列表。
+支持过滤查询：
+  - templateId,eq 精确匹配模板ID，非必选
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetCallbackRequest, self).__init__(
-            '/settings:setCallback', 'POST', header, version)
+        super(ListVqdTemplatesRequest, self).__init__(
+            '/vqdTemplates', 'GET', header, version)
         self.parameters = parameters
 
 
-class SetCallbackParameters(object):
+class ListVqdTemplatesParameters(object):
 
-    def __init__(self, callbackType, callbackEvents):
+    def __init__(self, ):
         """
-        :param callbackType: 回调方式，目前只支持 http
-        :param callbackEvents: 回调事件列表。
-- VqdSuccess 视频质检成功
-- VqdFailure 视频质检失败
-- VqdStart 视频质检开始
-
         """
 
-        self.callbackType = callbackType
-        self.httpUrl = None
-        self.callbackEvents = callbackEvents
+        self.pageNumber = None
+        self.pageSize = None
+        self.filters = None
 
-    def setHttpUrl(self, httpUrl):
+    def setPageNumber(self, pageNumber):
         """
-        :param httpUrl: (Optional) HTTP方式的该字段为必选项
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
-        self.httpUrl = httpUrl
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
+        """
+        self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 
+        """
+        self.filters = filters
 

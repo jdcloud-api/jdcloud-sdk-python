@@ -19,36 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetCallbackRequest(JDCloudRequest):
+class QueryVqdTaskResultRequest(JDCloudRequest):
     """
-    设置回调配置
+    查询视频质检任务结果
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetCallbackRequest, self).__init__(
-            '/settings:setCallback', 'POST', header, version)
+        super(QueryVqdTaskResultRequest, self).__init__(
+            '/vqdTasks/{taskId}:queryResult', 'GET', header, version)
         self.parameters = parameters
 
 
-class SetCallbackParameters(object):
+class QueryVqdTaskResultParameters(object):
 
-    def __init__(self, callbackType, callbackEvents):
+    def __init__(self, taskId, ):
         """
-        :param callbackType: 回调方式，目前只支持 http
-        :param callbackEvents: 回调事件列表。
-- VqdSuccess 视频质检成功
-- VqdFailure 视频质检失败
-- VqdStart 视频质检开始
-
+        :param taskId: 任务ID，路径参数
         """
 
-        self.callbackType = callbackType
-        self.httpUrl = None
-        self.callbackEvents = callbackEvents
-
-    def setHttpUrl(self, httpUrl):
-        """
-        :param httpUrl: (Optional) HTTP方式的该字段为必选项
-        """
-        self.httpUrl = httpUrl
+        self.taskId = taskId
 

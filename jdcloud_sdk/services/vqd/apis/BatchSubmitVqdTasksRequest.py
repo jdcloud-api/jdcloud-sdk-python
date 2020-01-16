@@ -32,17 +32,12 @@ class BatchSubmitVqdTasksRequest(JDCloudRequest):
 
 class BatchSubmitVqdTasksParameters(object):
 
-    def __init__(self, templateId):
+    def __init__(self, mediaList, templateId):
         """
+        :param mediaList: 媒体列表
         :param templateId: 检测模板ID
         """
 
-        self.mediaList = None
-        self.templateId = templateId
-
-    def setMediaList(self, mediaList):
-        """
-        :param mediaList: (Optional) 媒体列表
-        """
         self.mediaList = mediaList
+        self.templateId = templateId
 

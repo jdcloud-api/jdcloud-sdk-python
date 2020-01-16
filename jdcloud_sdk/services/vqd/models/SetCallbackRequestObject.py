@@ -23,7 +23,11 @@ class SetCallbackRequestObject(object):
         """
         :param callbackType:  回调方式，目前只支持 http
         :param httpUrl: (Optional) HTTP方式的该字段为必选项
-        :param callbackEvents:  回调事件列表
+        :param callbackEvents:  回调事件列表。
+- VqdSuccess 视频质检成功
+- VqdFailure 视频质检失败
+- VqdStart 视频质检开始
+
         """
 
         self.callbackType = callbackType

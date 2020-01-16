@@ -48,6 +48,7 @@ class SearchLogContextParameters(object):
         self.logtopicUID = logtopicUID
         self.anchor = anchor
         self.direction = None
+        self.filters = None
         self.id = id
         self.lineSize = lineSize
         self.time = time
@@ -57,4 +58,10 @@ class SearchLogContextParameters(object):
         :param direction: (Optional) 搜索方向,默认both,可取值:up,down,both
         """
         self.direction = direction
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 指定返回字段，只对系统日志生效，不填默认按照产品线配置返回字段，Name支持：key，Values填入返回字段
+        """
+        self.filters = filters
 

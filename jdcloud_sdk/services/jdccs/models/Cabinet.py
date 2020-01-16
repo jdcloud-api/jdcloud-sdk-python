@@ -29,11 +29,11 @@ class Cabinet(object):
         :param cabinetSpace: (Optional) 机柜空间(U)
         :param cabinetPower: (Optional) 额定电流(A)
         :param cabinetType: (Optional) 机柜类型 formal:正式机柜 reserved:预留机柜
-        :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关闭中
-        :param cabinetOpenTime: (Optional) 开通时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param expireTime: (Optional) 到期时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param reserveStartTime: (Optional) 预留开始时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param reserveEndTime: (Optional) 预留结束时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关电中
+        :param cabinetOpenTime: (Optional) 开通时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param expireTime: (Optional) 到期时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param reserveStartTime: (Optional) 预留开始时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param reserveEndTime: (Optional) 预留结束时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param deviceNum: (Optional) 设备数量
         :param rackUOccupy: (Optional) 占用U数(U)
         :param rackUFree: (Optional) 空闲U数(U)

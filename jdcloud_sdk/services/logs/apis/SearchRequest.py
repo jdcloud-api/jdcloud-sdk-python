@@ -50,6 +50,8 @@ class SearchParameters(object):
         self.endTime = None
         self.pageNumber = None
         self.pageSize = None
+        self.sort = None
+        self.filters = None
 
     def setExpr(self, expr):
         """
@@ -65,13 +67,13 @@ class SearchParameters(object):
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 开始时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800”
+        :param startTime: (Optional) 开始时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800” 当action != preview时，必填
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 结束时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800”
+        :param endTime: (Optional) 结束时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800” 当action != preview时，必填
         """
         self.endTime = endTime
 
@@ -86,4 +88,16 @@ class SearchParameters(object):
         :param pageSize: (Optional) 每页个数。默认为10，最大100
         """
         self.pageSize = pageSize
+
+    def setSort(self, sort):
+        """
+        :param sort: (Optional) 返回排序,不填或者为空，默认为desc，"asc":按照时间正序返回结果，"desc":按照时间倒序返回结果
+        """
+        self.sort = sort
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 指定返回字段，只对系统日志生效，不填默认按照产品线配置返回字段，Name支持：key，Values填入返回字段
+        """
+        self.filters = filters
 

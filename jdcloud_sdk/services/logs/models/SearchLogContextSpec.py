@@ -19,10 +19,11 @@
 
 class SearchLogContextSpec(object):
 
-    def __init__(self, anchor, id, lineSize, time, direction=None):
+    def __init__(self, anchor, id, lineSize, time, direction=None, filters=None):
         """
         :param anchor:  查询anchor,基于该值偏移进行上下文检索
         :param direction: (Optional) 搜索方向,默认both,可取值:up,down,both
+        :param filters: (Optional) 指定返回字段，只对系统日志生效，不填默认按照产品线配置返回字段，Name支持：key，Values填入返回字段
         :param id:  日志记录ID
         :param lineSize:  查看上下文行数大小，最大支持200
         :param time:  查询日志时返回的时间戳
@@ -30,6 +31,7 @@ class SearchLogContextSpec(object):
 
         self.anchor = anchor
         self.direction = direction
+        self.filters = filters
         self.id = id
         self.lineSize = lineSize
         self.time = time

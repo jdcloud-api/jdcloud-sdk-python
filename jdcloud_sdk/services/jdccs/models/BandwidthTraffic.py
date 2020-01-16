@@ -30,7 +30,7 @@ class BandwidthTraffic(object):
         :param bandwidth: (Optional) 总带宽
         :param lineType: (Optional) 线路类型 bgp:BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
         :param relatedIp: (Optional) 关联的公网IP
-        :param switchboard: (Optional) 
+        :param switchboard: (Optional) 交换机信息
         """
 
         self.idc = idc

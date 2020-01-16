@@ -26,4 +26,4 @@ class StsClient(JDCloudClient):
         if config is None:
             config = Config('sts.jdcloud-api.com')
 
-        super(StsClient, self).__init__(credential, config, 'sts', '0.1.0', logger)
+        super(StsClient, self).__init__(credential, config, 'sts', '0.2.0', logger)

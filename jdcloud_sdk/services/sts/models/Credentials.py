@@ -24,7 +24,7 @@ class Credentials(object):
         :param accessKey: (Optional) 临时accessKey
         :param secretKey: (Optional) 临时secretKey
         :param sessionToken: (Optional) 临时安全令牌
-        :param expiration: (Optional) 有效期
+        :param expiration: (Optional) 失效时间，格式：yyyy-MM-dd HH:mm:ss(eg 2019-01-01 00:00:00)
         """
 
         self.accessKey = accessKey

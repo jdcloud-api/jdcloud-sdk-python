@@ -19,7 +19,7 @@
 
 class AlarmHistory(object):
 
-    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, switchboard=None, alarmStatus=None, value=None, noticeTime=None):
+    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, managementIp=None, ifName=None, alarmStatus=None, value=None, noticeTime=None):
         """
         :param alarmId: (Optional) 规则实例ID
         :param name: (Optional) 规则名称
@@ -37,10 +37,11 @@ class AlarmHistory(object):
         :param times: (Optional) 连续多少次后报警
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
-        :param switchboard: (Optional) 
+        :param managementIp: (Optional) IP地址
+        :param ifName: (Optional) 端口名称
         :param alarmStatus: (Optional) 报警状态 normal:正常 alarm:报警
         :param value: (Optional) 报警值
-        :param noticeTime: (Optional) 报警时间 遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param noticeTime: (Optional) 报警时间 遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         """
 
         self.alarmId = alarmId
@@ -59,7 +60,8 @@ class AlarmHistory(object):
         self.times = times
         self.noticePeriod = noticePeriod
         self.status = status
-        self.switchboard = switchboard
+        self.managementIp = managementIp
+        self.ifName = ifName
         self.alarmStatus = alarmStatus
         self.value = value
         self.noticeTime = noticeTime

@@ -19,9 +19,9 @@
 
 class BatchSubmitVqdTaskRequestObject(object):
 
-    def __init__(self, templateId, mediaList=None):
+    def __init__(self, mediaList, templateId, ):
         """
-        :param mediaList: (Optional) 媒体列表
+        :param mediaList:  媒体列表
         :param templateId:  检测模板ID
         """
 

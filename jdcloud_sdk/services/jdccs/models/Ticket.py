@@ -27,8 +27,8 @@ class Ticket(object):
         :param ticketTypeName: (Optional) 工单类型
         :param status: (Optional) 工单状态 pendingReview:待审核 已撤销 revoked:已撤销 processing:处理中 pendingVerification:待核验 pendingClose:待关单 rejected:已拒绝 completed:已完成 cancelled:已取消 draft:草稿中
         :param description: (Optional) 描述
-        :param createdTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param closedTime: (Optional) 关闭时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param createdTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param closedTime: (Optional) 关闭时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param phone: (Optional) 电话
         :param email: (Optional) 邮箱
         :param idc: (Optional) 机房英文标识

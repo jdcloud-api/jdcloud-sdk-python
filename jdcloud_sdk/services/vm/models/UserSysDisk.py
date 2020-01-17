@@ -19,15 +19,17 @@
 
 class UserSysDisk(object):
 
-    def __init__(self, pin=None, region=None, systemType=None, systemDiskSize=None):
+    def __init__(self, pin=None, region=None, systemType=None, systemDiskSize=None, flavors=None):
         """
         :param pin: (Optional) 用户pin
         :param region: (Optional) 地域
         :param systemType: (Optional) 系统类型
         :param systemDiskSize: (Optional) 默认本地盘系统盘大小
+        :param flavors: (Optional) 逗号分隔的规格列表，*代表所有。
         """
 
         self.pin = pin
         self.region = region
         self.systemType = systemType
         self.systemDiskSize = systemDiskSize
+        self.flavors = flavors

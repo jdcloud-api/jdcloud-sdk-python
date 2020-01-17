@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ImageTasksRequest(JDCloudRequest):
     """
-    查询镜像导入任务详情
+    查询镜像导入导出任务详情
 
     """
 
@@ -36,7 +36,7 @@ class ImageTasksParameters(object):
     def __init__(self, regionId, taskAction, ):
         """
         :param regionId: 地域ID
-        :param taskAction: 任务种类。可选值：ImportImage
+        :param taskAction: 任务种类。可选值：ImportImage， ExportImage
         """
 
         self.regionId = regionId

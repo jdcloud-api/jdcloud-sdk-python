@@ -41,7 +41,7 @@ class ResizeInstanceRequest(JDCloudRequest):
 
 class ResizeInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, instanceType):
+    def __init__(self, regionId, instanceId, instanceType, ):
         """
         :param regionId: 地域ID
         :param instanceId: 云主机ID
@@ -51,4 +51,11 @@ class ResizeInstanceParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.instanceType = instanceType
+        self.force = None
+
+    def setForce(self, force):
+        """
+        :param force: (Optional) 是否强制调配，默认为false；如果指定为true, 将会清除本地数据盘。
+        """
+        self.force = force
 

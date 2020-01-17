@@ -19,7 +19,7 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None, gpu=None, localDisks=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None, gpu=None, localDisks=None, generation=None):
         """
         :param family: (Optional) 实例规格类型
         :param instanceType: (Optional) 实例规格，比如g.b1.2xlarge
@@ -30,6 +30,7 @@ class InstanceType(object):
         :param state: (Optional) 规格状态
         :param gpu: (Optional) Gpu配置
         :param localDisks: (Optional) 本地缓存盘配置，目前只有Gpu规格上才有
+        :param generation: (Optional) 实例规格代数
         """
 
         self.family = family
@@ -41,3 +42,4 @@ class InstanceType(object):
         self.state = state
         self.gpu = gpu
         self.localDisks = localDisks
+        self.generation = generation

@@ -19,56 +19,49 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAlarmHistoryRequest(JDCloudRequest):
+class DescribeTargetsRequest(JDCloudRequest):
     """
-    报警历史列表
+    查询Target列表详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAlarmHistoryRequest, self).__init__(
-            '/alarmHistory', 'GET', header, version)
+        super(DescribeTargetsRequest, self).__init__(
+            '/regions/{regionId}/targetGroups/{targetGroupId}:describeTargets', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAlarmHistoryParameters(object):
+class DescribeTargetsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, targetGroupId, ):
         """
+        :param regionId: Region ID
+        :param targetGroupId: TargetGroup Id
         """
 
+        self.regionId = regionId
+        self.targetGroupId = targetGroupId
         self.pageNumber = None
         self.pageSize = None
-        self.alarmId = None
-        self.startTime = None
-        self.endTime = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1
+        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞), 页码超过总页数时, 显示最后一页
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小，默认为20
+        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
         """
         self.pageSize = pageSize
 
-    def setAlarmId(self, alarmId):
+    def setFilters(self, filters):
         """
-        :param alarmId: (Optional) 报警规则ID
-        """
-        self.alarmId = alarmId
+        :param filters: (Optional) targetIds - Target ID列表，支持多个
+instanceId - Instance ID，支持单个
+port - Target提供服务的端口，支持单个
 
-    def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UNIX时间戳
-        """
-        self.startTime = startTime
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 查询时间范围的结束时间， UNIX时间戳
-        """
-        self.endTime = endTime
+        self.filters = filters
 

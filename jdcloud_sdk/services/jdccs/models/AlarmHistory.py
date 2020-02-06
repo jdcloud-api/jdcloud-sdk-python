@@ -19,7 +19,7 @@
 
 class AlarmHistory(object):
 
-    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, managementIp=None, ifName=None, alarmStatus=None, value=None, noticeTime=None):
+    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, managementIp=None, ifName=None, alarmStatus=None, value=None, noticeTime=None, condition=None, strategyId=None):
         """
         :param alarmId: (Optional) 规则实例ID
         :param name: (Optional) 规则名称
@@ -42,6 +42,8 @@ class AlarmHistory(object):
         :param alarmStatus: (Optional) 报警状态 normal:正常 alarm:报警
         :param value: (Optional) 报警值
         :param noticeTime: (Optional) 报警时间 遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param condition: (Optional) 报警条件
+        :param strategyId: (Optional) 策略ID
         """
 
         self.alarmId = alarmId
@@ -65,3 +67,5 @@ class AlarmHistory(object):
         self.alarmStatus = alarmStatus
         self.value = value
         self.noticeTime = noticeTime
+        self.condition = condition
+        self.strategyId = strategyId

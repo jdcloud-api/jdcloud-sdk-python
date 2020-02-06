@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class JdccsClient(JDCloudClient):
+class HufuClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('jdccs.jdcloud-api.com')
+            config = Config('hufu.jdcloud-api.com')
 
-        super(JdccsClient, self).__init__(credential, config, 'jdccs', '1.0.7', logger)
+        super(HufuClient, self).__init__(credential, config, 'hufu', '1.0.2', logger)

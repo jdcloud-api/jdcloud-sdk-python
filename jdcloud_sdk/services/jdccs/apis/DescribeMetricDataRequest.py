@@ -37,8 +37,8 @@ class DescribeMetricDataParameters(object):
         :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)
         :param resourceId: 资源ID
-        :param startTime: 查询时间范围的开始时间， UNIX时间戳，（最多支持最近90天数据查询）
-        :param endTime: 查询时间范围的结束时间， UNIX时间戳，（最多支持最近90天数据查询）
+        :param startTime: 查询时间范围的开始时间， UNIX时间戳，（机柜电流最多支持最近90天数据查询、带宽流量最多支持最近30天数据查询）
+        :param endTime: 查询时间范围的结束时间， UNIX时间戳，（机柜电流最多支持最近90天数据查询、带宽流量最多支持最近30天数据查询）
         """
 
         self.idc = idc

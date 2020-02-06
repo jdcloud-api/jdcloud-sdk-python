@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class JdccsClient(JDCloudClient):
+class LbClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('jdccs.jdcloud-api.com')
+            config = Config('lb.jdcloud-api.com')
 
-        super(JdccsClient, self).__init__(credential, config, 'jdccs', '1.0.7', logger)
+        super(LbClient, self).__init__(credential, config, 'lb', '0.4.1', logger)

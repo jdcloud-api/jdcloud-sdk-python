@@ -19,56 +19,51 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAlarmHistoryRequest(JDCloudRequest):
+class QueryApisRequest(JDCloudRequest):
     """
-    报警历史列表
+    查询api列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAlarmHistoryRequest, self).__init__(
-            '/alarmHistory', 'GET', header, version)
+        super(QueryApisRequest, self).__init__(
+            '/scenes/{sceneId}/revisions/{revision}/apis', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAlarmHistoryParameters(object):
+class QueryApisParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, sceneId, revision, ):
         """
+        :param sceneId: 场景id
+        :param revision: 版本号
         """
 
+        self.sceneId = sceneId
+        self.revision = revision
         self.pageNumber = None
         self.pageSize = None
-        self.alarmId = None
-        self.startTime = None
-        self.endTime = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1
+        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞)
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小，默认为20
+        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
         """
         self.pageSize = pageSize
 
-    def setAlarmId(self, alarmId):
+    def setFilters(self, filters):
         """
-        :param alarmId: (Optional) 报警规则ID
-        """
-        self.alarmId = alarmId
+        :param filters: (Optional) apiName - API名称，模糊匹配，支持单个
+action - 动作，精确匹配，支持多个
+backServiceType- 后端服务类型，精确匹配，支持多个
+path - 路径，模糊匹配，支持单个
+description - 描述，模糊匹配，支持单个
 
-    def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询时间范围的开始时间， UNIX时间戳
-        """
-        self.startTime = startTime
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 查询时间范围的结束时间， UNIX时间戳
-        """
-        self.endTime = endTime
+        self.filters = filters
 

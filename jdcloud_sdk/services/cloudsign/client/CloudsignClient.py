@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class DiskClient(JDCloudClient):
+class CloudsignClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('disk.jdcloud-api.com')
+            config = Config('cloudsign.jdcloud-api.com')
 
-        super(DiskClient, self).__init__(credential, config, 'disk', '0.12.5', logger)
+        super(CloudsignClient, self).__init__(credential, config, 'cloudsign', '1.0.0', logger)

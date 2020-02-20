@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class DiskClient(JDCloudClient):
+class EsClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('disk.jdcloud-api.com')
+            config = Config('es.jdcloud-api.com')
 
-        super(DiskClient, self).__init__(credential, config, 'disk', '0.12.5', logger)
+        super(EsClient, self).__init__(credential, config, 'es', '1.0.0', logger)

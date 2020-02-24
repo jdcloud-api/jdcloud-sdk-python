@@ -32,11 +32,8 @@ class DescribeLiveStatisticGroupByStreamRequest(JDCloudRequest):
 
 class DescribeLiveStatisticGroupByStreamParameters(object):
 
-    def __init__(self, domainName, appName, streamName, startTime, ):
+    def __init__(self, startTime, ):
         """
-        :param domainName: 播放域名
-        :param appName: 应用名称
-        :param streamName: 流名称
         :param startTime: 起始时间
 - UTC时间
   格式:yyyy-MM-dd'T'HH:mm:ss'Z'
@@ -44,14 +41,32 @@ class DescribeLiveStatisticGroupByStreamParameters(object):
 
         """
 
-        self.domainName = domainName
-        self.appName = appName
-        self.streamName = streamName
+        self.domainName = None
+        self.appName = None
+        self.streamName = None
         self.ispName = None
         self.locationName = None
         self.period = None
         self.startTime = startTime
         self.endTime = None
+
+    def setDomainName(self, domainName):
+        """
+        :param domainName: (Optional) 播放域名
+        """
+        self.domainName = domainName
+
+    def setAppName(self, appName):
+        """
+        :param appName: (Optional) 应用名称
+        """
+        self.appName = appName
+
+    def setStreamName(self, streamName):
+        """
+        :param streamName: (Optional) 流名称
+        """
+        self.streamName = streamName
 
     def setIspName(self, ispName):
         """

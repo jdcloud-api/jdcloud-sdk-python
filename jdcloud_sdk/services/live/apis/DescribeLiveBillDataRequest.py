@@ -19,50 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeSystemLiveStreamTranscodeTemplatesRequest(JDCloudRequest):
+class DescribeLiveBillDataRequest(JDCloudRequest):
     """
-    查询系统默认转码模板列表
+    查询直播计费账单用量数据
+允许通过条件过滤查询，支持的过滤字段如下：
+  - startTime[eq]  账单开始时间
+  - endTime[eq]    账单结束时间
+  - billType[eq]   账单计费类型
+  - userPin[like]  用户PIN
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeSystemLiveStreamTranscodeTemplatesRequest, self).__init__(
-            '/transcodeSystem', 'GET', header, version)
+        super(DescribeLiveBillDataRequest, self).__init__(
+            '/liveBillDatas', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeSystemLiveStreamTranscodeTemplatesParameters(object):
+class DescribeLiveBillDataParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.pageNum = None
-        self.pageSize = None
         self.filters = None
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) 页码
-- 取值范围 [1, 100000]
-
-        """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 分页大小
-- 取值范围 [10, 100]
-
-        """
-        self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 转码模板查询过滤条件:
-  - name:   template 转码模板自定义名称
-  - value:  如果参数为空，则查询全部
-  - 如果为空,则表示查询该用下所有自定义的转码模板
+        :param filters: (Optional) 传参字段描述:
+  startTime(必填) : 2019-08-21T16:15:10Z
+  endTime(必填)   : 2019-08-21T18:10:10Z
+  billType(非必填)  :
+    enum:
+      - 1   (online)
+      - 2   (offline)
+  userPin(非必填)   : mt_test
 
         """
         self.filters = filters

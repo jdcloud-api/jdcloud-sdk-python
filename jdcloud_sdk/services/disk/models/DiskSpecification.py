@@ -19,13 +19,14 @@
 
 class DiskSpecification(object):
 
-    def __init__(self, diskType=None, minSizeGB=None, maxSizeGB=None, stepSizeGB=None, description=None, defaultIOPS=None, stepIOPS=None, maxIOPS=None, defaultThroughput=None, stepThroughput=None, maxThroughput=None, scalableIOPS=None, maxStepIOPS=None):
+    def __init__(self, diskType=None, minSizeGB=None, maxSizeGB=None, stepSizeGB=None, description=None, diskTypeName=None, defaultIOPS=None, stepIOPS=None, maxIOPS=None, defaultThroughput=None, stepThroughput=None, maxThroughput=None, scalableIOPS=None, maxStepIOPS=None):
         """
         :param diskType: (Optional) 云硬盘类型
         :param minSizeGB: (Optional) 支持的最小尺寸，单位为 GiB
         :param maxSizeGB: (Optional) 支持的最大尺寸，单位为 GiB
         :param stepSizeGB: (Optional) 步长尺寸，单位为 GiB
         :param description: (Optional) 描述信息
+        :param diskTypeName: (Optional) 类型名称
         :param defaultIOPS: (Optional) 默认的iops数量(基础iops数量)
         :param stepIOPS: (Optional) iops步长增量
         :param maxIOPS: (Optional) 最大iops数量
@@ -41,6 +42,7 @@ class DiskSpecification(object):
         self.maxSizeGB = maxSizeGB
         self.stepSizeGB = stepSizeGB
         self.description = description
+        self.diskTypeName = diskTypeName
         self.defaultIOPS = defaultIOPS
         self.stepIOPS = stepIOPS
         self.maxIOPS = maxIOPS

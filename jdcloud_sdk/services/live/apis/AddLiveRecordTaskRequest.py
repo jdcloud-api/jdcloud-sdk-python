@@ -34,7 +34,7 @@ class AddLiveRecordTaskRequest(JDCloudRequest):
 
 class AddLiveRecordTaskParameters(object):
 
-    def __init__(self, publishDomain, appName, streamName, recordTimes, recordFileType, ):
+    def __init__(self, publishDomain, appName, streamName, recordTimes, saveBucket, saveEndpoint, recordFileType, ):
         """
         :param publishDomain: 推流域名
         :param appName: 应用名称
@@ -44,8 +44,10 @@ class AddLiveRecordTaskParameters(object):
 - 多段时间跨度最小不能小于10s
 - 多段时间跨度最大不能超过8小时
 
+        :param saveBucket: 存储桶
+        :param saveEndpoint: 存储地址
         :param recordFileType: 录制文件类型:
-- 取值: ts,flv,mp4 (多种类型之前用;隔开)
+- 取值: ts,flv,mp4 (多种类型之间用;隔开)
 - 不区分大小写
 
         """
@@ -54,35 +56,23 @@ class AddLiveRecordTaskParameters(object):
         self.appName = appName
         self.streamName = streamName
         self.recordTimes = recordTimes
-        self.saveBucket = None
-        self.saveEndpoint = None
+        self.saveBucket = saveBucket
+        self.saveEndpoint = saveEndpoint
         self.recordFileType = recordFileType
         self.saveObject = None
         self.taskExternalId = None
 
-    def setSaveBucket(self, saveBucket):
-        """
-        :param saveBucket: (Optional) 存储桶
-        """
-        self.saveBucket = saveBucket
-
-    def setSaveEndpoint(self, saveEndpoint):
-        """
-        :param saveEndpoint: (Optional) 存储地址
-        """
-        self.saveEndpoint = saveEndpoint
-
     def setSaveObject(self, saveObject):
         """
-        :param saveObject: (Optional) 录制文件存储路径:
-- 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}
+        :param saveObject: (Optional) 录制文件存储Object:
+- 默认: /record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}
 
         """
         self.saveObject = saveObject
 
     def setTaskExternalId(self, taskExternalId):
         """
-        :param taskExternalId: (Optional) 打点录制任务外键
+        :param taskExternalId: (Optional) 打点录制任务外部id(可传入您的id,在回调时会在该字段返回)
 
         """
         self.taskExternalId = taskExternalId

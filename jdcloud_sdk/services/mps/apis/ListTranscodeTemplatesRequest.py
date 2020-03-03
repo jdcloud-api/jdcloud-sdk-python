@@ -19,51 +19,45 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeSystemLiveStreamTranscodeTemplatesRequest(JDCloudRequest):
+class ListTranscodeTemplatesRequest(JDCloudRequest):
     """
-    查询系统默认转码模板列表
+    查询转码模板列表。
+允许通过条件过滤查询，支持的过滤字段如下：
+  - transcodeType[eq] 按转码方式精确查询
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeSystemLiveStreamTranscodeTemplatesRequest, self).__init__(
-            '/transcodeSystem', 'GET', header, version)
+        super(ListTranscodeTemplatesRequest, self).__init__(
+            '/transcodeTemplates', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeSystemLiveStreamTranscodeTemplatesParameters(object):
+class ListTranscodeTemplatesParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.pageNum = None
+        self.pageNumber = None
         self.pageSize = None
         self.filters = None
 
-    def setPageNum(self, pageNum):
+    def setPageNumber(self, pageNumber):
         """
-        :param pageNum: (Optional) 页码
-- 取值范围 [1, 100000]
-
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
-        self.pageNum = pageNum
+        self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小
-- 取值范围 [10, 100]
-
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 转码模板查询过滤条件:
-  - name:   template 转码模板自定义名称
-  - value:  如果参数为空，则查询全部
-  - 如果为空,则表示查询该用下所有自定义的转码模板
-
+        :param filters: (Optional) 
         """
         self.filters = filters
 

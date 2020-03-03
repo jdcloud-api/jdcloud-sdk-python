@@ -23,7 +23,7 @@ class SubmitTranscodeJobRequestInfo(object):
         """
         :param accessKey:  输入对象存储 accessKey，必须参数
         :param secretKey:  输入对象存储 accessKey，必须参数
-        :param endpoint:  输入对象存储 endpoint，必须参数，如 s3.cn-north-1.jcloudcs.com
+        :param endpoint:  输入对象存储 endpoint。必须参数，内网域名，如 s3-internal.cn-north-1.jcloudcs.com
         :param bucket:  输入对象存储 bucket，必须参数
         :param objectKey:  输入对象存储 objectKey，必须参数
         :param title: (Optional) 输入视频标题，可选参数，默认会从 objectKey 中截取

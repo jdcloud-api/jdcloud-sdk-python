@@ -19,13 +19,14 @@
 
 class ForwardRule(object):
 
-    def __init__(self, id=None, instanceId=None, protocol=None, cname=None, originType=None, port=None, algorithm=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None, status=None):
+    def __init__(self, id=None, instanceId=None, protocol=None, cname=None, originType=None, serviceIp=None, port=None, algorithm=None, originAddr=None, onlineAddr=None, originDomain=None, originPort=None, status=None):
         """
         :param id: (Optional) 规则 Id
         :param instanceId: (Optional) 实例 Id
         :param protocol: (Optional) TCP 或 UDP
         :param cname: (Optional) 规则的 CNAME
         :param originType: (Optional) 回源类型: ip 或者 domain
+        :param serviceIp: (Optional) 高防 IP
         :param port: (Optional) 端口号
         :param algorithm: (Optional) 转发规则. <br>- wrr: 带权重的轮询<br>- rr:  不带权重的轮询<br>- sh:  源地址hash
         :param originAddr: (Optional) 
@@ -40,6 +41,7 @@ class ForwardRule(object):
         self.protocol = protocol
         self.cname = cname
         self.originType = originType
+        self.serviceIp = serviceIp
         self.port = port
         self.algorithm = algorithm
         self.originAddr = originAddr

@@ -19,12 +19,15 @@
 
 class Instance(object):
 
-    def __init__(self, id=None, name=None, carrier=None, ipType=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
+    def __init__(self, id=None, name=None, carrier=None, ipType=None, ipCount=None, portCount=None, domainCount=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
         """
         :param id: (Optional) 实例 ID
         :param name: (Optional) 实例名称
-        :param carrier: (Optional) 链路类型. <br>- 1: 电信<br>- 3: 电信、联通和移动
+        :param carrier: (Optional) 链路类型. <br>- 1: 电信<br>- 3: 电信、联通和移动<br>- 4: BGP 线路
         :param ipType: (Optional) 可防护 IP 类型, 目前仅电信线路支持 IPV6 线路. <br>- 0: IPV4. <br>- 1: IPV4/IPV6
+        :param ipCount: (Optional) IP 数量
+        :param portCount: (Optional) 可配的转发端口数量
+        :param domainCount: (Optional) 可配的网站规则域名数量
         :param elasticTriggerCount: (Optional) 触发弹性带宽的次数
         :param abovePeakCount: (Optional) 超峰次数
         :param inBitslimit: (Optional) 保底带宽
@@ -60,6 +63,9 @@ class Instance(object):
         self.name = name
         self.carrier = carrier
         self.ipType = ipType
+        self.ipCount = ipCount
+        self.portCount = portCount
+        self.domainCount = domainCount
         self.elasticTriggerCount = elasticTriggerCount
         self.abovePeakCount = abovePeakCount
         self.inBitslimit = inBitslimit

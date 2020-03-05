@@ -19,13 +19,11 @@
 
 class IpSet(object):
 
-    def __init__(self, id=None, name=None, ip=None):
+    def __init__(self, id=None, name=None):
         """
         :param id: (Optional) IP 黑白名单 Id
         :param name: (Optional) IP 黑白名单的名称
-        :param ip: (Optional) IP 或 IP 段的数组
         """
 
         self.id = id
         self.name = name
-        self.ip = ip

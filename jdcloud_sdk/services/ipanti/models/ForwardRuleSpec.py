@@ -19,9 +19,10 @@
 
 class ForwardRuleSpec(object):
 
-    def __init__(self, protocol, port, algorithm, originType, originPort, originAddr=None, onlineAddr=None, originDomain=None):
+    def __init__(self, protocol, port, algorithm, originType, originPort, serviceIp=None, originAddr=None, onlineAddr=None, originDomain=None):
         """
         :param protocol:  协议: TCP 或者 UDP
+        :param serviceIp: (Optional) 高防 IP
         :param port:  端口号, 取值范围[1, 65535]
         :param algorithm:  转发规则. <br>- wrr: 带权重的轮询<br>- rr:  不带权重的轮询<br>- sh:  源地址hash
         :param originType:  回源类型: A 或者 CNAME
@@ -32,6 +33,7 @@ class ForwardRuleSpec(object):
         """
 
         self.protocol = protocol
+        self.serviceIp = serviceIp
         self.port = port
         self.algorithm = algorithm
         self.originType = originType

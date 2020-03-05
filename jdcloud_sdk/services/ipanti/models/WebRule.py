@@ -19,13 +19,14 @@
 
 class WebRule(object):
 
-    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None):
+    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, serviceIp=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None, geoRsRoute=None):
         """
         :param id: (Optional) 规则 Id
         :param instanceId: (Optional) 实例 Id
         :param domain: (Optional) 子域名
         :param cname: (Optional) 规则的 CNAME
         :param cnameStatus: (Optional) CNAME 解析状态, 0: 解析异常, 1: 解析正常
+        :param serviceIp: (Optional) 高防 IP
         :param protocol: (Optional) 
         :param customPortStatus: (Optional) 是否为自定义端口号, 0: 为默认, 1: 为自定义
         :param port: (Optional) HTTP 协议的端口号, 如 80,81
@@ -47,6 +48,7 @@ class WebRule(object):
         :param webSocketStatus: (Optional) webSocket 状态, 0: 关闭, 1: 开启
         :param blackListEnable: (Optional) 黑名单状态, 0: 关闭, 1: 开启
         :param whiteListEnable: (Optional) 白名单状态, 0: 关闭, 1: 开启
+        :param geoRsRoute: (Optional) 按区域分流回源配置
         """
 
         self.id = id
@@ -54,6 +56,7 @@ class WebRule(object):
         self.domain = domain
         self.cname = cname
         self.cnameStatus = cnameStatus
+        self.serviceIp = serviceIp
         self.protocol = protocol
         self.customPortStatus = customPortStatus
         self.port = port
@@ -75,3 +78,4 @@ class WebRule(object):
         self.webSocketStatus = webSocketStatus
         self.blackListEnable = blackListEnable
         self.whiteListEnable = whiteListEnable
+        self.geoRsRoute = geoRsRoute

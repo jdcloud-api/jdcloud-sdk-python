@@ -19,8 +19,9 @@
 
 class WebRuleSpec(object):
 
-    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None):
+    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, serviceIp=None, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None, geoRsRoute=None):
         """
+        :param serviceIp: (Optional) 高防 IP
         :param domain:  子域名
         :param protocol:  协议: http, https 至少一个为 true
         :param port: (Optional) HTTP 协议的端口号, 如80, 81; 如果 protocol.http 为 true, 至少配置一个端口, 最多添加 5 个
@@ -34,8 +35,10 @@ class WebRuleSpec(object):
         :param customPortStatus: (Optional) 是否为自定义端口号. 0: 默认<br>- 1: 自定义
         :param httpOrigin: (Optional) 是否开启 HTTP 回源, protocol.https 为 true 时此参数生效. <br>- 0: 不开启. <br>- 1: 开启
         :param webSocketStatus:  是否开启 WebSocket.<br>- 0: 不开启<br>- 1: 开启
+        :param geoRsRoute: (Optional) 按区域分流回源配置
         """
 
+        self.serviceIp = serviceIp
         self.domain = domain
         self.protocol = protocol
         self.port = port
@@ -49,3 +52,4 @@ class WebRuleSpec(object):
         self.customPortStatus = customPortStatus
         self.httpOrigin = httpOrigin
         self.webSocketStatus = webSocketStatus
+        self.geoRsRoute = geoRsRoute

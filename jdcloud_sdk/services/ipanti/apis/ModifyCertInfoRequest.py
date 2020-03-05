@@ -19,39 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBusinessGraphRequest(JDCloudRequest):
+class ModifyCertInfoRequest(JDCloudRequest):
     """
-    业务流量报表
+    编辑网站规则证书信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBusinessGraphRequest, self).__init__(
-            '/regions/{regionId}/charts:businessGraph', 'GET', header, version)
+        super(ModifyCertInfoRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/webRules/{webRuleId}:modifyCertInfo', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeBusinessGraphParameters(object):
+class ModifyCertInfoParameters(object):
 
-    def __init__(self, regionId, startTime, ):
+    def __init__(self, regionId, instanceId, webRuleId, certInfoModifySpec):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param startTime: 开始时间, 最多查最近 90 天, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
+        :param instanceId: 高防实例 Id
+        :param webRuleId: 网站规则 Id
+        :param certInfoModifySpec: 编辑网站规则证书信息请求参数
         """
 
         self.regionId = regionId
-        self.startTime = startTime
-        self.endTime = None
-        self.instanceId = None
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
-        """
-        self.endTime = endTime
-
-    def setInstanceId(self, instanceId):
-        """
-        :param instanceId: (Optional) 高防实例 Id 列表
-        """
         self.instanceId = instanceId
+        self.webRuleId = webRuleId
+        self.certInfoModifySpec = certInfoModifySpec
 

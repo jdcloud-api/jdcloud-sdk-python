@@ -36,7 +36,7 @@ class LastDownsampleParameters(object):
         """
         :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)
-        :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用竖线 | 分隔
+        :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用英文竖线分隔
         """
 
         self.idc = idc

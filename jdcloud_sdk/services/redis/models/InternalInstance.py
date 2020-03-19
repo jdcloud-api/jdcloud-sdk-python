@@ -29,8 +29,8 @@ class InternalInstance(object):
         :param instanceStatus: (Optional) 实例状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中
         :param instanceVersion: (Optional) 实例版本：包括2.8、4.0
         :param createdTime: (Optional) 创建时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
-        :param vpcId: (Optional) 所属VPC的ID
-        :param subnetId: (Optional) 所属子网的ID
+        :param vpcId: (Optional) 所属VPC ID
+        :param subnetId: (Optional) 所属子网ID
         :param connectionDomain: (Optional) 访问域名
         :param connectionPort: (Optional) 访问端口
         :param auth: (Optional) 连接redis实例时，是否需要密码认证，false表示无密码

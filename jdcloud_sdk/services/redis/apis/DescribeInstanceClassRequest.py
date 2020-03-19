@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceClassRequest(JDCloudRequest):
     """
-    查询某区域下的缓存Redis实例规格列表
+    查询缓存Redis实例的规格列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):

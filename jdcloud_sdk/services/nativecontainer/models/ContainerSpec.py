@@ -23,7 +23,7 @@ class ContainerSpec(object):
         """
         :param instanceType:  实例类型；参考[文档](https://www.jdcloud.com/help/detail/1992/isCatalog/1)
         :param az:  容器所属可用区
-        :param name:  容器名称
+        :param name:  容器名称，不可为空，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且不能超过32字符
         :param hostAliases: (Optional) 域名和IP映射的信息；</br> 最大10个alias
         :param hostname: (Optional) 主机名，规范请参考说明文档；默认容器ID
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT

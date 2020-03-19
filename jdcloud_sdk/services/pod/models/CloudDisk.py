@@ -19,8 +19,9 @@
 
 class CloudDisk(object):
 
-    def __init__(self, volumeId=None, snapshotId=None, diskType=None, sizeGB=None, fsType=None, iops=None, autoDelete=None):
+    def __init__(self, category=None, volumeId=None, snapshotId=None, diskType=None, sizeGB=None, fsType=None, iops=None, autoDelete=None):
         """
+        :param category: (Optional) 
         :param volumeId: (Optional) 云盘ID。
         :param snapshotId: (Optional) 云盘快照ID。
         :param diskType: (Optional) 云盘类型：hdd.std1,ssd.gp1,ssd.io1。
@@ -30,6 +31,7 @@ class CloudDisk(object):
         :param autoDelete: (Optional) 是否随pod删除。
         """
 
+        self.category = category
         self.volumeId = volumeId
         self.snapshotId = snapshotId
         self.diskType = diskType

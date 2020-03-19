@@ -21,7 +21,7 @@ class ContainerSpec(object):
 
     def __init__(self, name, image, systemDisk, command=None, args=None, env=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, volumeMounts=None):
         """
-        :param name:  容器名称，符合DNS-1123 label规范，在一个Pod内不能重复。
+        :param name:  容器名称，符合DNS-1123 label规范，在一个Pod内不可重复、不支持修改
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT。总长度256个字符。
         :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD。总长度2048个字符。
         :param env: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值。数组范围：[0-100]

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyCacheInstanceClassRequest(JDCloudRequest):
     """
-    变更缓存Redis实例规格（变配），实例运行时可以变配，新规格不能与之前的老规格相同，新规格内存大小不能小于实例的已使用内存。
+    变更缓存Redis实例规格（变配），实例运行时可以变配，新规格不能与之前的老规格相同，新规格内存大小不能小于实例的已使用内存
 
     """
 
@@ -33,7 +33,7 @@ class ModifyCacheInstanceClassRequest(JDCloudRequest):
 
 class ModifyCacheInstanceClassParameters(object):
 
-    def __init__(self, regionId, cacheInstanceId, cacheInstanceClass):
+    def __init__(self, regionId, cacheInstanceId, cacheInstanceClass, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
@@ -43,4 +43,11 @@ class ModifyCacheInstanceClassParameters(object):
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
         self.cacheInstanceClass = cacheInstanceClass
+        self.shardNumber = None
+
+    def setShardNumber(self, shardNumber):
+        """
+        :param shardNumber: (Optional) 自定义分片数，只对自定义分片规格实例有效
+        """
+        self.shardNumber = shardNumber
 

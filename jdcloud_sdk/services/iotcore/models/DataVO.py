@@ -19,7 +19,7 @@
 
 class DataVO(object):
 
-    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, createTime=None, endTime=None, maxDevices=None, maxMessage=None, instanceId=None, instanceType=None):
+    def __init__(self, id=None, name=None, subNetId=None, subNetName=None, vpcId=None, vpcName=None, azName=None, pubDomain=None, priDomain=None, status=None, createTime=None, endTime=None, maxDevices=None, maxMessage=None, instanceId=None, instanceType=None, edgeStatus=None, edgeOpenTime=None):
         """
         :param id: (Optional) 系统流水号
         :param name: (Optional) 实例名称
@@ -37,6 +37,8 @@ class DataVO(object):
         :param maxMessage: (Optional) 最大消息条数
         :param instanceId: (Optional) 实例编号
         :param instanceType: (Optional) 实例类型[0-独享，1-共享]
+        :param edgeStatus: (Optional) Edge是否开通，0-未开通，1-已开通
+        :param edgeOpenTime: (Optional) Edge开通时间
         """
 
         self.id = id
@@ -55,3 +57,5 @@ class DataVO(object):
         self.maxMessage = maxMessage
         self.instanceId = instanceId
         self.instanceType = instanceType
+        self.edgeStatus = edgeStatus
+        self.edgeOpenTime = edgeOpenTime

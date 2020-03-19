@@ -26,4 +26,4 @@ class EsClient(JDCloudClient):
         if config is None:
             config = Config('es.jdcloud-api.com')
 
-        super(EsClient, self).__init__(credential, config, 'es', '1.0.0', logger)
+        super(EsClient, self).__init__(credential, config, 'es', '1.0.1', logger)

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateProductTopicRequest(JDCloudRequest):
     """
-    新建产品Topic
+    新建产品自定义Topic
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -35,12 +35,15 @@ class CreateProductTopicParameters(object):
     def __init__(self, regionId, instanceId, productKey, topicShortName, topicOperation, ):
         """
         :param regionId: 地域ID
-        :param instanceId: IoT Engine实例ID信息
+        :param instanceId: IoTCore实例ID信息
         :param productKey: 产品Key
-        :param topicShortName: 自定义类目名称, /user/{productKey}/{identifier}/topicShortName
-        :param topicOperation: 设备对该Topic类的操作权限，取值
-sub:订阅
+        :param topicShortName: Topic名称为必填，同一个产品下的Topic名称不能重复
+只能包含字母，数字和下划线，最多64个字符，每个层级都不能为空
+不能以/结尾
+
+        :param topicOperation: 操作权限，设备对该Topic类的操作权限，取值
 pub:发布
+sub:订阅
 
         """
 

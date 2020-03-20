@@ -19,12 +19,13 @@
 
 class AudioStreamSettings(object):
 
-    def __init__(self, codec, bitrate, sampleRate, channels=None, comfortable=None):
+    def __init__(self, codec, bitrate, sampleRate=None, channels=None, comfortable=None):
         """
         :param codec:  音频编码。取值范围：aac 。目前仅支持 acc
         :param bitrate:  音频目标码率。取值范围：[8, 1000]，单位为 Kbps
-        :param sampleRate:  音频采样率。取值范围：22050、24000、32000、44100、48000、64000、88200、96000
-当容器封装格式为 flv 时，只支持 22050、44100
+        :param sampleRate: (Optional) 音频采样率。
+若容器封装格式为 flv ，该字段为必须参数，其取值范围：22050、44100
+若容器封装格式不为 flv ，则此字段为非必须参数，未设置时，与源文件音频采样率保持一致，若设置值，其取值范围：22050、24000、32000、44100、48000、64000、88200、96000
 
         :param channels: (Optional) 音频声道数。取值范围：1、2 。默认值为 2
         :param comfortable: (Optional) 是否开启舒适音频。取值范围：true、false，默认值为 true

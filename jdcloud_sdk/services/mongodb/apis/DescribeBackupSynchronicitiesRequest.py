@@ -19,39 +19,44 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class DescribeBackupSynchronicitiesRequest(JDCloudRequest):
     """
-    创建备份
+    查询跨区域备份同步服务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(DescribeBackupSynchronicitiesRequest, self).__init__(
+            '/regions/{regionId}/backupSynchronicities', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class DescribeBackupSynchronicitiesParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: Region ID
-        :param instanceId: 实例ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
+        self.pageNumber = None
+        self.pageSize = None
+        self.filters = None
 
-    def setBackupName(self, backupName):
+    def setPageNumber(self, pageNumber):
         """
-        :param backupName: (Optional) 备份名称
+        :param pageNumber: (Optional) 页码；默认为1，取值范围：[1,∞)
         """
-        self.backupName = backupName
+        self.pageNumber = pageNumber
 
-    def setBackupMethod(self, backupMethod):
+    def setPageSize(self, pageSize):
         """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 100]
         """
-        self.backupMethod = backupMethod
+        self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) null
+        """
+        self.filters = filters
 

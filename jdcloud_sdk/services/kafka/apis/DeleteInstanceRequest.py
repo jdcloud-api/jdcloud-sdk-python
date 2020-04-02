@@ -19,39 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class DeleteInstanceRequest(JDCloudRequest):
     """
-    创建备份
+    删除按配置计费或包年包月已到期的kafka实例，包年包月未到期不可删除。
+状态为创建中和变配中的不可删除。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(DeleteInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class DeleteInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
+        :param regionId: regionId
         :param instanceId: 实例ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
-
-    def setBackupName(self, backupName):
-        """
-        :param backupName: (Optional) 备份名称
-        """
-        self.backupName = backupName
-
-    def setBackupMethod(self, backupMethod):
-        """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
-        """
-        self.backupMethod = backupMethod
 

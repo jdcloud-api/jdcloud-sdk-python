@@ -19,39 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class ModifyNodeSpecRequest(JDCloudRequest):
     """
-    创建备份
+    变更分片集群的节点规格，支持Mognos、Shard节点。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(ModifyNodeSpecRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/nodes/{nodeId}:modifyNodeSpec', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class ModifyNodeSpecParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, nodeId, nodeType, ):
         """
         :param regionId: Region ID
-        :param instanceId: 实例ID
+        :param instanceId: Instance ID
+        :param nodeId: Node ID
+        :param nodeType: Shard节点或Mongos节点的规格，不允许小于当前规格。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
+        self.nodeId = nodeId
+        self.nodeType = nodeType
+        self.nodeStorageGB = None
 
-    def setBackupName(self, backupName):
+    def setNodeStorageGB(self, nodeStorageGB):
         """
-        :param backupName: (Optional) 备份名称
+        :param nodeStorageGB: (Optional) Shard存储空间，当前节点为Shard时可用，不允许小于当前规格。
         """
-        self.backupName = backupName
-
-    def setBackupMethod(self, backupMethod):
-        """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
-        """
-        self.backupMethod = backupMethod
+        self.nodeStorageGB = nodeStorageGB
 

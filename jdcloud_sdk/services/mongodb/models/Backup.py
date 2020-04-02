@@ -19,7 +19,7 @@
 
 class Backup(object):
 
-    def __init__(self, backupId=None, backupName=None, instanceId=None, backupStatus=None, backupStartTime=None, backupEndTime=None, backupMode=None, backupSizeByte=None):
+    def __init__(self, backupId=None, backupName=None, instanceId=None, backupStatus=None, backupStartTime=None, backupEndTime=None, backupMode=None, backupMethod=None, backupSizeByte=None):
         """
         :param backupId: (Optional) 备份ID
         :param backupName: (Optional) 备份名称
@@ -28,6 +28,7 @@ class Backup(object):
         :param backupStartTime: (Optional) 备份开始时间
         :param backupEndTime: (Optional) 备份结束时间
         :param backupMode: (Optional) 备份模式，Automated(系统自动备份)、Manual(手动备份)
+        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
         :param backupSizeByte: (Optional) 整个备份集大小，单位：Byte
         """
 
@@ -38,4 +39,5 @@ class Backup(object):
         self.backupStartTime = backupStartTime
         self.backupEndTime = backupEndTime
         self.backupMode = backupMode
+        self.backupMethod = backupMethod
         self.backupSizeByte = backupSizeByte

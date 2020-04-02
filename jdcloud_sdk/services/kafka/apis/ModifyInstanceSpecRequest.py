@@ -19,39 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class ModifyInstanceSpecRequest(JDCloudRequest):
     """
-    创建备份
+    变更kafka实例的配置，实例为running状态才可变更配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(ModifyInstanceSpecRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:modifyInstanceSpec', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class ModifyInstanceSpecParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, instanceClassSpec):
         """
-        :param regionId: Region ID
+        :param regionId: regionId
         :param instanceId: 实例ID
+        :param instanceClassSpec: 变更的规格
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
-
-    def setBackupName(self, backupName):
-        """
-        :param backupName: (Optional) 备份名称
-        """
-        self.backupName = backupName
-
-    def setBackupMethod(self, backupMethod):
-        """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
-        """
-        self.backupMethod = backupMethod
+        self.instanceClassSpec = instanceClassSpec
 

@@ -19,39 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class DescribeInstanceRequest(JDCloudRequest):
     """
-    创建备份
+    查询kafka实例的详细信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(DescribeInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class DescribeInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: Region ID
+        :param regionId: regionId
         :param instanceId: 实例ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
-
-    def setBackupName(self, backupName):
-        """
-        :param backupName: (Optional) 备份名称
-        """
-        self.backupName = backupName
-
-    def setBackupMethod(self, backupMethod):
-        """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
-        """
-        self.backupMethod = backupMethod
 

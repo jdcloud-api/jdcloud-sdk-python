@@ -19,39 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateBackupRequest(JDCloudRequest):
+class DeleteBackupSynchronicitiesRequest(JDCloudRequest):
     """
-    创建备份
+    删除跨地域备份同步服务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateBackupRequest, self).__init__(
-            '/regions/{regionId}/backups', 'POST', header, version)
+        super(DeleteBackupSynchronicitiesRequest, self).__init__(
+            '/regions/{regionId}/backupSynchronicities/{serviceId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class CreateBackupParameters(object):
+class DeleteBackupSynchronicitiesParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, serviceId, ):
         """
         :param regionId: Region ID
-        :param instanceId: 实例ID
+        :param serviceId: service ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.backupName = None
-        self.backupMethod = None
-
-    def setBackupName(self, backupName):
-        """
-        :param backupName: (Optional) 备份名称
-        """
-        self.backupName = backupName
-
-    def setBackupMethod(self, backupMethod):
-        """
-        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
-        """
-        self.backupMethod = backupMethod
+        self.serviceId = serviceId
 

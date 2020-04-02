@@ -19,7 +19,7 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, endpoint=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None):
+    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, endpoint=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None):
         """
         :param clusterId: (Optional) 集群id
         :param name: (Optional) 名称
@@ -45,6 +45,8 @@ class Cluster(object):
         :param maintenanceWindow: (Optional) 配置集群维护策略
         :param upgradePlan: (Optional) 集群升级计划信息, 仅展示最新一条升级计划信息
         :param masterProgress: (Optional) 控制节点操作进度
+        :param clusterNetwork: (Optional) 网络配置信息
+        :param networkMode: (Optional) 集群网络类型,可取值为auto和customized
         """
 
         self.clusterId = clusterId
@@ -71,3 +73,5 @@ class Cluster(object):
         self.maintenanceWindow = maintenanceWindow
         self.upgradePlan = upgradePlan
         self.masterProgress = masterProgress
+        self.clusterNetwork = clusterNetwork
+        self.networkMode = networkMode

@@ -19,8 +19,12 @@
 
 class Flavor(object):
 
-    def __init__(self, cpu=None, memory=None, iops=None, maxLink=None, maxDisk=None, minDisk=None, diskStep=None):
+    def __init__(self, instanceType=None, instanceClass=None, nodeRole=None, nodeType=None, cpu=None, memory=None, iops=None, maxLink=None, maxDisk=None, minDisk=None, diskStep=None, instanceStorageType=None):
         """
+        :param instanceType: (Optional) 实例类型，副本集：Replication；分片集群：Sharding
+        :param instanceClass: (Optional) 副本集规格代码
+        :param nodeRole: (Optional) 分片集群节点角色，mongos、configserver、shard
+        :param nodeType: (Optional) 分片集群节点规格代码
         :param cpu: (Optional) CPU核数
         :param memory: (Optional) 内存 ,单位GB
         :param iops: (Optional) iops
@@ -28,8 +32,13 @@ class Flavor(object):
         :param maxDisk: (Optional) 最大磁盘数,单位GB
         :param minDisk: (Optional) 最下磁盘数,单位GB
         :param diskStep: (Optional) 磁盘步长
+        :param instanceStorageType: (Optional) 存储类型。LOCAL_SSD -本地盘SSD、LOCAL_NVMe -本地盘NVMe、EBS_SSD-SSD云盘。
         """
 
+        self.instanceType = instanceType
+        self.instanceClass = instanceClass
+        self.nodeRole = nodeRole
+        self.nodeType = nodeType
         self.cpu = cpu
         self.memory = memory
         self.iops = iops
@@ -37,3 +46,4 @@ class Flavor(object):
         self.maxDisk = maxDisk
         self.minDisk = minDisk
         self.diskStep = diskStep
+        self.instanceStorageType = instanceStorageType

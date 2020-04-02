@@ -26,4 +26,4 @@ class MpsClient(JDCloudClient):
         if config is None:
             config = Config('mps.jdcloud-api.com')
 
-        super(MpsClient, self).__init__(credential, config, 'mps', '0.4.7', logger)
+        super(MpsClient, self).__init__(credential, config, 'mps', '0.4.9', logger)

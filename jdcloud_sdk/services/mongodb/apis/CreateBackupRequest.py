@@ -41,10 +41,17 @@ class CreateBackupParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.backupName = None
+        self.backupMethod = None
 
     def setBackupName(self, backupName):
         """
         :param backupName: (Optional) 备份名称
         """
         self.backupName = backupName
+
+    def setBackupMethod(self, backupMethod):
+        """
+        :param backupMethod: (Optional) 备份方式，Logical - 逻辑备份、Physical - 物理备份
+        """
+        self.backupMethod = backupMethod
 

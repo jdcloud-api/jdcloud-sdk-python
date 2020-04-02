@@ -19,7 +19,7 @@
 
 class DBInstanceSpec(object):
 
-    def __init__(self, instanceClass, instanceStorageGB, multiAZ, azId, vpcId, subnetId, instanceName=None, engine=None, engineVersion=None, password=None, backupId=None, originDBInstanceId=None, restoreTime=None):
+    def __init__(self, instanceClass, instanceStorageGB, multiAZ, azId, vpcId, subnetId, instanceName=None, engine=None, engineVersion=None, password=None, backupId=None, originDBInstanceId=None, restoreTime=None, instanceStorageType=None, storageEncrypted=None):
         """
         :param instanceName: (Optional) 实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符。
         :param engine: (Optional) 数据库类型，MongoDB
@@ -27,13 +27,15 @@ class DBInstanceSpec(object):
         :param instanceClass:  实例规格代码。mongo.s1.small：1核2G;mongo.s1.medium：2核4G;mongo.s1.large：4核8G;mongo.s1.xlarge：8核16G;mongo.s2.2xlarge：8核32G;mongo.s2.4xlarge：16核64G;
         :param instanceStorageGB:  存储空间，单位GB，取值10-1000,10的倍数。
         :param multiAZ:  是否选择多可用区部署
-        :param azId:  可用区ID，必填，第一个ID为primary所在可用区ID，第二个为secondary，第三个为hidden。multiAZ选择是，则primary与secondary的可用区ID需相同，且与hidden不同；multiAZ选择否，三个节点写相同的可用区ID。
+        :param azId:  可用区ID，必填，依次为primary、secondary、hidden所在的可用区ID。multiAZ选择否，则三个节点需要写相同的可用区ID；multiAZ选择是，如当前地域的可用区数量为2，则primary与secondary的可用区ID需相同，且与hidden不同；如当前地域的可用区数量大于2，则3个可用区ID均需不同。
         :param vpcId:  VPCID
         :param subnetId:  子网ID
         :param password: (Optional) 密码，必须包含且只支持字母及数字，不少于8字符不超过16字符。
         :param backupId: (Optional) 按备份创建使用的具体备份ID
         :param originDBInstanceId: (Optional) 基于一个实例的备份创建新实例，如填写则restoreTime也需要填写。
         :param restoreTime: (Optional) 用户指定备份保留周期内的任意时间点，如2011-06-11T16:00:00Z，非必填，与backupId互斥。
+        :param instanceStorageType: (Optional) 存储类型。参考枚举参数定义，LOCAL_SSD -本地盘SSD、LOCAL_NVMe -本地盘NVMe，缺省值为：LOCAL_SSD
+        :param storageEncrypted: (Optional) 实例数据加密（存储类型为云硬盘才支持数据加密）。 false：不加密；true：加密。缺省为false。
         """
 
         self.instanceName = instanceName
@@ -49,3 +51,5 @@ class DBInstanceSpec(object):
         self.backupId = backupId
         self.originDBInstanceId = originDBInstanceId
         self.restoreTime = restoreTime
+        self.instanceStorageType = instanceStorageType
+        self.storageEncrypted = storageEncrypted

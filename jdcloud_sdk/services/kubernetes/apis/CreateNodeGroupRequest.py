@@ -34,7 +34,7 @@ class CreateNodeGroupRequest(JDCloudRequest):
 
 class CreateNodeGroupParameters(object):
 
-    def __init__(self, regionId, name, clusterId, nodeConfig, initialNodeCount, vpcId, nodeCidr, ):
+    def __init__(self, regionId, name, clusterId, nodeConfig, initialNodeCount, vpcId, ):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 内部唯一）
@@ -42,7 +42,6 @@ class CreateNodeGroupParameters(object):
         :param nodeConfig: 工作节点配置信息
         :param initialNodeCount: 工作节点组初始化大小
         :param vpcId: 工作节点组初始化大小运行的VPC
-        :param nodeCidr: 工作节点组的cidr
         """
 
         self.regionId = regionId
@@ -53,9 +52,10 @@ class CreateNodeGroupParameters(object):
         self.azs = None
         self.initialNodeCount = initialNodeCount
         self.vpcId = vpcId
-        self.nodeCidr = nodeCidr
+        self.nodeCidr = None
         self.autoRepair = None
         self.caConfig = None
+        self.nodeGroupNetwork = None
 
     def setDescription(self, description):
         """
@@ -69,6 +69,12 @@ class CreateNodeGroupParameters(object):
         """
         self.azs = azs
 
+    def setNodeCidr(self, nodeCidr):
+        """
+        :param nodeCidr: (Optional) 工作节点组的cidr
+        """
+        self.nodeCidr = nodeCidr
+
     def setAutoRepair(self, autoRepair):
         """
         :param autoRepair: (Optional) 是否开启工作节点组的自动修复，默认关闭
@@ -80,4 +86,10 @@ class CreateNodeGroupParameters(object):
         :param caConfig: (Optional) 自动伸缩配置
         """
         self.caConfig = caConfig
+
+    def setNodeGroupNetwork(self, nodeGroupNetwork):
+        """
+        :param nodeGroupNetwork: (Optional) 节点组的网络配置，如果集群的类型customized类型，则必须指定该参数，如果是auto，则不是必须
+        """
+        self.nodeGroupNetwork = nodeGroupNetwork
 

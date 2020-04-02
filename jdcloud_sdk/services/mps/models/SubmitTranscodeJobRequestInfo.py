@@ -19,7 +19,7 @@
 
 class SubmitTranscodeJobRequestInfo(object):
 
-    def __init__(self, accessKey, secretKey, endpoint, bucket, objectKey, templateIds, outputConfig, title=None):
+    def __init__(self, accessKey, secretKey, endpoint, bucket, objectKey, templateIds, outputConfig, title=None, additionalProperties=None):
         """
         :param accessKey:  输入对象存储 accessKey，必须参数
         :param secretKey:  输入对象存储 accessKey，必须参数
@@ -29,6 +29,17 @@ class SubmitTranscodeJobRequestInfo(object):
         :param title: (Optional) 输入视频标题，可选参数，默认会从 objectKey 中截取
         :param templateIds:  转码模板ID集合，必须参数，非空集合
         :param outputConfig:  输出配置，必须参数
+        :param additionalProperties: (Optional) 附加参数，JSON格式的字符串。除非清楚了解其用途和用法，请勿使用此字段。
+若参数在本次作业提交所关联的模板中，存在相同用途的对应字段，则该属性值会覆盖模板中的对应字段；
+若参数在本次作业提交所关联的模板中，不存在相同用途的对应字段，则该属性值会作为补充设置，用于生产任务；
+有特殊说明的除外。
+当前支持的附加参数：
+  - hls.encrypt.key - HLS加密公钥，对应于转码模板中 encryption.hlsKey 字段
+  - hls.encrypt.keyUrl - HLS加密公钥地址，对应于转码模板中 encryption.hlsKeyUrl 字段
+  - hls.encrypt.encodeType - HLS加密公钥编码方式，对应于转码模板中 encryption.hlsKeyEncodeType 字段
+特殊说明：
+  -  HLS加密相关参数，具有完整性要求，故 hls.encrypt 命名空间下的附加参数，依赖于 hls.encrypt.key 参数的设置情况。若设置 hls.encrypt.key 参数，则命名空间 hls.encrypt 下的其他参数也须同时设置；否则，其他参数会被忽略。
+
         """
 
         self.accessKey = accessKey
@@ -39,3 +50,4 @@ class SubmitTranscodeJobRequestInfo(object):
         self.title = title
         self.templateIds = templateIds
         self.outputConfig = outputConfig
+        self.additionalProperties = additionalProperties

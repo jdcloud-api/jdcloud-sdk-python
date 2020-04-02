@@ -19,13 +19,15 @@
 
 class TopologyPair(object):
 
-    def __init__(self, domain=None, ip=None, port=None):
+    def __init__(self, domain=None, ip=None, port=None, floatingIp=None):
         """
         :param domain: (Optional) 域名
         :param ip: (Optional) ip地址
         :param port: (Optional) 端口
+        :param floatingIp: (Optional) floatingIp地址
         """
 
         self.domain = domain
         self.ip = ip
         self.port = port
+        self.floatingIp = floatingIp

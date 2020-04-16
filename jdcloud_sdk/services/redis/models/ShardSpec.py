@@ -19,15 +19,21 @@
 
 class ShardSpec(object):
 
-    def __init__(self, shardClass=None, cpu=None, memoryGB=None, diskGB=None):
+    def __init__(self, shardClass=None, cpu=None, memoryGB=None, diskGB=None, maxConnection=None, bandwidthMbps=None, shardNumberList=None):
         """
         :param shardClass: (Optional) 单分片规格代码，自定义分片实例才有
         :param cpu: (Optional) 单分片CPU核数
         :param memoryGB: (Optional) 单分片内存大小（GB）
         :param diskGB: (Optional) 单分片磁盘大小（GB）
+        :param maxConnection: (Optional) 单分片最大连接数
+        :param bandwidthMbps: (Optional) 单分片带宽（Mbps）
+        :param shardNumberList: (Optional) 支持的分片数列表
         """
 
         self.shardClass = shardClass
         self.cpu = cpu
         self.memoryGB = memoryGB
         self.diskGB = diskGB
+        self.maxConnection = maxConnection
+        self.bandwidthMbps = bandwidthMbps
+        self.shardNumberList = shardNumberList

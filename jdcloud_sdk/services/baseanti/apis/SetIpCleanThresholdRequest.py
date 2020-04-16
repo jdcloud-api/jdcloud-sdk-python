@@ -35,7 +35,6 @@ class SetIpCleanThresholdParameters(object):
     def __init__(self, regionId, ipCleanThresholdSpec):
         """
         :param regionId: 地域编码. 基础防护已支持华北-北京, 华东-宿迁, 华东-上海, 华南-广州
-
         :param ipCleanThresholdSpec: 请求参数
         """
 

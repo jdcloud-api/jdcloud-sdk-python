@@ -21,7 +21,7 @@ class InstanceClass(object):
 
     def __init__(self, instanceClass=None, instanceType=None, cpu=None, memoryMB=None, diskGB=None, maxConnection=None, bandwidthMbps=None):
         """
-        :param instanceClass: (Optional) 规格代码：redis 2.8与redis 4.0的规格码不同，具体参考 https://docs.jdcloud.com/cn/jcs-for-redis/specifications，自定义分片规格请调用describeSpecConfig获取
+        :param instanceClass: (Optional) 规格代码：redis 2.8与redis 4.0的规格码不同，具体参考 https://docs.jdcloud.com/cn/jcs-for-redis/specifications
         :param instanceType: (Optional) 规格类型：master-slave表示主从版，cluster表示集群版
         :param cpu: (Optional) cpu核数
         :param memoryMB: (Optional) 内存总容量（MB）

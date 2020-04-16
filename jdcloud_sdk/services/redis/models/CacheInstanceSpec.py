@@ -30,7 +30,7 @@ class CacheInstanceSpec(object):
         :param cacheInstanceDescription: (Optional) 缓存Redis实例的描述，不能超过256个字符
         :param redisVersion: (Optional) 缓存Redis引擎主次版本号：目前支持2.8和4.0，默认为2.8
         :param ipv6On: (Optional) 是否支持IPv6，0或空表示不支持，1表示支持IPv6，注意不是所有区域都支持IPv6，且必须保证VPC支持IPv6
-        :param shardNumber: (Optional) 自定义分片数，只对自定义规格实例有效
+        :param shardNumber: (Optional) 分片数，只对自定义分片规格实例有效，主从版固定为1，集群版大于1。每种分片规格支持的分片数可调用describeSpecConfig接口获取
         """
 
         self.vpcId = vpcId

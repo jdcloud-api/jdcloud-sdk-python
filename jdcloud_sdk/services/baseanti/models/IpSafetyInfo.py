@@ -22,7 +22,7 @@ class IpSafetyInfo(object):
     def __init__(self, ip=None, safetyStatus=None, region=None, blackHoleThreshold=None, cleanThresholdBps=None, cleanThresholdPps=None):
         """
         :param ip: (Optional) 公网 IP 地址
-        :param safetyStatus: (Optional) 安全状态, 0->安全, 1->清洗, 2->黑洞
+        :param safetyStatus: (Optional) 安全状态. <br>- 0: 安全<br>- 1: 清洗<br>- 2: 黑洞
         :param region: (Optional) 地域编码
         :param blackHoleThreshold: (Optional) 黑洞阈值, 单位 bps
         :param cleanThresholdBps: (Optional) 触发清洗的流量速率, 单位 bps

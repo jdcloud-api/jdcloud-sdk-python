@@ -35,7 +35,6 @@ class DescribeCcsIpResourcesParameters(object):
     def __init__(self, regionId, ):
         """
         :param regionId: 地域编码. 基础防护已支持华北-北京, 华东-宿迁, 华东-上海, 华南-广州
-
         """
 
         self.regionId = regionId

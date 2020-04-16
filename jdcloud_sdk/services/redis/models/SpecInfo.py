@@ -19,7 +19,7 @@
 
 class SpecInfo(object):
 
-    def __init__(self, memoryGB=None, instanceClass=None, cpu=None, diskGB=None, maxConntion=None, bandwidthMbps=None, shard=None, azs=None):
+    def __init__(self, memoryGB=None, instanceClass=None, cpu=None, diskGB=None, maxConntion=None, bandwidthMbps=None, ipNumber=None, shard=None, azs=None):
         """
         :param memoryGB: (Optional) 内存大小（GB）
         :param instanceClass: (Optional) 实例规格，空表示自定义分片集群，只有分片规格，没有实例规格
@@ -27,6 +27,7 @@ class SpecInfo(object):
         :param diskGB: (Optional) 实例磁盘大小（GB)，0表示自定义分片集群，磁盘大小由分片数变化
         :param maxConntion: (Optional) 最大连接数，0表示自定义分片集群，最大连接数由分片数变化
         :param bandwidthMbps: (Optional) 带宽（Mbps)，0表示自定义分片集群，带宽由分片数变化
+        :param ipNumber: (Optional) 需要的IP数，0表示自定义分片集群，IP数由分片数变化
         :param shard: (Optional) 该内存对应的分片列表信息，redis 2.8以及redis 4.0主从版没有分片列表信息
         :param azs: (Optional) az列表
         """
@@ -37,5 +38,6 @@ class SpecInfo(object):
         self.diskGB = diskGB
         self.maxConntion = maxConntion
         self.bandwidthMbps = bandwidthMbps
+        self.ipNumber = ipNumber
         self.shard = shard
         self.azs = azs

@@ -23,7 +23,7 @@ class CacheInstance(object):
         """
         :param cacheInstanceId: (Optional) 实例ID
         :param cacheInstanceName: (Optional) 实例名称
-        :param cacheInstanceClass: (Optional) 规格代码，或者自定义分片实例的单分片规格代码，参考 https://docs.jdcloud.com/cn/jcs-for-redis/specifications
+        :param cacheInstanceClass: (Optional) 规格代码，或者自定义分片实例的单分片规格代码
         :param cacheInstanceMemoryMB: (Optional) 实例的总内存（MB）
         :param cacheInstanceStatus: (Optional) 实例状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中
         :param cacheInstanceDescription: (Optional) 实例描述

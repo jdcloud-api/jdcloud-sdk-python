@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class VpcClient(JDCloudClient):
+class OrderClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('vpc.jdcloud-api.com')
+            config = Config('order.jdcloud-api.com')
 
-        super(VpcClient, self).__init__(credential, config, 'vpc', '0.9.2', logger)
+        super(OrderClient, self).__init__(credential, config, 'order', '0.1.0-v2', logger)

@@ -46,10 +46,12 @@ class CreateSubnetParameters(object):
         self.addressPrefix = addressPrefix
         self.routeTableId = None
         self.description = None
+        self.subnetType = None
+        self.az = None
 
     def setRouteTableId(self, routeTableId):
         """
-        :param routeTableId: (Optional) 子网关联的路由表Id, 默认为vpc的默认路由表
+        :param routeTableId: (Optional) 子网关联的路由表Id, 默认为vpc的默认路由表,子网关联路由表需检查路由表中已绑定的子网与本子网类型是否一致（一致标准为：或者都为标准子网，或者都为相同边缘可用区的边缘子网）
         """
         self.routeTableId = routeTableId
 
@@ -58,4 +60,16 @@ class CreateSubnetParameters(object):
         :param description: (Optional) 子网描述信息,允许输入UTF-8编码下的全部字符，不超过256字符。
         """
         self.description = description
+
+    def setSubnetType(self, subnetType):
+        """
+        :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
+        """
+        self.subnetType = subnetType
+
+    def setAz(self, az):
+        """
+        :param az: (Optional) 子网可用区，边缘子网必须指定可用区
+        """
+        self.az = az
 

@@ -19,7 +19,7 @@
 
 class Subnet(object):
 
-    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None):
+    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None, subnetType=None, az=None):
         """
         :param subnetId: (Optional) Subnet的Id
         :param subnetName: (Optional) 子网名称
@@ -32,6 +32,8 @@ class Subnet(object):
         :param startIp: (Optional) 子网的起始地址，子网第1个地位为路由器网关保留，第2个地址为dhcp服务保留
         :param endIp: (Optional) 子网的结束地址，子网第1个地位为路由器网关保留，第2个地址为dhcp服务保留
         :param createdTime: (Optional) 子网创建时间
+        :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
+        :param az: (Optional) 子网可用区
         """
 
         self.subnetId = subnetId
@@ -45,3 +47,5 @@ class Subnet(object):
         self.startIp = startIp
         self.endIp = endIp
         self.createdTime = createdTime
+        self.subnetType = subnetType
+        self.az = az

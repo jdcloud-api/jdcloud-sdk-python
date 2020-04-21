@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyElasticIpRequest(JDCloudRequest):
     """
-    修改弹性IP
+    修改弹性公网IP
     """
 
     def __init__(self, parameters, header=None, version="v1"):

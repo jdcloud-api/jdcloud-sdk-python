@@ -19,27 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AssociateRouteTableRequest(JDCloudRequest):
+class PayOrderRequest(JDCloudRequest):
     """
-    路由表绑定子网接口
+    订单支付
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
-        super(AssociateRouteTableRequest, self).__init__(
-            '/regions/{regionId}/routeTables/{routeTableId}:associateRouteTable', 'POST', header, version)
+    def __init__(self, parameters, header=None, version="v2"):
+        super(PayOrderRequest, self).__init__(
+            '/regions/{regionId}/order/{orderNumber}:pay', 'POST', header, version)
         self.parameters = parameters
 
 
-class AssociateRouteTableParameters(object):
+class PayOrderParameters(object):
 
-    def __init__(self, regionId, routeTableId, subnetIds):
+    def __init__(self, regionId, orderNumber, ):
         """
         :param regionId: Region ID
-        :param routeTableId: RouteTable ID
-        :param subnetIds: 路由表要绑定的子网ID列表, subnet已被其他路由表绑定时，自动解绑。路由表绑定的子网属性要相同，或者都是标准子网，或者都是相同边缘可用区的边缘子网。
+        :param orderNumber: orderNumber ID
         """
 
         self.regionId = regionId
-        self.routeTableId = routeTableId
-        self.subnetIds = subnetIds
+        self.orderNumber = orderNumber
+        self.autoPay = None
+
+    def setAutoPay(self, autoPay):
+        """
+        :param autoPay: (Optional) 自动支付标示，当为true,才会发生自动支付，后付费的订单直接支付0元，预付费的订单（余额+代金劵）> 订单应付金额，成功，否则支付失败（建议到京东云平台用现金方式支付）
+        """
+        self.autoPay = autoPay
 

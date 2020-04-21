@@ -19,27 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AssociateRouteTableRequest(JDCloudRequest):
+class QueryOrderRequest(JDCloudRequest):
     """
-    路由表绑定子网接口
+    查询订单详情
     """
 
-    def __init__(self, parameters, header=None, version="v1"):
-        super(AssociateRouteTableRequest, self).__init__(
-            '/regions/{regionId}/routeTables/{routeTableId}:associateRouteTable', 'POST', header, version)
+    def __init__(self, parameters, header=None, version="v2"):
+        super(QueryOrderRequest, self).__init__(
+            '/regions/{regionId}/order/{orderNumber}', 'GET', header, version)
         self.parameters = parameters
 
 
-class AssociateRouteTableParameters(object):
+class QueryOrderParameters(object):
 
-    def __init__(self, regionId, routeTableId, subnetIds):
+    def __init__(self, regionId, orderNumber, ):
         """
         :param regionId: Region ID
-        :param routeTableId: RouteTable ID
-        :param subnetIds: 路由表要绑定的子网ID列表, subnet已被其他路由表绑定时，自动解绑。路由表绑定的子网属性要相同，或者都是标准子网，或者都是相同边缘可用区的边缘子网。
+        :param orderNumber: orderNumber ID
         """
 
         self.regionId = regionId
-        self.routeTableId = routeTableId
-        self.subnetIds = subnetIds
+        self.orderNumber = orderNumber
+        self.includeDetail = None
+
+    def setIncludeDetail(self, includeDetail):
+        """
+        :param includeDetail: (Optional) 是否包含商品详情
+        """
+        self.includeDetail = includeDetail
 

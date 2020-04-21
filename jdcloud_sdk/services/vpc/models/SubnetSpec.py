@@ -19,13 +19,15 @@
 
 class SubnetSpec(object):
 
-    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None):
+    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None, subnetType=None, az=None):
         """
         :param vpcId:  子网所属vpc的Id
         :param subnetName:  子网名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param addressPrefix:  子网网段，vpc内子网网段不能重叠，cidr的取值范围：10.0.0.0/8、172.16.0.0/12和192.168.0.0/16及它们包含的子网，且子网掩码长度为16-28之间，如果vpc含有cidr，则必须为vpc所在cidr的子网
-        :param routeTableId: (Optional) 子网关联的路由表Id, 默认为vpc的默认路由表
+        :param routeTableId: (Optional) 子网关联的路由表Id, 默认为vpc的默认路由表,子网关联路由表需检查路由表中已绑定的子网与本子网类型是否一致（一致标准为：或者都为标准子网，或者都为相同边缘可用区的边缘子网）
         :param description: (Optional) 子网描述信息,允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
+        :param az: (Optional) 子网可用区，边缘子网必须指定可用区
         """
 
         self.vpcId = vpcId
@@ -33,3 +35,5 @@ class SubnetSpec(object):
         self.addressPrefix = addressPrefix
         self.routeTableId = routeTableId
         self.description = description
+        self.subnetType = subnetType
+        self.az = az

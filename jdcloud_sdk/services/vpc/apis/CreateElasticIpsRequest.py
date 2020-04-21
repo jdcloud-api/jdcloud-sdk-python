@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateElasticIpsRequest(JDCloudRequest):
     """
-    创建一个或者多个弹性Ip
+    创建一个或者多个弹性公网IP
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -44,6 +44,7 @@ class CreateElasticIpsParameters(object):
         self.elasticIpAddress = None
         self.elasticIpSpec = elasticIpSpec
         self.userTags = None
+        self.ipType = None
 
     def setElasticIpAddress(self, elasticIpAddress):
         """
@@ -56,4 +57,10 @@ class CreateElasticIpsParameters(object):
         :param userTags: (Optional) 用户标签
         """
         self.userTags = userTags
+
+    def setIpType(self, ipType):
+        """
+        :param ipType: (Optional) 弹性ip类型，取值：standard(标准公网IP)，edge(边缘公网IP)，默认为standard
+        """
+        self.ipType = ipType
 

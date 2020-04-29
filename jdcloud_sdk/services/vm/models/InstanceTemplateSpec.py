@@ -19,7 +19,7 @@
 
 class InstanceTemplateSpec(object):
 
-    def __init__(self, instanceType, imageId, primaryNetworkInterface, systemDisk, password=None, keyNames=None, elasticIp=None, dataDisks=None):
+    def __init__(self, instanceType, imageId, primaryNetworkInterface, systemDisk, password=None, keyNames=None, elasticIp=None, dataDisks=None, chargeOnStopped=None):
         """
         :param instanceType:  实例规格，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
         :param imageId:  镜像ID，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeimages">DescribeImages</a>接口获得指定地域的镜像信息。
@@ -29,6 +29,7 @@ class InstanceTemplateSpec(object):
         :param primaryNetworkInterface:  主网卡配置信息
         :param systemDisk:  系统盘配置信息
         :param dataDisks: (Optional) 数据盘配置信息
+        :param chargeOnStopped: (Optional) 停机不计费的标志， keepCharging(默认)：关机后继续计费；stopCharging：关机后停止计费。
         """
 
         self.instanceType = instanceType
@@ -39,3 +40,4 @@ class InstanceTemplateSpec(object):
         self.primaryNetworkInterface = primaryNetworkInterface
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
+        self.chargeOnStopped = chargeOnStopped

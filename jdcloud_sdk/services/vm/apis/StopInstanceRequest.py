@@ -41,4 +41,11 @@ class StopInstanceParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.chargeOnStopped = None
+
+    def setChargeOnStopped(self, chargeOnStopped):
+        """
+        :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机keepCharging：关机后继续计费；stopCharging：关机后停止计费。
+        """
+        self.chargeOnStopped = chargeOnStopped
 

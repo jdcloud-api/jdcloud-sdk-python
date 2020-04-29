@@ -19,13 +19,17 @@
 
 class InstanceTemplateDisk(object):
 
-    def __init__(self, diskType=None, diskSizeGB=None, snapshotId=None):
+    def __init__(self, diskType=None, diskSizeGB=None, snapshotId=None, encrypt=None, iops=None):
         """
         :param diskType: (Optional) 云硬盘类型，取值为 ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1
         :param diskSizeGB: (Optional) 云硬盘大小，单位为 GiB；ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G，hdd.std1、ssd.gp1、ssd.io1 类型取值范围[20-16000]GB，步长为10GB
-        :param snapshotId: (Optional) 用于创建云硬盘的快照ID
+        :param snapshotId: (Optional) 创建云硬盘的快照ID
+        :param encrypt: (Optional) 是否加密，false:(默认)不加密；true:加密
+        :param iops: (Optional) 云硬盘的iops值
         """
 
         self.diskType = diskType
         self.diskSizeGB = diskSizeGB
         self.snapshotId = snapshotId
+        self.encrypt = encrypt
+        self.iops = iops

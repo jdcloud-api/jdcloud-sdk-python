@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstancesRequest(JDCloudRequest):
+class DescribeBriefInstancesRequest(JDCloudRequest):
     """
-    批量查询云主机的详细信息<br>
+    批量查询云主机信息的轻量接口，不返回云盘、网络、计费、标签等信息。如果不需要关联资源属性，尽量选择使用该接口。<br>
 此接口支持分页查询，默认每页20条。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstancesRequest, self).__init__(
-            '/regions/{regionId}/instances', 'GET', header, version)
+        super(DescribeBriefInstancesRequest, self).__init__(
+            '/regions/{regionId}/instances:describeBriefInstances', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeInstancesParameters(object):
+class DescribeBriefInstancesParameters(object):
 
     def __init__(self, regionId, ):
         """
@@ -42,6 +42,7 @@ class DescribeInstancesParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -55,6 +56,12 @@ class DescribeInstancesParameters(object):
         :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 
     def setFilters(self, filters):
         """

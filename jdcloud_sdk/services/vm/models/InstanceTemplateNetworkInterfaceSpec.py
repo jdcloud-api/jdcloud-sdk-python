@@ -21,7 +21,7 @@ class InstanceTemplateNetworkInterfaceSpec(object):
 
     def __init__(self, subnetId, securityGroups=None, sanityCheck=None):
         """
-        :param subnetId:  子网ID
+        :param subnetId:  子网ID 仅支持中心可用区的子网
         :param securityGroups: (Optional) 安全组ID列表
         :param sanityCheck: (Optional) PortSecurity，取值为0或者1，默认为1
         """

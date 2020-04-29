@@ -19,11 +19,13 @@
 
 class InstanceTypeState(object):
 
-    def __init__(self, az=None, inStock=None):
+    def __init__(self, az=None, inStock=None, availableCount=None):
         """
         :param az: (Optional) 可用区
         :param inStock: (Optional) 可售卖情况，true:可售卖、false:已售罄不可用
+        :param availableCount: (Optional) 可用库存数量，预留字段，敬请期待。
         """
 
         self.az = az
         self.inStock = inStock
+        self.availableCount = availableCount

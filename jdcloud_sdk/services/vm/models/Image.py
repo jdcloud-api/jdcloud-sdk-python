@@ -19,7 +19,7 @@
 
 class Image(object):
 
-    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None):
+    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None, offline=None, serviceCode=None):
         """
         :param imageId: (Optional) 镜像ID
         :param name: (Optional) 镜像名称
@@ -40,6 +40,8 @@ class Image(object):
         :param snapshotId: (Optional) 创建云盘系统盘所使用的云硬盘快照ID。系统盘类型为本地盘的镜像，此参数为空。
         :param rootDeviceType: (Optional) 镜像支持的系统盘类型。取值：localDisk：本地盘系统盘；cloudDisk：云盘系统盘。
         :param progress: (Optional) 镜像复制和转换时的进度，仅显示数值，单位为百分比
+        :param offline: (Optional) 该镜像的上下线状态
+        :param serviceCode: (Optional) 该镜像所属的产品线标识
         """
 
         self.imageId = imageId
@@ -61,3 +63,5 @@ class Image(object):
         self.snapshotId = snapshotId
         self.rootDeviceType = rootDeviceType
         self.progress = progress
+        self.offline = offline
+        self.serviceCode = serviceCode

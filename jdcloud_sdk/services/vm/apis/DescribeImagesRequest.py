@@ -42,6 +42,8 @@ class DescribeImagesParameters(object):
 
         self.regionId = regionId
         self.imageSource = None
+        self.serviceCode = None
+        self.offline = None
         self.platform = None
         self.ids = None
         self.rootDeviceType = None
@@ -55,6 +57,18 @@ class DescribeImagesParameters(object):
         :param imageSource: (Optional) 镜像来源，如果没有指定ids参数，此参数必传；取值范围：public、shared、thirdparty、private、community
         """
         self.imageSource = imageSource
+
+    def setServiceCode(self, serviceCode):
+        """
+        :param serviceCode: (Optional) 产品线标识，非必传，不传的时候返回全部产品线镜像
+        """
+        self.serviceCode = serviceCode
+
+    def setOffline(self, offline):
+        """
+        :param offline: (Optional) 是否下线，默认值为false；imageSource为public或者thirdparty时，此参数才有意义，其它情况下此参数无效；指定镜像ID查询时，此参数无效
+        """
+        self.offline = offline
 
     def setPlatform(self, platform):
         """

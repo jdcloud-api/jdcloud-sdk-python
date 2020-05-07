@@ -19,37 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateImageUploadTaskRequest(JDCloudRequest):
+class VideoAuditRequest(JDCloudRequest):
     """
-    获取图片上传地址和凭证
+    视频审核
+视频在上传中或者转码中不允许更改视频审核状态，即视频只有在正常或屏蔽状态下才可以调用此接口设置审核状态
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateImageUploadTaskRequest, self).__init__(
-            '/imageUploadTask', 'POST', header, version)
+        super(VideoAuditRequest, self).__init__(
+            '/videos/{videoId}:audit', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateImageUploadTaskParameters(object):
+class VideoAuditParameters(object):
 
-    def __init__(self, fileName, ):
+    def __init__(self, videoId, auditResult):
         """
-        :param fileName: 文件名称
+        :param videoId: 视频ID
+        :param auditResult: 审核结果，取值范围:
+ block(封禁)
+ unblock(解封)
+
         """
 
-        self.httpMethod = None
-        self.fileName = fileName
-        self.fileSize = None
-
-    def setHttpMethod(self, httpMethod):
-        """
-        :param httpMethod: (Optional) HTTP 请求方法，上传只支持 PUT 方法，默认值为 PUT
-        """
-        self.httpMethod = httpMethod
-
-    def setFileSize(self, fileSize):
-        """
-        :param fileSize: (Optional) 文件大小
-        """
-        self.fileSize = fileSize
+        self.videoId = videoId
+        self.auditResult = auditResult
 

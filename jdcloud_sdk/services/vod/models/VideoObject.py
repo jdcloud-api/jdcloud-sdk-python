@@ -30,6 +30,7 @@ class VideoObject(object):
   transcode_failed - 转码失败
   normal - 正常
   uploaded - 上传完成（未转码）
+  blocked - 封禁
 
         :param fileSize: (Optional) 文件大小，单位为 Byte
         :param checksum: (Optional) 文件MD5校验和

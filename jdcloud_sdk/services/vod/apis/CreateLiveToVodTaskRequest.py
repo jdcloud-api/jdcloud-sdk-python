@@ -19,26 +19,38 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateVideoUploadTaskRequest(JDCloudRequest):
+class CreateLiveToVodTaskRequest(JDCloudRequest):
     """
-    获取视频上传地址和凭证
+    创建直播转点播任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateVideoUploadTaskRequest, self).__init__(
-            '/videoUploadTask', 'POST', header, version)
+        super(CreateLiveToVodTaskRequest, self).__init__(
+            '/createLiveToVodTask', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateVideoUploadTaskParameters(object):
+class CreateLiveToVodTaskParameters(object):
 
-    def __init__(self, title, fileName, ):
+    def __init__(self, title, fileName, publishDomain, appName, streamName, recordTimes, recordFileType, ):
         """
         :param title: 视频标题
         :param fileName: 文件名称
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param streamName: 流名称
+        :param recordTimes: 录制时间段集合
+- 支持自定义1-10个时间段,拼接成一个文件
+- 每个时间段不小于10s
+- 总跨度不超过12小时
+- 时间段按升序排列且无重叠
+
+        :param recordFileType: 录制文件类型:
+- 取值: ts, flv, mp4
+- 不区分大小写
+
         """
 
-        self.httpMethod = None
         self.title = title
         self.fileName = fileName
         self.fileSize = None
@@ -48,13 +60,13 @@ class CreateVideoUploadTaskParameters(object):
         self.tags = None
         self.transcodeTemplateIds = None
         self.watermarkIds = None
-        self.userData = None
-
-    def setHttpMethod(self, httpMethod):
-        """
-        :param httpMethod: (Optional) HTTP 请求方法，上传只支持 PUT 方法，默认值为 PUT
-        """
-        self.httpMethod = httpMethod
+        self.publishDomain = publishDomain
+        self.appName = appName
+        self.streamName = streamName
+        self.recordTimes = recordTimes
+        self.recordFileType = recordFileType
+        self.taskExternalId = None
+        self.priority = None
 
     def setFileSize(self, fileSize):
         """
@@ -98,9 +110,18 @@ class CreateVideoUploadTaskParameters(object):
         """
         self.watermarkIds = watermarkIds
 
-    def setUserData(self, userData):
+    def setTaskExternalId(self, taskExternalId):
         """
-        :param userData: (Optional) 自定义数据
+        :param taskExternalId: (Optional) 直播录制任务外键
         """
-        self.userData = userData
+        self.taskExternalId = taskExternalId
+
+    def setPriority(self, priority):
+        """
+        :param priority: (Optional) 任务优先级:
+- 取值: low, medium, high
+- 不区分大小写
+
+        """
+        self.priority = priority
 

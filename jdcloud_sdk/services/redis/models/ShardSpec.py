@@ -21,7 +21,7 @@ class ShardSpec(object):
 
     def __init__(self, shardClass=None, cpu=None, memoryGB=None, diskGB=None, maxConnection=None, bandwidthMbps=None, shardNumberList=None):
         """
-        :param shardClass: (Optional) 单分片规格代码，自定义分片实例才有
+        :param shardClass: (Optional) 单分片规格代码，自定义分片集群实例才需要，标准版不需要
         :param cpu: (Optional) 单分片CPU核数
         :param memoryGB: (Optional) 单分片内存大小（GB）
         :param diskGB: (Optional) 单分片磁盘大小（GB）

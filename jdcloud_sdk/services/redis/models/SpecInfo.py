@@ -22,13 +22,13 @@ class SpecInfo(object):
     def __init__(self, memoryGB=None, instanceClass=None, cpu=None, diskGB=None, maxConntion=None, bandwidthMbps=None, ipNumber=None, shard=None, azs=None):
         """
         :param memoryGB: (Optional) 内存大小（GB）
-        :param instanceClass: (Optional) 实例规格，空表示自定义分片集群，只有分片规格，没有实例规格
-        :param cpu: (Optional) 实例CPU核数，0表示自定义分片集群，CPU核数由分片数变化
-        :param diskGB: (Optional) 实例磁盘大小（GB)，0表示自定义分片集群，磁盘大小由分片数变化
-        :param maxConntion: (Optional) 最大连接数，0表示自定义分片集群，最大连接数由分片数变化
-        :param bandwidthMbps: (Optional) 带宽（Mbps)，0表示自定义分片集群，带宽由分片数变化
-        :param ipNumber: (Optional) 需要的IP数，0表示自定义分片集群，IP数由分片数变化
-        :param shard: (Optional) 该内存对应的分片列表信息，redis 2.8以及redis 4.0主从版没有分片列表信息
+        :param instanceClass: (Optional) 实例规格，标准版不为空，4.0 自定义分片集群版规格为空，具体规格参考单分片规格
+        :param cpu: (Optional) 实例CPU核数，0表示自定义分片集群版规格，CPU核数由分片数变化
+        :param diskGB: (Optional) 实例磁盘大小（GB)，0表示自定义分片集群版规格，磁盘大小由分片数变化
+        :param maxConntion: (Optional) 最大连接数，0表示自定义分片集群版规格，最大连接数由分片数变化
+        :param bandwidthMbps: (Optional) 带宽（Mbps)，0表示自定义分片集群版规格，带宽由分片数变化
+        :param ipNumber: (Optional) 需要的IP数，0表示自定义分片集群版规格，IP数由分片数变化
+        :param shard: (Optional) 实例的分片列表信息，redis 2.8标准版、集群版以及redis 4.0标准版没有分片列表信息
         :param azs: (Optional) az列表
         """
 

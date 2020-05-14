@@ -23,7 +23,7 @@ class CacheInstance(object):
         """
         :param cacheInstanceId: (Optional) 实例ID
         :param cacheInstanceName: (Optional) 实例名称
-        :param cacheInstanceClass: (Optional) 规格代码，或者自定义分片实例的单分片规格代码
+        :param cacheInstanceClass: (Optional) 规格代码，2.8、4.0标准版是实例规格，4.0自定义分片集群版实例表示单分片规格
         :param cacheInstanceMemoryMB: (Optional) 实例的总内存（MB）
         :param cacheInstanceStatus: (Optional) 实例状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中
         :param cacheInstanceDescription: (Optional) 实例描述
@@ -35,12 +35,12 @@ class CacheInstance(object):
         :param port: (Optional) 实例的访问端口
         :param charge: (Optional) 实例的计费信息
         :param instanceVersion: (Optional) 实例的详细版本号，形如x.x-x.x
-        :param auth: (Optional) 连接redis实例时，是否需要密码认证，false表示无密码
-        :param redisVersion: (Optional) 创建实例时选择的redis引擎版本：目前支持2.8和4.0
+        :param auth: (Optional) 连接实例时，是否需要密码认证，false表示无密码
+        :param redisVersion: (Optional) 创建实例时选择的引擎版本：目前支持2.8和4.0
         :param cacheInstanceType: (Optional) 实例类型：master-slave表示主从版，cluster表示集群版
         :param ipv6On: (Optional) 是否支持IPv6，0表示不支持（只能用IPv4），1表示支持
         :param tags: (Optional) 标签信息
-        :param shardNumber: (Optional) 实例分片数，自定义分片规格的实例分片数由用户创建时选择，其他实例为固定分片数
+        :param shardNumber: (Optional) 实例分片数，标准版固定为1，自定义分片集群版实例分片数由用户创建时选择，其他实例为固定分片数
         :param memoryMBPerShard: (Optional) 单分片内存大小（MB）
         """
 

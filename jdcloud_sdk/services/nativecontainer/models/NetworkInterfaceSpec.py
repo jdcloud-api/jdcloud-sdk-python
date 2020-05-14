@@ -24,11 +24,11 @@ class NetworkInterfaceSpec(object):
         :param subnetId:  子网ID
         :param az:  可用区，用户的默认可用区，暂不支持
         :param primaryIpAddress: (Optional) 网卡主IP
-        :param secondaryIpAddresses: (Optional) SecondaryIp列表
-        :param secondaryIpCount: (Optional) 自动分配的SecondaryIp数量
+        :param secondaryIpAddresses: (Optional) 网卡辅助IP，暂不支持
+        :param secondaryIpCount: (Optional) 自动分配的辅助Ip数量，暂不支持
         :param securityGroups: (Optional) 要绑定的安全组ID列表，最多指定5个安全组
         :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1，默认为1，暂不支持此功能
-        :param description: (Optional) 描述
+        :param description: (Optional) 描述，最大长度256字符
         """
 
         self.subnetId = subnetId

@@ -42,8 +42,8 @@ class Container(object):
         :param privateIpAddress: (Optional) 主网卡主IP地址
         :param elasticIpId: (Optional) 主网卡主IP绑定弹性IP的ID
         :param elasticIpAddress: (Optional) 主网卡主IP绑定弹性IP的地址
-        :param primaryNetworkInterface: (Optional) 主网卡信息
-        :param secondaryNetworkInterfaces: (Optional) 弹性网卡信息
+        :param primaryNetworkInterface: (Optional) 主网卡配置信息
+        :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置信息
         :param logConfiguration: (Optional) 容器日志配置信息
         :param tags: (Optional) 
         :param charge: (Optional) 计费配置信息

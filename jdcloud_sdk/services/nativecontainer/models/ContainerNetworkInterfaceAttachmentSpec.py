@@ -22,7 +22,7 @@ class ContainerNetworkInterfaceAttachmentSpec(object):
     def __init__(self, networkInterface, autoDelete=None, deviceIndex=None):
         """
         :param autoDelete: (Optional) 指明删除容器时是否删除网卡，默认True；当前只能是True
-        :param deviceIndex: (Optional) 设备Index
+        :param deviceIndex: (Optional) 设备Index，主网卡为1
         :param networkInterface:  网卡接口规范
         """
 

@@ -19,11 +19,12 @@
 
 class PreOrders(object):
 
-    def __init__(self, preOrderId=None, preOrderNum=None, productKey=None, userPin=None, userName=None, recordNum=None, createTime=None, preOrderStatus=None):
+    def __init__(self, preOrderId=None, preOrderNum=None, productKey=None, productName=None, userPin=None, userName=None, recordNum=None, createTime=None, preOrderStatus=None):
         """
         :param preOrderId: (Optional) 预购订单编号
         :param preOrderNum: (Optional) 预购订单数量
         :param productKey: (Optional) 产品Key
+        :param productName: (Optional) 产品名称
         :param userPin: (Optional) 用户Pin
         :param userName: (Optional) 用户名称
         :param recordNum: (Optional) 已录入数量
@@ -34,6 +35,7 @@ class PreOrders(object):
         self.preOrderId = preOrderId
         self.preOrderNum = preOrderNum
         self.productKey = productKey
+        self.productName = productName
         self.userPin = userPin
         self.userName = userName
         self.recordNum = recordNum

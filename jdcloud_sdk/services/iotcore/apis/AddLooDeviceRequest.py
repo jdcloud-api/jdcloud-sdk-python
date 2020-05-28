@@ -32,12 +32,13 @@ class AddLooDeviceRequest(JDCloudRequest):
 
 class AddLooDeviceParameters(object):
 
-    def __init__(self, instanceId, regionId, preOrderId, userPinParam, ):
+    def __init__(self, instanceId, regionId, preOrderId, userPinParam, deviceType):
         """
         :param instanceId: 设备归属的实例ID
         :param regionId: 设备归属的实例所在区域
         :param preOrderId: 申请单编号
         :param userPinParam: 用户Pin
+        :param deviceType: 设备类型
         """
 
         self.instanceId = instanceId
@@ -50,6 +51,7 @@ class AddLooDeviceParameters(object):
         self.manufacturer = None
         self.identifier = None
         self.description = None
+        self.deviceType = deviceType
 
     def setDeviceName(self, deviceName):
         """

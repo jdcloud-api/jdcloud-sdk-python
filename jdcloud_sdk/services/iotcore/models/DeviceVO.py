@@ -19,7 +19,7 @@
 
 class DeviceVO(object):
 
-    def __init__(self, deviceId=None, deviceName=None, parentId=None, deviceType=None, status=None, identifier=None, secret=None, description=None, activatedTime=None, lastConnectedTime=None, createdTime=None, updatedTime=None, productKey=None, productName=None, productSecret=None, model=None, manufacturer=None, dynamicRegister=None):
+    def __init__(self, deviceId=None, deviceName=None, parentId=None, deviceType=None, status=None, identifier=None, secret=None, description=None, activatedTime=None, lastConnectedTime=None, createdTime=None, updatedTime=None, productKey=None, productName=None, productSecret=None, model=None, manufacturer=None, dynamicRegister=None, deviceCollectorType=None, lastDisconnectTime=None, orderId=None):
         """
         :param deviceId: (Optional) 设备ID
         :param deviceName: (Optional) 设备名称
@@ -39,6 +39,9 @@ class DeviceVO(object):
         :param model: (Optional) 设备型号
         :param manufacturer: (Optional) 设备厂商
         :param dynamicRegister: (Optional) 是否开启动态注册,0:关闭,1:开启，开启动态注册的设备认证类型为一型一密，否则为一机一密
+        :param deviceCollectorType: (Optional) 设备采集器类型
+        :param lastDisconnectTime: (Optional) 最后离线时间
+        :param orderId: (Optional) 订单号
         """
 
         self.deviceId = deviceId
@@ -59,3 +62,6 @@ class DeviceVO(object):
         self.model = model
         self.manufacturer = manufacturer
         self.dynamicRegister = dynamicRegister
+        self.deviceCollectorType = deviceCollectorType
+        self.lastDisconnectTime = lastDisconnectTime
+        self.orderId = orderId

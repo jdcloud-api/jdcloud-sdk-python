@@ -49,6 +49,8 @@ class QueryDevicePageParameters(object):
         self.order = None
         self.direction = None
         self.parentId = None
+        self.orderId = None
+        self.deviceCollectorType = None
 
     def setDeviceName(self, deviceName):
         """
@@ -103,4 +105,16 @@ class QueryDevicePageParameters(object):
         :param parentId: (Optional) 父设备Id
         """
         self.parentId = parentId
+
+    def setOrderId(self, orderId):
+        """
+        :param orderId: (Optional) 订单号
+        """
+        self.orderId = orderId
+
+    def setDeviceCollectorType(self, deviceCollectorType):
+        """
+        :param deviceCollectorType: (Optional) 设备采集器类型
+        """
+        self.deviceCollectorType = deviceCollectorType
 

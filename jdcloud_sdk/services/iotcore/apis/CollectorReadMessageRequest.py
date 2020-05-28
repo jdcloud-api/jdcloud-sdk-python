@@ -32,26 +32,22 @@ class CollectorReadMessageRequest(JDCloudRequest):
 
 class CollectorReadMessageParameters(object):
 
-    def __init__(self, instanceId, regionId, ):
+    def __init__(self, instanceId, regionId, identifier, protocol):
         """
         :param instanceId: Hub实例Id
         :param regionId: 区域Id
+        :param identifier: 当前的链接码
+        :param protocol: 当前的协议类型：
+语音播报控制器-输入端子,0X00000~X0007：inputTerminal
+语音播报控制器-播放信息,0X00024~X0027：playInfo
+LR001-516-5B边缘数据采集器-传感器管理：sensor
+LR001-516-5B边缘数据采集器-采集器属性：collectorProperty
+LR001-516-5B边缘数据采集器-电梯属性：elevatorProperty
+
         """
 
         self.instanceId = instanceId
         self.regionId = regionId
-        self.identifier = None
-        self.protocol = None
-
-    def setIdentifier(self, identifier):
-        """
-        :param identifier: (Optional) 当前的链接码
-        """
         self.identifier = identifier
-
-    def setProtocol(self, protocol):
-        """
-        :param protocol: (Optional) 当前的协议类型
-        """
         self.protocol = protocol
 

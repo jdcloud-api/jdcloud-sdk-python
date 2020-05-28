@@ -32,33 +32,65 @@ class CollectorWriteMessageRequest(JDCloudRequest):
 
 class CollectorWriteMessageParameters(object):
 
-    def __init__(self, instanceId, regionId, ):
+    def __init__(self, instanceId, regionId, identifier, data):
         """
         :param instanceId: Hub实例Id
         :param regionId: 区域Id
+        :param identifier: 当前的链接码
+        :param data: 当前待写入的数据
+如指定播放设备，寄存地址：13对应16进制0x0D，寄存器值:2
+{
+  "13":2
+}
+如播放控制，寄存地址：14对应16进制0x0E，寄存器值:1
+{
+  "14": 1
+}
+如音量设置，寄存地址：15对应16进制0x0F，寄存器值:10，取值范围0~30
+{
+  "15": 10
+}
+如指定文件夹和文件播放,寄存地址：16对应16进制0x10，寄存器值:1
+寄存器值为两字节，第一个字节为文件夹，第二个字节为文件名
+如0x01文件夹,0x03文件名，0x0103换算为10进制为259
+{
+  "16": 259
+}
+如组合播放，寄存器地址：17、18和19，寄存器值：257、258和259，寄存器值的算法和指定文件夹和文件播放是一致的，如259可换算为0x01文件夹,0x03文件名
+{
+  "17": 257,
+  "18": 258,
+  "19": 259
+}
+如播放广告，寄存地址：32对应16进制0x20，寄存器值:259，寄存器值的算法和指定文件夹和文件播放是一致的，如259可换算为0x01文件夹,0x03文件名
+{
+  "32": 259
+}
+如指定文件夹循环播放，寄存地址：33对应16进制0x21，寄存器值:256，寄存器值的算法，如256可换算为0x0100文件夹
+{
+  "33": 256
+}
+如指定文件夹随机播放，寄存地址：34对应16进制0x22，寄存器值:256，寄存器值的算法，如256可换算为0x0100文件夹
+{
+  "34": 256
+}
+如指定曲目播放，寄存地址：35对应16进制0x23，寄存器值:13,歌曲选择范围为0~3000
+{
+  "35": 13
+}
+
         """
 
         self.instanceId = instanceId
         self.regionId = regionId
-        self.identifier = None
-        self.protocol = None
-        self.data = None
-
-    def setIdentifier(self, identifier):
-        """
-        :param identifier: (Optional) 当前的链接码
-        """
         self.identifier = identifier
+        self.protocol = None
+        self.data = data
 
     def setProtocol(self, protocol):
         """
-        :param protocol: (Optional) 当前的协议类型
+        :param protocol: (Optional) 当前的协议类型,非必填项
+
         """
         self.protocol = protocol
-
-    def setData(self, data):
-        """
-        :param data: (Optional) 当前待写入的数据
-        """
-        self.data = data
 

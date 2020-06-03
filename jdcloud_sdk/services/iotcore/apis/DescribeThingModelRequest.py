@@ -19,32 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ThingTypeDescribeRequest(JDCloudRequest):
+class DescribeThingModelRequest(JDCloudRequest):
     """
-    查询物类型详情
+    根据模型ID查看物模型完整信息
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(ThingTypeDescribeRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/thingType:thingTypeDescribe', 'GET', header, version)
+        super(DescribeThingModelRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/thingModel:describeThingModel', 'GET', header, version)
         self.parameters = parameters
 
 
-class ThingTypeDescribeParameters(object):
+class DescribeThingModelParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, thingModelId, ):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
+        :param thingModelId: 物模型ID编号
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceMetaId = None
+        self.thingModelId = thingModelId
+        self.thingModelVersion = None
 
-    def setDeviceMetaId(self, deviceMetaId):
+    def setThingModelVersion(self, thingModelVersion):
         """
-        :param deviceMetaId: (Optional) 设备型号标识
+        :param thingModelVersion: (Optional) 版本号。如果为空，则返回最新版本
         """
-        self.deviceMetaId = deviceMetaId
+        self.thingModelVersion = thingModelVersion
 

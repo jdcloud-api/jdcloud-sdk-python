@@ -19,7 +19,7 @@
 
 class DeviceInfoVO(object):
 
-    def __init__(self, activateTime=None, connectAgentDeviceId=None, createTime=None, customProfiles=None, deviceId=None, deviceName=None, deviceTagList=None, globalProfiles=None, lastConnectTime=None, lastDisconnectTime=None, latitude=None, longitude=None, macAddress=None, manufactureId=None, manufactureName=None, nodeType=None, lastReportTime=None, status=None, thingModelId=None, thingModelVersion=None, thingType=None, thingTypeCode=None, thingTypeName=None, uniqueId=None, updateTime=None):
+    def __init__(self, activateTime=None, connectAgentDeviceId=None, createTime=None, customProfiles=None, deviceId=None, deviceName=None, deviceTagList=None, globalProfiles=None, lastConnectTime=None, lastDisconnectTime=None, latitude=None, longitude=None, macAddress=None, manufactureId=None, manufactureName=None, nodeType=None, lastReportTime=None, status=None, thingModelId=None, thingModelVersion=None, thingTypeCode=None, thingTypeName=None, uniqueId=None, updateTime=None):
         """
         :param activateTime: (Optional) 激活时间
         :param connectAgentDeviceId: (Optional) 代理设备id
@@ -41,7 +41,6 @@ class DeviceInfoVO(object):
         :param status: (Optional) 设备状态：0 停用;1 未激活;2 离线;3 在线
         :param thingModelId: (Optional) 物模型ID
         :param thingModelVersion: (Optional) 物模型版本号
-        :param thingType: (Optional) 物模型类型
         :param thingTypeCode: (Optional) 物类型ID
         :param thingTypeName: (Optional) 物类型名称
         :param uniqueId: (Optional) 设备物理ID
@@ -68,7 +67,6 @@ class DeviceInfoVO(object):
         self.status = status
         self.thingModelId = thingModelId
         self.thingModelVersion = thingModelVersion
-        self.thingType = thingType
         self.thingTypeCode = thingTypeCode
         self.thingTypeName = thingTypeName
         self.uniqueId = uniqueId

@@ -19,32 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ThingTypeDescribeRequest(JDCloudRequest):
+class ReadHoldingRegistersRequest(JDCloudRequest):
     """
-    查询物类型详情
+    (0x03)读保持寄存器
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(ThingTypeDescribeRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/thingType:thingTypeDescribe', 'GET', header, version)
+        super(ReadHoldingRegistersRequest, self).__init__(
+            '/regions/{regionId}/loongrayinstances/{instanceId}/readHoldingRegisters', 'GET', header, version)
         self.parameters = parameters
 
 
-class ThingTypeDescribeParameters(object):
+class ReadHoldingRegistersParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, instanceId, regionId, identifier, addressOfFirstRegister, numberOfRegisters):
         """
-        :param regionId: 区域id
-        :param instanceId: 实例Id
+        :param instanceId: Hub实例Id
+        :param regionId: 区域Id
+        :param identifier: 连接码
+        :param addressOfFirstRegister: 起始地址，如40301
+        :param numberOfRegisters: 寄存器数量
         """
 
-        self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceMetaId = None
-
-    def setDeviceMetaId(self, deviceMetaId):
-        """
-        :param deviceMetaId: (Optional) 设备型号标识
-        """
-        self.deviceMetaId = deviceMetaId
+        self.regionId = regionId
+        self.identifier = identifier
+        self.addressOfFirstRegister = addressOfFirstRegister
+        self.numberOfRegisters = numberOfRegisters
 

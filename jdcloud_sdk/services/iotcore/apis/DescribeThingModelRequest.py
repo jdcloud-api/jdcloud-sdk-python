@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DiscribeThingModelRequest(JDCloudRequest):
+class DescribeThingModelRequest(JDCloudRequest):
     """
     根据模型ID查看物模型完整信息
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DiscribeThingModelRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/thingModel:discribeThingModel', 'GET', header, version)
+        super(DescribeThingModelRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/thingModel:describeThingModel', 'GET', header, version)
         self.parameters = parameters
 
 
-class DiscribeThingModelParameters(object):
+class DescribeThingModelParameters(object):
 
     def __init__(self, regionId, instanceId, thingModelId, ):
         """

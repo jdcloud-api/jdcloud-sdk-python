@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class FunctionListRequest(JDCloudRequest):
+class PropertyAcquireRequest(JDCloudRequest):
     """
-    查询方法调用列表信息
+    查询属性接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(FunctionListRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/function:list', 'POST', header, version)
+        super(PropertyAcquireRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/property:acquire', 'GET', header, version)
         self.parameters = parameters
 
 
-class FunctionListParameters(object):
+class PropertyAcquireParameters(object):
 
-    def __init__(self, regionId, instanceId, functionCallPageBo):
+    def __init__(self, regionId, instanceId, deviceId):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param functionCallPageBo: 方法查询请求对象
+        :param deviceId: 设备ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.functionCallPageBo = functionCallPageBo
+        self.deviceId = deviceId
 

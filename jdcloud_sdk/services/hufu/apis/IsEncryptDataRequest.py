@@ -19,27 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyRouterByLowerRequest(JDCloudRequest):
+class IsEncryptDataRequest(JDCloudRequest):
     """
-    下游更新路由信息
+    加密
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyRouterByLowerRequest, self).__init__(
-            '/accesses/{accessId}:update', 'POST', header, version)
+        super(IsEncryptDataRequest, self).__init__(
+            '/isEncryptData', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyRouterByLowerParameters(object):
+class IsEncryptDataParameters(object):
 
-    def __init__(self, accessId, customerId, backendUrl):
+    def __init__(self, ):
         """
-        :param accessId: 申请接入id
-        :param customerId: 商家编码
-        :param backendUrl: 商家服务后端地址
         """
 
-        self.accessId = accessId
-        self.customerId = customerId
-        self.backendUrl = backendUrl
+        self.cipher = None
+
+    def setCipher(self, cipher):
+        """
+        :param cipher: (Optional) 密文
+        """
+        self.cipher = cipher
 

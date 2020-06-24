@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, id=None, name=None, carrier=None, ipType=None, ipCount=None, portCount=None, domainCount=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None):
+    def __init__(self, id=None, name=None, carrier=None, ipType=None, ipCount=None, portCount=None, domainCount=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, dispatchRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None, pageId=None, pageName=None):
         """
         :param id: (Optional) 实例 ID
         :param name: (Optional) 实例名称
@@ -37,6 +37,7 @@ class Instance(object):
         :param ccPeakQPS: (Optional) CC 防护峰值, 单位: QPS
         :param ruleCount: (Optional) 非网站类规则数
         :param webRuleCount: (Optional) 网站类规则数
+        :param dispatchRuleCount: (Optional) 防护调度规则数
         :param chargeStatus: (Optional) 计费状态. <br>- PAID: 已支付<br>- ARREARS: 欠费<br>- EXPIRED: 过期
         :param securityStatus: (Optional) 安全状态. <br>- SAFE: 安全<br>- CLEANING: 清洗中<br>- BLOCKING: 封禁中
         :param createTime: (Optional) 实例的创建的时间
@@ -57,6 +58,8 @@ class Instance(object):
         :param hostUrlQps: (Optional) ccProtectMode为自定义模式时, 每个Host+URI的防护阈值
         :param ipHostQps: (Optional) ccProtectMode为自定义模式时, 每个源IP对Host的防护阈值
         :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时, 每个源IP对Host+URI的防护阈值
+        :param pageId: (Optional) 关联的自定义页面id
+        :param pageName: (Optional) 关联的自定义页面名称
         """
 
         self.id = id
@@ -75,6 +78,7 @@ class Instance(object):
         self.ccPeakQPS = ccPeakQPS
         self.ruleCount = ruleCount
         self.webRuleCount = webRuleCount
+        self.dispatchRuleCount = dispatchRuleCount
         self.chargeStatus = chargeStatus
         self.securityStatus = securityStatus
         self.createTime = createTime
@@ -95,3 +99,5 @@ class Instance(object):
         self.hostUrlQps = hostUrlQps
         self.ipHostQps = ipHostQps
         self.ipHostUrlQps = ipHostUrlQps
+        self.pageId = pageId
+        self.pageName = pageName

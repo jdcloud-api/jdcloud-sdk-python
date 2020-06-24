@@ -19,53 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeWebRulesRequest(JDCloudRequest):
+class DescribeServiceIpListRequest(JDCloudRequest):
     """
-    查询某个实例下的网站类规则
+    查询实例高防 IP 列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeWebRulesRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/webRules', 'GET', header, version)
+        super(DescribeServiceIpListRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:describeServiceIpList', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeWebRulesParameters(object):
+class DescribeServiceIpListParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param instanceId: 高防实例 Id
+        :param instanceId: 实例 ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.pageNumber = None
         self.pageSize = None
-        self.searchType = None
-        self.searchValue = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1
+        :param pageNumber: (Optional) 页码, 默认为 1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小, 默认为10, 取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小, 默认为 10, 取值范围[10, 100]
         """
         self.pageSize = pageSize
-
-    def setSearchType(self, searchType):
-        """
-        :param searchType: (Optional) 查询类型名称, domain:源站域名, ip:源站 IP, rawDomain: 域名, serviceIp: 高防IP(仅支持BGP线路的实例)
-        """
-        self.searchType = searchType
-
-    def setSearchValue(self, searchValue):
-        """
-        :param searchValue: (Optional) 查询类型值
-        """
-        self.searchValue = searchValue
 

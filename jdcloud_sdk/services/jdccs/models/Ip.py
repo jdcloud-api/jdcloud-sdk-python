@@ -19,15 +19,18 @@
 
 class Ip(object):
 
-    def __init__(self, idc=None, idcName=None, ipId=None, cidrAddr=None, networkAddr=None, gatewayAddr=None, broadcastAddr=None, status=None):
+    def __init__(self, idc=None, idcName=None, ipId=None, cidrAddr=None, ipQuantity=None, ipType=None, networkAddr=None, gatewayAddr=None, broadcastAddr=None, lineType=None, status=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
         :param ipId: (Optional) 公网IP实例ID
         :param cidrAddr: (Optional) IP地址段
+        :param ipQuantity: (Optional) IP数量
+        :param ipType: (Optional) IP类型 IPV4/IPV6
         :param networkAddr: (Optional) 网络位地址
         :param gatewayAddr: (Optional) 网关地址
         :param broadcastAddr: (Optional) 广播地址
+        :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
         :param status: (Optional) 状态 normal:正常 abnormal:异常
         """
 
@@ -35,7 +38,10 @@ class Ip(object):
         self.idcName = idcName
         self.ipId = ipId
         self.cidrAddr = cidrAddr
+        self.ipQuantity = ipQuantity
+        self.ipType = ipType
         self.networkAddr = networkAddr
         self.gatewayAddr = gatewayAddr
         self.broadcastAddr = broadcastAddr
+        self.lineType = lineType
         self.status = status

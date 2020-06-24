@@ -19,7 +19,7 @@
 
 class TrafficSamplingData(object):
 
-    def __init__(self, srcIp=None, dstIp=None, srcPort=None, dstPort=None, sampleDataLength=None, samplingInterval=None, protocolName=None, timestamp=None, operatorType=None):
+    def __init__(self, srcIp=None, dstIp=None, srcPort=None, dstPort=None, sampleDataLength=None, samplingInterval=None, protocolName=None, timestamp=None, uniqueId=None, operatorType=None):
         """
         :param srcIp: (Optional) 源IP
         :param dstIp: (Optional) 目的IP
@@ -29,6 +29,7 @@ class TrafficSamplingData(object):
         :param samplingInterval: (Optional) 采样比
         :param protocolName: (Optional) 协议
         :param timestamp: (Optional) 时间戳
+        :param uniqueId: (Optional) 唯一ID标识
         :param operatorType: (Optional) 运营商类型 移动:CM 联通:CU 电信:CT
         """
 
@@ -40,4 +41,5 @@ class TrafficSamplingData(object):
         self.samplingInterval = samplingInterval
         self.protocolName = protocolName
         self.timestamp = timestamp
+        self.uniqueId = uniqueId
         self.operatorType = operatorType

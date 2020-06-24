@@ -19,7 +19,7 @@
 
 class AlarmConfigSpec(object):
 
-    def __init__(self, blackHoleAlarmEmailStatus=None, blackHoleAlarmSmsStatus=None, blackHoleAlarmStatus=None, ddosAlarmEmailStatus=None, ddosAlarmSmsStatus=None, ddosAlarmStatus=None, errorCodeAlarmStatus=None, errorCodeDomain=None):
+    def __init__(self, blackHoleAlarmEmailStatus=None, blackHoleAlarmSmsStatus=None, blackHoleAlarmStatus=None, ddosAlarmEmailStatus=None, ddosAlarmSmsStatus=None, ddosAlarmStatus=None, errorCodeAlarmStatus=None, errorCodeDomain=None, errorCode=None, errorCodePercent=None, errorCodeCount=None):
         """
         :param blackHoleAlarmEmailStatus: (Optional) 黑洞告警邮件开关 0 关闭 1 开启
         :param blackHoleAlarmSmsStatus: (Optional) 黑洞告警短信开关 0 关闭 1 开启
@@ -29,6 +29,9 @@ class AlarmConfigSpec(object):
         :param ddosAlarmStatus: (Optional) DDos 告警总开关 0 关闭 1 开启
         :param errorCodeAlarmStatus: (Optional) 错误码告警总开关
         :param errorCodeDomain: (Optional) 错误码告警域名列表
+        :param errorCode: (Optional) 错误码列表
+        :param errorCodePercent: (Optional) 错误码触发告警比例
+        :param errorCodeCount: (Optional) 错误码触发告警次数
         """
 
         self.blackHoleAlarmEmailStatus = blackHoleAlarmEmailStatus
@@ -39,3 +42,6 @@ class AlarmConfigSpec(object):
         self.ddosAlarmStatus = ddosAlarmStatus
         self.errorCodeAlarmStatus = errorCodeAlarmStatus
         self.errorCodeDomain = errorCodeDomain
+        self.errorCode = errorCode
+        self.errorCodePercent = errorCodePercent
+        self.errorCodeCount = errorCodeCount

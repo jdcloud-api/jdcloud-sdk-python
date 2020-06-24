@@ -19,13 +19,14 @@
 
 class Api(object):
 
-    def __init__(self, apiId=None, apiGroupId=None, apiName=None, action=None, path=None, backServiceType=None, description=None, reqParams=None, reqBody=None, resBody=None, reqBodyType=None, resBodyType=None, apiBackendConfig=None, hufuAppTypeId=None, deploymentEnvironment=None, editableReqBodyType=None, editableResBodyType=None):
+    def __init__(self, apiId=None, apiGroupId=None, apiName=None, action=None, path=None, matchType=None, backServiceType=None, description=None, reqParams=None, reqBody=None, resBody=None, reqBodyType=None, resBodyType=None, apiBackendConfig=None, hufuAppTypeId=None, deploymentEnvironment=None, editableReqBodyType=None, editableResBodyType=None, wafStatus=None, reqBodyFormatType=None, resBodyFormatType=None):
         """
         :param apiId: (Optional) apiId
         :param apiGroupId: (Optional) 分组ID
         :param apiName: (Optional) 名称
         :param action: (Optional) 动作
         :param path: (Optional) 请求路径
+        :param matchType: (Optional) 匹配模式：1."absolute"(绝对匹配); 2."prefix"（前缀匹配）;
         :param backServiceType: (Optional) 后端类型，为空或null时前端显示未设置
         :param description: (Optional) 描述
         :param reqParams: (Optional) 请求参数列表
@@ -38,6 +39,9 @@ class Api(object):
         :param deploymentEnvironment: (Optional) 当前分组版本，发布的环境信息
         :param editableReqBodyType: (Optional) 请求格式类型,当reqBodyType等于3时,使用该请求格式类型
         :param editableResBodyType: (Optional) 响应格式类型,当resBodyType等于3时,使用该响应格式类型
+        :param wafStatus: (Optional) waf状态，如：observe,deny,off
+        :param reqBodyFormatType: (Optional) 请求体格式类型，1代表jsonschema，2代表swagger，默认为1
+        :param resBodyFormatType: (Optional) 返回体格式类型，1代表jsonschema，2代表swagger，默认为1
         """
 
         self.apiId = apiId
@@ -45,6 +49,7 @@ class Api(object):
         self.apiName = apiName
         self.action = action
         self.path = path
+        self.matchType = matchType
         self.backServiceType = backServiceType
         self.description = description
         self.reqParams = reqParams
@@ -57,3 +62,6 @@ class Api(object):
         self.deploymentEnvironment = deploymentEnvironment
         self.editableReqBodyType = editableReqBodyType
         self.editableResBodyType = editableResBodyType
+        self.wafStatus = wafStatus
+        self.reqBodyFormatType = reqBodyFormatType
+        self.resBodyFormatType = resBodyFormatType

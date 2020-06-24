@@ -19,11 +19,13 @@
 
 class CreateApi(object):
 
-    def __init__(self, apiName, action, path, reqBodyType, backServiceConfig, description=None, reqParams=None, reqBody=None, resBody=None, resBodyType=None, apiBackendConfig=None, backServiceType=None, backServicePath=None, backServiceId=None, backServiceName=None, backUrl=None, backServiceVersion=None, hufuAppTypeId=None, editableReqBodyType=None, editableResBodyType=None):
+    def __init__(self, apiGroupId, apiName, action, path, matchType, reqBodyType, backServiceConfig, description=None, reqParams=None, reqBody=None, resBody=None, resBodyType=None, apiBackendConfig=None, backServiceType=None, backServicePath=None, backServiceId=None, backServiceName=None, backUrl=None, backServiceVersion=None, hufuAppTypeId=None, editableReqBodyType=None, editableResBodyType=None, reqBodyFormatType=None, resBodyFormatType=None):
         """
+        :param apiGroupId:  分组ID
         :param apiName:  名称
         :param action:  动作
         :param path:  请求路径
+        :param matchType:  匹配模式："absolute"(绝对匹配); "prefix"（前缀匹配）;
         :param description: (Optional) 描述
         :param reqParams: (Optional) 请求参数列表
         :param reqBody: (Optional) 请求格式
@@ -41,11 +43,15 @@ class CreateApi(object):
         :param hufuAppTypeId: (Optional) 应用类型ID,云鼎业务线专用
         :param editableReqBodyType: (Optional) 请求格式类型,当reqBodyType等于3时,使用该请求格式类型
         :param editableResBodyType: (Optional) 响应格式类型,当resBodyType等于3时,使用该响应格式类型
+        :param reqBodyFormatType: (Optional) 请求体格式类型，1代表jsonschema，2代表swagger，默认为1
+        :param resBodyFormatType: (Optional) 返回提格式类型，1代表jsonschema，2代表swagger，默认为1
         """
 
+        self.apiGroupId = apiGroupId
         self.apiName = apiName
         self.action = action
         self.path = path
+        self.matchType = matchType
         self.description = description
         self.reqParams = reqParams
         self.reqBody = reqBody
@@ -63,3 +69,5 @@ class CreateApi(object):
         self.hufuAppTypeId = hufuAppTypeId
         self.editableReqBodyType = editableReqBodyType
         self.editableResBodyType = editableResBodyType
+        self.reqBodyFormatType = reqBodyFormatType
+        self.resBodyFormatType = resBodyFormatType

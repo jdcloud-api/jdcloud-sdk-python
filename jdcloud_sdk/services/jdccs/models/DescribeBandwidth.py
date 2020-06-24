@@ -19,14 +19,15 @@
 
 class DescribeBandwidth(object):
 
-    def __init__(self, idc=None, idcName=None, bandwidthId=None, bandwidthName=None, status=None, lineType=None, bandwidth=None, relatedIp=None):
+    def __init__(self, idc=None, idcName=None, bandwidthId=None, bandwidthName=None, status=None, lineType=None, chargeType=None, bandwidth=None, relatedIp=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
         :param bandwidthId: (Optional) 带宽实例ID
         :param bandwidthName: (Optional) 带宽名称
         :param status: (Optional) 状态 normal:正常 abnormal:异常
-        :param lineType: (Optional) 线路类型 bgp:BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
+        :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
+        :param chargeType: (Optional) 计费方式 fixedBandwidth:固定带宽 95thPercentile:95峰值 merge95thPercentile:合并95峰值
         :param bandwidth: (Optional) 合同带宽（Mbps）
         :param relatedIp: (Optional) 关联的公网IP
         """
@@ -37,5 +38,6 @@ class DescribeBandwidth(object):
         self.bandwidthName = bandwidthName
         self.status = status
         self.lineType = lineType
+        self.chargeType = chargeType
         self.bandwidth = bandwidth
         self.relatedIp = relatedIp

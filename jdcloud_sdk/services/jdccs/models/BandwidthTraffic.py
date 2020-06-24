@@ -28,7 +28,7 @@ class BandwidthTraffic(object):
         :param totalTrafficIn: (Optional) 总上行实时流量
         :param totalTrafficOut: (Optional) 总下行实时流量
         :param bandwidth: (Optional) 总带宽
-        :param lineType: (Optional) 线路类型 bgp:BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
+        :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
         :param relatedIp: (Optional) 关联的公网IP
         :param switchboard: (Optional) 交换机信息
         """

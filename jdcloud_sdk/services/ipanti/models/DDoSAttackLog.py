@@ -22,7 +22,7 @@ class DDoSAttackLog(object):
     def __init__(self, attackTraffic=None, blackHole=None, startTime=None, endTime=None, unit=None, instanceId=None, name=None):
         """
         :param attackTraffic: (Optional) 攻击流量大小
-        :param blackHole: (Optional) 是否触发黑洞, 0否 1是
+        :param blackHole: (Optional) 封禁状态,0:未封禁,1:封禁中,2:封禁结束
         :param startTime: (Optional) 攻击开始时间
         :param endTime: (Optional) 攻击结束时间
         :param unit: (Optional) 流量单位, bps、Kbps、Mbps、Gbps

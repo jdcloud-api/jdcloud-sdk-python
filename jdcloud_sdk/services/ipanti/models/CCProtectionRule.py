@@ -19,7 +19,7 @@
 
 class CCProtectionRule(object):
 
-    def __init__(self, id=None, webRuleId=None, instanceId=None, name=None, enable=None, uri=None, matchType=None, detectPeriod=None, singleIpLimit=None, blockType=None, blockTime=None):
+    def __init__(self, id=None, webRuleId=None, instanceId=None, name=None, enable=None, uri=None, matchType=None, detectPeriod=None, singleIpLimit=None, blockType=None, blockTime=None, pageId=None, pageName=None):
         """
         :param id: (Optional) CC 防护规则 ID
         :param webRuleId: (Optional) CC 防护规则对应的网站规则 ID
@@ -32,6 +32,8 @@ class CCProtectionRule(object):
         :param singleIpLimit: (Optional) ip 访问次数, 取值范围[2, 2000]
         :param blockType: (Optional) 阻断类型, 1: 封禁, 2: 人机交互
         :param blockTime: (Optional) 阻断持续时间, 单位为秒, 取值范围[10, 86400]
+        :param pageId: (Optional) 关联的自定义页面id
+        :param pageName: (Optional) 关联的自定义页面名称
         """
 
         self.id = id
@@ -45,3 +47,5 @@ class CCProtectionRule(object):
         self.singleIpLimit = singleIpLimit
         self.blockType = blockType
         self.blockTime = blockTime
+        self.pageId = pageId
+        self.pageName = pageName

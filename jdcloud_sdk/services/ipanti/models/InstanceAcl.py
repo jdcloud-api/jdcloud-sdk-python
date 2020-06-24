@@ -21,8 +21,8 @@ class InstanceAcl(object):
 
     def __init__(self, blackListIds=None, whiteListIds=None, geoBlack=None, success=None, canRecover=None):
         """
-        :param blackListIds: (Optional) 四层黑名单引用的IP黑白名单库列表
-        :param whiteListIds: (Optional) 四层白名单引用的IP黑白名单库列表
+        :param blackListIds: (Optional) 黑名单引用的IP黑白名单库列表
+        :param whiteListIds: (Optional) 白名单引用的IP黑白名单库列表
         :param geoBlack: (Optional) geo 拦截地域列表
         :param success: (Optional) 上一次修改是否下发成功
         :param canRecover: (Optional) 上一次修改下发失败的情况下，是否可以回滚到上一次修改之前下发成功的配置

@@ -19,27 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class InvokeFunctionRequest(JDCloudRequest):
+class DescribeThingTypeRequest(JDCloudRequest):
     """
-    设备方法执行
+    查询物类型详情
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(InvokeFunctionRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/function:invokeFunction', 'POST', header, version)
+        super(DescribeThingTypeRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/thingType:describe', 'GET', header, version)
         self.parameters = parameters
 
 
-class InvokeFunctionParameters(object):
+class DescribeThingTypeParameters(object):
 
-    def __init__(self, regionId, instanceId, deviceFunctionVO):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param deviceFunctionVO: 设备方法
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceFunctionVO = deviceFunctionVO
+        self.deviceMetaId = None
+
+    def setDeviceMetaId(self, deviceMetaId):
+        """
+        :param deviceMetaId: (Optional) 设备型号标识
+        """
+        self.deviceMetaId = deviceMetaId
 

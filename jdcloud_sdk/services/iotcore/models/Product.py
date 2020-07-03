@@ -19,7 +19,7 @@
 
 class Product(object):
 
-    def __init__(self, productName=None, productId=None, productType=None, productKey=None, createdTime=None, templateName=None):
+    def __init__(self, productName=None, productId=None, productType=None, productKey=None, createdTime=None, templateName=None, collDeviceType=None):
         """
         :param productName: (Optional) 产品名称
         :param productId: (Optional) 产品ID
@@ -29,6 +29,7 @@ class Product(object):
         :param productKey: (Optional) 产品Key
         :param createdTime: (Optional) 创建时间，创建时间，时间为东八区（UTC/GMT+08:00）
         :param templateName: (Optional) 产品类型，如自定义等
+        :param collDeviceType: (Optional) 产品的采集器类型
         """
 
         self.productName = productName
@@ -37,3 +38,4 @@ class Product(object):
         self.productKey = productKey
         self.createdTime = createdTime
         self.templateName = templateName
+        self.collDeviceType = collDeviceType

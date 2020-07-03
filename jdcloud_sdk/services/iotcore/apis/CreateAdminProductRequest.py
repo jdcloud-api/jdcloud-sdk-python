@@ -32,7 +32,7 @@ class CreateAdminProductRequest(JDCloudRequest):
 
 class CreateAdminProductParameters(object):
 
-    def __init__(self, regionId, instanceId, productName, productType, ):
+    def __init__(self, regionId, instanceId, productName, productType, collDeviceType):
         """
         :param regionId: 地域ID
         :param instanceId: IoT Engine实例ID信息
@@ -41,6 +41,7 @@ class CreateAdminProductParameters(object):
 0：设备。设备不能挂载子设备。可以直连物联网平台，也可以作为网关的子设备连接物联网平台
 1：网关。网关可以挂载子设备，具有子设备管理模块，维持子设备的拓扑关系，和将拓扑关系同步到物联网平台
 
+        :param collDeviceType: 产品名下所有设备的采集器类型
         """
 
         self.regionId = regionId
@@ -50,6 +51,7 @@ class CreateAdminProductParameters(object):
         self.productDescription = None
         self.templateId = None
         self.internalTags = None
+        self.collDeviceType = collDeviceType
 
     def setProductDescription(self, productDescription):
         """

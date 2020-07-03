@@ -32,12 +32,11 @@ class UpdateLooDeviceRequest(JDCloudRequest):
 
 class UpdateLooDeviceParameters(object):
 
-    def __init__(self, instanceId, regionId, deviceId, deviceType):
+    def __init__(self, instanceId, regionId, deviceId, ):
         """
         :param instanceId: 设备归属的实例ID
         :param regionId: 设备归属的实例所在区域
         :param deviceId: 设备Id
-        :param deviceType: 设备类型
         """
 
         self.instanceId = instanceId
@@ -49,7 +48,6 @@ class UpdateLooDeviceParameters(object):
         self.status = None
         self.identifier = None
         self.deviceName = None
-        self.deviceType = deviceType
 
     def setModel(self, model):
         """

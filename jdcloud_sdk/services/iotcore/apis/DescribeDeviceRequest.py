@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeviceQueryRequest(JDCloudRequest):
+class DescribeDeviceRequest(JDCloudRequest):
     """
     查询单个设备详细信息
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DeviceQueryRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/device:query', 'GET', header, version)
+        super(DescribeDeviceRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/device:describe', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeviceQueryParameters(object):
+class DescribeDeviceParameters(object):
 
     def __init__(self, regionId, instanceId, deviceId):
         """

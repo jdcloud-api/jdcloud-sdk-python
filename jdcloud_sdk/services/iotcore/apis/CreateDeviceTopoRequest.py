@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class InvokeFunctionRequest(JDCloudRequest):
+class CreateDeviceTopoRequest(JDCloudRequest):
     """
-    设备方法执行
+    边缘代理设备与非直连设备拓扑关系创建接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(InvokeFunctionRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/function:invokeFunction', 'POST', header, version)
+        super(CreateDeviceTopoRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/deviceTopo:create', 'POST', header, version)
         self.parameters = parameters
 
 
-class InvokeFunctionParameters(object):
+class CreateDeviceTopoParameters(object):
 
-    def __init__(self, regionId, instanceId, deviceFunctionVO):
+    def __init__(self, regionId, instanceId, deviceTopoInfoVO):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param deviceFunctionVO: 设备方法
+        :param deviceTopoInfoVO: 方法查询请求
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceFunctionVO = deviceFunctionVO
+        self.deviceTopoInfoVO = deviceTopoInfoVO
 

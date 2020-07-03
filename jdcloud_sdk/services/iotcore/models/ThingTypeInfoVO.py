@@ -19,11 +19,12 @@
 
 class ThingTypeInfoVO(object):
 
-    def __init__(self, deviceTypeName, authType=None, connectType=None, createdTime=None, customProfiles=None, deviceTypeCode=None, globalProfiles=None, manufacturerId=None, manufacturerName=None, nodeType=None, code=None, updateTime=None):
+    def __init__(self, deviceTypeName, code, name, authType=None, connectType=None, createdTime=None, updateTime=None, customProfiles=None, deviceTypeCode=None, globalProfiles=None, manufacturerId=None, manufacturerName=None, nodeType=None):
         """
         :param authType: (Optional) 认证方式 1: 一机一密 2：一型一密
         :param connectType: (Optional) 连接类型,蜂窝（2G/3G/4G）
         :param createdTime: (Optional) 创建时间
+        :param updateTime: (Optional) 更新时间
         :param customProfiles: (Optional) 自定义档案信息
         :param deviceTypeCode: (Optional) 设备类型编号
         :param deviceTypeName:  设备类型名称 例如：ttu、电表
@@ -31,13 +32,14 @@ class ThingTypeInfoVO(object):
         :param manufacturerId: (Optional) 制造商编号
         :param manufacturerName: (Optional) 制造商名称
         :param nodeType: (Optional) 节点类型1:直连终端、2:边缘代理、3:非直连终端
-        :param code: (Optional) 所属物类型Code
-        :param updateTime: (Optional) 更新时间
+        :param code:  所属物类型Code
+        :param name:  所属物类型名称
         """
 
         self.authType = authType
         self.connectType = connectType
         self.createdTime = createdTime
+        self.updateTime = updateTime
         self.customProfiles = customProfiles
         self.deviceTypeCode = deviceTypeCode
         self.deviceTypeName = deviceTypeName
@@ -46,4 +48,4 @@ class ThingTypeInfoVO(object):
         self.manufacturerName = manufacturerName
         self.nodeType = nodeType
         self.code = code
-        self.updateTime = updateTime
+        self.name = name

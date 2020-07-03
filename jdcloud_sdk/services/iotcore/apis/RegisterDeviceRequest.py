@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class EventListRequest(JDCloudRequest):
+class RegisterDeviceRequest(JDCloudRequest):
     """
-    设备事件查询
+    设备注册接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(EventListRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/event:list', 'POST', header, version)
+        super(RegisterDeviceRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/device:register', 'POST', header, version)
         self.parameters = parameters
 
 
-class EventListParameters(object):
+class RegisterDeviceParameters(object):
 
-    def __init__(self, regionId, instanceId, eventReportPageBo):
+    def __init__(self, regionId, instanceId, deviceInfoVO):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param eventReportPageBo: 事件查询请求
+        :param deviceInfoVO: 物模型ID编号
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.eventReportPageBo = eventReportPageBo
+        self.deviceInfoVO = deviceInfoVO
 

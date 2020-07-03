@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ThingTypeDescribeRequest(JDCloudRequest):
+class DescribeThingTypeRequest(JDCloudRequest):
     """
     查询物类型详情
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(ThingTypeDescribeRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/thingType:thingTypeDescribe', 'GET', header, version)
+        super(DescribeThingTypeRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/thingType:describe', 'GET', header, version)
         self.parameters = parameters
 
 
-class ThingTypeDescribeParameters(object):
+class DescribeThingTypeParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """

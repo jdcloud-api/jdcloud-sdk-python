@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class FunctionListRequest(JDCloudRequest):
+class DescribePropertySnapshotRequest(JDCloudRequest):
     """
-    查询方法调用列表信息
+    属性获取接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(FunctionListRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/function:list', 'POST', header, version)
+        super(DescribePropertySnapshotRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/property:describeSnapshot', 'POST', header, version)
         self.parameters = parameters
 
 
-class FunctionListParameters(object):
+class DescribePropertySnapshotParameters(object):
 
-    def __init__(self, regionId, instanceId, functionCallPageBo):
+    def __init__(self, regionId, instanceId, deviceSnapshotRequestVO):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param functionCallPageBo: 方法查询请求对象
+        :param deviceSnapshotRequestVO: 方法查询请求
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.functionCallPageBo = functionCallPageBo
+        self.deviceSnapshotRequestVO = deviceSnapshotRequestVO
 

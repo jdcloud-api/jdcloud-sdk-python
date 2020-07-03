@@ -21,27 +21,27 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeThingModelRequest(JDCloudRequest):
     """
-    根据模型ID查看物模型完整信息
+    根据物类型Code查看物模型完整信息
     """
 
     def __init__(self, parameters, header=None, version="v2"):
         super(DescribeThingModelRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/thingModel:describeThingModel', 'GET', header, version)
+            '/regions/{regionId}/coreinstances/{instanceId}/thingModel:describe', 'GET', header, version)
         self.parameters = parameters
 
 
 class DescribeThingModelParameters(object):
 
-    def __init__(self, regionId, instanceId, thingModelId, ):
+    def __init__(self, regionId, instanceId, thingTypeCode, ):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param thingModelId: 物模型ID编号
+        :param thingTypeCode: 物类型Code
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.thingModelId = thingModelId
+        self.thingTypeCode = thingTypeCode
         self.thingModelVersion = None
 
     def setThingModelVersion(self, thingModelVersion):

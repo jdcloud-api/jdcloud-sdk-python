@@ -41,6 +41,8 @@ class LoongrayQueryPageParameters(object):
         self.instanceId = instanceId
         self.regionId = regionId
         self.deviceName = None
+        self.manufacturer = None
+        self.model = None
         self.status = None
         self.productKey = None
         self.deviceType = None
@@ -57,6 +59,18 @@ class LoongrayQueryPageParameters(object):
         :param deviceName: (Optional) 设备名称，模糊匹配
         """
         self.deviceName = deviceName
+
+    def setManufacturer(self, manufacturer):
+        """
+        :param manufacturer: (Optional) 设备厂商，模糊匹配
+        """
+        self.manufacturer = manufacturer
+
+    def setModel(self, model):
+        """
+        :param model: (Optional) 设备型号，模糊匹配
+        """
+        self.model = model
 
     def setStatus(self, status):
         """

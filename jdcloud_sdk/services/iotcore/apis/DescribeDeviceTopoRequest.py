@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeviceRegisterRequest(JDCloudRequest):
+class DescribeDeviceTopoRequest(JDCloudRequest):
     """
-    设备注册接口
+    边缘代理设备与非直连设备拓扑关系查询接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DeviceRegisterRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/device:register', 'POST', header, version)
+        super(DescribeDeviceTopoRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/deviceTopo:describe', 'POST', header, version)
         self.parameters = parameters
 
 
-class DeviceRegisterParameters(object):
+class DescribeDeviceTopoParameters(object):
 
-    def __init__(self, regionId, instanceId, deviceInfoVO):
+    def __init__(self, regionId, instanceId, deviceTopoPageBO):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param deviceInfoVO: 物模型ID编号
+        :param deviceTopoPageBO: 方法查询请求
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceInfoVO = deviceInfoVO
+        self.deviceTopoPageBO = deviceTopoPageBO
 

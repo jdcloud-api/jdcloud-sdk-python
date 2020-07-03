@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetPropertySnapshotRequest(JDCloudRequest):
+class DownloadDeviceCertificateRequest(JDCloudRequest):
     """
-    属性获取接口
+    下载设备证书接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(GetPropertySnapshotRequest, self).__init__(
-            '/regions/{regionId}/coreinstances/{instanceId}/property:getSnapshot', 'POST', header, version)
+        super(DownloadDeviceCertificateRequest, self).__init__(
+            '/regions/{regionId}/coreinstances/{instanceId}/device:downloadCertificate', 'GET', header, version)
         self.parameters = parameters
 
 
-class GetPropertySnapshotParameters(object):
+class DownloadDeviceCertificateParameters(object):
 
-    def __init__(self, regionId, instanceId, deviceSnapshotRequestVO):
+    def __init__(self, regionId, instanceId, deviceId):
         """
         :param regionId: 区域id
         :param instanceId: 实例Id
-        :param deviceSnapshotRequestVO: 方法查询请求
+        :param deviceId: 设备ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.deviceSnapshotRequestVO = deviceSnapshotRequestVO
+        self.deviceId = deviceId
 

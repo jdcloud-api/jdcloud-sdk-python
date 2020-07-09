@@ -93,8 +93,7 @@ class VmTest(unittest.TestCase):
                                     imageId='98d44a0f-88c1-451a-8971-f1f769073b6c',
                                     primaryNetworkInterface=network, systemDisk=sysDisk,
                                     dataDisks=None, keyNames=None, description='python-sdk-vm')
-        param = CreateInstancesParameters('cn-north-1')
-        param.setInstanceSpec(instanceSpec)
+        param = CreateInstancesParameters('cn-north-1', instanceSpec)
         param.setMaxCount(1)
         request = CreateInstancesRequest(param)
         create_resp = self.client.send(request)

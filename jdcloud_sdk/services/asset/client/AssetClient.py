@@ -26,4 +26,4 @@ class AssetClient(JDCloudClient):
         if config is None:
             config = Config('asset.jdcloud-api.com')
 
-        super(AssetClient, self).__init__(credential, config, 'asset', '0.0.2', logger)
+        super(AssetClient, self).__init__(credential, config, 'asset', '0.0.3', logger)

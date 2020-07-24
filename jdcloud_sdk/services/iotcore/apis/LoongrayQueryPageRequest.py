@@ -53,6 +53,7 @@ class LoongrayQueryPageParameters(object):
         self.parentId = None
         self.orderId = None
         self.deviceCollectorType = None
+        self.queryUserPin = None
 
     def setDeviceName(self, deviceName):
         """
@@ -131,4 +132,10 @@ class LoongrayQueryPageParameters(object):
         :param deviceCollectorType: (Optional) 设备采集器类型
         """
         self.deviceCollectorType = deviceCollectorType
+
+    def setQueryUserPin(self, queryUserPin):
+        """
+        :param queryUserPin: (Optional) 查询的userPin
+        """
+        self.queryUserPin = queryUserPin
 

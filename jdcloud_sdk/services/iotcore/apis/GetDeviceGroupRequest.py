@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryAdminStatisticsRequest(JDCloudRequest):
+class GetDeviceGroupRequest(JDCloudRequest):
     """
-    设备基本数据统计，包括设备数，激活数，在线数
+    获取分组列表
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(QueryAdminStatisticsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/device:queryAdminStatistics', 'GET', header, version)
+        super(GetDeviceGroupRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/devicegroup:get', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryAdminStatisticsParameters(object):
+class GetDeviceGroupParameters(object):
 
     def __init__(self, instanceId, regionId, ):
         """
@@ -40,32 +40,39 @@ class QueryAdminStatisticsParameters(object):
 
         self.instanceId = instanceId
         self.regionId = regionId
-        self.productKey = None
-        self.parentId = None
-        self.deviceCollectorType = None
+        self.groupName = None
         self.queryUserPin = None
+        self.tag = None
+        self.pageNumber = None
+        self.pageSize = None
 
-    def setProductKey(self, productKey):
+    def setGroupName(self, groupName):
         """
-        :param productKey: (Optional) 过滤条件，产品Key
+        :param groupName: (Optional) 组名称
         """
-        self.productKey = productKey
-
-    def setParentId(self, parentId):
-        """
-        :param parentId: (Optional) 针对parentId下的子设备进行统计
-        """
-        self.parentId = parentId
-
-    def setDeviceCollectorType(self, deviceCollectorType):
-        """
-        :param deviceCollectorType: (Optional) 采集器类型
-        """
-        self.deviceCollectorType = deviceCollectorType
+        self.groupName = groupName
 
     def setQueryUserPin(self, queryUserPin):
         """
-        :param queryUserPin: (Optional) 查询的用户信息
+        :param queryUserPin: (Optional) 查询的用户组
         """
         self.queryUserPin = queryUserPin
+
+    def setTag(self, tag):
+        """
+        :param tag: (Optional) 组标签
+        """
+        self.tag = tag
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 当前页号
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页大小
+        """
+        self.pageSize = pageSize
 

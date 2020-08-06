@@ -41,6 +41,9 @@ class SetDomainConfigParameters(object):
         self.httpType = None
         self.backSourceType = None
         self.jumpType = None
+        self.jcdnTimeAnti = None
+        self.hdrCtrl = None
+        self.toutiaoHeader = None
 
     def setHttpType(self, httpType):
         """
@@ -59,4 +62,22 @@ class SetDomainConfigParameters(object):
         :param jumpType: (Optional) 有三种类型：default、http、https
         """
         self.jumpType = jumpType
+
+    def setJcdnTimeAnti(self, jcdnTimeAnti):
+        """
+        :param jcdnTimeAnti: (Optional) dash鉴权相关配置
+        """
+        self.jcdnTimeAnti = jcdnTimeAnti
+
+    def setHdrCtrl(self, hdrCtrl):
+        """
+        :param hdrCtrl: (Optional) 回源鉴权相关配置
+        """
+        self.hdrCtrl = hdrCtrl
+
+    def setToutiaoHeader(self, toutiaoHeader):
+        """
+        :param toutiaoHeader: (Optional) 头条header配置
+        """
+        self.toutiaoHeader = toutiaoHeader
 

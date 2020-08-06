@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryCustomErrorPageRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询自定义错误页面信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryCustomErrorPageRequest, self).__init__(
+            '/domain/{domain}/customErrorPage', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryCustomErrorPageParameters(object):
 
     def __init__(self, domain, ):
         """

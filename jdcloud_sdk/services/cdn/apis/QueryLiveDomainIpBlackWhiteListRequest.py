@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryLiveDomainIpBlackWhiteListRequest(JDCloudRequest):
     """
     查询ip黑白名单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryLiveDomainIpBlackWhiteListRequest, self).__init__(
+            '/liveDomain/{domain}/ipList', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryLiveDomainIpBlackWhiteListParameters(object):
 
     def __init__(self, domain, ):
         """

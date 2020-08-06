@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class ConfigHttp2Request(JDCloudRequest):
     """
-    查询ip黑白名单
+    http2配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(ConfigHttp2Request, self).__init__(
+            '/domain/{domain}/configHttp2', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class ConfigHttp2Parameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,11 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.status = None
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) HTTP2功能开关，取值on/off
+        """
+        self.status = status
 

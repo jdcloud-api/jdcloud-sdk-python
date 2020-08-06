@@ -19,23 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryServiceIpRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询一个域名的全部调度ip
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryServiceIpRequest, self).__init__(
+            '/ip:queryServiceIp', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryServiceIpParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.domainList = None
+
+    def setDomainList(self, domainList):
+        """
+        :param domainList: (Optional) 
+        """
+        self.domainList = domainList
 

@@ -19,23 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryServiceNoticeRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询用户服务通知接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryServiceNoticeRequest, self).__init__(
+            '/serviceNotice', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryServiceNoticeParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.noticeType = None
+        self.noticeWay = None
+
+    def setNoticeType(self, noticeType):
+        """
+        :param noticeType: (Optional) 通知类型,取值[reportForm],reportForm:报表.
+        """
+        self.noticeType = noticeType
+
+    def setNoticeWay(self, noticeWay):
+        """
+        :param noticeWay: (Optional) 通知方式,取值[mail],mail:邮件.
+        """
+        self.noticeWay = noticeWay
 

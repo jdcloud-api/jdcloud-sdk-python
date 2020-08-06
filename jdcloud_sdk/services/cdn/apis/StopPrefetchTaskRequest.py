@@ -19,23 +19,42 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class StopPrefetchTaskRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    停止预热任务接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(StopPrefetchTaskRequest, self).__init__(
+            '/prefetchTask:stop', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class StopPrefetchTaskParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.urls = None
+        self.region = None
+        self.isp = None
+
+    def setUrls(self, urls):
+        """
+        :param urls: (Optional) 待停止预热的url
+        """
+        self.urls = urls
+
+    def setRegion(self, region):
+        """
+        :param region: (Optional) 地区[huabei huadong dongbei huazhong huanan xinan xibei gangaotai]中的一个
+        """
+        self.region = region
+
+    def setIsp(self, isp):
+        """
+        :param isp: (Optional) 运营商[ct uni cm]中的一个,分别代表电信 联通 移动
+        """
+        self.isp = isp
 

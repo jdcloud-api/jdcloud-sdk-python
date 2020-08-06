@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class SetFilterArgsRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    设置过滤参数
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(SetFilterArgsRequest, self).__init__(
+            '/domain/{domain}/filterArgs:set', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class SetFilterArgsParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,18 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.retainArgs = None
+        self.status = None
+
+    def setRetainArgs(self, retainArgs):
+        """
+        :param retainArgs: (Optional) 保留参数，多个用;隔开
+        """
+        self.retainArgs = retainArgs
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 忽略参数开关，取值：on or off
+        """
+        self.status = status
 

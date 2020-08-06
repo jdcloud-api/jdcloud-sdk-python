@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryLiveTrafficGroupSumRequest(JDCloudRequest):
+class QueryJDBoxStatisticsDataRequest(JDCloudRequest):
     """
-    查询统计数据并进行汇总加和
+    无线宝按条件查询的统计接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryLiveTrafficGroupSumRequest, self).__init__(
-            '/liveStatistics:groupSum', 'POST', header, version)
+        super(QueryJDBoxStatisticsDataRequest, self).__init__(
+            '/jdBoxStatistics', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryLiveTrafficGroupSumParameters(object):
+class QueryJDBoxStatisticsDataParameters(object):
 
     def __init__(self, ):
         """
@@ -38,18 +38,13 @@ class QueryLiveTrafficGroupSumParameters(object):
 
         self.startTime = None
         self.endTime = None
-        self.domain = None
-        self.subDomain = None
-        self.appName = None
-        self.streamName = None
         self.fields = None
         self.area = None
         self.isp = None
-        self.scheme = None
         self.period = None
         self.groupBy = None
-        self.reqMethod = None
-        self.cacheLevel = None
+        self.category = None
+        self.macAddr = None
 
     def setStartTime(self, startTime):
         """
@@ -63,33 +58,9 @@ class QueryLiveTrafficGroupSumParameters(object):
         """
         self.endTime = endTime
 
-    def setDomain(self, domain):
-        """
-        :param domain: (Optional) 需要查询的域名, 必须为用户pin下有权限的域名
-        """
-        self.domain = domain
-
-    def setSubDomain(self, subDomain):
-        """
-        :param subDomain: (Optional) 
-        """
-        self.subDomain = subDomain
-
-    def setAppName(self, appName):
-        """
-        :param appName: (Optional) app名
-        """
-        self.appName = appName
-
-    def setStreamName(self, streamName):
-        """
-        :param streamName: (Optional) 流名
-        """
-        self.streamName = streamName
-
     def setFields(self, fields):
         """
-        :param fields: (Optional) 需要查询的字段
+        :param fields: (Optional) 查询的字段，决定了查询结果中出现哪些字段，取值范围见"统计字段说明"。多个用逗号分隔。默认为空，表示查询带宽流量 pv
         """
         self.fields = fields
 
@@ -105,33 +76,27 @@ class QueryLiveTrafficGroupSumParameters(object):
         """
         self.isp = isp
 
-    def setScheme(self, scheme):
-        """
-        :param scheme: (Optional) 查询的流协议
-        """
-        self.scheme = scheme
-
     def setPeriod(self, period):
         """
-        :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
+        :param period: (Optional) 查询周期，当前取值范围：“oneMin,fiveMin,halfHour,hour,twoHour,sixHour,day,followTime”，分别表示1min，5min，半小时，1小时，2小时，6小时，1天，跟随时间。默认为空，表示fiveMin。当传入followTime时，表示按Endtime-StartTime的周期，只返回一个点
         """
         self.period = period
 
     def setGroupBy(self, groupBy):
         """
-        :param groupBy: (Optional) 分组依据
+        :param groupBy: (Optional) 取值范围[area,isp,mac_addr,category]  按区域、运营商、设备、业务类型分组，默认为isp
         """
         self.groupBy = groupBy
 
-    def setReqMethod(self, reqMethod):
+    def setCategory(self, category):
         """
-        :param reqMethod: (Optional) 
+        :param category: (Optional) 业务类型
         """
-        self.reqMethod = reqMethod
+        self.category = category
 
-    def setCacheLevel(self, cacheLevel):
+    def setMacAddr(self, macAddr):
         """
-        :param cacheLevel: (Optional) cacheLevel
+        :param macAddr: (Optional) 设备id
         """
-        self.cacheLevel = cacheLevel
+        self.macAddr = macAddr
 

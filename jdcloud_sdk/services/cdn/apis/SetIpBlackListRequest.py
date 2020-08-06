@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetIpBlackListRequest(JDCloudRequest):
     """
-    设置ip黑名白单
+    设置ip黑名单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -39,17 +39,10 @@ class SetIpBlackListParameters(object):
 
         self.domain = domain
         self.ips = None
-        self.ipListType = None
 
     def setIps(self, ips):
         """
-        :param ips: (Optional) ip名单,ips中url不能超过50条
+        :param ips: (Optional) ip黑名单,ips中url不能超过50条
         """
         self.ips = ips
-
-    def setIpListType(self, ipListType):
-        """
-        :param ipListType: (Optional) ip黑白名单类型，black:黑名单,white:白名单
-        """
-        self.ipListType = ipListType
 

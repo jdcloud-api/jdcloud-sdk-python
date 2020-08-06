@@ -54,7 +54,6 @@ class CreateROInstanceParameters(object):
         self.parameterGroup = None
         self.storageEncrypted = None
         self.count = None
-        self.roInstanceProxy = None
 
     def setInstanceStorageType(self, instanceStorageType):
         """
@@ -91,10 +90,4 @@ class CreateROInstanceParameters(object):
         :param count: (Optional) 创建只读实例的数目,缺省为1
         """
         self.count = count
-
-    def setRoInstanceProxy(self, roInstanceProxy):
-        """
-        :param roInstanceProxy: (Optional) 只读代理服务的ID，缺省值为 “NULL”，表示不绑定代理服务
-        """
-        self.roInstanceProxy = roInstanceProxy
 

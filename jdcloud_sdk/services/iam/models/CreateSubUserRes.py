@@ -19,12 +19,11 @@
 
 class CreateSubUserRes(object):
 
-    def __init__(self, name=None, password=None, email=None, phone=None, accessKey=None, secretAccessKey=None, createTime=None, updateTime=None):
+    def __init__(self, name=None, password=None, email=None, accessKey=None, secretAccessKey=None, createTime=None, updateTime=None):
         """
         :param name: (Optional) 用户名
         :param password: (Optional) 密码
         :param email: (Optional) 邮箱
-        :param phone: (Optional) 手机号码
         :param accessKey: (Optional) accessKey
         :param secretAccessKey: (Optional) AccessKey secret
         :param createTime: (Optional) 创建时间
@@ -34,7 +33,6 @@ class CreateSubUserRes(object):
         self.name = name
         self.password = password
         self.email = email
-        self.phone = phone
         self.accessKey = accessKey
         self.secretAccessKey = secretAccessKey
         self.createTime = createTime

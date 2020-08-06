@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class ConfigBackSourceRuleRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    回源改写配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(ConfigBackSourceRuleRequest, self).__init__(
+            '/domain/{domain}/configBackSourceRule', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class ConfigBackSourceRuleParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,18 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.beforeRegex = None
+        self.afterRegex = None
+
+    def setBeforeRegex(self, beforeRegex):
+        """
+        :param beforeRegex: (Optional) 回源改写之前的正则表达式
+        """
+        self.beforeRegex = beforeRegex
+
+    def setAfterRegex(self, afterRegex):
+        """
+        :param afterRegex: (Optional) 回源改写之后的正则表达式
+        """
+        self.afterRegex = afterRegex
 

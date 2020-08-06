@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryExtraCacheTimeRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询异常码缓存时间
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryExtraCacheTimeRequest, self).__init__(
+            '/domain/{domain}/extraCacheTime:query', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryExtraCacheTimeParameters(object):
 
     def __init__(self, domain, ):
         """

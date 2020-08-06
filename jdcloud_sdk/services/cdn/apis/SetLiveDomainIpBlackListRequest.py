@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetLiveDomainIpBlackListRequest(JDCloudRequest):
     """
-    设置直播域名ip黑名单
+    设置直播域名ip黑白名单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -39,10 +39,17 @@ class SetLiveDomainIpBlackListParameters(object):
 
         self.domain = domain
         self.ips = None
+        self.ipListType = None
 
     def setIps(self, ips):
         """
-        :param ips: (Optional) 
+        :param ips: (Optional) ip名单,ips中url不能超过50条
         """
         self.ips = ips
+
+    def setIpListType(self, ipListType):
+        """
+        :param ipListType: (Optional) ip黑白名单类型，black:黑名单,white:白名单
+        """
+        self.ipListType = ipListType
 

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class SetGzipRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    设置gzip
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(SetGzipRequest, self).__init__(
+            '/domain/{domain}/gzip', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class SetGzipParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,18 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.status = None
+        self.gzipTypes = None
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 开关取值[on,off]
+        """
+        self.status = status
+
+    def setGzipTypes(self, gzipTypes):
+        """
+        :param gzipTypes: (Optional) gzip类型,如application/x-javascript,application/xml
+        """
+        self.gzipTypes = gzipTypes
 

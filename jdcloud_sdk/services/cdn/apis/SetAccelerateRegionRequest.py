@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class SetAccelerateRegionRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    设置加速区域
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(SetAccelerateRegionRequest, self).__init__(
+            '/domain/{domain}/accelerateRegion', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class SetAccelerateRegionParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,11 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.accelerateRegion = None
+
+    def setAccelerateRegion(self, accelerateRegion):
+        """
+        :param accelerateRegion: (Optional) 加速区域,取值[mainland,nonMainland,all]
+        """
+        self.accelerateRegion = accelerateRegion
 

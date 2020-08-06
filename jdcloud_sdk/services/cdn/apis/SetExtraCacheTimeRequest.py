@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class SetExtraCacheTimeRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    设置异常码缓存时间
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(SetExtraCacheTimeRequest, self).__init__(
+            '/domain/{domain}/extraCacheTime:set', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class SetExtraCacheTimeParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,4 +38,18 @@ class QueryIpBlackListParameters(object):
         """
 
         self.domain = domain
+        self.httpCode = None
+        self.cacheTime = None
+
+    def setHttpCode(self, httpCode):
+        """
+        :param httpCode: (Optional) 异常状态码 ["4xx","400", "401",  "402", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417",  "5xx","500", "501", "502", "503", "504", "505"]中的其中一个
+        """
+        self.httpCode = httpCode
+
+    def setCacheTime(self, cacheTime):
+        """
+        :param cacheTime: (Optional) 缓存时间(单位:秒)
+        """
+        self.cacheTime = cacheTime
 

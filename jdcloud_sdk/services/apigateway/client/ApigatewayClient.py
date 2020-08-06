@@ -26,4 +26,4 @@ class ApigatewayClient(JDCloudClient):
         if config is None:
             config = Config('apigateway.jdcloud-api.com')
 
-        super(ApigatewayClient, self).__init__(credential, config, 'apigateway', '1.0.0', logger)
+        super(ApigatewayClient, self).__init__(credential, config, 'apigateway', '1.0.1', logger)

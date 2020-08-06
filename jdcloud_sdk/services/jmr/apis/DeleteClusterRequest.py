@@ -21,23 +21,24 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteClusterRequest(JDCloudRequest):
     """
-    逻辑删除
+    释放集群
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DeleteClusterRequest, self).__init__(
-            '/regions/{regionId}/cluster/{recordId}:delete', 'POST', header, version)
+            '/regions/{regionId}/clusters/{clusterId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
 class DeleteClusterParameters(object):
 
-    def __init__(self, regionId, recordId, ):
+    def __init__(self, regionId, clusterId, ):
         """
         :param regionId: 地域ID
-        :param recordId: 
+        :param clusterId: 集群ID
         """
 
         self.regionId = regionId
-        self.recordId = recordId
+        self.clusterId = clusterId
 

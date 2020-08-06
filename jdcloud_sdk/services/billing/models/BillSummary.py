@@ -31,11 +31,11 @@ class BillSummary(object):
         :param resourceId: (Optional) 资源id
         :param resourceName: (Optional) 资源名称
         :param region: (Optional) 区域
-        :param actionTypeName: (Optional) 费用类型
+        :param actionTypeName: (Optional) 费用类型,仅用于查询帐单明细接口
         :param formula: (Optional) 规格
         :param startTime: (Optional) 计费开始时间
         :param endTime: (Optional) 计费结束时间
-        :param billTime: (Optional) 账单生成时间
+        :param billTime: (Optional) 账单生成时间,仅用于查询帐单明细接口
         :param totalFee: (Optional) 账单总额
         :param discountFee: (Optional) 优惠金额
         :param realTotalFee: (Optional) 优惠后总价金额

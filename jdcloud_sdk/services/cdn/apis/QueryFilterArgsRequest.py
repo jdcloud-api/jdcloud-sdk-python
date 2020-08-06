@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryFilterArgsRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询保留参数信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryFilterArgsRequest, self).__init__(
+            '/domain/{domain}/filterArgs:query', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryFilterArgsParameters(object):
 
     def __init__(self, domain, ):
         """

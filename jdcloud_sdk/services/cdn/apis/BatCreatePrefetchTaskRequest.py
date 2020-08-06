@@ -19,23 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class BatCreatePrefetchTaskRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    创建预热任务接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(BatCreatePrefetchTaskRequest, self).__init__(
+            '/prefetchTask:batCreate', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class BatCreatePrefetchTaskParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.tasks = None
+
+    def setTasks(self, tasks):
+        """
+        :param tasks: (Optional) 
+        """
+        self.tasks = tasks
 

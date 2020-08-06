@@ -19,23 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class OperatePurgeTaskRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    操作刷新任务接口(包含创建、停止刷新任务)
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(OperatePurgeTaskRequest, self).__init__(
+            '/purgeTask', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class OperatePurgeTaskParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.urls = None
+        self.optType = None
+
+    def setUrls(self, urls):
+        """
+        :param urls: (Optional) 待刷新的url
+        """
+        self.urls = urls
+
+    def setOptType(self, optType):
+        """
+        :param optType: (Optional) 操作类型:add代表创建刷新任务,stop代表停止刷新任务
+        """
+        self.optType = optType
 

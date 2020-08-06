@@ -19,23 +19,42 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryIpBlackListRequest(JDCloudRequest):
+class QueryDomainTempInstListRequest(JDCloudRequest):
     """
-    查询ip黑白名单
+    查询模板实例列表接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryIpBlackListRequest, self).__init__(
-            '/domain/{domain}/ipBlackList', 'GET', header, version)
+        super(QueryDomainTempInstListRequest, self).__init__(
+            '/domainTempInst:list', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryIpBlackListParameters(object):
+class QueryDomainTempInstListParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
+        self.instName = None
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setInstName(self, instName):
+        """
+        :param instName: (Optional) 根据关键字进行模糊匹配
+        """
+        self.instName = instName
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) pageNumber,默认值1
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) pageSize,最大值50,默认值20
+        """
+        self.pageSize = pageSize
 

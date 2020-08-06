@@ -35,8 +35,8 @@ class QueryBillSummaryParameters(object):
     def __init__(self, regionId, startTime, endTime, ):
         """
         :param regionId: Region ID
-        :param startTime: 账期开始时间,不支持跨月查询。格式:yyyy-MM-dd HH:mm:ss
-        :param endTime: 账期结束时间,不支持跨月查询。格式:yyyy-MM-dd HH:mm:ss
+        :param startTime: 计费开始时间
+        :param endTime: 计费结束时间
         """
 
         self.regionId = regionId
@@ -63,7 +63,7 @@ class QueryBillSummaryParameters(object):
 
     def setResourceIds(self, resourceIds):
         """
-        :param resourceIds: (Optional) 资源单id列表,最多支持传入500个
+        :param resourceIds: (Optional) 资源单id列表
         """
         self.resourceIds = resourceIds
 
@@ -75,13 +75,13 @@ class QueryBillSummaryParameters(object):
 
     def setPageIndex(self, pageIndex):
         """
-        :param pageIndex: (Optional) pageIndex 分页,默认从1开始
+        :param pageIndex: (Optional) pageIndex
         """
         self.pageIndex = pageIndex
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) pageSize 每页查询数据条数,最多支持1000条
+        :param pageSize: (Optional) pageSize
         """
         self.pageSize = pageSize
 

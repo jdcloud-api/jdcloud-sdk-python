@@ -49,7 +49,6 @@ class QueryLiveStatisticsAreaDataGroupByParameters(object):
         self.subDomain = None
         self.scheme = None
         self.reqMethod = None
-        self.cacheLevel = None
 
     def setStartTime(self, startTime):
         """
@@ -128,10 +127,4 @@ class QueryLiveStatisticsAreaDataGroupByParameters(object):
         :param reqMethod: (Optional) 
         """
         self.reqMethod = reqMethod
-
-    def setCacheLevel(self, cacheLevel):
-        """
-        :param cacheLevel: (Optional) cacheLevel
-        """
-        self.cacheLevel = cacheLevel
 

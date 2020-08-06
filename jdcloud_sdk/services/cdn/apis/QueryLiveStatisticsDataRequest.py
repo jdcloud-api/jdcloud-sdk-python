@@ -47,7 +47,6 @@ class QueryLiveStatisticsDataParameters(object):
         self.isp = None
         self.reqMethod = None
         self.scheme = None
-        self.cacheLevel = None
         self.period = None
 
     def setStartTime(self, startTime):
@@ -115,12 +114,6 @@ class QueryLiveStatisticsDataParameters(object):
         :param scheme: (Optional) 查询的流协议类型
         """
         self.scheme = scheme
-
-    def setCacheLevel(self, cacheLevel):
-        """
-        :param cacheLevel: (Optional) cacheLevel
-        """
-        self.cacheLevel = cacheLevel
 
     def setPeriod(self, period):
         """

@@ -19,17 +19,13 @@
 
 class TotalDetalItem(object):
 
-    def __init__(self, data=None, oriData=None, httpdata=None, httpsData=None, timeStamp=None):
+    def __init__(self, data=None, oriData=None, timeStamp=None):
         """
         :param data: (Optional) 
         :param oriData: (Optional) 
-        :param httpdata: (Optional) 
-        :param httpsData: (Optional) 
         :param timeStamp: (Optional) 
         """
 
         self.data = data
         self.oriData = oriData
-        self.httpdata = httpdata
-        self.httpsData = httpsData
         self.timeStamp = timeStamp

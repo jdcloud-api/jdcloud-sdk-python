@@ -19,7 +19,7 @@
 
 class DBInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None, activeDirectory=None, roInstanceProxyID=None, readWriteProxyId=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -52,9 +52,6 @@ class DBInstanceAttribute(object):
         :param primaryNode: (Optional) 高可用集群中主节点的信息<br>- 仅支持SQL Server
         :param secondaryNode: (Optional) 高可用集群中从节点的信息<br>- 仅支持SQL Server
         :param tags: (Optional) 标签信息
-        :param activeDirectory: (Optional) 对接的目录服务的相关信息<br>仅支SQL Server
-        :param roInstanceProxyID: (Optional) 只读代理服务 ID
-        :param readWriteProxyId: (Optional) 读写分离代理服务 ID
         """
 
         self.instanceId = instanceId
@@ -88,6 +85,3 @@ class DBInstanceAttribute(object):
         self.primaryNode = primaryNode
         self.secondaryNode = secondaryNode
         self.tags = tags
-        self.activeDirectory = activeDirectory
-        self.roInstanceProxyID = roInstanceProxyID
-        self.readWriteProxyId = readWriteProxyId

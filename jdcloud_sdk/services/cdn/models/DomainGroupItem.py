@@ -19,17 +19,15 @@
 
 class DomainGroupItem(object):
 
-    def __init__(self, domains=None, primaryDomain=None, shareCache=None, domainGroupName=None, id=None):
+    def __init__(self, domains=None, primaryDomain=None, shareCache=None, domainGroupName=None):
         """
         :param domains: (Optional) 域名组成员
         :param primaryDomain: (Optional) 主域名
         :param shareCache: (Optional) 是否共享缓存
         :param domainGroupName: (Optional) 域名组名称
-        :param id: (Optional) 域名组id
         """
 
         self.domains = domains
         self.primaryDomain = primaryDomain
         self.shareCache = shareCache
         self.domainGroupName = domainGroupName
-        self.id = id

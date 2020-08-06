@@ -32,7 +32,7 @@ class DescribePrivilegeRequest(JDCloudRequest):
 
 class DescribePrivilegeParameters(object):
 
-    def __init__(self, regionId, engine):
+    def __init__(self, regionId, engine, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param engine: 设置可见的引擎类型，如 MySQL 等
@@ -40,4 +40,11 @@ class DescribePrivilegeParameters(object):
 
         self.regionId = regionId
         self.engine = engine
+        self.instanceId = None
+
+    def setInstanceId(self, instanceId):
+        """
+        :param instanceId: (Optional) RDS 实例ID，唯一标识一个RDS实例
+        """
+        self.instanceId = instanceId
 

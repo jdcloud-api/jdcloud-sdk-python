@@ -19,17 +19,18 @@
 
 class SslCertModel(object):
 
-    def __init__(self, sslCertId=None, certName=None, commonName=None, certType=None, sslCertStartTime=None, sslCertEndTime=None, deletable=None, digest=None, relatedDomains=None):
+    def __init__(self, sslCertId=None, certName=None, commonName=None, certType=None, sslCertStartTime=None, sslCertEndTime=None, deletable=None, digest=None, aliasName=None, relatedDomains=None):
         """
         :param sslCertId: (Optional) 证书Id
         :param certName: (Optional) 证书名称
-        :param commonName: (Optional) 绑定域名
+        :param commonName: (Optional) 主域名
         :param certType: (Optional) 证书类型
         :param sslCertStartTime: (Optional) 开始时间
         :param sslCertEndTime: (Optional) 结束时间
         :param deletable: (Optional) 是否允许被删除,1允许,0不允许
         :param digest: (Optional) 对私钥文件使用sha256算法计算的摘要信息
-        :param relatedDomains: (Optional) 绑定的域名
+        :param aliasName: (Optional) 证书别名
+        :param relatedDomains: (Optional) 备用域名
         """
 
         self.sslCertId = sslCertId
@@ -40,4 +41,5 @@ class SslCertModel(object):
         self.sslCertEndTime = sslCertEndTime
         self.deletable = deletable
         self.digest = digest
+        self.aliasName = aliasName
         self.relatedDomains = relatedDomains

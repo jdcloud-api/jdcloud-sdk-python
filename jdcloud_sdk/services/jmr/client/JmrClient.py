@@ -26,4 +26,4 @@ class JmrClient(JDCloudClient):
         if config is None:
             config = Config('jmr.jdcloud-api.com')
 
-        super(JmrClient, self).__init__(credential, config, 'jmr', '1.1.0', logger)
+        super(JmrClient, self).__init__(credential, config, 'jmr', '1.1.2', logger)

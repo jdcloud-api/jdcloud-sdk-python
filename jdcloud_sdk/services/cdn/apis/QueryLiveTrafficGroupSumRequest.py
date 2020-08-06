@@ -49,6 +49,7 @@ class QueryLiveTrafficGroupSumParameters(object):
         self.period = None
         self.groupBy = None
         self.reqMethod = None
+        self.cacheLevel = None
 
     def setStartTime(self, startTime):
         """
@@ -127,4 +128,10 @@ class QueryLiveTrafficGroupSumParameters(object):
         :param reqMethod: (Optional) 
         """
         self.reqMethod = reqMethod
+
+    def setCacheLevel(self, cacheLevel):
+        """
+        :param cacheLevel: (Optional) cacheLevel
+        """
+        self.cacheLevel = cacheLevel
 

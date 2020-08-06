@@ -41,10 +41,24 @@ class ModifyBackupPolicyParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.startWindow = None
+        self.binlogRetentionPeriod = None
+        self.binlogUsageLimit = None
 
     def setStartWindow(self, startWindow):
         """
         :param startWindow: (Optional) 自动备份开始时间窗口,例如：00:00-01:00，表示0点到1点开始进行数据库自动备份，备份完成时间则跟实例大小有关，不一定在这个时间范围中<br>SQL Server:范围00:00-23:59，时间范围差不得小于30分钟。<br>MySQL,只能是以下取值:<br>00:00-01:00<br>01:00-02:00<br>......<br>23:00-24:00
         """
         self.startWindow = startWindow
+
+    def setBinlogRetentionPeriod(self, binlogRetentionPeriod):
+        """
+        :param binlogRetentionPeriod: (Optional) binlog本地保留周期，单位小时,范围24-168
+        """
+        self.binlogRetentionPeriod = binlogRetentionPeriod
+
+    def setBinlogUsageLimit(self, binlogUsageLimit):
+        """
+        :param binlogUsageLimit: (Optional) binlog本地占用空间上限，单位%，范围1-50
+        """
+        self.binlogUsageLimit = binlogUsageLimit
 

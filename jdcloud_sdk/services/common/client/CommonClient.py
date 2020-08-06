@@ -26,4 +26,4 @@ class CommonClient(JDCloudClient):
         if config is None:
             config = Config('common.jdcloud-api.com')
 
-        super(CommonClient, self).__init__(credential, config, 'common', '0.3.0', logger)
+        super(CommonClient, self).__init__(credential, config, 'common', '0.4.1', logger)

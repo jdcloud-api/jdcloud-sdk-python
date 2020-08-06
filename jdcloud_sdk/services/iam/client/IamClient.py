@@ -26,4 +26,4 @@ class IamClient(JDCloudClient):
         if config is None:
             config = Config('iam.jdcloud-api.com')
 
-        super(IamClient, self).__init__(credential, config, 'iam', '0.2.1', logger)
+        super(IamClient, self).__init__(credential, config, 'iam', '0.2.3', logger)

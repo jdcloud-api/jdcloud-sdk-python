@@ -40,6 +40,7 @@ class SetSourceParameters(object):
         self.domain = domain
         self.sourceType = None
         self.backSourceType = None
+        self.accelerateRegion = None
         self.ipSource = None
         self.domainSource = None
         self.ossSource = None
@@ -56,6 +57,12 @@ class SetSourceParameters(object):
         :param backSourceType: (Optional) 回源方式,只能是[https,http]中的一种,默认http
         """
         self.backSourceType = backSourceType
+
+    def setAccelerateRegion(self, accelerateRegion):
+        """
+        :param accelerateRegion: (Optional) 加速区域,必须是[mainland,nonMainland,all]中的一种,分别代表大陆,海外+中国港澳台,全球
+        """
+        self.accelerateRegion = accelerateRegion
 
     def setIpSource(self, ipSource):
         """

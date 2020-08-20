@@ -27,7 +27,13 @@ class Bandwidth(object):
         :param bandwidthName: (Optional) 带宽名称
         :param status: (Optional) 状态 normal:正常 abnormal:异常
         :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
-        :param chargeType: (Optional) 计费方式 fixedBandwidth:固定带宽 95thPercentile:95峰值 merge95thPercentile:合并95峰值
+        :param chargeType: (Optional) 计费方式
+fixedBandwidth:固定带宽
+95thPercentile:95峰值（IN，OUT统一计算95）
+merge95thPercentile:95峰值（多出口合并计费）
+95thPercentileSeparate:95峰值（IN，OUT分别计算95，取较大者）
+merge95thPercentileAvg:日95峰值月平均（多出口合并计费）
+
         :param bandwidth: (Optional) 合同带宽（Mbps）
         :param relatedIp: (Optional) 关联的公网IP
         :param switchboard: (Optional) 交换机信息

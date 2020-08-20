@@ -42,6 +42,7 @@ class DescribeDevicesParameters(object):
         self.pageSize = None
         self.cabinetId = None
         self.filters = None
+        self.deviceType = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -68,4 +69,10 @@ snNo - 设备SN号，精确匹配，支持多个
 
         """
         self.filters = filters
+
+    def setDeviceType(self, deviceType):
+        """
+        :param deviceType: (Optional) 设备类型 server:服务器 network:网络设备 storage:存储设备 other:其他设备
+        """
+        self.deviceType = deviceType
 

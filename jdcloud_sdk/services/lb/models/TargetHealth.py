@@ -19,15 +19,16 @@
 
 class TargetHealth(object):
 
-    def __init__(self, targetGroupId=None, agId=None, instanceId=None, type=None, port=None, weight=None, status=None):
+    def __init__(self, targetGroupId=None, agId=None, instanceId=None, type=None, port=None, weight=None, status=None, ipAddress=None):
         """
         :param targetGroupId: (Optional) Target所在的虚拟服务器组Id, 与agId不能并存
         :param agId: (Optional) Target所在的高可用组Id，与targetGroupId不能并存
-        :param instanceId: (Optional) Target所属实例的Id
-        :param type: (Optional) Target所属的type，取值为vm或者container,默认为vm
-        :param port: (Optional) Target提供服务的端口，取值范围：0-65535，其中0表示与backend的端口相同
-        :param weight: (Optional) Target的权重，取值范围：1-100 ，默认为10。
-        :param status: (Optional) Target的健康状态，取值为healthy、unhealthy
+        :param instanceId: (Optional) Target所属实例的Id（type为vm或container时显示）
+        :param type: (Optional) Target所属的type，取值为vm、container或ip,默认为vm
+        :param port: (Optional) 健康检查的port
+        :param weight: (Optional) 该Target的权重，取值范围：0-100 ，默认为10。0表示不参与流量转发
+        :param status: (Optional) 该Target的健康状态，取值为healthy、unhealthy
+        :param ipAddress: (Optional) Target的IP地址。当Target type为vm或container时，表示vm或container的私网IP；当Target type为ip时，表示注册Target时指定的IP地址
         """
 
         self.targetGroupId = targetGroupId
@@ -37,3 +38,4 @@ class TargetHealth(object):
         self.port = port
         self.weight = weight
         self.status = status
+        self.ipAddress = ipAddress

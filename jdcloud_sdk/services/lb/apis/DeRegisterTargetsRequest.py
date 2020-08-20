@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeRegisterTargetsRequest(JDCloudRequest):
     """
-    从TargetGroup中移除一个或多个Target，失败则全部回滚。 成功移除后，所有target将不会再接收来自loadbalancer新建连接的流量
+    从TargetGroup中移除一个或多个Target，失败则全部回滚。 成功移除的target将不会再接收来自loadbalancer新建连接的流量
     """
 
     def __init__(self, parameters, header=None, version="v1"):

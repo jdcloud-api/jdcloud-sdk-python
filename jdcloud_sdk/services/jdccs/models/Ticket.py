@@ -19,7 +19,7 @@
 
 class Ticket(object):
 
-    def __init__(self, ticketNo=None, ticketTemplateName=None, ticketTemplateCode=None, ticketTypeName=None, status=None, description=None, createdTime=None, closedTime=None, phone=None, email=None, idc=None, idcName=None):
+    def __init__(self, ticketNo=None, ticketTemplateName=None, ticketTemplateCode=None, ticketTypeName=None, status=None, description=None, createdTime=None, closedTime=None, phone=None, email=None, idc=None, idcName=None, count=None, isExternalIdc=None, externalIdcAddress=None, externalIdcContactPerson=None, externalIdcContactPhone=None):
         """
         :param ticketNo: (Optional) 工单编号
         :param ticketTemplateName: (Optional) 工单名称
@@ -33,6 +33,11 @@ class Ticket(object):
         :param email: (Optional) 邮箱
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
+        :param count: (Optional) 通用服务工单申请数量
+        :param isExternalIdc: (Optional) 是否是商业化外部机房
+        :param externalIdcAddress: (Optional) 外部机房地址
+        :param externalIdcContactPerson: (Optional) 外部机房联系人
+        :param externalIdcContactPhone: (Optional) 外部机房联系电话
         """
 
         self.ticketNo = ticketNo
@@ -47,3 +52,8 @@ class Ticket(object):
         self.email = email
         self.idc = idc
         self.idcName = idcName
+        self.count = count
+        self.isExternalIdc = isExternalIdc
+        self.externalIdcAddress = externalIdcAddress
+        self.externalIdcContactPerson = externalIdcContactPerson
+        self.externalIdcContactPhone = externalIdcContactPhone

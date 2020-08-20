@@ -19,13 +19,15 @@
 
 class CreateTargetGroupSpec(object):
 
-    def __init__(self, targetGroupName, loadBalancerId, description=None):
+    def __init__(self, targetGroupName, loadBalancerId, description=None, type=None):
         """
         :param targetGroupName:  虚拟服务器组名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param loadBalancerId:  负载均衡的Id
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
+        :param type: (Optional) 类型，取值为instance或ip
         """
 
         self.targetGroupName = targetGroupName
         self.loadBalancerId = loadBalancerId
         self.description = description
+        self.type = type

@@ -41,6 +41,7 @@ class DescribeBandwidthsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.lineType = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -60,4 +61,10 @@ class DescribeBandwidthsParameters(object):
 
         """
         self.filters = filters
+
+    def setLineType(self, lineType):
+        """
+        :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
+        """
+        self.lineType = lineType
 

@@ -41,6 +41,7 @@ class DescribeLoadBalancersParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -63,4 +64,10 @@ vpcId - 负载均衡所在Vpc的Id，支持单个
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 

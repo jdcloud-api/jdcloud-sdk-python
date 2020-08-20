@@ -26,10 +26,10 @@ class HealthCheckSpec(object):
         :param unhealthyThresholdCount: (Optional) 不健康阀值，取值范围为[1,5], 默认为3
         :param checkTimeoutSeconds: (Optional) 响应超时时间, 取值范围为[2,60]，默认为3s
         :param intervalSeconds: (Optional) 健康检查间隔, 范围为[5,300], 默认为5s
-        :param port: (Optional) 检查端口, 取值范围为[0,65535], 默认为0，默认端口为每个后端服务器接收负载均衡流量的端口
-        :param httpDomain: (Optional) 检查域名，仅支持HTTP协议
+        :param port: (Optional) 检查端口, 取值范围为[0,65535], 默认为0，默认端口为每个后端实例接收负载均衡流量的端口
+        :param httpDomain: (Optional) 检查域名，仅支持HTTP协议。支持输入域名和IP地址。如果输入域名，仅支持大小写字母、数字、英文中划线"-"和点"."，不区分大小写，且不超过255个字符。默认为空，表示健康检查不携带域名
         :param httpPath: (Optional) 检查路径, 健康检查的目标路径，必须以"/"开头，允许输入具体的文件路径，默认为根目录。当protocol为http时，必填, 仅支持HTTP协议
-        :param httpCode: (Optional) 检查来自后端服务器的成功响应时，要使用的HTTP状态码。您可以指定单个数值（例如："200"，取值范围200-499）、一段连续数值（例如："201-205"，取值范围范围200-499，且前面的参数小于后面）和一类连续数值缩写（例如："3xx"，等价于"300-399"，取值范围2xx、3xx和4xx）。多个数值之间通过","分割（例如："200,202-207,302,4xx"）。目前仅支持2xx、3xx、4xx。仅支持HTTP协议，默认为[2xx、3xx]
+        :param httpCode: (Optional) 检查来自后端目标服务器的成功响应时，要使用的HTTP状态码。您可以指定单个数值（例如："200"，取值范围200-499）、一段连续数值（例如："201-205"，取值范围范围200-499，且前面的参数小于后面）和一类连续数值缩写（例如："3xx"，等价于"300-399"，取值范围2xx、3xx和4xx）。多个数值之间通过","分割（例如："200,202-207,302,4xx"）。目前仅支持2xx、3xx、4xx。仅支持HTTP协议，默认为[2xx、3xx]
         """
 
         self.protocol = protocol

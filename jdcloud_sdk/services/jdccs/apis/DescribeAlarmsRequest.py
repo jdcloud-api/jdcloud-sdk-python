@@ -40,6 +40,7 @@ class DescribeAlarmsParameters(object):
         self.pageSize = None
         self.resourceType = None
         self.resourceId = None
+        self.status = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -64,4 +65,10 @@ class DescribeAlarmsParameters(object):
         :param resourceId: (Optional) 资源ID，指定resourceId时须指定resourceType
         """
         self.resourceId = resourceId
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
+        """
+        self.status = status
 

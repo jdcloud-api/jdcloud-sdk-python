@@ -50,6 +50,7 @@ class CreateLoadBalancerParameters(object):
         self.securityGroupIds = None
         self.description = None
         self.deleteProtection = None
+        self.userTags = None
 
     def setType(self, type):
         """
@@ -86,4 +87,10 @@ class CreateLoadBalancerParameters(object):
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)，默认为False
         """
         self.deleteProtection = deleteProtection
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户tag 信息
+        """
+        self.userTags = userTags
 

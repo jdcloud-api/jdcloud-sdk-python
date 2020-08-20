@@ -19,7 +19,7 @@
 
 class TargetGroup(object):
 
-    def __init__(self, targetGroupId=None, targetGroupName=None, loadBalancerId=None, loadBalancerType=None, loadBalancerName=None, description=None, createdTime=None, targets=None):
+    def __init__(self, targetGroupId=None, targetGroupName=None, loadBalancerId=None, loadBalancerType=None, loadBalancerName=None, description=None, createdTime=None, targets=None, type=None):
         """
         :param targetGroupId: (Optional) TargetGroup的Id
         :param targetGroupName: (Optional) TargetGroup的名字
@@ -29,6 +29,7 @@ class TargetGroup(object):
         :param description: (Optional) TargetGroup的描述信息
         :param createdTime: (Optional) TargetGroup的创建时间
         :param targets: (Optional) Target列表。该字段即将下线，请勿使用，已经使用该字段查询Target详情的服务请尽快切换使用describeTargets接口
+        :param type: (Optional) 实例或IP
         """
 
         self.targetGroupId = targetGroupId
@@ -39,3 +40,4 @@ class TargetGroup(object):
         self.description = description
         self.createdTime = createdTime
         self.targets = targets
+        self.type = type

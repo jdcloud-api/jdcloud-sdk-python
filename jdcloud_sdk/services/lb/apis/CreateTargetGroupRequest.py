@@ -43,10 +43,17 @@ class CreateTargetGroupParameters(object):
         self.targetGroupName = targetGroupName
         self.loadBalancerId = loadBalancerId
         self.description = None
+        self.type = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setType(self, type):
+        """
+        :param type: (Optional) 类型，取值为instance或ip
+        """
+        self.type = type
 

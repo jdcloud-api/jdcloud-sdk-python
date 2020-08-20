@@ -19,7 +19,7 @@
 
 class Listener(object):
 
-    def __init__(self, listenerId=None, listenerName=None, status=None, loadBalancerId=None, loadBalancerType=None, protocol=None, port=None, action=None, backendId=None, urlMapId=None, connectionIdleTimeSeconds=None, certificateSpecs=None, description=None, createdTime=None):
+    def __init__(self, listenerId=None, listenerName=None, status=None, loadBalancerId=None, loadBalancerType=None, protocol=None, port=None, action=None, backendId=None, urlMapId=None, connectionIdleTimeSeconds=None, certificateSpecs=None, description=None, createdTime=None, extensionCertificateSpecs=None):
         """
         :param listenerId: (Optional) Listener的Id
         :param listenerName: (Optional) Listener的名称
@@ -32,9 +32,10 @@ class Listener(object):
         :param backendId: (Optional) 默认的后端服务Id
         :param urlMapId: (Optional) 【alb Https和Http协议】转发规则组Id
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
-        :param certificateSpecs: (Optional) 【alb Https和Tls协议】ssl server证书列表，现只支持一个证书
+        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，只支持一个
         :param description: (Optional) Listener的描述信息
         :param createdTime: (Optional) Listener的创建时间
+        :param extensionCertificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的扩展证书列表
         """
 
         self.listenerId = listenerId
@@ -51,3 +52,4 @@ class Listener(object):
         self.certificateSpecs = certificateSpecs
         self.description = description
         self.createdTime = createdTime
+        self.extensionCertificateSpecs = extensionCertificateSpecs

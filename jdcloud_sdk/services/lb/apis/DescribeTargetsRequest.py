@@ -59,8 +59,10 @@ class DescribeTargetsParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) targetIds - Target ID列表，支持多个
-instanceId - Instance ID，支持单个
-port - Target提供服务的端口，支持单个
+instanceId - Instance ID,仅支持单个
+type － vm, container, ip,仅支持单个
+port - 端口,仅支持单个
+ipAddress - ip地址,仅支持单个
 
         """
         self.filters = filters

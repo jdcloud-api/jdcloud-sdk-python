@@ -19,7 +19,7 @@
 
 class LoadBalancer(object):
 
-    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, description=None, deleteProtection=None, createdTime=None):
+    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, tags=None, description=None, deleteProtection=None, createdTime=None):
         """
         :param loadBalancerId: (Optional) LoadBalancer的Id
         :param loadBalancerName: (Optional) LoadBalancer的名称
@@ -29,8 +29,9 @@ class LoadBalancer(object):
         :param state: (Optional) LoadBalancer的状态
         :param azs: (Optional) LoadBalancer所属availability Zone列表
         :param securityGroupIds: (Optional) LoadBalancer绑定的安全组列表
-        :param privateIp: (Optional) LoadBalancer的IP地址信息
+        :param privateIp: (Optional) 描述LB的私有对象信息
         :param charge: (Optional) 计费配置
+        :param tags: (Optional) tag信息
         :param description: (Optional) LoadBalancer的描述信息
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)
         :param createdTime: (Optional) LoadBalancer的创建时间
@@ -46,6 +47,7 @@ class LoadBalancer(object):
         self.securityGroupIds = securityGroupIds
         self.privateIp = privateIp
         self.charge = charge
+        self.tags = tags
         self.description = description
         self.deleteProtection = deleteProtection
         self.createdTime = createdTime

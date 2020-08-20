@@ -41,6 +41,7 @@ class DescribeIpsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.status = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -60,4 +61,10 @@ class DescribeIpsParameters(object):
 
         """
         self.filters = filters
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 状态 normal:正常 abnormal:异常
+        """
+        self.status = status
 

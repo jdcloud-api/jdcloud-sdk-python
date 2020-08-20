@@ -38,6 +38,7 @@ class DescribeIdcsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
+        self.includeExternalIdc = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -50,4 +51,10 @@ class DescribeIdcsParameters(object):
         :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
+
+    def setIncludeExternalIdc(self, includeExternalIdc):
+        """
+        :param includeExternalIdc: (Optional) 是否强制包含外部机房 yes/no
+        """
+        self.includeExternalIdc = includeExternalIdc
 

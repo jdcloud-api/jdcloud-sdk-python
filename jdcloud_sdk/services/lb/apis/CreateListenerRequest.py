@@ -68,7 +68,7 @@ class CreateListenerParameters(object):
 
     def setCertificateSpecs(self, certificateSpecs):
         """
-        :param certificateSpecs: (Optional) 【alb Https和Tls协议】ssl server证书列表，现只支持一个证书
+        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，只支持一个证书
         """
         self.certificateSpecs = certificateSpecs
 

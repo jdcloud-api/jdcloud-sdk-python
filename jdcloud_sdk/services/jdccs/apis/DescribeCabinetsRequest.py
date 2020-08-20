@@ -41,6 +41,7 @@ class DescribeCabinetsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.cabinetOpenStatus = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -61,4 +62,10 @@ cabinetId - 机柜ID，精确匹配，支持多个
 
         """
         self.filters = filters
+
+    def setCabinetOpenStatus(self, cabinetOpenStatus):
+        """
+        :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关电中
+        """
+        self.cabinetOpenStatus = cabinetOpenStatus
 

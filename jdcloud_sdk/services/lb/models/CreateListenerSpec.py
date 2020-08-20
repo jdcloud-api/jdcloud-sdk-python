@@ -28,7 +28,7 @@ class CreateListenerSpec(object):
         :param loadBalancerId:  Listener所属loadBalancer的Id
         :param urlMapId: (Optional) 【alb Https和Http协议】转发规则组Id
         :param action: (Optional) 默认后端服务的转发策略,取值为Forward或Redirect, 现只支持Forward, 默认为Forward
-        :param certificateSpecs: (Optional) 【alb Https和Tls协议】ssl server证书列表，现只支持一个证书
+        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，只支持一个证书
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         """

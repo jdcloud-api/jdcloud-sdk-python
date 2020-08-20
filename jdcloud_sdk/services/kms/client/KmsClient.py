@@ -26,4 +26,4 @@ class KmsClient(JDCloudClient):
         if config is None:
             config = Config('kms.jdcloud-api.com')
 
-        super(KmsClient, self).__init__(credential, config, 'kms', '0.3.0', logger)
+        super(KmsClient, self).__init__(credential, config, 'kms', '0.3.1', logger)

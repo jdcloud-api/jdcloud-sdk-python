@@ -23,7 +23,7 @@ class UpdateListenerSpec(object):
         """
         :param listenerName: (Optional) 监听器名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param status: (Optional) Listener状态, 取值为On或者为Off
-        :param certificateSpecs: (Optional) 【alb Https和Tls协议】ssl server证书列表，现只支持一个证书
+        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，只支持一个证书
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持该功能
         :param backendId: (Optional) 默认后端服务Id
         :param urlMapId: (Optional) 【alb Https和Http协议】转发规则组Id

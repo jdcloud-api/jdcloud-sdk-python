@@ -19,7 +19,7 @@
 
 class CreateLoadBalancerSpec(object):
 
-    def __init__(self, loadBalancerName, subnetId, azs, type=None, chargeSpec=None, elasticIp=None, securityGroupIds=None, description=None, deleteProtection=None):
+    def __init__(self, loadBalancerName, subnetId, azs, type=None, chargeSpec=None, elasticIp=None, securityGroupIds=None, description=None, deleteProtection=None, userTags=None):
         """
         :param loadBalancerName:  LoadBalancer的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param subnetId:  LoadBalancer所属子网的Id
@@ -30,6 +30,7 @@ class CreateLoadBalancerSpec(object):
         :param securityGroupIds: (Optional) 【alb】 安全组 ID列表
         :param description: (Optional) LoadBalancer的描述信息,允许输入UTF-8编码下的全部字符，不超过256字符
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)，默认为False
+        :param userTags: (Optional) 用户tag 信息
         """
 
         self.loadBalancerName = loadBalancerName
@@ -41,3 +42,4 @@ class CreateLoadBalancerSpec(object):
         self.securityGroupIds = securityGroupIds
         self.description = description
         self.deleteProtection = deleteProtection
+        self.userTags = userTags

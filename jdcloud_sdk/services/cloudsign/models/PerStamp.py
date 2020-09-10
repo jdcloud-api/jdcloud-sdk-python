@@ -28,9 +28,9 @@ class PerStamp(object):
         :param offsetX: (Optional) 盖章X坐标偏移量（配合positionX）
         :param offsetY: (Optional) 盖章Y坐标偏移量（配合positionY）
         :param page: (Optional) 盖章页码（选择坐标盖章时需要）
-        :param sealName: (Optional) 印章名称,必须和imageB64同时非空
-        :param imageB64: (Optional) 印章图像base64(与stampId二选一)
-        :param stampId: (Optional) 印章ID(与imageB64二选一)
+        :param sealName: (Optional) 印章名称
+        :param imageB64: (Optional) 印章图像base64(建议png格式,不传使用默认方形章)
+        :param stampId: (Optional) 印章ID
         :param desc: (Optional) 印章描述
         :param isDefault: (Optional) 是否作为以后签章默认章
         :param imageType: (Optional) 图片类型，只支持png格式

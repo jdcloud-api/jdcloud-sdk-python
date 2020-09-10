@@ -19,13 +19,19 @@
 
 class TemplateSpec(object):
 
-    def __init__(self, templateContent=None, templateName=None, templateTitle=None):
+    def __init__(self, templateContent=None, templateName=None, templateTitle=None, templateType=None, holdingKeys=None):
         """
         :param templateContent: (Optional) 合同模板文件（base64）
         :param templateName: (Optional) 合同模板名称
         :param templateTitle: (Optional) 合同模板标题
+        :param templateType: (Optional) 模板类型 pdf,word (word为可编辑模板)
+        :param holdingKeys: (Optional) 占位符关键字,templateType为word时必传
+在word文档中为双大括号里的内容, 比如{{单位名称}}
+
         """
 
         self.templateContent = templateContent
         self.templateName = templateName
         self.templateTitle = templateTitle
+        self.templateType = templateType
+        self.holdingKeys = holdingKeys

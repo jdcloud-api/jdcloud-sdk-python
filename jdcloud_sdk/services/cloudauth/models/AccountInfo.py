@@ -19,10 +19,9 @@
 
 class AccountInfo(object):
 
-    def __init__(self, orgName, bankCardNum, bankName, branchBankName, idCard=None, bankCode=None, cityCode=None, provinceCode=None):
+    def __init__(self, orgName, bankCardNum, bankName, branchBankName, bankCode=None, cityCode=None, provinceCode=None):
         """
         :param orgName:  组织名称
-        :param idCard: (Optional) 身份证号码
         :param bankCardNum:  银行卡号
         :param bankName:  银行名称
         :param branchBankName:  支行名称
@@ -32,7 +31,6 @@ class AccountInfo(object):
         """
 
         self.orgName = orgName
-        self.idCard = idCard
         self.bankCardNum = bankCardNum
         self.bankName = bankName
         self.branchBankName = branchBankName

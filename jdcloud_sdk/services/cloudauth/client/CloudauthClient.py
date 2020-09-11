@@ -26,4 +26,4 @@ class CloudauthClient(JDCloudClient):
         if config is None:
             config = Config('cloudauth.jdcloud-api.com')
 
-        super(CloudauthClient, self).__init__(credential, config, 'cloudauth', '1.0.0', logger)
+        super(CloudauthClient, self).__init__(credential, config, 'cloudauth', '1.0.3', logger)

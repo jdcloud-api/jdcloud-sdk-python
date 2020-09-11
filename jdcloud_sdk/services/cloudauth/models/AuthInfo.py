@@ -24,8 +24,13 @@ class AuthInfo(object):
         :param success:  认证结果true 成功, false 失败
         :param hasException:  是否有异常 true 有异常, false 无异常
         :param code:  认证结果状态码
-        :param message:  认证结果
-        :param detail:  
+        :param message:  1. 认证结果信息
+2. 查询结果信息
+3. 状态码信息
+
+        :param detail:  1. 认证结果信息
+2. 查询结果信息
+
         """
 
         self.success = success

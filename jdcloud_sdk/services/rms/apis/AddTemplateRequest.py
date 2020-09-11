@@ -32,28 +32,22 @@ class AddTemplateRequest(JDCloudRequest):
 
 class AddTemplateParameters(object):
 
-    def __init__(self, regionId, appId, signType, purpose, signCardType, aptitudes, title, description, unsubscribe, content):
+    def __init__(self, regionId, appId, aptitudesId, title, description, signContent, content):
         """
         :param regionId: Region ID
         :param appId: 应用ID
-        :param signType: 签名类型 0:公司 1:app 2:网站 3:公众号 4:商标 5:政府机关
-        :param purpose: 用途 0:自用 1:他用
-        :param signCardType: 资质证明类型 0:三证合一 1:企业营业执照 2:组织机构代码证书 3:社会信用代码证书
-        :param aptitudes: 资质证明图片必须是jpg图片的base64编码，只支持jpg图片
-        :param title: 多媒体内容的标题
-        :param description: 多媒体内容的描述
-        :param unsubscribe: 是否支持退订 0:不支持退订 1:支持退订
+        :param aptitudesId: 资质ID
+        :param title: 短信主题
+        :param description: 短信描述
+        :param signContent: 短信签名
         :param content: 短信内容
         """
 
         self.regionId = regionId
         self.appId = appId
-        self.signType = signType
-        self.purpose = purpose
-        self.signCardType = signCardType
-        self.aptitudes = aptitudes
+        self.aptitudesId = aptitudesId
         self.title = title
         self.description = description
-        self.unsubscribe = unsubscribe
+        self.signContent = signContent
         self.content = content
 

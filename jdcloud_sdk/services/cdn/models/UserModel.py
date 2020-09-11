@@ -19,7 +19,7 @@
 
 class UserModel(object):
 
-    def __init__(self, pin=None, typeList=None, typeDescList=None, status=None, statusDesc=None, settlementMethod=None, settlementMethodDesc=None):
+    def __init__(self, pin=None, typeList=None, typeDescList=None, status=None, statusDesc=None, settlementMethod=None, settlementMethodDesc=None, billSourceid=None):
         """
         :param pin: (Optional) 用户pin
         :param typeList: (Optional) 计费类型
@@ -28,6 +28,7 @@ class UserModel(object):
         :param statusDesc: (Optional) 用户状态描述
         :param settlementMethod: (Optional) 结算方式
         :param settlementMethodDesc: (Optional) 结算方式描述
+        :param billSourceid: (Optional) 计费资源id
         """
 
         self.pin = pin
@@ -37,3 +38,4 @@ class UserModel(object):
         self.statusDesc = statusDesc
         self.settlementMethod = settlementMethod
         self.settlementMethodDesc = settlementMethodDesc
+        self.billSourceid = billSourceid

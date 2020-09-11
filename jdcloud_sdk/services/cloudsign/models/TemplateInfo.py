@@ -19,7 +19,7 @@
 
 class TemplateInfo(object):
 
-    def __init__(self, templateId=None, templateName=None, templateTitle=None, templateFileName=None, templateContent=None, templateDigest=None, createTime=None):
+    def __init__(self, templateId=None, templateName=None, templateTitle=None, templateFileName=None, templateContent=None, templateDigest=None, templateType=None, paddingInfo=None, createTime=None):
         """
         :param templateId: (Optional) 合同模板ID
         :param templateName: (Optional) 合同模板名称
@@ -27,6 +27,8 @@ class TemplateInfo(object):
         :param templateFileName: (Optional) 合同模板文件名称
         :param templateContent: (Optional) 合同模板文件（base64）
         :param templateDigest: (Optional) 合同模板文件摘要
+        :param templateType: (Optional) 合同模板文件类型 pdf,word,pdf-auto
+        :param paddingInfo: (Optional) 填充信息
         :param createTime: (Optional) 创建时间
         """
 
@@ -36,4 +38,6 @@ class TemplateInfo(object):
         self.templateFileName = templateFileName
         self.templateContent = templateContent
         self.templateDigest = templateDigest
+        self.templateType = templateType
+        self.paddingInfo = paddingInfo
         self.createTime = createTime

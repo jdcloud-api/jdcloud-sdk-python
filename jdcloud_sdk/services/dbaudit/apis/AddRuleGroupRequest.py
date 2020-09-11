@@ -19,28 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CheckWhetherIpBelongToJCloudV2Request(JDCloudRequest):
+class AddRuleGroupRequest(JDCloudRequest):
     """
-    获取所有上层节点的ip
+    新增规则组
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CheckWhetherIpBelongToJCloudV2Request, self).__init__(
-            '/ip:whetherBelongToJCloudV2', 'POST', header, version)
+        super(AddRuleGroupRequest, self).__init__(
+            '/regions/{regionId}/instances/{insId}/ruleGroups', 'POST', header, version)
         self.parameters = parameters
 
 
-class CheckWhetherIpBelongToJCloudV2Parameters(object):
+class AddRuleGroupParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, regionId, insId, ruleGroup, ):
         """
+        :param regionId: 地域 Id
+        :param insId: 审计实例ID
+        :param ruleGroup: 规则组详情
         """
 
-        self.ips = None
+        self.regionId = regionId
+        self.insId = insId
+        self.ruleGroup = ruleGroup
+        self.dbId = None
 
-    def setIps(self, ips):
+    def setDbId(self, dbId):
         """
-        :param ips: (Optional) 
+        :param dbId: (Optional) 数据库ID
         """
-        self.ips = ips
+        self.dbId = dbId
 

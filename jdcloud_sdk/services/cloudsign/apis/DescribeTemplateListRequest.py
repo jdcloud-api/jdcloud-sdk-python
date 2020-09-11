@@ -39,6 +39,7 @@ class DescribeTemplateListParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.templateNameOrTitle = None
+        self.templateType = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -57,4 +58,10 @@ class DescribeTemplateListParameters(object):
         :param templateNameOrTitle: (Optional) 合同模板名称或者标题
         """
         self.templateNameOrTitle = templateNameOrTitle
+
+    def setTemplateType(self, templateType):
+        """
+        :param templateType: (Optional) 模板类型 pdf,word,pdf-auto(不传查所有类型)
+        """
+        self.templateType = templateType
 

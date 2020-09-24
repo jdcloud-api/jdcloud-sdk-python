@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class IdataClusterRequest(JDCloudRequest):
     """
-    查询用户集群列表及相关服务的一些信息
+    查询用户指定clusterId对应的集群列表及相关服务的一些信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,12 +32,12 @@ class IdataClusterRequest(JDCloudRequest):
 
 class IdataClusterParameters(object):
 
-    def __init__(self, regionId, id, ):
+    def __init__(self, regionId, clusterId, ):
         """
         :param regionId: 地域ID
-        :param id: 集群ID；由八位字符组成
+        :param clusterId: 集群ID
         """
 
         self.regionId = regionId
-        self.id = id
+        self.clusterId = clusterId
 

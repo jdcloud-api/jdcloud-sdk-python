@@ -43,6 +43,10 @@ class DescribeElasticIpsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.status = None
+        self.hasJoinBandwidthPackage = None
+        self.chargeMode = None
+        self.instanceId = None
+        self.subnetId = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -63,10 +67,35 @@ class DescribeElasticIpsParameters(object):
         """
         self.status = status
 
+    def setHasJoinBandwidthPackage(self, hasJoinBandwidthPackage):
+        """
+        :param hasJoinBandwidthPackage: (Optional) 弹性公网IP是否加入共享带宽，取值范围：yes、no
+        """
+        self.hasJoinBandwidthPackage = hasJoinBandwidthPackage
+
+    def setChargeMode(self, chargeMode):
+        """
+        :param chargeMode: (Optional) 支付模式，取值为：prepaid_by_duration表示预付费，postpaid_by_duration表示按配置后付费
+        """
+        self.chargeMode = chargeMode
+
+    def setInstanceId(self, instanceId):
+        """
+        :param instanceId: (Optional) 实例Id
+        """
+        self.instanceId = instanceId
+
+    def setSubnetId(self, subnetId):
+        """
+        :param subnetId: (Optional) 子网Id
+        """
+        self.subnetId = subnetId
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) elasticIpId - 弹性公网IPID，精确匹配，支持多个<br/>
-elasticIp - 弹性公网IP，精确匹配，支持多个
+elasticIp - 弹性公网IP，精确匹配，支持多个<br/>
+bandwidthPackageId - 共享带宽ID，精确匹配，支持多个
 
         """
         self.filters = filters

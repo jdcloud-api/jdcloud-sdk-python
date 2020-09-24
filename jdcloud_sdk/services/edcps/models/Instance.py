@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, extraUplinkBandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, subnetId=None, subnetName=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, publicIpv6=None, keypairId=None, agentStatus=None, charge=None):
+    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, extraUplinkBandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, subnetId=None, subnetName=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, publicIpv6=None, keypairId=None, interfaceMode=None, extensionVpcId=None, extensionVpcName=None, extensionSubnetId=None, extensionSubnetName=None, extensionPrivateIp=None, extensionEnableInternet=None, extensionElasticIpId=None, extensionPublicIp=None, extensionBandwidth=None, extensionExtraUplinkBandwidth=None, agentStatus=None, createTime=None, updateTime=None, charge=None):
         """
         :param instanceId: (Optional) 云物理服务器实例ID
         :param region: (Optional) 区域代码, 如 cn-east-tz1
@@ -52,7 +52,20 @@ class Instance(object):
         :param publicIp: (Optional) 公网IP
         :param publicIpv6: (Optional) 公网IPv6
         :param keypairId: (Optional) 密钥对id
+        :param interfaceMode: (Optional) 网络接口模式，单网口:bond、双网口:dual
+        :param extensionVpcId: (Optional) 辅网口私有网络ID
+        :param extensionVpcName: (Optional) 辅网口私有网络名称
+        :param extensionSubnetId: (Optional) 辅网口子网ID
+        :param extensionSubnetName: (Optional) 辅网口子网名称
+        :param extensionPrivateIp: (Optional) 辅网口手动分配的内网ip
+        :param extensionEnableInternet: (Optional) 辅网口是否启用外网
+        :param extensionElasticIpId: (Optional) 辅网口弹性公网ip id
+        :param extensionPublicIp: (Optional) 辅网口公网ip
+        :param extensionBandwidth: (Optional) 辅网口外网带宽，单位Mbps
+        :param extensionExtraUplinkBandwidth: (Optional) 辅网口额外上行带宽, 单位Mbps
         :param agentStatus: (Optional) agent状态
+        :param createTime: (Optional) 创建时间
+        :param updateTime: (Optional) 更新时间
         :param charge: (Optional) 计费信息
         """
 
@@ -87,5 +100,18 @@ class Instance(object):
         self.publicIp = publicIp
         self.publicIpv6 = publicIpv6
         self.keypairId = keypairId
+        self.interfaceMode = interfaceMode
+        self.extensionVpcId = extensionVpcId
+        self.extensionVpcName = extensionVpcName
+        self.extensionSubnetId = extensionSubnetId
+        self.extensionSubnetName = extensionSubnetName
+        self.extensionPrivateIp = extensionPrivateIp
+        self.extensionEnableInternet = extensionEnableInternet
+        self.extensionElasticIpId = extensionElasticIpId
+        self.extensionPublicIp = extensionPublicIp
+        self.extensionBandwidth = extensionBandwidth
+        self.extensionExtraUplinkBandwidth = extensionExtraUplinkBandwidth
         self.agentStatus = agentStatus
+        self.createTime = createTime
+        self.updateTime = updateTime
         self.charge = charge

@@ -42,6 +42,7 @@ class UpdateTranscodeTemplateParameters(object):
         self.video = None
         self.audio = None
         self.encapsulation = None
+        self.outFile = None
         self.definition = None
         self.templateType = None
 
@@ -69,6 +70,12 @@ class UpdateTranscodeTemplateParameters(object):
         :param encapsulation: (Optional) 封装配置
         """
         self.encapsulation = encapsulation
+
+    def setOutFile(self, outFile):
+        """
+        :param outFile: (Optional) 输出文件配置
+        """
+        self.outFile = outFile
 
     def setDefinition(self, definition):
         """

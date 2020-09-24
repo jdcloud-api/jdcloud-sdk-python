@@ -66,6 +66,8 @@ class CreateWatermarkParameters(object):
         self.width = width
         self.height = height
         self.sizeUnit = None
+        self.widthRef = None
+        self.heightRef = None
         self.position = position
         self.offsetX = offsetX
         self.offsetY = offsetY
@@ -80,6 +82,26 @@ class CreateWatermarkParameters(object):
 
         """
         self.sizeUnit = sizeUnit
+
+    def setWidthRef(self, widthRef):
+        """
+        :param widthRef: (Optional) 
+        """
+        self.widthRef = widthRef
+
+    def setHeightRef(self, heightRef):
+        """
+        :param heightRef: (Optional) 高度参考，仅当 siteUnit = percent 时生效。
+取值说明：
+  w: 输出水印高度 = height * 水印原图高度
+  v: 等同于 vh
+  vw: 输出水印高度 = height * 输出视频宽度
+  vh: 输出水印高度 = height * 输出视频高度
+  vls: 输出水印高度 = height * 输出视频长边
+  vss: 输出水印高度 = height * 输出视频短边
+
+        """
+        self.heightRef = heightRef
 
     def setOffsetUnit(self, offsetUnit):
         """

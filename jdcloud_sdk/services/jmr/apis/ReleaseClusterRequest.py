@@ -22,22 +22,23 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class ReleaseClusterRequest(JDCloudRequest):
     """
     释放集群
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(ReleaseClusterRequest, self).__init__(
-            '/regions/{regionId}/cluster/{id}:release', 'POST', header, version)
+            '/regions/{regionId}/clusters/{clusterId}:release', 'POST', header, version)
         self.parameters = parameters
 
 
 class ReleaseClusterParameters(object):
 
-    def __init__(self, regionId, id, ):
+    def __init__(self, regionId, clusterId, ):
         """
         :param regionId: 地域ID
-        :param id: 集群ID；由八位字符组成
+        :param clusterId: 集群ID
         """
 
         self.regionId = regionId
-        self.id = id
+        self.clusterId = clusterId
 

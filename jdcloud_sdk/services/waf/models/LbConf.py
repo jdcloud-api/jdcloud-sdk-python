@@ -19,7 +19,7 @@
 
 class LbConf(object):
 
-    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, maxBodySize=None):
+    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param protocols:  使用协议，["http","https"]
         :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
@@ -35,6 +35,8 @@ class LbConf(object):
         :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级
         :param enableUnderscores: (Optional) 请求头是否支持下划线，1-是，0-否
         :param maxBodySize: (Optional) 请求body最大值，默认300M，可为G/K
+        :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
+        :param proxyConnectTimeout: (Optional) 连接超时时间，3-60s
         """
 
         self.protocols = protocols
@@ -51,3 +53,5 @@ class LbConf(object):
         self.suiteLevel = suiteLevel
         self.enableUnderscores = enableUnderscores
         self.maxBodySize = maxBodySize
+        self.disableHealthCheck = disableHealthCheck
+        self.proxyConnectTimeout = proxyConnectTimeout

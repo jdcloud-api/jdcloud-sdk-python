@@ -19,21 +19,23 @@
 
 class AliasIp(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, subnetId=None, secondaryCidrId=None, aliasIpId=None, cidr=None):
+    def __init__(self, region=None, az=None, instanceId=None, subnetId=None, secondaryCidrId=None, aliasIpId=None, cidr=None, isBondEip=None):
         """
-        :param instanceId: (Optional) 实例ID
         :param region: (Optional) 地域
         :param az: (Optional) 可用区
+        :param instanceId: (Optional) 实例ID
         :param subnetId: (Optional) 子网ID
         :param secondaryCidrId: (Optional) 次要cidr ID
         :param aliasIpId: (Optional) 别名IP ID
         :param cidr: (Optional) cidr段
+        :param isBondEip: (Optional) 是否已绑弹性公网ip
         """
 
-        self.instanceId = instanceId
         self.region = region
         self.az = az
+        self.instanceId = instanceId
         self.subnetId = subnetId
         self.secondaryCidrId = secondaryCidrId
         self.aliasIpId = aliasIpId
         self.cidr = cidr
+        self.isBondEip = isBondEip

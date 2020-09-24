@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetSoftwareInfoRequest(JDCloudRequest):
     """
-    获取软件清单信息
+    获取对应版本的软件清单信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,17 +32,12 @@ class GetSoftwareInfoRequest(JDCloudRequest):
 
 class GetSoftwareInfoParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, ver, ):
         """
         :param regionId: 地域ID
+        :param ver: JMR软件版本号
         """
 
         self.regionId = regionId
-        self.ver = None
-
-    def setVer(self, ver):
-        """
-        :param ver: (Optional) JMR软件版本号
-        """
         self.ver = ver
 

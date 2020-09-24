@@ -19,8 +19,9 @@
 
 class DomainInfo(object):
 
-    def __init__(self, domain=None, rsAddr=None, dnsType=None, backupCname=None, enable2Dos=None):
+    def __init__(self, wafInstanceId=None, domain=None, rsAddr=None, dnsType=None, backupCname=None, enable2Dos=None):
         """
+        :param wafInstanceId: (Optional) 实例
         :param domain: (Optional) 域名
         :param rsAddr: (Optional) 回源ip列表
         :param dnsType: (Optional) waf防护状态，rs-回源，vip-云端
@@ -28,6 +29,7 @@ class DomainInfo(object):
         :param enable2Dos: (Optional) 是否切清洗，0-否，1-是
         """
 
+        self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.rsAddr = rsAddr
         self.dnsType = dnsType

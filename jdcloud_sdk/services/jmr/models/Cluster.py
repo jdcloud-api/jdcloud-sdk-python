@@ -19,15 +19,39 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, type=None):
+    def __init__(self, clusterId=None, clusterName=None, clusterCreateTime=None, clusterHa=None, clusterStatus=None, clusterVersion=None, clusterService=None, clusterRegion=None, clusterAz=None, clusterPrice=None, clusterPaymentType=None, clusterOss=None, clusterVpc=None, clusterVpcSubnet=None, clusterBandwidth=None, clusterNodes=None):
         """
-        :param clusterId: (Optional) 集群Id
-        :param type: (Optional) "必传参数，计费类型："
-"按配置<br/>"
-     "601-609：包年包月1一个月到9个月"
-     "610:包年包月一年"
-     "620:包年包月两年"
+        :param clusterId: (Optional) 集群ID
+        :param clusterName: (Optional) 集群名称
+        :param clusterCreateTime: (Optional) 集群创建时间
+        :param clusterHa: (Optional) 集群是否为高可用
+        :param clusterStatus: (Optional) 集群状态
+        :param clusterVersion: (Optional) 集群版本
+        :param clusterService: (Optional) 集群服务
+        :param clusterRegion: (Optional) 集群所属地域
+        :param clusterAz: (Optional) 集群所属可用区
+        :param clusterPrice: (Optional) 集群费用
+        :param clusterPaymentType: (Optional) 集群计费类型
+        :param clusterOss: (Optional) 集群是否关联对象存储
+        :param clusterVpc: (Optional) 集群私有网络名称
+        :param clusterVpcSubnet: (Optional) 集群子网名称
+        :param clusterBandwidth: (Optional) 集群公网网络带宽
+        :param clusterNodes: (Optional) 集群节点信息
         """
 
         self.clusterId = clusterId
-        self.type = type
+        self.clusterName = clusterName
+        self.clusterCreateTime = clusterCreateTime
+        self.clusterHa = clusterHa
+        self.clusterStatus = clusterStatus
+        self.clusterVersion = clusterVersion
+        self.clusterService = clusterService
+        self.clusterRegion = clusterRegion
+        self.clusterAz = clusterAz
+        self.clusterPrice = clusterPrice
+        self.clusterPaymentType = clusterPaymentType
+        self.clusterOss = clusterOss
+        self.clusterVpc = clusterVpc
+        self.clusterVpcSubnet = clusterVpcSubnet
+        self.clusterBandwidth = clusterBandwidth
+        self.clusterNodes = clusterNodes

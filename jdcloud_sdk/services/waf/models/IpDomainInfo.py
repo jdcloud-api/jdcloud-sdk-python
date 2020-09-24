@@ -23,7 +23,7 @@ class IpDomainInfo(object):
         """
         :param ip: (Optional) ip
         :param isVip: (Optional) 是否waf的vip，true-是，false-不是
-        :param domainInfo: (Optional) 绑定的证书名称
+        :param domainInfo: (Optional) 域名信息
         """
 
         self.ip = ip

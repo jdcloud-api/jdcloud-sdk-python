@@ -19,15 +19,17 @@
 
 class RsConfig(object):
 
-    def __init__(self, rsAddr, httpRsPort=None, httpsRsPort=None, rsType=None):
+    def __init__(self, rsAddr, weight=None, httpRsPort=None, httpsRsPort=None, rsType=None):
         """
         :param rsAddr:  回源地址
+        :param weight: (Optional) 回源地址权重，与rsAddr顺序对应
         :param httpRsPort: (Optional) http回源端口
         :param httpsRsPort: (Optional) https回源端口
         :param rsType: (Optional) 回源地址类型，0为ip，1为域名
         """
 
         self.rsAddr = rsAddr
+        self.weight = weight
         self.httpRsPort = httpRsPort
         self.httpsRsPort = httpsRsPort
         self.rsType = rsType

@@ -43,6 +43,8 @@ class UpdateWatermarkParameters(object):
         self.width = None
         self.height = None
         self.sizeUnit = None
+        self.widthRef = None
+        self.heightRef = None
         self.position = None
         self.offsetX = None
         self.offsetY = None
@@ -88,6 +90,26 @@ class UpdateWatermarkParameters(object):
 
         """
         self.sizeUnit = sizeUnit
+
+    def setWidthRef(self, widthRef):
+        """
+        :param widthRef: (Optional) 
+        """
+        self.widthRef = widthRef
+
+    def setHeightRef(self, heightRef):
+        """
+        :param heightRef: (Optional) 高度参考，仅当 siteUnit = percent 时生效。
+取值说明：
+  w: 输出水印高度 = height * 水印原图高度
+  v: 等同于 vh
+  vw: 输出水印高度 = height * 输出视频宽度
+  vh: 输出水印高度 = height * 输出视频高度
+  vls: 输出水印高度 = height * 输出视频长边
+  vss: 输出水印高度 = height * 输出视频短边
+
+        """
+        self.heightRef = heightRef
 
     def setPosition(self, position):
         """

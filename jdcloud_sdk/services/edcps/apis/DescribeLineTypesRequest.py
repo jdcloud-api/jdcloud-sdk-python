@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeLineTypesRequest(JDCloudRequest):
     """
-    查询链路类型列表
+    查询链路类型
     """
 
     def __init__(self, parameters, header=None, version="v1"):

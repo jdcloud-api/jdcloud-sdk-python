@@ -32,12 +32,14 @@ class DescribeAvailablePrivateIpRequest(JDCloudRequest):
 
 class DescribeAvailablePrivateIpParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, subnetId):
         """
         :param regionId: 地域ID，可调用接口（describeEdCPSRegions）获取分布式云物理服务器支持的地域
         :param instanceId: 分布式云物理服务器ID
+        :param subnetId: 主网口或者辅网口的子网id
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.subnetId = subnetId
 

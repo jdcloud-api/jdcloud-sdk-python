@@ -19,10 +19,10 @@
 
 class ClusterExpansion(object):
 
-    def __init__(self, clusterId=None, expansionNum=None):
+    def __init__(self, clusterId, expansionNum, ):
         """
-        :param clusterId: (Optional) 集群Id
-        :param expansionNum: (Optional) 扩容数量
+        :param clusterId:  集群ID
+        :param expansionNum:  扩容节点个数
         """
 
         self.clusterId = clusterId

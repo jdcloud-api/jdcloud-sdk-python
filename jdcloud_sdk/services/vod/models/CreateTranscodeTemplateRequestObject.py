@@ -19,13 +19,14 @@
 
 class CreateTranscodeTemplateRequestObject(object):
 
-    def __init__(self, name, video, audio, encapsulation, definition, templateType=None):
+    def __init__(self, name, video, audio, encapsulation, definition, outFile=None, templateType=None):
         """
         :param name:  模板名称。长度不超过128个字符。UTF-8编码。
 
         :param video:  视频参数配置
         :param audio:  音频参数配置
         :param encapsulation:  封装配置
+        :param outFile: (Optional) 输出文件配置
         :param definition:  清晰度规格标记。取值范围：
   SD - 标清
   HD - 高清
@@ -43,5 +44,6 @@ class CreateTranscodeTemplateRequestObject(object):
         self.video = video
         self.audio = audio
         self.encapsulation = encapsulation
+        self.outFile = outFile
         self.definition = definition
         self.templateType = templateType

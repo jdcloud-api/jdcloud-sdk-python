@@ -52,8 +52,15 @@ class CreateTranscodeTemplateParameters(object):
         self.video = video
         self.audio = audio
         self.encapsulation = encapsulation
+        self.outFile = None
         self.definition = definition
         self.templateType = None
+
+    def setOutFile(self, outFile):
+        """
+        :param outFile: (Optional) 输出文件配置
+        """
+        self.outFile = outFile
 
     def setTemplateType(self, templateType):
         """

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetJmrVersionListRequest(JDCloudRequest):
     """
-    返回jmr版本列表
+    查询JMR的版本信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):

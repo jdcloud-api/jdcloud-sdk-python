@@ -19,7 +19,7 @@
 
 class TranscodeTemplateObject(object):
 
-    def __init__(self, id=None, name=None, video=None, audio=None, encapsulation=None, definition=None, source=None, templateType=None, createTime=None, updateTime=None):
+    def __init__(self, id=None, name=None, video=None, audio=None, encapsulation=None, outFile=None, definition=None, source=None, templateType=None, createTime=None, updateTime=None):
         """
         :param id: (Optional) 模板ID
         :param name: (Optional) 模板名称。长度不超过128个字符。UTF-8编码。
@@ -27,6 +27,7 @@ class TranscodeTemplateObject(object):
         :param video: (Optional) 视频参数配置
         :param audio: (Optional) 音频参数配置
         :param encapsulation: (Optional) 封装配置
+        :param outFile: (Optional) 输出文件配置
         :param definition: (Optional) 清晰度规格标记。取值范围：
   SD - 标清
   HD - 高清
@@ -51,6 +52,7 @@ class TranscodeTemplateObject(object):
         self.video = video
         self.audio = audio
         self.encapsulation = encapsulation
+        self.outFile = outFile
         self.definition = definition
         self.source = source
         self.templateType = templateType

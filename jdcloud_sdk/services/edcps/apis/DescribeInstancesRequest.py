@@ -49,7 +49,9 @@ class DescribeInstancesParameters(object):
         self.subnetId = None
         self.enableInternet = None
         self.privateIp = None
+        self.extensionPrivateIp = None
         self.keypairId = None
+        self.interfaceMode = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -102,15 +104,27 @@ class DescribeInstancesParameters(object):
 
     def setPrivateIp(self, privateIp):
         """
-        :param privateIp: (Optional) 内网ip
+        :param privateIp: (Optional) 主网口内网ip
         """
         self.privateIp = privateIp
+
+    def setExtensionPrivateIp(self, extensionPrivateIp):
+        """
+        :param extensionPrivateIp: (Optional) 辅网口内网ip
+        """
+        self.extensionPrivateIp = extensionPrivateIp
 
     def setKeypairId(self, keypairId):
         """
         :param keypairId: (Optional) 密钥对id
         """
         self.keypairId = keypairId
+
+    def setInterfaceMode(self, interfaceMode):
+        """
+        :param interfaceMode: (Optional) 网口模式 单网口:bond,双网口:dual
+        """
+        self.interfaceMode = interfaceMode
 
     def setFilters(self, filters):
         """

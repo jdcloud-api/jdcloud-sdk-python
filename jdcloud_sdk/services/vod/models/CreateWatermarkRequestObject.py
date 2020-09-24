@@ -19,7 +19,7 @@
 
 class CreateWatermarkRequestObject(object):
 
-    def __init__(self, name, imgUrl, width, height, position, offsetX, offsetY, sizeUnit=None, offsetUnit=None):
+    def __init__(self, name, imgUrl, width, height, position, offsetX, offsetY, sizeUnit=None, widthRef=None, heightRef=None, offsetUnit=None):
         """
         :param name:  水印名称。只支持中英文、数字。长度不超过128个字符。UTF-8编码。
 
@@ -36,6 +36,16 @@ class CreateWatermarkRequestObject(object):
   pixel - 像素
   percent - 百分比
 默认值为 pixel
+
+        :param widthRef: (Optional) 
+        :param heightRef: (Optional) 高度参考，仅当 siteUnit = percent 时生效。
+取值说明：
+  w: 输出水印高度 = height * 水印原图高度
+  v: 等同于 vh
+  vw: 输出水印高度 = height * 输出视频宽度
+  vh: 输出水印高度 = height * 输出视频高度
+  vls: 输出水印高度 = height * 输出视频长边
+  vss: 输出水印高度 = height * 输出视频短边
 
         :param position:  水印位置。取值范围：
   LT - 左上
@@ -63,6 +73,8 @@ class CreateWatermarkRequestObject(object):
         self.width = width
         self.height = height
         self.sizeUnit = sizeUnit
+        self.widthRef = widthRef
+        self.heightRef = heightRef
         self.position = position
         self.offsetX = offsetX
         self.offsetY = offsetY

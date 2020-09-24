@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, extraUplinkBandwidth=None, description=None, password=None, userData=None, keypairId=None, aliasIps=None):
+    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, internetChargeMode=None, bandwidthPackageId=None, cidr=None, privateIp=None, aliasIps=None, lineType=None, bandwidth=None, extraUplinkBandwidth=None, description=None, password=None, userData=None, keypairId=None, interfaceMode=None, extensionSubnetId=None, extensionPrivateIp=None, extensionAliasIps=None, extensionEnableInternet=None, extensionLineType=None, extensionBandwidth=None, extensionExtraUplinkBandwidth=None, extensionInternetChargeMode=None, extensionBandwidthPackageId=None, resourceTags=None):
         """
         :param az:  可用区, 如 cn-east-tz1
         :param deviceType:  实例类型, 如 edcps.c.normal1
@@ -28,11 +28,14 @@ class InstanceSpec(object):
         :param osTypeId:  操作系统类型ID
         :param sysRaidTypeId:  系统盘RAID类型ID
         :param dataRaidTypeId:  数据盘RAID类型ID
-        :param subnetId: (Optional) 子网编号
+        :param subnetId: (Optional) 子网ID
         :param enableInternet: (Optional) 是否启用外网，取值范围：yes、no
+        :param internetChargeMode: (Optional) 启用外网时弹性公网IP的计费模式，取值范围：prepaid_by_duration、postpaid_by_duration
+        :param bandwidthPackageId: (Optional) 弹性公网IP加入的共享带宽ID
         :param networkType:  网络类型，取值范围：vpc
         :param cidr: (Optional) 网络CIDR
         :param privateIp: (Optional) 内网IP
+        :param aliasIps: (Optional) 内网添加的别名IP范围
         :param lineType: (Optional) 外网链路类型, 目前支持联通un、电信ct、移动cm
         :param bandwidth: (Optional) 外网带宽, 范围[1,10240] 单位Mbps
         :param extraUplinkBandwidth: (Optional) 额外上行带宽, 范围[0,10240] 单位Mbps
@@ -43,7 +46,17 @@ class InstanceSpec(object):
         :param userData: (Optional) 可执行脚本Base64编码后的内容，支持shell和python脚本
         :param keypairId: (Optional) 密钥对id
         :param charge:  计费配置
-        :param aliasIps: (Optional) 别名ip配置
+        :param interfaceMode: (Optional) 网络接口模式，单网口:bond、双网口:dual
+        :param extensionSubnetId: (Optional) 辅网口子网ID
+        :param extensionPrivateIp: (Optional) 辅网口手动分配的内网ip
+        :param extensionAliasIps: (Optional) 辅网口内网添加的别名IP范围
+        :param extensionEnableInternet: (Optional) 辅网口是否启用外网，取值范围：yes、no
+        :param extensionLineType: (Optional) 辅网口链路类型, 目前支持联通un、电信ct、移动cm
+        :param extensionBandwidth: (Optional) 辅网口外网带宽，范围[1,10240] 单位Mbps
+        :param extensionExtraUplinkBandwidth: (Optional) 辅网口额外上行带宽, 范围[0,10240] 单位Mbps
+        :param extensionInternetChargeMode: (Optional) 辅网口启用外网时弹性公网IP的计费模式，取值范围：prepaid_by_duration、postpaid_by_duration
+        :param extensionBandwidthPackageId: (Optional) 辅网口弹性公网IP加入的共享带宽ID
+        :param resourceTags: (Optional) 标签
         """
 
         self.az = az
@@ -55,9 +68,12 @@ class InstanceSpec(object):
         self.dataRaidTypeId = dataRaidTypeId
         self.subnetId = subnetId
         self.enableInternet = enableInternet
+        self.internetChargeMode = internetChargeMode
+        self.bandwidthPackageId = bandwidthPackageId
         self.networkType = networkType
         self.cidr = cidr
         self.privateIp = privateIp
+        self.aliasIps = aliasIps
         self.lineType = lineType
         self.bandwidth = bandwidth
         self.extraUplinkBandwidth = extraUplinkBandwidth
@@ -68,4 +84,14 @@ class InstanceSpec(object):
         self.userData = userData
         self.keypairId = keypairId
         self.charge = charge
-        self.aliasIps = aliasIps
+        self.interfaceMode = interfaceMode
+        self.extensionSubnetId = extensionSubnetId
+        self.extensionPrivateIp = extensionPrivateIp
+        self.extensionAliasIps = extensionAliasIps
+        self.extensionEnableInternet = extensionEnableInternet
+        self.extensionLineType = extensionLineType
+        self.extensionBandwidth = extensionBandwidth
+        self.extensionExtraUplinkBandwidth = extensionExtraUplinkBandwidth
+        self.extensionInternetChargeMode = extensionInternetChargeMode
+        self.extensionBandwidthPackageId = extensionBandwidthPackageId
+        self.resourceTags = resourceTags

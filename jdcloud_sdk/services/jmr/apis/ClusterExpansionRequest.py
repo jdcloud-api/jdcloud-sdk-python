@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ClusterExpansionRequest(JDCloudRequest):
     """
-    集群扩容
+    扩容集群
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,24 +32,20 @@ class ClusterExpansionRequest(JDCloudRequest):
 
 class ClusterExpansionParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId, clusterSpec, ):
         """
         :param regionId: 地域ID
+        :param clusterSpec: 描述集群配置
         """
 
         self.regionId = regionId
-        self.clusterId = None
-        self.expansionNum = None
+        self.clusterSpec = clusterSpec
+        self.clientToken = None
 
-    def setClusterId(self, clusterId):
+    def setClientToken(self, clientToken):
         """
-        :param clusterId: (Optional) 需要扩容的集群ID
-        """
-        self.clusterId = clusterId
+        :param clientToken: (Optional) 用于保证请求的幂等性。由客户端生成，长度不能超过64个字符。
 
-    def setExpansionNum(self, expansionNum):
         """
-        :param expansionNum: (Optional) 扩容的数量
-        """
-        self.expansionNum = expansionNum
+        self.clientToken = clientToken
 

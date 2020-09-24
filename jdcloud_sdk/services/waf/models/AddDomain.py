@@ -19,13 +19,13 @@
 
 class AddDomain(object):
 
-    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None):
+    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param wafInstanceId:  实例id，代表要设置的WAF实例
         :param domain:  域名
         :param protocols:  使用协议，eg:["http","https"]
         :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
-        :param lbType:  负载均衡算法，eg:"rr"，"ip_hash"
+        :param lbType:  负载均衡算法，eg:"rr"，"ip_hash","weight_rr"
         :param rsConfig:  回源配置
         :param pureClient: (Optional) 是否使用前置代理，0为未使用，1为使用
         :param httpsRedirect: (Optional) 1为跳转 0为不跳转
@@ -34,6 +34,8 @@ class AddDomain(object):
         :param enableKeepalive: (Optional) 回源是否支持长链接，0为否
         :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级
         :param enableUnderscores: (Optional) 请求头是否支持下划线，0-否，1-是。缺省为0
+        :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
+        :param proxyConnectTimeout: (Optional) 连接超时时间，3-60s
         """
 
         self.wafInstanceId = wafInstanceId
@@ -49,3 +51,5 @@ class AddDomain(object):
         self.enableKeepalive = enableKeepalive
         self.suiteLevel = suiteLevel
         self.enableUnderscores = enableUnderscores
+        self.disableHealthCheck = disableHealthCheck
+        self.proxyConnectTimeout = proxyConnectTimeout

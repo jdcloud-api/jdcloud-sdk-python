@@ -45,6 +45,7 @@ class AssociateElasticIpParameters(object):
         self.clientToken = None
         self.elasticIpId = elasticIpId
         self.targetIp = None
+        self.subnetId = None
 
     def setClientToken(self, clientToken):
         """
@@ -59,4 +60,10 @@ class AssociateElasticIpParameters(object):
         :param targetIp: (Optional) 私有IP
         """
         self.targetIp = targetIp
+
+    def setSubnetId(self, subnetId):
+        """
+        :param subnetId: (Optional) 主网口或辅网口的子网ID，多网口实例必填
+        """
+        self.subnetId = subnetId
 

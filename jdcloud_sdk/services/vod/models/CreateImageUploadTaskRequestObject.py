@@ -21,7 +21,7 @@ class CreateImageUploadTaskRequestObject(object):
 
     def __init__(self, fileName, httpMethod=None, fileSize=None):
         """
-        :param httpMethod: (Optional) HTTP 请求方法，上传只支持 PUT 方法，默认值为 PUT
+        :param httpMethod: (Optional) HTTP 请求方法，上传支持 PUT 和 POST 方法，默认值为 PUT 。
         :param fileName:  文件名称
         :param fileSize: (Optional) 文件大小
         """

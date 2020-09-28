@@ -19,31 +19,27 @@
 
 class ClusterSpec(object):
 
-    def __init__(self, name, password, version, payType, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterSystemDiskIops, masterDiskType, masterDiskVolume, masterDiskIops, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveSystemDiskIops, slaveDiskType, slaveDiskVolume, slaveDiskIops, coreInstanceType, jssFlag, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, masterCore=None, masterMemory=None, slaveCore=None, slaveMemory=None):
+    def __init__(self, name, password, version, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterDiskType, masterDiskVolume, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveDiskType, slaveDiskVolume, coreInstanceType, jssFlag, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, payType=None, masterSystemDiskIops=None, masterDiskIops=None, slaveSystemDiskIops=None, slaveDiskIops=None):
         """
         :param name:  集群名称(不能少于6字符不能超过20字符，除下划线外不能包含特殊符号)
         :param password:  集群root用户密码(须包含大小写字母、数字及特殊字符其中三类，且不能少于8字符不能超过30字符)
         :param version:  集群版本，默认版本为JMR2.0.0
-        :param payType:  集群计费类型，支持按配置和包年包月计费
+        :param payType: (Optional) 集群计费类型，支持按配置和包年包月计费
         :param masterNodeCount:  主节点数量
-        :param masterCore: (Optional) Master节点CPU
-        :param masterMemory: (Optional) Master节点内存(推荐至少8G内存，否则服务可能会部署失败)
         :param masterSystemDiskType:  Master系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
         :param masterSystemDiskVolume:  Master系统硬盘大小，单位GB
-        :param masterSystemDiskIops:  Master系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param masterSystemDiskIops: (Optional) Master系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
         :param masterDiskType:  Master数据盘类型：ssd.gp1,ssd.io1和hdd.std1
         :param masterDiskVolume:  Master数据盘大小，单位GB
-        :param masterDiskIops:  Master数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param masterDiskIops: (Optional) Master数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
         :param masterInstanceType:  master节点规格
         :param slaveNodeCount:  Slave节点数量
-        :param slaveCore: (Optional) Slave节点CPU
-        :param slaveMemory: (Optional) Slave节点内存(推荐至少4G内存，否则服务可能会部署失败)
         :param slaveSystemDiskType:  Slave系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
         :param slaveSystemDiskVolume:  Slave系统硬盘大小，单位GB
-        :param slaveSystemDiskIops:  Slave系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param slaveSystemDiskIops: (Optional) Slave系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
         :param slaveDiskType:  Slave数据盘类型：ssd.gp1,ssd.io1和hdd.std1
         :param slaveDiskVolume:  Slave数据盘大小，单位GB
-        :param slaveDiskIops:  Slave数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param slaveDiskIops: (Optional) Slave数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
         :param coreInstanceType:  slave节点规格
         :param jssFlag:  关联JSS
         :param dataCenter:  数据中心，即regionId
@@ -59,8 +55,6 @@ class ClusterSpec(object):
         self.version = version
         self.payType = payType
         self.masterNodeCount = masterNodeCount
-        self.masterCore = masterCore
-        self.masterMemory = masterMemory
         self.masterSystemDiskType = masterSystemDiskType
         self.masterSystemDiskVolume = masterSystemDiskVolume
         self.masterSystemDiskIops = masterSystemDiskIops
@@ -69,8 +63,6 @@ class ClusterSpec(object):
         self.masterDiskIops = masterDiskIops
         self.masterInstanceType = masterInstanceType
         self.slaveNodeCount = slaveNodeCount
-        self.slaveCore = slaveCore
-        self.slaveMemory = slaveMemory
         self.slaveSystemDiskType = slaveSystemDiskType
         self.slaveSystemDiskVolume = slaveSystemDiskVolume
         self.slaveSystemDiskIops = slaveSystemDiskIops

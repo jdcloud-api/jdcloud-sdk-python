@@ -21,12 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeClustersRequest(JDCloudRequest):
     """
-    查询集群列表
+    查询用户集群的列表
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeClustersRequest, self).__init__(
-            '/regions/{regionId}/cluster:create', 'GET', header, version)
+            '/regions/{regionId}/clusters', 'GET', header, version)
         self.parameters = parameters
 
 
@@ -38,18 +39,46 @@ class DescribeClustersParameters(object):
         """
 
         self.regionId = regionId
-        self.pageNumber = None
+        self.dataCenter = None
+        self.status = None
+        self.clusterName = None
+        self.orderBy = None
+        self.pageNum = None
         self.pageSize = None
 
-    def setPageNumber(self, pageNumber):
+    def setDataCenter(self, dataCenter):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param dataCenter: (Optional) 地域
         """
-        self.pageNumber = pageNumber
+        self.dataCenter = dataCenter
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 集群状态，CREATING，RUNNING，RELEASED，FAILED等
+        """
+        self.status = status
+
+    def setClusterName(self, clusterName):
+        """
+        :param clusterName: (Optional) 集群名称
+        """
+        self.clusterName = clusterName
+
+    def setOrderBy(self, orderBy):
+        """
+        :param orderBy: (Optional) 排序，比如 id desc
+        """
+        self.orderBy = orderBy
+
+    def setPageNum(self, pageNum):
+        """
+        :param pageNum: (Optional) 页数，默认为1
+        """
+        self.pageNum = pageNum
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
+        :param pageSize: (Optional) 每页数目，默认为10
         """
         self.pageSize = pageSize
 

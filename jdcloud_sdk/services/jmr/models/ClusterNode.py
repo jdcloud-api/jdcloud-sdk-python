@@ -19,21 +19,31 @@
 
 class ClusterNode(object):
 
-    def __init__(self, clusterNodeId=None, clusterNodeHostName=None, clusterNodeIntranetIp=None, clusterNodeConnectionIp=None, clusterNodeRole=None, clusterNodeDisk=None, clusterNodeModel=None):
+    def __init__(self, serverId=None, instanceInfo=None, nodeName=None, nodeSystemDiskType=None, instanceType=None, nodeStatus=None, nodeDiskType=None, nodeType=None, outerIp=None, innerIp=None, nodeSystemDiskVolume=None, nodeDiskVolume=None):
         """
-        :param clusterNodeId: (Optional) 集群节点ID
-        :param clusterNodeHostName: (Optional) 集群节点主机名称
-        :param clusterNodeIntranetIp: (Optional) 集群节点内网IP
-        :param clusterNodeConnectionIp: (Optional) 集群节点公网IP
-        :param clusterNodeRole: (Optional) 集群节点类型
-        :param clusterNodeDisk: (Optional) 集群节点硬盘信息
-        :param clusterNodeModel: (Optional) 集群节点型号
+        :param serverId: (Optional) 节点ID
+        :param instanceInfo: (Optional) 节点实例信息
+        :param nodeName: (Optional) 节点主机名称
+        :param nodeSystemDiskType: (Optional) 节点系统盘类型
+        :param instanceType: (Optional) 节点实例类型
+        :param nodeStatus: (Optional) 节点运行状态
+        :param nodeDiskType: (Optional) 节点数据盘类型
+        :param nodeType: (Optional) 节点类型，MASTER或者SLAVE
+        :param outerIp: (Optional) 节点外网IP
+        :param innerIp: (Optional) 节点内网IP
+        :param nodeSystemDiskVolume: (Optional) 节点系统盘大小(GB)
+        :param nodeDiskVolume: (Optional) 节点数据盘大小(GB)
         """
 
-        self.clusterNodeId = clusterNodeId
-        self.clusterNodeHostName = clusterNodeHostName
-        self.clusterNodeIntranetIp = clusterNodeIntranetIp
-        self.clusterNodeConnectionIp = clusterNodeConnectionIp
-        self.clusterNodeRole = clusterNodeRole
-        self.clusterNodeDisk = clusterNodeDisk
-        self.clusterNodeModel = clusterNodeModel
+        self.serverId = serverId
+        self.instanceInfo = instanceInfo
+        self.nodeName = nodeName
+        self.nodeSystemDiskType = nodeSystemDiskType
+        self.instanceType = instanceType
+        self.nodeStatus = nodeStatus
+        self.nodeDiskType = nodeDiskType
+        self.nodeType = nodeType
+        self.outerIp = outerIp
+        self.innerIp = innerIp
+        self.nodeSystemDiskVolume = nodeSystemDiskVolume
+        self.nodeDiskVolume = nodeDiskVolume

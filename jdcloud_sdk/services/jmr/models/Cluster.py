@@ -19,39 +19,39 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, clusterName=None, clusterCreateTime=None, clusterHa=None, clusterStatus=None, clusterVersion=None, clusterService=None, clusterRegion=None, clusterAz=None, clusterPrice=None, clusterPaymentType=None, clusterOss=None, clusterVpc=None, clusterVpcSubnet=None, clusterBandwidth=None, clusterNodes=None):
+    def __init__(self, id=None, name=None, region=None, vpcName=None, vpcSubnetName=None, status=None, version=None, software=None, createTime=None, haFlag=None, ossFlag=None, payPrice=None, payType=None, duration=None, nodeCount=None, clusterNodes=None):
         """
-        :param clusterId: (Optional) 集群ID
-        :param clusterName: (Optional) 集群名称
-        :param clusterCreateTime: (Optional) 集群创建时间
-        :param clusterHa: (Optional) 集群是否为高可用
-        :param clusterStatus: (Optional) 集群状态
-        :param clusterVersion: (Optional) 集群版本
-        :param clusterService: (Optional) 集群服务
-        :param clusterRegion: (Optional) 集群所属地域
-        :param clusterAz: (Optional) 集群所属可用区
-        :param clusterPrice: (Optional) 集群费用
-        :param clusterPaymentType: (Optional) 集群计费类型
-        :param clusterOss: (Optional) 集群是否关联对象存储
-        :param clusterVpc: (Optional) 集群私有网络名称
-        :param clusterVpcSubnet: (Optional) 集群子网名称
-        :param clusterBandwidth: (Optional) 集群公网网络带宽
+        :param id: (Optional) 集群ID
+        :param name: (Optional) 集群名称
+        :param region: (Optional) 集群所属地域
+        :param vpcName: (Optional) VPC名称
+        :param vpcSubnetName: (Optional) 集群子网名称
+        :param status: (Optional) 集群状态
+        :param version: (Optional) 集群版本
+        :param software: (Optional) 集群服务
+        :param createTime: (Optional) 集群创建时间
+        :param haFlag: (Optional) 集群所属可用区
+        :param ossFlag: (Optional) 集群是否使用OSS
+        :param payPrice: (Optional) 集群费用
+        :param payType: (Optional) 集群收费类型
+        :param duration: (Optional) 集群运行时间
+        :param nodeCount: (Optional) 集群节点个数
         :param clusterNodes: (Optional) 集群节点信息
         """
 
-        self.clusterId = clusterId
-        self.clusterName = clusterName
-        self.clusterCreateTime = clusterCreateTime
-        self.clusterHa = clusterHa
-        self.clusterStatus = clusterStatus
-        self.clusterVersion = clusterVersion
-        self.clusterService = clusterService
-        self.clusterRegion = clusterRegion
-        self.clusterAz = clusterAz
-        self.clusterPrice = clusterPrice
-        self.clusterPaymentType = clusterPaymentType
-        self.clusterOss = clusterOss
-        self.clusterVpc = clusterVpc
-        self.clusterVpcSubnet = clusterVpcSubnet
-        self.clusterBandwidth = clusterBandwidth
+        self.id = id
+        self.name = name
+        self.region = region
+        self.vpcName = vpcName
+        self.vpcSubnetName = vpcSubnetName
+        self.status = status
+        self.version = version
+        self.software = software
+        self.createTime = createTime
+        self.haFlag = haFlag
+        self.ossFlag = ossFlag
+        self.payPrice = payPrice
+        self.payType = payType
+        self.duration = duration
+        self.nodeCount = nodeCount
         self.clusterNodes = clusterNodes

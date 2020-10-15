@@ -19,11 +19,15 @@
 
 class VideoTask(object):
 
-    def __init__(self, dataId=None, url=None):
+    def __init__(self, dataId=None, url=None, interval=None, maxFrames=None):
         """
         :param dataId: (Optional) 数据Id。需要保证在一次请求中所有的Id不重复
         :param url: (Optional) 待检测视频的URL，最大200M
+        :param interval: (Optional) 视频截帧间隔，单位为秒，取值范围为1~60。默认值为1秒
+        :param maxFrames: (Optional) 本视频截帧的张数上限，取值范围为5~3600，默认为200张，该参数仅在文件检测中生效(live=false) 如果是视频流(live=true)该参数无效。
         """
 
         self.dataId = dataId
         self.url = url
+        self.interval = interval
+        self.maxFrames = maxFrames

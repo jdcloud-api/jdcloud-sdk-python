@@ -19,7 +19,7 @@
 
 class OssScanCfg(object):
 
-    def __init__(self, id=None, scanType=None, startTime=None, endTime=None, bucketsInfo=None, freezeAction=None, imageInfo=None, videoInfo=None, frameInfo=None, status=None, taskStTime=None, taskEndTime=None):
+    def __init__(self, id=None, scanType=None, startTime=None, endTime=None, bucketsInfo=None, freezeAction=None, imageInfo=None, videoInfo=None, textInfo=None, audioInfo=None, frameInfo=None, status=None, taskStTime=None, taskEndTime=None):
         """
         :param id: (Optional) id标识,更新时传入，新增时传0
         :param scanType: (Optional) 检测类型，increment-增量，stock-存量
@@ -29,6 +29,8 @@ class OssScanCfg(object):
         :param freezeAction: (Optional) 冻结方式，policy-修改权限，remove-移动到备份文件夹
         :param imageInfo: (Optional) 图片配置
         :param videoInfo: (Optional) 视频配置
+        :param textInfo: (Optional) 文本配置
+        :param audioInfo: (Optional) 音频配置
         :param frameInfo: (Optional) 视频截帧配置, 暂不支持配置
         :param status: (Optional) 状态，0-检测中，1-暂停，2-完成，3-任务失败
         :param taskStTime: (Optional) 任务开始时间
@@ -43,6 +45,8 @@ class OssScanCfg(object):
         self.freezeAction = freezeAction
         self.imageInfo = imageInfo
         self.videoInfo = videoInfo
+        self.textInfo = textInfo
+        self.audioInfo = audioInfo
         self.frameInfo = frameInfo
         self.status = status
         self.taskStTime = taskStTime

@@ -19,9 +19,8 @@
 
 class LogoData(object):
 
-    def __init__(self, logoType=None, name=None, x=None, y=None, w=None, h=None):
+    def __init__(self, name=None, x=None, y=None, w=None, h=None):
         """
-        :param logoType: (Optional) 识别出的logo类型，取值为TV （台标）
         :param name: (Optional) 识别出的logo名称
         :param x: (Optional) 以图片左上角为坐标原点，logo区域左上角到y轴距离
         :param y: (Optional) 以图片左上角为坐标原点，logo区域左上角到x轴距离
@@ -29,7 +28,6 @@ class LogoData(object):
         :param h: (Optional) logo区域高度
         """
 
-        self.logoType = logoType
         self.name = name
         self.x = x
         self.y = y

@@ -26,4 +26,4 @@ class CensorClient(JDCloudClient):
         if config is None:
             config = Config('censor.jdcloud-api.com')
 
-        super(CensorClient, self).__init__(credential, config, 'censor', '1.0.0', logger)
+        super(CensorClient, self).__init__(credential, config, 'censor', '1.0.1', logger)

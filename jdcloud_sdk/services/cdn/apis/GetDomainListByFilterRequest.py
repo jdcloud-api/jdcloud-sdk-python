@@ -42,11 +42,12 @@ class GetDomainListByFilterParameters(object):
         self.status = None
         self.type = None
         self.accelerateRegion = None
+        self.filterBy = None
         self.tagFilters = None
 
     def setKeyWord(self, keyWord):
         """
-        :param keyWord: (Optional) 根据关键字进行模糊匹配
+        :param keyWord: (Optional) 根据关键字进行模糊匹配，域名或者回源信息
         """
         self.keyWord = keyWord
 
@@ -79,6 +80,12 @@ class GetDomainListByFilterParameters(object):
         :param accelerateRegion: (Optional) 加速区域，(mainLand:中国大陆，nonMainLand:海外加港澳台，all:全球),不传为全球
         """
         self.accelerateRegion = accelerateRegion
+
+    def setFilterBy(self, filterBy):
+        """
+        :param filterBy: (Optional) 筛选依据（0：根据域名筛选，1：根据回源信息筛选），默认按照域名进行筛选
+        """
+        self.filterBy = filterBy
 
     def setTagFilters(self, tagFilters):
         """

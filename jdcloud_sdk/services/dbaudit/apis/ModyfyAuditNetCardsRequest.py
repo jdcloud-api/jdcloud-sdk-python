@@ -32,21 +32,16 @@ class ModyfyAuditNetCardsRequest(JDCloudRequest):
 
 class ModyfyAuditNetCardsParameters(object):
 
-    def __init__(self, regionId, databaseId, agentId, ):
+    def __init__(self, regionId, databaseId, agentId, netCards):
         """
         :param regionId: 地域 Id
         :param databaseId: 数据库ID
         :param agentId: agentId
+        :param netCards: 网卡信息
         """
 
         self.regionId = regionId
         self.databaseId = databaseId
         self.agentId = agentId
-        self.netCards = None
-
-    def setNetCards(self, netCards):
-        """
-        :param netCards: (Optional) 网卡信息
-        """
         self.netCards = netCards
 

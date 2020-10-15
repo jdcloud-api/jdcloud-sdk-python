@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AddIpWhiteItemRequest(JDCloudRequest):
     """
-    添加一条IP白名单记录，仅支持IPv4地址
+    添加一条IP白名单记录
     """
 
     def __init__(self, parameters, header=None, version="v1"):

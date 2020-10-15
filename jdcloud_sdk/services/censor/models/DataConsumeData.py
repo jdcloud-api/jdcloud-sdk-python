@@ -19,15 +19,17 @@
 
 class DataConsumeData(object):
 
-    def __init__(self, total=None, porn=None, politics_terrorism=None, videoDetail=None):
+    def __init__(self, total=None, porn=None, ad=None, politics_terrorism=None, videoDetail=None):
         """
         :param total: (Optional) 调用量
         :param porn: (Optional) 涉黄
+        :param ad: (Optional) 
         :param politics_terrorism: (Optional) 涉政暴恐
         :param videoDetail: (Optional) 视频调用详情
         """
 
         self.total = total
         self.porn = porn
+        self.ad = ad
         self.politics_terrorism = politics_terrorism
         self.videoDetail = videoDetail

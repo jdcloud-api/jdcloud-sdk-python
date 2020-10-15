@@ -43,6 +43,7 @@ class ConfigServiceNoticeParameters(object):
         self.noticeCC = None
         self.noticeContent = None
         self.noticePeriod = None
+        self.noticeStatus = None
 
     def setId(self, id):
         """
@@ -85,4 +86,10 @@ class ConfigServiceNoticeParameters(object):
         :param noticePeriod: (Optional) 通知周期,取值[daily,weekly,monthly].
         """
         self.noticePeriod = noticePeriod
+
+    def setNoticeStatus(self, noticeStatus):
+        """
+        :param noticeStatus: (Optional) 通知状态，取值[init,start,stop]
+        """
+        self.noticeStatus = noticeStatus
 

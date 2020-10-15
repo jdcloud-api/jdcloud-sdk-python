@@ -19,15 +19,19 @@
 
 class ScanConf(object):
 
-    def __init__(self, enable, scense=None, frozen=None, threshold=None):
+    def __init__(self, enable, scense=None, frozen=None, threshold=None, fileType=None, fileSuffix=None):
         """
         :param enable:  0-不开启检测，1-开启检测
-        :param scense: (Optional) 检测场景，porn-涉黄，terrorism-涉政暴恐，enable为1时必须
+        :param scense: (Optional) 检测场景，audio-语音违规-视频支持，porn-涉黄-图片视频支持，terrorism-涉政暴恐-图片视频支持，antispam-反垃圾-文本语音支持，enable为1时必须
         :param frozen: (Optional) 0-不开启自动冻结，1-开启自动冻结
-        :param threshold: (Optional) 自动冻结阈值，视频检测时阈值0表示不冻结，1表示违规冻结，不对阈值进行比较
+        :param threshold: (Optional) 自动冻结阈值
+        :param fileType: (Optional) 检测类型，all-全部
+        :param fileSuffix: (Optional) 文件后缀，all-表示全部
         """
 
         self.enable = enable
         self.scense = scense
         self.frozen = frozen
         self.threshold = threshold
+        self.fileType = fileType
+        self.fileSuffix = fileSuffix

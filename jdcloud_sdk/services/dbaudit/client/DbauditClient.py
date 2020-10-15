@@ -26,4 +26,4 @@ class DbauditClient(JDCloudClient):
         if config is None:
             config = Config('dbaudit.jdcloud-api.com')
 
-        super(DbauditClient, self).__init__(credential, config, 'dbaudit', '1.0.1', logger)
+        super(DbauditClient, self).__init__(credential, config, 'dbaudit', '1.0.2', logger)

@@ -47,6 +47,7 @@ class QueryStatisticsDataGroupByAreaParameters(object):
         self.period = None
         self.groupBy = None
         self.scheme = None
+        self.abroad = None
 
     def setStartTime(self, startTime):
         """
@@ -113,4 +114,10 @@ class QueryStatisticsDataGroupByAreaParameters(object):
         :param scheme: (Optional) 查询协议，可选值:[http,https,all],传空默认返回全部协议汇总后的数据
         """
         self.scheme = scheme
+
+    def setAbroad(self, abroad):
+        """
+        :param abroad: (Optional) true 代表查询境外数据，默认false查询境内数据
+        """
+        self.abroad = abroad
 

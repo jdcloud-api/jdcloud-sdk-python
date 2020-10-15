@@ -19,7 +19,7 @@
 
 class ServiceNoticeItem(object):
 
-    def __init__(self, id=None, noticeType=None, noticeWay=None, noticeTo=None, noticeCC=None, noticeContent=None, noticePeriod=None):
+    def __init__(self, id=None, noticeType=None, noticeWay=None, noticeTo=None, noticeCC=None, noticeContent=None, noticePeriod=None, noticeStatus=None):
         """
         :param id: (Optional) 服务配置id
         :param noticeType: (Optional) 通知类型,取值[reportForm],reportForm:报表.
@@ -28,6 +28,7 @@ class ServiceNoticeItem(object):
         :param noticeCC: (Optional) 通知抄送人,多个用逗号隔开.
         :param noticeContent: (Optional) 通知正文.
         :param noticePeriod: (Optional) 通知周期,取值[daily,weekly,monthly].
+        :param noticeStatus: (Optional) 通知状态，取值[init,start,stop]
         """
 
         self.id = id
@@ -37,3 +38,4 @@ class ServiceNoticeItem(object):
         self.noticeCC = noticeCC
         self.noticeContent = noticeContent
         self.noticePeriod = noticePeriod
+        self.noticeStatus = noticeStatus

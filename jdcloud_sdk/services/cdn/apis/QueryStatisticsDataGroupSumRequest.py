@@ -46,6 +46,7 @@ class QueryStatisticsDataGroupSumParameters(object):
         self.origin = None
         self.period = None
         self.groupBy = None
+        self.abroad = None
 
     def setStartTime(self, startTime):
         """
@@ -106,4 +107,10 @@ class QueryStatisticsDataGroupSumParameters(object):
         :param groupBy: (Optional) 分组依据
         """
         self.groupBy = groupBy
+
+    def setAbroad(self, abroad):
+        """
+        :param abroad: (Optional) true 代表查询境外数据，默认false查询境内数据
+        """
+        self.abroad = abroad
 

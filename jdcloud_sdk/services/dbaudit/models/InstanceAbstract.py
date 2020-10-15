@@ -19,7 +19,7 @@
 
 class InstanceAbstract(object):
 
-    def __init__(self, pin=None, insId=None, insName=None, insDesc=None, vpcId=None, subnetId=None, ipAddr=None, insType=None, state=None, expireTime=None, billingType=None, insZone=None, insRegion=None, insDomain=None, dbLimit=None):
+    def __init__(self, pin=None, insId=None, insName=None, insDesc=None, vpcId=None, subnetId=None, ipAddr=None, ipv6Addr=None, insType=None, state=None, expireTime=None, billingType=None, insZone=None, insRegion=None, insDomain=None, dbLimit=None):
         """
         :param pin: (Optional) PIN
         :param insId: (Optional) 实例ID
@@ -28,6 +28,7 @@ class InstanceAbstract(object):
         :param vpcId: (Optional) VPC-ID
         :param subnetId: (Optional) Subnet-ID
         :param ipAddr: (Optional) VPC内地址
+        :param ipv6Addr: (Optional) VPC内ipv6地址
         :param insType: (Optional) 实例规格: basic:标准版 professional:企业版 enterprise:增强版 ultimate:旗舰版
         :param state: (Optional) 实例状态: 1->创建中, 2->运行中, 3->已停止, 4->已欠费停服, 5->已删除, 6->异常
         :param expireTime: (Optional) 计费到期时间
@@ -45,6 +46,7 @@ class InstanceAbstract(object):
         self.vpcId = vpcId
         self.subnetId = subnetId
         self.ipAddr = ipAddr
+        self.ipv6Addr = ipv6Addr
         self.insType = insType
         self.state = state
         self.expireTime = expireTime

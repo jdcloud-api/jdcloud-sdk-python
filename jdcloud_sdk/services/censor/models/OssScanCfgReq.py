@@ -19,7 +19,7 @@
 
 class OssScanCfgReq(object):
 
-    def __init__(self, scanType, bucketsInfo, freezeAction, imageInfo, videoInfo, id=None, startTime=None, endTime=None, frameInfo=None):
+    def __init__(self, scanType, bucketsInfo, freezeAction, imageInfo, videoInfo, id=None, startTime=None, endTime=None, frameInfo=None, textInfo=None, audioInfo=None):
         """
         :param id: (Optional) id标识,更新时传入，新增时传0
         :param scanType:  检测类型，increment-增量，stock-存量
@@ -30,6 +30,8 @@ class OssScanCfgReq(object):
         :param imageInfo:  图片配置
         :param videoInfo:  视频配置
         :param frameInfo: (Optional) 视频截帧配置, 暂不支持
+        :param textInfo: (Optional) 文本配置
+        :param audioInfo: (Optional) 音频配置
         """
 
         self.id = id
@@ -41,3 +43,5 @@ class OssScanCfgReq(object):
         self.imageInfo = imageInfo
         self.videoInfo = videoInfo
         self.frameInfo = frameInfo
+        self.textInfo = textInfo
+        self.audioInfo = audioInfo

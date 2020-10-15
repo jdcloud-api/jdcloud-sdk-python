@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AddTemplateRequest(JDCloudRequest):
+class AddTemplateNewRequest(JDCloudRequest):
     """
     增加富媒体短信内容接口
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(AddTemplateRequest, self).__init__(
-            '/regions/{regionId}/addTemplate', 'POST', header, version)
+        super(AddTemplateNewRequest, self).__init__(
+            '/regions/{regionId}/addTemplateNew', 'POST', header, version)
         self.parameters = parameters
 
 
-class AddTemplateParameters(object):
+class AddTemplateNewParameters(object):
 
     def __init__(self, regionId, appId, aptitudesId, title, description, signContent, content):
         """

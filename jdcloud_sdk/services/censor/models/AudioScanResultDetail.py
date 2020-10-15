@@ -19,15 +19,17 @@
 
 class AudioScanResultDetail(object):
 
-    def __init__(self, startTime=None, endTime=None, text=None, hintWordsInfos=None):
+    def __init__(self, startTime=None, endTime=None, text=None, label=None, hintWordsInfos=None):
         """
         :param startTime: (Optional) 句子开始的时间，单位是秒。
-        :param endTime: (Optional) 该句语言的检测结果的分类，取值参见audioScenes与label参数说明。
+        :param endTime: (Optional) 句子结束的时间，单位是秒。
         :param text: (Optional) 语音转换成文本的结果。
+        :param label: (Optional) 该句语言的检测结果的分类，取值参见audioScenes与label参数说明。
         :param hintWordsInfos: (Optional) 命中该风险的上下文信息。具体结构描述见hintWordsInfo
         """
 
         self.startTime = startTime
         self.endTime = endTime
         self.text = text
+        self.label = label
         self.hintWordsInfos = hintWordsInfos

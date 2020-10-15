@@ -19,12 +19,13 @@
 
 class VideoDetail(object):
 
-    def __init__(self, audio_time=None, politics_frame_count=None, porn_frame_count=None, terrorism_frame_count=None, total_frame_count=None):
+    def __init__(self, audio_time=None, politics_frame_count=None, porn_frame_count=None, terrorism_frame_count=None, ad_frame_count=None, total_frame_count=None):
         """
         :param audio_time: (Optional) 音频识别总时长
         :param politics_frame_count: (Optional) 涉政截帧数
         :param porn_frame_count: (Optional) 涉黄截帧数
         :param terrorism_frame_count: (Optional) 暴恐截帧数
+        :param ad_frame_count: (Optional) 图文截帧数
         :param total_frame_count: (Optional) 总截帧数
         """
 
@@ -32,4 +33,5 @@ class VideoDetail(object):
         self.politics_frame_count = politics_frame_count
         self.porn_frame_count = porn_frame_count
         self.terrorism_frame_count = terrorism_frame_count
+        self.ad_frame_count = ad_frame_count
         self.total_frame_count = total_frame_count

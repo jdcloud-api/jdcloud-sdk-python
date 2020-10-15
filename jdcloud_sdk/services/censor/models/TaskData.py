@@ -19,15 +19,17 @@
 
 class TaskData(object):
 
-    def __init__(self, code=None, msg=None, dataId=None, taskId=None):
+    def __init__(self, code=None, msg=None, dataId=None, taskId=None, url=None):
         """
         :param code: (Optional) 错误码，和HTTP的status code一致
         :param msg: (Optional) 错误描述信息
         :param dataId: (Optional) 对应请求的dataId
         :param taskId: (Optional) 该检测任务的ID
+        :param url: (Optional) 对应请求中的url
         """
 
         self.code = code
         self.msg = msg
         self.dataId = dataId
         self.taskId = taskId
+        self.url = url

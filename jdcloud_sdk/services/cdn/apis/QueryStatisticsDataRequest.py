@@ -45,6 +45,7 @@ class QueryStatisticsDataParameters(object):
         self.isp = None
         self.origin = None
         self.period = None
+        self.abroad = None
 
     def setStartTime(self, startTime):
         """
@@ -99,4 +100,10 @@ class QueryStatisticsDataParameters(object):
         :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
         """
         self.period = period
+
+    def setAbroad(self, abroad):
+        """
+        :param abroad: (Optional) true 代表查询境外数据，默认false查询境内数据
+        """
+        self.abroad = abroad
 

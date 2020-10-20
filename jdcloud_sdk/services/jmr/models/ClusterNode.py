@@ -19,7 +19,7 @@
 
 class ClusterNode(object):
 
-    def __init__(self, serverId=None, instanceInfo=None, nodeName=None, nodeSystemDiskType=None, instanceType=None, nodeStatus=None, nodeDiskType=None, nodeType=None, outerIp=None, innerIp=None, nodeSystemDiskVolume=None, nodeDiskVolume=None):
+    def __init__(self, serverId=None, instanceInfo=None, nodeName=None, nodeSystemDiskType=None, instanceType=None, nodeStatus=None, nodeDiskType=None, nodeType=None, outerIp=None, innerIp=None, nodeSystemDiskVolume=None, nodeDiskVolume=None, msg=None, nodeSystemInfo=None, nodeDiskCategory=None, nodeSystemDiskCategory=None, nodeCoreNum=None, nodeMemoryNum=None):
         """
         :param serverId: (Optional) 节点ID
         :param instanceInfo: (Optional) 节点实例信息
@@ -33,6 +33,12 @@ class ClusterNode(object):
         :param innerIp: (Optional) 节点内网IP
         :param nodeSystemDiskVolume: (Optional) 节点系统盘大小(GB)
         :param nodeDiskVolume: (Optional) 节点数据盘大小(GB)
+        :param msg: (Optional) 信息
+        :param nodeSystemInfo: (Optional) 节点系统信息
+        :param nodeDiskCategory: (Optional) 节点硬盘类型
+        :param nodeSystemDiskCategory: (Optional) 节点系统盘类型
+        :param nodeCoreNum: (Optional) 节点数量
+        :param nodeMemoryNum: (Optional) 节点内存数量
         """
 
         self.serverId = serverId
@@ -47,3 +53,9 @@ class ClusterNode(object):
         self.innerIp = innerIp
         self.nodeSystemDiskVolume = nodeSystemDiskVolume
         self.nodeDiskVolume = nodeDiskVolume
+        self.msg = msg
+        self.nodeSystemInfo = nodeSystemInfo
+        self.nodeDiskCategory = nodeDiskCategory
+        self.nodeSystemDiskCategory = nodeSystemDiskCategory
+        self.nodeCoreNum = nodeCoreNum
+        self.nodeMemoryNum = nodeMemoryNum

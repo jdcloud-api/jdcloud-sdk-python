@@ -19,7 +19,7 @@
 
 class ClusterSpec(object):
 
-    def __init__(self, name, password, version, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterDiskType, masterDiskVolume, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveDiskType, slaveDiskVolume, coreInstanceType, jssFlag, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, payType=None, masterSystemDiskIops=None, masterDiskIops=None, slaveSystemDiskIops=None, slaveDiskIops=None):
+    def __init__(self, name, password, version, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterDiskType, masterDiskVolume, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveDiskType, slaveDiskVolume, coreInstanceType, jssFlag, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, payType=None, masterSystemDiskIops=None, masterDiskIops=None, slaveSystemDiskIops=None, slaveDiskIops=None, createOuterIpFlag=None, createSecurityGroupFlag=None, securityGroupId=None):
         """
         :param name:  集群名称(不能少于6字符不能超过20字符，除下划线外不能包含特殊符号)
         :param password:  集群root用户密码(须包含大小写字母、数字及特殊字符其中三类，且不能少于8字符不能超过30字符)
@@ -48,6 +48,9 @@ class ClusterSpec(object):
         :param vpcId:  Vpc网络ID
         :param vpcSubnetId:  Vpc子网ID
         :param az:  数据中心的可用区
+        :param createOuterIpFlag: (Optional) 是否创建公网IP
+        :param createSecurityGroupFlag: (Optional) 是否创建安全组
+        :param securityGroupId: (Optional) 安全组ID
         """
 
         self.name = name
@@ -77,3 +80,6 @@ class ClusterSpec(object):
         self.vpcId = vpcId
         self.vpcSubnetId = vpcSubnetId
         self.az = az
+        self.createOuterIpFlag = createOuterIpFlag
+        self.createSecurityGroupFlag = createSecurityGroupFlag
+        self.securityGroupId = securityGroupId

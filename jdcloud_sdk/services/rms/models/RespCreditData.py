@@ -19,9 +19,9 @@
 
 class RespCreditData(object):
 
-    def __init__(self, creditId=None):
+    def __init__(self, signId=None):
         """
-        :param creditId: (Optional) 资质ID
+        :param signId: (Optional) 资质ID
         """
 
-        self.creditId = creditId
+        self.signId = signId

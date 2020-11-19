@@ -19,12 +19,13 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, storageEncrypted=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None, instancePort=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param instanceType: (Optional) 实例类别，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)<br>- 仅支持MySQL，Percona，MariaDB, SQL Server
+        :param storageEncrypted: (Optional) 实例数据加密. false：不加密; true：加密
         :param engine: (Optional) 实例引擎类型，如MySQL或SQL Server等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param engineVersion: (Optional) 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param instanceClass: (Optional) 实例规格代码
@@ -43,12 +44,14 @@ class DBInstance(object):
         :param charge: (Optional) 计费配置
         :param tags: (Optional) 标签信息
         :param sourceInstanceId: (Optional) MySQL、PostgreSQL只读实例对应的主实例ID
+        :param instancePort: (Optional) 应用访问端口<br>- 仅支持MySQL
         """
 
         self.instanceId = instanceId
         self.instanceName = instanceName
         self.instanceType = instanceType
         self.instanceStorageType = instanceStorageType
+        self.storageEncrypted = storageEncrypted
         self.engine = engine
         self.engineVersion = engineVersion
         self.instanceClass = instanceClass
@@ -67,3 +70,4 @@ class DBInstance(object):
         self.charge = charge
         self.tags = tags
         self.sourceInstanceId = sourceInstanceId
+        self.instancePort = instancePort

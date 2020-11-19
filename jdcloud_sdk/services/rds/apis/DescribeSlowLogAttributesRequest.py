@@ -47,6 +47,7 @@ class DescribeSlowLogAttributesParameters(object):
         self.dbName = None
         self.pageNumber = None
         self.pageSize = None
+        self.sorts = None
 
     def setDbName(self, dbName):
         """
@@ -65,4 +66,10 @@ class DescribeSlowLogAttributesParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、30、50、100
         """
         self.pageSize = pageSize
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) 慢日志明细的排序规则，不指定时按上报日志的时间戳降序返回所有的日志
+        """
+        self.sorts = sorts
 

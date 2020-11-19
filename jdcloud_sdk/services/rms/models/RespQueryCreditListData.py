@@ -19,13 +19,13 @@
 
 class RespQueryCreditListData(object):
 
-    def __init__(self, creditId=None, creditName=None, creditDesc=None):
+    def __init__(self, signId=None, creditName=None, creditDesc=None):
         """
-        :param creditId: (Optional) 资质ID
+        :param signId: (Optional) 资质ID
         :param creditName: (Optional) 资质名称
         :param creditDesc: (Optional) 资质描述
         """
 
-        self.creditId = creditId
+        self.signId = signId
         self.creditName = creditName
         self.creditDesc = creditDesc

@@ -19,16 +19,17 @@
 
 class CCProtectionRuleSpec(object):
 
-    def __init__(self, name, uri, matchType, detectPeriod, singleIpLimit, blockType, blockTime, pageId=None):
+    def __init__(self, name, uri, matchType, detectPeriod, singleIpLimit, blockType, blockTime, pageId=None, pageName=None):
         """
         :param name:  CC 防护规则名称, 不允许为空, 长度不超过 32 个字符, 支持中文, 大小写字母, 数字及字符'-'、'/'、'.'、'_'
         :param uri:  uri, 不允许为空, 以 / 开头, 长度不超过 2048 个字符
         :param matchType:  匹配 uri 类型, 0: 精确匹配, 1: 前缀匹配
         :param detectPeriod:  检测周期, 单位为秒, 取值范围[5, 10800]
         :param singleIpLimit:  ip 访问次数, 取值范围[2, 2000]
-        :param blockType:  阻断类型, 1: 封禁, 2: 人机交互
+        :param blockType:  阻断类型, 1: 封禁并返回自定义页面, 2: 人机交互
         :param blockTime:  阻断持续时间, 单位为秒, 取值范围[10, 86400]
-        :param pageId: (Optional) 关联的自定义页面id
+        :param pageId: (Optional) 关联的自定义页面id, 阻断类型为封禁时有效, 为空时封禁并返回默认页面
+        :param pageName: (Optional) 关联的自定义页面名称
         """
 
         self.name = name
@@ -39,3 +40,4 @@ class CCProtectionRuleSpec(object):
         self.blockType = blockType
         self.blockTime = blockTime
         self.pageId = pageId
+        self.pageName = pageName

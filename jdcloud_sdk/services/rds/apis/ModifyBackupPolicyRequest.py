@@ -41,10 +41,38 @@ class ModifyBackupPolicyParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.startWindow = None
+        self.binlogRetentionPeriod = None
+        self.binlogUsageLimit = None
+        self.retentionPeriod = None
+        self.cycleMode = None
 
     def setStartWindow(self, startWindow):
         """
         :param startWindow: (Optional) 自动备份开始时间窗口,例如：00:00-01:00，表示0点到1点开始进行数据库自动备份，备份完成时间则跟实例大小有关，不一定在这个时间范围中<br>SQL Server:范围00:00-23:59，时间范围差不得小于30分钟。<br>MySQL,只能是以下取值:<br>00:00-01:00<br>01:00-02:00<br>......<br>23:00-24:00
         """
         self.startWindow = startWindow
+
+    def setBinlogRetentionPeriod(self, binlogRetentionPeriod):
+        """
+        :param binlogRetentionPeriod: (Optional) binlog本地保留周期，单位小时,范围1-168
+        """
+        self.binlogRetentionPeriod = binlogRetentionPeriod
+
+    def setBinlogUsageLimit(self, binlogUsageLimit):
+        """
+        :param binlogUsageLimit: (Optional) binlog本地占用空间上限，单位%，范围1-50
+        """
+        self.binlogUsageLimit = binlogUsageLimit
+
+    def setRetentionPeriod(self, retentionPeriod):
+        """
+        :param retentionPeriod: (Optional) 自动备份保留周期，单位天，范围7-730<br>当enhancedBackup为true时可修改<br>- 仅支持SQL Server
+        """
+        self.retentionPeriod = retentionPeriod
+
+    def setCycleMode(self, cycleMode):
+        """
+        :param cycleMode: (Optional) 自动备份循环模式<br>1：表示每天都是全量备份<br>2：表示自动备份按照全量、增量、增量这样的方式进行，例如第1天是全量备份，第2、3天是增量备份；第4天又是全量备份，以此类推<br>当enhancedBackup为true时可修改<br>- 仅支持SQL Server
+        """
+        self.cycleMode = cycleMode
 

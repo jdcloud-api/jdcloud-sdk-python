@@ -19,7 +19,7 @@
 
 class WebRule(object):
 
-    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, serviceIp=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None, geoRsRoute=None):
+    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, serviceIp=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, jsFingerprintEnable=None, jsFingerprintScope=None, ccCustomStatus=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
         """
         :param id: (Optional) 规则 Id
         :param instanceId: (Optional) 实例 Id
@@ -49,6 +49,16 @@ class WebRule(object):
         :param blackListEnable: (Optional) 黑名单状态, 0: 关闭, 1: 开启
         :param whiteListEnable: (Optional) 白名单状态, 0: 关闭, 1: 开启
         :param geoRsRoute: (Optional) 按区域分流回源配置
+        :param enableKeepalive: (Optional) 是否开启回源长连接, protocol 选项开启 https 时生效, 可取值<br>- on: 开启<br>- off: 关闭
+        :param httpVersion: (Optional) http 版本, protocol 选项开启 https 时生效, 可取值 http1 或 http2
+        :param sslProtocols: (Optional) SSL协议类型, protocol 选项开启 https 时生效, 可取值SSLv2,SSLv3,TLSv1.0,TLSv1.1,TLSv1.2
+        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级
+        :param jsFingerprintEnable: (Optional) 是否允许在 response 中插入 JS, 0: 关闭, 1: 开启
+        :param jsFingerprintScope: (Optional) JS 指纹生效范围, 0: 所有页面, 1: 已配置的自定义页面
+        :param ccCustomStatus: (Optional) CC自定义规则总开关, 0: 关闭, 1: 开启
+        :param enableHealthCheck: (Optional) 健康检查开关, 0: 关闭, 1: 开启
+        :param proxyConnectTimeout: (Optional) 回源连接超时时长, 单位 秒
+        :param enableUnderscores: (Optional) 请求头支持下划线, 0: 关闭, 1: 开启
         """
 
         self.id = id
@@ -79,3 +89,13 @@ class WebRule(object):
         self.blackListEnable = blackListEnable
         self.whiteListEnable = whiteListEnable
         self.geoRsRoute = geoRsRoute
+        self.enableKeepalive = enableKeepalive
+        self.httpVersion = httpVersion
+        self.sslProtocols = sslProtocols
+        self.suiteLevel = suiteLevel
+        self.jsFingerprintEnable = jsFingerprintEnable
+        self.jsFingerprintScope = jsFingerprintScope
+        self.ccCustomStatus = ccCustomStatus
+        self.enableHealthCheck = enableHealthCheck
+        self.proxyConnectTimeout = proxyConnectTimeout
+        self.enableUnderscores = enableUnderscores

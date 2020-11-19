@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, id=None, name=None, carrier=None, ipType=None, ipCount=None, portCount=None, domainCount=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, dispatchRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None, pageId=None, pageName=None):
+    def __init__(self, id=None, name=None, carrier=None, ipType=None, ipCount=None, portCount=None, domainCount=None, elasticTriggerCount=None, abovePeakCount=None, inBitslimit=None, resilientBitslimit=None, businessBitslimit=None, ccThreshold=None, ccPeakQPS=None, ruleCount=None, webRuleCount=None, dispatchRuleCount=None, chargeStatus=None, securityStatus=None, createTime=None, expireTime=None, resourceId=None, ccObserveMode=None, ccProtectMode=None, ccProtectStatus=None, ccSpeedLimit=None, ccSpeedPeriod=None, ipBlackList=None, ipBlackStatus=None, ipWhiteList=None, ipWhiteStatus=None, urlWhitelist=None, urlWhitelistStatus=None, hostQps=None, hostUrlQps=None, ipHostQps=None, ipHostUrlQps=None, pageId=None, pageName=None, pageStatus=None, webRulePortLimit=None):
         """
         :param id: (Optional) 实例 ID
         :param name: (Optional) 实例名称
@@ -60,6 +60,8 @@ class Instance(object):
         :param ipHostUrlQps: (Optional) ccProtectMode为自定义模式时, 每个源IP对Host+URI的防护阈值
         :param pageId: (Optional) 关联的自定义页面id
         :param pageName: (Optional) 关联的自定义页面名称
+        :param pageStatus: (Optional) 是否开启自定义页面, 关闭时透传状态码.  <br>- 0: 关闭<br>- 1: 开启
+        :param webRulePortLimit: (Optional) 每条网站规则可配的http/https端口数
         """
 
         self.id = id
@@ -101,3 +103,5 @@ class Instance(object):
         self.ipHostUrlQps = ipHostUrlQps
         self.pageId = pageId
         self.pageName = pageName
+        self.pageStatus = pageStatus
+        self.webRulePortLimit = webRulePortLimit

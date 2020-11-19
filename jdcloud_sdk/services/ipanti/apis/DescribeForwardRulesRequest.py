@@ -44,6 +44,7 @@ class DescribeForwardRulesParameters(object):
         self.pageSize = None
         self.searchType = None
         self.searchValue = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -68,4 +69,12 @@ class DescribeForwardRulesParameters(object):
         :param searchValue: (Optional) 查询类型值
         """
         self.searchValue = searchValue
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) 排序属性：
+port - 按转发端口排序，默认不排序,asc表示按转发端口升序，desc表示按转发端口降序
+
+        """
+        self.sorts = sorts
 

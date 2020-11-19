@@ -19,13 +19,13 @@
 
 class WebRuleSpec(object):
 
-    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, serviceIp=None, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None, geoRsRoute=None):
+    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, serviceIp=None, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
         """
         :param serviceIp: (Optional) 高防 IP
         :param domain:  子域名
         :param protocol:  协议: http, https 至少一个为 true
-        :param port: (Optional) HTTP 协议的端口号, 如80, 81; 如果 protocol.http 为 true, 至少配置一个端口, 最多添加 5 个
-        :param httpsPort: (Optional) HTTPS 协议的端口号, 如443, 8443; 如果 protocol.https 为 true, 至少配置一个端口, 最多添加 5 个
+        :param port: (Optional) HTTP 协议的端口号, 如80, 81; 如果 protocol.http 为 true, 至少配置一个端口
+        :param httpsPort: (Optional) HTTPS 协议的端口号, 如443, 8443; 如果 protocol.https 为 true, 至少配置一个端口
         :param originType:  回源类型：A 或者 CNAME
         :param originAddr: (Optional) originType 为 A 时, 需要设置该字段
         :param onlineAddr: (Optional) 备用的回源地址列表, 可以配置为一个域名或者多个 ip 地址
@@ -36,6 +36,13 @@ class WebRuleSpec(object):
         :param httpOrigin: (Optional) 是否开启 HTTP 回源, protocol.https 为 true 时此参数生效. <br>- 0: 不开启. <br>- 1: 开启
         :param webSocketStatus:  是否开启 WebSocket.<br>- 0: 不开启<br>- 1: 开启
         :param geoRsRoute: (Optional) 按区域分流回源配置
+        :param enableKeepalive: (Optional) 是否开启回源长连接, protocol 选项开启 https 时生效, 可取值<br>- on: 开启<br>- off: 关闭
+        :param httpVersion: (Optional) http 版本, protocol 选项开启 https 时生效, 可取值 http1 或 http2
+        :param sslProtocols: (Optional) SSL协议类型, protocol 选项开启 https 时生效, 可取值SSLv2,SSLv3,TLSv1.0,TLSv1.1,TLSv1.2
+        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级
+        :param enableHealthCheck: (Optional) 健康检查开关, 0: 关闭, 1: 开启
+        :param proxyConnectTimeout: (Optional) 回源连接超时时长, 单位 秒
+        :param enableUnderscores: (Optional) 请求头支持下划线, 0: 关闭, 1: 开启
         """
 
         self.serviceIp = serviceIp
@@ -53,3 +60,10 @@ class WebRuleSpec(object):
         self.httpOrigin = httpOrigin
         self.webSocketStatus = webSocketStatus
         self.geoRsRoute = geoRsRoute
+        self.enableKeepalive = enableKeepalive
+        self.httpVersion = httpVersion
+        self.sslProtocols = sslProtocols
+        self.suiteLevel = suiteLevel
+        self.enableHealthCheck = enableHealthCheck
+        self.proxyConnectTimeout = proxyConnectTimeout
+        self.enableUnderscores = enableUnderscores

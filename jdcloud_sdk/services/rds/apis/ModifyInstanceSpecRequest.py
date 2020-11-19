@@ -46,6 +46,7 @@ class ModifyInstanceSpecParameters(object):
         self.newInstanceStorageGB = newInstanceStorageGB
         self.newInstanceStorageType = None
         self.storageEncrypted = None
+        self.subnetId = None
 
     def setNewInstanceStorageType(self, newInstanceStorageType):
         """
@@ -58,4 +59,10 @@ class ModifyInstanceSpecParameters(object):
         :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密). false：不加密; true：加密. 如果实例从本地盘变为云硬盘，缺省为false. 如果实例本来就是使用云硬盘的，缺省和源实例保持一致
         """
         self.storageEncrypted = storageEncrypted
+
+    def setSubnetId(self, subnetId):
+        """
+        :param subnetId: (Optional) 变配后的子网ID
+        """
+        self.subnetId = subnetId
 

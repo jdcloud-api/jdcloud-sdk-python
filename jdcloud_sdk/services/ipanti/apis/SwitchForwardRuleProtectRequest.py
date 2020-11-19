@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SwitchForwardRuleProtectRequest(JDCloudRequest):
     """
-    非网站类规则切换成防御状态
+    非网站类规则切换成防御状态。支持批量操作, 批量操作时 forwardRuleId 传多个, 以 ',' 分隔, 返回 result.code 为 1 表示操作成功, 为 0 时可能全部失败, 也可能部分失败
     """
 
     def __init__(self, parameters, header=None, version="v1"):

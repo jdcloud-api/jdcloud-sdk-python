@@ -35,7 +35,7 @@ class ClusterExpansionParameters(object):
     def __init__(self, regionId, clusterExpansion, ):
         """
         :param regionId: 地域ID
-        :param clusterExpansion: 描述集群配置
+        :param clusterExpansion: 描述集群扩容信息
         """
 
         self.regionId = regionId

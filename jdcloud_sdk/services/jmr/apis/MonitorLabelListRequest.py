@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDisasterSyncAttributeRequest(JDCloudRequest):
+class MonitorLabelListRequest(JDCloudRequest):
     """
-    查询MySQL实例的数据同步任务详情。<br>- 仅支持MySQL
+    查询JMR的监控模板信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDisasterSyncAttributeRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/disasterInstance:describeDisasterSyncAttribute', 'GET', header, version)
+        super(MonitorLabelListRequest, self).__init__(
+            '/regions/{regionId}/monitorLabelList/{clusterId}', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeDisasterSyncAttributeParameters(object):
+class MonitorLabelListParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, clusterId, ):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param regionId: 地域ID
+        :param clusterId: 集群ID
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
+        self.clusterId = clusterId
 

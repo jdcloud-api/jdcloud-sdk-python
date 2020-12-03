@@ -19,22 +19,21 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLiveStatisticGroupByAreaIspRequest(JDCloudRequest):
+class DescribeLivePublishStatisticGroupByStreamRequest(JDCloudRequest):
     """
-    查询地域/运营商分组统计数据
+    查询流分组统计数据(上行)
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLiveStatisticGroupByAreaIspRequest, self).__init__(
-            '/describeLiveStatisticGroupByAreaIsp', 'GET', header, version)
+        super(DescribeLivePublishStatisticGroupByStreamRequest, self).__init__(
+            '/describeLivePublishStatisticGroupByStream', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLiveStatisticGroupByAreaIspParameters(object):
+class DescribeLivePublishStatisticGroupByStreamParameters(object):
 
-    def __init__(self, domainName, startTime, ):
+    def __init__(self, startTime, ):
         """
-        :param domainName: 播放域名
         :param startTime: 起始时间
 - UTC时间
   格式:yyyy-MM-dd'T'HH:mm:ss'Z'
@@ -42,15 +41,20 @@ class DescribeLiveStatisticGroupByAreaIspParameters(object):
 
         """
 
-        self.domainName = domainName
+        self.domainName = None
         self.appName = None
         self.streamName = None
         self.ispName = None
         self.locationName = None
-        self.protocolType = None
         self.period = None
         self.startTime = startTime
         self.endTime = None
+
+    def setDomainName(self, domainName):
+        """
+        :param domainName: (Optional) 播放域名
+        """
+        self.domainName = domainName
 
     def setAppName(self, appName):
         """
@@ -77,13 +81,6 @@ class DescribeLiveStatisticGroupByAreaIspParameters(object):
 
         """
         self.locationName = locationName
-
-    def setProtocolType(self, protocolType):
-        """
-        :param protocolType: (Optional) 查询的流协议类型，取值范围："rtmp,hdl,hls"，多个时以逗号分隔
-
-        """
-        self.protocolType = protocolType
 
     def setPeriod(self, period):
         """

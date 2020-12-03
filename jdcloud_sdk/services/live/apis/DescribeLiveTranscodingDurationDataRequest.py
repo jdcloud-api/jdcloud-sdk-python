@@ -38,10 +38,17 @@ class DescribeLiveTranscodingDurationDataParameters(object):
 
         """
 
+        self.domainName = None
         self.grade = None
         self.period = None
         self.startTime = startTime
         self.endTime = None
+
+    def setDomainName(self, domainName):
+        """
+        :param domainName: (Optional) 播放域名
+        """
+        self.domainName = domainName
 
     def setGrade(self, grade):
         """

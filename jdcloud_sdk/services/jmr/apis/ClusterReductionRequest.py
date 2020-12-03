@@ -19,25 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DetachNetworkRequest(JDCloudRequest):
+class ClusterReductionRequest(JDCloudRequest):
     """
-    当 RDS 实例欠费或者到期了，关闭RDS实例的网络访问功能。关闭后，用户无法通过域名访问RDS
+    缩容集群
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DetachNetworkRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:detachNetwork', 'POST', header, version)
+        super(ClusterReductionRequest, self).__init__(
+            '/regions/{regionId}/cluster:reduction', 'POST', header, version)
         self.parameters = parameters
 
 
-class DetachNetworkParameters(object):
+class ClusterReductionParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, clusterReduction, ):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param regionId: 地域ID
+        :param clusterReduction: 描述集群缩容信息
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
+        self.clusterReduction = clusterReduction
+        self.clientToken = None
+
+    def setClientToken(self, clientToken):
+        """
+        :param clientToken: (Optional) 用于保证请求的幂等性。由客户端生成，长度不能超过64个字符。
+
+        """
+        self.clientToken = clientToken
 

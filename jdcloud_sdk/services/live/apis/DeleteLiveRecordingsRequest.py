@@ -19,25 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AttachNetworkRequest(JDCloudRequest):
+class DeleteLiveRecordingsRequest(JDCloudRequest):
     """
-    当 RDS 实例不欠费了或者续费了，开启RDS实例的网络访问功能。开启后，用户可以通过域名正常访问RDS
+    删除录制文件
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AttachNetworkRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:attachNetwork', 'POST', header, version)
+        super(DeleteLiveRecordingsRequest, self).__init__(
+            '/recordings:delete', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class AttachNetworkParameters(object):
+class DeleteLiveRecordingsParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, fileUrl, ):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param fileUrl: 需要删除的录制文件在oss的url
+
         """
 
-        self.regionId = regionId
-        self.instanceId = instanceId
+        self.fileUrl = fileUrl
+        self.completely = None
+
+    def setCompletely(self, completely):
+        """
+        :param completely: (Optional) 是否深度删除所有的ts文件，仅对.m3u8录制文件生效。默认: true
+
+        """
+        self.completely = completely
 

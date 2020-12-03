@@ -19,27 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ClusterExpansionRequest(JDCloudRequest):
+class ClusterReductionRequest(JDCloudRequest):
     """
-    扩容集群
+    缩容集群
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ClusterExpansionRequest, self).__init__(
-            '/regions/{regionId}/cluster:expansion', 'POST', header, version)
+        super(ClusterReductionRequest, self).__init__(
+            '/regions/{regionId}/cluster:reduction', 'POST', header, version)
         self.parameters = parameters
 
 
-class ClusterExpansionParameters(object):
+class ClusterReductionParameters(object):
 
-    def __init__(self, regionId, clusterExpansion, ):
+    def __init__(self, regionId, clusterReduction, ):
         """
         :param regionId: 地域ID
-        :param clusterExpansion: 描述集群扩容信息
+        :param clusterReduction: 描述集群缩容信息
         """
 
         self.regionId = regionId
-        self.clusterExpansion = clusterExpansion
+        self.clusterReduction = clusterReduction
         self.clientToken = None
 
     def setClientToken(self, clientToken):

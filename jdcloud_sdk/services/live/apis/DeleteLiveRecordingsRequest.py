@@ -19,33 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ClusterExpansionRequest(JDCloudRequest):
+class DeleteLiveRecordingsRequest(JDCloudRequest):
     """
-    扩容集群
+    删除录制文件
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ClusterExpansionRequest, self).__init__(
-            '/regions/{regionId}/cluster:expansion', 'POST', header, version)
+        super(DeleteLiveRecordingsRequest, self).__init__(
+            '/recordings:delete', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class ClusterExpansionParameters(object):
+class DeleteLiveRecordingsParameters(object):
 
-    def __init__(self, regionId, clusterExpansion, ):
+    def __init__(self, fileUrl, ):
         """
-        :param regionId: 地域ID
-        :param clusterExpansion: 描述集群扩容信息
-        """
-
-        self.regionId = regionId
-        self.clusterExpansion = clusterExpansion
-        self.clientToken = None
-
-    def setClientToken(self, clientToken):
-        """
-        :param clientToken: (Optional) 用于保证请求的幂等性。由客户端生成，长度不能超过64个字符。
+        :param fileUrl: 需要删除的录制文件在oss的url
 
         """
-        self.clientToken = clientToken
+
+        self.fileUrl = fileUrl
+        self.completely = None
+
+    def setCompletely(self, completely):
+        """
+        :param completely: (Optional) 是否深度删除所有的ts文件，仅对.m3u8录制文件生效。默认: true
+
+        """
+        self.completely = completely
 

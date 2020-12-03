@@ -26,18 +26,18 @@ class GetSoftwareInfoRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(GetSoftwareInfoRequest, self).__init__(
-            '/regions/{regionId}/softwareInfo', 'POST', header, version)
+            '/regions/{regionId}/softwareInfo', 'GET', header, version)
         self.parameters = parameters
 
 
 class GetSoftwareInfoParameters(object):
 
-    def __init__(self, regionId, ver, ):
+    def __init__(self, regionId, version):
         """
         :param regionId: 地域ID
-        :param ver: JMR软件版本号
+        :param version: JMR软件版本号
         """
 
         self.regionId = regionId
-        self.ver = ver
+        self.version = version
 

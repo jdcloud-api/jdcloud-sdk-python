@@ -47,6 +47,7 @@ class DescribeSlowLogsParameters(object):
         self.dbName = None
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setDbName(self, dbName):
         """
@@ -65,4 +66,10 @@ class DescribeSlowLogsParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、30、50、100
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 
+        """
+        self.filters = filters
 

@@ -44,6 +44,8 @@ class QueryRefreshTaskParameters(object):
         self.taskType = None
         self.pageNumber = None
         self.pageSize = None
+        self.accountType = None
+        self.subUsers = None
 
     def setStartTime(self, startTime):
         """
@@ -92,4 +94,16 @@ class QueryRefreshTaskParameters(object):
         :param pageSize: (Optional) 分页页面大小,默认值50
         """
         self.pageSize = pageSize
+
+    def setAccountType(self, accountType):
+        """
+        :param accountType: (Optional) 查询的账号范围
+        """
+        self.accountType = accountType
+
+    def setSubUsers(self, subUsers):
+        """
+        :param subUsers: (Optional) 查询的子账号，多个用逗号隔开
+        """
+        self.subUsers = subUsers
 

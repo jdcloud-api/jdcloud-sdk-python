@@ -19,12 +19,14 @@
 
 class Vpc(object):
 
-    def __init__(self, region=None, vpcId=None, name=None, cidr=None, description=None, createTime=None):
+    def __init__(self, region=None, vpcId=None, name=None, cidr=None, ipv6Cidr=None, ipv6GatewayId=None, description=None, createTime=None):
         """
         :param region: (Optional) 地域代码, 如cn-north-1
         :param vpcId: (Optional) 私有网络ID
         :param name: (Optional) 私有网络名称
-        :param cidr: (Optional) 私有网络CIDR
+        :param cidr: (Optional) 私有网络IPv4 CIDR
+        :param ipv6Cidr: (Optional) 私有网络IPv6 CIDR
+        :param ipv6GatewayId: (Optional) IPv6网关ID
         :param description: (Optional) 描述
         :param createTime: (Optional) 创建时间
         """
@@ -33,5 +35,7 @@ class Vpc(object):
         self.vpcId = vpcId
         self.name = name
         self.cidr = cidr
+        self.ipv6Cidr = ipv6Cidr
+        self.ipv6GatewayId = ipv6GatewayId
         self.description = description
         self.createTime = createTime

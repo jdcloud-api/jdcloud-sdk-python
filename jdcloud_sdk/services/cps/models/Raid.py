@@ -24,7 +24,7 @@ class Raid(object):
         :param volumeType: (Optional) 磁盘类型, 如 system/data
         :param volumeDetail: (Optional) 设备详情
         :param raidTypeId: (Optional) RAID类型ID
-        :param raidType: (Optional) RAID类型, 如 NORAID, RAID0, RAID1
+        :param raidType: (Optional) RAID类型, 如 NORAID, RAID0, RAID1，RAID10
         :param deviceType: (Optional) 云物理服务器类型, 如 cps.c.normal
         :param description: (Optional) RAID类型描述
         """

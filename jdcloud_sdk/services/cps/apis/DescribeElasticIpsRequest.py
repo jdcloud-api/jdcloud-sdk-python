@@ -44,6 +44,9 @@ class DescribeElasticIpsParameters(object):
         self.pageSize = None
         self.status = None
         self.includeLB = None
+        self.chargeMode = None
+        self.instanceId = None
+        self.subnetId = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -69,6 +72,24 @@ class DescribeElasticIpsParameters(object):
         :param includeLB: (Optional) 是否包含负载均衡
         """
         self.includeLB = includeLB
+
+    def setChargeMode(self, chargeMode):
+        """
+        :param chargeMode: (Optional) 支付模式，取值为：prepaid_by_duration表示预付费，postpaid_by_duration表示按配置后付费
+        """
+        self.chargeMode = chargeMode
+
+    def setInstanceId(self, instanceId):
+        """
+        :param instanceId: (Optional) 实例Id
+        """
+        self.instanceId = instanceId
+
+    def setSubnetId(self, subnetId):
+        """
+        :param subnetId: (Optional) 子网Id
+        """
+        self.subnetId = subnetId
 
     def setFilters(self, filters):
         """

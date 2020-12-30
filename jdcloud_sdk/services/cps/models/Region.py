@@ -21,8 +21,8 @@ class Region(object):
 
     def __init__(self, region=None, regionName=None, azs=None):
         """
-        :param region: (Optional) 地域代码, 如 cn-east-1
-        :param regionName: (Optional) 地域名称，如 华东一区
+        :param region: (Optional) 地域代码, 如 cn-north-1
+        :param regionName: (Optional) 地域名称，如华北-北京
         :param azs: (Optional) 可用区列表
         """
 

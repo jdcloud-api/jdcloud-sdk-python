@@ -19,13 +19,15 @@
 
 class VpcSpec(object):
 
-    def __init__(self, cidr, name, description, ):
+    def __init__(self, cidr, name, description, enableIpv6=None):
         """
         :param cidr:  私有网络范围
         :param name:  名称
+        :param enableIpv6: (Optional) 是否开通IPv6网关，取值范围：yes、no
         :param description:  描述
         """
 
         self.cidr = cidr
         self.name = name
+        self.enableIpv6 = enableIpv6
         self.description = description

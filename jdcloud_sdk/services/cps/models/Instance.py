@@ -19,11 +19,11 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, subnetId=None, subnetName=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, publicIpv6=None, keypairId=None, agentStatus=None, charge=None):
+    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, vpcIpv4Cidr=None, vpcIpv6Cidr=None, ipv6GatewayId=None, subnetId=None, subnetName=None, subnetIpv4Cidr=None, subnetIpv6Cidr=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, ipv6Address=None, ipv6AddressId=None, ipv6AddressBandwidth=None, interfaceMode=None, extensionVpcId=None, extensionVpcName=None, extensionVpcIpv4Cidr=None, extensionVpcIpv6Cidr=None, extensionSubnetId=None, extensionSubnetName=None, extensionSubnetIpv4Cidr=None, extensionSubnetIpv6Cidr=None, extensionPrivateIp=None, extensionEnableInternet=None, extensionElasticIpId=None, extensionPublicIp=None, extensionBandwidth=None, extensionEnableIpv6=None, extensionIpv6Address=None, extensionIpv6AddressId=None, extensionIpv6AddressBandwidth=None, extensionIpv6GatewayId=None, keypairId=None, agentStatus=None, charge=None):
         """
         :param instanceId: (Optional) 云物理服务器实例ID
-        :param region: (Optional) 区域代码, 如 cn-east-1
-        :param az: (Optional) 可用区, 如 cn-east-1a
+        :param region: (Optional) 区域代码, 如 cn-north-1
+        :param az: (Optional) 可用区, 如 cn-north-1a
         :param deviceType: (Optional) 实例类型, 如 cps.c.normal
         :param name: (Optional) 云物理服务器名称
         :param description: (Optional) 云物理服务器描述
@@ -39,17 +39,43 @@ class Instance(object):
         :param sysRaidTypeId: (Optional) 系统盘RAID类型ID
         :param sysRaidType: (Optional) 系统盘RAID类型, 如 NORAID, RAID0, RAID1
         :param dataRaidTypeId: (Optional) 数据盘RAID类型ID
-        :param dataRaidType: (Optional) 数据盘RAID类型, 如 NORAID, RAID0, RAID1
-        :param networkType: (Optional) 网络类型, 如 basic, vpc
+        :param dataRaidType: (Optional) 数据盘RAID类型, 如 NORAID, RAID0, RAID1，RAID10
+        :param networkType: (Optional) 网络类型：basic（基础网络）、vpc（私有网络）、retail（零售中台网络）
         :param vpcId: (Optional) 私有网络ID
         :param vpcName: (Optional) 私有网络名称
+        :param vpcIpv4Cidr: (Optional) 私有网络IPv4 CIDR
+        :param vpcIpv6Cidr: (Optional) 私有网络IPv6 CIDR
+        :param ipv6GatewayId: (Optional) IPv6网关ID
         :param subnetId: (Optional) 子网编号
         :param subnetName: (Optional) 子网名称
+        :param subnetIpv4Cidr: (Optional) 子网IPv4 CIDR
+        :param subnetIpv6Cidr: (Optional) 子网IPv6 CIDR
         :param privateIp: (Optional) 内网IP
         :param lineType: (Optional) 外网链路类型, 如 bgp
         :param elasticIpId: (Optional) 弹性公网IPID
         :param publicIp: (Optional) 公网IP
-        :param publicIpv6: (Optional) 公网IPv6
+        :param ipv6Address: (Optional) IPv6地址
+        :param ipv6AddressId: (Optional) 公网IPv6地址ID
+        :param ipv6AddressBandwidth: (Optional) 公网IPv6带宽, 单位Mbps
+        :param interfaceMode: (Optional) 网络接口模式：bond（网口bond）、dual（双网口）
+        :param extensionVpcId: (Optional) 辅网口私有网络ID
+        :param extensionVpcName: (Optional) 辅网口私有网络名称
+        :param extensionVpcIpv4Cidr: (Optional) 辅网口私有网络IPv4 CIDR
+        :param extensionVpcIpv6Cidr: (Optional) 辅网口私有网络IPv6 CIDR
+        :param extensionSubnetId: (Optional) 辅网口子网ID
+        :param extensionSubnetName: (Optional) 辅网口子网名称
+        :param extensionSubnetIpv4Cidr: (Optional) 辅网口子网IPv4 CIDR
+        :param extensionSubnetIpv6Cidr: (Optional) 辅网口子网IPv6 CIDR
+        :param extensionPrivateIp: (Optional) 辅网口手动分配的内网ip
+        :param extensionEnableInternet: (Optional) 辅网口是否启用外网
+        :param extensionElasticIpId: (Optional) 辅网口弹性公网ip id
+        :param extensionPublicIp: (Optional) 辅网口公网ip
+        :param extensionBandwidth: (Optional) 辅网口外网带宽，单位Mbps
+        :param extensionEnableIpv6: (Optional) 辅网口是否启用IPv6, 如 yes/no
+        :param extensionIpv6Address: (Optional) 辅网口IPv6地址
+        :param extensionIpv6AddressId: (Optional) 辅网口公网IPv6地址ID
+        :param extensionIpv6AddressBandwidth: (Optional) 辅网口IPv6公网带宽, 单位Mbps
+        :param extensionIpv6GatewayId: (Optional) IPv6网关ID
         :param keypairId: (Optional) 密钥对id
         :param agentStatus: (Optional) agent状态
         :param charge: (Optional) 计费信息
@@ -77,13 +103,39 @@ class Instance(object):
         self.networkType = networkType
         self.vpcId = vpcId
         self.vpcName = vpcName
+        self.vpcIpv4Cidr = vpcIpv4Cidr
+        self.vpcIpv6Cidr = vpcIpv6Cidr
+        self.ipv6GatewayId = ipv6GatewayId
         self.subnetId = subnetId
         self.subnetName = subnetName
+        self.subnetIpv4Cidr = subnetIpv4Cidr
+        self.subnetIpv6Cidr = subnetIpv6Cidr
         self.privateIp = privateIp
         self.lineType = lineType
         self.elasticIpId = elasticIpId
         self.publicIp = publicIp
-        self.publicIpv6 = publicIpv6
+        self.ipv6Address = ipv6Address
+        self.ipv6AddressId = ipv6AddressId
+        self.ipv6AddressBandwidth = ipv6AddressBandwidth
+        self.interfaceMode = interfaceMode
+        self.extensionVpcId = extensionVpcId
+        self.extensionVpcName = extensionVpcName
+        self.extensionVpcIpv4Cidr = extensionVpcIpv4Cidr
+        self.extensionVpcIpv6Cidr = extensionVpcIpv6Cidr
+        self.extensionSubnetId = extensionSubnetId
+        self.extensionSubnetName = extensionSubnetName
+        self.extensionSubnetIpv4Cidr = extensionSubnetIpv4Cidr
+        self.extensionSubnetIpv6Cidr = extensionSubnetIpv6Cidr
+        self.extensionPrivateIp = extensionPrivateIp
+        self.extensionEnableInternet = extensionEnableInternet
+        self.extensionElasticIpId = extensionElasticIpId
+        self.extensionPublicIp = extensionPublicIp
+        self.extensionBandwidth = extensionBandwidth
+        self.extensionEnableIpv6 = extensionEnableIpv6
+        self.extensionIpv6Address = extensionIpv6Address
+        self.extensionIpv6AddressId = extensionIpv6AddressId
+        self.extensionIpv6AddressBandwidth = extensionIpv6AddressBandwidth
+        self.extensionIpv6GatewayId = extensionIpv6GatewayId
         self.keypairId = keypairId
         self.agentStatus = agentStatus
         self.charge = charge

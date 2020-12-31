@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class PodClient(JDCloudClient):
+class OpenjrtcClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('pod.jdcloud-api.com')
+            config = Config('openjrtc.jdcloud-api.com')
 
-        super(PodClient, self).__init__(credential, config, 'pod', '2.2.5', logger)
+        super(OpenjrtcClient, self).__init__(credential, config, 'openjrtc', '1.0.0', logger)

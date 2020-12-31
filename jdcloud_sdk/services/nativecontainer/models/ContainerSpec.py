@@ -19,7 +19,7 @@
 
 class ContainerSpec(object):
 
-    def __init__(self, instanceType, az, name, image, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None):
+    def __init__(self, instanceType, az, name, image, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None, userTags=None):
         """
         :param instanceType:  实例类型；参考[文档](https://www.jdcloud.com/help/detail/1992/isCatalog/1)
         :param az:  容器所属可用区
@@ -40,6 +40,7 @@ class ContainerSpec(object):
         :param logConfiguration: (Optional) 容器日志配置信息；默认会在本地分配10MB的存储空间
         :param description: (Optional) 容器描述
         :param charge: (Optional) 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
+        :param userTags: (Optional) 用户普通标签集合
         """
 
         self.instanceType = instanceType
@@ -61,3 +62,4 @@ class ContainerSpec(object):
         self.logConfiguration = logConfiguration
         self.description = description
         self.charge = charge
+        self.userTags = userTags

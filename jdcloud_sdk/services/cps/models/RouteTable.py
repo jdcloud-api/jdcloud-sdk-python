@@ -19,11 +19,12 @@
 
 class RouteTable(object):
 
-    def __init__(self, routeTableId=None, region=None, vpcId=None, name=None, createTime=None, routes=None):
+    def __init__(self, routeTableId=None, region=None, vpcId=None, vpcName=None, name=None, createTime=None, routes=None):
         """
         :param routeTableId: (Optional) 路由表ID
         :param region: (Optional) 地域
         :param vpcId: (Optional) 私有网络ID
+        :param vpcName: (Optional) 私有网络名称
         :param name: (Optional) 名称
         :param createTime: (Optional) 创建时间
         :param routes: (Optional) 路由规则
@@ -32,6 +33,7 @@ class RouteTable(object):
         self.routeTableId = routeTableId
         self.region = region
         self.vpcId = vpcId
+        self.vpcName = vpcName
         self.name = name
         self.createTime = createTime
         self.routes = routes

@@ -19,14 +19,14 @@
 
 class ReinstallInstanceSpec(object):
 
-    def __init__(self, az, imageType, osTypeId, sysRaidTypeId, keepData, dataRaidTypeId, password, hostname=None, userData=None, keypairId=None):
+    def __init__(self, az, imageType, osTypeId, sysRaidTypeId, keepData, password, dataRaidTypeId=None, hostname=None, userData=None, keypairId=None):
         """
         :param az:  可用区, 如cn-east-1a
         :param imageType:  镜像类型, 取值范围：standard、standard_app
         :param osTypeId:  操作系统类型ID
         :param sysRaidTypeId:  系统盘RAID类型ID
         :param keepData:  是否保留数据盘数据, 取值为：yes、no
-        :param dataRaidTypeId:  数据盘RAID类型ID
+        :param dataRaidTypeId: (Optional) 数据盘RAID类型ID
         :param password:  密码
         :param hostname: (Optional) 主机名
         :param userData: (Optional) 可执行脚本Base64编码后的内容，支持shell和python脚本

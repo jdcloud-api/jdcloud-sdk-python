@@ -44,7 +44,7 @@ class DescribeOSParameters(object):
 
     def setOsType(self, osType):
         """
-        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu
+        :param osType: (Optional) 操作系统类型，取值范围：CentOS、Ubuntu、Windows
         """
         self.osType = osType
 

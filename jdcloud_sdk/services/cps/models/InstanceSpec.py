@@ -19,21 +19,24 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, dataRaidTypeId, networkType, name, count, charge, hostname=None, subnetId=None, enableInternet=None, enableIpv6=None, cidr=None, privateIp=None, lineType=None, bandwidth=None, description=None, password=None, userData=None, keypairId=None):
+    def __init__(self, az, deviceType, imageType, osTypeId, sysRaidTypeId, networkType, name, count, charge, hostname=None, dataRaidTypeId=None, subnetId=None, enableInternet=None, internetChargeMode=None, enableIpv6=None, ipv6Address=None, cidr=None, privateIp=None, aliasIps=None, lineType=None, bandwidth=None, description=None, password=None, userData=None, keypairId=None, interfaceMode=None, extensionEnableIpv6=None, extensionIpv6Address=None, extensionSubnetId=None, extensionPrivateIp=None, extensionAliasIps=None, extensionEnableInternet=None, extensionLineType=None, extensionBandwidth=None, extensionInternetChargeMode=None, resourceTags=None):
         """
-        :param az:  可用区, 如 cn-east-1
+        :param az:  可用区, 如 cn-north-1
         :param deviceType:  实例类型, 如 cps.c.normal
         :param hostname: (Optional) 主机名
         :param imageType:  镜像类型, 取值范围：standard
         :param osTypeId:  操作系统类型ID
         :param sysRaidTypeId:  系统盘RAID类型ID
-        :param dataRaidTypeId:  数据盘RAID类型ID
+        :param dataRaidTypeId: (Optional) 数据盘RAID类型ID
         :param subnetId: (Optional) 子网编号
         :param enableInternet: (Optional) 是否启用外网，取值范围：yes、no
+        :param internetChargeMode: (Optional) 启用外网时弹性公网IP的计费模式，取值范围：prepaid_by_duration、postpaid_by_duration
         :param enableIpv6: (Optional) 是否启用IPv6，取值范围：yes、no
-        :param networkType:  网络类型，取值范围：basic、vpc
+        :param ipv6Address: (Optional) IPv6地址
+        :param networkType:  网络类型，取值范围：basic（基础网络）、vpc（私有网络）、retail（零售中台网络）
         :param cidr: (Optional) 网络CIDR
         :param privateIp: (Optional) 内网IP
+        :param aliasIps: (Optional) 内网添加的别名IP范围
         :param lineType: (Optional) 外网链路类型, 目前只支持bgp
         :param bandwidth: (Optional) 外网带宽, 范围[1,200] 单位Mbps
         :param name:  云物理服务器名称
@@ -43,6 +46,17 @@ class InstanceSpec(object):
         :param userData: (Optional) 可执行脚本Base64编码后的内容，支持shell和python脚本
         :param keypairId: (Optional) 密钥对id
         :param charge:  计费配置
+        :param interfaceMode: (Optional) 网络接口模式，取值：bond（网口bond）、dual（双网口）
+        :param extensionEnableIpv6: (Optional) 辅网口是否启用IPv6，取值范围：yes、no
+        :param extensionIpv6Address: (Optional) 辅网口IPv6地址
+        :param extensionSubnetId: (Optional) 辅网口子网ID
+        :param extensionPrivateIp: (Optional) 辅网口手动分配的内网ip
+        :param extensionAliasIps: (Optional) 辅网口内网添加的别名IP范围
+        :param extensionEnableInternet: (Optional) 辅网口是否启用外网，取值范围：yes、no
+        :param extensionLineType: (Optional) 辅网口链路类型, 目前支持BGP
+        :param extensionBandwidth: (Optional) 辅网口外网带宽，范围[1,200] 单位Mbps
+        :param extensionInternetChargeMode: (Optional) 辅网口启用外网时弹性公网IP的计费模式，取值范围：prepaid_by_duration、postpaid_by_duration
+        :param resourceTags: (Optional) 标签
         """
 
         self.az = az
@@ -54,10 +68,13 @@ class InstanceSpec(object):
         self.dataRaidTypeId = dataRaidTypeId
         self.subnetId = subnetId
         self.enableInternet = enableInternet
+        self.internetChargeMode = internetChargeMode
         self.enableIpv6 = enableIpv6
+        self.ipv6Address = ipv6Address
         self.networkType = networkType
         self.cidr = cidr
         self.privateIp = privateIp
+        self.aliasIps = aliasIps
         self.lineType = lineType
         self.bandwidth = bandwidth
         self.name = name
@@ -67,3 +84,14 @@ class InstanceSpec(object):
         self.userData = userData
         self.keypairId = keypairId
         self.charge = charge
+        self.interfaceMode = interfaceMode
+        self.extensionEnableIpv6 = extensionEnableIpv6
+        self.extensionIpv6Address = extensionIpv6Address
+        self.extensionSubnetId = extensionSubnetId
+        self.extensionPrivateIp = extensionPrivateIp
+        self.extensionAliasIps = extensionAliasIps
+        self.extensionEnableInternet = extensionEnableInternet
+        self.extensionLineType = extensionLineType
+        self.extensionBandwidth = extensionBandwidth
+        self.extensionInternetChargeMode = extensionInternetChargeMode
+        self.resourceTags = resourceTags

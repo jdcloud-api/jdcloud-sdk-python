@@ -50,6 +50,7 @@ class DescribeInstancesParameters(object):
         self.keypairId = None
         self.enableInternet = None
         self.privateIp = None
+        self.interfaceMode = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -78,7 +79,7 @@ class DescribeInstancesParameters(object):
 
     def setNetworkType(self, networkType):
         """
-        :param networkType: (Optional) 网络类型，精确匹配，支持basic，vpc
+        :param networkType: (Optional) 网络类型，精确匹配，支持basic（基础网络）、vpc（私有网络）、retail（零售中台网络）
         """
         self.networkType = networkType
 
@@ -102,7 +103,7 @@ class DescribeInstancesParameters(object):
 
     def setEnableInternet(self, enableInternet):
         """
-        :param enableInternet: (Optional) 是否启用外网, yes/no
+        :param enableInternet: (Optional) 是否启用外网, yes、no
         """
         self.enableInternet = enableInternet
 
@@ -111,6 +112,12 @@ class DescribeInstancesParameters(object):
         :param privateIp: (Optional) 内网ip
         """
         self.privateIp = privateIp
+
+    def setInterfaceMode(self, interfaceMode):
+        """
+        :param interfaceMode: (Optional) 实例网卡类型：bond（网卡bond）、dual（双网卡）
+        """
+        self.interfaceMode = interfaceMode
 
     def setFilters(self, filters):
         """

@@ -19,7 +19,7 @@
 
 class InstanceNetworkInterface(object):
 
-    def __init__(self, networkInterfaceId=None, macAddress=None, vpcId=None, subnetId=None, description=None, securityGroups=None, sanityCheck=None, primaryIp=None, secondaryIps=None):
+    def __init__(self, networkInterfaceId=None, macAddress=None, vpcId=None, subnetId=None, description=None, securityGroups=None, sanityCheck=None, primaryIp=None, secondaryIps=None, ipv6Addresses=None):
         """
         :param networkInterfaceId: (Optional) 弹性网卡ID
         :param macAddress: (Optional) 以太网地址
@@ -30,6 +30,7 @@ class InstanceNetworkInterface(object):
         :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1
         :param primaryIp: (Optional) 网卡主IP
         :param secondaryIps: (Optional) 
+        :param ipv6Addresses: (Optional) 网卡IPv6地址
         """
 
         self.networkInterfaceId = networkInterfaceId
@@ -41,3 +42,4 @@ class InstanceNetworkInterface(object):
         self.sanityCheck = sanityCheck
         self.primaryIp = primaryIp
         self.secondaryIps = secondaryIps
+        self.ipv6Addresses = ipv6Addresses

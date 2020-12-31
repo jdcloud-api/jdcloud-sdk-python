@@ -40,7 +40,7 @@ class DescribeRegionesParameters(object):
 
     def setNetworkType(self, networkType):
         """
-        :param networkType: (Optional) 网络类型basic/vpc, 默认basic
+        :param networkType: (Optional) 网络类型basic（基础网络）、vpc（私有网络）、retail（零售中台网络）, 默认basic
         """
         self.networkType = networkType
 

@@ -19,7 +19,7 @@
 
 class ElasticIp(object):
 
-    def __init__(self, region=None, elasticIpId=None, elasticIp=None, bandwidth=None, lineType=None, status=None, instanceType=None, instanceId=None, createTime=None, charge=None):
+    def __init__(self, region=None, elasticIpId=None, elasticIp=None, bandwidth=None, lineType=None, status=None, instanceType=None, instanceId=None, targetIp=None, createTime=None, charge=None):
         """
         :param region: (Optional) 地域代码, 如cn-north-1
         :param elasticIpId: (Optional) 弹性公网IPID
@@ -29,6 +29,7 @@ class ElasticIp(object):
         :param status: (Optional) 状态
         :param instanceType: (Optional) 实例类型
         :param instanceId: (Optional) 实例ID
+        :param targetIp: (Optional) 绑定的ip地址
         :param createTime: (Optional) 创建时间
         :param charge: (Optional) 计费信息
         """
@@ -41,5 +42,6 @@ class ElasticIp(object):
         self.status = status
         self.instanceType = instanceType
         self.instanceId = instanceId
+        self.targetIp = targetIp
         self.createTime = createTime
         self.charge = charge

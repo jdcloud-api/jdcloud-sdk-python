@@ -19,17 +19,23 @@
 
 class SubnetSpec(object):
 
-    def __init__(self, az, vpcId, cidr, name, description, ):
+    def __init__(self, az, vpcId, cidr, name, description, ipv6Cidr=None, secondaryCidr=None, secondaryCidrName=None):
         """
         :param az:  可用区, 如 cn-north-1a
         :param vpcId:  私有网络ID
-        :param cidr:  子网的网络范围
+        :param cidr:  子网的IPv4网络范围
+        :param ipv6Cidr: (Optional) 子网的IPv6网络范围
         :param name:  名称
         :param description:  描述
+        :param secondaryCidr: (Optional) 子网的次要cidr
+        :param secondaryCidrName: (Optional) 子网的次要cidr名称
         """
 
         self.az = az
         self.vpcId = vpcId
         self.cidr = cidr
+        self.ipv6Cidr = ipv6Cidr
         self.name = name
         self.description = description
+        self.secondaryCidr = secondaryCidr
+        self.secondaryCidrName = secondaryCidrName

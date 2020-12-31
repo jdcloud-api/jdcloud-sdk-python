@@ -19,17 +19,25 @@
 
 class Subnet(object):
 
-    def __init__(self, region=None, az=None, subnetId=None, name=None, cidr=None, vpcId=None, vpcName=None, availableIpCount=None, totalIpCount=None, networkType=None, description=None, createTime=None):
+    def __init__(self, region=None, az=None, subnetId=None, name=None, cidr=None, ipv6Cidr=None, vpcId=None, vpcName=None, vpcCidr=None, vpcIpv6Cidr=None, availableIpCount=None, totalIpCount=None, usedIpv6IpCount=None, totalIpv6IpCount=None, secondaryCidrName=None, secondaryCidr=None, secondaryCidrId=None, networkType=None, description=None, createTime=None):
         """
-        :param region: (Optional) 地域代码, 如cn-east-1
-        :param az: (Optional) 可用区, 如cn-east-1a
+        :param region: (Optional) 地域代码, 如cn-north-1
+        :param az: (Optional) 可用区, 如cn-north-1c
         :param subnetId: (Optional) 子网ID
         :param name: (Optional) 子网名称
-        :param cidr: (Optional) 子网CIDR
+        :param cidr: (Optional) 子网ipv4 CIDR
+        :param ipv6Cidr: (Optional) 子网IPv6 CIDR
         :param vpcId: (Optional) 私有网络Id
         :param vpcName: (Optional) 私有网络名称
-        :param availableIpCount: (Optional) 可用ip数量
-        :param totalIpCount: (Optional) 总ip数量
+        :param vpcCidr: (Optional) 私有网络IPv4 CIDR
+        :param vpcIpv6Cidr: (Optional) 私有网络IPv6 CIDR
+        :param availableIpCount: (Optional) 可用IPv4地址数量
+        :param totalIpCount: (Optional) 总IPv4地址数量
+        :param usedIpv6IpCount: (Optional) 已用IPv6地址数量
+        :param totalIpv6IpCount: (Optional) 总IPv6地址数量
+        :param secondaryCidrName: (Optional) 子网次要CIDR名称
+        :param secondaryCidr: (Optional) 子网次要CIDR
+        :param secondaryCidrId: (Optional) 子网次要CIDR ID
         :param networkType: (Optional) 网络类型
         :param description: (Optional) 描述
         :param createTime: (Optional) 创建时间
@@ -40,10 +48,18 @@ class Subnet(object):
         self.subnetId = subnetId
         self.name = name
         self.cidr = cidr
+        self.ipv6Cidr = ipv6Cidr
         self.vpcId = vpcId
         self.vpcName = vpcName
+        self.vpcCidr = vpcCidr
+        self.vpcIpv6Cidr = vpcIpv6Cidr
         self.availableIpCount = availableIpCount
         self.totalIpCount = totalIpCount
+        self.usedIpv6IpCount = usedIpv6IpCount
+        self.totalIpv6IpCount = totalIpv6IpCount
+        self.secondaryCidrName = secondaryCidrName
+        self.secondaryCidr = secondaryCidr
+        self.secondaryCidrId = secondaryCidrId
         self.networkType = networkType
         self.description = description
         self.createTime = createTime

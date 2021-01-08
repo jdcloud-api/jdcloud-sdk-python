@@ -28,6 +28,7 @@ class RankingUrlResultRankData(object):
         :param pv: (Optional) 访问次数
 
         :param flow: (Optional) 流量，单位：Byte
+
         """
 
         self.uv = uv

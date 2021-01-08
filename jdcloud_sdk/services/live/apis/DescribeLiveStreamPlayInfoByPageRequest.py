@@ -19,41 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLiveSnapshotDataRequest(JDCloudRequest):
+class DescribeLiveStreamPlayInfoByPageRequest(JDCloudRequest):
     """
-    查询直播截图张数数据
+    查询观看人数
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLiveSnapshotDataRequest, self).__init__(
-            '/liveSnapshotData', 'GET', header, version)
+        super(DescribeLiveStreamPlayInfoByPageRequest, self).__init__(
+            '/describeLiveStreamPlayInfoByPage', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLiveSnapshotDataParameters(object):
+class DescribeLiveStreamPlayInfoByPageParameters(object):
 
-    def __init__(self, startTime, ):
+    def __init__(self, domainName, startTime, ):
         """
-        :param startTime: 起始时间:
+        :param domainName: 推流域名
+        :param startTime: 起始时间
 - UTC时间
-  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
-  示例: 2018-10-21T10:00:00Z
-- 支持最大查询90天以内的数据
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
 
         """
 
-        self.publishDomain = None
+        self.domainName = domainName
         self.appName = None
         self.streamName = None
-        self.shotMode = None
         self.startTime = startTime
         self.endTime = None
-
-    def setPublishDomain(self, publishDomain):
-        """
-        :param publishDomain: (Optional) 推流域名
-        """
-        self.publishDomain = publishDomain
+        self.pageNumber = None
+        self.pageSize = None
 
     def setAppName(self, appName):
         """
@@ -67,20 +62,28 @@ class DescribeLiveSnapshotDataParameters(object):
         """
         self.streamName = streamName
 
-    def setShotMode(self, shotMode):
-        """
-        :param shotMode: (Optional) 截图模式：1表示采样截图；2表示关键帧截图(默认为2)
-        """
-        self.shotMode = shotMode
-
     def setEndTime(self, endTime):
         """
         :param endTime: (Optional) 结束时间:
 - UTC时间
-  格式: yyyy-MM-dd'T'HH:mm:ss'Z'
-  示例: 2018-10-21T10:00:00Z
-- 为空,默认当前时间
+  格式:yyyy-MM-dd'T'HH:mm:ss'Z'
+  示例:2018-10-21T10:00:00Z
+- 为空,默认为当前时间
 
         """
         self.endTime = endTime
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码，起始页码1
+
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页最大记录数，取值：[10,1000]，默认：100
+
+        """
+        self.pageSize = pageSize
 

@@ -19,14 +19,21 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None):
+    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None):
         """
         :param agId: (Optional) 高可用组Id。指定了此参数后，只能通过高可用组关联的实例模板创建虚机，并且实例模板中的参数不可覆盖替换。实例模板以外的参数还可以指定。
         :param instanceTemplateId: (Optional) 实例模板id，如果没有使用高可用组，那么对于实例模板中没有的信息，需要使用创建虚机的参数进行补充，或者选择覆盖启动模板中的参数。
         :param az: (Optional) 云主机所属的可用区。
         :param instanceType: (Optional) 实例规格。可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
         :param imageId: (Optional) 镜像ID。可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeimages">DescribeImages</a>接口获得指定地域的镜像信息。
-        :param name:  云主机名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param name:  云主机名称，不为空且只允许中文、数字、大小写字母、英文下划线（_）、连字符（-）及点（.），不能以（.）作为首尾，长度为2~128个字符。
+批量创建多台云主机时，可在name中非首位位置以[start_number]格式来设置有序name。start_number为起始序号，取值范围[0,9999]。例如：name设置为“instance-[000]-ops”，则第一台主机name为“instance-000-ops”，第二台主机name为“instance-001-ops”。再如：name设置为“instance-[0]-ops”，则第一台主机name为“instance-0-ops”，第二台主机name为“instance-1-ops”。
+
+        :param hostname: (Optional) 云主机hostname，若不指定hostname，则hostname默认使用云主机名称name，但是会以RFC 952和RFC 1123命名规范做一定转义。
+Windows Server系统：长度为2-15个字符，允许大小写字母、数字或连字符（-）。不能以连字符（-）开头或结尾，不能连续使用连字符（-），也不能全部使用数字。不支持点号（.）。
+Linux系统：长度为2-64个字符，允许支持多个点号，点之间为一段，每段允许使用大小写字母、数字或连字符（-），但不能连续使用点号（.）或连字符（-），不能以点号（.）或连字符（-）开头或结尾。
+批量创建多台云主机时，可在hostname中非首位位置以[start_number]格式来设置有序hostname。start_number为起始序号，取值范围[0,9999]。例如：hostname设置为“instance-[000]-ops”，则第一台主机hostname为“instance-000-ops”，第二台主机hostname为“instance-001-ops”。再如：hostname设置为“instance-[0]-ops”，则第一台主机hostname为“instance-0-ops”，第二台主机hostname为“instance-1-ops”。批量创建时若不指定起始序号，则会默认追加从1开始的数字，例如批量创建两台虚拟机，且指定hostname是test，则hostname默认是test1，test2。
+
         :param password: (Optional) 密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         :param keyNames: (Optional) 密钥对名称，当前只支持传入一个。
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
@@ -37,6 +44,9 @@ class InstanceSpec(object):
 云主机不支持按用量方式计费，默认为按配置计费。
 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
+
+        :param metadata: (Optional) 用户自定义元数据信息，key-value键值对总数量不超过40对，其中有效键值对数量不超过20，无效键值对数量不超过20对。不区分大小写。
+注意：key不要以连字符(-)结尾，否则此key不生效。
 
         :param userdata: (Optional) 元数据信息，目前只支持传入一个key为"launch-script"，表示首次启动脚本。value为base64格式，编码前数据不能大于16KB。
 launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
@@ -57,6 +67,9 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
 
         :param userTags: (Optional) 用户普通标签集合
         :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机。keepCharging：关机后继续计费；stopCharging：关机后停止计费。
+        :param autoImagePolicyId: (Optional) 自动镜像策略ID。
+        :param passwordAuth: (Optional) 当存在密钥时，是否同时使用密码登录，"yes"为使用，"no"为不使用，""默认为"yes"
+        :param imageInherit: (Optional) 继承镜像中的登录验证方式，"yes"为使用，"no"为不使用，""默认为"no"
         """
 
         self.agId = agId
@@ -65,6 +78,7 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
         self.instanceType = instanceType
         self.imageId = imageId
         self.name = name
+        self.hostname = hostname
         self.password = password
         self.keyNames = keyNames
         self.elasticIp = elasticIp
@@ -72,6 +86,7 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.charge = charge
+        self.metadata = metadata
         self.userdata = userdata
         self.description = description
         self.noPassword = noPassword
@@ -79,3 +94,6 @@ launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd
         self.noElasticIp = noElasticIp
         self.userTags = userTags
         self.chargeOnStopped = chargeOnStopped
+        self.autoImagePolicyId = autoImagePolicyId
+        self.passwordAuth = passwordAuth
+        self.imageInherit = imageInherit

@@ -33,19 +33,14 @@ class UnShareImageRequest(JDCloudRequest):
 
 class UnShareImageParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, imageId, pins):
         """
         :param regionId: 地域ID
         :param imageId: 镜像ID
+        :param pins: 需要取消的帐户
         """
 
         self.regionId = regionId
         self.imageId = imageId
-        self.pins = None
-
-    def setPins(self, pins):
-        """
-        :param pins: (Optional) 需要取消的帐户
-        """
         self.pins = pins
 

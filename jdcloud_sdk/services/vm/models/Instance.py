@@ -19,10 +19,11 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None):
+    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None):
         """
         :param instanceId: (Optional) 云主机ID
         :param instanceName: (Optional) 云主机名称
+        :param hostname: (Optional) 云主机hostname
         :param instanceType: (Optional) 实例规格
         :param vpcId: (Optional) 主网卡所属VPC的ID
         :param subnetId: (Optional) 主网卡所属子网的ID
@@ -44,10 +45,12 @@ class Instance(object):
         :param faultDomain: (Optional) 高可用组中的错误域
         :param tags: (Optional) Tag信息
         :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机。keepCharging：关机后继续计费；stopCharging：关机后停止计费。
+        :param policies: (Optional) 策略信息
         """
 
         self.instanceId = instanceId
         self.instanceName = instanceName
+        self.hostname = hostname
         self.instanceType = instanceType
         self.vpcId = vpcId
         self.subnetId = subnetId
@@ -69,3 +72,4 @@ class Instance(object):
         self.faultDomain = faultDomain
         self.tags = tags
         self.chargeOnStopped = chargeOnStopped
+        self.policies = policies

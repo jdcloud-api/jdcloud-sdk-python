@@ -19,7 +19,7 @@
 
 class InstanceTemplateData(object):
 
-    def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None, chargeOnStopped=None):
+    def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None):
         """
         :param instanceType: (Optional) 实例规格
         :param vpcId: (Optional) 主网卡所属VPC的ID
@@ -31,6 +31,9 @@ class InstanceTemplateData(object):
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param keyNames: (Optional) 密钥对名称；当前只支持一个
         :param chargeOnStopped: (Optional) 停机不计费的标志， keepCharging(默认)：关机后继续计费；stopCharging：关机后停止计费。
+        :param autoImagePolicyId: (Optional) 自动镜像策略ID
+        :param passwordAuth: (Optional) 是否使用密码
+        :param imageInherit: (Optional) 是否继承镜像密码密钥
         """
 
         self.instanceType = instanceType
@@ -43,3 +46,6 @@ class InstanceTemplateData(object):
         self.elasticIp = elasticIp
         self.keyNames = keyNames
         self.chargeOnStopped = chargeOnStopped
+        self.autoImagePolicyId = autoImagePolicyId
+        self.passwordAuth = passwordAuth
+        self.imageInherit = imageInherit

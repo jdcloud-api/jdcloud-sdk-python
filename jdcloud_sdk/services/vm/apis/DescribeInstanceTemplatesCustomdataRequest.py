@@ -19,34 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteImageRequest(JDCloudRequest):
+class DescribeInstanceTemplatesCustomdataRequest(JDCloudRequest):
     """
-    删除一个私有镜像，只允许操作您的个人私有镜像。<br>
-若镜像已共享给其他用户，需先取消共享才可删除。
+    查询模板自定义元数据
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'DELETE', header, version)
+        super(DescribeInstanceTemplatesCustomdataRequest, self).__init__(
+            '/regions/{regionId}/instanceTemplatesCustomData', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteImageParameters(object):
+class DescribeInstanceTemplatesCustomdataParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
         """
 
         self.regionId = regionId
-        self.imageId = imageId
-        self.deleteSnapshot = None
+        self.filters = None
 
-    def setDeleteSnapshot(self, deleteSnapshot):
+    def setFilters(self, filters):
         """
-        :param deleteSnapshot: (Optional) 删除镜像是否删除关联的快照，默认为false；如果指定为true, 将会删除镜像关联的快照。
+        :param filters: (Optional) instanceTemplateId - 启动模板ID，精确匹配，支持多个，最多支持10个
         """
-        self.deleteSnapshot = deleteSnapshot
+        self.filters = filters
 

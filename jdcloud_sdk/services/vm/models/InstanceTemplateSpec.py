@@ -19,25 +19,40 @@
 
 class InstanceTemplateSpec(object):
 
-    def __init__(self, instanceType, imageId, primaryNetworkInterface, systemDisk, password=None, keyNames=None, elasticIp=None, dataDisks=None, chargeOnStopped=None):
+    def __init__(self, instanceType, imageId, primaryNetworkInterface, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None):
         """
         :param instanceType:  实例规格，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes">DescribeInstanceTypes</a>接口获得指定地域或可用区的规格信息。
         :param imageId:  镜像ID，可查询<a href="http://docs.jdcloud.com/virtual-machines/api/describeimages">DescribeImages</a>接口获得指定地域的镜像信息。
         :param password: (Optional) 密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         :param keyNames: (Optional) 密钥对名称；当前只支持一个
+        :param metadata: (Optional) 用户自定义元数据信息，key-value 键值对数量不超过20。key、value不区分大小写。
+注意：key不要以连字符(-)结尾，否则此key不生效。
+
+        :param userdata: (Optional) 元数据信息，目前只支持传入一个key为"launch-script"，表示首次启动脚本。value为base64格式。
+launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
+launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd></cmd> 和 <powershell></powershell> 作为内容首、尾行。
+
         :param elasticIp: (Optional) 主网卡主IP关联的弹性IP规格
         :param primaryNetworkInterface:  主网卡配置信息
-        :param systemDisk:  系统盘配置信息
+        :param systemDisk: (Optional) 系统盘配置信息
         :param dataDisks: (Optional) 数据盘配置信息
         :param chargeOnStopped: (Optional) 停机不计费的标志， keepCharging(默认)：关机后继续计费；stopCharging：关机后停止计费。
+        :param autoImagePolicyId: (Optional) 自动镜像策略ID。
+        :param passWordAuth: (Optional) 当存在密钥时，是否同时使用密码登录，"yes"为使用，"no"为不使用，""默认为"yes"
+        :param imageInherit: (Optional) 继承镜像中的登录验证方式，"yes"为使用，"no"为不使用，""默认为"no"
         """
 
         self.instanceType = instanceType
         self.imageId = imageId
         self.password = password
         self.keyNames = keyNames
+        self.metadata = metadata
+        self.userdata = userdata
         self.elasticIp = elasticIp
         self.primaryNetworkInterface = primaryNetworkInterface
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.chargeOnStopped = chargeOnStopped
+        self.autoImagePolicyId = autoImagePolicyId
+        self.passWordAuth = passWordAuth
+        self.imageInherit = imageInherit

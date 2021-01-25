@@ -37,18 +37,26 @@ class RebuildInstanceRequest(JDCloudRequest):
 
 class RebuildInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, password, ):
+    def __init__(self, regionId, instanceId, ):
         """
         :param regionId: 地域ID
         :param instanceId: 云主机ID
-        :param password: 云主机密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.password = password
+        self.password = None
         self.imageId = None
         self.keyNames = None
+        self.hostname = None
+        self.metadata = None
+        self.userdata = None
+
+    def setPassword(self, password):
+        """
+        :param password: (Optional) 云主机密码，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        """
+        self.password = password
 
     def setImageId(self, imageId):
         """
@@ -61,4 +69,32 @@ class RebuildInstanceParameters(object):
         :param keyNames: (Optional) 密钥对名称；当前只支持一个。仅Linux系统支持指定。
         """
         self.keyNames = keyNames
+
+    def setHostname(self, hostname):
+        """
+        :param hostname: (Optional) 云主机hostname，若不指定hostname，则hostname默认使用云主机重置前的hostname
+Windows Server系统：长度为2-15个字符，允许大小写字母、数字或连字符（-）。不能以连字符（-）开头或结尾，不能连续使用连字符（-），也不能全部使用数字。不支持点号（.）。
+Linux系统：长度为2-64个字符，允许支持多个点号，点之间为一段，每段允许使用大小写字母、数字或连字符（-），但不能连续使用点号（.）或连字符（-），不能以点号（.）或连字符（-）开头或结尾。
+
+        """
+        self.hostname = hostname
+
+    def setMetadata(self, metadata):
+        """
+        :param metadata: (Optional) 用户自定义元数据信息，key-value键值对总数量不超过40对，其中有效键值对数量不超过20，无效键值对数量不超过20对。不区分大小写。
+若不指定metadata，则metadata默认使用云主机重置前的metadata。
+注意：key不要以连字符(-)结尾，否则此key不生效。
+
+        """
+        self.metadata = metadata
+
+    def setUserdata(self, userdata):
+        """
+        :param userdata: (Optional) 元数据信息，目前只支持传入一个key为"launch-script"，表示首次启动脚本。value为base64格式。
+若不指定userdata，则userdata默认使用云主机重置前的userdata。
+launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
+launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd></cmd> 和 <powershell></powershell> 作为内容首、尾行。
+
+        """
+        self.userdata = userdata
 

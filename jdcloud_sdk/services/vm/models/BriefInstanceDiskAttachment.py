@@ -19,7 +19,7 @@
 
 class BriefInstanceDiskAttachment(object):
 
-    def __init__(self, diskCategory=None, autoDelete=None, localDisk=None, deviceName=None, status=None):
+    def __init__(self, diskCategory=None, autoDelete=None, localDisk=None, cloudDisk=None, deviceName=None, status=None):
         """
         :param diskCategory: (Optional) 磁盘分类，取值为本地盘(local)或者数据盘(cloud)。
 系统盘支持本地盘(local)或者云硬盘(cloud)。系统盘选择local类型，必须使用localDisk类型的镜像；同理系统盘选择cloud类型，必须使用cloudDisk类型的镜像。
@@ -30,6 +30,7 @@ class BriefInstanceDiskAttachment(object):
 如果云主机中的数据盘(cloud)是共享型数据盘，此参数不生效。
 
         :param localDisk: (Optional) 本地磁盘配置
+        :param cloudDisk: (Optional) 云硬盘配置
         :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm
         :param status: (Optional) 数据盘挂载状态，取值范围：attaching,detaching,attached,detached,error_attach,error_detach
         """
@@ -37,5 +38,6 @@ class BriefInstanceDiskAttachment(object):
         self.diskCategory = diskCategory
         self.autoDelete = autoDelete
         self.localDisk = localDisk
+        self.cloudDisk = cloudDisk
         self.deviceName = deviceName
         self.status = status

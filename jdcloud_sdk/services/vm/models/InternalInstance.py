@@ -19,7 +19,7 @@
 
 class InternalInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, hostIp=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, hostIp=None, rack=None):
         """
         :param instanceId: (Optional) 云主机ID
         :param instanceName: (Optional) 云主机名称
@@ -42,6 +42,7 @@ class InternalInstance(object):
         :param dedicatedPoolId: (Optional) 实例所属的专有宿主机池
         :param dedicatedHostId: (Optional) 专有宿主机ID
         :param hostIp: (Optional) 实例的物理机 IP
+        :param rack: (Optional) 机架信息
         """
 
         self.instanceId = instanceId
@@ -65,3 +66,4 @@ class InternalInstance(object):
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
         self.hostIp = hostIp
+        self.rack = rack

@@ -46,6 +46,7 @@ class DescribeImagesParameters(object):
         self.offline = None
         self.platform = None
         self.ids = None
+        self.imageName = None
         self.rootDeviceType = None
         self.launchPermission = None
         self.status = None
@@ -81,6 +82,12 @@ class DescribeImagesParameters(object):
         :param ids: (Optional) 镜像ID列表，如果指定了此参数，其它参数可为空
         """
         self.ids = ids
+
+    def setImageName(self, imageName):
+        """
+        :param imageName: (Optional) 根据镜像名称模糊查找
+        """
+        self.imageName = imageName
 
     def setRootDeviceType(self, rootDeviceType):
         """

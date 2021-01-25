@@ -19,34 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteImageRequest(JDCloudRequest):
+class AttachKeypairRequest(JDCloudRequest):
     """
-    删除一个私有镜像，只允许操作您的个人私有镜像。<br>
-若镜像已共享给其他用户，需先取消共享才可删除。
+    绑定ssh密钥对。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteImageRequest, self).__init__(
-            '/regions/{regionId}/images/{imageId}', 'DELETE', header, version)
+        super(AttachKeypairRequest, self).__init__(
+            '/regions/{regionId}/keypairs/{keyName}:attach', 'POST', header, version)
         self.parameters = parameters
 
 
-class DeleteImageParameters(object):
+class AttachKeypairParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId, keyName, instanceIds, passWordAuth):
         """
         :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param keyName: 密钥名称
+        :param instanceIds: 虚机Id
+        :param passWordAuth: 密码授权，绑定密钥后，根据此参数决定是否使用密码登录，"yes"为使用，"no"为不使用
+
         """
 
         self.regionId = regionId
-        self.imageId = imageId
-        self.deleteSnapshot = None
-
-    def setDeleteSnapshot(self, deleteSnapshot):
-        """
-        :param deleteSnapshot: (Optional) 删除镜像是否删除关联的快照，默认为false；如果指定为true, 将会删除镜像关联的快照。
-        """
-        self.deleteSnapshot = deleteSnapshot
+        self.keyName = keyName
+        self.instanceIds = instanceIds
+        self.passWordAuth = passWordAuth
 

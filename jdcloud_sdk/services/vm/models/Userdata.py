@@ -21,8 +21,8 @@ class Userdata(object):
 
     def __init__(self, key=None, value=None):
         """
-        :param key: (Optional) 键
-        :param value: (Optional) 值
+        :param key: (Optional) 键，最大长度48字符
+        :param value: (Optional) 值，最大长度21848字符
         """
 
         self.key = key

@@ -19,20 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstancesRequest(JDCloudRequest):
+class DescribeInstancesCustomDataRequest(JDCloudRequest):
     """
-    批量查询云主机的详细信息<br>
-此接口支持分页查询，默认每页20条。
-
+    批量查询云主机用户自定义元数据
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstancesRequest, self).__init__(
-            '/regions/{regionId}/instances', 'GET', header, version)
+        super(DescribeInstancesCustomDataRequest, self).__init__(
+            '/regions/{regionId}/instancesCustomData', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeInstancesParameters(object):
+class DescribeInstancesCustomDataParameters(object):
 
     def __init__(self, regionId, ):
         """
@@ -52,7 +50,7 @@ class DescribeInstancesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 10]
         """
         self.pageSize = pageSize
 
@@ -60,19 +58,11 @@ class DescribeInstancesParameters(object):
         """
         :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
 privateIpAddress - 主网卡内网主IP地址，模糊匹配，支持多个
-az - 可用区，精确匹配，支持多个
 vpcId - 私有网络ID，精确匹配，支持多个
 status - 云主机状态，精确匹配，支持多个，<a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
-name - 云主机名称，模糊匹配，支持单个
 imageId - 镜像ID，精确匹配，支持多个
 networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
 subnetId - 子网ID，精确匹配，支持多个
-agId - 使用可用组id，支持单个
-faultDomain - 错误域，支持多个
-dedicatedHostId - 专有宿主机ID，精确匹配，支持多个
-dedicatedPoolId - 专有宿主机池ID，精确匹配，支持多个
-instanceType - 实例规格，精确匹配，支持多个
-elasticIpAddress - 公网IP地址，精确匹配，支持单个。该条件会将公网IP转换成networkInterfaceId进行查询，所以与networkInterfaceId为或者的关系。
 
         """
         self.filters = filters

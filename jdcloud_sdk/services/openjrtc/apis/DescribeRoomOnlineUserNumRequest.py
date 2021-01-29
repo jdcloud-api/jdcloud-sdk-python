@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeRoomOnlineUserNumRequest(JDCloudRequest):
     """
-    查询房间实时在线人数:
+    查询房间实时在线人数
 
     """
 

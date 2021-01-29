@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateUserRequest(JDCloudRequest):
     """
-    创建JRtc用户
+    创建用户
 
     """
 

@@ -23,7 +23,7 @@ class CreateRoomRequestObj(object):
         """
         :param roomName: (Optional) 房间名称
         :param appId: (Optional) 应用ID
-        :param peerId: (Optional) JRtc用户ID(创建者ID)
+        :param peerId: (Optional) 用户ID(创建者ID)
         """
 
         self.roomName = roomName

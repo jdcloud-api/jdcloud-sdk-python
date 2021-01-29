@@ -55,7 +55,7 @@ class CreateRoomParameters(object):
 
     def setPeerId(self, peerId):
         """
-        :param peerId: (Optional) JRtc用户ID(创建者ID)
+        :param peerId: (Optional) 用户ID(创建者ID)
         """
         self.peerId = peerId
 

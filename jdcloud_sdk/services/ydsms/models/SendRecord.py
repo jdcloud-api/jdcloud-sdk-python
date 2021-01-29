@@ -19,10 +19,12 @@
 
 class SendRecord(object):
 
-    def __init__(self, sendNumber=None, smsContent=None, packageType=None, sendTime=None, sendStatus=None):
+    def __init__(self, sendNumber=None, smsContent=None, contentLength=None, chargeCount=None, packageType=None, sendTime=None, sendStatus=None):
         """
         :param sendNumber: (Optional) 手机号码
         :param smsContent: (Optional) 短信内容
+        :param contentLength: (Optional) 短信字数
+        :param chargeCount: (Optional) 折成条数
         :param packageType: (Optional) 短信类型 短信类型，1 通道短信 2 官方短信
         :param sendTime: (Optional) 发送时间
         :param sendStatus: (Optional) 发送状态
@@ -30,6 +32,8 @@ class SendRecord(object):
 
         self.sendNumber = sendNumber
         self.smsContent = smsContent
+        self.contentLength = contentLength
+        self.chargeCount = chargeCount
         self.packageType = packageType
         self.sendTime = sendTime
         self.sendStatus = sendStatus

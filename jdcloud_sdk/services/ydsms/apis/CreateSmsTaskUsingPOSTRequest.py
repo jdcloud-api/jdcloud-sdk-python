@@ -32,7 +32,7 @@ class CreateSmsTaskUsingPOSTRequest(JDCloudRequest):
 
 class CreateSmsTaskUsingPOSTParameters(object):
 
-    def __init__(self, appId, signId, taskName, templateId):
+    def __init__(self, appId, signId, taskName, templateId, ):
         """
         :param appId: 应用id
         :param signId: 短信签名id
@@ -46,6 +46,7 @@ class CreateSmsTaskUsingPOSTParameters(object):
         self.signId = signId
         self.taskName = taskName
         self.templateId = templateId
+        self.taskType = None
 
     def setSendNumberUrl(self, sendNumberUrl):
         """
@@ -58,4 +59,10 @@ class CreateSmsTaskUsingPOSTParameters(object):
         :param sendTime: (Optional) 短信发送时间，不传表示立即发送
         """
         self.sendTime = sendTime
+
+    def setTaskType(self, taskType):
+        """
+        :param taskType: (Optional) 任务类型，1：通道短信 2：营销短信
+        """
+        self.taskType = taskType
 

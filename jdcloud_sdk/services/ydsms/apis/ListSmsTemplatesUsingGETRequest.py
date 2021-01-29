@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ListSmsTemplatesUsingGETRequest(JDCloudRequest):
     """
-    查询短信模板
+    查询短信模板列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -41,6 +41,7 @@ class ListSmsTemplatesUsingGETParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.status = None
+        self.templateTypes = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -59,4 +60,10 @@ class ListSmsTemplatesUsingGETParameters(object):
         :param status: (Optional) 状态，1申请中 2拒绝 3通过
         """
         self.status = status
+
+    def setTemplateTypes(self, templateTypes):
+        """
+        :param templateTypes: (Optional) 要查询的模板类型，多个以 , 隔开(0 验证码短信,1 通知短信,2 推广短信)
+        """
+        self.templateTypes = templateTypes
 

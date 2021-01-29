@@ -21,7 +21,7 @@ class CreateUserResultObj(object):
 
     def __init__(self, peerId=None, appId=None, userId=None):
         """
-        :param peerId: (Optional) JRtc用户ID
+        :param peerId: (Optional) 用户ID
         :param appId: (Optional) 应用ID
         :param userId: (Optional) 业务接入方的用户ID
         """

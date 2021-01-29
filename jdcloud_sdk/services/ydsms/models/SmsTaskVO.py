@@ -19,7 +19,7 @@
 
 class SmsTaskVO(object):
 
-    def __init__(self, appId=None, createTime=None, pin=None, sendNumberUrl=None, sendTime=None, signId=None, status=None, taskId=None, taskName=None, taskType=None, templateId=None):
+    def __init__(self, appId=None, createTime=None, pin=None, sendNumberUrl=None, sendTime=None, signId=None, status=None, taskId=None, taskName=None, taskType=None, templateId=None, phoneCount=None):
         """
         :param appId: (Optional) 应用id
         :param createTime: (Optional) 创建时间
@@ -32,6 +32,7 @@ class SmsTaskVO(object):
         :param taskName: (Optional) 任务名称
         :param taskType: (Optional) 任务类型 1 通道短信  2 官方短信
         :param templateId: (Optional) 模板id
+        :param phoneCount: (Optional) 发送号码数量
         """
 
         self.appId = appId
@@ -45,3 +46,4 @@ class SmsTaskVO(object):
         self.taskName = taskName
         self.taskType = taskType
         self.templateId = templateId
+        self.phoneCount = phoneCount

@@ -24,7 +24,7 @@ class CreateInstanceSpec(object):
         :param id: (Optional) 实例 Id, 升级时必传
         :param name: (Optional) 实例名称, 新购时必传
         :param buyType:  购买类型. <br>- 1: 新购<br>- 3: 升级
-        :param carrier:  链路类型. <br>- 1: 电信<br>- 3: 电信、联通和移动<br>- 4: BGP 线路
+        :param carrier:  链路类型. <br>- 3: 电信、联通和移动<br>- 4: BGP 线路
         :param ipType: (Optional) 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路<br>- 0: IPV4,<br>- 1: IPV4/IPV6
         :param ipCount: (Optional) IP 数量
         :param portCount: (Optional) 可配的转发端口数量

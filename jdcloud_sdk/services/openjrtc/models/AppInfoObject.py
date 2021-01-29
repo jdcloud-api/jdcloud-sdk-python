@@ -27,7 +27,7 @@ class AppInfoObject(object):
 
         :param billType: (Optional) 计费类型: Duration-按时长
 
-        :param createTime: (Optional) 创建时间
+        :param createTime: (Optional) 创建时间(UTC)
         """
 
         self.appId = appId

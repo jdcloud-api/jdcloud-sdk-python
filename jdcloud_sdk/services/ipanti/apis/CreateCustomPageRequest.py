@@ -19,30 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyStatusUsingPOSTRequest(JDCloudRequest):
+class CreateCustomPageRequest(JDCloudRequest):
     """
-    修改应用启停状态
+    添加自定义页面
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyStatusUsingPOSTRequest, self).__init__(
-            '/smsApps/{appId}:modifyStatus', 'POST', header, version)
+        super(CreateCustomPageRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/customPages', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyStatusUsingPOSTParameters(object):
+class CreateCustomPageParameters(object):
 
-    def __init__(self, appId, ):
+    def __init__(self, regionId, instanceId, customPageSpec):
         """
-        :param appId: 应用id
+        :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
+        :param instanceId: 实例 ID
+        :param customPageSpec: 添加自定义页面请求参数
         """
 
-        self.appId = appId
-        self.status = None
-
-    def setStatus(self, status):
-        """
-        :param status: (Optional) 应用状态,0 停用 1 启用
-        """
-        self.status = status
+        self.regionId = regionId
+        self.instanceId = instanceId
+        self.customPageSpec = customPageSpec
 

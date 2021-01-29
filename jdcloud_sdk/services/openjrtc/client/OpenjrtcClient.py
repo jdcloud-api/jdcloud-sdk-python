@@ -26,4 +26,4 @@ class OpenjrtcClient(JDCloudClient):
         if config is None:
             config = Config('openjrtc.jdcloud-api.com')
 
-        super(OpenjrtcClient, self).__init__(credential, config, 'openjrtc', '1.0.0', logger)
+        super(OpenjrtcClient, self).__init__(credential, config, 'openjrtc', '1.1.0', logger)

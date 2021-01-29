@@ -26,7 +26,7 @@ class ModifyAppGeneralSettingByIdRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(ModifyAppGeneralSettingByIdRequest, self).__init__(
-            '/smsAppGeneralSettings/{id}:modify', 'POST', header, version)
+            '/smsAppGeneralSettings/{id}:modify', 'GET', header, version)
         self.parameters = parameters
 
 

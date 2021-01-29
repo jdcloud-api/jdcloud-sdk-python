@@ -32,18 +32,23 @@ class SendMessagesUsingPOSTRequest(JDCloudRequest):
 
 class SendMessagesUsingPOSTParameters(object):
 
-    def __init__(self, appId, params, phoneList, signId, templateId):
+    def __init__(self, appId, phoneList, signId, templateId):
         """
         :param appId: 应用id
-        :param params: 短信模板变量对应的数据值
         :param phoneList: 群发的国内电话号码,群发时一次最多不要超过100个手机号
         :param signId: 签名id
         :param templateId: 模板id
         """
 
         self.appId = appId
-        self.params = params
+        self.params = None
         self.phoneList = phoneList
         self.signId = signId
         self.templateId = templateId
+
+    def setParams(self, params):
+        """
+        :param params: (Optional) 短信模板变量对应的数据值
+        """
+        self.params = params
 

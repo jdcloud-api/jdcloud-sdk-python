@@ -19,7 +19,7 @@
 
 class Server(object):
 
-    def __init__(self, serverId=None, instanceType=None, instanceName=None, instanceId=None, az=None, privateIp=None, port=None, weight=None, status=None, healthyStatus=None):
+    def __init__(self, serverId=None, instanceType=None, instanceName=None, instanceId=None, az=None, privateIp=None, port=None, weight=None, status=None, healthyStatus=None, aliasip=None, iptype=None):
         """
         :param serverId: (Optional) 服务器ID
         :param instanceType: (Optional) 资源类型
@@ -31,6 +31,8 @@ class Server(object):
         :param weight: (Optional) 后端云物理服务器权重
         :param status: (Optional) 状态
         :param healthyStatus: (Optional) 健康状态
+        :param aliasip: (Optional) 别名IP
+        :param iptype: (Optional) IP类型：别名IPv4 or 内网IPv4
         """
 
         self.serverId = serverId
@@ -43,3 +45,5 @@ class Server(object):
         self.weight = weight
         self.status = status
         self.healthyStatus = healthyStatus
+        self.aliasip = aliasip
+        self.iptype = iptype

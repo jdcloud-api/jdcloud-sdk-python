@@ -19,13 +19,19 @@
 
 class ServerSpec(object):
 
-    def __init__(self, instanceId=None, port=None, weight=None):
+    def __init__(self, instanceId=None, port=None, weight=None, aliasip=None, rip=None, networkPort=None):
         """
         :param instanceId: (Optional) 后端云物理服务器ID
         :param port: (Optional) 端口
         :param weight: (Optional) 后端云物理服务器权重
+        :param aliasip: (Optional) 别名IP
+        :param rip: (Optional) 主网口或辅网口IP
+        :param networkPort: (Optional) bond0 单网卡-主网口| eth0 双网卡-主网口 | eth1 双网卡-辅网口
         """
 
         self.instanceId = instanceId
         self.port = port
         self.weight = weight
+        self.aliasip = aliasip
+        self.rip = rip
+        self.networkPort = networkPort

@@ -51,6 +51,12 @@ class ModifyListenerParameters(object):
         self.healthyThreshold = None
         self.unhealthyThreshold = None
         self.serverGroupId = None
+        self.stickySessionTimeout = None
+        self.cookieType = None
+        self.healthCheckUri = None
+        self.healthCheckHttpCode = None
+        self.certificateId = None
+        self.headers = None
 
     def setAlgorithm(self, algorithm):
         """
@@ -117,4 +123,40 @@ class ModifyListenerParameters(object):
         :param serverGroupId: (Optional) 服务器组id
         """
         self.serverGroupId = serverGroupId
+
+    def setStickySessionTimeout(self, stickySessionTimeout):
+        """
+        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
+        """
+        self.stickySessionTimeout = stickySessionTimeout
+
+    def setCookieType(self, cookieType):
+        """
+        :param cookieType: (Optional) 会话类型，植入Cookie or 重写Cookie
+        """
+        self.cookieType = cookieType
+
+    def setHealthCheckUri(self, healthCheckUri):
+        """
+        :param healthCheckUri: (Optional) 检查路径
+        """
+        self.healthCheckUri = healthCheckUri
+
+    def setHealthCheckHttpCode(self, healthCheckHttpCode):
+        """
+        :param healthCheckHttpCode: (Optional) 正常态码，要使用的Http状态码
+        """
+        self.healthCheckHttpCode = healthCheckHttpCode
+
+    def setCertificateId(self, certificateId):
+        """
+        :param certificateId: (Optional) 证书ID
+        """
+        self.certificateId = certificateId
+
+    def setHeaders(self, headers):
+        """
+        :param headers: (Optional) 获取HTTP头字段：X-Forwarded-For、X-Forwarded-Proto、X- Forwarded-Port、X-Forwarded-LBIP
+        """
+        self.headers = headers
 

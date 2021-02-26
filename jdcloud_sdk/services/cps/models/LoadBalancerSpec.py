@@ -19,7 +19,7 @@
 
 class LoadBalancerSpec(object):
 
-    def __init__(self, netType, ipAddressType, vpcId, name, applyElasticIp, bandwidth, charge, description=None):
+    def __init__(self, netType, ipAddressType, vpcId, name, applyElasticIp, bandwidth, charge, description=None, resourceTags=None):
         """
         :param netType:  网络类型，取值public
         :param ipAddressType:  负载均衡实例的IP版本，取值ipv4
@@ -29,6 +29,7 @@ class LoadBalancerSpec(object):
         :param applyElasticIp:  是否申请弹性公网Ip
         :param bandwidth:  带宽
         :param charge:  计费配置
+        :param resourceTags: (Optional) 标签
         """
 
         self.netType = netType
@@ -39,3 +40,4 @@ class LoadBalancerSpec(object):
         self.applyElasticIp = applyElasticIp
         self.bandwidth = bandwidth
         self.charge = charge
+        self.resourceTags = resourceTags

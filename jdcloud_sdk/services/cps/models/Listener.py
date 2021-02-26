@@ -19,7 +19,7 @@
 
 class Listener(object):
 
-    def __init__(self, listenerId=None, loadBalancerId=None, protocol=None, port=None, algorithm=None, stickySession=None, realIp=None, status=None, name=None, description=None, healthCheck=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, healthCheckIp=None, serverGroupId=None):
+    def __init__(self, listenerId=None, loadBalancerId=None, protocol=None, port=None, algorithm=None, stickySession=None, realIp=None, status=None, name=None, description=None, healthCheck=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, healthCheckIp=None, serverGroupId=None, stickySessionTimeout=None, cookieType=None, healthCheckUri=None, healthCheckHttpCode=None, certificateId=None, headers=None):
         """
         :param listenerId: (Optional) 监听器ID
         :param loadBalancerId: (Optional) 负载均衡ID
@@ -38,6 +38,12 @@ class Listener(object):
         :param unhealthyThreshold: (Optional) 健康检查结果为fail的阈值
         :param healthCheckIp: (Optional) 健康检查ip
         :param serverGroupId: (Optional) 服务器组id
+        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
+        :param cookieType: (Optional) 会话类型，植入Cookie or 重写Cookie
+        :param healthCheckUri: (Optional) 检查路径
+        :param healthCheckHttpCode: (Optional) 正常态码，要使用的Http状态码
+        :param certificateId: (Optional) 证书ID
+        :param headers: (Optional) 获取HTTP头字段：X-Forwarded-For、X-Forwarded-Proto、X- Forwarded-Port、X-Forwarded-LBIP
         """
 
         self.listenerId = listenerId
@@ -57,3 +63,9 @@ class Listener(object):
         self.unhealthyThreshold = unhealthyThreshold
         self.healthCheckIp = healthCheckIp
         self.serverGroupId = serverGroupId
+        self.stickySessionTimeout = stickySessionTimeout
+        self.cookieType = cookieType
+        self.healthCheckUri = healthCheckUri
+        self.healthCheckHttpCode = healthCheckHttpCode
+        self.certificateId = certificateId
+        self.headers = headers

@@ -19,7 +19,7 @@
 
 class ListenerSpec(object):
 
-    def __init__(self, loadBalancerId, protocol, port, algorithm, stickySession, name, healthCheck, realIp=None, description=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, serverGroupId=None):
+    def __init__(self, loadBalancerId, protocol, port, algorithm, stickySession, name, healthCheck, realIp=None, description=None, healthCheckTimeout=None, healthCheckInterval=None, healthyThreshold=None, unhealthyThreshold=None, serverGroupId=None, stickySessionTimeout=None, cookieType=None, healthCheckUri=None, healthCheckHttpCode=None, certificateId=None, headers=None):
         """
         :param loadBalancerId:  负载均衡实例ID
         :param protocol:  协议, 如TCP
@@ -35,6 +35,12 @@ class ListenerSpec(object):
         :param healthyThreshold: (Optional) 健康检查结果为success的阈值
         :param unhealthyThreshold: (Optional) 健康检查结果为fail的阈值
         :param serverGroupId: (Optional) 服务器组id
+        :param stickySessionTimeout: (Optional) 会话保持超时时间，单位s
+        :param cookieType: (Optional) 会话类型，植入Cookie or 重写Cookie
+        :param healthCheckUri: (Optional) 检查路径
+        :param healthCheckHttpCode: (Optional) 正常态码，要使用的Http状态码
+        :param certificateId: (Optional) 证书ID
+        :param headers: (Optional) 获取HTTP头字段：X-Forwarded-For、X-Forwarded-Proto、X- Forwarded-Port、X-Forwarded-LBIP
         """
 
         self.loadBalancerId = loadBalancerId
@@ -51,3 +57,9 @@ class ListenerSpec(object):
         self.healthyThreshold = healthyThreshold
         self.unhealthyThreshold = unhealthyThreshold
         self.serverGroupId = serverGroupId
+        self.stickySessionTimeout = stickySessionTimeout
+        self.cookieType = cookieType
+        self.healthCheckUri = healthCheckUri
+        self.healthCheckHttpCode = healthCheckHttpCode
+        self.certificateId = certificateId
+        self.headers = headers

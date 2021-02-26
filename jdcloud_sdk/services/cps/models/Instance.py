@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, vpcIpv4Cidr=None, vpcIpv6Cidr=None, ipv6GatewayId=None, subnetId=None, subnetName=None, subnetIpv4Cidr=None, subnetIpv6Cidr=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, ipv6Address=None, ipv6AddressId=None, ipv6AddressBandwidth=None, interfaceMode=None, extensionVpcId=None, extensionVpcName=None, extensionVpcIpv4Cidr=None, extensionVpcIpv6Cidr=None, extensionSubnetId=None, extensionSubnetName=None, extensionSubnetIpv4Cidr=None, extensionSubnetIpv6Cidr=None, extensionPrivateIp=None, extensionEnableInternet=None, extensionElasticIpId=None, extensionPublicIp=None, extensionBandwidth=None, extensionEnableIpv6=None, extensionIpv6Address=None, extensionIpv6AddressId=None, extensionIpv6AddressBandwidth=None, extensionIpv6GatewayId=None, keypairId=None, agentStatus=None, charge=None):
+    def __init__(self, instanceId=None, region=None, az=None, deviceType=None, name=None, description=None, status=None, enableInternet=None, enableIpv6=None, bandwidth=None, imageType=None, cabinet=None, iloIp=None, osTypeId=None, osName=None, osType=None, osVersion=None, sysRaidTypeId=None, sysRaidType=None, dataRaidTypeId=None, dataRaidType=None, networkType=None, vpcId=None, vpcName=None, vpcIpv4Cidr=None, vpcIpv6Cidr=None, ipv6GatewayId=None, podName=None, podRoom=None, subnetId=None, subnetName=None, subnetIpv4Cidr=None, subnetIpv6Cidr=None, privateIp=None, lineType=None, elasticIpId=None, publicIp=None, ipv6Address=None, ipv6AddressId=None, ipv6AddressBandwidth=None, interfaceMode=None, extensionVpcId=None, extensionVpcName=None, extensionVpcIpv4Cidr=None, extensionVpcIpv6Cidr=None, extensionSubnetId=None, extensionSubnetName=None, extensionSubnetIpv4Cidr=None, extensionSubnetIpv6Cidr=None, extensionPrivateIp=None, extensionEnableInternet=None, extensionElasticIpId=None, extensionPublicIp=None, extensionBandwidth=None, extensionEnableIpv6=None, extensionIpv6Address=None, extensionIpv6AddressId=None, extensionIpv6AddressBandwidth=None, extensionIpv6GatewayId=None, keypairId=None, agentStatus=None, charge=None):
         """
         :param instanceId: (Optional) 云物理服务器实例ID
         :param region: (Optional) 区域代码, 如 cn-north-1
@@ -32,6 +32,8 @@ class Instance(object):
         :param enableIpv6: (Optional) 是否启用IPv6, 如 yes/no
         :param bandwidth: (Optional) 带宽, 单位Mbps
         :param imageType: (Optional) 镜像类型, 如 standard
+        :param cabinet: (Optional) 机柜信息
+        :param iloIp: (Optional) 带外管理IP
         :param osTypeId: (Optional) 操作系统类型ID
         :param osName: (Optional) 操作系统名称
         :param osType: (Optional) 操作系统类型, 如 ubuntu/centos
@@ -46,6 +48,8 @@ class Instance(object):
         :param vpcIpv4Cidr: (Optional) 私有网络IPv4 CIDR
         :param vpcIpv6Cidr: (Optional) 私有网络IPv6 CIDR
         :param ipv6GatewayId: (Optional) IPv6网关ID
+        :param podName: (Optional) POD网络名称
+        :param podRoom: (Optional) POD机房地址描述
         :param subnetId: (Optional) 子网编号
         :param subnetName: (Optional) 子网名称
         :param subnetIpv4Cidr: (Optional) 子网IPv4 CIDR
@@ -92,6 +96,8 @@ class Instance(object):
         self.enableIpv6 = enableIpv6
         self.bandwidth = bandwidth
         self.imageType = imageType
+        self.cabinet = cabinet
+        self.iloIp = iloIp
         self.osTypeId = osTypeId
         self.osName = osName
         self.osType = osType
@@ -106,6 +112,8 @@ class Instance(object):
         self.vpcIpv4Cidr = vpcIpv4Cidr
         self.vpcIpv6Cidr = vpcIpv6Cidr
         self.ipv6GatewayId = ipv6GatewayId
+        self.podName = podName
+        self.podRoom = podRoom
         self.subnetId = subnetId
         self.subnetName = subnetName
         self.subnetIpv4Cidr = subnetIpv4Cidr

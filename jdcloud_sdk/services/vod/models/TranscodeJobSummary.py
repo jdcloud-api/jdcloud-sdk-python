@@ -19,11 +19,12 @@
 
 class TranscodeJobSummary(object):
 
-    def __init__(self, jobId=None, videoId=None, templateIds=None, createTime=None, completeTime=None, tasks=None):
+    def __init__(self, jobId=None, videoId=None, templateIds=None, templateGroupId=None, createTime=None, completeTime=None, tasks=None):
         """
         :param jobId: (Optional) 作业ID
         :param videoId: (Optional) 视频ID
-        :param templateIds: (Optional) 模板ID列表
+        :param templateIds: (Optional) 模板ID列表。以转码模板列表方式提交的转码作业，包含此字段。
+        :param templateGroupId: (Optional) 模板组ID。以转码模板组方式提交的转码作业，包含此字段。
         :param createTime: (Optional) 创建时间
         :param completeTime: (Optional) 完成时间
         :param tasks: (Optional) 
@@ -32,6 +33,7 @@ class TranscodeJobSummary(object):
         self.jobId = jobId
         self.videoId = videoId
         self.templateIds = templateIds
+        self.templateGroupId = templateGroupId
         self.createTime = createTime
         self.completeTime = completeTime
         self.tasks = tasks

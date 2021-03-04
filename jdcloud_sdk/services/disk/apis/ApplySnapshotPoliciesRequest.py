@@ -19,46 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifySnapshotAttributeRequest(JDCloudRequest):
+class ApplySnapshotPoliciesRequest(JDCloudRequest):
     """
-    修改快照的名字或描述信息
+    绑定/解绑快照策略与磁盘关系
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifySnapshotAttributeRequest, self).__init__(
-            '/regions/{regionId}/snapshots/{snapshotId}', 'PATCH', header, version)
+        super(ApplySnapshotPoliciesRequest, self).__init__(
+            '/regions/{regionId}/snapshotPolicies:apply', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifySnapshotAttributeParameters(object):
+class ApplySnapshotPoliciesParameters(object):
 
-    def __init__(self, regionId, snapshotId, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域ID
-        :param snapshotId: 快照ID
         """
 
         self.regionId = regionId
-        self.snapshotId = snapshotId
-        self.name = None
-        self.description = None
-        self.expireTime = None
+        self.relations = None
 
-    def setName(self, name):
+    def setRelations(self, relations):
         """
-        :param name: (Optional) 快照名称
+        :param relations: (Optional) 绑定/解绑操作
         """
-        self.name = name
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 快照描述
-        """
-        self.description = description
-
-    def setExpireTime(self, expireTime):
-        """
-        :param expireTime: (Optional) 快照过期时间，三者至少指定一个
-        """
-        self.expireTime = expireTime
+        self.relations = relations
 

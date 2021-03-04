@@ -19,7 +19,7 @@
 
 class CreateVideoUploadTaskRequestObject(object):
 
-    def __init__(self, title, fileName, httpMethod=None, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateIds=None, watermarkIds=None, userData=None):
+    def __init__(self, title, fileName, httpMethod=None, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateGroupId=None, transcodeTemplateIds=None, watermarkIds=None, userData=None):
         """
         :param httpMethod: (Optional) HTTP 请求方法，上传支持 PUT 和 POST 方法，默认值为 PUT 。
 通过该接口获取到上传地址和凭证之后，后续的上传动作，必须使用和该值一致的方法进行文件上传。
@@ -31,6 +31,7 @@ class CreateVideoUploadTaskRequestObject(object):
         :param description: (Optional) 视频描述
         :param categoryId: (Optional) 分类ID
         :param tags: (Optional) 视频标签集合
+        :param transcodeTemplateGroupId: (Optional) 转码模板组ID
         :param transcodeTemplateIds: (Optional) 转码模板ID集合
         :param watermarkIds: (Optional) 水印ID集合
         :param userData: (Optional) 自定义数据
@@ -44,6 +45,7 @@ class CreateVideoUploadTaskRequestObject(object):
         self.description = description
         self.categoryId = categoryId
         self.tags = tags
+        self.transcodeTemplateGroupId = transcodeTemplateGroupId
         self.transcodeTemplateIds = transcodeTemplateIds
         self.watermarkIds = watermarkIds
         self.userData = userData

@@ -19,10 +19,13 @@
 
 class TransTask(object):
 
-    def __init__(self, taskId=None, templateId=None, format=None, definition=None, status=None, progress=None, errorCode=None, errorMessage=None, createTime=None, completeTime=None):
+    def __init__(self, taskId=None, packageType=None, templateId=None, templateGroupId=None, templateIds=None, format=None, definition=None, status=None, progress=None, errorCode=None, errorMessage=None, createTime=None, completeTime=None):
         """
         :param taskId: (Optional) 任务ID
-        :param templateId: (Optional) 转码模板ID
+        :param packageType: (Optional) 打包类型。取值范围：None, HLSPackage
+        :param templateId: (Optional) 转码模板ID。非打包转码，包含此字段。
+        :param templateGroupId: (Optional) 转码模板组ID。若是以模板组方式提交作业，生成的转码任务中包含此字段。
+        :param templateIds: (Optional) 模板ID列表。打包转码，包含一个模板组中的多个打包转码模板。
         :param format: (Optional) 封装格式
         :param definition: (Optional) 清晰度
         :param status: (Optional) 任务状态。
@@ -39,7 +42,10 @@ failed - 处理失败
         """
 
         self.taskId = taskId
+        self.packageType = packageType
         self.templateId = templateId
+        self.templateGroupId = templateGroupId
+        self.templateIds = templateIds
         self.format = format
         self.definition = definition
         self.status = status

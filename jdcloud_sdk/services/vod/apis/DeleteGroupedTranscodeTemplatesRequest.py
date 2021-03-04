@@ -19,49 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SubmitTranscodeJobRequest(JDCloudRequest):
+class DeleteGroupedTranscodeTemplatesRequest(JDCloudRequest):
     """
-    提交转码作业
+    删除转码模板组中的模板。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SubmitTranscodeJobRequest, self).__init__(
-            '/transcodeTasks:submitJob', 'POST', header, version)
+        super(DeleteGroupedTranscodeTemplatesRequest, self).__init__(
+            '/transcodeTemplateGroups:deleteGroupedTranscodeTemplates', 'POST', header, version)
         self.parameters = parameters
 
 
-class SubmitTranscodeJobParameters(object):
+class DeleteGroupedTranscodeTemplatesParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.videoId = None
-        self.templateGroupId = None
+        self.groupId = None
         self.templateIds = None
-        self.watermarkIds = None
 
-    def setVideoId(self, videoId):
+    def setGroupId(self, groupId):
         """
-        :param videoId: (Optional) 视频ID
+        :param groupId: (Optional) 模板组ID
         """
-        self.videoId = videoId
-
-    def setTemplateGroupId(self, templateGroupId):
-        """
-        :param templateGroupId: (Optional) 转码模板组ID。若此字段不为空，则以模板组方式提交作业，templateIds字段将被忽略。
-        """
-        self.templateGroupId = templateGroupId
+        self.groupId = groupId
 
     def setTemplateIds(self, templateIds):
         """
-        :param templateIds: (Optional) 转码模板ID列表
+        :param templateIds: (Optional) 待删除的模板ID列表
         """
         self.templateIds = templateIds
-
-    def setWatermarkIds(self, watermarkIds):
-        """
-        :param watermarkIds: (Optional) 水印ID列表
-        """
-        self.watermarkIds = watermarkIds
 

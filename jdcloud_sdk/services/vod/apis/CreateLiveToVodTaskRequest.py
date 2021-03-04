@@ -58,6 +58,7 @@ class CreateLiveToVodTaskParameters(object):
         self.description = None
         self.categoryId = None
         self.tags = None
+        self.transcodeTemplateGroupId = None
         self.transcodeTemplateIds = None
         self.watermarkIds = None
         self.publishDomain = publishDomain
@@ -97,6 +98,12 @@ class CreateLiveToVodTaskParameters(object):
         :param tags: (Optional) 视频标签集合
         """
         self.tags = tags
+
+    def setTranscodeTemplateGroupId(self, transcodeTemplateGroupId):
+        """
+        :param transcodeTemplateGroupId: (Optional) 转码模板组ID。若此字段不为空，则将以模板组方式提交转码作业，transcodeTemplateIds字段将被忽略。
+        """
+        self.transcodeTemplateGroupId = transcodeTemplateGroupId
 
     def setTranscodeTemplateIds(self, transcodeTemplateIds):
         """

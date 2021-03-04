@@ -19,15 +19,21 @@
 
 class SubmittedTranscodeTask(object):
 
-    def __init__(self, taskId=None, videoId=None, templateId=None, watermarkIds=None):
+    def __init__(self, taskId=None, videoId=None, packageType=None, templateId=None, templateGroupId=None, templateIds=None, watermarkIds=None):
         """
         :param taskId: (Optional) 任务ID
         :param videoId: (Optional) 视频ID
-        :param templateId: (Optional) 转码模板ID
+        :param packageType: (Optional) 打包类型。取值范围：None, HLSPackage
+        :param templateId: (Optional) 转码模板ID。非打包转码，包含此字段。
+        :param templateGroupId: (Optional) 转码模板组ID。若是以模板组方式提交作业，生成的转码任务中包含此字段。
+        :param templateIds: (Optional) 模板ID列表。
         :param watermarkIds: (Optional) 水印ID列表
         """
 
         self.taskId = taskId
         self.videoId = videoId
+        self.packageType = packageType
         self.templateId = templateId
+        self.templateGroupId = templateGroupId
+        self.templateIds = templateIds
         self.watermarkIds = watermarkIds

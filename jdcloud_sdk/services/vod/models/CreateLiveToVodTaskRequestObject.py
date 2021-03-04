@@ -19,7 +19,7 @@
 
 class CreateLiveToVodTaskRequestObject(object):
 
-    def __init__(self, title, fileName, publishDomain, appName, streamName, recordTimes, recordFileType, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateIds=None, watermarkIds=None, taskExternalId=None, priority=None):
+    def __init__(self, title, fileName, publishDomain, appName, streamName, recordTimes, recordFileType, fileSize=None, coverUrl=None, description=None, categoryId=None, tags=None, transcodeTemplateGroupId=None, transcodeTemplateIds=None, watermarkIds=None, taskExternalId=None, priority=None):
         """
         :param title:  视频标题
         :param fileName:  文件名称
@@ -28,6 +28,7 @@ class CreateLiveToVodTaskRequestObject(object):
         :param description: (Optional) 视频描述
         :param categoryId: (Optional) 分类ID
         :param tags: (Optional) 视频标签集合
+        :param transcodeTemplateGroupId: (Optional) 转码模板组ID。若此字段不为空，则将以模板组方式提交转码作业，transcodeTemplateIds字段将被忽略。
         :param transcodeTemplateIds: (Optional) 转码模板ID集合
         :param watermarkIds: (Optional) 水印ID集合
         :param publishDomain:  推流域名
@@ -57,6 +58,7 @@ class CreateLiveToVodTaskRequestObject(object):
         self.description = description
         self.categoryId = categoryId
         self.tags = tags
+        self.transcodeTemplateGroupId = transcodeTemplateGroupId
         self.transcodeTemplateIds = transcodeTemplateIds
         self.watermarkIds = watermarkIds
         self.publishDomain = publishDomain

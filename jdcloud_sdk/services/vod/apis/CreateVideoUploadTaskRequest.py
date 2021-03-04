@@ -46,6 +46,7 @@ class CreateVideoUploadTaskParameters(object):
         self.description = None
         self.categoryId = None
         self.tags = None
+        self.transcodeTemplateGroupId = None
         self.transcodeTemplateIds = None
         self.watermarkIds = None
         self.userData = None
@@ -87,6 +88,12 @@ class CreateVideoUploadTaskParameters(object):
         :param tags: (Optional) 视频标签集合
         """
         self.tags = tags
+
+    def setTranscodeTemplateGroupId(self, transcodeTemplateGroupId):
+        """
+        :param transcodeTemplateGroupId: (Optional) 转码模板组ID
+        """
+        self.transcodeTemplateGroupId = transcodeTemplateGroupId
 
     def setTranscodeTemplateIds(self, transcodeTemplateIds):
         """

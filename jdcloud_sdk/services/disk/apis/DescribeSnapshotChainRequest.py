@@ -19,46 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifySnapshotAttributeRequest(JDCloudRequest):
+class DescribeSnapshotChainRequest(JDCloudRequest):
     """
-    修改快照的名字或描述信息
+    查询快照链的快照个数和快照总容量
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifySnapshotAttributeRequest, self).__init__(
-            '/regions/{regionId}/snapshots/{snapshotId}', 'PATCH', header, version)
+        super(DescribeSnapshotChainRequest, self).__init__(
+            '/regions/{regionId}/snapshots:chain', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifySnapshotAttributeParameters(object):
+class DescribeSnapshotChainParameters(object):
 
-    def __init__(self, regionId, snapshotId, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域ID
-        :param snapshotId: 快照ID
         """
 
         self.regionId = regionId
+        self.diskId = None
+        self.snapshotId = None
+
+    def setDiskId(self, diskId):
+        """
+        :param diskId: (Optional) 云硬盘ID
+        """
+        self.diskId = diskId
+
+    def setSnapshotId(self, snapshotId):
+        """
+        :param snapshotId: (Optional) 快照ID
+        """
         self.snapshotId = snapshotId
-        self.name = None
-        self.description = None
-        self.expireTime = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 快照名称
-        """
-        self.name = name
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 快照描述
-        """
-        self.description = description
-
-    def setExpireTime(self, expireTime):
-        """
-        :param expireTime: (Optional) 快照过期时间，三者至少指定一个
-        """
-        self.expireTime = expireTime
 

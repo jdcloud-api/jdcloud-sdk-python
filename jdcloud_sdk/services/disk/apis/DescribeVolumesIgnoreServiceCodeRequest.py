@@ -19,7 +19,7 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDisksRequest(JDCloudRequest):
+class DescribeVolumesIgnoreServiceCodeRequest(JDCloudRequest):
     """
     -   查询您已经创建的云硬盘。
 -   filters多个过滤条件之间是逻辑与(AND)，每个条件内部的多个取值是逻辑或(OR)
@@ -27,12 +27,12 @@ class DescribeDisksRequest(JDCloudRequest):
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDisksRequest, self).__init__(
-            '/regions/{regionId}/disks', 'GET', header, version)
+        super(DescribeVolumesIgnoreServiceCodeRequest, self).__init__(
+            '/regions/{regionId}/disks:ignoreServiceCode', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeDisksParameters(object):
+class DescribeVolumesIgnoreServiceCodeParameters(object):
 
     def __init__(self, regionId, ):
         """
@@ -43,7 +43,7 @@ class DescribeDisksParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.tags = None
-        self.filters = None
+        self.filterGroups = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -63,9 +63,9 @@ class DescribeDisksParameters(object):
         """
         self.tags = tags
 
-    def setFilters(self, filters):
+    def setFilterGroups(self, filterGroups):
         """
-        :param filters: (Optional) diskId - 云硬盘ID，精确匹配，支持多个
+        :param filterGroups: (Optional) diskId - 云硬盘ID，精确匹配，支持多个
 diskType - 云硬盘类型，精确匹配，支持多个，取值为 ssd,premium-hdd,ssd.io1,ssd.gp1,hdd.std1
 instanceId - 云硬盘所挂载主机的ID，精确匹配，支持多个
 instanceType - 云硬盘所挂载主机的类型，精确匹配，支持多个
@@ -78,5 +78,5 @@ policyId - 绑定policyId的云硬盘，精确匹配，支持多个
 notPolicyId - 未绑定policyId的云硬盘，精确匹配，支持多个
 
         """
-        self.filters = filters
+        self.filterGroups = filterGroups
 

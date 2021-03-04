@@ -19,7 +19,7 @@
 
 class Disk(object):
 
-    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enabled=None, createTime=None, charge=None, tags=None):
+    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enabled=None, createTime=None, charge=None, tags=None, snapshotPolicies=None):
         """
         :param diskId: (Optional) 云硬盘ID
         :param az: (Optional) 云硬盘所属AZ
@@ -37,7 +37,8 @@ class Disk(object):
         :param enabled: (Optional) 云盘是否被暂停（IOPS限制为极低）
         :param createTime: (Optional) 创建云硬盘时间
         :param charge: (Optional) 云硬盘计费配置信息
-        :param tags: (Optional) Tag信息
+        :param tags: (Optional) null
+        :param snapshotPolicies: (Optional) 
         """
 
         self.diskId = diskId
@@ -57,3 +58,4 @@ class Disk(object):
         self.createTime = createTime
         self.charge = charge
         self.tags = tags
+        self.snapshotPolicies = snapshotPolicies

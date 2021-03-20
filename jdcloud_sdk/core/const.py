@@ -15,8 +15,12 @@
 # limitations under the License.
 
 JDCLOUD2 = 'JDCLOUD2'
+JDCLOUD3 = 'JDCLOUD3'
 JDCLOUD_ALGORITHM = 'JDCLOUD2-HMAC-SHA256'
+JDCLOUD3_ALGORITHM = 'JDCLOUD3-HMAC-SHA256'
 JDCLOUD_REQUEST = 'jdcloud2_request'
+JDCLOUD3_REQUEST = 'jdcloud3_request'
+
 JDCLOUD_DATE = 'x-jdcloud-date'
 JDCLOUD_SECURITY_TOKEN = 'x-jdcloud-security-token'
 JDCLOUD_CONTENT_SHA256 = 'x-jdcloud-content-sha256'

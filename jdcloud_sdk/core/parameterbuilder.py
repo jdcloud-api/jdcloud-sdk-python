@@ -121,15 +121,7 @@ class WithBodyBuilder(ParameterBuilder):
 
 class ParametersEncoder(json.JSONEncoder):
     def default(self, o):
-        tmp_dict = o.__dict__
-        keywords = ['from', 'not', 'exec']
-        for keyword in keywords:
-            replacement = keyword + '_'
-            if replacement in tmp_dict:
-                tmp_dict[keyword] = tmp_dict[replacement]
-                tmp_dict.pop(replacement)
-
-        return tmp_dict
+        return o.__dict__
 
 
 def get_parameter_dict(parameters):

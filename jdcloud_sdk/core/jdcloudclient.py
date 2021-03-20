@@ -107,7 +107,7 @@ class JDCloudClient(object):
             if hasattr(request.parameters, 'regionId') and request.parameters.regionId is not None:
                 return request.parameters.regionId
 
-        return 'jdcloud-api'  # when no region, use this value to fill field for sign
+        return 'jdcloud-api'
 
     def __process_response(self, method, response):
         jd_resp = JDCloudResponse()

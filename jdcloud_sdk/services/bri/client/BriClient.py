@@ -26,4 +26,4 @@ class BriClient(JDCloudClient):
         if config is None:
             config = Config('bri.jdcloud-api.com')
 
-        super(BriClient, self).__init__(credential, config, 'bri', '1.0.0', logger)
+        super(BriClient, self).__init__(credential, config, 'bri', '1.1.0', logger)

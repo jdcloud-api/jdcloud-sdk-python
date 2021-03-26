@@ -23,7 +23,7 @@ class CreditTask(object):
         """
         :param dataId: (Optional) 数据Id。需要保证在一次请求中所有的Id不重复
         :param content: (Optional) 待检测数据，最长512个字符
-        :param resourceType: (Optional) 数据类型，ip-IP，phone-手机，addr-地址，card-身份，pin-账户，eid-设备
+        :param resourceType: (Optional) 数据类型，ip-IP，phone-手机，addr-地址，card-身份，pin-账户，eid-设备，signup-注册，login-登录，marketing-营销
         """
 
         self.dataId = dataId

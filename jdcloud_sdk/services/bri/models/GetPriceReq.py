@@ -19,13 +19,16 @@
 
 class GetPriceReq(object):
 
-    def __init__(self, region, buyType, timeSpan, timeUnit, packageType, ):
+    def __init__(self, region, buyType, timeSpan, timeUnit, packageType, qpsLimit, needSpiderIp=None, version=None):
         """
         :param region:  地域信息
         :param buyType:  购买类型, 1:创建 2:续费 3:升配
         :param timeSpan:  购买时长
         :param timeUnit:  时间单位，month, year
         :param packageType:  套餐类型 1.phone 2.IP 3.addr 4.eid 5.signup 6.login 7.marketing 8.pin 9.card
+        :param qpsLimit:  QPS上限(1-7) 1-100 2-300 3-500 4-1000 5-3000 6-5000 7-10000
+        :param needSpiderIp: (Optional) 是否需要爬虫IP识别,当packageType为ip时必填  false-不购买  true-购买
+        :param version: (Optional) 注册，登录，营销场景的版本号，当packageTpe为signup,login,marketing时必填   1-标准版  2-定制版
         """
 
         self.region = region
@@ -33,3 +36,6 @@ class GetPriceReq(object):
         self.timeSpan = timeSpan
         self.timeUnit = timeUnit
         self.packageType = packageType
+        self.qpsLimit = qpsLimit
+        self.needSpiderIp = needSpiderIp
+        self.version = version

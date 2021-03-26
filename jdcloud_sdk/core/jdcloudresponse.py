@@ -35,14 +35,13 @@ class JDCloudResponse(object):
         if request_id:
             self.request_id = request_id
 
-            error = resp_dict.get('error')
-            if error:
-                self.error = ErrorResponse(error.get('status'), error.get('code'), error.get('message'))
+        error = resp_dict.get('error')
+        if request_id and error:
+            self.error = ErrorResponse(error.get('status'), error.get('code'), error.get('message'))
 
-            result = resp_dict.get('result')
-            if result:
-                self.result = resp_dict['result']
-            return self
+        result = resp_dict.get('result')
+        if request_id and result:
+            self.result = resp_dict['result']
         return resp_dict
 
 

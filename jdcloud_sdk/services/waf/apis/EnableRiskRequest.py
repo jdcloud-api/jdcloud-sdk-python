@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableRiskRequest(JDCloudRequest):
     """
-    使能risk
+    使能数据风控
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -19,13 +19,14 @@
 
 class CcConf(object):
 
-    def __init__(self, enable=None, ccMode=None, qps=None, enableUserDefine=None, rulesCount=None):
+    def __init__(self, enable=None, ccMode=None, qps=None, enableUserDefine=None, rulesCount=None, action=None):
         """
         :param enable: (Optional) 是否使能 0表示否
         :param ccMode: (Optional) 0表示正常，1表示攻击紧急
         :param qps: (Optional) qps配置
         :param enableUserDefine: (Optional) 是否支持自定义cc，0表示否
         :param rulesCount: (Optional) cc自定义规则个数
+        :param action: (Optional) 动作配置，默认为告警，支持1，2，3和5四种类型动作
         """
 
         self.enable = enable
@@ -33,3 +34,4 @@ class CcConf(object):
         self.qps = qps
         self.enableUserDefine = enableUserDefine
         self.rulesCount = rulesCount
+        self.action = action

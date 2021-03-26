@@ -19,7 +19,7 @@
 
 class ListCcRuleCfg(object):
 
-    def __init__(self, wafInstanceId=None, domain=None, ruleName=None, uri=None, matchType=None, detectPeriod=None, singleIpLimit=None, blockType=None, blockTime=None, updateTime=None, disable=None, redirection=None):
+    def __init__(self, wafInstanceId=None, domain=None, ruleName=None, uri=None, matchType=None, detectPeriod=None, singleIpLimit=None, blockType=None, blockTime=None, updateTime=None, disable=None, redirection=None, dimension=None, dmvalue=None):
         """
         :param wafInstanceId: (Optional) WAF实例id
         :param domain: (Optional) 域名
@@ -33,6 +33,8 @@ class ListCcRuleCfg(object):
         :param updateTime: (Optional) 更新时间，s
         :param disable: (Optional) 0-使用中 1-禁用
         :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default
+        :param dimension: (Optional) cc 统计维度，ip或cookie
+        :param dmvalue: (Optional) cookiename, 只有当 dimension 为 cookie 时才有效
         """
 
         self.wafInstanceId = wafInstanceId
@@ -47,3 +49,5 @@ class ListCcRuleCfg(object):
         self.updateTime = updateTime
         self.disable = disable
         self.redirection = redirection
+        self.dimension = dimension
+        self.dmvalue = dmvalue

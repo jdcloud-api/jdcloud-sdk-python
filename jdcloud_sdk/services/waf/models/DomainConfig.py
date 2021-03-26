@@ -19,7 +19,7 @@
 
 class DomainConfig(object):
 
-    def __init__(self, domain=None, cname=None, certName=None, lbConf=None, dnsStatus=None, wafConf=None, ccConf=None, aclConf=None, ipbanConf=None, lastAttackReport=None, antispiderConf=None, webcacheConf=None, disableWaf=None, skipConf=None, denyConf=None, webUserdefConf=None, ratelimitConf=None, userDefPageConf=None, filterHeaderConf=None, filterSenseConf=None, intSemConf=None, uriRewriteConf=None, threatinfoConf=None, proxycacheConf=None, botConf=None):
+    def __init__(self, domain=None, cname=None, certName=None, lbConf=None, dnsStatus=None, wafConf=None, ccConf=None, aclConf=None, ipbanConf=None, lastAttackReport=None, antispiderConf=None, webcacheConf=None, disableWaf=None, skipConf=None, denyConf=None, webUserdefConf=None, ratelimitConf=None, userDefPageConf=None, filterHeaderConf=None, filterSenseConf=None, intSemConf=None, uriRewriteConf=None, threatinfoConf=None, proxycacheConf=None, botConf=None, riskConf=None):
         """
         :param domain: (Optional) 域名
         :param cname: (Optional) cname域名
@@ -46,6 +46,7 @@ class DomainConfig(object):
         :param threatinfoConf: (Optional) 网站威胁情报防护配置
         :param proxycacheConf: (Optional) proxy缓存配置
         :param botConf: (Optional) bot配置
+        :param riskConf: (Optional) risk配置
         """
 
         self.domain = domain
@@ -73,3 +74,4 @@ class DomainConfig(object):
         self.threatinfoConf = threatinfoConf
         self.proxycacheConf = proxycacheConf
         self.botConf = botConf
+        self.riskConf = riskConf

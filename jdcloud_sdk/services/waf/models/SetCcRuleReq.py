@@ -19,7 +19,7 @@
 
 class SetCcRuleReq(object):
 
-    def __init__(self, wafInstanceId, domain, ruleName, uri, detectPeriod, singleIpLimit, blockType, blockTime, matchType=None, redirection=None):
+    def __init__(self, wafInstanceId, domain, ruleName, uri, detectPeriod, singleIpLimit, blockType, blockTime, matchType=None, redirection=None, dimension=None, dmvalue=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
@@ -31,6 +31,8 @@ class SetCcRuleReq(object):
         :param blockType:  阻断类型 3:封禁，2:人机交互
         :param blockTime:  block 持续时间，单位为分钟 [1~9999999]
         :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default
+        :param dimension: (Optional) cc 统计维度，ip或cookie
+        :param dmvalue: (Optional) cookiename, 只有当 dimension 为 cookie 时才有效
         """
 
         self.wafInstanceId = wafInstanceId
@@ -43,3 +45,5 @@ class SetCcRuleReq(object):
         self.blockType = blockType
         self.blockTime = blockTime
         self.redirection = redirection
+        self.dimension = dimension
+        self.dmvalue = dmvalue

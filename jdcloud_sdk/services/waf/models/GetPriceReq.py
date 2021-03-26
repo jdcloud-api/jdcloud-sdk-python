@@ -19,7 +19,7 @@
 
 class GetPriceReq(object):
 
-    def __init__(self, region, buyType, timeSpan, timeUnit, packageType, extraDomainsNum, extraBitsLimit, wafInstanceId=None):
+    def __init__(self, region, buyType, timeSpan, timeUnit, packageType, extraDomainsNum, extraBitsLimit, wafInstanceId=None, appCode=None, serviceCode=None):
         """
         :param region:  地域信息
         :param buyType:  购买类型, 1:创建 2:续费 3:升配
@@ -29,6 +29,8 @@ class GetPriceReq(object):
         :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版 4:基础版
         :param extraDomainsNum:  额外的域名扩展包
         :param extraBitsLimit:  额外的qps扩展包,单位为M 该值为50M的倍数
+        :param appCode: (Optional) 云鼎的appCode
+        :param serviceCode: (Optional) 云鼎的serviceCode
         """
 
         self.region = region
@@ -39,3 +41,5 @@ class GetPriceReq(object):
         self.packageType = packageType
         self.extraDomainsNum = extraDomainsNum
         self.extraBitsLimit = extraBitsLimit
+        self.appCode = appCode
+        self.serviceCode = serviceCode

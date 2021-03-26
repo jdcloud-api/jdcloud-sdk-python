@@ -19,10 +19,11 @@
 
 class AntiEvent(object):
 
-    def __init__(self, remoteAddr=None, csaInfo=None, area=None, accessTime=None, method=None, attackType=None, url=None, payLoad=None, action=None, ruleName=None, logId=None, isReported=None, wafInstanceId=None):
+    def __init__(self, remoteAddr=None, csaInfo=None, riskLevel=None, area=None, accessTime=None, method=None, attackType=None, url=None, payLoad=None, action=None, ruleName=None, logId=None, isReported=None, wafInstanceId=None, antiStatus=None, upstreamErr=None):
         """
         :param remoteAddr: (Optional) 源ip
         :param csaInfo: (Optional) 情报标签
+        :param riskLevel: (Optional) 风险等级
         :param area: (Optional) 来源地区
         :param accessTime: (Optional) 产生时间
         :param method: (Optional) 方法
@@ -34,10 +35,13 @@ class AntiEvent(object):
         :param logId: (Optional) 日志Id
         :param isReported: (Optional) 该信息是否已上报AI平台，0表示否
         :param wafInstanceId: (Optional) 实例id
+        :param antiStatus: (Optional) 状态码
+        :param upstreamErr: (Optional) 状态标识
         """
 
         self.remoteAddr = remoteAddr
         self.csaInfo = csaInfo
+        self.riskLevel = riskLevel
         self.area = area
         self.accessTime = accessTime
         self.method = method
@@ -49,3 +53,5 @@ class AntiEvent(object):
         self.logId = logId
         self.isReported = isReported
         self.wafInstanceId = wafInstanceId
+        self.antiStatus = antiStatus
+        self.upstreamErr = upstreamErr

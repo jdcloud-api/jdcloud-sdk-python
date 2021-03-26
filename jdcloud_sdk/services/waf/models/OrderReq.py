@@ -19,7 +19,7 @@
 
 class OrderReq(object):
 
-    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None):
+    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None, appCode=None, serviceCode=None):
         """
         :param region:  地域信息, hb_bgp, hn, hd_bgp 企业版支持两个，旗舰版支持3个，多个以 , 分隔
         :param buyType:  购买类型, 1:创建 2:续费 3:升配
@@ -32,6 +32,8 @@ class OrderReq(object):
         :param nickName: (Optional) 实例名，新建订单时必传，只能包含汉字、英文字母、下划线、破折号、数字，且长度不能超过16
         :param returnURL:  下单成功后返回的url, eg:http://abc.com
         :param extraBitsLimit:  额外的qps扩展包,单位为M 该值为50M的倍数
+        :param appCode: (Optional) 云鼎的appCode
+        :param serviceCode: (Optional) 云鼎的serviceCode
         """
 
         self.region = region
@@ -45,3 +47,5 @@ class OrderReq(object):
         self.nickName = nickName
         self.returnURL = returnURL
         self.extraBitsLimit = extraBitsLimit
+        self.appCode = appCode
+        self.serviceCode = serviceCode

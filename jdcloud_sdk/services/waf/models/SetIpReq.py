@@ -19,15 +19,17 @@
 
 class SetIpReq(object):
 
-    def __init__(self, wafInstanceId, domain, ips, iswhite=None):
+    def __init__(self, wafInstanceId, domain, ips, iswhite=None, isEnable=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param iswhite: (Optional) 0表示黑名单，1表示白名单
+        :param isEnable: (Optional) 0默认关闭，1默认打开
         :param ips:  ip配置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.iswhite = iswhite
+        self.isEnable = isEnable
         self.ips = ips

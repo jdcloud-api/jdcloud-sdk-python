@@ -19,7 +19,7 @@
 
 class UsrBotRules(object):
 
-    def __init__(self, id=None, ruleName=None, detectThrsd=None, detectPeriod=None, matchItems=None, action=None, disable=None, updateTime=None):
+    def __init__(self, id=None, ruleName=None, detectThrsd=None, detectPeriod=None, matchItems=None, action=None, disable=None, updateTime=None, status=None, ststhrst=None, ststhrstRatio=None, statusDisable=None, dateDisable=None, unit=None):
         """
         :param id: (Optional) 规则id
         :param ruleName: (Optional) 规则名
@@ -29,6 +29,12 @@ class UsrBotRules(object):
         :param action: (Optional) 动作配置，默认为告警
         :param disable: (Optional) 0-使用中 1-禁用
         :param updateTime: (Optional) 更新时间
+        :param status: (Optional) 响应状态码
+        :param ststhrst: (Optional) 状态码数量阀值
+        :param ststhrstRatio: (Optional) 状态码比例阀值
+        :param statusDisable: (Optional) 响应码功能是否启用
+        :param dateDisable: (Optional) 规则生效时间是否启用
+        :param unit: (Optional) 统计维度
         """
 
         self.id = id
@@ -39,3 +45,9 @@ class UsrBotRules(object):
         self.action = action
         self.disable = disable
         self.updateTime = updateTime
+        self.status = status
+        self.ststhrst = ststhrst
+        self.ststhrstRatio = ststhrstRatio
+        self.statusDisable = statusDisable
+        self.dateDisable = dateDisable
+        self.unit = unit

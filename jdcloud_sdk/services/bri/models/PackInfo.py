@@ -19,7 +19,7 @@
 
 class PackInfo(object):
 
-    def __init__(self, packageType=None, from_=None, totalAmount=None, balanceAmount=None, startTime=None, endTime=None, packId=None):
+    def __init__(self, packageType=None, from_=None, totalAmount=None, balanceAmount=None, startTime=None, endTime=None, packId=None, needSpiderIp=None, qpsLimit=None, version=None):
         """
         :param packageType: (Optional) 资源包类型
         :param from_: (Optional) 来源，1-免费，2-付费
@@ -28,6 +28,9 @@ class PackInfo(object):
         :param startTime: (Optional) 生效时间
         :param endTime: (Optional) 失效时间
         :param packId: (Optional) 资源包id
+        :param needSpiderIp: (Optional) 是否需要爬虫ip
+        :param qpsLimit: (Optional) QPS上限
+        :param version: (Optional) 注册，登录，营销场景的版本
         """
 
         self.packageType = packageType
@@ -37,3 +40,6 @@ class PackInfo(object):
         self.startTime = startTime
         self.endTime = endTime
         self.packId = packId
+        self.needSpiderIp = needSpiderIp
+        self.qpsLimit = qpsLimit
+        self.version = version

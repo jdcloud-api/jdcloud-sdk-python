@@ -40,8 +40,13 @@ class DescribeBandwidthsParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.filters = None
+        self.all = None
         self.lineType = None
+        self.chargeType = None
+        self.bandwidthName = None
+        self.relatedIp = None
+        self.filters = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -55,16 +60,46 @@ class DescribeBandwidthsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setFilters(self, filters):
+    def setAll(self, all):
         """
-        :param filters: (Optional) bandwidthId - 带宽实例IID，精确匹配，支持多个
-
+        :param all: (Optional) 是否查询全部，默认分页
         """
-        self.filters = filters
+        self.all = all
 
     def setLineType(self, lineType):
         """
         :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
         """
         self.lineType = lineType
+
+    def setChargeType(self, chargeType):
+        """
+        :param chargeType: (Optional) 计费方式 fixedBandwidth:固定带宽 95thPercentile:95峰值 merge95thPercentile:合并95峰值
+        """
+        self.chargeType = chargeType
+
+    def setBandwidthName(self, bandwidthName):
+        """
+        :param bandwidthName: (Optional) 带宽（出口）名称
+        """
+        self.bandwidthName = bandwidthName
+
+    def setRelatedIp(self, relatedIp):
+        """
+        :param relatedIp: (Optional) 关联的公网IP
+        """
+        self.relatedIp = relatedIp
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) bandwidthId - 带宽实例ID，精确匹配，支持多个
+
+        """
+        self.filters = filters
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) null
+        """
+        self.sorts = sorts
 

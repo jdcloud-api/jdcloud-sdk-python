@@ -40,8 +40,12 @@ class DescribeIpsParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.filters = None
+        self.all = None
+        self.lineType = None
         self.status = None
+        self.cidrAddr = None
+        self.filters = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -55,6 +59,30 @@ class DescribeIpsParameters(object):
         """
         self.pageSize = pageSize
 
+    def setAll(self, all):
+        """
+        :param all: (Optional) 是否查询全部，默认分页
+        """
+        self.all = all
+
+    def setLineType(self, lineType):
+        """
+        :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
+        """
+        self.lineType = lineType
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 状态 normal:正常 abnormal:异常
+        """
+        self.status = status
+
+    def setCidrAddr(self, cidrAddr):
+        """
+        :param cidrAddr: (Optional) IP地址段
+        """
+        self.cidrAddr = cidrAddr
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) ipId - 公网IP实例ID，精确匹配，支持多个
@@ -62,9 +90,9 @@ class DescribeIpsParameters(object):
         """
         self.filters = filters
 
-    def setStatus(self, status):
+    def setSorts(self, sorts):
         """
-        :param status: (Optional) 状态 normal:正常 abnormal:异常
+        :param sorts: (Optional) null
         """
-        self.status = status
+        self.sorts = sorts
 

@@ -38,7 +38,19 @@ class DescribeTicketsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
+        self.all = None
         self.type = None
+        self.ticketTypeName = None
+        self.ticketTypeId = None
+        self.status = None
+        self.ticketNo = None
+        self.ticketTemplateName = None
+        self.description = None
+        self.startTime = None
+        self.endTime = None
+        self.submitAccount = None
+        self.filters = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -52,9 +64,82 @@ class DescribeTicketsParameters(object):
         """
         self.pageSize = pageSize
 
+    def setAll(self, all):
+        """
+        :param all: (Optional) 是否查询全部，默认分页
+        """
+        self.all = all
+
     def setType(self, type):
         """
         :param type: (Optional) 工单TAB类型 pendingProcess:待我处理 pendingReview:待审核 processing:处理中 all:全部(默认)
         """
         self.type = type
+
+    def setTicketTypeName(self, ticketTypeName):
+        """
+        :param ticketTypeName: (Optional) 工单类型
+        """
+        self.ticketTypeName = ticketTypeName
+
+    def setTicketTypeId(self, ticketTypeId):
+        """
+        :param ticketTypeId: (Optional) 工单类型ID
+        """
+        self.ticketTypeId = ticketTypeId
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) 工单状态 pendingReview:待审核 revoked:已撤销 processing:处理中 pendingVerification:待核验 pendingClose:待关单 rejected:已拒绝 completed:已完成 cancelled:已取消 draft:草稿中
+        """
+        self.status = status
+
+    def setTicketNo(self, ticketNo):
+        """
+        :param ticketNo: (Optional) 工单编号
+        """
+        self.ticketNo = ticketNo
+
+    def setTicketTemplateName(self, ticketTemplateName):
+        """
+        :param ticketTemplateName: (Optional) 工单名称
+        """
+        self.ticketTemplateName = ticketTemplateName
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 描述
+        """
+        self.description = description
+
+    def setStartTime(self, startTime):
+        """
+        :param startTime: (Optional) 创建开始时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        """
+        self.startTime = startTime
+
+    def setEndTime(self, endTime):
+        """
+        :param endTime: (Optional) 创建结束时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        """
+        self.endTime = endTime
+
+    def setSubmitAccount(self, submitAccount):
+        """
+        :param submitAccount: (Optional) 提交账号
+        """
+        self.submitAccount = submitAccount
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) ticketNo - 工单编号，精确匹配，支持多个
+
+        """
+        self.filters = filters
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) createdTime - 创建时间 closedTime - 关闭时间
+        """
+        self.sorts = sorts
 

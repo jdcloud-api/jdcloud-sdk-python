@@ -19,11 +19,13 @@
 
 class BotConf(object):
 
-    def __init__(self, enable=None, enableUserDefine=None):
+    def __init__(self, enable=None, enableUserDefine=None, enableThreatIp=None):
         """
         :param enable: (Optional) 已知类型bot。1-使能 0-禁止
         :param enableUserDefine: (Optional) 自定义类型bot。1-使能 0-禁止
+        :param enableThreatIp: (Optional) bot IDC开关。1-使能 0-禁止
         """
 
         self.enable = enable
         self.enableUserDefine = enableUserDefine
+        self.enableThreatIp = enableThreatIp

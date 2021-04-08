@@ -19,26 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateAlarmRequest(JDCloudRequest):
+class UpdateAlarmRequest(JDCloudRequest):
     """
-    创建报警
+    修改报警规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateAlarmRequest, self).__init__(
-            '/alarms', 'POST', header, version)
+        super(UpdateAlarmRequest, self).__init__(
+            '/alarms/{alarmId}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class CreateAlarmParameters(object):
+class UpdateAlarmParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, alarmId, ):
         """
+        :param alarmId: 报警规则ID
         """
 
-        self.idc = None
-        self.resourceType = None
-        self.resourceId = None
+        self.alarmId = alarmId
         self.name = None
         self.metric = None
         self.period = None
@@ -49,27 +48,8 @@ class CreateAlarmParameters(object):
         self.noticePeriod = None
         self.status = None
         self.noticeMethod = None
-        self.noticeObj = None
         self.userId = None
         self.groupId = None
-
-    def setIdc(self, idc):
-        """
-        :param idc: (Optional) idc机房实例ID
-        """
-        self.idc = idc
-
-    def setResourceType(self, resourceType):
-        """
-        :param resourceType: (Optional) 资源类型，bandwidth:带宽
-        """
-        self.resourceType = resourceType
-
-    def setResourceId(self, resourceId):
-        """
-        :param resourceId: (Optional) 带宽实例ID
-        """
-        self.resourceId = resourceId
 
     def setName(self, name):
         """
@@ -130,12 +110,6 @@ class CreateAlarmParameters(object):
         :param noticeMethod: (Optional) 通知方式 all:全部 sms：短信 email:邮件
         """
         self.noticeMethod = noticeMethod
-
-    def setNoticeObj(self, noticeObj):
-        """
-        :param noticeObj: (Optional) 通知对象 all:全部 persons：个人 groups:角色组
-        """
-        self.noticeObj = noticeObj
 
     def setUserId(self, userId):
         """

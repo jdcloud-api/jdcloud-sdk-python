@@ -40,8 +40,13 @@ class DescribeCabinetsParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.filters = None
+        self.all = None
+        self.cabinetType = None
         self.cabinetOpenStatus = None
+        self.cabinetNo = None
+        self.deviceMustBeEmpty = None
+        self.filters = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -55,17 +60,49 @@ class DescribeCabinetsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setFilters(self, filters):
+    def setAll(self, all):
         """
-        :param filters: (Optional) roomNo - 房间号，精确匹配，支持多个
-cabinetId - 机柜ID，精确匹配，支持多个
+        :param all: (Optional) 是否查询全部，默认分页
+        """
+        self.all = all
 
+    def setCabinetType(self, cabinetType):
         """
-        self.filters = filters
+        :param cabinetType: (Optional) 机柜类型 formal:正式机柜 reserved:预留机柜
+        """
+        self.cabinetType = cabinetType
 
     def setCabinetOpenStatus(self, cabinetOpenStatus):
         """
         :param cabinetOpenStatus: (Optional) 机柜开通状态 disabled:未开通 enabling:开通中 enabled:已开通 disabling:关电中
         """
         self.cabinetOpenStatus = cabinetOpenStatus
+
+    def setCabinetNo(self, cabinetNo):
+        """
+        :param cabinetNo: (Optional) 机柜编码
+        """
+        self.cabinetNo = cabinetNo
+
+    def setDeviceMustBeEmpty(self, deviceMustBeEmpty):
+        """
+        :param deviceMustBeEmpty: (Optional) 机柜关电工单使用 yes
+        """
+        self.deviceMustBeEmpty = deviceMustBeEmpty
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) roomNo - 房间号，精确匹配，支持多个
+cabinetId - 机柜ID，精确匹配，支持多个
+cabinetNo - 机柜编码，精确匹配，支持多个
+cabinetOpenStatus - 机柜开通状态，精确匹配，支持多个
+
+        """
+        self.filters = filters
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) cabinetNo - 机柜编码 roomNo - 房间号
+        """
+        self.sorts = sorts
 

@@ -38,9 +38,12 @@ class DescribeAlarmsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
+        self.all = None
         self.resourceType = None
         self.resourceId = None
+        self.idc = None
         self.status = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -54,6 +57,12 @@ class DescribeAlarmsParameters(object):
         """
         self.pageSize = pageSize
 
+    def setAll(self, all):
+        """
+        :param all: (Optional) 是否查询全部，默认分页
+        """
+        self.all = all
+
     def setResourceType(self, resourceType):
         """
         :param resourceType: (Optional) 资源类型 bandwidth:带宽
@@ -66,9 +75,22 @@ class DescribeAlarmsParameters(object):
         """
         self.resourceId = resourceId
 
+    def setIdc(self, idc):
+        """
+        :param idc: (Optional) 机房英文标识
+        """
+        self.idc = idc
+
     def setStatus(self, status):
         """
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
         """
         self.status = status
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) alarmId - 规则实施ID，精确匹配，支持多个
+
+        """
+        self.filters = filters
 

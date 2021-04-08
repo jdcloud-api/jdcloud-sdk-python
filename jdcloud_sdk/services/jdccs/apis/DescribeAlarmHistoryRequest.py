@@ -39,6 +39,7 @@ class DescribeAlarmHistoryParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.alarmId = None
+        self.idc = None
         self.startTime = None
         self.endTime = None
 
@@ -59,6 +60,12 @@ class DescribeAlarmHistoryParameters(object):
         :param alarmId: (Optional) 报警规则ID
         """
         self.alarmId = alarmId
+
+    def setIdc(self, idc):
+        """
+        :param idc: (Optional) 机房英文标识
+        """
+        self.idc = idc
 
     def setStartTime(self, startTime):
         """

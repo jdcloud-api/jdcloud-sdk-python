@@ -19,13 +19,13 @@
 
 class TagsResourcesInfo(object):
 
-    def __init__(self, tagKey=None, tagValue=None, vmResourceCount=None, diskResourceCount=None, sqlServerResourceCount=None, mongodbResourceCount=None, ipResourceCount=None, esResourceCount=None, jcqResourceCount=None, drdsResourceCount=None, memcachedResourceCount=None, redisResourceCount=None, databaseResourceCount=None, dbRoResourceCount=None, perconaResourceCount=None, mariadbResourceCount=None, mariadbRoResourceCount=None, pgResourceCount=None, cdnResourceCount=None, nativecontainerResourceCount=None, podResourceCount=None, jqsResourceCount=None, zfsResourceCount=None, kubernetesNodegroupResourceCount=None):
+    def __init__(self, tagKey=None, tagValue=None, vmResourceCount=None, diskResourceCount=None, sqlserverResourceCount=None, mongodbResourceCount=None, ipResourceCount=None, esResourceCount=None, jcqResourceCount=None, drdsResourceCount=None, memcachedResourceCount=None, redisResourceCount=None, databaseResourceCount=None, dbRoResourceCount=None, perconaResourceCount=None, mariadbResourceCount=None, mariadbRoResourceCount=None, pgResourceCount=None, cdnResourceCount=None, nativecontainerResourceCount=None, podResourceCount=None, jqsResourceCount=None, zfsResourceCount=None, kubernetesNodegroupResourceCount=None, apigatewayResourceCount=None, storageResourceCount=None, tsdsResourceCount=None, jdwResourceCount=None, antiproResourceCount=None, dtsResourceCount=None, cpsResourceCount=None, edcpsResourceCount=None, sgwResourceCount=None, wafResourceCount=None, kafkaResourceCount=None, zkResourceCount=None, balanceResourceCount=None, nlbResourceCount=None, dnlbResourceCount=None, threatscannerResourceCount=None, jnsResourceCount=None, rabbitmqResourceCount=None, natgatewayResourceCount=None, clickHouseResourceCount=None, tidbResourceCount=None, dbsResourceCount=None, jdccsResourceCount=None, epcsResourceCount=None):
         """
         :param tagKey: (Optional) 标签键
         :param tagValue: (Optional) 标签值
         :param vmResourceCount: (Optional) 标签绑定的云主机资源个数
         :param diskResourceCount: (Optional) 标签绑定的云硬盘资源个数
-        :param sqlServerResourceCount: (Optional) 标签绑定的数据库SQL Server资源个数
+        :param sqlserverResourceCount: (Optional) 标签绑定的数据库SQL Server资源个数
         :param mongodbResourceCount: (Optional) 标签绑定的MongoDB资源个数
         :param ipResourceCount: (Optional) 标签绑定的公网IP资源个数
         :param esResourceCount: (Optional) 标签绑定的ElasticSearch资源个数
@@ -45,13 +45,37 @@ class TagsResourcesInfo(object):
         :param jqsResourceCount: (Optional) 标签绑定的队列服务资源个数
         :param zfsResourceCount: (Optional) 标签绑定的云文件服务资源个数
         :param kubernetesNodegroupResourceCount: (Optional) 标签绑定的Kubernetes集群资源个数
+        :param apigatewayResourceCount: (Optional) 标签绑定的网关资源个数
+        :param storageResourceCount: (Optional) 标签绑定的对象存储资源个数
+        :param tsdsResourceCount: (Optional) 标签绑定的云数据库InfluxDB资源个数
+        :param jdwResourceCount: (Optional) 标签绑定的云数据库Greenplum资源个数
+        :param antiproResourceCount: (Optional) 标签绑定的DDos防护包资源个数
+        :param dtsResourceCount: (Optional) 标签绑定的Dts数据传输产品资源个数
+        :param cpsResourceCount: (Optional) 标签绑定的Cps云物理服务器资源个数
+        :param edcpsResourceCount: (Optional) 标签绑定的edcps资源个数
+        :param sgwResourceCount: (Optional) 标签绑定的sgw资源个数
+        :param wafResourceCount: (Optional) 标签绑定的waf资源个数
+        :param kafkaResourceCount: (Optional) 标签绑定的kafka资源个数
+        :param zkResourceCount: (Optional) 标签绑定的zk资源个数
+        :param balanceResourceCount: (Optional) 标签绑定的balance资源个数
+        :param nlbResourceCount: (Optional) 标签绑定的nlb资源个数
+        :param dnlbResourceCount: (Optional) 标签绑定的dnlb资源个数
+        :param threatscannerResourceCount: (Optional) 标签绑定的threatscanner资源个数
+        :param jnsResourceCount: (Optional) 标签绑定的jns资源个数
+        :param rabbitmqResourceCount: (Optional) 标签绑定的rabbitmq资源个数
+        :param natgatewayResourceCount: (Optional) 标签绑定的natgateway资源个数
+        :param clickHouseResourceCount: (Optional) 标签绑定的clickhouse资源个数
+        :param tidbResourceCount: (Optional) 标签绑定的tidb资源个数
+        :param dbsResourceCount: (Optional) 标签绑定的dbs资源个数
+        :param jdccsResourceCount: (Optional) 标签绑定的jdccs资源个数
+        :param epcsResourceCount: (Optional) 标签绑定的edcs资源个数
         """
 
         self.tagKey = tagKey
         self.tagValue = tagValue
         self.vmResourceCount = vmResourceCount
         self.diskResourceCount = diskResourceCount
-        self.sqlServerResourceCount = sqlServerResourceCount
+        self.sqlserverResourceCount = sqlserverResourceCount
         self.mongodbResourceCount = mongodbResourceCount
         self.ipResourceCount = ipResourceCount
         self.esResourceCount = esResourceCount
@@ -71,3 +95,27 @@ class TagsResourcesInfo(object):
         self.jqsResourceCount = jqsResourceCount
         self.zfsResourceCount = zfsResourceCount
         self.kubernetesNodegroupResourceCount = kubernetesNodegroupResourceCount
+        self.apigatewayResourceCount = apigatewayResourceCount
+        self.storageResourceCount = storageResourceCount
+        self.tsdsResourceCount = tsdsResourceCount
+        self.jdwResourceCount = jdwResourceCount
+        self.antiproResourceCount = antiproResourceCount
+        self.dtsResourceCount = dtsResourceCount
+        self.cpsResourceCount = cpsResourceCount
+        self.edcpsResourceCount = edcpsResourceCount
+        self.sgwResourceCount = sgwResourceCount
+        self.wafResourceCount = wafResourceCount
+        self.kafkaResourceCount = kafkaResourceCount
+        self.zkResourceCount = zkResourceCount
+        self.balanceResourceCount = balanceResourceCount
+        self.nlbResourceCount = nlbResourceCount
+        self.dnlbResourceCount = dnlbResourceCount
+        self.threatscannerResourceCount = threatscannerResourceCount
+        self.jnsResourceCount = jnsResourceCount
+        self.rabbitmqResourceCount = rabbitmqResourceCount
+        self.natgatewayResourceCount = natgatewayResourceCount
+        self.clickHouseResourceCount = clickHouseResourceCount
+        self.tidbResourceCount = tidbResourceCount
+        self.dbsResourceCount = dbsResourceCount
+        self.jdccsResourceCount = jdccsResourceCount
+        self.epcsResourceCount = epcsResourceCount

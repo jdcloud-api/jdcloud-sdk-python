@@ -24,7 +24,7 @@ class DescribeBandwidth(object):
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
         :param bandwidthId: (Optional) 带宽实例ID
-        :param bandwidthName: (Optional) 带宽名称
+        :param bandwidthName: (Optional) 带宽（出口）名称
         :param status: (Optional) 状态 normal:正常 abnormal:异常
         :param lineType: (Optional) 线路类型 dynamicBGP:动态BGP thirdLineBGP:三线BGP telecom:电信单线 unicom:联通单线 mobile:移动单线
         :param chargeType: (Optional) 计费方式

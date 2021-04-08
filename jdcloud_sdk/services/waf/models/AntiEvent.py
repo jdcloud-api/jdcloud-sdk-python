@@ -19,7 +19,7 @@
 
 class AntiEvent(object):
 
-    def __init__(self, remoteAddr=None, csaInfo=None, riskLevel=None, area=None, accessTime=None, method=None, attackType=None, url=None, payLoad=None, action=None, ruleName=None, logId=None, isReported=None, wafInstanceId=None, antiStatus=None, upstreamErr=None):
+    def __init__(self, remoteAddr=None, csaInfo=None, riskLevel=None, area=None, accessTime=None, method=None, attackType=None, url=None, payLoad=None, action=None, ruleName=None, logId=None, isReported=None, wafInstanceId=None, antiStatus=None, upstreamErr=None, skipExist=None, denyExist=None):
         """
         :param remoteAddr: (Optional) 源ip
         :param csaInfo: (Optional) 情报标签
@@ -37,6 +37,8 @@ class AntiEvent(object):
         :param wafInstanceId: (Optional) 实例id
         :param antiStatus: (Optional) 状态码
         :param upstreamErr: (Optional) 状态标识
+        :param skipExist: (Optional) 是否已加入白名单
+        :param denyExist: (Optional) 是否已加入黑名单
         """
 
         self.remoteAddr = remoteAddr
@@ -55,3 +57,5 @@ class AntiEvent(object):
         self.wafInstanceId = wafInstanceId
         self.antiStatus = antiStatus
         self.upstreamErr = upstreamErr
+        self.skipExist = skipExist
+        self.denyExist = denyExist

@@ -19,7 +19,7 @@
 
 class DescribeCabinet(object):
 
-    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, expireTime=None, reserveStartTime=None, reserveEndTime=None):
+    def __init__(self, idc=None, idcName=None, cabinetId=None, cabinetNo=None, roomNo=None, cabinetSpace=None, cabinetPower=None, cabinetType=None, cabinetOpenStatus=None, cabinetOpenTime=None, expireTime=None, reserveStartTime=None, reserveEndTime=None, rackUOccupy=None, rackUFree=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
@@ -34,6 +34,8 @@ class DescribeCabinet(object):
         :param expireTime: (Optional) 到期时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param reserveStartTime: (Optional) 预留开始时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param reserveEndTime: (Optional) 预留结束时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
+        :param rackUOccupy: (Optional) 占用U数(U)
+        :param rackUFree: (Optional) 空闲U数(U)
         """
 
         self.idc = idc
@@ -49,3 +51,5 @@ class DescribeCabinet(object):
         self.expireTime = expireTime
         self.reserveStartTime = reserveStartTime
         self.reserveEndTime = reserveEndTime
+        self.rackUOccupy = rackUOccupy
+        self.rackUFree = rackUFree

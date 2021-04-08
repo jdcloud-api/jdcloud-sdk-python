@@ -40,9 +40,17 @@ class DescribeDevicesParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
+        self.all = None
         self.cabinetId = None
-        self.filters = None
         self.deviceType = None
+        self.assetStatus = None
+        self.assetBelong = None
+        self.deviceNo = None
+        self.snNo = None
+        self.cabinetNo = None
+        self.ticketTemplateCode = None
+        self.filters = None
+        self.sorts = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -56,23 +64,73 @@ class DescribeDevicesParameters(object):
         """
         self.pageSize = pageSize
 
+    def setAll(self, all):
+        """
+        :param all: (Optional) 是否查询全部，默认分页
+        """
+        self.all = all
+
     def setCabinetId(self, cabinetId):
         """
         :param cabinetId: (Optional) 机柜ID
         """
         self.cabinetId = cabinetId
 
-    def setFilters(self, filters):
-        """
-        :param filters: (Optional) deviceId - 设备实例ID，精确匹配，支持多个
-snNo - 设备SN号，精确匹配，支持多个
-
-        """
-        self.filters = filters
-
     def setDeviceType(self, deviceType):
         """
         :param deviceType: (Optional) 设备类型 server:服务器 network:网络设备 storage:存储设备 other:其他设备
         """
         self.deviceType = deviceType
+
+    def setAssetStatus(self, assetStatus):
+        """
+        :param assetStatus: (Optional) 资产状态 launched:已上架 opened:已开通 canceling:退订中 operating:操作中 modifing:变更中
+        """
+        self.assetStatus = assetStatus
+
+    def setAssetBelong(self, assetBelong):
+        """
+        :param assetBelong: (Optional) 资产归属 own:自备 lease:租赁
+        """
+        self.assetBelong = assetBelong
+
+    def setDeviceNo(self, deviceNo):
+        """
+        :param deviceNo: (Optional) 设备编码
+        """
+        self.deviceNo = deviceNo
+
+    def setSnNo(self, snNo):
+        """
+        :param snNo: (Optional) 设备SN号
+        """
+        self.snNo = snNo
+
+    def setCabinetNo(self, cabinetNo):
+        """
+        :param cabinetNo: (Optional) 机柜编码
+        """
+        self.cabinetNo = cabinetNo
+
+    def setTicketTemplateCode(self, ticketTemplateCode):
+        """
+        :param ticketTemplateCode: (Optional) 工单模板CODE
+        """
+        self.ticketTemplateCode = ticketTemplateCode
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) deviceId - 设备实例ID，精确匹配，支持多个
+snNo - 设备SN号，精确匹配，支持多个
+deviceNo - 设备编码，精确匹配，支持多个
+cabinetNo - 机柜编码，精确匹配，支持多个
+
+        """
+        self.filters = filters
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) deviceNo - 设备编码 cabinetNo - 机柜编码
+        """
+        self.sorts = sorts
 

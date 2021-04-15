@@ -19,16 +19,18 @@
 
 class GetChartReq(object):
 
-    def __init__(self, start, end, wafInstanceId=None, domain=None, isSum=None, isWafRule=None, isRs=None, pieItem=None):
+    def __init__(self, start, end, wafInstanceId=None, domain=None, isSum=None, isWafRule=None, isRs=None, pieItem=None, statusCode=None, isStaCode=None):
         """
         :param wafInstanceId: (Optional) 实例id，代表要查询的WAF实例，为空时表示当前用户下的所有实例
         :param domain: (Optional) 域名，为空时表示当前实例下的所有域名
-        :param start:  开始时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
-        :param end:  结束时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
+        :param start:  开始时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
+        :param end:  结束时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
         :param isSum: (Optional) true表示和值图，false表示均值图，仅getBpsData， getQpsData时有效。
         :param isWafRule: (Optional) true表示查找命中不同规则的waf攻击对应数目。
         :param isRs: (Optional) true表示源站返回给waf的异常响应，false表示waf返回给客户端的异常响应，仅getExceptionData时有效。
         :param pieItem: (Optional) ua表示返回ua的饼图数据，仅getPieChart时有效。
+        :param statusCode: (Optional) 指定状态码，仅getStatusCodeInfo时有效
+        :param isStaCode: (Optional) true表示获取状态码统计图、占比图。
         """
 
         self.wafInstanceId = wafInstanceId
@@ -39,3 +41,5 @@ class GetChartReq(object):
         self.isWafRule = isWafRule
         self.isRs = isRs
         self.pieItem = pieItem
+        self.statusCode = statusCode
+        self.isStaCode = isStaCode

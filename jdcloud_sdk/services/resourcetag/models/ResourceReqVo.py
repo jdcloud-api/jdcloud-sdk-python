@@ -19,7 +19,7 @@
 
 class ResourceReqVo(object):
 
-    def __init__(self, serviceCodes=None, resourceIds=None, tagFilters=None, orderCondition=None, descOrAsc=None, pageSize=None, currentPage=None):
+    def __init__(self, serviceCodes=None, resourceIds=None, tagFilters=None, showTagStatus=None, orderCondition=None, descOrAsc=None, pageSize=None, currentPage=None):
         """
         :param serviceCodes: (Optional) 产品线名称列表
 标签系统支持的产品线名称如下
@@ -30,6 +30,10 @@ class ResourceReqVo(object):
 
         :param resourceIds: (Optional) 资源id列表
         :param tagFilters: (Optional) 标签过滤列表
+        :param showTagStatus: (Optional) 控制标签显示参数, 默认为0
+0: 只显示普通用户标签
+1: 显示系统标签和普通用户标签
+
         :param orderCondition: (Optional) 排序依据
         :param descOrAsc: (Optional) 排序方向, 取值为ASC, DESC
         :param pageSize: (Optional) 每页记录数
@@ -39,6 +43,7 @@ class ResourceReqVo(object):
         self.serviceCodes = serviceCodes
         self.resourceIds = resourceIds
         self.tagFilters = tagFilters
+        self.showTagStatus = showTagStatus
         self.orderCondition = orderCondition
         self.descOrAsc = descOrAsc
         self.pageSize = pageSize

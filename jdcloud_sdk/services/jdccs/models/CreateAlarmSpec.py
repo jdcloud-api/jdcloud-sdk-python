@@ -19,7 +19,7 @@
 
 class CreateAlarmSpec(object):
 
-    def __init__(self, idc=None, resourceType=None, resourceId=None, name=None, metric=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, noticeMethod=None, noticeObj=None, userId=None):
+    def __init__(self, idc=None, resourceType=None, resourceId=None, name=None, metric=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, noticeMethod=None, noticeObj=None, userId=None, groupId=None):
         """
         :param idc: (Optional) idc机房实例ID
         :param resourceType: (Optional) 资源类型，bandwidth:带宽
@@ -36,6 +36,7 @@ class CreateAlarmSpec(object):
         :param noticeMethod: (Optional) 通知方式 all:全部 sms：短信 email:邮件
         :param noticeObj: (Optional) 通知对象 all:全部 persons：个人 groups:角色组
         :param userId: (Optional) 通知对象用户ID,若多个用逗号分隔
+        :param groupId: (Optional) 通知对象组ID
         """
 
         self.idc = idc
@@ -53,3 +54,4 @@ class CreateAlarmSpec(object):
         self.noticeMethod = noticeMethod
         self.noticeObj = noticeObj
         self.userId = userId
+        self.groupId = groupId

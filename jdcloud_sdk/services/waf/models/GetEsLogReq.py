@@ -28,8 +28,8 @@ class GetEsLogReq(object):
         :param status: (Optional) 状态码，检索字段
         :param logType: (Optional) 
         :param logId: (Optional) 日志Id，检索字段
-        :param start:  开始时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
-        :param end:  结束时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
+        :param start:  开始时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
+        :param end:  结束时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
         :param pageSize: (Optional) 每页显示的个数，默认是10。
         :param pageIndex: (Optional) 页数，默认是1。
         """

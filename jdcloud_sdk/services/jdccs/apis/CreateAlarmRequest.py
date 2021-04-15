@@ -51,6 +51,7 @@ class CreateAlarmParameters(object):
         self.noticeMethod = None
         self.noticeObj = None
         self.userId = None
+        self.groupId = None
 
     def setIdc(self, idc):
         """
@@ -141,4 +142,10 @@ class CreateAlarmParameters(object):
         :param userId: (Optional) 通知对象用户ID,若多个用逗号分隔
         """
         self.userId = userId
+
+    def setGroupId(self, groupId):
+        """
+        :param groupId: (Optional) 通知对象组ID
+        """
+        self.groupId = groupId
 

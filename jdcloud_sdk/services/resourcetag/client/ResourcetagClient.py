@@ -26,4 +26,4 @@ class ResourcetagClient(JDCloudClient):
         if config is None:
             config = Config('resourcetag.jdcloud-api.com')
 
-        super(ResourcetagClient, self).__init__(credential, config, 'resourcetag', '0.1.7', logger)
+        super(ResourcetagClient, self).__init__(credential, config, 'resourcetag', '0.6.0', logger)

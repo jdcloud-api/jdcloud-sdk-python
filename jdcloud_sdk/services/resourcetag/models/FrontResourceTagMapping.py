@@ -19,13 +19,14 @@
 
 class FrontResourceTagMapping(object):
 
-    def __init__(self, jrn=None, resourceId=None, serviceCode=None, tags=None, resourceName=None, az=None):
+    def __init__(self, jrn=None, resourceId=None, serviceCode=None, tags=None, resourceName=None, detailUrl=None, az=None):
         """
         :param jrn: (Optional) jrn本期不用, 默认为null
         :param resourceId: (Optional) 资源id
         :param serviceCode: (Optional) 产品线名称
         :param tags: (Optional) 资源绑定的标签数组
         :param resourceName: (Optional) 资源名称
+        :param detailUrl: (Optional) 资源详情url地址
         :param az: (Optional) 可用区
         """
 
@@ -34,4 +35,5 @@ class FrontResourceTagMapping(object):
         self.serviceCode = serviceCode
         self.tags = tags
         self.resourceName = resourceName
+        self.detailUrl = detailUrl
         self.az = az

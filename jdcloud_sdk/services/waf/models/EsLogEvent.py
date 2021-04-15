@@ -19,7 +19,7 @@
 
 class EsLogEvent(object):
 
-    def __init__(self, accessTime=None, remoteAddr=None, remotePort=None, domain=None, area=None, method=None, url=None, payLoad=None, status=None, logType=None, action=None, requestId=None, upstreamErr=None, timeLocal=None, hostname=None, bytesSent=None, requestLength=None, host=None, serverAddr=None, serverPort=None, upstreamHttpName=None, upstreamAddr=None, upstreamHttpPort=None, upstreamConnectTime=None, upstreamHeaderTime=None, upstreamResponseTime=None, requestTime=None, httpUserAgent=None, antiReason=None, httpReferer=None, scheme=None, uri=None, sentHttpContentRange=None, antiRemoteAddr=None, antiStatus=None, antiReqRaw=None, antiRespRaw=None):
+    def __init__(self, accessTime=None, remoteAddr=None, remotePort=None, domain=None, area=None, method=None, url=None, payLoad=None, status=None, logType=None, action=None, requestId=None, upstreamErr=None, timeLocal=None, hostname=None, bytesSent=None, requestLength=None, host=None, serverAddr=None, serverPort=None, upstreamHttpName=None, upstreamAddr=None, upstreamHttpPort=None, upstreamConnectTime=None, upstreamHeaderTime=None, upstreamResponseTime=None, requestTime=None, httpUserAgent=None, antiReason=None, httpReferer=None, scheme=None, uri=None, sentHttpContentRange=None, antiRemoteAddr=None, antiStatus=None, antiReqRaw=None, antiRespRaw=None, antiGeo=None, antiRiskFid=None, antiRiskRaw=None):
         """
         :param accessTime: (Optional) 产生时间
         :param remoteAddr: (Optional) 源ip
@@ -58,6 +58,9 @@ class EsLogEvent(object):
         :param antiStatus: (Optional) 原响应码
         :param antiReqRaw: (Optional) 命中规则请求原始请求报文
         :param antiRespRaw: (Optional) 命中规则请求原始响应报文
+        :param antiGeo: (Optional) 来源地域信息
+        :param antiRiskFid: (Optional) 指纹ID
+        :param antiRiskRaw: (Optional) 指纹采集详细信息
         """
 
         self.accessTime = accessTime
@@ -97,3 +100,6 @@ class EsLogEvent(object):
         self.antiStatus = antiStatus
         self.antiReqRaw = antiReqRaw
         self.antiRespRaw = antiRespRaw
+        self.antiGeo = antiGeo
+        self.antiRiskFid = antiRiskFid
+        self.antiRiskRaw = antiRiskRaw

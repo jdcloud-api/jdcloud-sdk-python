@@ -19,14 +19,18 @@
 
 class SetRiskRuleReq(object):
 
-    def __init__(self, wafInstanceId, domain, name, uri, action, id=None):
+    def __init__(self, wafInstanceId, domain, name, uri, action, methods, sceneRef, event, redirection, id=None):
         """
         :param id: (Optional) 规则id,新增时传0
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param name:  规则名称
         :param uri:  uri 以/开头
-        :param action:  动作 支持notice / verify@captcha
+        :param action:  动作 支持 verify@captcha / verify@jscookie / forbidden / notice / redirect
+        :param methods:  请求方法 支持 POST:1,GET:1,PUT:1
+        :param sceneRef:  场景 支持 account_login / account_register / data_risk_control
+        :param event:  事件 支持 passwd:BODY.passwd,username:ARGS.username
+        :param redirection:  跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         """
 
         self.id = id
@@ -35,3 +39,7 @@ class SetRiskRuleReq(object):
         self.name = name
         self.uri = uri
         self.action = action
+        self.methods = methods
+        self.sceneRef = sceneRef
+        self.event = event
+        self.redirection = redirection

@@ -19,13 +19,18 @@
 
 class DeviceOverview(object):
 
-    def __init__(self, sum=None, server=None, network=None, storage=None, other=None):
+    def __init__(self, sum=None, server=None, network=None, storage=None, other=None, opened=None, launched=None, operating=None, modifying=None, canceling=None):
         """
         :param sum: (Optional) 设备总数目
         :param server: (Optional) 服务器总数目
         :param network: (Optional) 网络设备总数目
         :param storage: (Optional) 存储设备总数目
         :param other: (Optional) 其它设备总数目
+        :param opened: (Optional) 已开通
+        :param launched: (Optional) 已上架
+        :param operating: (Optional) 操作中
+        :param modifying: (Optional) 变更中
+        :param canceling: (Optional) 退订中
         """
 
         self.sum = sum
@@ -33,3 +38,8 @@ class DeviceOverview(object):
         self.network = network
         self.storage = storage
         self.other = other
+        self.opened = opened
+        self.launched = launched
+        self.operating = operating
+        self.modifying = modifying
+        self.canceling = canceling

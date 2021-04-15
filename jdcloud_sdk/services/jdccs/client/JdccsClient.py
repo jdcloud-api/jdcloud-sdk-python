@@ -26,4 +26,4 @@ class JdccsClient(JDCloudClient):
         if config is None:
             config = Config('jdccs.jdcloud-api.com')
 
-        super(JdccsClient, self).__init__(credential, config, 'jdccs', '1.1.0', logger)
+        super(JdccsClient, self).__init__(credential, config, 'jdccs', '1.1.2', logger)

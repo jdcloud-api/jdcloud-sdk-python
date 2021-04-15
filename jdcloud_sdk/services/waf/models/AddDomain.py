@@ -19,10 +19,11 @@
 
 class AddDomain(object):
 
-    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, domains=None, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param wafInstanceId:  实例id，代表要设置的WAF实例
-        :param domain:  域名
+        :param domain:  域名，单个
+        :param domains: (Optional) 域名数组
         :param protocols:  使用协议，eg:["http","https"]
         :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
         :param lbType:  负载均衡算法，eg:"rr"，"ip_hash","weight_rr"
@@ -40,6 +41,7 @@ class AddDomain(object):
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
+        self.domains = domains
         self.protocols = protocols
         self.sslProtocols = sslProtocols
         self.lbType = lbType

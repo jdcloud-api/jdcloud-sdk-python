@@ -19,13 +19,21 @@
 
 class Idc(object):
 
-    def __init__(self, idc=None, idcName=None, isExternalIdc=None):
+    def __init__(self, idc=None, idcName=None, isExternalIdc=None, address=None, manager=None, managerPhone=None, category=None):
         """
         :param idc: (Optional) 机房英文标识
         :param idcName: (Optional) 机房名称
         :param isExternalIdc: (Optional) 是否是商业化外部机房
+        :param address: (Optional) 机房地址
+        :param manager: (Optional) 机房主管
+        :param managerPhone: (Optional) 机房主管电话
+        :param category: (Optional) 机房类别 1:租用 2:自建 3:合作 4:其他
         """
 
         self.idc = idc
         self.idcName = idcName
         self.isExternalIdc = isExternalIdc
+        self.address = address
+        self.manager = manager
+        self.managerPhone = managerPhone
+        self.category = category

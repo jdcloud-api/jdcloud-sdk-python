@@ -19,7 +19,7 @@
 
 class FrontResourcesReqVo(object):
 
-    def __init__(self, serviceCodes, resourceIds=None, tagFilters=None, pageSize=None, currentPage=None):
+    def __init__(self, serviceCodes, resourceIds=None, tagFilters=None, showTagStatus=None, pageSize=None, currentPage=None):
         """
         :param serviceCodes:  产品线名称列表, 目前只支持查询同一条产品线的资源
 标签系统支持的产品线名称如下
@@ -30,6 +30,10 @@ class FrontResourcesReqVo(object):
 
         :param resourceIds: (Optional) 资源id列表
         :param tagFilters: (Optional) 标签过滤列表
+        :param showTagStatus: (Optional) 控制标签显示参数, 默认为0
+0: 只显示普通用户标签
+1: 显示系统标签和普通用户标签
+
         :param pageSize: (Optional) 每页记录数大小, 默认为20条记录每页, 上限为500条记录每页
         :param currentPage: (Optional) 当前页码, 默认为第一页
         """
@@ -37,5 +41,6 @@ class FrontResourcesReqVo(object):
         self.serviceCodes = serviceCodes
         self.resourceIds = resourceIds
         self.tagFilters = tagFilters
+        self.showTagStatus = showTagStatus
         self.pageSize = pageSize
         self.currentPage = currentPage

@@ -23,8 +23,8 @@ class ListEsLogDownloadReq(object):
         """
         :param wafInstanceId:  实例id，代表要查询的WAF实例
         :param domain: (Optional) 域名，为空时表示当前实例下的所有域名
-        :param start:  开始时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
-        :param end:  结束时间戳，单位毫秒，时间间隔要求大于5分钟，小于30天。
+        :param start:  开始时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
+        :param end:  结束时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
         :param pageSize: (Optional) 每页显示的个数，默认是10。
         :param pageIndex: (Optional) 页数，默认是1。
         """

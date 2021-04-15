@@ -19,15 +19,19 @@
 
 class TopN(object):
 
-    def __init__(self, addr_top10=None, area_top10=None, url_top10=None, ua_top10=None):
+    def __init__(self, addr_top10=None, area_top10=None, url_top10=None, ua_top10=None, domain_anti_top10=None, url_anti_top10=None):
         """
         :param addr_top10: (Optional) 
         :param area_top10: (Optional) 
         :param url_top10: (Optional) 
         :param ua_top10: (Optional) 
+        :param domain_anti_top10: (Optional) 
+        :param url_anti_top10: (Optional) 
         """
 
         self.addr_top10 = addr_top10
         self.area_top10 = area_top10
         self.url_top10 = url_top10
         self.ua_top10 = ua_top10
+        self.domain_anti_top10 = domain_anti_top10
+        self.url_anti_top10 = url_anti_top10

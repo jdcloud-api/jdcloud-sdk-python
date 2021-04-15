@@ -19,7 +19,7 @@
 
 class RiskRuleCfg(object):
 
-    def __init__(self, id=None, wafInstanceId=None, domain=None, name=None, uri=None, action=None, disable=None, updateTime=None):
+    def __init__(self, id=None, wafInstanceId=None, domain=None, name=None, uri=None, action=None, methods=None, sceneRef=None, event=None, disable=None, updateTime=None, redirection=None):
         """
         :param id: (Optional) 规则id
         :param wafInstanceId: (Optional) WAF实例id
@@ -27,8 +27,12 @@ class RiskRuleCfg(object):
         :param name: (Optional) 规则名称
         :param uri: (Optional) uri 以/开头
         :param action: (Optional) 动作 支持notice / verify@captcha
+        :param methods: (Optional) 请求方法 支持 POST:1,GET:1,PUT:1
+        :param sceneRef: (Optional) 场景 支持 account_login / account_register
+        :param event: (Optional) 事件 支持 passwd:JSON_BODY.passwd,username:ARGS.username,session:ARGS_BODY.session
         :param disable: (Optional) 0-使用中 1-禁用
         :param updateTime: (Optional) 更新时间，s
+        :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         """
 
         self.id = id
@@ -37,5 +41,9 @@ class RiskRuleCfg(object):
         self.name = name
         self.uri = uri
         self.action = action
+        self.methods = methods
+        self.sceneRef = sceneRef
+        self.event = event
         self.disable = disable
         self.updateTime = updateTime
+        self.redirection = redirection

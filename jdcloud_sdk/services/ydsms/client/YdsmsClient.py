@@ -26,4 +26,4 @@ class YdsmsClient(JDCloudClient):
         if config is None:
             config = Config('ydsms.jdcloud-api.com')
 
-        super(YdsmsClient, self).__init__(credential, config, 'ydsms', '1.0.4', logger)
+        super(YdsmsClient, self).__init__(credential, config, 'ydsms', '1.0.5', logger)

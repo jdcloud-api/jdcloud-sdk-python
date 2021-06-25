@@ -19,21 +19,22 @@
 
 class PerStamp(object):
 
-    def __init__(self, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, personalName=None, mobile=None, identifyType=None, identifyValue=None):
+    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, personalName=None, mobile=None, identifyType=None, identifyValue=None):
         """
-        :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字）
+        :param stampMax: (Optional) 最多盖章数目（默认10）
+        :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字，默认为 1）
         :param keyword: (Optional) 盖章关键字（与坐标二选一）
         :param positionX: (Optional) 盖章X坐标（与关键字二选一）
         :param positionY: (Optional) 盖章Y坐标（与关键字二选一）
         :param offsetX: (Optional) 盖章X坐标偏移量（配合positionX）
         :param offsetY: (Optional) 盖章Y坐标偏移量（配合positionY）
-        :param page: (Optional) 盖章页码（选择坐标盖章时需要）
+        :param page: (Optional) 盖章页码（选择坐标盖章时需要传入本参数）
         :param sealName: (Optional) 印章名称
         :param imageB64: (Optional) 印章图像base64(建议png格式,不传使用默认方形章)
         :param stampId: (Optional) 印章ID
         :param desc: (Optional) 印章描述
         :param isDefault: (Optional) 是否作为以后签章默认章
-        :param imageType: (Optional) 图片类型，只支持png格式
+        :param imageType: (Optional) 图片类型
         :param imageSize: (Optional) 图片大小，高度*宽度
         :param imageHeight: (Optional) 图片高度
         :param imageWidth: (Optional) 图片宽度
@@ -43,6 +44,7 @@ class PerStamp(object):
         :param identifyValue: (Optional) 标记值
         """
 
+        self.stampMax = stampMax
         self.signPositionType = signPositionType
         self.keyword = keyword
         self.positionX = positionX

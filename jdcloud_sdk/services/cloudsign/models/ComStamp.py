@@ -19,9 +19,10 @@
 
 class ComStamp(object):
 
-    def __init__(self, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, orgName=None, legalPersonName=None, transactorName=None, transactorIdCardNum=None, transactorMobile=None, identifyType=None, identifyValue=None):
+    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, orgName=None, legalPersonName=None, transactorName=None, transactorIdCardNum=None, transactorMobile=None, identifyType=None, identifyValue=None):
         """
-        :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字）
+        :param stampMax: (Optional) 最多盖章数目（默认10）
+        :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字 默认1 ）
         :param keyword: (Optional) 盖章关键字（与坐标二选一）
         :param positionX: (Optional) 盖章X坐标（与关键字二选一）
         :param positionY: (Optional) 盖章Y坐标（与关键字二选一）
@@ -46,6 +47,7 @@ class ComStamp(object):
         :param identifyValue: (Optional) 标记值
         """
 
+        self.stampMax = stampMax
         self.signPositionType = signPositionType
         self.keyword = keyword
         self.positionX = positionX

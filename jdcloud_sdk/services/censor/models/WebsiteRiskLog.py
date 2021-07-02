@@ -19,7 +19,7 @@
 
 class WebsiteRiskLog(object):
 
-    def __init__(self, ids=None, websiteInstanceId=None, host=None, url=None, logType=None, riskTypes=None, riskLevel=None, status=None, updateTime=None):
+    def __init__(self, ids=None, websiteInstanceId=None, host=None, url=None, logType=None, riskTypes=None, riskLevel=None, resourceType=None, response=None, status=None, updateTime=None):
         """
         :param ids: (Optional) ids
         :param websiteInstanceId: (Optional) 实例ID
@@ -28,6 +28,8 @@ class WebsiteRiskLog(object):
         :param logType: (Optional) 日志类型，1首页 2全站
         :param riskTypes: (Optional) 
         :param riskLevel: (Optional) 风险等级 1低 2中 3高
+        :param resourceType: (Optional) 资源类型
+        :param response: (Optional) 响应详情
         :param status: (Optional) 处理状态 0未处理 1已处理
         :param updateTime: (Optional) 更新时间
         """
@@ -39,5 +41,7 @@ class WebsiteRiskLog(object):
         self.logType = logType
         self.riskTypes = riskTypes
         self.riskLevel = riskLevel
+        self.resourceType = resourceType
+        self.response = response
         self.status = status
         self.updateTime = updateTime

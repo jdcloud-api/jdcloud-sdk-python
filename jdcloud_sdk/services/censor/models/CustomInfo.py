@@ -27,7 +27,7 @@ class CustomInfo(object):
         :param matchType: (Optional) 匹配方式，exact:精确匹配，fuzzy:模糊匹配；仅限文本类型
         :param name: (Optional) 敏感库名
         :param scenes: (Optional) 文本/语音支持 antispam-反垃圾，视频/图片支持 porn-涉黄，terrorism-涉政暴恐
-        :param suggestion: (Optional) white 白名单，black 黑名单，suspect 疑似名单
+        :param suggestion: (Optional) pass 白名单，block 黑名单，review 疑似名单
         :param status: (Optional) 状态 1启用，0禁用
         :param updateTime: (Optional) 更新时间
         :param itemNumber: (Optional) 该敏感库下包含的item条数

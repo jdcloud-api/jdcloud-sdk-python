@@ -66,7 +66,7 @@ class GetSessionIdParameters(object):
 
     def setUuid(self, uuid):
         """
-        :param uuid: (Optional) uuid，ios客户端传openudid, android客户端传androidid
+        :param uuid: (Optional) uuid，ios客户端传openudid, android客户端传androidid, m, pc, wxapp客户端此值为空即可
         """
         self.uuid = uuid
 
@@ -84,13 +84,13 @@ class GetSessionIdParameters(object):
 
     def setFingerPrint(self, fingerPrint):
         """
-        :param fingerPrint: (Optional) 指纹，客户端sdk获取
+        :param fingerPrint: (Optional) 指纹，ios和android客户端(clientType)从sdk获取, m, pc, wxapp客户端此值为空即可
         """
         self.fingerPrint = fingerPrint
 
     def setClientType(self, clientType):
         """
-        :param clientType: (Optional) 客户端类型, android, ios
+        :param clientType: (Optional) 客户端类型, android, ios, pc, wxmapp, m
         """
         self.clientType = clientType
 

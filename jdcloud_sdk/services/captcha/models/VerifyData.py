@@ -19,16 +19,16 @@
 
 class VerifyData(object):
 
-    def __init__(self, verifyToken, sessionId, appId, ip, userAgent, sceneId=None, secret=None, clientType=None, clientVersion=None):
+    def __init__(self, verifyToken, sessionId, appId, sceneId, ip, userAgent, secret=None, clientType=None, clientVersion=None):
         """
         :param verifyToken:  提交后台校验的token，客户端sdk获取
         :param sessionId:  验证码回话id，getsessionid返回
         :param appId:  应用id
-        :param sceneId: (Optional) 场景id
+        :param sceneId:  场景id
         :param secret: (Optional) 密钥，从界面获取
         :param ip:  客户端ip
         :param userAgent:  客户端userAgent
-        :param clientType: (Optional) 客户端类型, android, ios, pc, m
+        :param clientType: (Optional) 客户端类型, android, ios, pc, wxapp
         :param clientVersion: (Optional) 客户端版本，用户端app版本，可选
         """
 

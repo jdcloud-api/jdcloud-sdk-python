@@ -23,7 +23,7 @@ class App(object):
         """
         :param appId: (Optional) 应用id
         :param appName:  应用名称
-        :param appType:  应用类型，可选值 app
+        :param appType:  应用类型，可选值 app, pc, wxapp, m
         :param appOs:  应用系统，支持多选多选以逗号分隔, 选择appType是app时可选android,ios 其余为空
         :param androidPkgName: (Optional) android应用的package name（应用是android的时候androidPkgName必须）
         :param iosBundleId: (Optional) ios应用的bundle id（应用是ios的时候iosBundleId必须）

@@ -19,16 +19,16 @@
 
 class SessionData(object):
 
-    def __init__(self, appId, sceneId, ip, userAgent, clientType, secret=None, uuid=None, fingerPrint=None, clientVersion=None):
+    def __init__(self, appId, sceneId, secret, ip, userAgent, clientType, uuid=None, fingerPrint=None, clientVersion=None):
         """
         :param appId:  应用id
         :param sceneId:  场景id
-        :param secret: (Optional) 密钥，从界面获取
-        :param uuid: (Optional) uuid，ios客户端传openudid, android客户端传androidid
+        :param secret:  密钥，从界面获取
+        :param uuid: (Optional) uuid，ios客户端传openudid, android客户端传androidid, pc和wxapp客户端可不传
         :param ip:  客户端ip
         :param userAgent:  客户端userAgent
         :param fingerPrint: (Optional) 指纹，客户端sdk获取
-        :param clientType:  客户端类型, android, ios, pc, m
+        :param clientType:  客户端类型, android, ios, pc, wxapp, m
         :param clientVersion: (Optional) 客户端版本，用户端app版本，可选
         """
 

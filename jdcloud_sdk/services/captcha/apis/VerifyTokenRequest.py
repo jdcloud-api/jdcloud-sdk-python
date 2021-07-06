@@ -40,9 +40,9 @@ class VerifyTokenParameters(object):
         self.sessionId = None
         self.appId = None
         self.sceneId = None
+        self.secret = None
         self.ip = None
         self.userAgent = None
-        self.fingerPrint = None
         self.clientType = None
         self.clientVersion = None
 
@@ -70,6 +70,12 @@ class VerifyTokenParameters(object):
         """
         self.sceneId = sceneId
 
+    def setSecret(self, secret):
+        """
+        :param secret: (Optional) 密钥，从界面获取
+        """
+        self.secret = secret
+
     def setIp(self, ip):
         """
         :param ip: (Optional) 客户端ip
@@ -82,15 +88,9 @@ class VerifyTokenParameters(object):
         """
         self.userAgent = userAgent
 
-    def setFingerPrint(self, fingerPrint):
-        """
-        :param fingerPrint: (Optional) 指纹，客户端sdk获取
-        """
-        self.fingerPrint = fingerPrint
-
     def setClientType(self, clientType):
         """
-        :param clientType: (Optional) 客户端类型, android, ios
+        :param clientType: (Optional) 客户端类型, 可选值: android, ios, pc, wxapp, m
         """
         self.clientType = clientType
 

@@ -23,7 +23,7 @@ class Tactics(object):
         """
         :param sceneId:  场景id
         :param appId:  所属应用id
-        :param tacticsType: (Optional) 策略类型：1 智能组合,2过载保护,3自有策略
+        :param tacticsType: (Optional) 策略类型：1 智能组合,2过载保护,3自有策略,4验证码策略
         :param suspiciousRiskConfig: (Optional) 可疑请求配置
         :param abandonRiskConfig: (Optional) 问题请求配置
         """

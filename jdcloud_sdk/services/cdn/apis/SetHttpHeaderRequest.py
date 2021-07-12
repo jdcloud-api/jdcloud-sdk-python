@@ -44,19 +44,19 @@ class SetHttpHeaderParameters(object):
 
     def setHeaderType(self, headerType):
         """
-        :param headerType: (Optional) header类型[resp,req]
+        :param headerType: (Optional) header类型[resp,req],resp：配置响应头，req：配置请求头
         """
         self.headerType = headerType
 
     def setHeaderName(self, headerName):
         """
-        :param headerName: (Optional) header名
+        :param headerName: (Optional) header名，例如：Content-Disposition，可自定义，长度不能超过256个字符，不能包含中文字符，不能包含$和_，不支持设置如下头名：["Content-Length","Date","Host","Content-Encoding","If-Modified-Since","If-Range","Content-Type","Transfer-Encoding","Cache-Control","Last-Modified","Connection", "Content-Range","ETag","Age","Authentication-Info","Proxy-Authenticate","Retry-After","Set-Cookie","Vary","Content-Location","Meter","Allow","Error","X-Trace", "Proxy-Connection"]
         """
         self.headerName = headerName
 
     def setHeaderValue(self, headerValue):
         """
-        :param headerValue: (Optional) header值
+        :param headerValue: (Optional) header值，不能包含($,_,#)，不能超过256个字符
         """
         self.headerValue = headerValue
 

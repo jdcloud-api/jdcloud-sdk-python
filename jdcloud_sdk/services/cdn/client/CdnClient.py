@@ -26,4 +26,4 @@ class CdnClient(JDCloudClient):
         if config is None:
             config = Config('cdn.jdcloud-api.com')
 
-        super(CdnClient, self).__init__(credential, config, 'cdn', '0.10.24', logger)
+        super(CdnClient, self).__init__(credential, config, 'cdn', '0.10.25', logger)

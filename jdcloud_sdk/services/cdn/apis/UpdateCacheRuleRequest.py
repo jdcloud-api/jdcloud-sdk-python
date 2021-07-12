@@ -52,7 +52,7 @@ class UpdateCacheRuleParameters(object):
 
     def setTtl(self, ttl):
         """
-        :param ttl: (Optional) 缓存时间,单位秒
+        :param ttl: (Optional) 缓存时间,单位秒，中国境内加速域名最长可配置2年，中国境外/全球加速域名最长可配置1年
         """
         self.ttl = ttl
 

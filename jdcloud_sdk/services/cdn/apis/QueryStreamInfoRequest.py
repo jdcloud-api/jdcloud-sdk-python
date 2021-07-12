@@ -19,29 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryStatisticsTopUrlRequest(JDCloudRequest):
+class QueryStreamInfoRequest(JDCloudRequest):
     """
-    查询TOP Url，仅可查询中国境内的相关信息
+    分页查询直播流数据接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryStatisticsTopUrlRequest, self).__init__(
-            '/statistics:topUrl', 'POST', header, version)
+        super(QueryStreamInfoRequest, self).__init__(
+            '/domain/{domain}/liveStatistics:streamInfo', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryStatisticsTopUrlParameters(object):
+class QueryStreamInfoParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, domain, ):
         """
+        :param domain: 用户域名
         """
 
+        self.domain = domain
         self.startTime = None
         self.endTime = None
-        self.domain = None
-        self.subDomain = None
-        self.size = None
-        self.topBy = None
+        self.appName = None
+        self.streamName = None
+        self.pageNum = None
+        self.pageSize = None
 
     def setStartTime(self, startTime):
         """
@@ -55,27 +57,27 @@ class QueryStatisticsTopUrlParameters(object):
         """
         self.endTime = endTime
 
-    def setDomain(self, domain):
+    def setAppName(self, appName):
         """
-        :param domain: (Optional) 需要查询的域名, 必须为用户pin下有权限的域名
+        :param appName: (Optional) app名
         """
-        self.domain = domain
+        self.appName = appName
 
-    def setSubDomain(self, subDomain):
+    def setStreamName(self, streamName):
         """
-        :param subDomain: (Optional) 待查询的子域名,查询泛域名时，指定的子域名列表，多个用逗号分隔。非泛域名时，传入空即可
+        :param streamName: (Optional) 流名
         """
-        self.subDomain = subDomain
+        self.streamName = streamName
 
-    def setSize(self, size):
+    def setPageNum(self, pageNum):
         """
-        :param size: (Optional) 查询的topN的条数，取值范围：1-100，默认为20
+        :param pageNum: (Optional) 页码，不传默认1
         """
-        self.size = size
+        self.pageNum = pageNum
 
-    def setTopBy(self, topBy):
+    def setPageSize(self, pageSize):
         """
-        :param topBy: (Optional) 排序依据,当前可选：pv,flow，bandwidth, 分别表示按pv、按流量、按带宽topN url，默认为"pv"
+        :param pageSize: (Optional) 页size,不传默认100,最大值1000
         """
-        self.topBy = topBy
+        self.pageSize = pageSize
 

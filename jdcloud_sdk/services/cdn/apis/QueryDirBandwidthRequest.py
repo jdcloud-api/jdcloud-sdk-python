@@ -41,6 +41,7 @@ class QueryDirBandwidthParameters(object):
         self.domain = None
         self.dirs = None
         self.regions = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -71,4 +72,10 @@ class QueryDirBandwidthParameters(object):
         :param regions: (Optional) 需要过滤的地区
         """
         self.regions = regions
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryMixTrafficGroupSumRequest(JDCloudRequest):
+class QueryJDBoxStatisticsDataWithGroupRequest(JDCloudRequest):
     """
-    查询统计数据并进行汇总加和，仅可查询中国境内的相关信息
+    无线宝按group查询的统计接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryMixTrafficGroupSumRequest, self).__init__(
-            '/statistics:groupSum', 'POST', header, version)
+        super(QueryJDBoxStatisticsDataWithGroupRequest, self).__init__(
+            '/jdBoxStatisticsWithGroup', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryMixTrafficGroupSumParameters(object):
+class QueryJDBoxStatisticsDataWithGroupParameters(object):
 
     def __init__(self, ):
         """
@@ -38,65 +38,72 @@ class QueryMixTrafficGroupSumParameters(object):
 
         self.startTime = None
         self.endTime = None
-        self.domain = None
+        self.groupBy = None
         self.fields = None
         self.area = None
         self.isp = None
         self.period = None
-        self.groupBy = None
-        self.cacheType = None
+        self.category = None
+        self.macAddr = None
+        self.pluginPin = None
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询起始时间,UTC时间，格式为:yyyy-MM-dd'T'HH:mm:ss'Z'，示例:2018-10-21T10:00:00Z
+        :param startTime: (Optional) 查询起始时间,时间戳
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询截止时间,UTC时间，格式为:yyyy-MM-dd'T'HH:mm:ss'Z'，示例:2018-10-21T10:00:00Z
+        :param endTime: (Optional) 查询截止时间,时间戳
         """
         self.endTime = endTime
 
-    def setDomain(self, domain):
+    def setGroupBy(self, groupBy):
         """
-        :param domain: (Optional) 需要查询的域名, 必须为用户pin下有权限的域名
+        :param groupBy: (Optional) 取值范围：area，isp，pin ,mac_addr，category，多个用,隔开,多个维度的查询，必须要限制较短的时间间隔
         """
-        self.domain = domain
+        self.groupBy = groupBy
 
     def setFields(self, fields):
         """
-        :param fields: (Optional) 需要查询的字段
+        :param fields: (Optional) 查询的字段，取值范围(avgbandwidth,pv,flow)。多个用逗号分隔。默认为空，表示查询带宽流量
         """
         self.fields = fields
 
     def setArea(self, area):
         """
-        :param area: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
+        :param area: (Optional) 区域
         """
         self.area = area
 
     def setIsp(self, isp):
         """
-        :param isp: (Optional) 查询的运营商，cmcc,cnc,ct，表示移动、联通、电信。多个用逗号分隔
+        :param isp: (Optional) 运营商
         """
         self.isp = isp
 
     def setPeriod(self, period):
         """
-        :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
+        :param period: (Optional) 查询周期，当前取值范围：“oneMin,fiveMin”，分别表示1min，5min。默认为空，表示fiveMin
         """
         self.period = period
 
-    def setGroupBy(self, groupBy):
+    def setCategory(self, category):
         """
-        :param groupBy: (Optional) 分组依据,只能按域名[domain]分组
+        :param category: (Optional) 业务类型
         """
-        self.groupBy = groupBy
+        self.category = category
 
-    def setCacheType(self, cacheType):
+    def setMacAddr(self, macAddr):
         """
-        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        :param macAddr: (Optional) 设备id
         """
-        self.cacheType = cacheType
+        self.macAddr = macAddr
+
+    def setPluginPin(self, pluginPin):
+        """
+        :param pluginPin: (Optional) 插件pin
+        """
+        self.pluginPin = pluginPin
 

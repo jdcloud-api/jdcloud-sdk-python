@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateRefreshTaskRequest(JDCloudRequest):
     """
-    创建刷新预热任务
+    创建刷新预热任务，
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -41,7 +41,7 @@ class CreateRefreshTaskParameters(object):
 
     def setTaskType(self, taskType):
         """
-        :param taskType: (Optional) 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)
+        :param taskType: (Optional) 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)，中国境外/全球加速域名暂不支持预热功能
         """
         self.taskType = taskType
 

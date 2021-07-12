@@ -19,8 +19,9 @@
 
 class UserLogInfoModel(object):
 
-    def __init__(self, domain=None, logFileFullPath=None, interval=None, logType=None, logSize=None, logMD5=None, startTime=None, endTime=None):
+    def __init__(self, pin=None, domain=None, logFileFullPath=None, interval=None, logType=None, logSize=None, logMD5=None, startTime=None, endTime=None):
         """
+        :param pin: (Optional) domain所归属pin
         :param domain: (Optional) 日志上传域名，如：www.a.com
         :param logFileFullPath: (Optional) 日志上传全路径，如：cdnuserlog/www.a.com/20190412/2019041200-01.gz
         :param interval: (Optional) 日志粒度：fiveMin(五分钟粒度),hour(一小时粒度),day(一天粒度)
@@ -31,6 +32,7 @@ class UserLogInfoModel(object):
         :param endTime: (Optional) 日志结束时间，格式：yyyy-MM-dd HH:ss 如：2019-04-12 00:05
         """
 
+        self.pin = pin
         self.domain = domain
         self.logFileFullPath = logFileFullPath
         self.interval = interval

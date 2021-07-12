@@ -49,6 +49,7 @@ class QueryLiveStatisticsDataParameters(object):
         self.scheme = None
         self.cacheLevel = None
         self.period = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -70,19 +71,19 @@ class QueryLiveStatisticsDataParameters(object):
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) app名
+        :param appName: (Optional) app名,查询的App名称，多个用逗号分隔。注意，传如多个AppName时，表示查询这些AppName的和值，即“或”的关系。默认为空，表示查询所有App
         """
         self.appName = appName
 
     def setStreamName(self, streamName):
         """
-        :param streamName: (Optional) 流名
+        :param streamName: (Optional) 流名,查询的流名称，多个用逗号分隔。注意，传如多个StreamName时，表示查询这些StreamName的和值，即“或”的关系。默认为空，表示查询所有Stream
         """
         self.streamName = streamName
 
     def setSubDomain(self, subDomain):
         """
-        :param subDomain: (Optional) 子域名
+        :param subDomain: (Optional) 子域名,查询泛域名时，指定的子域名列表，多个用逗号分隔。非泛域名时，传入空即可
         """
         self.subDomain = subDomain
 
@@ -94,31 +95,31 @@ class QueryLiveStatisticsDataParameters(object):
 
     def setArea(self, area):
         """
-        :param area: (Optional) 
+        :param area: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
         """
         self.area = area
 
     def setIsp(self, isp):
         """
-        :param isp: (Optional) 
+        :param isp: (Optional) 查询的运营商，cmcc,cnc,ct，表示移动、联通、电信。多个用逗号分隔
         """
         self.isp = isp
 
     def setReqMethod(self, reqMethod):
         """
-        :param reqMethod: (Optional) 
+        :param reqMethod: (Optional) 当前取值范围("GET,HEAD,forward,forward-hls,ingest,play,publish,detour-ingest,Forward-Origin")
         """
         self.reqMethod = reqMethod
 
     def setScheme(self, scheme):
         """
-        :param scheme: (Optional) 查询的流协议类型
+        :param scheme: (Optional) 查询的流协议类型,取值范围："rtmp,hdl,hls"，多个用逗号分隔，默认为空，表示查询所有协议。
         """
         self.scheme = scheme
 
     def setCacheLevel(self, cacheLevel):
         """
-        :param cacheLevel: (Optional) cacheLevel
+        :param cacheLevel: (Optional) cacheLevel,可选值：[L1,L2,L3]
         """
         self.cacheLevel = cacheLevel
 
@@ -127,4 +128,10 @@ class QueryLiveStatisticsDataParameters(object):
         :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
         """
         self.period = period
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

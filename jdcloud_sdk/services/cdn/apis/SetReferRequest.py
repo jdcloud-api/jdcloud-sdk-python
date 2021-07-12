@@ -51,7 +51,7 @@ class SetReferParameters(object):
 
     def setReferList(self, referList):
         """
-        :param referList: (Optional) 逗号隔开的域名列表，如果referList传空则为删除
+        :param referList: (Optional) 逗号隔开的域名列表，如果referList传空则为删除，中国境内加速域名至多可配置400条，中国境外/全球加速域名至多可配置50条
         """
         self.referList = referList
 

@@ -22,7 +22,7 @@ class DomainSourceInfo(object):
     def __init__(self, priority=None, sourceHost=None, domain=None):
         """
         :param priority: (Optional) 优先级（1-10）
-        :param sourceHost: (Optional) 回源host
+        :param sourceHost: (Optional) 自定义回源host，仅中国境内加速域名可配置
         :param domain: (Optional) 回源域名
         """
 

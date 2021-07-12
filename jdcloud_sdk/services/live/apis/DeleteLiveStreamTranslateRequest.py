@@ -19,30 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ConfigHttp2Request(JDCloudRequest):
+class DeleteLiveStreamTranslateRequest(JDCloudRequest):
     """
-    http2配置，中国境外/全球加速域名暂不支持该配置
+    删除流的翻译模板配置
+- 删除流级别翻译模板配置,重新推流后生效
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ConfigHttp2Request, self).__init__(
-            '/domain/{domain}/configHttp2', 'POST', header, version)
+        super(DeleteLiveStreamTranslateRequest, self).__init__(
+            '/translateStream/{publishDomain}/appNames/{appName}/streams/{streamName}/templates/{template}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class ConfigHttp2Parameters(object):
+class DeleteLiveStreamTranslateParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, publishDomain, appName, streamName, template, ):
         """
-        :param domain: 用户域名
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param streamName: 流名称
+        :param template: 翻译模板
         """
 
-        self.domain = domain
-        self.status = None
-
-    def setStatus(self, status):
-        """
-        :param status: (Optional) HTTP2功能开关，取值on/off
-        """
-        self.status = status
+        self.publishDomain = publishDomain
+        self.appName = appName
+        self.streamName = streamName
+        self.template = template
 

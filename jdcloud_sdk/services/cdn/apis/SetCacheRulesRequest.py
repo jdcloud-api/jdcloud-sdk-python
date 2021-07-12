@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ConfigHttp2Request(JDCloudRequest):
+class SetCacheRulesRequest(JDCloudRequest):
     """
-    http2配置，中国境外/全球加速域名暂不支持该配置
+    批量添加缓存规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ConfigHttp2Request, self).__init__(
-            '/domain/{domain}/configHttp2', 'POST', header, version)
+        super(SetCacheRulesRequest, self).__init__(
+            '/domain/{domain}/cacheRules', 'POST', header, version)
         self.parameters = parameters
 
 
-class ConfigHttp2Parameters(object):
+class SetCacheRulesParameters(object):
 
     def __init__(self, domain, ):
         """
@@ -38,11 +38,11 @@ class ConfigHttp2Parameters(object):
         """
 
         self.domain = domain
-        self.status = None
+        self.cacheRules = None
 
-    def setStatus(self, status):
+    def setCacheRules(self, cacheRules):
         """
-        :param status: (Optional) HTTP2功能开关，取值on/off
+        :param cacheRules: (Optional) 
         """
-        self.status = status
+        self.cacheRules = cacheRules
 

@@ -26,4 +26,4 @@ class LiveClient(JDCloudClient):
         if config is None:
             config = Config('live.jdcloud-api.com')
 
-        super(LiveClient, self).__init__(credential, config, 'live', '1.0.19', logger)
+        super(LiveClient, self).__init__(credential, config, 'live', '1.0.20', logger)

@@ -48,6 +48,7 @@ class QueryStatisticsDataGroupByAreaParameters(object):
         self.groupBy = None
         self.scheme = None
         self.abroad = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -69,7 +70,7 @@ class QueryStatisticsDataGroupByAreaParameters(object):
 
     def setSubDomain(self, subDomain):
         """
-        :param subDomain: (Optional) 待查询的子域名
+        :param subDomain: (Optional) 查询泛域名时，指定的子域名列表，多个用逗号分隔。非泛域名时，传入空即可
         """
         self.subDomain = subDomain
 
@@ -81,19 +82,19 @@ class QueryStatisticsDataGroupByAreaParameters(object):
 
     def setArea(self, area):
         """
-        :param area: (Optional) 
+        :param area: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
         """
         self.area = area
 
     def setIsp(self, isp):
         """
-        :param isp: (Optional) 
+        :param isp: (Optional) 查询的运营商，cmcc,cnc,ct，表示移动、联通、电信。多个用逗号分隔
         """
         self.isp = isp
 
     def setOrigin(self, origin):
         """
-        :param origin: (Optional) 
+        :param origin: (Optional) 是否查询回源统计信息。取值为true和false，默认为false。注意，如果查询回源信息，Fields的取值当前只支持oribandwidth，oripv，oricodestat三个，其余Fields忽略
         """
         self.origin = origin
 
@@ -105,7 +106,7 @@ class QueryStatisticsDataGroupByAreaParameters(object):
 
     def setGroupBy(self, groupBy):
         """
-        :param groupBy: (Optional) 分组依据
+        :param groupBy: (Optional) 分组依据,可选值：[terminal,sdtfrom],如果为空，则只按area/isp进行group
         """
         self.groupBy = groupBy
 
@@ -120,4 +121,10 @@ class QueryStatisticsDataGroupByAreaParameters(object):
         :param abroad: (Optional) true 代表查询境外数据，默认false查询境内数据
         """
         self.abroad = abroad
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

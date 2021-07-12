@@ -43,7 +43,7 @@ class CreateDomainGroupParameters(object):
 
     def setShareCache(self, shareCache):
         """
-        :param shareCache: (Optional) 是否共享内存
+        :param shareCache: (Optional) 是否共享内存，共享缓存仅对中国境内加速域名生效
         """
         self.shareCache = shareCache
 

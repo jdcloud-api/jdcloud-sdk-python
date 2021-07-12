@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class QueryStatisticsTopIpRequest(JDCloudRequest):
     """
-    查询TOP IP
+    查询TOP IP，仅可查询中国境内的相关信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -63,19 +63,19 @@ class QueryStatisticsTopIpParameters(object):
 
     def setSubDomain(self, subDomain):
         """
-        :param subDomain: (Optional) 待查询的子域名
+        :param subDomain: (Optional) 待查询的子域名,查询泛域名时，指定的子域名列表，多个用逗号分隔。非泛域名时，传入空即可
         """
         self.subDomain = subDomain
 
     def setSize(self, size):
         """
-        :param size: (Optional) 
+        :param size: (Optional) 查询的topN的条数，取值范围：1-100，默认为20
         """
         self.size = size
 
     def setTopBy(self, topBy):
         """
-        :param topBy: (Optional) 排序依据
+        :param topBy: (Optional) 排序依据,当前可选：pv,flow, 分别表示按pv、按流量topN ip，默认为"pv"
         """
         self.topBy = topBy
 

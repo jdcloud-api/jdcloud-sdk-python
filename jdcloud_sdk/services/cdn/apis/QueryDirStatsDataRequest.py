@@ -40,6 +40,7 @@ class QueryDirStatsDataParameters(object):
         self.endTime = None
         self.domain = None
         self.dirs = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -64,4 +65,10 @@ class QueryDirStatsDataParameters(object):
         :param dirs: (Optional) 需要过滤的目录
         """
         self.dirs = dirs
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

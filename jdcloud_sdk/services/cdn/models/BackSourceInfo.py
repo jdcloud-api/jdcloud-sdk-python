@@ -21,9 +21,9 @@ class BackSourceInfo(object):
 
     def __init__(self, ips=None, domain=None, ossSource=None):
         """
-        :param ips: (Optional) 
-        :param domain: (Optional) 
-        :param ossSource: (Optional) 
+        :param ips: (Optional) ip回源配置，对应sourceType=ips的取值
+        :param domain: (Optional) 域名回源配置，对应sourceType=domain的取值
+        :param ossSource: (Optional) oss回源配置，对应sourceType=oss的取值
         """
 
         self.ips = ips

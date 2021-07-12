@@ -19,35 +19,50 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRefreshTaskRequest(JDCloudRequest):
+class DescribeSystemLiveStreamTranslateTemplatesRequest(JDCloudRequest):
     """
-    创建刷新预热任务，
+    查询系统默认翻译模板列表
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRefreshTaskRequest, self).__init__(
-            '/task', 'POST', header, version)
+        super(DescribeSystemLiveStreamTranslateTemplatesRequest, self).__init__(
+            '/translateSystem', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateRefreshTaskParameters(object):
+class DescribeSystemLiveStreamTranslateTemplatesParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.taskType = None
-        self.urls = None
+        self.pageNum = None
+        self.pageSize = None
+        self.filters = None
 
-    def setTaskType(self, taskType):
+    def setPageNum(self, pageNum):
         """
-        :param taskType: (Optional) 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)，中国境外/全球加速域名暂不支持预热功能
-        """
-        self.taskType = taskType
+        :param pageNum: (Optional) 页码
+- 取值范围 [1, 100000]
 
-    def setUrls(self, urls):
         """
-        :param urls: (Optional) 
+        self.pageNum = pageNum
+
+    def setPageSize(self, pageSize):
         """
-        self.urls = urls
+        :param pageSize: (Optional) 分页大小
+- 取值范围 [10, 100]
+
+        """
+        self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 翻译模板查询过滤条件:
+  - name:   template 翻译模板名称
+  - value:  如果参数为空，则查询全部
+
+        """
+        self.filters = filters
 

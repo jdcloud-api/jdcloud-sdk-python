@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CheckWhetherIpBelongToJCloudRequest(JDCloudRequest):
     """
-    获取所有上层节点的ip
+    获取所有上层节点的ip，仅支持中国境内上层节点IP地址查询
     """
 
     def __init__(self, parameters, header=None, version="v1"):

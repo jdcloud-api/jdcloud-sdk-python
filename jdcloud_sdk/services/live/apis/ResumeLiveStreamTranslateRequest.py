@@ -19,30 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ConfigHttp2Request(JDCloudRequest):
+class ResumeLiveStreamTranslateRequest(JDCloudRequest):
     """
-    http2配置，中国境外/全球加速域名暂不支持该配置
+    恢复指定流的翻译任务
+- 恢复添加实时翻译字幕到指定流
+- 指定的流需在线且配置了翻译模板，同时处于翻译暂停状态
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ConfigHttp2Request, self).__init__(
-            '/domain/{domain}/configHttp2', 'POST', header, version)
+        super(ResumeLiveStreamTranslateRequest, self).__init__(
+            '/translate:resume', 'POST', header, version)
         self.parameters = parameters
 
 
-class ConfigHttp2Parameters(object):
+class ResumeLiveStreamTranslateParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, publishDomain, appName, streamName):
         """
-        :param domain: 用户域名
+        :param publishDomain: 推流域名
+        :param appName: APP名
+        :param streamName: 流名
         """
 
-        self.domain = domain
-        self.status = None
-
-    def setStatus(self, status):
-        """
-        :param status: (Optional) HTTP2功能开关，取值on/off
-        """
-        self.status = status
+        self.publishDomain = publishDomain
+        self.appName = appName
+        self.streamName = streamName
 

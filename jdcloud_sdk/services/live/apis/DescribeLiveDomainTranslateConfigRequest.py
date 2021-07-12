@@ -19,30 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ConfigHttp2Request(JDCloudRequest):
+class DescribeLiveDomainTranslateConfigRequest(JDCloudRequest):
     """
-    http2配置，中国境外/全球加速域名暂不支持该配置
+    查询域名下的翻译模板配置
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ConfigHttp2Request, self).__init__(
-            '/domain/{domain}/configHttp2', 'POST', header, version)
+        super(DescribeLiveDomainTranslateConfigRequest, self).__init__(
+            '/translateTemplates:domain', 'GET', header, version)
         self.parameters = parameters
 
 
-class ConfigHttp2Parameters(object):
+class DescribeLiveDomainTranslateConfigParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, ):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
-        self.status = None
+        self.filters = None
 
-    def setStatus(self, status):
+    def setFilters(self, filters):
         """
-        :param status: (Optional) HTTP2功能开关，取值on/off
+        :param filters: (Optional) 模板配置查询过滤条件:
+  - name:   publishDomain 必填(推流域名)
+  - value:  参数
+  - name:   level 非必填(Level)
+  - value:  参数，取值：domain,app,stream
+
         """
-        self.status = status
+        self.filters = filters
 

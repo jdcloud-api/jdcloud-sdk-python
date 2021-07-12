@@ -19,30 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ConfigHttp2Request(JDCloudRequest):
+class AddLiveStreamAppTranslateRequest(JDCloudRequest):
     """
-    http2配置，中国境外/全球加速域名暂不支持该配置
+    添加应用翻译配置
+- 添加应用级别的翻译模板配置
+- 一个应用最多可绑定一个翻译模板
+- 重新推流后生效
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ConfigHttp2Request, self).__init__(
-            '/domain/{domain}/configHttp2', 'POST', header, version)
+        super(AddLiveStreamAppTranslateRequest, self).__init__(
+            '/translateApps:config', 'POST', header, version)
         self.parameters = parameters
 
 
-class ConfigHttp2Parameters(object):
+class AddLiveStreamAppTranslateParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, publishDomain, appName, template):
         """
-        :param domain: 用户域名
+        :param publishDomain: 推流域名
+        :param appName: 应用名称
+        :param template: 翻译模版
+- 取值范围: 系统标准翻译模板, 用户自定义翻译模板
+- 系统标准翻译模板
+  system-zh-en (中译英)
+  system-en-zh (英译中)
+
         """
 
-        self.domain = domain
-        self.status = None
-
-    def setStatus(self, status):
-        """
-        :param status: (Optional) HTTP2功能开关，取值on/off
-        """
-        self.status = status
+        self.publishDomain = publishDomain
+        self.appName = appName
+        self.template = template
 

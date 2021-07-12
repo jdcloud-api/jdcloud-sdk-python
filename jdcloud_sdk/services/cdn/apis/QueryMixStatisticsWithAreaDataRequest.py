@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class QueryMixStatisticsWithAreaDataRequest(JDCloudRequest):
     """
-    分地区及运营商查询统计数据
+    分地区及运营商查询统计数据，仅可查询中国境内的相关信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -43,6 +43,7 @@ class QueryMixStatisticsWithAreaDataParameters(object):
         self.area = None
         self.isp = None
         self.period = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -70,13 +71,13 @@ class QueryMixStatisticsWithAreaDataParameters(object):
 
     def setArea(self, area):
         """
-        :param area: (Optional) 
+        :param area: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
         """
         self.area = area
 
     def setIsp(self, isp):
         """
-        :param isp: (Optional) 
+        :param isp: (Optional) 查询的运营商，cmcc,cnc,ct，表示移动、联通、电信。多个用逗号分隔
         """
         self.isp = isp
 
@@ -85,4 +86,10 @@ class QueryMixStatisticsWithAreaDataParameters(object):
         :param period: (Optional) 时间粒度，可选值:[oneMin,fiveMin,followTime],followTime只会返回一个汇总后的数据
         """
         self.period = period
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

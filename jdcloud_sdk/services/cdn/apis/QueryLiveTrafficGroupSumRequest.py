@@ -50,6 +50,7 @@ class QueryLiveTrafficGroupSumParameters(object):
         self.groupBy = None
         self.reqMethod = None
         self.cacheLevel = None
+        self.cacheType = None
 
     def setStartTime(self, startTime):
         """
@@ -71,19 +72,19 @@ class QueryLiveTrafficGroupSumParameters(object):
 
     def setSubDomain(self, subDomain):
         """
-        :param subDomain: (Optional) 
+        :param subDomain: (Optional) 查询泛域名时，指定的子域名列表，多个用逗号分隔。非泛域名时，传入空即可
         """
         self.subDomain = subDomain
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) app名
+        :param appName: (Optional) 查询的App名称，多个用逗号分隔。
         """
         self.appName = appName
 
     def setStreamName(self, streamName):
         """
-        :param streamName: (Optional) 流名
+        :param streamName: (Optional) 查询的流名称，多个用逗号分隔。
         """
         self.streamName = streamName
 
@@ -95,19 +96,19 @@ class QueryLiveTrafficGroupSumParameters(object):
 
     def setArea(self, area):
         """
-        :param area: (Optional) 
+        :param area: (Optional) 查询的区域，如beijing,shanghai。多个用逗号分隔
         """
         self.area = area
 
     def setIsp(self, isp):
         """
-        :param isp: (Optional) 
+        :param isp: (Optional) 查询的运营商，cmcc,cnc,ct，表示移动、联通、电信。多个用逗号分隔
         """
         self.isp = isp
 
     def setScheme(self, scheme):
         """
-        :param scheme: (Optional) 查询的流协议
+        :param scheme: (Optional) 查询的流协议，取值范围："rtmp,hdl,hls"，多个用逗号分隔，默认为空，表示查询所有协议。
         """
         self.scheme = scheme
 
@@ -119,19 +120,25 @@ class QueryLiveTrafficGroupSumParameters(object):
 
     def setGroupBy(self, groupBy):
         """
-        :param groupBy: (Optional) 分组依据
+        :param groupBy: (Optional) 分组依据，可选值：[appname,streamname,domain,area,isp,scheme]
         """
         self.groupBy = groupBy
 
     def setReqMethod(self, reqMethod):
         """
-        :param reqMethod: (Optional) 
+        :param reqMethod: (Optional) 当前取值范围("GET,HEAD,forward,forward-hls,ingest,play,publish,detour-ingest,Forward-Origin")
         """
         self.reqMethod = reqMethod
 
     def setCacheLevel(self, cacheLevel):
         """
-        :param cacheLevel: (Optional) cacheLevel
+        :param cacheLevel: (Optional) cacheLevel，可选值：[L1,L2,L3]
         """
         self.cacheLevel = cacheLevel
+
+    def setCacheType(self, cacheType):
+        """
+        :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
+        """
+        self.cacheType = cacheType
 

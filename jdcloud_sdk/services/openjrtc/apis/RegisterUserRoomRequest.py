@@ -19,28 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class RegisterUserRoomRequest(JDCloudRequest):
     """
-    创建房间
+    注册用户房间号-将业务接入方定义的userRoomId注册为jrtc系统内可识别和流转的房间号
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(RegisterUserRoomRequest, self).__init__(
+            '/registerUserRoom', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class RegisterUserRoomParameters(object):
 
     def __init__(self, ):
         """
         """
 
+        self.userRoomId = None
         self.roomName = None
         self.appId = None
         self.roomType = None
-        self.peerId = None
+
+    def setUserRoomId(self, userRoomId):
+        """
+        :param userRoomId: (Optional) 业务接入方定义的房间号
+        """
+        self.userRoomId = userRoomId
 
     def setRoomName(self, roomName):
         """
@@ -56,13 +62,7 @@ class CreateRoomParameters(object):
 
     def setRoomType(self, roomType):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅),默认取控制台APP对应的房间类型
         """
         self.roomType = roomType
-
-    def setPeerId(self, peerId):
-        """
-        :param peerId: (Optional) 用户ID(创建者ID)
-        """
-        self.peerId = peerId
 

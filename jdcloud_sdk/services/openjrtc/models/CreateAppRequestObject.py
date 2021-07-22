@@ -19,9 +19,11 @@
 
 class CreateAppRequestObject(object):
 
-    def __init__(self, appName=None):
+    def __init__(self, appName=None, roomType=None):
         """
         :param appName: (Optional) 应用名称
+        :param roomType: (Optional) 应用创建的默认房间类型 1-小房间；2-大房间
         """
 
         self.appName = appName
+        self.roomType = roomType

@@ -19,50 +19,38 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class RemoveUserByUserRoomIdRequest(JDCloudRequest):
     """
-    创建房间
+    移除房间内人员
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(RemoveUserByUserRoomIdRequest, self).__init__(
+            '/removeUserByUserRoomId/{appId}', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class RemoveUserByUserRoomIdParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, appId, ):
         """
+        :param appId: 应用ID
         """
 
-        self.roomName = None
-        self.appId = None
-        self.roomType = None
-        self.peerId = None
-
-    def setRoomName(self, roomName):
-        """
-        :param roomName: (Optional) 房间名称
-        """
-        self.roomName = roomName
-
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) 应用ID
-        """
         self.appId = appId
+        self.userRoomId = None
+        self.userIds = None
 
-    def setRoomType(self, roomType):
+    def setUserRoomId(self, userRoomId):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
         """
-        self.roomType = roomType
+        self.userRoomId = userRoomId
 
-    def setPeerId(self, peerId):
+    def setUserIds(self, userIds):
         """
-        :param peerId: (Optional) 用户ID(创建者ID)
+        :param userIds: (Optional) 接入方定义的userId列表,最多支持20个userId
         """
-        self.peerId = peerId
+        self.userIds = userIds
 

@@ -19,12 +19,13 @@
 
 class AppInfoObject(object):
 
-    def __init__(self, appId=None, appName=None, status=None, billType=None, createTime=None):
+    def __init__(self, appId=None, appName=None, status=None, roomType=None, billType=None, createTime=None):
         """
         :param appId: (Optional) 应用ID
         :param appName: (Optional) 应用名称
         :param status: (Optional) 应用状态: OPEN-启用, CLOSE-停用
 
+        :param roomType: (Optional) 应用默认创建的房间类型 1-小房间；2-大房间
         :param billType: (Optional) 计费类型: Duration-按时长
 
         :param createTime: (Optional) 创建时间(UTC)
@@ -33,5 +34,6 @@ class AppInfoObject(object):
         self.appId = appId
         self.appName = appName
         self.status = status
+        self.roomType = roomType
         self.billType = billType
         self.createTime = createTime

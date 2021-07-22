@@ -19,50 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class RemoveRoomUserRequest(JDCloudRequest):
     """
-    创建房间
+    移除房间内人员
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(RemoveRoomUserRequest, self).__init__(
+            '/roomUser/{appId}/removeUser/{roomId}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class RemoveRoomUserParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, appId, roomId, ):
         """
+        :param appId: 应用ID
+        :param roomId: 房间ID
         """
 
-        self.roomName = None
-        self.appId = None
-        self.roomType = None
-        self.peerId = None
-
-    def setRoomName(self, roomName):
-        """
-        :param roomName: (Optional) 房间名称
-        """
-        self.roomName = roomName
-
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) 应用ID
-        """
         self.appId = appId
+        self.roomId = roomId
+        self.peerIds = None
 
-    def setRoomType(self, roomType):
+    def setPeerIds(self, peerIds):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param peerIds: (Optional) peerId列表,最多支持20个peerId
         """
-        self.roomType = roomType
-
-    def setPeerId(self, peerId):
-        """
-        :param peerId: (Optional) 用户ID(创建者ID)
-        """
-        self.peerId = peerId
+        self.peerIds = peerIds
 

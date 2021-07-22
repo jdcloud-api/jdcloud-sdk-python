@@ -19,50 +19,57 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class CreateTokenRequest(JDCloudRequest):
     """
-    创建房间
+    生成token-用户加入房间时携带token校验通过后方能加入
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(CreateTokenRequest, self).__init__(
+            '/createToken', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class CreateTokenParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.roomName = None
         self.appId = None
-        self.roomType = None
-        self.peerId = None
-
-    def setRoomName(self, roomName):
-        """
-        :param roomName: (Optional) 房间名称
-        """
-        self.roomName = roomName
+        self.appKey = None
+        self.userId = None
+        self.userRoomId = None
+        self.timestamp = None
 
     def setAppId(self, appId):
         """
-        :param appId: (Optional) 应用ID
+        :param appId: (Optional) appId
         """
         self.appId = appId
 
-    def setRoomType(self, roomType):
+    def setAppKey(self, appKey):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param appKey: (Optional) appKey
         """
-        self.roomType = roomType
+        self.appKey = appKey
 
-    def setPeerId(self, peerId):
+    def setUserId(self, userId):
         """
-        :param peerId: (Optional) 用户ID(创建者ID)
+        :param userId: (Optional) 用户id
         """
-        self.peerId = peerId
+        self.userId = userId
+
+    def setUserRoomId(self, userRoomId):
+        """
+        :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
+        """
+        self.userRoomId = userRoomId
+
+    def setTimestamp(self, timestamp):
+        """
+        :param timestamp: (Optional) 时间戳-毫秒
+        """
+        self.timestamp = timestamp
 

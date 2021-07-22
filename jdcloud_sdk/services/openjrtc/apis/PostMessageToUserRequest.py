@@ -19,34 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class PostMessageToUserRequest(JDCloudRequest):
     """
-    创建房间
-
+    发送自定义信令给房间内的人员
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(PostMessageToUserRequest, self).__init__(
+            '/postMessageToUser', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class PostMessageToUserParameters(object):
 
     def __init__(self, ):
         """
         """
 
-        self.roomName = None
         self.appId = None
-        self.roomType = None
-        self.peerId = None
-
-    def setRoomName(self, roomName):
-        """
-        :param roomName: (Optional) 房间名称
-        """
-        self.roomName = roomName
+        self.userRoomId = None
+        self.userId = None
+        self.eventName = None
+        self.message = None
 
     def setAppId(self, appId):
         """
@@ -54,15 +48,27 @@ class CreateRoomParameters(object):
         """
         self.appId = appId
 
-    def setRoomType(self, roomType):
+    def setUserRoomId(self, userRoomId):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
         """
-        self.roomType = roomType
+        self.userRoomId = userRoomId
 
-    def setPeerId(self, peerId):
+    def setUserId(self, userId):
         """
-        :param peerId: (Optional) 用户ID(创建者ID)
+        :param userId: (Optional) 业务接入方用户体系定义的且在JRTC系统内注册过的userId
         """
-        self.peerId = peerId
+        self.userId = userId
+
+    def setEventName(self, eventName):
+        """
+        :param eventName: (Optional) 事件名称
+        """
+        self.eventName = eventName
+
+    def setMessage(self, message):
+        """
+        :param message: (Optional) 自定义信令消息
+        """
+        self.message = message
 

@@ -19,28 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateRoomRequest(JDCloudRequest):
+class UpdateUserRoomRequest(JDCloudRequest):
     """
-    创建房间
+    修改房间
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateRoomRequest, self).__init__(
-            '/createRoom', 'POST', header, version)
+        super(UpdateUserRoomRequest, self).__init__(
+            '/updateUserRoom/{appId}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class CreateRoomParameters(object):
+class UpdateUserRoomParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, appId, ):
         """
+        :param appId: 应用ID
         """
 
+        self.appId = appId
+        self.userRoomId = None
         self.roomName = None
-        self.appId = None
         self.roomType = None
-        self.peerId = None
+
+    def setUserRoomId(self, userRoomId):
+        """
+        :param userRoomId: (Optional) 用户房间号
+        """
+        self.userRoomId = userRoomId
 
     def setRoomName(self, roomName):
         """
@@ -48,21 +55,9 @@ class CreateRoomParameters(object):
         """
         self.roomName = roomName
 
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) 应用ID
-        """
-        self.appId = appId
-
     def setRoomType(self, roomType):
         """
-        :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param roomType: (Optional) 房间类型 1-小房间；2-大房间
         """
         self.roomType = roomType
-
-    def setPeerId(self, peerId):
-        """
-        :param peerId: (Optional) 用户ID(创建者ID)
-        """
-        self.peerId = peerId
 

@@ -19,7 +19,7 @@
 
 class ResourceBillQueryResultItem(object):
 
-    def __init__(self, billId=None, pin=None, appCode=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, region=None, regionName=None, billStartTime=None, billEndTime=None, startTime=None, endTime=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, arrearFee=None, timeSpan=None, timeUnit=None, opTypeName=None, timeSpanName=None, timeUnitName=None, settleTime=None, systemType=None, resourceName=None, tagDetails=None):
+    def __init__(self, billId=None, pin=None, appCode=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, region=None, regionName=None, billStartTime=None, billEndTime=None, startTime=None, endTime=None, totalFee=None, cashPayFee=None, cashCouponPayFee=None, balancePayFee=None, arrearFee=None, billFee2=None, discountFee=None, timeSpan=None, timeUnit=None, opTypeName=None, timeSpanName=None, timeUnitName=None, settleTime=None, systemType=None, resourceName=None, tagDetails=None):
         """
         :param billId: (Optional) 账单id
         :param pin: (Optional) 用户pin
@@ -40,6 +40,8 @@ class ResourceBillQueryResultItem(object):
         :param cashCouponPayFee: (Optional) 代金券支付金额
         :param balancePayFee: (Optional) 余额支付金额
         :param arrearFee: (Optional) 欠费金额
+        :param billFee2: (Optional) 原价
+        :param discountFee: (Optional) 优惠金额
         :param timeSpan: (Optional) 时间
         :param timeUnit: (Optional) 时间单位
         :param opTypeName: (Optional) 1：新购 2：续费 3：配置变更
@@ -70,6 +72,8 @@ class ResourceBillQueryResultItem(object):
         self.cashCouponPayFee = cashCouponPayFee
         self.balancePayFee = balancePayFee
         self.arrearFee = arrearFee
+        self.billFee2 = billFee2
+        self.discountFee = discountFee
         self.timeSpan = timeSpan
         self.timeUnit = timeUnit
         self.opTypeName = opTypeName

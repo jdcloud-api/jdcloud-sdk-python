@@ -19,7 +19,7 @@
 
 class Consumption(object):
 
-    def __init__(self, billingType=None, payType=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, groupTagValue=None):
+    def __init__(self, billingType=None, payType=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, billFee2=None, discountFee=None, groupTagValue=None):
         """
         :param billingType: (Optional) 计费类型
         :param payType: (Optional) 支付类型
@@ -28,6 +28,8 @@ class Consumption(object):
         :param balancePayFee: (Optional) 余额支付
         :param cashCouponPayFee: (Optional) 优惠券支付金额
         :param arrearFee: (Optional) 欠费金额
+        :param billFee2: (Optional) 原价
+        :param discountFee: (Optional) 优惠金额
         :param groupTagValue: (Optional) 分组显示值
         """
 
@@ -38,4 +40,6 @@ class Consumption(object):
         self.balancePayFee = balancePayFee
         self.cashCouponPayFee = cashCouponPayFee
         self.arrearFee = arrearFee
+        self.billFee2 = billFee2
+        self.discountFee = discountFee
         self.groupTagValue = groupTagValue

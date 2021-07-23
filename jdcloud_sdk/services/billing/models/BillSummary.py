@@ -22,20 +22,20 @@ class BillSummary(object):
     def __init__(self, pin=None, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, billingType=None, billingTypeName=None, resourceId=None, resourceName=None, region=None, actionTypeName=None, formula=None, startTime=None, endTime=None, billTime=None, totalFee=None, discountFee=None, realTotalFee=None, cashCouponPayFee=None, balancePayFee=None, cashPayFee=None, arrearFee=None, tagDetails=None):
         """
         :param pin: (Optional) 用户pin
-        :param appCode: (Optional) appCode
+        :param appCode: (Optional) 产品线代码
         :param appCodeName: (Optional) 产品线代码名称
-        :param serviceCode: (Optional) serviceCode
+        :param serviceCode: (Optional) 产品代码
         :param serviceCodeName: (Optional) 产品代码名称
         :param billingType: (Optional) 计费类型
         :param billingTypeName: (Optional) 计费类型描述
         :param resourceId: (Optional) 资源id
         :param resourceName: (Optional) 资源名称
         :param region: (Optional) 区域
-        :param actionTypeName: (Optional) 费用类型
+        :param actionTypeName: (Optional) 费用类型,仅用于查询帐单明细接口。取值:[新购、续费、配置变更、退订、按量费用]
         :param formula: (Optional) 规格
         :param startTime: (Optional) 计费开始时间
         :param endTime: (Optional) 计费结束时间
-        :param billTime: (Optional) 账单生成时间
+        :param billTime: (Optional) 账单生成时间,仅用于查询帐单明细接口
         :param totalFee: (Optional) 账单总额
         :param discountFee: (Optional) 优惠金额
         :param realTotalFee: (Optional) 优惠后总价金额

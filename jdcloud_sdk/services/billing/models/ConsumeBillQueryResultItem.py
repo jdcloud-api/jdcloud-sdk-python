@@ -34,7 +34,7 @@ class ConsumeBillQueryResultItem(object):
         :param billEnd: (Optional) 账单结束时间
         :param settleTime: (Optional) 结算时间
         :param billTime: (Optional) 账单日期
-        :param billFee: (Optional) 账单金额
+        :param billFee: (Optional) 账单金额/原价
         :param totalFee: (Optional) 账单总额
         :param cashPayFee: (Optional) 现金支付金额
         :param cashCouponPayFee: (Optional) 代金券支付金额

@@ -22,14 +22,14 @@ class ResourceOrderQueryCondition(object):
     def __init__(self, id=None, pin=None, resourceId=None, appCode=None, serviceCodeList=None, region=None, networkOperator=None, billingType=None, resourceIdList=None, expireInDays=None, isOnTrial=None, site=None, status=None, billingStatus=None, expiringInDays=None, billingTypeList=None, transactionNos=None, opTypes=None, startTime=None, endTime=None, serviceCode=None, statusList=None, excludeResources=None, orderByClaus=None, node=None, departmentId=None, pinList=None, isSpecial=None, nodeCode=None, timeout=None, pageIndex=None, pageSize=None, offset=None):
         """
         :param id: (Optional) 主键id
-        :param pin: (Optional) 用户pin
-        :param resourceId: (Optional) 资源id
+        :param pin: (Optional) 用户pin(pin、resourceId、resourceIdList 必传一个)
+        :param resourceId: (Optional) 资源id(pin、resourceId、resourceIdList 必传一个)
         :param appCode: (Optional) appCode
         :param serviceCodeList: (Optional) 产品码列表
         :param region: (Optional) 地域
         :param networkOperator: (Optional) 网络类型 0: non-BGP, 1: BGP
         :param billingType: (Optional) 计费类型 1:按配置 2:按用量 3:包年包月
-        :param resourceIdList: (Optional) resourceIdList
+        :param resourceIdList: (Optional) resourceIdList(pin、resourceId、resourceIdList 必传一个)
         :param expireInDays: (Optional) >0: 订单还有几天到期; ==0: 订单已经到期; <0: 不管是否到期
         :param isOnTrial: (Optional) isOnTrial
         :param site: (Optional) 站点信息 0:中国 1:国际

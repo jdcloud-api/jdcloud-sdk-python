@@ -19,11 +19,13 @@
 
 class ClusterInfo(object):
 
-    def __init__(self, proxies=None, shards=None):
+    def __init__(self, proxies=None, shards=None, redis=None):
         """
-        :param proxies: (Optional) proxy列表
-        :param shards: (Optional) shard列表
+        :param proxies: (Optional) 代理列表
+        :param shards: (Optional) 分片列表
+        :param redis: (Optional) redis列表
         """
 
         self.proxies = proxies
         self.shards = shards
+        self.redis = redis

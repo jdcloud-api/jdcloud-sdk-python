@@ -19,11 +19,11 @@
 
 class InstanceVpcIp(object):
 
-    def __init__(self, proxy=None, shards=None):
+    def __init__(self, proxies=None, shards=None):
         """
-        :param proxy: (Optional) proxy列表
-        :param shards: (Optional) 分片信息
+        :param proxies: (Optional) 代理列表
+        :param shards: (Optional) 分片列表
         """
 
-        self.proxy = proxy
+        self.proxies = proxies
         self.shards = shards

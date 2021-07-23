@@ -19,12 +19,12 @@
 
 class CacheInstance(object):
 
-    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, auth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, shardNumber=None, memoryMBPerShard=None):
+    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, auth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, shardNumber=None, memoryMBPerShard=None, extension=None):
         """
         :param cacheInstanceId: (Optional) 实例ID
         :param cacheInstanceName: (Optional) 实例名称
         :param cacheInstanceClass: (Optional) 规格代码，2.8、4.0标准版是实例规格，4.0自定义分片集群版实例表示单分片规格
-        :param cacheInstanceMemoryMB: (Optional) 实例的总内存（MB）
+        :param cacheInstanceMemoryMB: (Optional) 实例的总内存（MB），表示用户购买的可使用内存
         :param cacheInstanceStatus: (Optional) 实例状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中
         :param cacheInstanceDescription: (Optional) 实例描述
         :param createTime: (Optional) 创建时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
@@ -42,6 +42,7 @@ class CacheInstance(object):
         :param tags: (Optional) 标签信息
         :param shardNumber: (Optional) 实例分片数，标准版固定为1，自定义分片集群版实例分片数由用户创建时选择，其他实例为固定分片数
         :param memoryMBPerShard: (Optional) 单分片内存大小（MB）
+        :param extension: (Optional) 扩展配置
         """
 
         self.cacheInstanceId = cacheInstanceId
@@ -65,3 +66,4 @@ class CacheInstance(object):
         self.tags = tags
         self.shardNumber = shardNumber
         self.memoryMBPerShard = memoryMBPerShard
+        self.extension = extension

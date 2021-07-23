@@ -19,27 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCacheAnalysisResultRequest(JDCloudRequest):
+class DescribeTaskProgressListRequest(JDCloudRequest):
     """
-    查询缓存分析任务详情，最多查询到30天前的数据
+    查询正在执行的任务进度列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCacheAnalysisResultRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/cacheAnalysis/{taskId}', 'GET', header, version)
+        super(DescribeTaskProgressListRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/taskProgress', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeCacheAnalysisResultParameters(object):
+class DescribeTaskProgressListParameters(object):
 
-    def __init__(self, regionId, cacheInstanceId, taskId, ):
+    def __init__(self, regionId, cacheInstanceId, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
-        :param taskId: 任务ID，即request ID
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.taskId = taskId
+        self.taskType = None
+
+    def setTaskType(self, taskType):
+        """
+        :param taskType: (Optional) 任务类型：resize表示变配，目前只有变配可以查询进度
+        """
+        self.taskType = taskType
 

@@ -19,11 +19,11 @@
 
 class RedisShard(object):
 
-    def __init__(self, master=None, slave=None):
+    def __init__(self, master=None, slaves=None):
         """
         :param master: (Optional) master节点
-        :param slave: (Optional) slave列表
+        :param slaves: (Optional) slave节点列表
         """
 
         self.master = master
-        self.slave = slave
+        self.slaves = slaves

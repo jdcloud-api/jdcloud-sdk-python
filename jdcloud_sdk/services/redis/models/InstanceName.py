@@ -19,13 +19,15 @@
 
 class InstanceName(object):
 
-    def __init__(self, resourceId, resourceName, serviceCode, ):
+    def __init__(self, resourceId, resourceName, serviceCode, resourceStatus=None):
         """
         :param resourceId:  资源id（即实例id）
         :param resourceName:  资源名称（即实例名称）
+        :param resourceStatus: (Optional) 资源状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中
         :param serviceCode:  service code（redis）
         """
 
         self.resourceId = resourceId
         self.resourceName = resourceName
+        self.resourceStatus = resourceStatus
         self.serviceCode = serviceCode

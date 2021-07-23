@@ -19,7 +19,7 @@
 
 class CacheInstanceSpec(object):
 
-    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None):
+    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None, userTags=None, extension=None):
         """
         :param vpcId:  缓存Redis实例所属的私有网络ID
         :param subnetId:  缓存Redis实例在私有网络下所属的子网ID
@@ -31,6 +31,8 @@ class CacheInstanceSpec(object):
         :param redisVersion: (Optional) 缓存Redis引擎主次版本号：目前支持2.8和4.0，默认为2.8
         :param ipv6On: (Optional) 是否支持IPv6，0或空表示不支持，1表示支持IPv6，注意不是所有区域都支持IPv6，且必须保证VPC支持IPv6
         :param shardNumber: (Optional) 分片数，自定义分片规格集群版实例必须有，且大于1。每种分片规格支持的分片数可调用describeSpecConfig接口获取
+        :param userTags: (Optional) 用户普通标签
+        :param extension: (Optional) 扩展配置
         """
 
         self.vpcId = vpcId
@@ -43,3 +45,5 @@ class CacheInstanceSpec(object):
         self.redisVersion = redisVersion
         self.ipv6On = ipv6On
         self.shardNumber = shardNumber
+        self.userTags = userTags
+        self.extension = extension

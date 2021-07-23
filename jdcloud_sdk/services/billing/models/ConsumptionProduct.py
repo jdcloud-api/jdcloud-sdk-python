@@ -19,7 +19,7 @@
 
 class ConsumptionProduct(object):
 
-    def __init__(self, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, productDetails=None, productDetailList=None, groupTagValue=None):
+    def __init__(self, appCode=None, appCodeName=None, serviceCode=None, serviceCodeName=None, actualFee=None, cashPayFee=None, balancePayFee=None, cashCouponPayFee=None, arrearFee=None, billFee2=None, discountFee=None, productDetails=None, productDetailList=None, groupTagValue=None):
         """
         :param appCode: (Optional) appCode
         :param appCodeName: (Optional) appCodeName
@@ -30,6 +30,8 @@ class ConsumptionProduct(object):
         :param balancePayFee: (Optional) 余额支付
         :param cashCouponPayFee: (Optional) 代金券支付金额
         :param arrearFee: (Optional) 欠费金额
+        :param billFee2: (Optional) 原价
+        :param discountFee: (Optional) 优惠金额
         :param productDetails: (Optional) 
         :param productDetailList: (Optional) 
         :param groupTagValue: (Optional) 分组显示值
@@ -44,6 +46,8 @@ class ConsumptionProduct(object):
         self.balancePayFee = balancePayFee
         self.cashCouponPayFee = cashCouponPayFee
         self.arrearFee = arrearFee
+        self.billFee2 = billFee2
+        self.discountFee = discountFee
         self.productDetails = productDetails
         self.productDetailList = productDetailList
         self.groupTagValue = groupTagValue

@@ -21,16 +21,16 @@ class OrderPriceProtocol(object):
 
     def __init__(self, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, formulaStr=None, pin=None, count=None, startTime=None, endTime=None, taskId=None, sourceId=None):
         """
-        :param resourceId: (Optional) 资源id
+        :param resourceId: (Optional) 资源id(新购时不传，升降配、续费必须传)
         :param appCode: (Optional) 业务线
-        :param serviceCode: (Optional) 产品线
+        :param serviceCode: (Optional) 产品线(必传)
         :param site: (Optional) 站点信息 0：主站  其他：专有云
-        :param region: (Optional) 地域
-        :param billingType: (Optional) 计费类型 1:按配置 2:按用量 3:包年包月
-        :param timeSpan: (Optional) 时长
-        :param timeUnit: (Optional) 时长类型 0:无(非包年包月) 1:小时 2:天 3:月 4:年
+        :param region: (Optional) 地域(新购、升降配必传)
+        :param billingType: (Optional) 计费类型 1:按配置 2:按用量 3:包年包月(必传) 4:按次计费
+        :param timeSpan: (Optional) 时长(包年包月新购、续费必传)
+        :param timeUnit: (Optional) 时长类型 0:无(非包年包月) 1:小时 2:天 3:月 4:年(包年包月新购、续费必传)
         :param networkOperator: (Optional) 网络类型 0:non 1:非BGP  2:BGP
-        :param formula: (Optional) 计算公式（配置细项）
+        :param formula: (Optional) 计算公式（配置细项）(新购、升降配必传)
         :param formulaStr: (Optional) 配置细项
         :param pin: (Optional) 用户pin
         :param count: (Optional) 具体商品数量，默认为1

@@ -47,6 +47,9 @@ class CalculateTotalPriceParameters(object):
         self.clientType = None
         self.packageCount = packageCount
         self.processType = None
+        self.renewMode = None
+        self.unifyExpireDay = None
+        self.totalPriceRule = None
 
     def setOrderList(self, orderList):
         """
@@ -56,7 +59,7 @@ class CalculateTotalPriceParameters(object):
 
     def setOperateTime(self, operateTime):
         """
-        :param operateTime: (Optional) 操作时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param operateTime: (Optional) 操作时间(格式为：yyyy-MM-dd HH:mm:ss)
         """
         self.operateTime = operateTime
 
@@ -77,4 +80,22 @@ class CalculateTotalPriceParameters(object):
         :param processType: (Optional) 临时升配时必传，3-临时升配
         """
         self.processType = processType
+
+    def setRenewMode(self, renewMode):
+        """
+        :param renewMode: (Optional) 续费方式 0：正常续费  1：续费至统一到期日，续费时必传
+        """
+        self.renewMode = renewMode
+
+    def setUnifyExpireDay(self, unifyExpireDay):
+        """
+        :param unifyExpireDay: (Optional) 续费统一到期日(1-28)，续费时必传
+        """
+        self.unifyExpireDay = unifyExpireDay
+
+    def setTotalPriceRule(self, totalPriceRule):
+        """
+        :param totalPriceRule: (Optional) 计算总价规则 1：计算预付费资源总价（计费类型为包年包月、按次） ；不传计算所有资源总价
+        """
+        self.totalPriceRule = totalPriceRule
 

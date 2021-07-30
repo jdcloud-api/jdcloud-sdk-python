@@ -36,12 +36,19 @@ class AsyncVideoScanParameters(object):
         """
         """
 
+        self.bizType = None
         self.live = None
         self.scenes = None
         self.audioScenes = None
         self.tasks = None
         self.callback = None
         self.seed = None
+
+    def setBizType(self, bizType):
+        """
+        :param bizType: (Optional) 机审策略，eg: default
+        """
+        self.bizType = bizType
 
     def setLive(self, live):
         """

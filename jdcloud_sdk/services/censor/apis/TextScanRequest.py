@@ -36,8 +36,15 @@ class TextScanParameters(object):
         """
         """
 
+        self.bizType = None
         self.scenes = None
         self.tasks = None
+
+    def setBizType(self, bizType):
+        """
+        :param bizType: (Optional) 机审策略，eg: default
+        """
+        self.bizType = bizType
 
     def setScenes(self, scenes):
         """

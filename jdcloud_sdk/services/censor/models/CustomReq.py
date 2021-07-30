@@ -19,7 +19,7 @@
 
 class CustomReq(object):
 
-    def __init__(self, resourceType, name, scenes, suggestion, censorType=None, websiteInstanceId=None, matchType=None, status=None, libId=None, source=None):
+    def __init__(self, resourceType, name, scenes, suggestion, censorType=None, websiteInstanceId=None, matchType=None, status=None, libId=None, source=None, bizType=None):
         """
         :param censorType: (Optional) 检测类型，api/oss/website,默认api
         :param websiteInstanceId: (Optional) 站点检查实例Id，多个以 , 分割；当censorType为website时，该参数必填
@@ -31,6 +31,7 @@ class CustomReq(object):
         :param status: (Optional) 状态 1启用，0禁用,默认 1启用
         :param libId: (Optional) 敏感库id，更新时该参数必填
         :param source: (Optional) 敏感库来源：custom自定义，feedback系统库，更新时该参数必填
+        :param bizType: (Optional) 机审策略，可以不填，为空时前端显示空即可
         """
 
         self.censorType = censorType
@@ -43,3 +44,4 @@ class CustomReq(object):
         self.status = status
         self.libId = libId
         self.source = source
+        self.bizType = bizType

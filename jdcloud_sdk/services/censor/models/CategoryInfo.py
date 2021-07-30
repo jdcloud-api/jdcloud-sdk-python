@@ -21,7 +21,7 @@ class CategoryInfo(object):
 
     def __init__(self, categories=None, hintThreshold=None, confirmThreshold=None):
         """
-        :param categories: (Optional) 用户勾选的子项，智能鉴黄子项(porn色情，sexy性感，vulgar低俗)，涉政暴恐子项(politics涉政，terrorist涉恐人物，explosion爆炸烟光，weapon武器，riot暴乱，flag旗帜)，图文广告子项(politics文字含涉政，porn文字含涉黄，terrorism文字含暴恐，qrcode二维码，barcode条形码，contact联系方式)
+        :param categories: (Optional) 图片智能鉴黄子项(porn色情，sexy性感，vulgar低俗)，图片涉政暴恐子项(politics涉政，terrorist涉恐人物，explosion爆炸烟光，weapon武器，riot暴乱，flag旗帜)，图片图文广告子项(politics文字含涉政，porn文字含涉黄，terrorism文字含暴恐，qrcode二维码，barcode条形码，contact联系方式)，文本反垃圾子项（porn色情，politics涉政，terrorism涉恐，abuse辱骂，ad广告，illegal违禁，unuse灌水）语音反垃圾子项（porn色情，politics涉政，terrorism涉恐）视频涉黄检测porn（无子项），视频涉政暴恐terrorism（无子项）视频图文违规ad（无子项）
         :param hintThreshold: (Optional) 疑似分值
         :param confirmThreshold: (Optional) 违规分值
         """

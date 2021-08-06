@@ -42,6 +42,7 @@ class DescribeInterceptResultParameters(object):
         self.instanceId = instanceId
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -54,4 +55,12 @@ class DescribeInterceptResultParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and);
+支持以下属性的过滤：account,database,keyword; 支持operator选项：eq,in; 仅支持 MySQL，Percona，MariaDB
+
+        """
+        self.filters = filters
 

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyAccountForOpsRequest(JDCloudRequest):
+class ModifyInstanceMaintainTimeRequest(JDCloudRequest):
     """
-    修改数据库临时运维账号属性。<br>- 仅支持 MySQL，Percona，MariaDB
+    修改实例的可维护时间。实例可维护时间段一般设置为业务的低峰时间段。京东云会在您设置的可维护时间段内进行实例维护，保证对业务的影响降到最低。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyAccountForOpsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accountsForOps', 'PUT', header, version)
+        super(ModifyInstanceMaintainTimeRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:modifyInstanceMaintainTime', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyAccountForOpsParameters(object):
+class ModifyInstanceMaintainTimeParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
@@ -40,18 +40,18 @@ class ModifyAccountForOpsParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.expiredTime = None
-        self.globalPrivileges = None
+        self.maintainTime = None
+        self.maintainPeriod = None
 
-    def setExpiredTime(self, expiredTime):
+    def setMaintainTime(self, maintainTime):
         """
-        :param expiredTime: (Optional) 运维账号到期时间，UTC时间格式
+        :param maintainTime: (Optional) 实例的可维护时间段。格式：HH:mm-HH:mm，取值为一个小时整点
         """
-        self.expiredTime = expiredTime
+        self.maintainTime = maintainTime
 
-    def setGlobalPrivileges(self, globalPrivileges):
+    def setMaintainPeriod(self, maintainPeriod):
         """
-        :param globalPrivileges: (Optional) 
+        :param maintainPeriod: (Optional) 选择维护周期，可选择一周中的某一天或多天
         """
-        self.globalPrivileges = globalPrivileges
+        self.maintainPeriod = maintainPeriod
 

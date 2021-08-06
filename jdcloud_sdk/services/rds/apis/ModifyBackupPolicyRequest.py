@@ -43,6 +43,7 @@ class ModifyBackupPolicyParameters(object):
         self.startWindow = None
         self.binlogRetentionPeriod = None
         self.binlogUsageLimit = None
+        self.binlogSpaceProtection = None
         self.retentionPeriod = None
         self.cycleMode = None
 
@@ -63,6 +64,12 @@ class ModifyBackupPolicyParameters(object):
         :param binlogUsageLimit: (Optional) binlog本地占用空间上限，单位%，范围1-50
         """
         self.binlogUsageLimit = binlogUsageLimit
+
+    def setBinlogSpaceProtection(self, binlogSpaceProtection):
+        """
+        :param binlogSpaceProtection: (Optional) 设置空间保护，开启：on，关闭：off <br>- 仅支持MySQL
+        """
+        self.binlogSpaceProtection = binlogSpaceProtection
 
     def setRetentionPeriod(self, retentionPeriod):
         """

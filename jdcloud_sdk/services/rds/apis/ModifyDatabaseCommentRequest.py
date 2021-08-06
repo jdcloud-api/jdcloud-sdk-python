@@ -19,39 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyAccountForOpsRequest(JDCloudRequest):
+class ModifyDatabaseCommentRequest(JDCloudRequest):
     """
-    修改数据库临时运维账号属性。<br>- 仅支持 MySQL，Percona，MariaDB
+    修改数据库备注，仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyAccountForOpsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accountsForOps', 'PUT', header, version)
+        super(ModifyDatabaseCommentRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/databases/{dbName}:modifyDatabaseComment', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyAccountForOpsParameters(object):
+class ModifyDatabaseCommentParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, dbName, comment):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param dbName: 库名称
+        :param comment: 数据库的备注信息，支持中午，ASCII字符，最大长度64
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.expiredTime = None
-        self.globalPrivileges = None
-
-    def setExpiredTime(self, expiredTime):
-        """
-        :param expiredTime: (Optional) 运维账号到期时间，UTC时间格式
-        """
-        self.expiredTime = expiredTime
-
-    def setGlobalPrivileges(self, globalPrivileges):
-        """
-        :param globalPrivileges: (Optional) 
-        """
-        self.globalPrivileges = globalPrivileges
+        self.dbName = dbName
+        self.comment = comment
 

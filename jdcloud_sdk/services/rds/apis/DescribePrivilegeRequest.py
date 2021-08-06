@@ -41,10 +41,17 @@ class DescribePrivilegeParameters(object):
         self.regionId = regionId
         self.engine = engine
         self.instanceId = None
+        self.allAdminPrivileges = None
 
     def setInstanceId(self, instanceId):
         """
         :param instanceId: (Optional) RDS 实例ID，唯一标识一个RDS实例
         """
         self.instanceId = instanceId
+
+    def setAllAdminPrivileges(self, allAdminPrivileges):
+        """
+        :param allAdminPrivileges: (Optional) true表示展示高权限，默认false
+        """
+        self.allAdminPrivileges = allAdminPrivileges
 

@@ -19,13 +19,14 @@
 
 class DBInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None, activeDirectory=None, roInstanceProxyID=None, roInstanceProxyName=None, readWriteProxyId=None, syncTaskId=None, instanceVip=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, minorVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None, activeDirectory=None, roInstanceProxyID=None, roInstanceProxyName=None, readWriteProxyId=None, syncTaskId=None, instanceVip=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param instanceType: (Optional) 实例类型，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param engine: (Optional) 实例引擎类型，如MySQL或SQL Server等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param engineVersion: (Optional) 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param minorVersion: (Optional) 实例引擎的小版本
         :param instanceClass: (Optional) 实例规格代码
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param storageEncrypted: (Optional) 实例数据加密. false：不加密; true：加密
@@ -65,6 +66,7 @@ class DBInstanceAttribute(object):
         self.instanceType = instanceType
         self.engine = engine
         self.engineVersion = engineVersion
+        self.minorVersion = minorVersion
         self.instanceClass = instanceClass
         self.instanceStorageType = instanceStorageType
         self.storageEncrypted = storageEncrypted

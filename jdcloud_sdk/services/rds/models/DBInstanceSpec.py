@@ -19,7 +19,7 @@
 
 class DBInstanceSpec(object):
 
-    def __init__(self, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None):
+    def __init__(self, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None, tagSpec=None):
         """
         :param instanceName: (Optional) 实例名，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param engine:  实例引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
@@ -35,6 +35,7 @@ class DBInstanceSpec(object):
         :param instancePort: (Optional) 应用访问端口，支持的端口范围：1150～5999。MySQL、Percona、MariaDB的默认值为 3306；SQL SQL Server的默认值为1433，不支持5022；PostgreSQL的默认端口号为5432；
         :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false<br>- 仅支持MySQL
         :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster<br>- 仅支持SQL Server
+        :param tagSpec: (Optional) 标签信息
         """
 
         self.instanceName = instanceName
@@ -51,3 +52,4 @@ class DBInstanceSpec(object):
         self.instancePort = instancePort
         self.storageEncrypted = storageEncrypted
         self.instanceType = instanceType
+        self.tagSpec = tagSpec

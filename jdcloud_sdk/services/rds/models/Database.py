@@ -19,12 +19,13 @@
 
 class Database(object):
 
-    def __init__(self, dbName=None, dbStatus=None, characterSetName=None, createTime=None, accessPrivilege=None):
+    def __init__(self, dbName=None, dbStatus=None, characterSetName=None, createTime=None, comment=None, accessPrivilege=None):
         """
         :param dbName: (Optional) 数据库名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param dbStatus: (Optional) 数据库状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)<br>- **MySQL：不支持，不返回该字段**<br>- **SQL Server：返回该字段**
         :param characterSetName: (Optional) 字符集，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param createTime: (Optional) 数据库创建时间，格式YYYY-MM-DD HH:mm:ss<br>- 仅支持SQL Server
+        :param comment: (Optional) 数据库备注<br>- 仅支持MySQL
         :param accessPrivilege: (Optional) 该数据库相关账户权限列表
         """
 
@@ -32,4 +33,5 @@ class Database(object):
         self.dbStatus = dbStatus
         self.characterSetName = characterSetName
         self.createTime = createTime
+        self.comment = comment
         self.accessPrivilege = accessPrivilege

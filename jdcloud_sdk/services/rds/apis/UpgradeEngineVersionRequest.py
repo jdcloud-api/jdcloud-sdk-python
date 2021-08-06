@@ -19,39 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyAccountForOpsRequest(JDCloudRequest):
+class UpgradeEngineVersionRequest(JDCloudRequest):
     """
-    修改数据库临时运维账号属性。<br>- 仅支持 MySQL，Percona，MariaDB
+    升级引擎版本，例如从5.7.21 升级到5.7.24，仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyAccountForOpsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accountsForOps', 'PUT', header, version)
+        super(UpgradeEngineVersionRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:upgradeEngineVersion', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyAccountForOpsParameters(object):
+class UpgradeEngineVersionParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, upgradeSchedule, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param upgradeSchedule: 计划开始升级的时间，1：立即开始升级，2：维护时间窗口升级，0：取消升级
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.expiredTime = None
-        self.globalPrivileges = None
+        self.upgradeSchedule = upgradeSchedule
+        self.newVersion = None
 
-    def setExpiredTime(self, expiredTime):
+    def setNewVersion(self, newVersion):
         """
-        :param expiredTime: (Optional) 运维账号到期时间，UTC时间格式
+        :param newVersion: (Optional) 升级到的新版本，默认为当前实例可升级到的最新版本
         """
-        self.expiredTime = expiredTime
-
-    def setGlobalPrivileges(self, globalPrivileges):
-        """
-        :param globalPrivileges: (Optional) 
-        """
-        self.globalPrivileges = globalPrivileges
+        self.newVersion = newVersion
 

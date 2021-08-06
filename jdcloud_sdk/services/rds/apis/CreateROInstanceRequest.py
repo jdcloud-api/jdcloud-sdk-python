@@ -55,6 +55,7 @@ class CreateROInstanceParameters(object):
         self.storageEncrypted = None
         self.count = None
         self.roInstanceProxy = None
+        self.tagSpec = None
 
     def setInstanceStorageType(self, instanceStorageType):
         """
@@ -97,4 +98,10 @@ class CreateROInstanceParameters(object):
         :param roInstanceProxy: (Optional) 只读代理服务的ID，缺省值为 “NULL”，表示不绑定代理服务
         """
         self.roInstanceProxy = roInstanceProxy
+
+    def setTagSpec(self, tagSpec):
+        """
+        :param tagSpec: (Optional) 标签信息
+        """
+        self.tagSpec = tagSpec
 

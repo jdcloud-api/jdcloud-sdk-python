@@ -48,6 +48,7 @@ class DescribeSlowLogsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.sorts = None
 
     def setDbName(self, dbName):
         """
@@ -72,4 +73,10 @@ class DescribeSlowLogsParameters(object):
         :param filters: (Optional) 
         """
         self.filters = filters
+
+    def setSorts(self, sorts):
+        """
+        :param sorts: (Optional) 排序参数，支持rowsExaminedSum、rowsSentSum、lockTimeSum、executionCount、executionTimeSum
+        """
+        self.sorts = sorts
 

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyAccountForOpsRequest(JDCloudRequest):
+class DescribeUpgradeVersionsRequest(JDCloudRequest):
     """
-    修改数据库临时运维账号属性。<br>- 仅支持 MySQL，Percona，MariaDB
+    获取当前数据库可升级到的版本，仅支持MySQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyAccountForOpsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/accountsForOps', 'PUT', header, version)
+        super(DescribeUpgradeVersionsRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:describeUpgradeVersions', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyAccountForOpsParameters(object):
+class DescribeUpgradeVersionsParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
@@ -40,18 +40,4 @@ class ModifyAccountForOpsParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.expiredTime = None
-        self.globalPrivileges = None
-
-    def setExpiredTime(self, expiredTime):
-        """
-        :param expiredTime: (Optional) 运维账号到期时间，UTC时间格式
-        """
-        self.expiredTime = expiredTime
-
-    def setGlobalPrivileges(self, globalPrivileges):
-        """
-        :param globalPrivileges: (Optional) 
-        """
-        self.globalPrivileges = globalPrivileges
 

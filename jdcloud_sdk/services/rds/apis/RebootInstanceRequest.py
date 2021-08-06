@@ -42,6 +42,7 @@ class RebootInstanceParameters(object):
         self.instanceId = instanceId
         self.rebootMaster = None
         self.rebootSlave = None
+        self.force = None
 
     def setRebootMaster(self, rebootMaster):
         """
@@ -54,4 +55,10 @@ class RebootInstanceParameters(object):
         :param rebootSlave: (Optional) 是否重启备节点。<br> - 仅SQL Server 支持该参数
         """
         self.rebootSlave = rebootSlave
+
+    def setForce(self, force):
+        """
+        :param force: (Optional) 是否强制重启 <br>- 仅支持MySQL
+        """
+        self.force = force
 

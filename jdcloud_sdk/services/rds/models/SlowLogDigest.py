@@ -19,12 +19,17 @@
 
 class SlowLogDigest(object):
 
-    def __init__(self, dbName=None, sql=None, executionTime=None, executionCount=None, elapsedTime=None, lockTime=None, sqlLength=None, rowsExamined=None, rowsReturned=None):
+    def __init__(self, dbName=None, user=None, sql=None, executionTime=None, executionCount=None, executionTimeSum=None, rowsExaminedSum=None, rowsSentSum=None, lockTimeSum=None, elapsedTime=None, lockTime=None, sqlLength=None, rowsExamined=None, rowsReturned=None):
         """
         :param dbName: (Optional) 数据库名，表示该SQL是在哪个数据库中执行的
+        :param user: (Optional) 数据库账号，表示该SQL是哪个数据库账号发起的
         :param sql: (Optional) SQL语句
         :param executionTime: (Optional) SQL语句执行的开始时间，格式为YYYY-MM-DD hh:mm:ss
         :param executionCount: (Optional) SQL语句的执行次数
+        :param executionTimeSum: (Optional) 执行总时间
+        :param rowsExaminedSum: (Optional) 扫描总行数
+        :param rowsSentSum: (Optional) 返回总行数
+        :param lockTimeSum: (Optional) 锁定总时间
         :param elapsedTime: (Optional) SQL语句执行的时长，单位秒
         :param lockTime: (Optional) SQL语句等待锁的时间，单位秒
         :param sqlLength: (Optional) SQL语句的长度
@@ -33,9 +38,14 @@ class SlowLogDigest(object):
         """
 
         self.dbName = dbName
+        self.user = user
         self.sql = sql
         self.executionTime = executionTime
         self.executionCount = executionCount
+        self.executionTimeSum = executionTimeSum
+        self.rowsExaminedSum = rowsExaminedSum
+        self.rowsSentSum = rowsSentSum
+        self.lockTimeSum = lockTimeSum
         self.elapsedTime = elapsedTime
         self.lockTime = lockTime
         self.sqlLength = sqlLength

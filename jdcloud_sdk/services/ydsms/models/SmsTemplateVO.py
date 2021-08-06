@@ -19,10 +19,11 @@
 
 class SmsTemplateVO(object):
 
-    def __init__(self, appId=None, applyStatus=None, createTime=None, pin=None, status=None, templateContent=None, templateId=None, templateName=None, templateType=None, updateTime=None):
+    def __init__(self, appId=None, applyStatus=None, auditorExplanation=None, createTime=None, pin=None, status=None, templateContent=None, templateId=None, templateName=None, templateType=None, updateTime=None):
         """
         :param appId: (Optional) 应用id
         :param applyStatus: (Optional) 申请状态 1申请中,2拒绝,3通过
+        :param auditorExplanation: (Optional) 短信模板审核说明
         :param createTime: (Optional) 创建时间
         :param pin: (Optional) 用户pin
         :param status: (Optional) 模板状态 0 未启用  1 启用
@@ -35,6 +36,7 @@ class SmsTemplateVO(object):
 
         self.appId = appId
         self.applyStatus = applyStatus
+        self.auditorExplanation = auditorExplanation
         self.createTime = createTime
         self.pin = pin
         self.status = status

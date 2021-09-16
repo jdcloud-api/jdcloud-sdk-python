@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceTemplatesRequest(JDCloudRequest):
     """
-    查询启动模板列表
+    
+查询实例模板列表。
+
+详细操作说明请参考帮助文档：[实例模板](https://docs.jdcloud.com/cn/virtual-machines/instance-template-overview)
+
+## 接口说明
+- 使用 `filters` 过滤器进行条件筛选，每个 `filter` 之间的关系为逻辑与（AND）的关系。
+- 单次查询最大可查询100条实例模板数据。
 
     """
 
@@ -35,7 +42,7 @@ class DescribeInstanceTemplatesParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID
+        :param regionId: 地域ID。
         """
 
         self.regionId = regionId
@@ -45,20 +52,21 @@ class DescribeInstanceTemplatesParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码；默认为1。
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；<br>默认为20；取值范围[10, 100]。
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) name - 启动模板名称，模糊匹配，支持多个
-instanceTemplateId - 启动模板ID，精确匹配，支持多个
+        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
+`name`: 实例模板名称，模糊匹配，支持多个
+`instanceTemplateId`: 实例模板ID，精确匹配，支持多个
 
         """
         self.filters = filters

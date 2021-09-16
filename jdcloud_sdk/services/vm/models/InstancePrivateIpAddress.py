@@ -21,8 +21,8 @@ class InstancePrivateIpAddress(object):
 
     def __init__(self, instanceId=None, privateIpAddress=None):
         """
-        :param instanceId: (Optional) 云主机ID
-        :param privateIpAddress: (Optional) 主网卡内网主IP地址
+        :param instanceId: (Optional) 云主机ID。
+        :param privateIpAddress: (Optional) 内网主IP地址。
         """
 
         self.instanceId = instanceId

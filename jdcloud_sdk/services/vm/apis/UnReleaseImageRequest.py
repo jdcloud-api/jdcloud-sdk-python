@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UnReleaseImageRequest(JDCloudRequest):
     """
-    撤销社区镜像，只允许操作您的个人私有镜像。
+    
+撤销社区镜像。
+
+详细操作说明请参考帮助文档：[镜像概述](https://docs.jdcloud.com/cn/virtual-machines/image-overview)
+
+## 接口说明
+- 只允许撤销用户的私有镜像。
 
     """
 
@@ -35,8 +41,8 @@ class UnReleaseImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
         """
 
         self.regionId = regionId

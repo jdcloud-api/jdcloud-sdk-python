@@ -21,8 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ShareImageRequest(JDCloudRequest):
     """
-    共享镜像，只允许操作您的个人私有镜像，单个镜像最多可共享给20个京东云帐户。<br>
-整机镜像目前不支持共享。
+    
+共享私有镜像。
+
+详细操作说明请参考帮助文档：[共享私有镜像](https://docs.jdcloud.com/cn/virtual-machines/share-image)
+
+## 接口说明
+- 只允许共享用户的私有镜像。
+- 单个镜像最多可以共享给20个京东云帐户、不可以共享给自己。
+- 带有加密快照的打包镜像无法共享。
 
     """
 
@@ -36,9 +43,9 @@ class ShareImageParameters(object):
 
     def __init__(self, regionId, imageId, pins):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
-        :param pins: 需要共享的帐户
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
+        :param pins: 共享的目标京东云帐户列表。
         """
 
         self.regionId = regionId

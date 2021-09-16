@@ -21,8 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeKeypairsRequest(JDCloudRequest):
     """
-    批量查询密钥对。<br>
-此接口支持分页查询，默认每页20条。
+    
+批量查询密钥对。
+
+详细操作说明请参考帮助文档：[密钥概述](https://docs.jdcloud.com/cn/virtual-machines/keypair-overview)
+
+## 接口说明
+- 使用 `filters` 过滤器进行条件筛选，每个 `filter` 之间的关系为逻辑与（AND）的关系。
+- 单次查询最大可查询100条密钥数据。
 
     """
 
@@ -36,7 +42,7 @@ class DescribeKeypairsParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID
+        :param regionId: 地域ID。
         """
 
         self.regionId = regionId
@@ -46,19 +52,20 @@ class DescribeKeypairsParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码；默认为1。
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；<br>默认为20；取值范围[10, 100]。
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) keyNames - 密钥对名称，精确匹配，支持多个
+        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
+`keyNames`: 密钥对名称，精确匹配，支持多个
 
         """
         self.filters = filters

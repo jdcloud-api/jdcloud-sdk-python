@@ -21,9 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DetachNetworkInterfaceRequest(JDCloudRequest):
     """
-    云主机缷载一块弹性网卡。<br>
-云主机状态必须为<b>running</b>或<b>stopped</b>状态，并且没有正在进行中的任务才可操作。<br>
-不能缷载主网卡。
+    
+为云主机解绑弹性网卡。
+
+详细操作说明请参考帮助文档：[解绑弹性网卡](https://docs.jdcloud.com/cn/virtual-machines/detach-eni)
+
+## 接口说明
+- 实例状态必须为 `running` 或 `stopped` 状态，同时实例没有正在进行中的任务时才可以操作。
+- 实例中的主网卡是不可以解绑和绑定的，解绑弹性网卡只支持解绑辅助网卡。
 
     """
 
@@ -37,8 +42,8 @@ class DetachNetworkInterfaceParameters(object):
 
     def __init__(self, regionId, instanceId, networkInterfaceId):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
         :param networkInterfaceId: 弹性网卡ID
         """
 

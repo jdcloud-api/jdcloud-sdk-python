@@ -21,7 +21,17 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ImageTasksRequest(JDCloudRequest):
     """
-    查询镜像导入导出任务详情
+    
+查询镜像任务详情。
+
+将京东云私有镜像导出至京东云以外环境。
+
+详细操作说明请参考帮助文档：
+[导入私有镜像](https://docs.jdcloud.com/cn/virtual-machines/import-private-image)
+[导出私有镜像](https://docs.jdcloud.com/cn/virtual-machines/export-private-image)
+
+## 接口说明
+- 调用该接口可查询镜像导入或导出的任务详情。
 
     """
 
@@ -35,8 +45,8 @@ class ImageTasksParameters(object):
 
     def __init__(self, regionId, taskAction, ):
         """
-        :param regionId: 地域ID
-        :param taskAction: 任务种类。可选值：ImportImage， ExportImage
+        :param regionId: 地域ID。
+        :param taskAction: 任务操作类型。支持范围：`ImportImage、ExportImage`。
         """
 
         self.regionId = regionId
@@ -50,13 +60,13 @@ class ImageTasksParameters(object):
 
     def setTaskIds(self, taskIds):
         """
-        :param taskIds: (Optional) 任务id
+        :param taskIds: (Optional) 任务id列表。
         """
         self.taskIds = taskIds
 
     def setTaskStatus(self, taskStatus):
         """
-        :param taskStatus: (Optional) 任务状态。可选值：pending,running,failed,finished
+        :param taskStatus: (Optional) 任务状态。支持范围：`pending、running、failed、finished`。
         """
         self.taskStatus = taskStatus
 
@@ -74,13 +84,13 @@ class ImageTasksParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码；默认为1。
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 10]。
         """
         self.pageSize = pageSize
 

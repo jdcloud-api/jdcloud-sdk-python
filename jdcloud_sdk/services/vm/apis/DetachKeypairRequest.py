@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DetachKeypairRequest(JDCloudRequest):
     """
-    解绑ssh密钥对。
+    
+为云主机实例解绑密钥。
+
+详细操作说明请参考帮助文档：[绑定密钥](https://docs.jdcloud.com/cn/virtual-machines/bind-keypair)
+
+## 接口说明
+- 调用该接口解绑云主机实例中的密钥。
 
     """
 
@@ -35,9 +41,9 @@ class DetachKeypairParameters(object):
 
     def __init__(self, regionId, keyName, instanceIds):
         """
-        :param regionId: 地域ID
-        :param keyName: 密钥名称
-        :param instanceIds: 虚机Id
+        :param regionId: 地域ID。
+        :param keyName: 密钥名称。
+        :param instanceIds: 要解绑的云主机实例ID列表。
         """
 
         self.regionId = regionId

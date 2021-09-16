@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UpdateInstanceTemplateRequest(JDCloudRequest):
     """
-    修改一个启动模板的信息，包括名称、描述
+    
+修改实例模板属性。
+
+详细操作说明请参考帮助文档：[实例模板](https://docs.jdcloud.com/cn/virtual-machines/instance-template-overview)
+
+## 接口说明
+- 该接口只支持修改实例模板的名称或描述。
 
     """
 
@@ -33,26 +39,21 @@ class UpdateInstanceTemplateRequest(JDCloudRequest):
 
 class UpdateInstanceTemplateParameters(object):
 
-    def __init__(self, regionId, instanceTemplateId, ):
+    def __init__(self, regionId, instanceTemplateId, name, ):
         """
-        :param regionId: 地域ID
-        :param instanceTemplateId: 启动模板ID
+        :param regionId: 地域ID。
+        :param instanceTemplateId: 实例模板ID。
+        :param name: 实例模板的名称，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
 
         self.regionId = regionId
         self.instanceTemplateId = instanceTemplateId
+        self.name = name
         self.description = None
-        self.name = None
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 模板描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param description: (Optional) 实例模板的描述，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.description = description
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 模板名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
-        """
-        self.name = name
 

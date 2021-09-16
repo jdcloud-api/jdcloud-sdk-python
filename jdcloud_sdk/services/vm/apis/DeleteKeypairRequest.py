@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteKeypairRequest(JDCloudRequest):
     """
-    删除ssh密钥对。
+    
+删除密钥。
+
+详细操作说明请参考帮助文档：[删除密钥](https://docs.jdcloud.com/cn/virtual-machines/delete-keypair)
+
+## 接口说明
+- 密钥删除后，使用该密钥的实例仍可正常使用与之匹配的本地私钥登录，且密钥仍会显示在实例详情中。
+- 密钥删除后，与之关联的实例模板将变为不可用，并且与该实例模板关联的高可用组也会变为不可用。
 
     """
 
@@ -35,8 +42,8 @@ class DeleteKeypairParameters(object):
 
     def __init__(self, regionId, keyName, ):
         """
-        :param regionId: 地域ID
-        :param keyName: 密钥名称
+        :param regionId: 地域ID。
+        :param keyName: 密钥名称。
         """
 
         self.regionId = regionId

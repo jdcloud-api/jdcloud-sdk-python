@@ -21,8 +21,8 @@ class SecurityGroupSimple(object):
 
     def __init__(self, groupId=None, groupName=None):
         """
-        :param groupId: (Optional) 安全组ID
-        :param groupName: (Optional) 安全组名称
+        :param groupId: (Optional) 安全组ID。
+        :param groupName: (Optional) 安全组名称。
         """
 
         self.groupId = groupId

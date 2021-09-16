@@ -21,11 +21,11 @@ class UserSysDisk(object):
 
     def __init__(self, pin=None, region=None, systemType=None, systemDiskSize=None, flavors=None):
         """
-        :param pin: (Optional) 用户pin
-        :param region: (Optional) 地域
-        :param systemType: (Optional) 系统类型
-        :param systemDiskSize: (Optional) 默认本地盘系统盘大小
-        :param flavors: (Optional) 逗号分隔的规格列表，*代表所有。
+        :param pin: (Optional) 用户pin。
+        :param region: (Optional) 地域。
+        :param systemType: (Optional) 系统类型。支持范围：`linux、windows`。
+        :param systemDiskSize: (Optional) 默认本地盘系统盘大小，单位GB。
+        :param flavors: (Optional) 逗号分隔的规格列表，`*` 代表所有。
         """
 
         self.pin = pin

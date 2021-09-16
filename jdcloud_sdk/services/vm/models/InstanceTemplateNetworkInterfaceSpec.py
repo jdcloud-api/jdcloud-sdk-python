@@ -19,13 +19,15 @@
 
 class InstanceTemplateNetworkInterfaceSpec(object):
 
-    def __init__(self, subnetId, securityGroups=None, sanityCheck=None):
+    def __init__(self, subnetId, securityGroups=None, sanityCheck=None, ipv6AddressCount=None):
         """
-        :param subnetId:  子网ID 仅支持中心可用区的子网
-        :param securityGroups: (Optional) 安全组ID列表
-        :param sanityCheck: (Optional) PortSecurity，取值为0或者1，默认为1
+        :param subnetId:  子网ID。
+        :param securityGroups: (Optional) 安全组ID列表。
+        :param sanityCheck: (Optional) PortSecurity，源和目标IP地址校验，取值为0或者1。
+        :param ipv6AddressCount: (Optional) 自动分配的ipv6地址数量，取值范围[0,1]，默认为0
         """
 
         self.subnetId = subnetId
         self.securityGroups = securityGroups
         self.sanityCheck = sanityCheck
+        self.ipv6AddressCount = ipv6AddressCount

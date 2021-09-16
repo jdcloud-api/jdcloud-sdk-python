@@ -21,8 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyInstanceDiskAttributeRequest(JDCloudRequest):
     """
-    修改云主机挂载的数据盘属性，包括是否随主机删除。<br>
-仅按配置计费云硬盘支持设置随实例删除属性;包年包月计费云硬盘该属性不生效,实例删除时云硬盘将保留。<br>
+    
+修改一台云主机中的云硬盘属性。
+
+详细操作说明请参考帮助文档：[配置云硬盘删除属性](https://docs.jdcloud.com/cn/virtual-machines/configurate-delete-attributes)
+
+## 接口说明
+- 该接口当前只能修改实例中的云硬盘随实例删除属性。
+- 仅按配置计费、并且非共享型的云硬盘支持修改。
+- 包年包月计费的云硬盘该属性不生效，实例删除时云硬盘将保留。
 
     """
 
@@ -36,8 +43,8 @@ class ModifyInstanceDiskAttributeParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
         """
 
         self.regionId = regionId
@@ -46,7 +53,7 @@ class ModifyInstanceDiskAttributeParameters(object):
 
     def setDataDisks(self, dataDisks):
         """
-        :param dataDisks: (Optional) 云硬盘列表
+        :param dataDisks: (Optional) 云硬盘列表。
         """
         self.dataDisks = dataDisks
 

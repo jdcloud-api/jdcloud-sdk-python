@@ -21,8 +21,8 @@ class ImageConstraint(object):
 
     def __init__(self, imageId=None, imageInstanceTypeConstraint=None):
         """
-        :param imageId: (Optional) 镜像ID
-        :param imageInstanceTypeConstraint: (Optional) 使用镜像创建实例的规格限制
+        :param imageId: (Optional) 镜像ID。
+        :param imageInstanceTypeConstraint: (Optional) 镜像对实例规格的约束信息。
         """
 
         self.imageId = imageId

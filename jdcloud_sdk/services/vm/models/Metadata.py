@@ -21,8 +21,8 @@ class Metadata(object):
 
     def __init__(self, key=None, value=None):
         """
-        :param key: (Optional) 键，最大长度256，支持全字符
-        :param value: (Optional) 值，最大长度16k，支持全字符
+        :param key: (Optional) key，字符长度不超过256，支持全字符。不能以连字符(-)结尾，否则此key不生效。
+        :param value: (Optional) value，字符长度不超过16KB，支持全字符。
         """
 
         self.key = key

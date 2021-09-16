@@ -21,8 +21,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceVncUrlRequest(JDCloudRequest):
     """
-    获取云主机vnc，用于连接管理云主机。<br>
-vnc地址的有效期为1个小时，调用接口获取vnc地址后如果1个小时内没有使用，vnc地址自动失效，再次使用需要重新获取。
+    
+获取云主机vnc地址。
+
+详细操作说明请参考帮助文档：[连接实例](https://docs.jdcloud.com/cn/virtual-machines/connect-to-instance)
+
+## 接口说明
+- 实例仅 `running` 状态时才可获取到 `vnc` 地址。
+- 调用该接口可获取云主机 `vnc` 地址，用于远程连接管理云主机。
+- `vnc` 地址的有效期为1个小时，调用接口获取vnc地址后如果1个小时内没有使用，`vnc` 地址将自动失效，再次使用需要重新获取。
+- 裸金属实例目前不支持通过 `vnc` 登录。
 
     """
 
@@ -36,8 +44,8 @@ class DescribeInstanceVncUrlParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
         """
 
         self.regionId = regionId

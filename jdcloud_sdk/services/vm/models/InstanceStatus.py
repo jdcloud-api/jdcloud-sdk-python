@@ -21,8 +21,8 @@ class InstanceStatus(object):
 
     def __init__(self, instanceId=None, status=None):
         """
-        :param instanceId: (Optional) 云主机ID
-        :param status: (Optional) <a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
+        :param instanceId: (Optional) 云主机ID。
+        :param status: (Optional) 云主机状态，参考 [云主机状态](https://docs.jdcloud.com/virtual-machines/api/vm_status)。
         """
 
         self.instanceId = instanceId

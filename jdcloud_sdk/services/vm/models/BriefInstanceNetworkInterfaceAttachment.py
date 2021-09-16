@@ -21,8 +21,10 @@ class BriefInstanceNetworkInterfaceAttachment(object):
 
     def __init__(self, deviceIndex=None, autoDelete=None):
         """
-        :param deviceIndex: (Optional) 设备Index
-        :param autoDelete: (Optional) 指明删除实例时是否删除网卡，默认true；当前只能是true
+        :param deviceIndex: (Optional) 网卡设备Index。创建实例时此参数无须指定且指定无效。
+对于主网卡默认Index为1，辅助网卡自动分配。
+
+        :param autoDelete: (Optional) 是否随实例关联删除。
         """
 
         self.deviceIndex = deviceIndex

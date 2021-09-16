@@ -21,8 +21,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteImageRequest(JDCloudRequest):
     """
-    删除一个私有镜像，只允许操作您的个人私有镜像。<br>
-若镜像已共享给其他用户，需先取消共享才可删除。
+    
+删除一个私有镜像。
+
+详细操作说明请参考帮助文档：[删除私有镜像](https://docs.jdcloud.com/cn/virtual-machines/delete-private-image)
+
+## 接口说明
+- 已共享的私有镜像在取消共享关系前不可以删除，如私有镜像已共享给其他用户，请取消共享后再进行删除。
+- 本地系统盘镜像在有基于其创建的云主机时，将无法删除。
+- 只能操作私有镜像。
+- 私有镜像没有正在处理中的任务时才可以删除。
 
     """
 
@@ -36,8 +44,8 @@ class DeleteImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
         """
 
         self.regionId = regionId
@@ -46,7 +54,8 @@ class DeleteImageParameters(object):
 
     def setDeleteSnapshot(self, deleteSnapshot):
         """
-        :param deleteSnapshot: (Optional) 删除镜像是否删除关联的快照，默认为false；如果指定为true, 将会删除镜像关联的快照。
+        :param deleteSnapshot: (Optional) 删除镜像时是否删除关联的快照。默认为 `false`；如果指定为 `true`, 将会删除镜像关联的快照。
+
         """
         self.deleteSnapshot = deleteSnapshot
 

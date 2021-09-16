@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DetachDiskRequest(JDCloudRequest):
     """
-    云主机缷载云硬盘，云主机和云硬盘没有正在进行中的任务时才可缷载。<br>
+    
+为一台云主机缷载云硬盘
+
+详细操作说明请参考帮助文档：[缷载云硬盘](https://docs.jdcloud.com/cn/virtual-machines/detach-cloud-disk)
+
+## 接口说明
+- 云主机和云硬盘都没有正在进行中的的任务时才可以操作。
+- 云主机状态必须是 `running` 或 `stopped` 状态。操作系统盘时必须先停止实例。
 
     """
 
@@ -35,9 +42,9 @@ class DetachDiskParameters(object):
 
     def __init__(self, regionId, instanceId, diskId, ):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
-        :param diskId: 云硬盘ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
+        :param diskId: 云硬盘ID。
         """
 
         self.regionId = regionId
@@ -47,7 +54,9 @@ class DetachDiskParameters(object):
 
     def setForce(self, force):
         """
-        :param force: (Optional) 强制缷载，默认False。如果此参数传值为True，代表数据盘的IO会被强制断掉。
+        :param force: (Optional) 是否强制缷载，默认False。
+如果此参数传值为True，数据盘的IO会被强制断掉。
+
         """
         self.force = force
 

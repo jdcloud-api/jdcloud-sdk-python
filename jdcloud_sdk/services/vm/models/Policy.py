@@ -21,8 +21,8 @@ class Policy(object):
 
     def __init__(self, policyId=None, policyType=None):
         """
-        :param policyId: (Optional) 策略ID。
-        :param policyType: (Optional) 策略类型。
+        :param policyId: (Optional) 自动任务策略ID。
+        :param policyType: (Optional) 自动任务策略类型，当前只支持 `AutoImage` 自动备份镜像。
         """
 
         self.policyId = policyId

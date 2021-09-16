@@ -21,7 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstancesCustomDataRequest(JDCloudRequest):
     """
-    批量查询云主机用户自定义元数据
+    
+批量查询云主机用户自定义元数据。
+
+详细操作说明请参考帮助文档：[自定义元数据](https://docs.jdcloud.com/cn/virtual-machines/userdata)
+
+## 接口说明
+- 使用 `filters` 过滤器进行条件筛选，每个 `filter` 之间的关系为逻辑与（AND）的关系。
+- 单次查询最大可查询10台云主机实例自定义元数据。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,7 +42,7 @@ class DescribeInstancesCustomDataParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID
+        :param regionId: 地域ID。
         """
 
         self.regionId = regionId
@@ -44,25 +52,29 @@ class DescribeInstancesCustomDataParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码；默认为1。
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 10]
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 10]。
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
-privateIpAddress - 主网卡内网主IP地址，模糊匹配，支持多个
-vpcId - 私有网络ID，精确匹配，支持多个
-status - 云主机状态，精确匹配，支持多个，<a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
-imageId - 镜像ID，精确匹配，支持多个
-networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
-subnetId - 子网ID，精确匹配，支持多个
+        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
+`instanceId`: 云主机ID，精确匹配，支持多个
+`privateIpAddress`: 主网卡内网主IP地址，模糊匹配，支持多个
+`vpcId`: 私有网络ID，精确匹配，支持多个
+`status`: 云主机状态，精确匹配，支持多个，参考 [云主机状态](https://docs.jdcloud.com/virtual-machines/api/vm_status)
+`name`: 云主机名称，模糊匹配，支持单个
+`imageId`: 镜像ID，精确匹配，支持多个
+`agId`: 使用可用组id，支持单个
+`faultDomain`: 错误域，支持多个
+`networkInterfaceId`: 弹性网卡ID，精确匹配，支持多个
+`subnetId`: 子网ID，精确匹配，支持多个
 
         """
         self.filters = filters

@@ -21,10 +21,21 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceTemplateRequest(JDCloudRequest):
     """
-    创建一个指定参数的启动模板，启动模板中包含创建云主机时的大部分配置参数，避免每次创建云主机时的重复性工作。<br>
-如果是使用启动模板创建云主机，如果指定了某些参数与模板中的参数相冲突，那么新指定的参数会替换模板中的参数。<br>
-如果是使用启动模板创建云主机，如果指定了镜像ID与模板中的镜像ID不一致，那么模板中的dataDisks参数会失效。<br>
-如果使用高可用组(Ag)创建云主机，那么Ag所关联的模板中的参数都不可以被调整，只能以模板为准。
+    
+创建实例模板。
+
+实例模板是创建云主机实例的配置信息模板，包括镜像、实例规格、系统盘及数据盘类型和容量、私有网络及子网配置、安全组及登录信息等。实例模板可用于创建实例及用于配置高可用组，创建高可用组时必须指定实例模板。您每次创建实例时无需重新指定实例模板已包括的参数，缩短您的部署时间。
+
+请注意：实例模板一经创建后其属性将不能编辑。
+
+详细操作说明请参考帮助文档：[创建实例模板](https://docs.jdcloud.com/cn/virtual-machines/create-instance-template)
+
+## 接口说明
+- 创建实例模板的限制基本与创建云主机一致，可参考 [创建云主机](https://docs.jdcloud.com/cn/virtual-machines/create-instance-template)。
+- 实例模板中包含创建云主机的大部分配置参数，可以避免每次创建云主机时的重复性配置参数的工作。
+- 使用实例模板创建云主机时，如果再次指定了某些参数，并且与实例模板中的参数相冲突，那么新指定的参数会替换模板中的参数，以新指定的参数为准。
+- 使用实例模板创建云主机时，如果再次指定了镜像ID，并且与模板中的镜像ID不一致，那么模板中的 `systemDisk` 和 `dataDisks` 配置会失效，以新指定的镜像为准。
+- 如果使用高可用组(Ag)创建云主机，那么Ag所关联的模板中的参数都不可以被调整，只能以模板为准。
 
     """
 
@@ -38,9 +49,9 @@ class CreateInstanceTemplateParameters(object):
 
     def __init__(self, regionId, instanceTemplateData, name, ):
         """
-        :param regionId: 地域ID
-        :param instanceTemplateData: 启动模板的数据
-        :param name: 启动模板的名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param regionId: 地域ID。
+        :param instanceTemplateData: 实例模板配置信息。
+        :param name: 实例模板的名称，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
 
         self.regionId = regionId
@@ -50,7 +61,7 @@ class CreateInstanceTemplateParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 启动模板的描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param description: (Optional) 实例模板的描述，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.description = description
 

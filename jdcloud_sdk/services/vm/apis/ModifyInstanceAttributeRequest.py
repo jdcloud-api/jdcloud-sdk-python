@@ -21,7 +21,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyInstanceAttributeRequest(JDCloudRequest):
     """
-    修改云主机部分信息，包括名称、描述。
+    
+修改一台云主机的属性。
+
+详细操作说明请参考帮助文档：
+[修改实例名称](https://docs.jdcloud.com/cn/virtual-machines/modify-instance-name)
+[自定义数据](https://docs.jdcloud.com/cn/virtual-machines/userdata)
+[实例元数据](https://docs.jdcloud.com/cn/virtual-machines/instance-metadata)
+
+## 接口说明
+- 支持修改实例的名称、描述、hostname、自定义数据、实例元数据。
 
     """
 
@@ -35,8 +44,8 @@ class ModifyInstanceAttributeParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
         """
 
         self.regionId = regionId
@@ -49,39 +58,42 @@ class ModifyInstanceAttributeParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 名称，不为空且只允许中文、数字、大小写字母、英文下划线（_）、中划线（-）及点（.），不能以（.）作为首尾，长度为2~128个字符
+        :param name: (Optional) 实例名称。长度为2\~128个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.），不能以（.）作为首尾。
+
         """
         self.name = name
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param description: (Optional) 实例描述。256字符以内。
+
         """
         self.description = description
 
     def setHostname(self, hostname):
         """
-        :param hostname: (Optional) 云主机hostname，若不指定hostname，则hostname默认使用云主机名称name，但是会以RFC 952和RFC 1123命名规范做一定转义
-Windows Server系统：长度为2-15个字符，允许大小写字母、数字或连字符（-）。不能以连字符（-）开头或结尾，不能连续使用连字符（-），也不能全部使用数字。不支持点号（.）。
-Linux系统：长度为2-64个字符，允许支持多个点号，点之间为一段，每段允许使用大小写字母、数字或连字符（-），但不能连续使用点号（.）或连字符（-），不能以点号（.）或连字符（-）开头或结尾。
-hostname修改后，重启云主机hostname生效
+        :param hostname: (Optional) 实例hostname。
+**Windows系统**：长度为2\~15个字符，允许大小写字母、数字或连字符（-），不能以连字符（-）开头或结尾，不能连续使用连字符（-），也不能全部使用数字。不支持点号（.）。
+**Linux系统**：长度为2-64个字符，允许支持多个点号，点之间为一段，每段允许使用大小写字母、数字或连字符（-），但不能连续使用点号（.）或连字符（-），不能以点号（.）或连字符（-）开头或结尾。
 
         """
         self.hostname = hostname
 
     def setMetadata(self, metadata):
         """
-        :param metadata: (Optional) 用户自定义元数据信息，key-value 键值对总数量不超过40，其中更新和新增键值对总数量不超过20对，删除的键值对总数量不超过20对。不区分大小写。
-如key已有认为是更新value；如key不存在认为是新增键值对；如key后面有连字符(-)，比如key-，则删除此key。
+        :param metadata: (Optional) 用户自定义元数据。
+以 `key-value` 键值对形式指定，可在实例系统内通过元数据服务查询获取。最多支持40对键值对，且 `key` 不超过256字符，`value` 不超过16KB，不区分大小写。
+注意：`key` 不要以连字符(-)结尾，否则此 `key` 不生效。
 
         """
         self.metadata = metadata
 
     def setUserdata(self, userdata):
         """
-        :param userdata: (Optional) 元数据信息，目前只支持传入一个key为"launch-script"，表示首次启动脚本。value为base64格式。
-launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
-launch-script：windows系统支持bat和powershell，编码前须分别以 <cmd></cmd> 和 <powershell></powershell> 作为内容首、尾行。
+        :param userdata: (Optional) 自定义脚本。
+目前仅支持启动脚本，即 `launch-script`，须Base64编码且编码前数据长度不能超过16KB。
+**linux系统**：支持bash和python，编码前须分别以 `#!/bin/bash` 和 `#!/usr/bin/env python` 作为内容首行。
+**Windows系统**：支持 `bat` 和 `powershell` ，编码前须分别以 `<cmd></cmd>和<powershell></powershell>` 作为内容首、尾行。
 
         """
         self.userdata = userdata

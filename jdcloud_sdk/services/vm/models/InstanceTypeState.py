@@ -21,9 +21,9 @@ class InstanceTypeState(object):
 
     def __init__(self, az=None, inStock=None, availableCount=None):
         """
-        :param az: (Optional) 可用区
-        :param inStock: (Optional) 可售卖情况，true:可售卖、false:已售罄不可用
-        :param availableCount: (Optional) 可用库存数量，预留字段，敬请期待。
+        :param az: (Optional) 可用区。
+        :param inStock: (Optional) 售卖状态，`true`：可售卖、`false`：已售罄不可用。
+        :param availableCount: (Optional) 可用库存数量，目前该字段为预留阶段，敬请期待。
         """
 
         self.az = az

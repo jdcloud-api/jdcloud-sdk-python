@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeImageRequest(JDCloudRequest):
     """
-    查询镜像详情。
+    
+查询镜像详情。
+
+详细操作说明请参考帮助文档：[镜像概述](https://docs.jdcloud.com/cn/virtual-machines/image-overview)
+
+## 接口说明
+- 该接口与查询镜像信息列表返回的信息一致。
+- 只需要查询单个镜像信息的时候可以调用该接口。
 
     """
 
@@ -35,8 +42,8 @@ class DescribeImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
         """
 
         self.regionId = regionId

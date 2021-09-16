@@ -21,7 +21,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ReleaseImageRequest(JDCloudRequest):
     """
-    发布社区镜像，只允许操作您的个人私有镜像。发布为社区镜像后会撤销共享关系。<br>
+    
+发布社区镜像。
+
+详细操作说明请参考帮助文档：[镜像概述](https://docs.jdcloud.com/cn/virtual-machines/image-overview)
+
+## 接口说明
+- 只允许发布用户的私有镜像。
+- 仅支持云盘系统盘的私有镜像。
+- 带有加密快照的打包镜像无法发布为社区镜像。
+- 发布为社区镜像后会撤销共享关系。
 
     """
 
@@ -35,8 +44,8 @@ class ReleaseImageParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
         """
 
         self.regionId = regionId

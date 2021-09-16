@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class VerifyInstanceTemplateRequest(JDCloudRequest):
     """
-    校验启动模板的有效性
+    
+校验实例模板的有效性。
+
+详细操作说明请参考帮助文档：[实例模板](https://docs.jdcloud.com/cn/virtual-machines/instance-template-overview)
+
+## 接口说明
+- 调用该接口可以校验实例模板是否有效，例如某些关联资源可能已经被删除了，此刻实例模板可能已经失效了。
 
     """
 
@@ -35,8 +41,8 @@ class VerifyInstanceTemplateParameters(object):
 
     def __init__(self, regionId, instanceTemplateId, ):
         """
-        :param regionId: 地域ID
-        :param instanceTemplateId: 启动模板ID
+        :param regionId: 地域ID。
+        :param instanceTemplateId: 实例模板ID。
         """
 
         self.regionId = regionId

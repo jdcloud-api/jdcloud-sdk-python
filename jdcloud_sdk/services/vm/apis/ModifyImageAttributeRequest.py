@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyImageAttributeRequest(JDCloudRequest):
     """
-    修改镜像信息，包括名称、描述；只允许操作您的个人私有镜像。
+    
+修改镜像属性。
+
+详细操作说明请参考帮助文档：[镜像概述](https://docs.jdcloud.com/cn/virtual-machines/image-overview)
+
+## 接口说明
+- 只支持修改镜像名称或描述。
 
     """
 
@@ -35,8 +41,8 @@ class ModifyImageAttributeParameters(object):
 
     def __init__(self, regionId, imageId, ):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
         """
 
         self.regionId = regionId
@@ -46,13 +52,13 @@ class ModifyImageAttributeParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 名称，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param name: (Optional) 镜像名称。参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.name = name
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
+        :param description: (Optional) 镜像描述。参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.description = description
 

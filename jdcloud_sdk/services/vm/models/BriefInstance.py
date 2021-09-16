@@ -21,26 +21,29 @@ class BriefInstance(object):
 
     def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None):
         """
-        :param instanceId: (Optional) 云主机ID
-        :param instanceName: (Optional) 云主机名称
-        :param instanceType: (Optional) 实例规格
-        :param vpcId: (Optional) 主网卡所属VPC的ID
-        :param subnetId: (Optional) 主网卡所属子网的ID
-        :param privateIpAddress: (Optional) 主网卡主IP地址
-        :param status: (Optional) 云主机状态，<a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
-        :param description: (Optional) 云主机描述
-        :param imageId: (Optional) 镜像ID
-        :param systemDisk: (Optional) 系统盘配置
-        :param dataDisks: (Optional) 数据盘配置
-        :param primaryNetworkInterface: (Optional) 主网卡配置
-        :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置
-        :param launchTime: (Optional) 创建时间
-        :param az: (Optional) 云主机所在可用区
-        :param keyNames: (Optional) 密钥对名称
-        :param faultDomain: (Optional) 高可用组中的错误域
-        :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机。KeepCharging：关机后继续计费；StopCharging：关机后停止计费。
-        :param dedicatedPoolId: (Optional) 实例所属的专有宿主机池
-        :param dedicatedHostId: (Optional) 专有宿主机ID
+        :param instanceId: (Optional) 云主机ID。
+        :param instanceName: (Optional) 云主机名称。
+        :param instanceType: (Optional) 实例规格。
+        :param vpcId: (Optional) 主网卡所属VPC的ID。
+        :param subnetId: (Optional) 主网卡所属子网的ID。
+        :param privateIpAddress: (Optional) 主网卡主内网IP地址。
+        :param status: (Optional) 云主机状态，参考 [云主机状态](https://docs.jdcloud.com/virtual-machines/api/vm_status)。
+        :param description: (Optional) 云主机描述。
+        :param imageId: (Optional) 云主机使用的镜像ID。
+        :param systemDisk: (Optional) 系统盘配置。
+        :param dataDisks: (Optional) 数据盘配置列表。
+        :param primaryNetworkInterface: (Optional) 主网卡配置。
+        :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置列表。
+        :param launchTime: (Optional) 云主机实例的创建时间。
+        :param az: (Optional) 云主机所在可用区。
+        :param keyNames: (Optional) 云主机使用的密钥对名称。
+        :param faultDomain: (Optional) 高可用组中的错误域。
+        :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机。
+`keepCharging`：关机后继续计费。
+`stopCharging`：关机后停止计费。
+
+        :param dedicatedPoolId: (Optional) 云主机所属的专有宿主机池。
+        :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
         """
 
         self.instanceId = instanceId

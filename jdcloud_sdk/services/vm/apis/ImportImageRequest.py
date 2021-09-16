@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ImportImageRequest(JDCloudRequest):
     """
-    导入镜像，将外部镜像导入到京东云中
+    
+导入私有镜像。
+
+详细操作说明请参考帮助文档：[导入私有镜像](https://docs.jdcloud.com/cn/virtual-machines/import-private-image)
+
+## 接口说明
+- 当前仅支持导入系统盘镜像。
+- 导入后的镜像将以 `云硬盘系统盘镜像` 格式作为私有镜像使用，同时会自动生成一个与导入镜像关联的快照。
 
     """
 
@@ -35,14 +42,16 @@ class ImportImageParameters(object):
 
     def __init__(self, regionId, architecture, osType, platform, diskFormat, systemDiskSizeGB, imageUrl, imageName, ):
         """
-        :param regionId: 地域ID
-        :param architecture: 系统架构，可选值：x86_64,i386
-        :param osType: 操作系统，可选值：windows,linux
-        :param platform: 平台名称，可选值：CentOS,Ubuntu,Windows Server,Other Linux,Other Windows
-        :param diskFormat: 磁盘格式，可选值：qcow2,vhd,vmdk,raw
-        :param systemDiskSizeGB: 以此镜像需要制作的系统盘的默认大小，单位GB。最小值40，最大值500，要求值是10的整数倍
-        :param imageUrl: 要导入镜像的对象存储外链地址
-        :param imageName: 导入镜像的自定义名称
+        :param regionId: 地域ID。
+        :param architecture: 镜像架构。取值范围：`x86_64、i386`。
+        :param osType: 镜像的操作系统类型。取值范围：`windows、linux`。
+        :param platform: 镜像的操作系统平台名称。
+取值范围：`Ubuntu、CentOS、Windows Server、Other Linux、Other Windows`。
+
+        :param diskFormat: 磁盘格式，取值范围：`qcow2、vhd、vmdk、raw`。
+        :param systemDiskSizeGB: 以此镜像需要制作的系统盘的默认大小，单位GB。最小值40，最大值500，要求值是10的整数倍。
+        :param imageUrl: 要导入镜像的对象存储外链地址。
+        :param imageName: 导入镜像的自定义名称。参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
 
         self.regionId = regionId
@@ -60,25 +69,25 @@ class ImportImageParameters(object):
 
     def setOsVersion(self, osVersion):
         """
-        :param osVersion: (Optional) 镜像的操作系统版本
+        :param osVersion: (Optional) 镜像的操作系统版本。
         """
         self.osVersion = osVersion
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 导入镜像的描述信息
+        :param description: (Optional) 导入镜像的描述信息。参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.description = description
 
     def setForceImport(self, forceImport):
         """
-        :param forceImport: (Optional) 是否强制导入。强制导入则忽略镜像的合规性检测
+        :param forceImport: (Optional) 是否强制导入。强制导入会忽略镜像的合规性检测。默认为false。
         """
         self.forceImport = forceImport
 
     def setClientToken(self, clientToken):
         """
-        :param clientToken: (Optional) 用户导入镜像的幂等性保证。每次创建请传入不同的值，如果传值与某次的clientToken相同，则返还该次的请求结果
+        :param clientToken: (Optional) 用户导出镜像的幂等性保证。每次导出请传入不同的值，如果传值与某次的clientToken相同，则返还同一个请求结果，不能超过64个字符。
         """
         self.clientToken = clientToken
 

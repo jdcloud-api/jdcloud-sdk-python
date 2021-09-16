@@ -21,18 +21,22 @@ class InstanceDiskAttachment(object):
 
     def __init__(self, diskCategory=None, autoDelete=None, localDisk=None, cloudDisk=None, deviceName=None, status=None):
         """
-        :param diskCategory: (Optional) 磁盘分类，取值为本地盘(local)或者数据盘(cloud)。
-系统盘支持本地盘(local)或者云硬盘(cloud)。系统盘选择local类型，必须使用localDisk类型的镜像；同理系统盘选择cloud类型，必须使用cloudDisk类型的镜像。
-数据盘仅支持云硬盘(cloud)。
+        :param diskCategory: (Optional) 磁盘类型。
+**系统盘**：取值为：`local` 本地系统盘 或 `cloud` 云盘系统盘。
+**数据盘**：取值为：`local` 本地数据盘 或 `cloud` 云盘数据盘。
 
-        :param autoDelete: (Optional) 随云主机一起删除，删除主机时自动删除此磁盘，默认为true，本地盘(local)不能更改此值。
-如果云主机中的数据盘(cloud)是包年包月计费方式，此参数不生效。
-如果云主机中的数据盘(cloud)是共享型数据盘，此参数不生效。
+        :param autoDelete: (Optional) 是否随实例一起删除，即删除实例时是否自动删除此磁盘。此参数仅对按配置计费的非多点挂载云硬盘生效。
+`true`：随实例删除。
+`false`：不随实例删除。
 
-        :param localDisk: (Optional) 本地磁盘配置
-        :param cloudDisk: (Optional) 云硬盘配置
-        :param deviceName: (Optional) 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm
-        :param status: (Optional) 数据盘挂载状态，取值范围：attaching,detaching,attached,detached,error_attach,error_detach
+        :param localDisk: (Optional) 本地磁盘配置，对应 `diskCategory=local`。
+        :param cloudDisk: (Optional) 云硬盘配置，对应 `diskCategory=cloud`。
+        :param deviceName: (Optional) 磁盘逻辑挂载点。
+**系统盘**：默认为vda。
+**数据盘**：取值范围：`[vdb~vdbm]`。
+
+        :param status: (Optional) 磁盘挂载状态。
+取值范围：`attaching、detaching、attached、detached、error_attach、error_detach`。
         """
 
         self.diskCategory = diskCategory

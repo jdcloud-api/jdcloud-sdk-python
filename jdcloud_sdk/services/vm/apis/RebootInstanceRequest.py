@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RebootInstanceRequest(JDCloudRequest):
     """
-    重启单个云主机，只能重启<b>running</b>状态的云主机，云主机没有正在进行中的任务才可重启。
+    
+重启云主机实例。
+
+详细操作说明请参考帮助文档：[重启实例](https://docs.jdcloud.com/cn/virtual-machines/reboot-instance)
+
+## 接口说明
+- 实例状态必须为运行 `running` 状态，同时实例没有正在进行中的任务时才可以重启。
+- 如果云主机实例已欠费或已到期，则无法重启。
 
     """
 
@@ -35,8 +42,8 @@ class RebootInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
         """
 
         self.regionId = regionId

@@ -21,8 +21,8 @@ class LocalDisk(object):
 
     def __init__(self, diskType=None, diskSizeGB=None):
         """
-        :param diskType: (Optional) 磁盘类型，取值范围{ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1}
-        :param diskSizeGB: (Optional) 磁盘大小
+        :param diskType: (Optional) 磁盘类型，取值范围：`ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1`。
+        :param diskSizeGB: (Optional) 磁盘大小。
         """
 
         self.diskType = diskType

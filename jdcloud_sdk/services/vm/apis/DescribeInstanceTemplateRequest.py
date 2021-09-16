@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceTemplateRequest(JDCloudRequest):
     """
-    查询启动模板详情
+    
+查询实例模板详情。
+
+详细操作说明请参考帮助文档：[实例模板](https://docs.jdcloud.com/cn/virtual-machines/instance-template-overview)
+
+## 接口说明
+- 该接口与查询实例模板列表返回的信息一致。
+- 只需要查询单个实例模板详细信息的时候可以调用该接口。
 
     """
 
@@ -35,8 +42,8 @@ class DescribeInstanceTemplateParameters(object):
 
     def __init__(self, regionId, instanceTemplateId, ):
         """
-        :param regionId: 地域ID
-        :param instanceTemplateId: 启动模板ID
+        :param regionId: 地域ID。
+        :param instanceTemplateId: 实例模板ID。
         """
 
         self.regionId = regionId

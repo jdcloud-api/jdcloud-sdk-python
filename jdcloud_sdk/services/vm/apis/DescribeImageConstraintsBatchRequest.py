@@ -21,8 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeImageConstraintsBatchRequest(JDCloudRequest):
     """
-    批量查询镜像的实例规格限制。<br>
-通过此接口可以查看镜像不支持的实例规格。只有官方镜像、第三方镜像有实例规格的限制，个人的私有镜像没有此限制。
+    
+批量查询镜像的实例规格限制。
+
+详细操作说明请参考帮助文档：[镜像概述](https://docs.jdcloud.com/cn/virtual-machines/image-overview)
+
+## 接口说明
+- 通过此接口可以查询镜像的实例规格限制信息。
+- 只有官方镜像、第三方镜像有实例规格的限制，用户的私有镜像没有此限制。
 
     """
 
@@ -36,7 +42,7 @@ class DescribeImageConstraintsBatchParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID
+        :param regionId: 地域ID。
         """
 
         self.regionId = regionId
@@ -44,7 +50,7 @@ class DescribeImageConstraintsBatchParameters(object):
 
     def setIds(self, ids):
         """
-        :param ids: (Optional) 镜像ID列表
+        :param ids: (Optional) 要查询的镜像ID列表，只支持官方镜像和第三方镜像。
         """
         self.ids = ids
 

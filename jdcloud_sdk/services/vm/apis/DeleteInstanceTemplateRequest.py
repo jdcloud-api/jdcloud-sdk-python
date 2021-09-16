@@ -21,7 +21,13 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteInstanceTemplateRequest(JDCloudRequest):
     """
-    删除一个启动模板
+    
+删除单个实例模板。
+
+详细操作说明请参考帮助文档：[删除实例模板](https://docs.jdcloud.com/cn/virtual-machines/delete-instance-template)
+
+## 接口说明
+- 关联了高可用组的实例模板不可以删除。
 
     """
 
@@ -35,8 +41,8 @@ class DeleteInstanceTemplateParameters(object):
 
     def __init__(self, regionId, instanceTemplateId, ):
         """
-        :param regionId: 地域ID
-        :param instanceTemplateId: 启动模板ID
+        :param regionId: 地域ID。
+        :param instanceTemplateId: 实例模板ID。
         """
 
         self.regionId = regionId

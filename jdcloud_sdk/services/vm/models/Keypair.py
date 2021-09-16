@@ -21,10 +21,10 @@ class Keypair(object):
 
     def __init__(self, keyName=None, keyFingerprint=None, createTime=None, instanceIds=None):
         """
-        :param keyName: (Optional) 密钥对名称
-        :param keyFingerprint: (Optional) 密钥对的指纹，根据 RFC4716 定义的公钥指纹格式，采用 MD5 信息摘要算法。
-        :param createTime: (Optional) 创建时间
-        :param instanceIds: (Optional) 绑定了此密钥的所有虚机id
+        :param keyName: (Optional) 密钥对名称。
+        :param keyFingerprint: (Optional) 密钥对的指纹，根据 `RFC4716` 定义的公钥指纹格式，采用 `MD5` 信息摘要算法。
+        :param createTime: (Optional) 密钥创建时间。
+        :param instanceIds: (Optional) 绑定了此密钥的云主机ID列表。
         """
 
         self.keyName = keyName

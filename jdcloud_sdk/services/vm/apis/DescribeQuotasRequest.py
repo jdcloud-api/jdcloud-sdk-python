@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeQuotasRequest(JDCloudRequest):
     """
-    查询配额，支持的类型：云主机、镜像、密钥、模板、镜像共享。
+    
+查询资源配额。
+
+## 接口说明
+- 调用该接口可查询 `云主机`、`镜像`、`密钥`、`实例模板`、`镜像共享` 的配额。
 
     """
 
@@ -35,7 +39,7 @@ class DescribeQuotasParameters(object):
 
     def __init__(self, regionId, ):
         """
-        :param regionId: 地域ID
+        :param regionId: 地域ID。
         """
 
         self.regionId = regionId
@@ -44,14 +48,17 @@ class DescribeQuotasParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) resourceTypes - 资源类型，支持多个[instance，keypair，image，instanceTemplate，imageShare]
+        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
+`resourceTypes`: 资源类型，支持多个，可选范围：`instance、keypair、image、instanceTemplate、imageShare`
 
         """
         self.filters = filters
 
     def setImageId(self, imageId):
         """
-        :param imageId: (Optional) 私有镜像Id，查询镜像共享(imageShare)配额时，此参数必传
+        :param imageId: (Optional) 私有镜像Id。
+查询镜像共享 `imageShare` 的配额时，此参数必传。
+
         """
         self.imageId = imageId
 

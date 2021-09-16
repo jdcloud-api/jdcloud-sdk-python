@@ -21,9 +21,9 @@ class InstanceTemplateElasticIp(object):
 
     def __init__(self, bandwidthMbps, chargeMode, provider=None):
         """
-        :param bandwidthMbps:  弹性公网IP的限速（单位：MB）
-        :param provider: (Optional) IP服务商，取值为BGP,nonBGP
-        :param chargeMode:  计费类型，支持按带宽计费(bandwith)，按流量计费(flow)
+        :param bandwidthMbps:  弹性公网IP的限速（单位：MB）。
+        :param provider: (Optional) IP服务商，取值范围：`BGP、nonBGP`。
+        :param chargeMode:  计费类型，支持按带宽计费 `bandwith`，按流量计费 `flow`。
         """
 
         self.bandwidthMbps = bandwidthMbps

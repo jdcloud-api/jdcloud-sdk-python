@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UnShareImageRequest(JDCloudRequest):
     """
-    取消共享镜像，只允许操作您的个人私有镜像。
+    
+取消共享私有镜像。
+
+详细操作说明请参考帮助文档：[取消共享私有镜像](https://docs.jdcloud.com/cn/virtual-machines/cancel-share-image)
+
+## 接口说明
+- 只允许操作用户的私有镜像。
+- 原被共享用户将无法再使用该镜像创建云主机实例，同时使用该镜像创建的云主机实例也无法重置为原始系统状态。
 
     """
 
@@ -35,9 +42,9 @@ class UnShareImageParameters(object):
 
     def __init__(self, regionId, imageId, pins):
         """
-        :param regionId: 地域ID
-        :param imageId: 镜像ID
-        :param pins: 需要取消的帐户
+        :param regionId: 地域ID。
+        :param imageId: 镜像ID。
+        :param pins: 需要取消的京东云帐户列表。
         """
 
         self.regionId = regionId

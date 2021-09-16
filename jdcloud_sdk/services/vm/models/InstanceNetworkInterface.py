@@ -21,14 +21,14 @@ class InstanceNetworkInterface(object):
 
     def __init__(self, networkInterfaceId=None, macAddress=None, vpcId=None, subnetId=None, securityGroups=None, sanityCheck=None, primaryIp=None, secondaryIps=None):
         """
-        :param networkInterfaceId: (Optional) 弹性网卡ID
-        :param macAddress: (Optional) 以太网地址
-        :param vpcId: (Optional) 虚拟网络ID
-        :param subnetId: (Optional) 子网ID
+        :param networkInterfaceId: (Optional) 弹性网卡ID。
+        :param macAddress: (Optional) 弹性网卡MAC地址。
+        :param vpcId: (Optional) 弹性网卡所属VPC的ID。
+        :param subnetId: (Optional) 子网ID。
         :param securityGroups: (Optional) 
-        :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1
-        :param primaryIp: (Optional) 网卡主IP
-        :param secondaryIps: (Optional) 网卡辅IP
+        :param sanityCheck: (Optional) PortSecurity，源和目标IP地址校验，取值为0或者1。
+        :param primaryIp: (Optional) 网卡主IP配置。
+        :param secondaryIps: (Optional) 网卡辅IP地址列表。
         """
 
         self.networkInterfaceId = networkInterfaceId

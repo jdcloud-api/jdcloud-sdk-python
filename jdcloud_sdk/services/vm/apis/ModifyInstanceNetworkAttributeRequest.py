@@ -21,8 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyInstanceNetworkAttributeRequest(JDCloudRequest):
     """
-    修改虚机弹性网卡属性，包括是否随云主机一起删除。<br>
-不能修改主网卡。
+    
+修改云主机弹性网卡属性。
+
+详细操作说明请参考帮助文档：[配置弹性网卡删除属性](https://docs.jdcloud.com/cn/virtual-machines/configurate-eni-delete-attributes)
+
+## 接口说明
+- 当前只支持修改随云主机实例删除的属性。
+- 不支持修改主网卡。
 
     """
 
@@ -34,19 +40,14 @@ class ModifyInstanceNetworkAttributeRequest(JDCloudRequest):
 
 class ModifyInstanceNetworkAttributeParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, regionId, instanceId, networks):
         """
-        :param regionId: 地域ID
-        :param instanceId: 云主机ID
+        :param regionId: 地域ID。
+        :param instanceId: 云主机ID。
+        :param networks: 弹性网卡列表。
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
-        self.networks = None
-
-    def setNetworks(self, networks):
-        """
-        :param networks: (Optional) 弹性网卡列表
-        """
         self.networks = networks
 

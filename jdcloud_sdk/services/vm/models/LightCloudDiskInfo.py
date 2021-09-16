@@ -21,9 +21,9 @@ class LightCloudDiskInfo(object):
 
     def __init__(self, diskId=None, diskType=None, diskSizeGB=None):
         """
-        :param diskId: (Optional) 云硬盘ID
-        :param diskType: (Optional) 云硬盘类型，取值为 ssd,premium-hdd,ssd.gp1,ssd.io1,hdd.std1
-        :param diskSizeGB: (Optional) 云硬盘大小，单位为 GiB
+        :param diskId: (Optional) 云硬盘ID。
+        :param diskType: (Optional) 云硬盘类型。取值范围：`ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1`。
+        :param diskSizeGB: (Optional) 云硬盘大小，单位为 GiB。
         """
 
         self.diskId = diskId

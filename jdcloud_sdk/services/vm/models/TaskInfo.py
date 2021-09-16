@@ -21,13 +21,13 @@ class TaskInfo(object):
 
     def __init__(self, taskId=None, action=None, taskStatus=None, progress=None, message=None, createdTime=None, finishedTime=None):
         """
-        :param taskId: (Optional) 任务id
-        :param action: (Optional) 任务操作类型
-        :param taskStatus: (Optional) 任务状态，pending,running,failed,finished
-        :param progress: (Optional) 任务进度，0-100
-        :param message: (Optional) 额外信息
-        :param createdTime: (Optional) 任务创建时间
-        :param finishedTime: (Optional) 任务完成时间
+        :param taskId: (Optional) 任务ID。
+        :param action: (Optional) 任务操作类型。支持范围：`ImportImage、ExportImage`。
+        :param taskStatus: (Optional) 任务状态。支持范围：`pending、running、failed、finished`。
+        :param progress: (Optional) 任务进度，0% - 100%。
+        :param message: (Optional) 额外描述信息。
+        :param createdTime: (Optional) 任务创建时间。
+        :param finishedTime: (Optional) 任务完成时间。
         """
 
         self.taskId = taskId

@@ -21,8 +21,8 @@ class Ag(object):
 
     def __init__(self, name=None, id=None):
         """
-        :param name: (Optional) 高可用组名称
-        :param id: (Optional) 高可用组id
+        :param name: (Optional) 高可用组名称。
+        :param id: (Optional) 高可用组ID。
         """
 
         self.name = name

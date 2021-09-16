@@ -21,8 +21,8 @@ class Gpu(object):
 
     def __init__(self, model=None, number=None):
         """
-        :param model: (Optional) GPU型号
-        :param number: (Optional) GPU数量
+        :param model: (Optional) GPU卡型号。
+        :param number: (Optional) GPU卡数量。
         """
 
         self.model = model

@@ -21,8 +21,8 @@ class Userdata(object):
 
     def __init__(self, key=None, value=None):
         """
-        :param key: (Optional) 键，最大长度48字符
-        :param value: (Optional) 值，最大长度21848字符
+        :param key: (Optional) 脚本类型，当前仅支持输入 `launch-script`，即启动脚本。
+        :param value: (Optional) 脚本内容，须 `Base64` 编码，且编码前长度不能超过16KB。
         """
 
         self.key = key

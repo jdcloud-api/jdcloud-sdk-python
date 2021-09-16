@@ -21,8 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ImportKeypairRequest(JDCloudRequest):
     """
-    导入由其他工具生成的密钥对的公钥部分。<br>
-若传入已存在的密钥名称，会返回错误。
+    
+导入密钥。
+
+与创建密钥不同的是，导入的密钥是由用户生成的。生成之后将公钥部分导入到京东云。
+
+详细操作说明请参考帮助文档：[创建密钥](https://docs.jdcloud.com/cn/virtual-machines/create-keypair)
+
+## 接口说明
+- 调用该接口导入由其他工具生成的密钥对的公钥部分。
 
     """
 
@@ -36,10 +43,11 @@ class ImportKeypairParameters(object):
 
     def __init__(self, regionId, keyName, publicKey):
         """
-        :param regionId: 地域ID
-        :param keyName: 密钥对名称，需要全局唯一。只允许数字、大小写字母、下划线“_”及中划线“-”，不超过32个字符。
+        :param regionId: 地域ID。
+        :param keyName: 密钥对名称，需要全局唯一。
+只允许数字、大小写字母、下划线“_”及中划线“-”，不超过32个字符。
 
-        :param publicKey: 密钥对的公钥部分
+        :param publicKey: 密钥对的公钥部分。
         """
 
         self.regionId = regionId

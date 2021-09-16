@@ -21,12 +21,12 @@ class InstanceTemplate(object):
 
     def __init__(self, id=None, name=None, description=None, instanceTemplateData=None, ags=None, createdTime=None):
         """
-        :param id: (Optional) 启动模板ID
-        :param name: (Optional) 启动模板名称
-        :param description: (Optional) 启动模板描述
-        :param instanceTemplateData: (Optional) 启动模板的数据
-        :param ags: (Optional) 关联的高可用组(ag)信息
-        :param createdTime: (Optional) 创建时间
+        :param id: (Optional) 实例模板ID
+        :param name: (Optional) 实例模板名称。
+        :param description: (Optional) 实例模板描述。
+        :param instanceTemplateData: (Optional) 实例模板详细配置。
+        :param ags: (Optional) 关联的高可用组(ag)信息。
+        :param createdTime: (Optional) 实例模板创建时间。
         """
 
         self.id = id

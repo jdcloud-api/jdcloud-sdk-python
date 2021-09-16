@@ -21,8 +21,8 @@ class CopyImage(object):
 
     def __init__(self, destinationImageId=None, sourceImageId=None):
         """
-        :param destinationImageId: (Optional) 复制后的目标镜像ID
-        :param sourceImageId: (Optional) 源镜像ID
+        :param destinationImageId: (Optional) 跨区复制产生的目标镜像ID。
+        :param sourceImageId: (Optional) 源镜像ID。
         """
 
         self.destinationImageId = destinationImageId

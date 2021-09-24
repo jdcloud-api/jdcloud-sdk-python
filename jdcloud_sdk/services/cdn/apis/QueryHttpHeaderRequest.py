@@ -38,4 +38,11 @@ class QueryHttpHeaderParameters(object):
         """
 
         self.domain = domain
+        self.edgeType = None
+
+    def setEdgeType(self, edgeType):
+        """
+        :param edgeType: (Optional) header生效节点，0边缘，1回源，2两者都
+        """
+        self.edgeType = edgeType
 

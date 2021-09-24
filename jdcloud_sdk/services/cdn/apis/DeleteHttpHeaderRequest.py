@@ -38,8 +38,15 @@ class DeleteHttpHeaderParameters(object):
         """
 
         self.domain = domain
+        self.edgeType = None
         self.headerType = None
         self.headerName = None
+
+    def setEdgeType(self, edgeType):
+        """
+        :param edgeType: (Optional) 0表示header在边缘生效，1表示header回源生效，2表示在边缘和回源都生效，该字段不传时默认header在边缘和回源都生效
+        """
+        self.edgeType = edgeType
 
     def setHeaderType(self, headerType):
         """

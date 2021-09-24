@@ -19,14 +19,16 @@
 
 class QueryHttpHeaderResp(object):
 
-    def __init__(self, headerType=None, headerName=None, headerValue=None, headerOp=None):
+    def __init__(self, edgeType=None, headerType=None, headerName=None, headerValue=None, headerOp=None):
         """
+        :param edgeType: (Optional) 
         :param headerType: (Optional) 
         :param headerName: (Optional) 
         :param headerValue: (Optional) 
         :param headerOp: (Optional) 
         """
 
+        self.edgeType = edgeType
         self.headerType = headerType
         self.headerName = headerName
         self.headerValue = headerValue

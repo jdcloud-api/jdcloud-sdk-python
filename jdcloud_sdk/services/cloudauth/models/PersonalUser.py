@@ -19,13 +19,13 @@
 
 class PersonalUser(object):
 
-    def __init__(self, name, idCard, bankcard, mobile, imgBase64, ):
+    def __init__(self, name, idCard=None, bankcard=None, mobile=None, imgBase64=None):
         """
         :param name:  姓名
-        :param idCard:  身份证号码
-        :param bankcard:  银行卡号
-        :param mobile:  手机号
-        :param imgBase64:  人像图片
+        :param idCard: (Optional) 身份证号码
+        :param bankcard: (Optional) 银行卡号
+        :param mobile: (Optional) 手机号
+        :param imgBase64: (Optional) 人像图片
         """
 
         self.name = name

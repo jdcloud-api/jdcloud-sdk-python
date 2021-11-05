@@ -19,10 +19,10 @@
 
 class KeyCfg(object):
 
-    def __init__(self, keyDescCfg, keyRotateCfg, ):
+    def __init__(self, keyDescCfg, keyRotateCfg=None):
         """
         :param keyDescCfg:  密钥描述配置
-        :param keyRotateCfg:  对称密钥的轮换配置；非对称密钥的操作，不支持该配置
+        :param keyRotateCfg: (Optional) 对称密钥的轮换配置；非对称密钥的操作，不支持该配置
         """
 
         self.keyDescCfg = keyDescCfg

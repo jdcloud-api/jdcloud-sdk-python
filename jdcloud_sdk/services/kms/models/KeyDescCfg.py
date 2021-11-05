@@ -23,7 +23,13 @@ class KeyDescCfg(object):
         """
         :param keyName:  key名称，默认为""
         :param keyDesc:  key描述，默认为""
-        :param keyType: (Optional) 密钥类型： 1: rsa-2048, 0: aes-256，default: aes-256
+        :param keyType: (Optional) 密钥类型： 
+  0: aes-256，default
+  1: rsa-2048, 
+  2: reserved
+  3: SM3-HMAC
+  4: SM4
+
         """
 
         self.keyName = keyName

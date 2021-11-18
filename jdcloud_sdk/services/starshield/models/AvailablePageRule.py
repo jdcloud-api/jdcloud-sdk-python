@@ -21,8 +21,8 @@ class AvailablePageRule(object):
 
     def __init__(self, id=None, properties=None):
         """
-        :param id: (Optional) setting name
-        :param properties: (Optional) type of the values
+        :param id: (Optional) 设置名称
+        :param properties: (Optional) 值的类型
         """
 
         self.id = id

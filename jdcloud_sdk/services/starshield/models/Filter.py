@@ -21,11 +21,11 @@ class Filter(object):
 
     def __init__(self, id=None, expression=None, paused=None, description=None, ref=None):
         """
-        :param id: (Optional) Filter identifier
-        :param expression: (Optional) The filter expression to be used
-        :param paused: (Optional) Whether this filter is currently paused
-        :param description: (Optional) A note that you can use to describe the purpose of the filter
-        :param ref: (Optional) Short reference tag to quickly select related rules.
+        :param id: (Optional) 筛选器标识符
+        :param expression: (Optional) 要使用的筛选器表达式
+        :param paused: (Optional) 此筛选器当前是否已暂停
+        :param description: (Optional) 可用于描述过滤器用途的注释
+        :param ref: (Optional) 短引用标记，用于快速选择相关规则。
         """
 
         self.id = id

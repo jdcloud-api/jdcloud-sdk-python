@@ -22,16 +22,14 @@ class FirewallRule(object):
     def __init__(self, products=None, priority=None, paused=None, ref=None, action_parameters=None, action=None, filter=None, id=None, description=None):
         """
         :param products: (Optional) 
-        :param priority: (Optional) The priority of the rule to allow control of processing order.
-A lower number indicates high priority. If not provided, any rules with a priority will be sequenced before those without.
-
-        :param paused: (Optional) Whether this firewall rule is currently paused.
-        :param ref: (Optional) Short reference tag to quickly select related rules.
+        :param priority: (Optional) 规则的优先级，允许控制处理顺序。一个较小的数字表示高优先级。如果不提供，任何有优先权的规则将在没有优先权的规则之前排序。
+        :param paused: (Optional) 此防火墙规则当前是否已暂停。
+        :param ref: (Optional) 短引用标记，用于快速选择相关规则。
         :param action_parameters: (Optional) 
-        :param action: (Optional) The action to apply to a matched request. Note that action "log" is only available for enterprise customers.
+        :param action: (Optional) 应用于匹配请求的行动。注意，行动 "log "只适用于企业客户。
         :param filter: (Optional) 
-        :param id: (Optional) Firewall Rule identifier
-        :param description: (Optional) A description of the rule to help identify it.
+        :param id: (Optional) 防火墙规则标识符
+        :param description: (Optional) 对规则的描述，以帮助识别它。
         """
 
         self.products = products

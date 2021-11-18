@@ -21,7 +21,7 @@ class Path(object):
 
     def __init__(self, value=None):
         """
-        :param value: (Optional) The literal uri path to be rewritten.
+        :param value: (Optional) 要重写的字面URI路径。
         """
 
         self.value = value

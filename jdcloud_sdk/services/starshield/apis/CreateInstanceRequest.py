@@ -51,12 +51,26 @@ class CreateInstanceParameters(object):
     def setChargeMode(self, chargeMode):
         """
         :param chargeMode: (Optional) 计费模式（CONFIG、FLOW、MONTHLY、ONCE）
+CONFIG 按配置
+FLOW 按用量
+MONTHLY 包年包月
+ONCE 一次性
+
         """
         self.chargeMode = chargeMode
 
     def setPackType(self, packType):
         """
-        :param packType: (Optional) 套餐类型（FREE、BASIC、PROFESSIONAL、ENTERPRISE、ULTIMATE、SMB_BASIC、SMB_BUSINESS）
+        :param packType: (Optional) 套餐类型（BASIC、PROFESSIONAL、ENTERPRISE、ULTIMATE、SMB_EXPERIENCE、SMB_BASIC、SMB_BUSINESS）
+BASIC 包年包月 基础版
+PROFESSIONAL 包年包月 专业版
+ENTERPRISE 包年包月 企业版
+ULTIMATE 包年包月 旗舰版
+--------------------------
+SMB_EXPERIENCE 按流量 体验版
+SMB_BASIC 按流量 基础版
+SMB_BUSINESS 按流量 商业版
+
         """
         self.packType = packType
 

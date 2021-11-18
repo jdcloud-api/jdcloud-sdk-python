@@ -26,4 +26,4 @@ class StarshieldClient(JDCloudClient):
         if config is None:
             config = Config('starshield.jdcloud-api.com')
 
-        super(StarshieldClient, self).__init__(credential, config, 'starshield', '0.0.1', logger)
+        super(StarshieldClient, self).__init__(credential, config, 'starshield', '0.0.2', logger)

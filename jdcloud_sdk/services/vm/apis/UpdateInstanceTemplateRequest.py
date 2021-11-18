@@ -27,7 +27,8 @@ class UpdateInstanceTemplateRequest(JDCloudRequest):
 详细操作说明请参考帮助文档：[实例模板](https://docs.jdcloud.com/cn/virtual-machines/instance-template-overview)
 
 ## 接口说明
-- 该接口只支持修改实例模板的名称或描述。
+- 名称、描述、实例模板配置信息至少要传一项。
+- 参数时，对应的参数不做更改。
 
     """
 
@@ -39,21 +40,33 @@ class UpdateInstanceTemplateRequest(JDCloudRequest):
 
 class UpdateInstanceTemplateParameters(object):
 
-    def __init__(self, regionId, instanceTemplateId, name, ):
+    def __init__(self, regionId, instanceTemplateId, ):
         """
         :param regionId: 地域ID。
         :param instanceTemplateId: 实例模板ID。
-        :param name: 实例模板的名称，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
 
         self.regionId = regionId
         self.instanceTemplateId = instanceTemplateId
-        self.name = name
+        self.name = None
         self.description = None
+        self.instanceTemplateData = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 实例模板的名称，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
+        """
+        self.name = name
 
     def setDescription(self, description):
         """
         :param description: (Optional) 实例模板的描述，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
         """
         self.description = description
+
+    def setInstanceTemplateData(self, instanceTemplateData):
+        """
+        :param instanceTemplateData: (Optional) 实例模板配置信息。
+        """
+        self.instanceTemplateData = instanceTemplateData
 

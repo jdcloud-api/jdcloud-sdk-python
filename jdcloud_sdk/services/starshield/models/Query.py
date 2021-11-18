@@ -21,7 +21,7 @@ class Query(object):
 
     def __init__(self, value=None):
         """
-        :param value: (Optional) The literal uri query string to be rewritten.
+        :param value: (Optional) 要重写的字面URI查询字符串。
         """
 
         self.value = value

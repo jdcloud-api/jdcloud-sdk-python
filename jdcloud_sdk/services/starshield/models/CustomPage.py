@@ -21,14 +21,14 @@ class CustomPage(object):
 
     def __init__(self, id=None, created_on=None, modified_on=None, url=None, state=None, required_tokens=None, preview_target=None, description=None):
         """
-        :param id: (Optional) The name of the Custom Page type
-        :param created_on: (Optional) When the Custom Page was created
-        :param modified_on: (Optional) When the Custom Page was last modified
-        :param url: (Optional) A URL that is associated with the Custom Page.
-        :param state: (Optional) The Custom Page state
-        :param required_tokens: (Optional) String tokens that must be present in your customized HTML page
-        :param preview_target: (Optional) The 'target' needed as part of the query string when previewing the Custom Page
-        :param description: (Optional) A short description of the Custom Page.
+        :param id: (Optional) 自定义页面类型的名称
+        :param created_on: (Optional) 创建自定义页面时间
+        :param modified_on: (Optional) 上次修改自定义页面的时间
+        :param url: (Optional) 与自定义页面关联的URL。
+        :param state: (Optional) 自定义页面状态
+        :param required_tokens: (Optional) 自定义HTML页面中必须存在的字符串标记
+        :param preview_target: (Optional) 预览自定义页面时，需要将“target”作为查询字符串的一部分
+        :param description: (Optional) 自定义页面的简短描述。
         """
 
         self.id = id

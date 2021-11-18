@@ -21,34 +21,34 @@ class Data(object):
 
     def __init__(self, size=None, altitude=None, long_degrees=None, lat_degrees=None, precision_horz=None, precision_vert=None, long_direction=None, long_minutes=None, long_seconds=None, lat_direction=None, lat_minutes=None, lat_seconds=None, service=None, proto=None, name=None, priority=None, weight=None, port=None, target=None, ty_pe=None, key_tag=None, algorithm=None, certificate=None, flags=None, protocol=None, public_key=None, digest_type=None, digest=None, order=None, preference=None, regex=None, replacement=None, usage=None, selector=None, matching_type=None, fingerprint=None, content=None):
         """
-        :param size: (Optional) Size of location in meters
-        :param altitude: (Optional) Altitude of location in meters
-        :param long_degrees: (Optional) Degrees of longitude
-        :param lat_degrees: (Optional) Degrees of latitude
-        :param precision_horz: (Optional) Horizontal precision of location
-        :param precision_vert: (Optional) Vertical precision of location
-        :param long_direction: (Optional) Longitude direction
-        :param long_minutes: (Optional) Minutes of longitude
-        :param long_seconds: (Optional) Seconds of longitude
-        :param lat_direction: (Optional) Latitude direction
-        :param lat_minutes: (Optional) Minutes of latitude
-        :param lat_seconds: (Optional) Seconds of latitude
-        :param service: (Optional) A service type, prefixed with an underscore
-        :param proto: (Optional) A valid protocol
-        :param name: (Optional) A valid hostname
-        :param priority: (Optional) Used with some records like MX and SRV to determine priority. If you do not supply a priority for an MX record, a default value of 0 will be set
-        :param weight: (Optional) The record weight
-        :param port: (Optional) The port of the service
-        :param target: (Optional) A valid hostname
-        :param ty_pe: (Optional) Type
+        :param size: (Optional) 位置的大小（米）
+        :param altitude: (Optional) 位置高度（米）
+        :param long_degrees: (Optional) 经度
+        :param lat_degrees: (Optional) 纬度
+        :param precision_horz: (Optional) 水平定位精度
+        :param precision_vert: (Optional) 垂直定位精度
+        :param long_direction: (Optional) 经度方向
+        :param long_minutes: (Optional) 经度分
+        :param long_seconds: (Optional) 经度秒
+        :param lat_direction: (Optional) 纬度方向
+        :param lat_minutes: (Optional) 纬度分
+        :param lat_seconds: (Optional) 纬度秒
+        :param service: (Optional) 以下划线为前缀的服务类型
+        :param proto: (Optional) 有效的协议
+        :param name: (Optional) 有效的主机名
+        :param priority: (Optional) 与一些记录如MX和SRV一起使用，以确定优先级。如果你没有为MX记录提供一个优先级，默认值为0将被设置。
+        :param weight: (Optional) 记录的权重
+        :param port: (Optional) 服务的端口
+        :param target: (Optional) 有效的主机名
+        :param ty_pe: (Optional) 类型
         :param key_tag: (Optional) Key Tag
         :param algorithm: (Optional) Algorithm
-        :param certificate: (Optional) Certificate
+        :param certificate: (Optional) 证书
         :param flags: (Optional) Flags
-        :param protocol: (Optional) Protocol
-        :param public_key: (Optional) Public Key
-        :param digest_type: (Optional) Digest Type
-        :param digest: (Optional) Digest
+        :param protocol: (Optional) 协议
+        :param public_key: (Optional) 公钥
+        :param digest_type: (Optional) 摘要类型
+        :param digest: (Optional) 摘要
         :param order: (Optional) Order
         :param preference: (Optional) Preference
         :param regex: (Optional) Regex
@@ -56,8 +56,8 @@ class Data(object):
         :param usage: (Optional) Usage
         :param selector: (Optional) Selector
         :param matching_type: (Optional) Matching Type
-        :param fingerprint: (Optional) fingerprint
-        :param content: (Optional) The record content
+        :param fingerprint: (Optional) 指纹
+        :param content: (Optional) 记录内容
         """
 
         self.size = size

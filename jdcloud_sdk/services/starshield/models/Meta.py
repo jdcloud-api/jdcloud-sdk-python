@@ -21,8 +21,8 @@ class Meta(object):
 
     def __init__(self, auto_added=None, source=None):
         """
-        :param auto_added: (Optional) Will exist if JDC StarShield automatically added this DNS record during initial setup.
-        :param source: (Optional) Where the record originated from
+        :param auto_added: (Optional) 如果星盾在初始设置期间自动添加了此 DNS 记录，则会存在。
+        :param source: (Optional) 记录来自哪里
         """
 
         self.auto_added = auto_added

@@ -22,11 +22,12 @@ class InstanceTemplateNetworkInterfaceAttachmentSpec(object):
     def __init__(self, networkInterface, deviceIndex=None, autoDelete=None):
         """
         :param deviceIndex: (Optional) 网卡设备Index。创建实例时此参数无须指定且指定无效。
-对于主网卡默认Index为1，辅助网卡自动分配。
+对于主网卡默认Index为1。
 
         :param autoDelete: (Optional) 是否随实例一起删除。
 `true`：随实例删除。
-`false`（默认值）：不随实例删除。
+`false`：不随实例删除。
+主网卡此属性默认为`true`
 
         :param networkInterface:  网卡设备详细配置。
         """

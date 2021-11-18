@@ -43,20 +43,25 @@ class ImageTasksRequest(JDCloudRequest):
 
 class ImageTasksParameters(object):
 
-    def __init__(self, regionId, taskAction, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域ID。
-        :param taskAction: 任务操作类型。支持范围：`ImportImage、ExportImage`。
         """
 
         self.regionId = regionId
-        self.taskAction = taskAction
+        self.taskAction = None
         self.taskIds = None
         self.taskStatus = None
         self.startTime = None
         self.endTime = None
         self.pageNumber = None
         self.pageSize = None
+
+    def setTaskAction(self, taskAction):
+        """
+        :param taskAction: (Optional) 任务操作类型。支持范围：`ImportImage、ExportImage`。
+        """
+        self.taskAction = taskAction
 
     def setTaskIds(self, taskIds):
         """
@@ -90,7 +95,7 @@ class ImageTasksParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为10；取值范围[1, 10]。
+        :param pageSize: (Optional) 分页大小；取值范围[10, 100]。
         """
         self.pageSize = pageSize
 

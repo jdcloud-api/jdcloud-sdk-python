@@ -59,6 +59,7 @@ class DescribeImagesParameters(object):
         self.launchPermission = None
         self.status = None
         self.serviceCode = None
+        self.architecture = None
         self.pageNumber = None
         self.pageSize = None
 
@@ -131,6 +132,12 @@ class DescribeImagesParameters(object):
         :param serviceCode: (Optional) 已废弃。
         """
         self.serviceCode = serviceCode
+
+    def setArchitecture(self, architecture):
+        """
+        :param architecture: (Optional) CPU架构。支持范围：`x86_64`、`aarch64`。
+        """
+        self.architecture = architecture
 
     def setPageNumber(self, pageNumber):
         """

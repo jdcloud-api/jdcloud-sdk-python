@@ -19,39 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateZoneRequest(JDCloudRequest):
+class DescribeInstanceByOrderNoRequest(JDCloudRequest):
     """
-    创建域
+    根据订单号查询套餐实例详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateZoneRequest, self).__init__(
-            '/zones', 'POST', header, version)
+        super(DescribeInstanceByOrderNoRequest, self).__init__(
+            '/regions/{regionId}/instance/{orderNumber}/describeInstance', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateZoneParameters(object):
+class DescribeInstanceByOrderNoParameters(object):
 
-    def __init__(self, name, account, ):
+    def __init__(self, regionId, orderNumber, ):
         """
-        :param name: 域名
-        :param account: 
+        :param regionId: 地域ID
+        :param orderNumber: 
         """
 
-        self.name = name
-        self.account = account
-        self.jump_start = None
-        self.ty_pe = None
-
-    def setJump_start(self, jump_start):
-        """
-        :param jump_start: (Optional) 自动尝试获取现有DNS记录
-        """
-        self.jump_start = jump_start
-
-    def setTy_pe(self, ty_pe):
-        """
-        :param ty_pe: (Optional) 全接入域意味着DNS由星盾托管。半接入域通常是合作伙伴托管的域或CNAME设置。
-        """
-        self.ty_pe = ty_pe
+        self.regionId = regionId
+        self.orderNumber = orderNumber
 

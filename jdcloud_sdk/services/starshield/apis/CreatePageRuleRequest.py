@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreatePageRuleRequest(JDCloudRequest):
     """
-    
+    创建页面规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):

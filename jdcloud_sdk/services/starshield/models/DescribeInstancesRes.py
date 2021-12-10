@@ -19,7 +19,7 @@
 
 class DescribeInstancesRes(object):
 
-    def __init__(self, instanceId=None, instanceName=None, packType=None, chargeState=None, zonePackNum=None, trafficExpansion=None, flowRemain=None, packMode=None, memo=None, createTime=None, expireTime=None, packageInfo=None):
+    def __init__(self, instanceId=None, instanceName=None, packType=None, chargeState=None, zonePackNum=None, trafficExpansion=None, flowUsedCnt=None, flowRemain=None, packMode=None, memo=None, createTime=None, expireTime=None, packageInfo=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -27,6 +27,7 @@ class DescribeInstancesRes(object):
         :param chargeState: (Optional) 计费状态
         :param zonePackNum: (Optional) 域名增量包数量
         :param trafficExpansion: (Optional) 流量包数量
+        :param flowUsedCnt: (Optional) 已使用流量（单位：Byte）
         :param flowRemain: (Optional) 剩余流量(单位：Gb)
         :param packMode: (Optional) 套餐模式(BASE->基础套餐 FLOW->流量套餐)
         :param memo: (Optional) 备注
@@ -41,6 +42,7 @@ class DescribeInstancesRes(object):
         self.chargeState = chargeState
         self.zonePackNum = zonePackNum
         self.trafficExpansion = trafficExpansion
+        self.flowUsedCnt = flowUsedCnt
         self.flowRemain = flowRemain
         self.packMode = packMode
         self.memo = memo

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeletePageRuleRequest(JDCloudRequest):
     """
-    
+    删除页面规则
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -22,7 +22,7 @@ class SnapshotSpec(object):
     def __init__(self, name, diskId, description=None):
         """
         :param name:  快照名称
-        :param description: (Optional) 快照描述
+        :param description: (Optional) 快照描述,默认为空
         :param diskId:  用于创建快照的云盘ID
         """
 

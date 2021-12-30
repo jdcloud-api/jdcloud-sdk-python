@@ -23,8 +23,8 @@ class ContactInfo(object):
         """
         :param sms: (Optional) 是否发送短信。0:不发送 1:发送
         :param email: (Optional) 是否发送短信。0:不发送 1:发送
-        :param personIds: (Optional) 联系人id
-        :param groupIds: (Optional) 联系组id
+        :param personIds: (Optional) 联系人id,默认为空
+        :param groupIds: (Optional) 联系组id,默认为空
         """
 
         self.sms = sms

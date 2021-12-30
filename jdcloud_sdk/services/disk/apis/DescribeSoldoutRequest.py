@@ -19,36 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExtendDiskRequest(JDCloudRequest):
+class DescribeSoldoutRequest(JDCloudRequest):
     """
-    -   扩容云硬盘到指定大小，云硬盘状态必须为 available。
--   当云硬盘正在创建快照时，不允许扩容。
-
+    查询云硬盘售罄情况列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExtendDiskRequest, self).__init__(
-            '/regions/{regionId}/disks/{diskId}:extend', 'POST', header, version)
+        super(DescribeSoldoutRequest, self).__init__(
+            '/regions/{regionId}/soldout', 'GET', header, version)
         self.parameters = parameters
 
 
-class ExtendDiskParameters(object):
+class DescribeSoldoutParameters(object):
 
-    def __init__(self, regionId, diskId, diskSizeGB, ):
+    def __init__(self, regionId, ):
         """
         :param regionId: 地域ID
-        :param diskId: 云硬盘ID
-        :param diskSizeGB: 扩容后的云硬盘大小，单位为GiB
         """
 
         self.regionId = regionId
-        self.diskId = diskId
-        self.diskSizeGB = diskSizeGB
-        self.iops = None
-
-    def setIops(self, iops):
-        """
-        :param iops: (Optional) 修改ssd.io1型云硬盘的iops数量，当且仅当ssd.io1型的云盘类型有效，步长是10; 默认iops为云硬盘原有iops值
-        """
-        self.iops = iops
 

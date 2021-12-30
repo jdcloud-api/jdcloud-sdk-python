@@ -47,13 +47,13 @@ class DescribeSnapshotPoliciesParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 策略名称
+        :param name: (Optional) 策略名称,默认为空
         """
         self.name = name
 
     def setPolicyId(self, policyId):
         """
-        :param policyId: (Optional) 策略ID
+        :param policyId: (Optional) 策略ID,默认为空
         """
         self.policyId = policyId
 

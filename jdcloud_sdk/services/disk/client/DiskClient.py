@@ -26,4 +26,4 @@ class DiskClient(JDCloudClient):
         if config is None:
             config = Config('disk.jdcloud-api.com')
 
-        super(DiskClient, self).__init__(credential, config, 'disk', '0.12.6', logger)
+        super(DiskClient, self).__init__(credential, config, 'disk', '0.12.7', logger)

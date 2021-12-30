@@ -48,7 +48,7 @@ class ExtendDiskParameters(object):
 
     def setIops(self, iops):
         """
-        :param iops: (Optional) 修改ssd.io1型云硬盘的iops数量，当且仅当ssd.io1型的云盘类型有效，步长是10.
+        :param iops: (Optional) 修改ssd.io1型云硬盘的iops数量，当且仅当ssd.io1型的云盘类型有效，步长是10; 默认iops为云硬盘原有iops值
         """
         self.iops = iops
 

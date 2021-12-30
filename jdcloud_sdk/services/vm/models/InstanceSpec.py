@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None):
+    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None):
         """
         :param agId: (Optional) 高可用组ID。指定此参数后，将默认使用高可用组关联的实例模板创建实例，实例模板中的参数不可覆盖替换。实例模板以外的参数（内网IPv4/Ipv6分配方式、名称、描述、标签）可指定。
 
@@ -105,6 +105,7 @@ class InstanceSpec(object):
 `no`（默认值）：不使用镜像登录凭证。
 仅使用私有或共享镜像时此参数有效。
 
+        :param resourceGroupId: (Optional) 资源组ID
         """
 
         self.agId = agId
@@ -132,3 +133,4 @@ class InstanceSpec(object):
         self.autoImagePolicyId = autoImagePolicyId
         self.passwordAuth = passwordAuth
         self.imageInherit = imageInherit
+        self.resourceGroupId = resourceGroupId

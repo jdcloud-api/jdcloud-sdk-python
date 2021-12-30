@@ -22,7 +22,7 @@ class OrderItem(object):
     def __init__(self, name=None, direction=None):
         """
         :param name: (Optional) 排序字段。
-        :param direction: (Optional) 0:升序 1:降序，必填
+        :param direction: (Optional) 0:升序 1:降序，默认不排序
         """
 
         self.name = name

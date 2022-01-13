@@ -19,38 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAttackStatisticsRequest(JDCloudRequest):
+class DescribeStatusGraphRequest(JDCloudRequest):
     """
-    查询攻击次数及流量峰值
-参数 serviceIp 优先级大于 instanceId.
-- 指定 serviceIp 参数时, 忽略 instanceId 参数, 统计 ip 相关攻击
-- 未指定 serviceIp 时, 统计 instanceId 指定实例相关攻击
-- serviceIp 和 instanceId 均未指定时, 统计用户所有攻击记录
-CC攻击为实例级别, 查询类型 type 为 cc 时, 参数 serviceIp 无效
-
+    高防返回客户端状态码报表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAttackStatisticsRequest, self).__init__(
-            '/regions/{regionId}/attacklog:describeAttackStatistics', 'GET', header, version)
+        super(DescribeStatusGraphRequest, self).__init__(
+            '/regions/{regionId}/charts:statusGraph', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAttackStatisticsParameters(object):
+class DescribeStatusGraphParameters(object):
 
-    def __init__(self, regionId, startTime, type):
+    def __init__(self, regionId, startTime, ):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
-        :param startTime: 开始时间, 只能查询最近 90 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
-        :param type: 攻击类型, 0 为 DDoS, 1 为 CC
+        :param startTime: 开始时间, 只能查询最近 7 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ
         """
 
         self.regionId = regionId
         self.startTime = startTime
         self.endTime = None
         self.instanceId = None
-        self.serviceIp = None
-        self.type = type
+        self.subDomain = None
 
     def setEndTime(self, endTime):
         """
@@ -60,13 +52,13 @@ class DescribeAttackStatisticsParameters(object):
 
     def setInstanceId(self, instanceId):
         """
-        :param instanceId: (Optional) 高防实例 ID
+        :param instanceId: (Optional) 高防实例 Id 列表
         """
         self.instanceId = instanceId
 
-    def setServiceIp(self, serviceIp):
+    def setSubDomain(self, subDomain):
         """
-        :param serviceIp: (Optional) 高防IP列表. <br>- 使用 <a href='http://docs.jdcloud.com/anti-ddos-pro/api/describeServiceIpList'>describeServiceIpList</a> 接口查询实例的高防 IP
+        :param subDomain: (Optional) 规则域名列表
         """
-        self.serviceIp = serviceIp
+        self.subDomain = subDomain
 

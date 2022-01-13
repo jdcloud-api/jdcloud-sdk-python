@@ -22,6 +22,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeDDoSIpAttackLogsRequest(JDCloudRequest):
     """
     查询高防IP的 DDoS 攻击日志, 仅BGP实例返回的是IP级别的攻击记录, 非BGP实例返回的仍是实例级别的攻击记录(serviceIp 字段为空)
+参数 serviceIp 优先级大于 instanceId.
+- 指定 serviceIp 参数时, 忽略 instanceId 参数, 查询 ip 相关攻击记录.
+- 未指定 serviceIp 时, 查询 instanceId 指定实例相关攻击记录.
+- serviceIp 和 instanceId 均未指定时, 查询用户所有攻击记录
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -44,6 +49,7 @@ class DescribeDDoSIpAttackLogsParameters(object):
         self.startTime = startTime
         self.endTime = None
         self.instanceId = None
+        self.serviceIp = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -68,4 +74,10 @@ class DescribeDDoSIpAttackLogsParameters(object):
         :param instanceId: (Optional) 高防实例 ID
         """
         self.instanceId = instanceId
+
+    def setServiceIp(self, serviceIp):
+        """
+        :param serviceIp: (Optional) 高防IP列表. <br>- 使用 <a href='http://docs.jdcloud.com/anti-ddos-pro/api/describeServiceIpList'>describeServiceIpList</a> 接口查询实例的高防 IP
+        """
+        self.serviceIp = serviceIp
 

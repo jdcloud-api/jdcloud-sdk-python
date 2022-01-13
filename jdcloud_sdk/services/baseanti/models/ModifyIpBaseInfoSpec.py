@@ -21,8 +21,16 @@ class ModifyIpBaseInfoSpec(object):
 
     def __init__(self, ip, resourceType, bandwidth, cleanThresholdBps=None, cleanThresholdPps=None, blackHoleThresholdBps=None):
         """
-        :param ip:  公网 IP 地址, 仅支持 IPv4
-        :param resourceType:  公网 IP 类型或绑定资源类型. <br>- 2: 云物理服务器公网 IP<br>- 5: 京舰公网 IP
+        :param ip:  公网 IP 地址, 支持 IPv4 或 IPv6. 
+<br>如果是IPv4, 应使用点分10进制格式
+<br>如果是IPv6, 应使用\":\"分隔的8组十六进制格式(字母使用小写格式), 其中连续的 0 以及每组的前导的 0 均应省略, 例如 2001:<b>0</b>db8:<b>0</b>2de:<b>0000</b>:<b>0000</b>:<b>0000</b>:<b>0000</b>:<b>0</b>e13 应表示为 2001:db8:2de::e13"
+
+        :param resourceType:  公网 IP 类型或绑定资源类型. 
+<br>- 2: 云物理服务器公网 IP
+<br>- 3: Web应用防火墙 IP
+<br>- 4: 托管区公网 IP
+<br>- 5: 京舰公网 IP
+
         :param bandwidth:  带宽上限, 单位 Mbps
         :param cleanThresholdBps: (Optional) 每秒请求流量清洗阈值, 单位 bps. 用户有特殊需求时传该字段, 否则不传
         :param cleanThresholdPps: (Optional) 每秒报文请求数清洗阈值, 单位 pps. 用户有特殊需求时传该字段, 否则不传

@@ -19,19 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCpsIpResourcesRequest(JDCloudRequest):
+class DescribeWafIpResourcesRequest(JDCloudRequest):
     """
-    查询基础防护已防护的云物理服务器公网 IP 的安全信息. 包括云物理服务器的公网 IP 和弹性公网 IP.
-
+    查询基础防护已防护的Web应用防火墙 IP 的安全信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCpsIpResourcesRequest, self).__init__(
-            '/regions/{regionId}/cpsIpResources', 'GET', header, version)
+        super(DescribeWafIpResourcesRequest, self).__init__(
+            '/regions/{regionId}/wafIpResources', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeCpsIpResourcesParameters(object):
+class DescribeWafIpResourcesParameters(object):
 
     def __init__(self, regionId, ):
         """

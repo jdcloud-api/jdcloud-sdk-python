@@ -19,46 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateSmsAppUsingPOSTRequest(JDCloudRequest):
+class SendMessagesByEncPinUsingPOSTRequest(JDCloudRequest):
     """
-    创建短信应用
+    根据加密pin发送短信
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateSmsAppUsingPOSTRequest, self).__init__(
-            '/smsApps', 'POST', header, version)
+        super(SendMessagesByEncPinUsingPOSTRequest, self).__init__(
+            '/sendMessagesByEncPin', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateSmsAppUsingPOSTParameters(object):
+class SendMessagesByEncPinUsingPOSTParameters(object):
 
-    def __init__(self, appDesc, appName, ):
+    def __init__(self, appId, signId, templateId, encPins, ):
         """
-        :param appDesc: 应用描述
-        :param appName: 应用名称
+        :param appId: 应用id
+        :param signId: 签名id
+        :param templateId: 模板id
+        :param encPins: 加密pin集合，不能超过100个
         """
 
-        self.appDesc = appDesc
-        self.appId = None
-        self.appName = appName
-        self.accessKeyId = None
-        self.accessKeySecret = None
-
-    def setAppId(self, appId):
-        """
-        :param appId: (Optional) 云鼎应用id
-        """
         self.appId = appId
+        self.signId = signId
+        self.templateId = templateId
+        self.encPins = encPins
+        self.params = None
 
-    def setAccessKeyId(self, accessKeyId):
+    def setParams(self, params):
         """
-        :param accessKeyId: (Optional) accessKeyId
+        :param params: (Optional) 短信模板变量对应的数据值
         """
-        self.accessKeyId = accessKeyId
-
-    def setAccessKeySecret(self, accessKeySecret):
-        """
-        :param accessKeySecret: (Optional) accessKeySecret
-        """
-        self.accessKeySecret = accessKeySecret
+        self.params = params
 

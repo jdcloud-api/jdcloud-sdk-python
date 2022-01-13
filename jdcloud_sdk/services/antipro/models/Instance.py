@@ -19,13 +19,14 @@
 
 class Instance(object):
 
-    def __init__(self, id=None, name=None, region=None, type=None, ipCount=None, basicBandwidth=None, elasticBandwidth=None, expireTime=None, createTime=None, protectedObjects=None, onTrial=None, resourceId=None):
+    def __init__(self, id=None, name=None, region=None, type=None, ipCount=None, aclLimit=None, basicBandwidth=None, elasticBandwidth=None, expireTime=None, createTime=None, protectedObjects=None, onTrial=None, resourceId=None, tags=None):
         """
         :param id: (Optional) 防护包实例 Id
         :param name: (Optional) 防护包实例名称
         :param region: (Optional) 防护包实例地域
-        :param type: (Optional) 套餐类型, 1: 独享 IP, 2: 共享 IP
+        :param type: (Optional) 套餐类型. <br>- 1: 独享 IP<br>- 2: 共享 IP
         :param ipCount: (Optional) 可防护 IP 个数
+        :param aclLimit: (Optional) 可添加的访问控制规则数量
         :param basicBandwidth: (Optional) 保底带宽, 单位 Gbps
         :param elasticBandwidth: (Optional) 弹性带宽, 单位 Gbps
         :param expireTime: (Optional) 实例过期时间
@@ -33,6 +34,7 @@ class Instance(object):
         :param protectedObjects: (Optional) 防护对象
         :param onTrial: (Optional) 是否为试用防护包
         :param resourceId: (Optional) 资源 Id
+        :param tags: (Optional) Tag信息
         """
 
         self.id = id
@@ -40,6 +42,7 @@ class Instance(object):
         self.region = region
         self.type = type
         self.ipCount = ipCount
+        self.aclLimit = aclLimit
         self.basicBandwidth = basicBandwidth
         self.elasticBandwidth = elasticBandwidth
         self.expireTime = expireTime
@@ -47,3 +50,4 @@ class Instance(object):
         self.protectedObjects = protectedObjects
         self.onTrial = onTrial
         self.resourceId = resourceId
+        self.tags = tags

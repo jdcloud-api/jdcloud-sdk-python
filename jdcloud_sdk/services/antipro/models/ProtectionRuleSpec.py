@@ -32,8 +32,7 @@ class ProtectionRuleSpec(object):
         :param dstNewConnLimitValue: (Optional) 目的新建连接速率, 修改实例防护规则或自定义 IP 防护规则时必传
         :param datagramRangeMin: (Optional) 报文最小长度, 取值范围 [1, datagramRangeMax)
         :param datagramRangeMax: (Optional) 报文最大长度, 取值范围 (datagramRangeMin, 1518]
-        :param geoBlackList: (Optional) geo 拦截地域编码列表. 查询 <a href="http://docs.jdcloud.com/anti-ddos-protection-package/api/describegeoareas">describeGeoAreas</a> 接口获取可设置的地域编码列表
-
+        :param geoBlackList: (Optional) geo 拦截地域编码列表. 查询 <a href='http://docs.jdcloud.com/anti-ddos-protection-package/api/describegeoareas'>describeGeoAreas</a> 接口获取可设置的地域编码列表
         :param ipBlackList: (Optional) IP 黑名单列表
         :param ipWhiteList: (Optional) IP 白名单列表
         """

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceRequest(JDCloudRequest):
     """
-    创建防护包实例, 当前支持区域: 华北-北京, 华东-宿迁, 华东-上海
+    创建防护包实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,12 +32,26 @@ class CreateInstanceRequest(JDCloudRequest):
 
 class CreateInstanceParameters(object):
 
-    def __init__(self, regionId, createInstanceSpec):
+    def __init__(self, regionId, createInstanceSpec, ):
         """
-        :param regionId: 地域编码
+        :param regionId: 地域 Id, DDoS 防护包目前支持华北-北京, 华东-宿迁, 华东-上海
         :param createInstanceSpec: 创建防护包实例请求参数
         """
 
         self.regionId = regionId
         self.createInstanceSpec = createInstanceSpec
+        self.autoRenewalSpec = None
+        self.extraOperationSpec = None
+
+    def setAutoRenewalSpec(self, autoRenewalSpec):
+        """
+        :param autoRenewalSpec: (Optional) 自动续费配置, 默认不开通
+        """
+        self.autoRenewalSpec = autoRenewalSpec
+
+    def setExtraOperationSpec(self, extraOperationSpec):
+        """
+        :param extraOperationSpec: (Optional) 提交订单附加操作
+        """
+        self.extraOperationSpec = extraOperationSpec
 

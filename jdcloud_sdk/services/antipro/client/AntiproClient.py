@@ -26,4 +26,4 @@ class AntiproClient(JDCloudClient):
         if config is None:
             config = Config('antipro.jdcloud-api.com')
 
-        super(AntiproClient, self).__init__(credential, config, 'antipro', '1.1.0', logger)
+        super(AntiproClient, self).__init__(credential, config, 'antipro', '1.2.0', logger)

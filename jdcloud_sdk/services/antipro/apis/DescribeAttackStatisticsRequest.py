@@ -21,11 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAttackStatisticsRequest(JDCloudRequest):
     """
-    攻击记录统计, 参数 ip 优先级大于 instanceId
-  - 指定 ip 参数时, 忽略 instanceId 参数, 统计 ip 的攻击情况
-  - 未指定 ip 时, 统计 instanceId 指定实例相关攻击情况
-  - ip 和 instanceId 均未指定时, 查询用户所有公网 IP 攻击情况
-
+    攻击记录统计, 参数 ip 优先级大于 instanceId. <br>- 指定 ip 参数时, 忽略 instanceId 参数, 统计 ip 的攻击情况. <br>- 未指定 ip 时, 统计 instanceId 指定实例相关攻击情况. <br>- ip 和 instanceId 均未指定时, 查询用户所有公网 IP 攻击情况
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -55,9 +51,7 @@ class DescribeAttackStatisticsParameters(object):
 
     def setIp(self, ip):
         """
-        :param ip: (Optional) DDoS 防护包已防护的公网 IP
-- 使用 <a href="http://docs.jdcloud.com/anti-ddos-protection-package/api/describeprotectediplist">describeProtectedIpList</a> 接口查询 DDoS 防护包已防护的公网 IP
-
+        :param ip: (Optional) DDoS 防护包已防护的公网 IP. <br>- 使用 <a href='http://docs.jdcloud.com/anti-ddos-protection-package/api/describeprotectediplist'>describeProtectedIpList</a> 接口查询 DDoS 防护包已防护的公网 IP
         """
         self.ip = ip
 

@@ -35,9 +35,7 @@ class DescribeAttackSourceParameters(object):
     def __init__(self, attackLogId, ip):
         """
         :param attackLogId: 攻击记录 Id
-        :param ip: DDoS 防护包已防护的公网 IP
-- 使用 <a href="http://docs.jdcloud.com/anti-ddos-protection-package/api/describeprotectediplist">describeProtectedIpList</a> 接口查询 DDoS 防护包已防护的公网 IP
-
+        :param ip: DDoS 防护包已防护的公网 IP. <br>- 使用 <a href='http://docs.jdcloud.com/anti-ddos-protection-package/api/describeprotectediplist'>describeProtectedIpList</a> 接口查询 DDoS 防护包已防护的公网 IP
         """
 
         self.attackLogId = attackLogId

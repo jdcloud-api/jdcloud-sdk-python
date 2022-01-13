@@ -21,19 +21,12 @@ class CreateInstanceSpec(object):
 
     def __init__(self, name, ipNum, bpGbps, epGbps, timeSpan, timeUnit, ):
         """
-        :param name:  防护包实例名称, 新购防护包时必传
-长度限制为 1-80 个字符, 只允许包含中文, 字母, 数字, -, ., /, _
-
+        :param name:  防护包实例名称, 新购防护包时必传. 长度限制为 1-80 个字符, 只允许包含中文, 字母, 数字, -, ., /, _
         :param ipNum:  可防护 IP 数量, 1, 5, 10, 50, 100, 1000(不限)
         :param bpGbps:  保底带宽: 10, 20, 30, 50, 单位: Gbps
         :param epGbps:  弹性带宽: 0, 10, 20, 单位: Gbps
-        :param timeSpan:  购买防护包时长, 新购防护包时必传
-- timeUnit 为 3 时, 可取值 1-9
-- timeUnit 为 4 时, 可取值 1-3
-
-        :param timeUnit:  购买时长类型, 新购防护包时必传
-- 3: 月
-- 4: 年
+        :param timeSpan:  购买防护包时长, 新购防护包时必传. <br>- timeUnit 为 3 时, 可取值 1-9<br>- timeUnit 为 4 时, 可取值 1-3
+        :param timeUnit:  购买时长类型, 新购防护包时必传. <br>- 3: 月<br>- 4: 年
         """
 
         self.name = name

@@ -21,7 +21,7 @@ class ProtectionRule(object):
 
     def __init__(self, type=None, cleanThresholdBps=None, cleanThresholdPps=None, spoofIpEnable=None, srcNewConnLimitEnable=None, srcNewConnLimitValue=None, dstNewConnLimitEnable=None, dstNewConnLimitValue=None, datagramRangeMin=None, datagramRangeMax=None, geoBlackList=None, ipBlackList=None, ipWhiteList=None):
         """
-        :param type: (Optional) 防护规则类型: 0: 默认防护包规则, 1: IP 自定义规则
+        :param type: (Optional) 防护规则类型. <br>- 0: 默认防护包规则<br>- 1: IP 自定义规则
         :param cleanThresholdBps: (Optional) 清洗触发值 bps
         :param cleanThresholdPps: (Optional) 清洗触发值 pps
         :param spoofIpEnable: (Optional) 虚假源开启

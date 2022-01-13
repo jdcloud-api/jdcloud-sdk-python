@@ -21,7 +21,7 @@ class ProtectedObject(object):
 
     def __init__(self, type=None, count=None, ipList=None):
         """
-        :param type: (Optional) 防护对象类型: eip: 弹性公网 IP, cps: 云物理服务器
+        :param type: (Optional) 防护对象类型: eip: 弹性公网 IP, cps: 云物理服务器公网 IP, waf: Web应用防护墙 IP, ccs: 托管区公网 IP
         :param count: (Optional) 已防护 IP 个数
         :param ipList: (Optional) 防护 IP 列表
         """

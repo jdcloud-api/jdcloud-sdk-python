@@ -23,7 +23,7 @@ class OperationRecord(object):
         """
         :param time: (Optional) 操作时间
         :param name: (Optional) 防护包名称
-        :param action: (Optional) 操作类型:  1：套餐变更, 2：防护规则变更, 3：防护对象变更, 4：IP 地址变更, 5：防护包名称变更
+        :param action: (Optional) 操作类型.<br>- 1: 套餐变更<br>- 2: 防护规则变更<br>- 3: 防护对象变更<br>- 4: IP 地址变更<br>- 5: 防护包名称变更<br>- 6: IP地址库变更<br>- 7: 端口库变更<br>- 8: 访问控制规则变更
         :param info: (Optional) 操作详情
         :param operator: (Optional) 操作人
         """

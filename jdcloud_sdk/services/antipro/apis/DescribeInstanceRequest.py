@@ -34,7 +34,7 @@ class DescribeInstanceParameters(object):
 
     def __init__(self, regionId, instanceId, ):
         """
-        :param regionId: 地域编码
+        :param regionId: 地域 Id, DDoS 防护包目前支持华北-北京, 华东-宿迁, 华东-上海
         :param instanceId: 防护包实例 Id
         """
 

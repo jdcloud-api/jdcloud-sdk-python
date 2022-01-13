@@ -19,9 +19,10 @@
 
 class WebRuleSpec(object):
 
-    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, serviceIp=None, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
+    def __init__(self, domain, protocol, originType, algorithm, webSocketStatus, serviceIp=None, serviceIps=None, port=None, httpsPort=None, originAddr=None, onlineAddr=None, originDomain=None, forceJump=None, customPortStatus=None, httpOrigin=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, userSuiteLevel=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
         """
-        :param serviceIp: (Optional) 高防 IP
+        :param serviceIp: (Optional) 高防 IP, serviceIps 为空时生效
+        :param serviceIps: (Optional) 高防 IP 列表, 不为空时忽略 serviceIp, 传多个时后台会在高防IP封禁后随机切换其他未封禁的IP
         :param domain:  子域名
         :param protocol:  协议: http, https 至少一个为 true
         :param port: (Optional) HTTP 协议的端口号, 如80, 81; 如果 protocol.http 为 true, 至少配置一个端口
@@ -39,13 +40,15 @@ class WebRuleSpec(object):
         :param enableKeepalive: (Optional) 是否开启回源长连接, protocol 选项开启 https 时生效, 可取值<br>- on: 开启<br>- off: 关闭
         :param httpVersion: (Optional) http 版本, protocol 选项开启 https 时生效, 可取值 http1 或 http2
         :param sslProtocols: (Optional) SSL协议类型, protocol 选项开启 https 时生效, 可取值SSLv2,SSLv3,TLSv1.0,TLSv1.1,TLSv1.2
-        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级
+        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级<br>- custom：自定义
+        :param userSuiteLevel: (Optional) 自定义加密套件等级, suiteLevel 为 custom 是有效
         :param enableHealthCheck: (Optional) 健康检查开关, 0: 关闭, 1: 开启
         :param proxyConnectTimeout: (Optional) 回源连接超时时长, 单位 秒
         :param enableUnderscores: (Optional) 请求头支持下划线, 0: 关闭, 1: 开启
         """
 
         self.serviceIp = serviceIp
+        self.serviceIps = serviceIps
         self.domain = domain
         self.protocol = protocol
         self.port = port
@@ -64,6 +67,7 @@ class WebRuleSpec(object):
         self.httpVersion = httpVersion
         self.sslProtocols = sslProtocols
         self.suiteLevel = suiteLevel
+        self.userSuiteLevel = userSuiteLevel
         self.enableHealthCheck = enableHealthCheck
         self.proxyConnectTimeout = proxyConnectTimeout
         self.enableUnderscores = enableUnderscores

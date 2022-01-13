@@ -19,7 +19,7 @@
 
 class SetRiskUsrListReq(object):
 
-    def __init__(self, wafInstanceId, domain, name, desc, disable, rules, id=None):
+    def __init__(self, wafInstanceId, domain, name, desc, disable, id=None, rules=None, bz64File=None):
         """
         :param id: (Optional) 规则id,新增时传0
         :param wafInstanceId:  WAF实例id
@@ -27,7 +27,8 @@ class SetRiskUsrListReq(object):
         :param name:  规则名称
         :param desc:  desc
         :param disable:  0-使用中 1-禁用
-        :param rules:  策略规则, 格式：["13311112222","13211112222"]
+        :param rules: (Optional) 策略规则, 格式：["13311112222","13211112222"]
+        :param bz64File: (Optional) 自定义名单上传文件内容,base64编码
         """
 
         self.id = id
@@ -37,3 +38,4 @@ class SetRiskUsrListReq(object):
         self.desc = desc
         self.disable = disable
         self.rules = rules
+        self.bz64File = bz64File

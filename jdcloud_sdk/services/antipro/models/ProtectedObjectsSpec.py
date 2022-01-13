@@ -19,11 +19,13 @@
 
 class ProtectedObjectsSpec(object):
 
-    def __init__(self, eip, cps, ):
+    def __init__(self, eip, cps, ccs, ):
         """
         :param eip:  是否防护弹性公网 IP
-        :param cps:  是否防护云物理服务器
+        :param cps:  是否防护云物理服务器公网 IP
+        :param ccs:  是否防护托管区公网 IP
         """
 
         self.eip = eip
         self.cps = cps
+        self.ccs = ccs

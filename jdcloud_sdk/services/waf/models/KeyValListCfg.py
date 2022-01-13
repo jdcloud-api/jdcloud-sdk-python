@@ -24,7 +24,7 @@ class KeyValListCfg(object):
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 规则更新时间，秒级时间戳, 0 表示历史数据无记录
         :param disable: (Optional) 0-使用中 1-禁用
-        :param matchOp: (Optional) 0-5 完全匹配0  前缀匹配1 包含2 正则3 大于4 后缀5
+        :param matchOp: (Optional) 0-5 7-8 完全匹配0  前缀匹配1 包含2 正则3 大于4 后缀5 不等于7 不包含8
         :param key: (Optional) cookie key
         :param val: (Optional) val
         :param atCfg: (Optional) action配置

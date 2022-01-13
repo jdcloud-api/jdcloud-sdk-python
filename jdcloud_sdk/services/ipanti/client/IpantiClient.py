@@ -26,4 +26,4 @@ class IpantiClient(JDCloudClient):
         if config is None:
             config = Config('ipanti.jdcloud-api.com')
 
-        super(IpantiClient, self).__init__(credential, config, 'ipanti', '1.10.0', logger)
+        super(IpantiClient, self).__init__(credential, config, 'ipanti', '1.11.0', logger)

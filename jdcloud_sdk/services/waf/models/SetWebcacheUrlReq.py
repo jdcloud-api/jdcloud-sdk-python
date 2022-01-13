@@ -19,15 +19,17 @@
 
 class SetWebcacheUrlReq(object):
 
-    def __init__(self, wafInstanceId, domain, name, url, ):
+    def __init__(self, wafInstanceId, domain, name, website, url, ):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param name:  名称
+        :param website:  0 网页防篡改 1 网站防篡改
         :param url:  url
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.name = name
+        self.website = website
         self.url = url

@@ -19,7 +19,7 @@
 
 class RateLimitRuleListCfg(object):
 
-    def __init__(self, id=None, updateTime=None, disable=None, name=None, host=None, url=None, ip=None, rate=None, matchAction=None, redirection=None):
+    def __init__(self, id=None, updateTime=None, disable=None, name=None, host=None, url=None, ip=None, rate=None, burst=None, matchAction=None, redirection=None):
         """
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 
@@ -29,6 +29,7 @@ class RateLimitRuleListCfg(object):
         :param url: (Optional) 限速url配置
         :param ip: (Optional) ip配置
         :param rate: (Optional) 限速大小
+        :param burst: (Optional) 限速burst大小
         :param matchAction: (Optional) forbidden redirect
         :param redirection: (Optional) 跳转地址，matchAction为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         """
@@ -41,5 +42,6 @@ class RateLimitRuleListCfg(object):
         self.url = url
         self.ip = ip
         self.rate = rate
+        self.burst = burst
         self.matchAction = matchAction
         self.redirection = redirection

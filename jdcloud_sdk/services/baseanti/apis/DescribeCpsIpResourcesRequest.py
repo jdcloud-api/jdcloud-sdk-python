@@ -41,6 +41,7 @@ class DescribeCpsIpResourcesParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.ip = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -53,4 +54,10 @@ class DescribeCpsIpResourcesParameters(object):
         :param pageSize: (Optional) 分页大小
         """
         self.pageSize = pageSize
+
+    def setIp(self, ip):
+        """
+        :param ip: (Optional) IP 模糊匹配
+        """
+        self.ip = ip
 

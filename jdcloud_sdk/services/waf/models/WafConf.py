@@ -19,15 +19,17 @@
 
 class WafConf(object):
 
-    def __init__(self, enable=None, wafMode=None, wafLevel=None, redirection=None):
+    def __init__(self, enable=None, wafMode=None, wafLevel=None, usrPolicy=None, redirection=None):
         """
         :param enable: (Optional) 是否使能 0表示否
         :param wafMode: (Optional) 0表示防护，1表示预警
-        :param wafLevel: (Optional) 0表示宽松，1表示正常，2表示严格
+        :param wafLevel: (Optional) 0表示宽松，1表示正常，2表示严格, 3表示自定义
+        :param usrPolicy: (Optional) 自定义规则集Id
         :param redirection: (Optional) 自定义页面名称
         """
 
         self.enable = enable
         self.wafMode = wafMode
         self.wafLevel = wafLevel
+        self.usrPolicy = usrPolicy
         self.redirection = redirection

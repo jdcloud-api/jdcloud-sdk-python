@@ -21,7 +21,7 @@ class BotMatchItem(object):
 
     def __init__(self, field, logic, value, ):
         """
-        :param field:  匹配字段，ruleType为general时，可为ip,uri,user_agent,referer,cookie,Wday(格式:21,6 ;取值范围[0-6]]),Hour(格式:6,0 ;取值范围[0-23]) uri只能设置一个。ruleType为advanced时，可为fingerExist(是否存在),fingerValid(合法性)
+        :param field:  匹配字段，ruleType为general时，可为ip,uri,user_agent,referer,cookie,Wday(格式:21,6 ;取值范围[0-6]]),Hour(格式:6,0 ;取值范围[0-23]) uri只能设置一个。ruleType为advanced时，可为fingerExist(是否存在),fingerValid(合法性)。 ruleType为evaluate时，对uri,cookie进行配置
         :param logic:  0-完全匹配 1-包含匹配, 6-规则生效区间(field为Wday或Hour,Wday) field为fingerExist/fingerValid时无意义。
         :param value:  filed为ip时支持8/16/24位掩码和完全匹配，field为uri且logic为0时需以"/"开头
         """

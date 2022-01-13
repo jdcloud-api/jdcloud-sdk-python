@@ -32,14 +32,33 @@ class CreateSmsAppUsingPOSTRequest(JDCloudRequest):
 
 class CreateSmsAppUsingPOSTParameters(object):
 
-    def __init__(self, appDesc, appId, appName):
+    def __init__(self, appDesc, appName, ):
         """
         :param appDesc: 应用描述
-        :param appId: 云鼎应用id
         :param appName: 应用名称
         """
 
         self.appDesc = appDesc
-        self.appId = appId
+        self.appId = None
         self.appName = appName
+        self.accessKeyId = None
+        self.accessKeySecret = None
+
+    def setAppId(self, appId):
+        """
+        :param appId: (Optional) 云鼎应用id
+        """
+        self.appId = appId
+
+    def setAccessKeyId(self, accessKeyId):
+        """
+        :param accessKeyId: (Optional) accessKeyId
+        """
+        self.accessKeyId = accessKeyId
+
+    def setAccessKeySecret(self, accessKeySecret):
+        """
+        :param accessKeySecret: (Optional) accessKeySecret
+        """
+        self.accessKeySecret = accessKeySecret
 

@@ -19,21 +19,23 @@
 
 class AddDomain(object):
 
-    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, domains=None, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, domains=None, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, gmCertSupport=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param wafInstanceId:  实例id，代表要设置的WAF实例
         :param domain:  域名，单个
         :param domains: (Optional) 域名数组
         :param protocols:  使用协议，eg:["http","https"]
-        :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
+        :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3","TLSv1.3"]
         :param lbType:  负载均衡算法，eg:"rr"，"ip_hash","weight_rr"
         :param rsConfig:  回源配置
         :param pureClient: (Optional) 是否使用前置代理，0为未使用，1为使用
         :param httpsRedirect: (Optional) 1为跳转 0为不跳转
         :param rsOnlySupportHttp: (Optional) 用户服务器是否只能http回源，1为是，0为否
+        :param gmCertSupport: (Optional) 是否支持国密证书
         :param httpVersion: (Optional) Waf侧支持http版本，不传时默认值为http1.1,传"http2"为http2
         :param enableKeepalive: (Optional) 回源是否支持长链接，0为否
-        :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级
+        :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级, 3表示自定义
+        :param userSuiteLevel: (Optional) 自定义加密套件
         :param enableUnderscores: (Optional) 请求头是否支持下划线，0-否，1-是。缺省为0
         :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
         :param proxyConnectTimeout: (Optional) 连接超时时间，3-60s
@@ -49,9 +51,11 @@ class AddDomain(object):
         self.pureClient = pureClient
         self.httpsRedirect = httpsRedirect
         self.rsOnlySupportHttp = rsOnlySupportHttp
+        self.gmCertSupport = gmCertSupport
         self.httpVersion = httpVersion
         self.enableKeepalive = enableKeepalive
         self.suiteLevel = suiteLevel
+        self.userSuiteLevel = userSuiteLevel
         self.enableUnderscores = enableUnderscores
         self.disableHealthCheck = disableHealthCheck
         self.proxyConnectTimeout = proxyConnectTimeout

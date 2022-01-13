@@ -19,7 +19,7 @@
 
 class DomainMainConfig(object):
 
-    def __init__(self, domain=None, cname=None, certName=None, protocols=None, sslProtocols=None, pureClient=None, httpStatus=None, antiStatus=None, disableWaf=None, attackInfo=None, dnsStatus=None, enableCname2Rs=None, enableIpv6=None, region=None):
+    def __init__(self, domain=None, cname=None, certName=None, protocols=None, sslProtocols=None, pureClient=None, httpStatus=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, antiStatus=None, disableWaf=None, attackInfo=None, dnsStatus=None, enableCname2Rs=None, enableIpv6=None, region=None):
         """
         :param domain: (Optional) 域名
         :param cname: (Optional) cname域名
@@ -28,6 +28,9 @@ class DomainMainConfig(object):
         :param sslProtocols: (Optional) ssl协议，["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
         :param pureClient: (Optional) 前置代理，1：使用 0：不使用
         :param httpStatus: (Optional) 协议状态，0：正常
+        :param httpsCertUpdateStatus: (Optional) https证书绑定状态
+        :param gmHttpsCertUpdateStatus: (Optional) 国密https证书绑定状态
+        :param gmCertSupport: (Optional) 是否支持国密证书
         :param antiStatus: (Optional) 防护状态，0：关闭 1：开启
         :param disableWaf: (Optional) 1：bypass 0：防护模式
         :param attackInfo: (Optional) 近七天攻击详情
@@ -44,6 +47,9 @@ class DomainMainConfig(object):
         self.sslProtocols = sslProtocols
         self.pureClient = pureClient
         self.httpStatus = httpStatus
+        self.httpsCertUpdateStatus = httpsCertUpdateStatus
+        self.gmHttpsCertUpdateStatus = gmHttpsCertUpdateStatus
+        self.gmCertSupport = gmCertSupport
         self.antiStatus = antiStatus
         self.disableWaf = disableWaf
         self.attackInfo = attackInfo

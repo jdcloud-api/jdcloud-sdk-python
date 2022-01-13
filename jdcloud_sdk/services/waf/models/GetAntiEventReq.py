@@ -19,7 +19,7 @@
 
 class GetAntiEventReq(object):
 
-    def __init__(self, antiType, start, end, pageSize, pageIndex, wafInstanceId=None, domain=None, remoteAddr=None, antiStatus=None, sortKey=None, sortDesc=None):
+    def __init__(self, antiType, start, end, pageSize, pageIndex, wafInstanceId=None, domain=None, remoteAddr=None, antiStatus=None, sortKey=None, sortDesc=None, isExport=None):
         """
         :param wafInstanceId: (Optional) 实例id，代表要查询的WAF实例，为空时表示当前用户下的所有实例
         :param domain: (Optional) 域名，为空时表示当前实例下的所有域名
@@ -32,6 +32,7 @@ class GetAntiEventReq(object):
         :param pageIndex:  页数。
         :param sortKey: (Optional) 排序字段，document_uri:uri, remote_addr:源ip, time:时间
         :param sortDesc: (Optional) 排序方式，desc-倒序 asc-增序
+        :param isExport: (Optional) false表示查询，true表示导出
         """
 
         self.wafInstanceId = wafInstanceId
@@ -45,3 +46,4 @@ class GetAntiEventReq(object):
         self.pageIndex = pageIndex
         self.sortKey = sortKey
         self.sortDesc = sortDesc
+        self.isExport = isExport

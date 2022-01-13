@@ -19,9 +19,11 @@
 
 class ServiceIp(object):
 
-    def __init__(self, serviceIp=None):
+    def __init__(self, serviceIp=None, securityStatus=None):
         """
-        :param serviceIp: (Optional) 高防 IP
+        :param serviceIp: (Optional) 高防IP
+        :param securityStatus: (Optional) 安全状态. <br>- SAFE: 安全<br>- CLEANING: 清洗中<br>- BLOCKING: 封禁中
         """
 
         self.serviceIp = serviceIp
+        self.securityStatus = securityStatus

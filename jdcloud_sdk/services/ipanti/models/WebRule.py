@@ -19,14 +19,15 @@
 
 class WebRule(object):
 
-    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, serviceIp=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, jsFingerprintEnable=None, jsFingerprintScope=None, ccCustomStatus=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
+    def __init__(self, id=None, instanceId=None, domain=None, cname=None, cnameStatus=None, serviceIp=None, serviceIpConfig=None, protocol=None, customPortStatus=None, port=None, httpsPort=None, httpOrigin=None, status=None, originType=None, originAddr=None, originDomain=None, onlineAddr=None, httpCertStatus=None, certId=None, certName=None, httpsCertContent=None, httpsRsaKey=None, bindCerts=None, forceJump=None, algorithm=None, ccStatus=None, webSocketStatus=None, blackListEnable=None, whiteListEnable=None, geoRsRoute=None, enableKeepalive=None, httpVersion=None, sslProtocols=None, suiteLevel=None, userSuiteLevel=None, jsFingerprintEnable=None, jsFingerprintScope=None, ccCustomStatus=None, enableHealthCheck=None, proxyConnectTimeout=None, enableUnderscores=None):
         """
         :param id: (Optional) 规则 Id
         :param instanceId: (Optional) 实例 Id
         :param domain: (Optional) 子域名
         :param cname: (Optional) 规则的 CNAME
         :param cnameStatus: (Optional) CNAME 解析状态, 0: 解析异常, 1: 解析正常
-        :param serviceIp: (Optional) 高防 IP
+        :param serviceIp: (Optional) 该规则使用中的高防 IP
+        :param serviceIpConfig: (Optional) 已配置的高防 IP 列表
         :param protocol: (Optional) 
         :param customPortStatus: (Optional) 是否为自定义端口号, 0: 为默认, 1: 为自定义
         :param port: (Optional) HTTP 协议的端口号, 如 80,81
@@ -38,10 +39,11 @@ class WebRule(object):
         :param originDomain: (Optional) 回源域名, originType 为 CNAME 时返回该字段
         :param onlineAddr: (Optional) 备用的回源地址列表, 为一个域名或者多个 IP 地址
         :param httpCertStatus: (Optional) 证书状态. <br>- 0: 异常<br>- 1: 正常<br>- 2: 证书未上传
-        :param certId: (Optional) 证书 Id
-        :param certName: (Optional) 证书名称
-        :param httpsCertContent: (Optional) 证书内容
-        :param httpsRsaKey: (Optional) 证书私钥
+        :param certId: (Optional) 证书 Id, (废弃, 绑定证书信息通过 certs 字段查看)
+        :param certName: (Optional) 证书名称, (废弃, 绑定证书信息通过 certs 字段查看)
+        :param httpsCertContent: (Optional) 证书内容, (废弃, 绑定证书信息通过 certs 字段查看)
+        :param httpsRsaKey: (Optional) 证书私钥, (废弃, 绑定证书信息通过 certs 字段查看)
+        :param bindCerts: (Optional) 网站规则绑定证书信息
         :param forceJump: (Optional) 是否开启 HTTPS 强制跳转, 当 protocol 为 HTTP_HTTPS 时可以配置该属性<br>- 0: 不强跳<br>- 1: 开启强跳
         :param algorithm: (Optional) 转发规则. <br>- wrr: 带权重的轮询<br>- rr:  不带权重的轮询<br>- sh:  源地址hash
         :param ccStatus: (Optional) CC 状态, 0: CC 关闭, 1: CC 开启
@@ -52,7 +54,8 @@ class WebRule(object):
         :param enableKeepalive: (Optional) 是否开启回源长连接, protocol 选项开启 https 时生效, 可取值<br>- on: 开启<br>- off: 关闭
         :param httpVersion: (Optional) http 版本, protocol 选项开启 https 时生效, 可取值 http1 或 http2
         :param sslProtocols: (Optional) SSL协议类型, protocol 选项开启 https 时生效, 可取值SSLv2,SSLv3,TLSv1.0,TLSv1.1,TLSv1.2
-        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级
+        :param suiteLevel: (Optional) 加密套件等级, protocol 选项开启 https 时生效, 可取值<br>- low: 低级<br>- middle: 中级<br>- high：高级<br>- custom：自定义
+        :param userSuiteLevel: (Optional) 自定义加密套件等级, suiteLevel 为 custom 是有效
         :param jsFingerprintEnable: (Optional) 是否允许在 response 中插入 JS, 0: 关闭, 1: 开启
         :param jsFingerprintScope: (Optional) JS 指纹生效范围, 0: 所有页面, 1: 已配置的自定义页面
         :param ccCustomStatus: (Optional) CC自定义规则总开关, 0: 关闭, 1: 开启
@@ -67,6 +70,7 @@ class WebRule(object):
         self.cname = cname
         self.cnameStatus = cnameStatus
         self.serviceIp = serviceIp
+        self.serviceIpConfig = serviceIpConfig
         self.protocol = protocol
         self.customPortStatus = customPortStatus
         self.port = port
@@ -82,6 +86,7 @@ class WebRule(object):
         self.certName = certName
         self.httpsCertContent = httpsCertContent
         self.httpsRsaKey = httpsRsaKey
+        self.bindCerts = bindCerts
         self.forceJump = forceJump
         self.algorithm = algorithm
         self.ccStatus = ccStatus
@@ -93,6 +98,7 @@ class WebRule(object):
         self.httpVersion = httpVersion
         self.sslProtocols = sslProtocols
         self.suiteLevel = suiteLevel
+        self.userSuiteLevel = userSuiteLevel
         self.jsFingerprintEnable = jsFingerprintEnable
         self.jsFingerprintScope = jsFingerprintScope
         self.ccCustomStatus = ccCustomStatus

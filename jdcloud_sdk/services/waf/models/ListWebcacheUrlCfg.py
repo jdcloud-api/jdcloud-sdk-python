@@ -19,11 +19,12 @@
 
 class ListWebcacheUrlCfg(object):
 
-    def __init__(self, wafInstanceId=None, domain=None, name=None, enable=None, url=None, updateTime=None):
+    def __init__(self, wafInstanceId=None, domain=None, name=None, website=None, enable=None, url=None, updateTime=None):
         """
         :param wafInstanceId: (Optional) 实例id，WAF实例
         :param domain: (Optional) 域名
         :param name: (Optional) 名称
+        :param website: (Optional) 0 网页防篡改 1 网站防篡改
         :param enable: (Optional) 是否使能，0表示否
         :param url: (Optional) url
         :param updateTime: (Optional) 更新时间，s
@@ -32,6 +33,7 @@ class ListWebcacheUrlCfg(object):
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.name = name
+        self.website = website
         self.enable = enable
         self.url = url
         self.updateTime = updateTime

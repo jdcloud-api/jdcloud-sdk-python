@@ -22,7 +22,7 @@ class KeyValCfg(object):
     def __init__(self, key, val, atCfg, id=None, matchOp=None):
         """
         :param id: (Optional) 序号id，更新时不能为空
-        :param matchOp: (Optional) 0-5 完全匹配0  前缀匹配1 包含2 正则3 大于4 后缀5
+        :param matchOp: (Optional) 0-5 7-8 完全匹配0  前缀匹配1 包含2 正则3 大于4 后缀5 不等于7 不包含8
         :param key:  cookie key
         :param val:  val
         :param atCfg:  action配置

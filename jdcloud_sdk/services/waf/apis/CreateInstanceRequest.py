@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceRequest(JDCloudRequest):
     """
-    
+    创建waf实例
     """
 
     def __init__(self, parameters, header=None, version="v1"):

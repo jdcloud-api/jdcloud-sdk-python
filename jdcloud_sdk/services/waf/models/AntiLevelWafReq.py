@@ -19,13 +19,15 @@
 
 class AntiLevelWafReq(object):
 
-    def __init__(self, wafInstanceId, domain, wafLevel=None):
+    def __init__(self, wafInstanceId, domain, wafLevel=None, usrPolicy=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
-        :param wafLevel: (Optional) 0表示宽松，1表示正常，2表示严格
+        :param wafLevel: (Optional) 0表示宽松，1表示正常，2表示严格, 3表示自定义
+        :param usrPolicy: (Optional) 自定义规则集id，wafLevel为3时可以设置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.wafLevel = wafLevel
+        self.usrPolicy = usrPolicy

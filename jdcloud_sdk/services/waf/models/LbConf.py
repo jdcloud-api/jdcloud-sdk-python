@@ -19,20 +19,23 @@
 
 class LbConf(object):
 
-    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param protocols:  使用协议，["http","https"]
-        :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3"]
+        :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3","TLSv1.3"]
         :param lbType:  负载均衡算法，eg:"rr"，"ip_hash"
         :param rsConfig: (Optional) 网站回源配置
         :param pureClient: (Optional) 是否使用前置代理，0为未使用，1为使用
         :param httpsRedirect: (Optional) 1为跳转 0为不跳转
         :param rsOnlySupportHttp: (Optional) 用户服务器是否只能http回源，1为是，0为否
         :param httpsCertUpdateStatus: (Optional) https证书状态,非配置项。-10为未绑定，0为已绑定
+        :param gmHttpsCertUpdateStatus: (Optional) 国密https证书状态,非配置项。-10为未绑定，0为已绑定
+        :param gmCertSupport: (Optional) 是否支持国密证书
         :param httpStatus: (Optional) 协议状态,非配置项。0为正常，-10为不正常
         :param httpVersion: (Optional) Waf侧支持http版本，""为默认值http1.1,"http2"为http2
         :param enableKeepalive: (Optional) 回源是否支持长链接，0为否
-        :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级
+        :param suiteLevel: (Optional) 加密套件等级，0表示默认为中级，1表示高级，2表示低级, 3表示自定义
+        :param userSuiteLevel: (Optional) 自定义加密套件
         :param enableUnderscores: (Optional) 请求头是否支持下划线，1-是，0-否
         :param maxBodySize: (Optional) 请求body最大值，默认300M，可为G/K
         :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
@@ -47,10 +50,13 @@ class LbConf(object):
         self.httpsRedirect = httpsRedirect
         self.rsOnlySupportHttp = rsOnlySupportHttp
         self.httpsCertUpdateStatus = httpsCertUpdateStatus
+        self.gmHttpsCertUpdateStatus = gmHttpsCertUpdateStatus
+        self.gmCertSupport = gmCertSupport
         self.httpStatus = httpStatus
         self.httpVersion = httpVersion
         self.enableKeepalive = enableKeepalive
         self.suiteLevel = suiteLevel
+        self.userSuiteLevel = userSuiteLevel
         self.enableUnderscores = enableUnderscores
         self.maxBodySize = maxBodySize
         self.disableHealthCheck = disableHealthCheck

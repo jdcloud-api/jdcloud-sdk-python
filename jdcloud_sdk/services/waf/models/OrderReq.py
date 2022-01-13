@@ -19,7 +19,7 @@
 
 class OrderReq(object):
 
-    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None, appCode=None, serviceCode=None):
+    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None, appCode=None, serviceCode=None, buyScenario=None):
         """
         :param region:  地域信息, hb_bgp, hn, hd_bgp 企业版支持两个，旗舰版支持3个，多个以 , 分隔
         :param buyType:  购买类型, 1:创建 2:续费 3:升配
@@ -34,6 +34,7 @@ class OrderReq(object):
         :param extraBitsLimit:  额外的qps扩展包,单位为M 该值为50M的倍数
         :param appCode: (Optional) 云鼎的appCode
         :param serviceCode: (Optional) 云鼎的serviceCode
+        :param buyScenario: (Optional) 购物车活动参数
         """
 
         self.region = region
@@ -49,3 +50,4 @@ class OrderReq(object):
         self.extraBitsLimit = extraBitsLimit
         self.appCode = appCode
         self.serviceCode = serviceCode
+        self.buyScenario = buyScenario

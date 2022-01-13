@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class EnableBotThreatIpRequest(JDCloudRequest):
+class UpgradeInstanceRequest(JDCloudRequest):
     """
-    激活bot 威胁情报库
+    升配订单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(EnableBotThreatIpRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/bot:setThreatIpBot', 'POST', header, version)
+        super(UpgradeInstanceRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/billing:upgradeInstance', 'POST', header, version)
         self.parameters = parameters
 
 
-class EnableBotThreatIpParameters(object):
+class UpgradeInstanceParameters(object):
 
     def __init__(self, regionId, wafInstanceId, req):
         """

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class EnableRiskCtlRequest(JDCloudRequest):
+class EnableCname2RsExternalRequest(JDCloudRequest):
     """
-    使能数据风控风险控制功能
+    cname解析到回源
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(EnableRiskCtlRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/risk:enableRiskCtl', 'POST', header, version)
+        super(EnableCname2RsExternalRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/domain:enableCname2RsExternal', 'POST', header, version)
         self.parameters = parameters
 
 
-class EnableRiskCtlParameters(object):
+class EnableCname2RsExternalParameters(object):
 
     def __init__(self, regionId, wafInstanceId, req):
         """

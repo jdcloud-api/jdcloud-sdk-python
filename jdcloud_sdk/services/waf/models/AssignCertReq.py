@@ -19,13 +19,15 @@
 
 class AssignCertReq(object):
 
-    def __init__(self, wafInstanceId, domain, certId, ):
+    def __init__(self, wafInstanceId, domain, certId, isGm=None):
         """
         :param wafInstanceId:  实例id，代表要查询的WAF实例
         :param domain:  域名
         :param certId:  要绑定证书的Id
+        :param isGm: (Optional) 是否国密
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.certId = certId
+        self.isGm = isGm

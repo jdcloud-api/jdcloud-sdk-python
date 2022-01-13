@@ -102,7 +102,7 @@ class GetEsLogDetailParameters(object):
 
     def setAction(self, action):
         """
-        :param action: (Optional) 动作，检索字段，支持类型：""(为空时，默认查询全部动作类型)，"-"(放行)，"notice"(观察)，"forbidden"(拦截)，"redirect"(浏览器跳转)，"verify"(人机交互)
+        :param action: (Optional) 动作，检索字段，支持类型：""(为空时，默认查询全部动作类型)，"-"(放行)，"notice"(观察)，"forbidden OR status"(拦截)，"redirect"(浏览器跳转)，"verify"(人机交互)
         """
         self.action = action
 

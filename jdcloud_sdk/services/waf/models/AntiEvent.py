@@ -37,8 +37,8 @@ class AntiEvent(object):
         :param wafInstanceId: (Optional) 实例id
         :param antiStatus: (Optional) 状态码
         :param upstreamErr: (Optional) 状态标识
-        :param skipExist: (Optional) 是否已加入白名单
-        :param denyExist: (Optional) 是否已加入黑名单
+        :param skipExist: (Optional) 是否已加入白名单，0表示否
+        :param denyExist: (Optional) 是否已加入黑名单，0表示否
         """
 
         self.remoteAddr = remoteAddr

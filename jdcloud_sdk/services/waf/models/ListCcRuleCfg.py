@@ -29,7 +29,7 @@ class ListCcRuleCfg(object):
         :param detectPeriod: (Optional) 检测周期，单位是秒，[30~600]
         :param singleIpLimit: (Optional) ip访问次数，[1~9999999]
         :param blockType: (Optional) 阻断类型 3:封禁，2:人机交互
-        :param blockTime: (Optional) block 持续时间，单位为分钟[1~9999999]
+        :param blockTime: (Optional) block 持续时间，单位为分钟[1~24*60]
         :param updateTime: (Optional) 更新时间，s
         :param disable: (Optional) 0-使用中 1-禁用
         :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default

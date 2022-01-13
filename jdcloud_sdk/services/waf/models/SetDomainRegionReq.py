@@ -19,11 +19,13 @@
 
 class SetDomainRegionReq(object):
 
-    def __init__(self, region, domain, ):
+    def __init__(self, region, domain, isGm=None):
         """
         :param region:  地域，多个以逗号分隔
         :param domain:  域名
+        :param isGm: (Optional) 是否国密
         """
 
         self.region = region
         self.domain = domain
+        self.isGm = isGm

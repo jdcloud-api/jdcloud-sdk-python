@@ -32,7 +32,7 @@ class DeleteWafWhiteRulesRequest(JDCloudRequest):
 
 class DeleteWafWhiteRulesParameters(object):
 
-    def __init__(self, domain, ids, ruleType):
+    def __init__(self, domain,ids,ruleType):
         """
         :param domain: 用户域名
         :param ids: 

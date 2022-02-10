@@ -32,7 +32,7 @@ class DelDomainTempInstanceRequest(JDCloudRequest):
 
 class DelDomainTempInstanceParameters(object):
 
-    def __init__(self, instId, ):
+    def __init__(self, instId,):
         """
         :param instId: 模板实例id
         """

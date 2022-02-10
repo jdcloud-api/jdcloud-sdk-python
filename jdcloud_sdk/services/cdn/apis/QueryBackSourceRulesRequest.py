@@ -19,23 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryDomainGroupDetailRequest(JDCloudRequest):
+class QueryBackSourceRulesRequest(JDCloudRequest):
     """
-    查询域名组详情
+    查询回源改写批量配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryDomainGroupDetailRequest, self).__init__(
-            '/domainGroup/{id}', 'GET', header, version)
+        super(QueryBackSourceRulesRequest, self).__init__(
+            '/domain/{domain}/queryBackSourceRules', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryDomainGroupDetailParameters(object):
+class QueryBackSourceRulesParameters(object):
 
-    def __init__(self, id,):
+    def __init__(self, domain,):
         """
-        :param id: 域名组id
+        :param domain: 用户域名
         """
 
-        self.id = id
+        self.domain = domain
 

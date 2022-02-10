@@ -32,7 +32,7 @@ class UpdateWebProtectSettingsRequest(JDCloudRequest):
 
 class UpdateWebProtectSettingsParameters(object):
 
-    def __init__(self, domain, ):
+    def __init__(self, domain,):
         """
         :param domain: 用户域名
         """

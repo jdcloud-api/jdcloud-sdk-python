@@ -41,7 +41,7 @@ class CopyImagesRequest(JDCloudRequest):
 
 class CopyImagesParameters(object):
 
-    def __init__(self, regionId, sourceImageIds, destinationRegion):
+    def __init__(self, regionId,sourceImageIds, destinationRegion):
         """
         :param regionId: 地域ID。
         :param sourceImageIds: 要复制的私有镜像ID列表，最多支持10个。

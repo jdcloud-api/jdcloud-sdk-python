@@ -25,7 +25,7 @@ class DescribeQuotasRequest(JDCloudRequest):
 查询资源配额。
 
 ## 接口说明
-- 调用该接口可查询 `云主机`、`云主机的CPU`、`云主机的内存`、`云主机的本地盘`、`镜像`、`密钥`、`实例模板`、`镜像共享` 的配额。
+- 调用该接口可查询 `云主机`、`镜像`、`密钥`、`实例模板`、`镜像共享` 的配额。
 
     """
 
@@ -37,7 +37,7 @@ class DescribeQuotasRequest(JDCloudRequest):
 
 class DescribeQuotasParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: 地域ID。
         """
@@ -49,7 +49,7 @@ class DescribeQuotasParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
-`resourceTypes`: 资源类型，支持多个，可选范围：`instance、instance_cpu、instance_memory、instance_local_disk、keypair、image、instanceTemplate、imageShare`
+`resourceTypes`: 资源类型，支持多个，可选范围：`instance、keypair、image、instanceTemplate、imageShare`
 
         """
         self.filters = filters

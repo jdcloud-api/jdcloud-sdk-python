@@ -32,7 +32,7 @@ class QueryDomainConfigStatusRequest(JDCloudRequest):
 
 class QueryDomainConfigStatusParameters(object):
 
-    def __init__(self, taskId, ):
+    def __init__(self, taskId,):
         """
         :param taskId: 任务ID
         """

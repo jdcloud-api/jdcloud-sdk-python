@@ -19,10 +19,10 @@
 
 class OridbwTableItem(object):
 
-    def __init__(self, groupByname=None, domainTyep=None, oriflowPercent=None, oripvPercent=None, avgbandwidth=None, avgoribandwidth=None, oriTopTimeStamp=None, pv=None, oripv=None, flow=None, oriflow=None):
+    def __init__(self, groupByname=None, domainType=None, oriflowPercent=None, oripvPercent=None, avgbandwidth=None, avgoribandwidth=None, oriTopTimeStamp=None, pv=None, oripv=None, flow=None, oriflow=None):
         """
         :param groupByname: (Optional) 
-        :param domainTyep: (Optional) 
+        :param domainType: (Optional) 
         :param oriflowPercent: (Optional) 
         :param oripvPercent: (Optional) 
         :param avgbandwidth: (Optional) 
@@ -35,7 +35,7 @@ class OridbwTableItem(object):
         """
 
         self.groupByname = groupByname
-        self.domainTyep = domainTyep
+        self.domainType = domainType
         self.oriflowPercent = oriflowPercent
         self.oripvPercent = oripvPercent
         self.avgbandwidth = avgbandwidth

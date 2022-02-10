@@ -44,7 +44,7 @@ class AttachDiskRequest(JDCloudRequest):
 
 class AttachDiskParameters(object):
 
-    def __init__(self, regionId, instanceId, diskId, ):
+    def __init__(self, regionId,instanceId,diskId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

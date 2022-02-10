@@ -19,23 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryDomainGroupDetailRequest(JDCloudRequest):
+class ConfigBackSourceRulesRequest(JDCloudRequest):
     """
-    查询域名组详情
+    回源改写批量配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryDomainGroupDetailRequest, self).__init__(
-            '/domainGroup/{id}', 'GET', header, version)
+        super(ConfigBackSourceRulesRequest, self).__init__(
+            '/domain/{domain}/configBackSourceRules', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryDomainGroupDetailParameters(object):
+class ConfigBackSourceRulesParameters(object):
 
-    def __init__(self, id,):
+    def __init__(self, domain,):
         """
-        :param id: 域名组id
+        :param domain: 用户域名
         """
 
-        self.id = id
+        self.domain = domain
+        self.status = None
+        self.rules = None
+
+    def setStatus(self, status):
+        """
+        :param status: (Optional) on/off，若为off则数组需为空，若为on则数组不可为空
+        """
+        self.status = status
+
+    def setRules(self, rules):
+        """
+        :param rules: (Optional) 
+        """
+        self.rules = rules
 

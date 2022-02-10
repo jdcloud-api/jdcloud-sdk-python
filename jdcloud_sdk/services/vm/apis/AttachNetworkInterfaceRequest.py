@@ -45,7 +45,7 @@ class AttachNetworkInterfaceRequest(JDCloudRequest):
 
 class AttachNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId, instanceId, networkInterfaceId, ):
+    def __init__(self, regionId,instanceId,networkInterfaceId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

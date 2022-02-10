@@ -39,7 +39,7 @@ class DetachKeypairRequest(JDCloudRequest):
 
 class DetachKeypairParameters(object):
 
-    def __init__(self, regionId, keyName, instanceIds):
+    def __init__(self, regionId,keyName,instanceIds):
         """
         :param regionId: 地域ID。
         :param keyName: 密钥名称。

@@ -40,7 +40,7 @@ class UnShareImageRequest(JDCloudRequest):
 
 class UnShareImageParameters(object):
 
-    def __init__(self, regionId, imageId, pins):
+    def __init__(self, regionId,imageId,pins):
         """
         :param regionId: 地域ID。
         :param imageId: 镜像ID。

@@ -41,7 +41,7 @@ class ImportKeypairRequest(JDCloudRequest):
 
 class ImportKeypairParameters(object):
 
-    def __init__(self, regionId, keyName, publicKey):
+    def __init__(self, regionId,keyName, publicKey):
         """
         :param regionId: 地域ID。
         :param keyName: 密钥对名称，需要全局唯一。

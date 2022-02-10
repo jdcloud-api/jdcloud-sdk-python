@@ -40,7 +40,7 @@ class AttachKeypairRequest(JDCloudRequest):
 
 class AttachKeypairParameters(object):
 
-    def __init__(self, regionId, keyName, instanceIds, passWordAuth):
+    def __init__(self, regionId,keyName,instanceIds, passWordAuth):
         """
         :param regionId: 地域ID。
         :param keyName: 密钥名称。

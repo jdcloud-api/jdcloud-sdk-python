@@ -53,7 +53,7 @@ class ResizeInstanceRequest(JDCloudRequest):
 
 class ResizeInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, instanceType, ):
+    def __init__(self, regionId,instanceId,instanceType, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

@@ -45,7 +45,7 @@ class ExportImageRequest(JDCloudRequest):
 
 class ExportImageParameters(object):
 
-    def __init__(self, regionId, imageId, roleName, ossUrl, ):
+    def __init__(self, regionId,imageId,roleName, ossUrl, ):
         """
         :param regionId: 地域ID。
         :param imageId: 镜像ID。

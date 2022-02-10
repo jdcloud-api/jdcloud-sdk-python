@@ -47,7 +47,7 @@ class CreateInstanceTemplateRequest(JDCloudRequest):
 
 class CreateInstanceTemplateParameters(object):
 
-    def __init__(self, regionId, instanceTemplateData, name, ):
+    def __init__(self, regionId,instanceTemplateData, name, ):
         """
         :param regionId: 地域ID。
         :param instanceTemplateData: 实例模板配置信息。

@@ -58,7 +58,7 @@ class ModifyInstanceVpcAttributeRequest(JDCloudRequest):
 
 class ModifyInstanceVpcAttributeParameters(object):
 
-    def __init__(self, regionId, instanceId, subnetId, ):
+    def __init__(self, regionId,instanceId,subnetId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

@@ -41,7 +41,7 @@ class DescribeImageConstraintsRequest(JDCloudRequest):
 
 class DescribeImageConstraintsParameters(object):
 
-    def __init__(self, regionId, imageId, ):
+    def __init__(self, regionId,imageId,):
         """
         :param regionId: 地域ID。
         :param imageId: 镜像ID。

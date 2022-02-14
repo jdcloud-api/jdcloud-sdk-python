@@ -32,7 +32,7 @@ class UpdateLogtopicRequest(JDCloudRequest):
 
 class UpdateLogtopicParameters(object):
 
-    def __init__(self, regionId, logtopicUID, description):
+    def __init__(self, regionId,logtopicUID,description):
         """
         :param regionId: 地域 Id
         :param logtopicUID: 日志主题 UID

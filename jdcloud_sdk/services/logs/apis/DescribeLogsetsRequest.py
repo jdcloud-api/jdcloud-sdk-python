@@ -32,7 +32,7 @@ class DescribeLogsetsRequest(JDCloudRequest):
 
 class DescribeLogsetsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: 地域 Id
         """

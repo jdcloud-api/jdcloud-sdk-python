@@ -19,10 +19,12 @@
 
 class LogtopicDetailEnd(object):
 
-    def __init__(self, collectInfo=None, uID=None, collectInfoUID=None, createTime=None, description=None, lastRecordTime=None, logsetName=None, logsetUID=None, name=None, region=None):
+    def __init__(self, collectInfo=None, uID=None, appCode=None, appName=None, collectInfoUID=None, createTime=None, description=None, lastRecordTime=None, logsetName=None, logsetUID=None, name=None, prePattern=None, region=None):
         """
         :param collectInfo: (Optional) 
         :param uID: (Optional) UID
+        :param appCode: (Optional) 日志来源,只在查询单个日志主题并且创建了采集配置时返回值
+        :param appName: (Optional) 日志主题采集的日志类型
         :param collectInfoUID: (Optional) 采集配置UID
         :param createTime: (Optional) 创建时间
         :param description: (Optional) 描述信息
@@ -30,11 +32,14 @@ class LogtopicDetailEnd(object):
         :param logsetName: (Optional) 所属日志集名称
         :param logsetUID: (Optional) 所属日志集
         :param name: (Optional) 日志主题名称
+        :param prePattern: (Optional) 预处理模式
         :param region: (Optional) 地域信息
         """
 
         self.collectInfo = collectInfo
         self.uID = uID
+        self.appCode = appCode
+        self.appName = appName
         self.collectInfoUID = collectInfoUID
         self.createTime = createTime
         self.description = description
@@ -42,4 +47,5 @@ class LogtopicDetailEnd(object):
         self.logsetName = logsetName
         self.logsetUID = logsetUID
         self.name = name
+        self.prePattern = prePattern
         self.region = region

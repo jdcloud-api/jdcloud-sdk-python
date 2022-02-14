@@ -19,10 +19,10 @@
 
 class MetrictaskDetailEnd(object):
 
-    def __init__(self, aggregate=None, cretedTime=None, customUnit=None, dataField=None, filterContent=None, filterOpen=None, filterType=None, id=None, interval=None, metric=None, name=None, unit=None, updateTime=None):
+    def __init__(self, aggregate=None, createdTime=None, customUnit=None, dataField=None, filterContent=None, filterOpen=None, filterType=None, id=None, interval=None, metric=None, name=None, settingType=None, sqlSpec=None, unit=None, updateTime=None):
         """
         :param aggregate: (Optional) 聚合函数
-        :param cretedTime: (Optional) 
+        :param createdTime: (Optional) 
         :param customUnit: (Optional) 开启自定义单位
         :param dataField: (Optional) 查询字段
         :param filterContent: (Optional) 过滤语法
@@ -32,12 +32,14 @@ class MetrictaskDetailEnd(object):
         :param interval: (Optional) 周期
         :param metric: (Optional) 监控项名称
         :param name: (Optional) 监控任务名称
+        :param settingType: (Optional) 配置方式:枚举值 visual，sql；分别代表可视化配置及sql配置方式
+        :param sqlSpec: (Optional) 
         :param unit: (Optional) 单位
         :param updateTime: (Optional) 
         """
 
         self.aggregate = aggregate
-        self.cretedTime = cretedTime
+        self.createdTime = createdTime
         self.customUnit = customUnit
         self.dataField = dataField
         self.filterContent = filterContent
@@ -47,5 +49,7 @@ class MetrictaskDetailEnd(object):
         self.interval = interval
         self.metric = metric
         self.name = name
+        self.settingType = settingType
+        self.sqlSpec = sqlSpec
         self.unit = unit
         self.updateTime = updateTime

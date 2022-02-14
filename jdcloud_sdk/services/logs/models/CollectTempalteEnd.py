@@ -19,15 +19,17 @@
 
 class CollectTempalteEnd(object):
 
-    def __init__(self, filterEnabled=None, logFile=None, logFilters=None, logPath=None):
+    def __init__(self, filterEnabled=None, logFile=None, logFilters=None, logPath=None, regexpStr=None):
         """
         :param filterEnabled: (Optional) 过滤器是否启用
         :param logFile: (Optional) 日志文件
         :param logFilters: (Optional) 过滤器
         :param logPath: (Optional) 日志路径
+        :param regexpStr: (Optional) 首行正则
         """
 
         self.filterEnabled = filterEnabled
         self.logFile = logFile
         self.logFilters = logFilters
         self.logPath = logPath
+        self.regexpStr = regexpStr

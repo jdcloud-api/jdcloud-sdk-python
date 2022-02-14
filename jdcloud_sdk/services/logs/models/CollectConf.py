@@ -19,19 +19,19 @@
 
 class CollectConf(object):
 
-    def __init__(self, collectTemplateUID=None, file=None, filters=None, logtopicUID=None, path=None, pin=None):
+    def __init__(self, collectTemplateUID=None, file=None, filters=None, logsetUID=None, logtopicUID=None, path=None):
         """
         :param collectTemplateUID: (Optional) collectTemplateUID
         :param file: (Optional) 采集文件名称，支持通配
         :param filters: (Optional) filters 过滤器V1：多个词之间为or的关系
+        :param logsetUID: (Optional) logsetUID 日志集UID
         :param logtopicUID: (Optional) logtopicUID 日志主题UID
         :param path: (Optional) 采集文件路径，支持通配
-        :param pin: (Optional) 用户 PIN
         """
 
         self.collectTemplateUID = collectTemplateUID
         self.file = file
         self.filters = filters
+        self.logsetUID = logsetUID
         self.logtopicUID = logtopicUID
         self.path = path
-        self.pin = pin

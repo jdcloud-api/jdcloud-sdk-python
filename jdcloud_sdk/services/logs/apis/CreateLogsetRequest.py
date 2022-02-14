@@ -32,7 +32,7 @@ class CreateLogsetRequest(JDCloudRequest):
 
 class CreateLogsetParameters(object):
 
-    def __init__(self, regionId, name, lifeCycle):
+    def __init__(self, regionId,name, lifeCycle):
         """
         :param regionId: 地域 Id
         :param name: 日志集名称

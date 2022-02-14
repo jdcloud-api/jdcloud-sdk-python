@@ -32,7 +32,7 @@ class UpdateCollectResourcesRequest(JDCloudRequest):
 
 class UpdateCollectResourcesParameters(object):
 
-    def __init__(self, regionId, collectInfoUID, action, ):
+    def __init__(self, regionId,collectInfoUID,action, ):
         """
         :param regionId: 地域 Id
         :param collectInfoUID: 采集配置 UID
@@ -46,7 +46,7 @@ class UpdateCollectResourcesParameters(object):
 
     def setResources(self, resources):
         """
-        :param resources: (Optional) 采集实例列表（系统日志存在上限限制20）
+        :param resources: (Optional) 采集实例列表（系统日志存在上限限制）
         """
         self.resources = resources
 

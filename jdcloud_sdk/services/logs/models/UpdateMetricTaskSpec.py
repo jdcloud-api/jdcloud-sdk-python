@@ -19,19 +19,29 @@
 
 class UpdateMetricTaskSpec(object):
 
-    def __init__(self, customUnit, filterOpen, filterType, name, unit, filterContent=None):
+    def __init__(self, customUnit, name, unit, aggregate=None, dataField=None, filterContent=None, filterOpen=None, filterType=None, metric=None, settingType=None, sqlSpec=None):
         """
+        :param aggregate: (Optional) 聚合函数,支持 count sum max min avg; 配置方式(SettingType) 为 空或visual 时，必填；
         :param customUnit:  自定义单位
+        :param dataField: (Optional) 查询字段,支持 英文字母 数字 下划线 中划线 点（中文日志原文和各产品线的key）; 配置方式(SettingType) 为 空或visual 时，必填；
         :param filterContent: (Optional) 过滤语法，可以为空
-        :param filterOpen:  是否打开过滤
-        :param filterType:  过滤类型，只能是fulltext和 advance
+        :param filterOpen: (Optional) 是否打开过滤; 配置方式(SettingType) 为 空或visual 时，必填；
+        :param filterType: (Optional) 过滤类型，只能是fulltext和 advance; 配置方式(SettingType) 为 空或visual 时，必填；
+        :param metric: (Optional) 监控项 , 支持大小写英文字母 下划线 数字 点，且不超过255byte（不支持中划线）; 配置方式(SettingType) 为 空或visual 时，必填；
         :param name:  监控任务名称,同一日志主题下唯一，支持中文 大小写英文字母 下划线 中划线 数字，且不超过32
+        :param settingType: (Optional) 配置方式: 可选参数；枚举值 visual，sql；分别代表可视化配置及sql配置方式，传空表示可视化配置；
+        :param sqlSpec: (Optional) 
         :param unit:  单位
         """
 
+        self.aggregate = aggregate
         self.customUnit = customUnit
+        self.dataField = dataField
         self.filterContent = filterContent
         self.filterOpen = filterOpen
         self.filterType = filterType
+        self.metric = metric
         self.name = name
+        self.settingType = settingType
+        self.sqlSpec = sqlSpec
         self.unit = unit

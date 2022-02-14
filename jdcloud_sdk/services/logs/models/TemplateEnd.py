@@ -19,11 +19,15 @@
 
 class TemplateEnd(object):
 
-    def __init__(self, uID=None, name=None):
+    def __init__(self, uID=None, disableTable=None, name=None, specialMode=None):
         """
         :param uID: (Optional) UID
+        :param disableTable: (Optional) 是否展示实列列表
         :param name: (Optional) 模板名称
+        :param specialMode: (Optional) 是否是特殊模式的系统日志
         """
 
         self.uID = uID
+        self.disableTable = disableTable
         self.name = name
+        self.specialMode = specialMode

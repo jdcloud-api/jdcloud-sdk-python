@@ -32,7 +32,7 @@ class SearchRequest(JDCloudRequest):
 
 class SearchParameters(object):
 
-    def __init__(self, regionId, logsetUID, logtopicUID, action, ):
+    def __init__(self, regionId,logsetUID,logtopicUID,action, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集ID
@@ -67,13 +67,13 @@ class SearchParameters(object):
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 开始时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800” 当action != preview时，必填
+        :param startTime: (Optional) 开始时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800”.当action != preview时，必填
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 结束时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800” 当action != preview时，必填
+        :param endTime: (Optional) 结束时间。格式 “YYYY-MM-DDThh:mm:ssTZD”, 比如 “2018-11-09T15:34:46+0800”.当action != preview时，必填
         """
         self.endTime = endTime
 

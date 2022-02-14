@@ -32,7 +32,7 @@ class UpdateCollectInfoRequest(JDCloudRequest):
 
 class UpdateCollectInfoParameters(object):
 
-    def __init__(self, regionId, collectInfoUID, enabled, resourceType, ):
+    def __init__(self, regionId,collectInfoUID,enabled, resourceType, ):
         """
         :param regionId: 地域 Id
         :param collectInfoUID: 采集配置 UID
@@ -42,25 +42,44 @@ class UpdateCollectInfoParameters(object):
 
         self.regionId = regionId
         self.collectInfoUID = collectInfoUID
+        self.agResource = None
         self.enabled = enabled
-        self.resourceType = resourceType
-        self.resources = None
-        self.logPath = None
+        self.filterEnabled = None
+        self.logCustomTarget = None
+        self.logCustomTargetConf = None
         self.logFile = None
         self.logFilters = None
-        self.filterEnabled = None
+        self.logPath = None
+        self.logtopicEnabled = None
+        self.regexpStr = None
+        self.resourceMode = None
+        self.resourceType = resourceType
+        self.resources = None
+        self.tagResource = None
 
-    def setResources(self, resources):
+    def setAgResource(self, agResource):
         """
-        :param resources: (Optional) 采集实例列表（存在上限限制20）
+        :param agResource: (Optional) 高可用组资源
         """
-        self.resources = resources
+        self.agResource = agResource
 
-    def setLogPath(self, logPath):
+    def setFilterEnabled(self, filterEnabled):
         """
-        :param logPath: (Optional) 日志路径。当appcode为custom时为必填。目前仅支持对 Linux 云主机上的日志进行采集，路径支持通配符“*”和“？”，文件路径应符合 Linux 的文件路径规则
+        :param filterEnabled: (Optional) 过滤器是否启用。当appcode为custom时必填
         """
-        self.logPath = logPath
+        self.filterEnabled = filterEnabled
+
+    def setLogCustomTarget(self, logCustomTarget):
+        """
+        :param logCustomTarget: (Optional) 自定义日志转发目的地, 只支持业务应用日志。支持类型："kafka"，"es"
+        """
+        self.logCustomTarget = logCustomTarget
+
+    def setLogCustomTargetConf(self, logCustomTargetConf):
+        """
+        :param logCustomTargetConf: (Optional) 自定义日志转发目的地配置，KV 结构，具体配置参考 LogCustomTargetKafkaConf 和 LogCustomTargetEsConf
+        """
+        self.logCustomTargetConf = logCustomTargetConf
 
     def setLogFile(self, logFile):
         """
@@ -74,9 +93,39 @@ class UpdateCollectInfoParameters(object):
         """
         self.logFilters = logFilters
 
-    def setFilterEnabled(self, filterEnabled):
+    def setLogPath(self, logPath):
         """
-        :param filterEnabled: (Optional) 过滤器是否启用。当appcode为custom时必填
+        :param logPath: (Optional) 日志路径。当appcode为custom时为必填。目前仅支持对 Linux 云主机上的日志进行采集，路径支持通配符“*”和“？”，文件路径应符合 Linux 的文件路径规则
         """
-        self.filterEnabled = filterEnabled
+        self.logPath = logPath
+
+    def setLogtopicEnabled(self, logtopicEnabled):
+        """
+        :param logtopicEnabled: (Optional) 目的地是否是日志服务logtopic，只支持业务应用日志
+        """
+        self.logtopicEnabled = logtopicEnabled
+
+    def setRegexpStr(self, regexpStr):
+        """
+        :param regexpStr: (Optional) 首行正则
+        """
+        self.regexpStr = regexpStr
+
+    def setResourceMode(self, resourceMode):
+        """
+        :param resourceMode: (Optional) 采集资源时选择的模式，1.正常的选择实例模式（默认模式）；2.选择标签tag模式 3.选择高可用组ag模式
+        """
+        self.resourceMode = resourceMode
+
+    def setResources(self, resources):
+        """
+        :param resources: (Optional) 采集实例列表（存在上限限制）
+        """
+        self.resources = resources
+
+    def setTagResource(self, tagResource):
+        """
+        :param tagResource: (Optional) 
+        """
+        self.tagResource = tagResource
 

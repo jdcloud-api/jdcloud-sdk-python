@@ -19,14 +19,17 @@
 
 class TestMetricTaskSpec(object):
 
-    def __init__(self, aggregate, content, dataField, filterOpen, filterType, filterContent=None):
+    def __init__(self, content, aggregate=None, dataField=None, filterContent=None, filterOpen=None, filterType=None, metric=None, settingType=None, sqlSpec=None):
         """
-        :param aggregate:  聚合函数,支持 count sum max min avg
+        :param aggregate: (Optional) 聚合函数,支持 count sum max min avg; 配置方式(SettingType) 为 空或visual 时，必填；
         :param content:  测试内容
-        :param dataField:  查询字段,支持 英文字母 数字 下划线 中划线 点（中文日志原文和各产品线的key）
+        :param dataField: (Optional) 查询字段,支持 英文字母 数字 下划线 中划线 点（中文日志原文和各产品线的key）; 配置方式(SettingType) 为 空或visual 时，必填；
         :param filterContent: (Optional) 过滤语法，可以为空
-        :param filterOpen:  是否打开过滤
-        :param filterType:  过滤类型，只能是fulltext和 advance
+        :param filterOpen: (Optional) 是否打开过滤; 配置方式(SettingType) 为 空或visual 时，必填；
+        :param filterType: (Optional) 过滤类型，只能是fulltext和 advance; 配置方式(SettingType) 为 空或visual 时，必填；
+        :param metric: (Optional) 监控项 , 支持大小写英文字母 下划线 数字 点，且不超过255byte（不支持中划线）; 配置方式(SettingType) 为 空或visual 时，必填；
+        :param settingType: (Optional) 配置方式: 可选参数；枚举值 visual，sql；分别代表可视化配置及sql配置方式，传空表示可视化配置；
+        :param sqlSpec: (Optional) 
         """
 
         self.aggregate = aggregate
@@ -35,3 +38,6 @@ class TestMetricTaskSpec(object):
         self.filterContent = filterContent
         self.filterOpen = filterOpen
         self.filterType = filterType
+        self.metric = metric
+        self.settingType = settingType
+        self.sqlSpec = sqlSpec

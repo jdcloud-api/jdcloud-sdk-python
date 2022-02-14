@@ -19,25 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeInstanceCollectConfsRequest(JDCloudRequest):
+class ValidateParserRequest(JDCloudRequest):
     """
-    查询当前实例的采集配置列表：此接口会生成agent心跳监控数据，用以表征agent的可用性。请求中若添加了X-Jdcloud-Logs-md5的header，将按照md5的方式处理返回值。
+    验证日志解析语法
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeInstanceCollectConfsRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}/collectconfs', 'GET', header, version)
+        super(ValidateParserRequest, self).__init__(
+            '/validateParser', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeInstanceCollectConfsParameters(object):
+class ValidateParserParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self, parserMode, ):
         """
-        :param regionId: region
-        :param instanceId: instanceId
+        :param parserMode: 解析类型。oneline - 单行，split - 分割， json - json， regexp - regexp
         """
 
-        self.regionId = regionId
-        self.instanceId = instanceId
+        self.parserMode = parserMode
+        self.parserPattern = None
+        self.parserSample = None
+
+    def setParserPattern(self, parserPattern):
+        """
+        :param parserPattern: (Optional) 解析语法
+        """
+        self.parserPattern = parserPattern
+
+    def setParserSample(self, parserSample):
+        """
+        :param parserSample: (Optional) 日志样例
+        """
+        self.parserSample = parserSample
 

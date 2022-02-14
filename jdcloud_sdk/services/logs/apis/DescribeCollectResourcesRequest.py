@@ -32,7 +32,7 @@ class DescribeCollectResourcesRequest(JDCloudRequest):
 
 class DescribeCollectResourcesParameters(object):
 
-    def __init__(self, regionId, collectInfoUID, ):
+    def __init__(self, regionId,collectInfoUID,):
         """
         :param regionId: 地域 Id
         :param collectInfoUID: 采集配置 UID

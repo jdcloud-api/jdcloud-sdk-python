@@ -32,7 +32,7 @@ class PutRequest(JDCloudRequest):
 
 class PutParameters(object):
 
-    def __init__(self, logtopicUID, entries):
+    def __init__(self, logtopicUID,entries):
         """
         :param logtopicUID: 日志主题uid
         :param entries: 日志数据

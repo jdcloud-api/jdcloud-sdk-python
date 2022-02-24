@@ -19,27 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ListBotStdRulesRequest(JDCloudRequest):
+class GetStatusCodeInfoRequest(JDCloudRequest):
     """
-    获取网站已知类型bot规则
+    获取网站在一定时间内的状态码报表信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ListBotStdRulesRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/bot:listStdRule', 'POST', header, version)
+        super(GetStatusCodeInfoRequest, self).__init__(
+            '/regions/{regionId}/chart:getStatusCodeInfo', 'POST', header, version)
         self.parameters = parameters
 
 
-class ListBotStdRulesParameters(object):
+class GetStatusCodeInfoParameters(object):
 
-    def __init__(self, regionId,wafInstanceId,req):
+    def __init__(self, regionId,req):
         """
         :param regionId: 实例所属的地域ID
-        :param wafInstanceId: 实例Id
         :param req: 请求
         """
 
         self.regionId = regionId
-        self.wafInstanceId = wafInstanceId
         self.req = req
 

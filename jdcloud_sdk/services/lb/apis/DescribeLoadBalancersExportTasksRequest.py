@@ -19,25 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeListenerRequest(JDCloudRequest):
+class DescribeLoadBalancersExportTasksRequest(JDCloudRequest):
     """
-    查询监听器详情
+    查询负载均衡导出任务列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeListenerRequest, self).__init__(
-            '/regions/{regionId}/listeners/{listenerId}', 'GET', header, version)
+        super(DescribeLoadBalancersExportTasksRequest, self).__init__(
+            '/regions/{regionId}/loadBalancers:exporttask', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeListenerParameters(object):
+class DescribeLoadBalancersExportTasksParameters(object):
 
-    def __init__(self, regionId,listenerId,):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
-        :param listenerId: 监听器ID
         """
 
         self.regionId = regionId
-        self.listenerId = listenerId
 

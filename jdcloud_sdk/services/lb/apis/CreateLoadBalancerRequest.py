@@ -32,23 +32,24 @@ class CreateLoadBalancerRequest(JDCloudRequest):
 
 class CreateLoadBalancerParameters(object):
 
-    def __init__(self, regionId, loadBalancerName, subnetId, azs, ):
+    def __init__(self, regionId,loadBalancerName, subnetId, ):
         """
         :param regionId: Region ID
         :param loadBalancerName: LoadBalancer的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param subnetId: LoadBalancer所属子网的Id
-        :param azs: 【alb，nlb】LoadBalancer所属availability Zone列表,对于alb,nlb是必选参数 <br>【dnlb】全可用区可用，不必传该参数
         """
 
         self.regionId = regionId
         self.loadBalancerName = loadBalancerName
         self.subnetId = subnetId
         self.type = None
-        self.azs = azs
+        self.azs = None
         self.chargeSpec = None
         self.elasticIp = None
+        self.privateIpAddress = None
         self.securityGroupIds = None
         self.description = None
+        self.domainEnable = None
         self.deleteProtection = None
         self.userTags = None
 
@@ -57,6 +58,12 @@ class CreateLoadBalancerParameters(object):
         :param type: (Optional) LoadBalancer的类型，取值：alb、nlb、dnlb，默认为alb
         """
         self.type = type
+
+    def setAzs(self, azs):
+        """
+        :param azs: (Optional) 【alb，nlb】LoadBalancer所属availability Zone列表,对于alb,nlb是必选参数，可用区个数不能超过2个 <br>【dnlb】全可用区可用，不必传该参数
+        """
+        self.azs = azs
 
     def setChargeSpec(self, chargeSpec):
         """
@@ -70,6 +77,12 @@ class CreateLoadBalancerParameters(object):
         """
         self.elasticIp = elasticIp
 
+    def setPrivateIpAddress(self, privateIpAddress):
+        """
+        :param privateIpAddress: (Optional) 指定LoadBalancer的VIP(内网IPv4地址)，需要属于指定的子网并且未被占用
+        """
+        self.privateIpAddress = privateIpAddress
+
     def setSecurityGroupIds(self, securityGroupIds):
         """
         :param securityGroupIds: (Optional) 【alb】 安全组 ID列表
@@ -81,6 +94,12 @@ class CreateLoadBalancerParameters(object):
         :param description: (Optional) LoadBalancer的描述信息,允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setDomainEnable(self, domainEnable):
+        """
+        :param domainEnable: (Optional) 是否绑定域名，包括外网和内网，缺省为False(关闭)
+        """
+        self.domainEnable = domainEnable
 
     def setDeleteProtection(self, deleteProtection):
         """

@@ -32,7 +32,7 @@ class DeleteUrlMapRequest(JDCloudRequest):
 
 class DeleteUrlMapParameters(object):
 
-    def __init__(self, regionId, urlMapId, ):
+    def __init__(self, regionId,urlMapId,):
         """
         :param regionId: Region ID
         :param urlMapId: 转发规则组Id

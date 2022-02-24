@@ -32,12 +32,12 @@ class CreateBackendRequest(JDCloudRequest):
 
 class CreateBackendParameters(object):
 
-    def __init__(self, regionId, backendName, loadBalancerId, protocol, port, healthCheckSpec, ):
+    def __init__(self, regionId,backendName, loadBalancerId, protocol, port, healthCheckSpec, ):
         """
         :param regionId: Region ID
         :param backendName: 后端服务名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param loadBalancerId: 后端服务所属负载均衡的Id
-        :param protocol: 后端服务的协议 <br>【alb】取值范围：Http、Tcp <br>【nlb】取值范围：Tcp <br>【dnlb】取值范围：Tcp
+        :param protocol: 后端服务的协议 <br>【alb】取值范围：Http、Tcp、Udp <br>【nlb】取值范围：Tcp、Udp <br>【dnlb】取值范围：Tcp、Udp
         :param port: 后端服务的端口，取值范围为[1, 65535]，如指定了TargetSpec中的port，实际按照target指定的port进行转发
         :param healthCheckSpec: 健康检查信息
         """
@@ -61,6 +61,7 @@ class CreateBackendParameters(object):
         self.httpForwardedPort = None
         self.httpForwardedHost = None
         self.httpForwardedVip = None
+        self.httpForwardedClientPort = None
 
     def setAlgorithm(self, algorithm):
         """
@@ -82,7 +83,7 @@ class CreateBackendParameters(object):
 
     def setProxyProtocol(self, proxyProtocol):
         """
-        :param proxyProtocol: (Optional) 【alb Tcp协议】获取真实ip, 取值为False(不获取)或者True(获取,支持Proxy Protocol v1版本)，默认为False
+        :param proxyProtocol: (Optional) 【alb Tcp、Udp协议】获取真实ip, 取值为False(不获取)或者True(获取,支持Proxy Protocol v1版本)，默认为False
         """
         self.proxyProtocol = proxyProtocol
 
@@ -139,4 +140,10 @@ class CreateBackendParameters(object):
         :param httpForwardedVip: (Optional) 【alb Http协议】获取负载均衡的vip, 取值为False(不获取)或True(获取), 默认为False
         """
         self.httpForwardedVip = httpForwardedVip
+
+    def setHttpForwardedClientPort(self, httpForwardedClientPort):
+        """
+        :param httpForwardedClientPort: (Optional) 【alb Http协议】获取请求端使用的端口, 取值为False(不获取)或True(获取), 默认为False
+        """
+        self.httpForwardedClientPort = httpForwardedClientPort
 

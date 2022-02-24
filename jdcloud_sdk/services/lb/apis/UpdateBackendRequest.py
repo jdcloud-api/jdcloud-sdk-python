@@ -32,7 +32,7 @@ class UpdateBackendRequest(JDCloudRequest):
 
 class UpdateBackendParameters(object):
 
-    def __init__(self, regionId, backendId, ):
+    def __init__(self, regionId,backendId,):
         """
         :param regionId: Region ID
         :param backendId: Backend Id
@@ -55,6 +55,7 @@ class UpdateBackendParameters(object):
         self.httpForwardedPort = None
         self.httpForwardedHost = None
         self.httpForwardedVip = None
+        self.httpForwardedClientPort = None
         self.closeHealthCheck = None
 
     def setBackendName(self, backendName):
@@ -89,7 +90,7 @@ class UpdateBackendParameters(object):
 
     def setProxyProtocol(self, proxyProtocol):
         """
-        :param proxyProtocol: (Optional) 【alb Tcp协议】是否启用Proxy ProtocolV1协议获取真实源ip, 取值为false(不开启)或者true(开启), 默认为false
+        :param proxyProtocol: (Optional) 【alb Tcp、Udp协议】是否启用Proxy ProtocolV1协议获取真实源ip, 取值为false(不开启)或者true(开启), 默认为false
         """
         self.proxyProtocol = proxyProtocol
 
@@ -146,6 +147,12 @@ class UpdateBackendParameters(object):
         :param httpForwardedVip: (Optional) 【alb Http协议】获取负载均衡的vip, 取值为False(不获取)或True(获取)
         """
         self.httpForwardedVip = httpForwardedVip
+
+    def setHttpForwardedClientPort(self, httpForwardedClientPort):
+        """
+        :param httpForwardedClientPort: (Optional) 【alb Http协议】获取请求端使用的端口, 取值为False(不获取)或True(获取)
+        """
+        self.httpForwardedClientPort = httpForwardedClientPort
 
     def setCloseHealthCheck(self, closeHealthCheck):
         """

@@ -32,7 +32,7 @@ class GetEsLogDetailRequest(JDCloudRequest):
 
 class GetEsLogDetailParameters(object):
 
-    def __init__(self, regionId, start, end, pageSize, pageIndex):
+    def __init__(self, regionId,start, end, pageSize, pageIndex):
         """
         :param regionId: 实例所属的地域ID
         :param start: 开始时间戳，单位秒，时间间隔要求大于5分钟，小于30天。

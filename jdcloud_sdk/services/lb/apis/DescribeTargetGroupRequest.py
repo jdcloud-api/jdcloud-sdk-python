@@ -32,7 +32,7 @@ class DescribeTargetGroupRequest(JDCloudRequest):
 
 class DescribeTargetGroupParameters(object):
 
-    def __init__(self, regionId, targetGroupId, ):
+    def __init__(self, regionId,targetGroupId,):
         """
         :param regionId: Region ID
         :param targetGroupId: TargetGroup Id

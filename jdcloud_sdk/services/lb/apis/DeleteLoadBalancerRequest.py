@@ -32,7 +32,7 @@ class DeleteLoadBalancerRequest(JDCloudRequest):
 
 class DeleteLoadBalancerParameters(object):
 
-    def __init__(self, regionId, loadBalancerId, ):
+    def __init__(self, regionId,loadBalancerId,):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID

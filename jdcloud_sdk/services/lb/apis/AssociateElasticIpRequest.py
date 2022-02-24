@@ -32,7 +32,7 @@ class AssociateElasticIpRequest(JDCloudRequest):
 
 class AssociateElasticIpParameters(object):
 
-    def __init__(self, regionId, loadBalancerId, elasticIpId):
+    def __init__(self, regionId,loadBalancerId,elasticIpId):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID

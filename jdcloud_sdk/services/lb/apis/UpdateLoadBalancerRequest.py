@@ -32,7 +32,7 @@ class UpdateLoadBalancerRequest(JDCloudRequest):
 
 class UpdateLoadBalancerParameters(object):
 
-    def __init__(self, regionId, loadBalancerId, ):
+    def __init__(self, regionId,loadBalancerId,):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID
@@ -43,7 +43,9 @@ class UpdateLoadBalancerParameters(object):
         self.loadBalancerName = None
         self.action = None
         self.description = None
+        self.domainEnable = None
         self.deleteProtection = None
+        self.privateIpAddress = None
 
     def setLoadBalancerName(self, loadBalancerName):
         """
@@ -63,9 +65,21 @@ class UpdateLoadBalancerParameters(object):
         """
         self.description = description
 
+    def setDomainEnable(self, domainEnable):
+        """
+        :param domainEnable: (Optional) 是否绑定域名，包括外网和内网，缺省为不改变原值
+        """
+        self.domainEnable = domainEnable
+
     def setDeleteProtection(self, deleteProtection):
         """
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)，默认为False
         """
         self.deleteProtection = deleteProtection
+
+    def setPrivateIpAddress(self, privateIpAddress):
+        """
+        :param privateIpAddress: (Optional) 变更loadBalancer的vip地址，新地址只允许是loadBalancer本子网中的空闲ip地址，缺省为不改变原值
+        """
+        self.privateIpAddress = privateIpAddress
 

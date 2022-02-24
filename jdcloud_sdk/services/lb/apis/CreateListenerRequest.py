@@ -32,11 +32,11 @@ class CreateListenerRequest(JDCloudRequest):
 
 class CreateListenerParameters(object):
 
-    def __init__(self, regionId, listenerName, protocol, port, backendId, loadBalancerId, ):
+    def __init__(self, regionId,listenerName, protocol, port, backendId, loadBalancerId, ):
         """
         :param regionId: Region ID
         :param listenerName: Listener的名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
-        :param protocol: 监听协议, 取值为Tcp, Tls, Http, Https <br>【alb】支持Http, Https，Tcp和Tls <br>【nlb】支持Tcp  <br>【dnlb】支持Tcp
+        :param protocol: 监听协议, 取值为Tcp, Tls, Http, Https, Udp <br>【alb】支持Http, Https，Tcp、Tls和Udp <br>【nlb】支持Tcp, Udp  <br>【dnlb】支持Tcp, Udp
         :param port: 监听端口，取值范围为[1, 65535]
         :param backendId: 默认的后端服务Id
         :param loadBalancerId: Listener所属loadBalancer的Id
@@ -45,6 +45,8 @@ class CreateListenerParameters(object):
         self.regionId = regionId
         self.listenerName = listenerName
         self.protocol = protocol
+        self.hstsEnable = None
+        self.hstsMaxAge = None
         self.port = port
         self.backendId = backendId
         self.loadBalancerId = loadBalancerId
@@ -53,6 +55,18 @@ class CreateListenerParameters(object):
         self.certificateSpecs = None
         self.connectionIdleTimeSeconds = None
         self.description = None
+
+    def setHstsEnable(self, hstsEnable):
+        """
+        :param hstsEnable: (Optional) 【alb使用https时支持】是否开启HSTS，True(开启)， False(关闭)，缺省为False
+        """
+        self.hstsEnable = hstsEnable
+
+    def setHstsMaxAge(self, hstsMaxAge):
+        """
+        :param hstsMaxAge: (Optional) 【alb使用https时支持】HSTS过期时间(秒)，取值范围为[1, 94608000(3年)]，缺省为31536000(1年)
+        """
+        self.hstsMaxAge = hstsMaxAge
 
     def setUrlMapId(self, urlMapId):
         """
@@ -68,13 +82,13 @@ class CreateListenerParameters(object):
 
     def setCertificateSpecs(self, certificateSpecs):
         """
-        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，只支持一个证书
+        :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，最多支持两个，两个证书的加密算法需要不同
         """
         self.certificateSpecs = certificateSpecs
 
     def setConnectionIdleTimeSeconds(self, connectionIdleTimeSeconds):
         """
-        :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
+        :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Udp协议）默认为：300s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
         """
         self.connectionIdleTimeSeconds = connectionIdleTimeSeconds
 

@@ -32,7 +32,7 @@ class UpdateTargetsRequest(JDCloudRequest):
 
 class UpdateTargetsParameters(object):
 
-    def __init__(self, regionId, targetGroupId, targetUpdateSpecs):
+    def __init__(self, regionId,targetGroupId,targetUpdateSpecs):
         """
         :param regionId: Region ID
         :param targetGroupId: TargetGroup Id

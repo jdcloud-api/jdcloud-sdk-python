@@ -32,7 +32,7 @@ class UpdateRulesRequest(JDCloudRequest):
 
 class UpdateRulesParameters(object):
 
-    def __init__(self, regionId, urlMapId, ruleUpdateSpecs):
+    def __init__(self, regionId,urlMapId,ruleUpdateSpecs):
         """
         :param regionId: Region ID
         :param urlMapId: 转发规则组Id

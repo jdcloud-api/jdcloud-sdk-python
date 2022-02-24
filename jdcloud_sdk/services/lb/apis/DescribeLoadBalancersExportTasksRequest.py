@@ -19,27 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ListBotStdRulesRequest(JDCloudRequest):
+class DescribeLoadBalancersExportTasksRequest(JDCloudRequest):
     """
-    获取网站已知类型bot规则
+    查询负载均衡导出任务列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ListBotStdRulesRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/bot:listStdRule', 'POST', header, version)
+        super(DescribeLoadBalancersExportTasksRequest, self).__init__(
+            '/regions/{regionId}/loadBalancers:exporttask', 'GET', header, version)
         self.parameters = parameters
 
 
-class ListBotStdRulesParameters(object):
+class DescribeLoadBalancersExportTasksParameters(object):
 
-    def __init__(self, regionId,wafInstanceId,req):
+    def __init__(self, regionId,):
         """
-        :param regionId: 实例所属的地域ID
-        :param wafInstanceId: 实例Id
-        :param req: 请求
+        :param regionId: Region ID
         """
 
         self.regionId = regionId
-        self.wafInstanceId = wafInstanceId
-        self.req = req
 

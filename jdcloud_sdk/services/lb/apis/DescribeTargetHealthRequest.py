@@ -32,7 +32,7 @@ class DescribeTargetHealthRequest(JDCloudRequest):
 
 class DescribeTargetHealthParameters(object):
 
-    def __init__(self, regionId, backendId, ):
+    def __init__(self, regionId,backendId,):
         """
         :param regionId: Region ID
         :param backendId: Backend Id

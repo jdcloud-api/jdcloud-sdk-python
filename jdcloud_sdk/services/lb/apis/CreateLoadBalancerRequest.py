@@ -49,7 +49,6 @@ class CreateLoadBalancerParameters(object):
         self.privateIpAddress = None
         self.securityGroupIds = None
         self.description = None
-        self.domainEnable = None
         self.deleteProtection = None
         self.userTags = None
 
@@ -61,7 +60,7 @@ class CreateLoadBalancerParameters(object):
 
     def setAzs(self, azs):
         """
-        :param azs: (Optional) 【alb，nlb】LoadBalancer所属availability Zone列表,对于alb,nlb是必选参数，可用区个数不能超过2个 <br>【dnlb】全可用区可用，不必传该参数
+        :param azs: (Optional) 【alb，nlb】LoadBalancer所属availability Zone列表,对于alb,nlb是必选参数，可用区个数不能超过2个 <br>【dnlb】中心可用区，dnlb不需要传该参数，全可用区可用；边缘可用区，仅支持传入单可用区
         """
         self.azs = azs
 
@@ -94,12 +93,6 @@ class CreateLoadBalancerParameters(object):
         :param description: (Optional) LoadBalancer的描述信息,允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
-
-    def setDomainEnable(self, domainEnable):
-        """
-        :param domainEnable: (Optional) 是否绑定域名，包括外网和内网，缺省为False(关闭)
-        """
-        self.domainEnable = domainEnable
 
     def setDeleteProtection(self, deleteProtection):
         """

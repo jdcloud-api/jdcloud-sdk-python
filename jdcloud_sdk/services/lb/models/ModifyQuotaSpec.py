@@ -22,7 +22,7 @@ class ModifyQuotaSpec(object):
     def __init__(self, type, maxLimit, lbType=None, parentResourceId=None):
         """
         :param lbType: (Optional) lb类型，取值范围：alb、nlb、dnlb，默认为alb
-        :param type:  资源类型，取值范围：loadbalancer、listener、target_group、target、backend、urlMap(仅alb支持)、rules(仅alb支持)、extensionCertificate
+        :param type:  资源类型，取值范围：loadbalancer、listener、target_group、target、backend、urlMap(仅alb支持)、rules(仅alb支持)、extensionCertificate(仅alb支持)
         :param parentResourceId: (Optional) type为loadbalancer不设置, type为listener、backend、target_group、urlMap设置为loadbalancerId, type为target设置为targetGroupId, type为rules设置为urlMapId,type为extensionCertificate设置为listenerId
         :param maxLimit:  配额大小
         """

@@ -19,7 +19,7 @@
 
 class LoadBalancer(object):
 
-    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, tags=None, description=None, domainEnable=None, internalDomain=None, internetDomain=None, deleteProtection=None, createdTime=None, azType=None):
+    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, tags=None, description=None, deleteProtection=None, createdTime=None, azType=None):
         """
         :param loadBalancerId: (Optional) LoadBalancer的Id
         :param loadBalancerName: (Optional) LoadBalancer的名称
@@ -33,12 +33,9 @@ class LoadBalancer(object):
         :param charge: (Optional) 计费配置
         :param tags: (Optional) tag信息
         :param description: (Optional) LoadBalancer的描述信息
-        :param domainEnable: (Optional) 是否绑定域名，包括外网和内网，取值为True(开启)或False(关闭)
-        :param internalDomain: (Optional) 内网域名，域名绑定开启时为空，表示还没有正常绑定
-        :param internetDomain: (Optional) 外网域名，域名绑定开启时为空，表示还没有正常绑定
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)
         :param createdTime: (Optional) LoadBalancer的创建时间
-        :param azType: (Optional) lb所在位置类型，取值：standard(标准负载均衡)，edge(边缘负载均衡)
+        :param azType: (Optional) 负载均衡所在可用区类型，取值包括：standard(标准可用区)、edge(边缘可用区)
         """
 
         self.loadBalancerId = loadBalancerId
@@ -53,9 +50,6 @@ class LoadBalancer(object):
         self.charge = charge
         self.tags = tags
         self.description = description
-        self.domainEnable = domainEnable
-        self.internalDomain = internalDomain
-        self.internetDomain = internetDomain
         self.deleteProtection = deleteProtection
         self.createdTime = createdTime
         self.azType = azType

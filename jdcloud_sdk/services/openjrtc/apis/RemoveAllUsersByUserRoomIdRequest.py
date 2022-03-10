@@ -33,7 +33,7 @@ class RemoveAllUsersByUserRoomIdRequest(JDCloudRequest):
 
 class RemoveAllUsersByUserRoomIdParameters(object):
 
-    def __init__(self, appId, ):
+    def __init__(self, appId,):
         """
         :param appId: 应用ID
         """

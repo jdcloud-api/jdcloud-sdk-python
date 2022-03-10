@@ -19,26 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeRoomUsersNumRequest(JDCloudRequest):
+class AddPushStreamRuleRequest(JDCloudRequest):
     """
-    统计房间内人数
+    添加推流规则
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeRoomUsersNumRequest, self).__init__(
-            '/describeRoomUsersNum/{appId}', 'GET', header, version)
+        super(AddPushStreamRuleRequest, self).__init__(
+            '/addPushStreamRule', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeRoomUsersNumParameters(object):
+class AddPushStreamRuleParameters(object):
 
-    def __init__(self, appId,userRoomId):
+    def __init__(self, ):
         """
-        :param appId: 应用ID
-        :param userRoomId: 业务接入方定义的且在JRTC系统内注册过的房间号
         """
 
+        self.appId = None
+        self.rules = None
+
+    def setAppId(self, appId):
+        """
+        :param appId: (Optional) 应用ID
+        """
         self.appId = appId
-        self.userRoomId = userRoomId
+
+    def setRules(self, rules):
+        """
+        :param rules: (Optional) 推流规则
+        """
+        self.rules = rules
 

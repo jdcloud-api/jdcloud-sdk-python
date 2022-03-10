@@ -33,7 +33,7 @@ class DescribeRoomOnlineUserNumRequest(JDCloudRequest):
 
 class DescribeRoomOnlineUserNumParameters(object):
 
-    def __init__(self, roomId, ):
+    def __init__(self, roomId,):
         """
         :param roomId: 房间ID
         """

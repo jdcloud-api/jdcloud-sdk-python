@@ -19,26 +19,45 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeRoomUsersNumRequest(JDCloudRequest):
+class CloseRoomUserStreamRequest(JDCloudRequest):
     """
-    统计房间内人数
+    关闭房间内的指定流
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeRoomUsersNumRequest, self).__init__(
-            '/describeRoomUsersNum/{appId}', 'GET', header, version)
+        super(CloseRoomUserStreamRequest, self).__init__(
+            '/closeRoomUserStream/{appId}', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeRoomUsersNumParameters(object):
+class CloseRoomUserStreamParameters(object):
 
-    def __init__(self, appId,userRoomId):
+    def __init__(self, appId,):
         """
         :param appId: 应用ID
-        :param userRoomId: 业务接入方定义的且在JRTC系统内注册过的房间号
         """
 
         self.appId = appId
+        self.userRoomId = None
+        self.userId = None
+        self.streamId = None
+
+    def setUserRoomId(self, userRoomId):
+        """
+        :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
+        """
         self.userRoomId = userRoomId
+
+    def setUserId(self, userId):
+        """
+        :param userId: (Optional) 业务接入方用户体系定义的且在JRTC系统内注册过的userId
+        """
+        self.userId = userId
+
+    def setStreamId(self, streamId):
+        """
+        :param streamId: (Optional) 要关闭的流ID
+        """
+        self.streamId = streamId
 

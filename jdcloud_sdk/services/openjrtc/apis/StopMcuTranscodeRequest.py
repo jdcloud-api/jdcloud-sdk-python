@@ -19,26 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeRoomUsersNumRequest(JDCloudRequest):
+class StopMcuTranscodeRequest(JDCloudRequest):
     """
-    统计房间内人数
+    中止混流任务
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeRoomUsersNumRequest, self).__init__(
-            '/describeRoomUsersNum/{appId}', 'GET', header, version)
+        super(StopMcuTranscodeRequest, self).__init__(
+            '/stopMcuTask', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeRoomUsersNumParameters(object):
+class StopMcuTranscodeParameters(object):
 
-    def __init__(self, appId,userRoomId):
+    def __init__(self, ):
         """
-        :param appId: 应用ID
-        :param userRoomId: 业务接入方定义的且在JRTC系统内注册过的房间号
         """
 
+        self.appId = None
+        self.userRoomId = None
+
+    def setAppId(self, appId):
+        """
+        :param appId: (Optional) 应用ID
+        """
         self.appId = appId
+
+    def setUserRoomId(self, userRoomId):
+        """
+        :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
+        """
         self.userRoomId = userRoomId
 

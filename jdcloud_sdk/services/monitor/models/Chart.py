@@ -19,13 +19,35 @@
 
 class Chart(object):
 
-    def __init__(self, chartName=None, chartUnit=None, include=None):
+    def __init__(self, id=None, serviceCode=None, groupCode=None, chartNameCH=None, chartNameEN=None, chartUnitCH=None, chartUnitEN=None, chartIndex=None, metrics=None, metricIds=None, column=None, dir=None, number=None, size=None):
         """
-        :param chartName: (Optional) 监控图名称
-        :param chartUnit: (Optional) 监控图单位
-        :param include: (Optional) 监控图包含的指标
+        :param id: (Optional) 自增id
+        :param serviceCode: (Optional) serviceCode
+        :param groupCode: (Optional) groupCode
+        :param chartNameCH: (Optional) chartNameCH
+        :param chartNameEN: (Optional) chartNameEN
+        :param chartUnitCH: (Optional) chartUnitCH
+        :param chartUnitEN: (Optional) chartUnitEN
+        :param chartIndex: (Optional) chartIndex
+        :param metrics: (Optional) metrics
+        :param metricIds: (Optional) metricIds
+        :param column: (Optional) 排序字段
+        :param dir: (Optional) 排序方式
+        :param number: (Optional) 页码
+        :param size: (Optional) 查询条数
         """
 
-        self.chartName = chartName
-        self.chartUnit = chartUnit
-        self.include = include
+        self.id = id
+        self.serviceCode = serviceCode
+        self.groupCode = groupCode
+        self.chartNameCH = chartNameCH
+        self.chartNameEN = chartNameEN
+        self.chartUnitCH = chartUnitCH
+        self.chartUnitEN = chartUnitEN
+        self.chartIndex = chartIndex
+        self.metrics = metrics
+        self.metricIds = metricIds
+        self.column = column
+        self.dir = dir
+        self.number = number
+        self.size = size

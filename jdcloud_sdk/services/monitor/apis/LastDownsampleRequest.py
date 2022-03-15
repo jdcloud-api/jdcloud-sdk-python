@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeOneDataPointRequest(JDCloudRequest):
+class LastDownsampleRequest(JDCloudRequest):
     """
     根据不同的聚合方式将metric的数据聚合为一个点。downAggrType：last(最后一个点)、max(最大值)、min(最小值)、avg(平均值)。该接口返回值为上报metric的原始值，没有做单位转换。metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DescribeOneDataPointRequest, self).__init__(
+        super(LastDownsampleRequest, self).__init__(
             '/regions/{regionId}/metrics/{metric}/lastDownsample', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeOneDataPointParameters(object):
+class LastDownsampleParameters(object):
 
-    def __init__(self, regionId, metric, serviceCode, resourceId, ):
+    def __init__(self, regionId,metric,serviceCode, resourceId, ):
         """
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
@@ -51,6 +51,7 @@ class DescribeOneDataPointParameters(object):
         self.timeInterval = None
         self.aggrType = None
         self.downAggrType = None
+        self.timeOffset = None
 
     def setDimension(self, dimension):
         """
@@ -93,4 +94,10 @@ class DescribeOneDataPointParameters(object):
         :param downAggrType: (Optional) 聚合方式：max avg min等,用于将维度内一个周期数据聚合为一个点的聚合方式,默认last
         """
         self.downAggrType = downAggrType
+
+    def setTimeOffset(self, timeOffset):
+        """
+        :param timeOffset: (Optional) 时间偏移，可传入30s、1m、1h、1d等数字+单位的形式(其中s秒，m分，h时，d天)，当业务侧数据上报存在延迟时，可以传入该参数，该参数会使查询的时间段整体向前偏移.偏移后的开始时间若早于30天前,则开始时间自动设置为30天前;若偏移后结束时间早于30天前，则无效
+        """
+        self.timeOffset = timeOffset
 

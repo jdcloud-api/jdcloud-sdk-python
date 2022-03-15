@@ -19,9 +19,9 @@
 
 class DeleteGrafanaDashboardsSpec(object):
 
-    def __init__(self, filters, ):
+    def __init__(self, filters=None):
         """
-        :param filters:  filters, name为dashboardUids， values为dashboardUid列表，精确匹配，支持多个
+        :param filters: (Optional) filters, name为dashboardUids， values为dashboardUid列表，精确匹配，支持多个
         """
 
         self.filters = filters

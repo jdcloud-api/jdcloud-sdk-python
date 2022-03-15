@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeMetricDataRequest(JDCloudRequest):
     """
-    查看某资源单个监控项数据，metric介绍：<a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>，可以使用接口<a href="https://docs.jdcloud.com/cn/monitoring/metrics">describeMetrics</a>：查询产品线可用的metric列表。
+    查看某资源单个监控项数据.
+metric介绍: <a href="https://docs.jdcloud.com/cn/monitoring/metrics">Metrics</a>
+可以使用接口:<a href="https://docs.jdcloud.com/cn/monitoring/metrics">describeMetrics</a>:查询产品线可用的metric列表。
+查询起止时间统一向下对齐10s, 举例:开始时间为 08:45:45 会对齐到08:45:40
+
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -32,7 +36,7 @@ class DescribeMetricDataRequest(JDCloudRequest):
 
 class DescribeMetricDataParameters(object):
 
-    def __init__(self, regionId, metric, resourceId):
+    def __init__(self, regionId,metric,resourceId):
         """
         :param regionId: 地域 Id
         :param metric: 监控项英文标识(id)
@@ -68,18 +72,27 @@ class DescribeMetricDataParameters(object):
     def setStartTime(self, startTime):
         """
         :param startTime: (Optional) 查询时间范围的开始时间， UTC时间，格式：2016-12-11T00:00:00+0800（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
+开始时间不得晚于当前时间,开始时间不得早于 30 天前
+
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询时间范围的结束时间， UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
+        :param endTime: (Optional) 查询时间范围的结束时间, UTC时间，格式：2016-12-11T00:00:00+0800（为空时，将由startTime与timeInterval计算得出）（注意在url中+要转译为%2B故url中为2016-12-11T00:00:00%2B0800）
+默认为当前时间,结束时间不得晚于当前时间. 如果晚于, 会被默认设成当前时间, 结束时间不得早于 30 天前.
+
         """
         self.endTime = endTime
 
     def setTimeInterval(self, timeInterval):
         """
         :param timeInterval: (Optional) 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
+如果指定了 startTime 和 endTime,可以不用设置. 默认的,三个参数都不设置查询 1h 内数据.
+timeInterval 默认值 1h
+endTime 默认值, 当前时间
+startTime 默认值,  endTime - timeInterval
+
         """
         self.timeInterval = timeInterval
 
@@ -97,7 +110,7 @@ class DescribeMetricDataParameters(object):
 
     def setRate(self, rate):
         """
-        :param rate: (Optional) 是否求速率
+        :param rate: (Optional) 是否求速率。仅对累积类型指标有意义, 默认 false
         """
         self.rate = rate
 

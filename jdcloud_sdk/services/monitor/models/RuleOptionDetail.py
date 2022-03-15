@@ -21,7 +21,7 @@ class RuleOptionDetail(object):
 
     def __init__(self, rules=None, templateOption=None):
         """
-        :param rules: (Optional) 规则触发条件,与模块参数同时指定时，优先使用rules
+        :param rules: (Optional) 规则触发条件,与模板参数同时指定时，优先使用rules
         :param templateOption: (Optional) 
         """
 

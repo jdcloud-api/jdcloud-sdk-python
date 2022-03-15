@@ -19,11 +19,15 @@
 
 class ResourceOption(object):
 
-    def __init__(self, resourceItems=None, tagsOption=None):
+    def __init__(self, resourceItems=None, tagsOption=None, resourceGroups=None, resourceFilterType=None):
         """
         :param resourceItems: (Optional) 指定具体资源ID设置报警规则，每次最多100个。优先resourceItems生效
         :param tagsOption: (Optional) 
+        :param resourceGroups: (Optional) 指定资源组设置报警规则
+        :param resourceFilterType: (Optional) 资源筛选的类型,1:指定具体资源 2:标签筛选 3:资源组筛选
         """
 
         self.resourceItems = resourceItems
         self.tagsOption = tagsOption
+        self.resourceGroups = resourceGroups
+        self.resourceFilterType = resourceFilterType

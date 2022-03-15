@@ -32,7 +32,7 @@ class UpdateAlarmRequest(JDCloudRequest):
 
 class UpdateAlarmParameters(object):
 
-    def __init__(self, alarmId, product, resourceOption, ruleName, ruleOption, ):
+    def __init__(self, alarmId,product, resourceOption, ruleName, ruleOption, ):
         """
         :param alarmId: 规则id
         :param product: 资源类型, 可用的资源类型列表请使用 describeProductsForAlarm接口查询。
@@ -44,8 +44,10 @@ class UpdateAlarmParameters(object):
         self.alarmId = alarmId
         self.autoScalingPolicyId = None
         self.baseContact = None
+        self.dataOwner = None
         self.dimension = None
         self.enabled = None
+        self.multiWebHook = None
         self.noticeOption = None
         self.product = product
         self.resourceOption = resourceOption
@@ -67,6 +69,12 @@ class UpdateAlarmParameters(object):
         """
         self.baseContact = baseContact
 
+    def setDataOwner(self, dataOwner):
+        """
+        :param dataOwner: (Optional) 数据所有者，1云监控控制台; 2云鼎。默认为1
+        """
+        self.dataOwner = dataOwner
+
     def setDimension(self, dimension):
         """
         :param dimension: (Optional) 资源维度，可用的维度请使用 describeProductsForAlarm接口查询
@@ -78,6 +86,12 @@ class UpdateAlarmParameters(object):
         :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
         """
         self.enabled = enabled
+
+    def setMultiWebHook(self, multiWebHook):
+        """
+        :param multiWebHook: (Optional) url回调设置数组
+        """
+        self.multiWebHook = multiWebHook
 
     def setNoticeOption(self, noticeOption):
         """

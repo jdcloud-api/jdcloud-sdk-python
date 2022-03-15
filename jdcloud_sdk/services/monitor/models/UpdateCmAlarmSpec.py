@@ -19,12 +19,15 @@
 
 class UpdateCmAlarmSpec(object):
 
-    def __init__(self, aggrType, dimensions, namespace, region, ruleName, ruleOption, baseContact=None, enabled=None, noticeOption=None, webHookOption=None):
+    def __init__(self, aggrType, dimensions, namespace, region, ruleName, ruleOption, baseContact=None, dataOwner=None, enabled=None, multiWebHook=None, noticeOption=None, webHookOption=None):
         """
         :param aggrType:  聚合方式，多个维度聚合成1个维度时，多维度值之间的聚合方式。可选值:sum、avg、min、max
         :param baseContact: (Optional) 告警通知联系人
+        :param dataOwner: (Optional) 数据所有者，1云监控控制台; 2云鼎。默认为1
+in: query
         :param dimensions:  资源维度，指定监控数据实例的维度标签,如resourceId=id。(请确认资源的监控数据带有该标签，否则规则会报数据不足)，至少指定一个
         :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
+        :param multiWebHook: (Optional) 回调数组
         :param namespace:  命名空间
         :param noticeOption: (Optional) 通知策略
         :param region:  规则绑定资源所在地域
@@ -35,8 +38,10 @@ class UpdateCmAlarmSpec(object):
 
         self.aggrType = aggrType
         self.baseContact = baseContact
+        self.dataOwner = dataOwner
         self.dimensions = dimensions
         self.enabled = enabled
+        self.multiWebHook = multiWebHook
         self.namespace = namespace
         self.noticeOption = noticeOption
         self.region = region

@@ -32,7 +32,7 @@ class DescribeAlarmContactsRequest(JDCloudRequest):
 
 class DescribeAlarmContactsParameters(object):
 
-    def __init__(self, alarmId, ):
+    def __init__(self, alarmId,):
         """
         :param alarmId: 规则id
         """

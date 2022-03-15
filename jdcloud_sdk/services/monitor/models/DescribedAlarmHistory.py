@@ -19,12 +19,13 @@
 
 class DescribedAlarmHistory(object):
 
-    def __init__(self, alarmId=None, dimension=None, dimensionName=None, durationTimes=None, noticeDurationTime=None, noticeLevel=None, noticeLevelTriggered=None, noticeTime=None, noticeTimeUnix=None, product=None, productName=None, receivers=None, region=None, resourceId=None, rule=None, ruleType=None, status=None, tags=None, value=None):
+    def __init__(self, alarmId=None, dimension=None, dimensionName=None, durationTimes=None, isOneClickAlarm=None, noticeDurationTime=None, noticeLevel=None, noticeLevelTriggered=None, noticeTime=None, noticeTimeUnix=None, product=None, productName=None, receivers=None, region=None, resourceId=None, rule=None, ruleType=None, status=None, tags=None, value=None):
         """
         :param alarmId: (Optional) 报警规则ID
         :param dimension: (Optional) 资源维度
         :param dimensionName: (Optional) 资源维度名称
         :param durationTimes: (Optional) 告警持续次数
+        :param isOneClickAlarm: (Optional) 是否是一键告警 (1-一键告警  0-非一键告警)
         :param noticeDurationTime: (Optional) 告警持续时间，单位分钟
         :param noticeLevel: (Optional) 用于前端显示的‘触发告警级别’。从低到高分别为‘普通’, ‘紧急’, ‘严重’
         :param noticeLevelTriggered: (Optional) 触发的告警级别。从低到高分别为‘common’, ‘critical’, ‘fatal’
@@ -46,6 +47,7 @@ class DescribedAlarmHistory(object):
         self.dimension = dimension
         self.dimensionName = dimensionName
         self.durationTimes = durationTimes
+        self.isOneClickAlarm = isOneClickAlarm
         self.noticeDurationTime = noticeDurationTime
         self.noticeLevel = noticeLevel
         self.noticeLevelTriggered = noticeLevelTriggered

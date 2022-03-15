@@ -19,13 +19,15 @@
 
 class BasicDatasource(object):
 
-    def __init__(self, pluginType, url, opentsdbExtend=None):
+    def __init__(self, pluginType, url, customHttpHeader=None, opentsdbExtend=None):
         """
+        :param customHttpHeader: (Optional) customHttpHeader
         :param opentsdbExtend: (Optional) 
         :param pluginType:  jdcloud-monitor-opentsdb     后续可能会有其它。如jdcloud-monitor-prometheus等
         :param url:  数据源地址
         """
 
+        self.customHttpHeader = customHttpHeader
         self.opentsdbExtend = opentsdbExtend
         self.pluginType = pluginType
         self.url = url

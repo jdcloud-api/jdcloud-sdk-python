@@ -21,7 +21,7 @@ class WebHookOption(object):
 
     def __init__(self, webHookContent=None, webHookProtocol=None, webHookSecret=None, webHookUrl=None):
         """
-        :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookProtocol均不为空时，才会创建webHook
+        :param webHookContent: (Optional) 回调content 注：仅webHookUrl和webHookProtocol均不为空时，才会创建webHook。当前支持的变量:${resourceId},${resourceName},${ipAddress},${requestId},${metric},${currentValue},${times},${tags},${alertTime},${region},${threshold},${serviceCode},${asGroupId},${unhealthyInstance}
         :param webHookProtocol: (Optional) webHook协议
         :param webHookSecret: (Optional) 回调secret，用户请求签名，防伪造
         :param webHookUrl: (Optional) 回调url

@@ -19,15 +19,17 @@
 
 class CreateGrafanaDashboardSpec(object):
 
-    def __init__(self, params, title, description=None, folderId=None):
+    def __init__(self, params, templateUid, title, description=None, folderId=None):
         """
         :param description: (Optional) 
         :param folderId: (Optional) FolderId，文件夹id，默认为0
         :param params:  Params, 模板参数名称及指定值，key为名称、value为指定值
+        :param templateUid:  templateUid
         :param title:  Title
         """
 
         self.description = description
         self.folderId = folderId
         self.params = params
+        self.templateUid = templateUid
         self.title = title

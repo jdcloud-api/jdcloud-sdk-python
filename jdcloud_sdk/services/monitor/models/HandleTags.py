@@ -19,11 +19,13 @@
 
 class HandleTags(object):
 
-    def __init__(self, handleTagCode=None, prefixMetric=None):
+    def __init__(self, handleTagCode=None, handleTags=None, prefixMetric=None):
         """
-        :param handleTagCode: (Optional) 
+        :param handleTagCode: (Optional) 操作类型 1 复制原数据点，复制过程中只拷贝对原数据中tag改名的tag 2 不进行复制
+        :param handleTags: (Optional) 
         :param prefixMetric: (Optional) 
         """
 
         self.handleTagCode = handleTagCode
+        self.handleTags = handleTags
         self.prefixMetric = prefixMetric

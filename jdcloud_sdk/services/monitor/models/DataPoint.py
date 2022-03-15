@@ -21,8 +21,8 @@ class DataPoint(object):
 
     def __init__(self, timestamp=None, value=None):
         """
-        :param timestamp: (Optional) 
-        :param value: (Optional) 
+        :param timestamp: (Optional) 时间戳
+        :param value: (Optional) 值
         """
 
         self.timestamp = timestamp

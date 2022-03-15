@@ -38,6 +38,7 @@ class DescribeAlarmsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
+        self.dataOwner = None
         self.serviceCode = None
         self.product = None
         self.dimension = None
@@ -58,6 +59,12 @@ class DescribeAlarmsParameters(object):
         :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
         """
         self.pageSize = pageSize
+
+    def setDataOwner(self, dataOwner):
+        """
+        :param dataOwner: (Optional) 数据所有者，1云监控控制台; 2云鼎。默认为1
+        """
+        self.dataOwner = dataOwner
 
     def setServiceCode(self, serviceCode):
         """

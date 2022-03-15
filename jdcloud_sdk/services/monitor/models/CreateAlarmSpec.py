@@ -19,13 +19,15 @@
 
 class CreateAlarmSpec(object):
 
-    def __init__(self, clientToken, product, resourceOption, ruleName, ruleOption, autoScalingPolicyId=None, baseContact=None, dimension=None, enabled=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
+    def __init__(self, clientToken, product, resourceOption, ruleName, ruleOption, autoScalingPolicyId=None, baseContact=None, dataOwner=None, dimension=None, enabled=None, multiWebHook=None, noticeOption=None, ruleType=None, tags=None, webHookOption=None):
         """
         :param autoScalingPolicyId: (Optional) 弹性伸缩组Id。注：仅ag\asg产品线内部使用
         :param baseContact: (Optional) 告警通知联系人
         :param clientToken:  幂等性校验参数,最长36位,若两个请求clientToken相等，则返回第一次创建的规则id，只创建一次规则
+        :param dataOwner: (Optional) 数据所有者，1云监控控制台; 2云鼎。默认为1
         :param dimension: (Optional) 资源维度，可用的维度请使用 describeProductsForAlarm接口查询
         :param enabled: (Optional) 是否启用, 1表示启用规则，0表示禁用规则，默认为1
+        :param multiWebHook: (Optional) url回调设置数组
         :param noticeOption: (Optional) 通知策略
         :param product:  资源类型, 可用的资源类型列表请使用 describeProductsForAlarm接口查询。
         :param resourceOption:  
@@ -39,8 +41,10 @@ class CreateAlarmSpec(object):
         self.autoScalingPolicyId = autoScalingPolicyId
         self.baseContact = baseContact
         self.clientToken = clientToken
+        self.dataOwner = dataOwner
         self.dimension = dimension
         self.enabled = enabled
+        self.multiWebHook = multiWebHook
         self.noticeOption = noticeOption
         self.product = product
         self.resourceOption = resourceOption

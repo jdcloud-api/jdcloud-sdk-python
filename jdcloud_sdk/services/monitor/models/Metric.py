@@ -19,17 +19,75 @@
 
 class Metric(object):
 
-    def __init__(self, aggregator=None, calculateUnit=None, metric=None, metricName=None, period=None):
+    def __init__(self, id=None, serviceCode=None, metricIndex=None, metricID=None, metricNameCH=None, metricNameEN=None, valueType=None, downsampleAgg=None, groupAgg=None, isRate=None, isSumRate=None, defaultDownsample=None, upUnit=None, monitorUnitCH=None, monitorUnitEN=None, alarmUnitCH=None, alarmUnitEN=None, unitConvertFrom=None, unitConvertTo=None, isShow=None, isEnable=None, defaultTagName=None, defaultTagValue=None, tags=None, isAlarm=None, newNet=None, timeInterval=None, serviceCodes=None, groupIds=None, groupCodes=None, column=None, dir=None, number=None, size=None):
         """
-        :param aggregator: (Optional) 
-        :param calculateUnit: (Optional) 
-        :param metric: (Optional) 
-        :param metricName: (Optional) 
-        :param period: (Optional) 
+        :param id: (Optional) 自增id
+        :param serviceCode: (Optional) serviceCode
+        :param metricIndex: (Optional) metricIndex
+        :param metricID: (Optional) metricID
+        :param metricNameCH: (Optional) metricNameCH
+        :param metricNameEN: (Optional) metricNameEN
+        :param valueType: (Optional) valueType
+        :param downsampleAgg: (Optional) downsampleAgg
+        :param groupAgg: (Optional) groupAgg
+        :param isRate: (Optional) isRate
+        :param isSumRate: (Optional) isSumRate
+        :param defaultDownsample: (Optional) defaultDownsample
+        :param upUnit: (Optional) upUnit
+        :param monitorUnitCH: (Optional) monitorUnitCH
+        :param monitorUnitEN: (Optional) monitorUnitEN
+        :param alarmUnitCH: (Optional) alarmUnitCH
+        :param alarmUnitEN: (Optional) alarmUnitEN
+        :param unitConvertFrom: (Optional) unitConvertFrom
+        :param unitConvertTo: (Optional) unitConvertTo
+        :param isShow: (Optional) isShow
+        :param isEnable: (Optional) isEnable
+        :param defaultTagName: (Optional) defaultTagName
+        :param defaultTagValue: (Optional) defaultTagValue
+        :param tags: (Optional) tags
+        :param isAlarm: (Optional) isAlarm
+        :param newNet: (Optional) newNet
+        :param timeInterval: (Optional) timeInterval
+        :param serviceCodes: (Optional) 业务线代码
+        :param groupIds: (Optional) 分组id
+        :param groupCodes: (Optional) 分组信息
+        :param column: (Optional) 排序字段
+        :param dir: (Optional) 排序方式
+        :param number: (Optional) 页码
+        :param size: (Optional) 查询条数
         """
 
-        self.aggregator = aggregator
-        self.calculateUnit = calculateUnit
-        self.metric = metric
-        self.metricName = metricName
-        self.period = period
+        self.id = id
+        self.serviceCode = serviceCode
+        self.metricIndex = metricIndex
+        self.metricID = metricID
+        self.metricNameCH = metricNameCH
+        self.metricNameEN = metricNameEN
+        self.valueType = valueType
+        self.downsampleAgg = downsampleAgg
+        self.groupAgg = groupAgg
+        self.isRate = isRate
+        self.isSumRate = isSumRate
+        self.defaultDownsample = defaultDownsample
+        self.upUnit = upUnit
+        self.monitorUnitCH = monitorUnitCH
+        self.monitorUnitEN = monitorUnitEN
+        self.alarmUnitCH = alarmUnitCH
+        self.alarmUnitEN = alarmUnitEN
+        self.unitConvertFrom = unitConvertFrom
+        self.unitConvertTo = unitConvertTo
+        self.isShow = isShow
+        self.isEnable = isEnable
+        self.defaultTagName = defaultTagName
+        self.defaultTagValue = defaultTagValue
+        self.tags = tags
+        self.isAlarm = isAlarm
+        self.newNet = newNet
+        self.timeInterval = timeInterval
+        self.serviceCodes = serviceCodes
+        self.groupIds = groupIds
+        self.groupCodes = groupCodes
+        self.column = column
+        self.dir = dir
+        self.number = number
+        self.size = size

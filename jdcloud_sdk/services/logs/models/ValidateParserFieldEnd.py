@@ -19,13 +19,15 @@
 
 class ValidateParserFieldEnd(object):
 
-    def __init__(self, fieldValue=None, index=None, name=None):
+    def __init__(self, fieldType=None, fieldValue=None, index=None, name=None):
         """
+        :param fieldType: (Optional) 
         :param fieldValue: (Optional) 
         :param index: (Optional) 
         :param name: (Optional) 
         """
 
+        self.fieldType = fieldType
         self.fieldValue = fieldValue
         self.index = index
         self.name = name

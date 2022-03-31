@@ -40,6 +40,7 @@ class ValidateParserParameters(object):
         self.parserMode = parserMode
         self.parserPattern = None
         self.parserSample = None
+        self.pipelines = None
 
     def setParserPattern(self, parserPattern):
         """
@@ -52,4 +53,10 @@ class ValidateParserParameters(object):
         :param parserSample: (Optional) 日志样例
         """
         self.parserSample = parserSample
+
+    def setPipelines(self, pipelines):
+        """
+        :param pipelines: (Optional) 预处理任务列表。按照数组的顺序执行。
+        """
+        self.pipelines = pipelines
 

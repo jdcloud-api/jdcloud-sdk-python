@@ -32,7 +32,7 @@ class DescribeNetworkAclsRequest(JDCloudRequest):
 
 class DescribeNetworkAclsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
         """
@@ -56,9 +56,9 @@ class DescribeNetworkAclsParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) networkAclIds - 弹性网卡ID列表，支持多个
-networkAclNames - 弹性网卡名称列表，支持多个
-vpcId - 弹性网卡所属vpc Id，支持单个
+        :param filters: (Optional) networkAclIds - networkAcl ID列表，支持多个
+networkAclNames - networkAcl名称列表，支持多个
+vpcId - networkAcl所属vpc Id，支持单个
 
         """
         self.filters = filters

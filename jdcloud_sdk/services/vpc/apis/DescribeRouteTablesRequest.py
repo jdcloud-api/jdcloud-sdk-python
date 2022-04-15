@@ -32,7 +32,7 @@ class DescribeRouteTablesRequest(JDCloudRequest):
 
 class DescribeRouteTablesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
         """
@@ -59,6 +59,8 @@ class DescribeRouteTablesParameters(object):
         :param filters: (Optional) routeTableIds - 路由表ID列表，支持多个
 routeTableNames - 路由表名称列表，支持多个
 vpcId	- 路由表所属vpc Id，支持单个
+azType - 路由表az类型，取值：all(全部类型)，standard(标准路由表)，edge(边缘路由表)，默认standard ，支持单个
+azs - 可用区，支持多个
 
         """
         self.filters = filters

@@ -32,7 +32,7 @@ class DescribeSubnetRequest(JDCloudRequest):
 
 class DescribeSubnetParameters(object):
 
-    def __init__(self, regionId, subnetId, ):
+    def __init__(self, regionId,subnetId,):
         """
         :param regionId: Region ID
         :param subnetId: Subnet ID

@@ -19,7 +19,7 @@
 
 class RouteTable(object):
 
-    def __init__(self, routeTableId=None, routeTableName=None, routeTableType=None, description=None, vpcId=None, routeTableRules=None, routePropagations=None, subnetIds=None, createdTime=None):
+    def __init__(self, routeTableId=None, routeTableName=None, routeTableType=None, description=None, vpcId=None, routeTableRules=None, routePropagations=None, subnetIds=None, azType=None, az=None, createdTime=None):
         """
         :param routeTableId: (Optional) 路由表ID
         :param routeTableName: (Optional) 路由表名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -29,6 +29,8 @@ class RouteTable(object):
         :param routeTableRules: (Optional) 路由表规则信息
         :param routePropagations: (Optional) 路由传播列表
         :param subnetIds: (Optional) 路由表绑定的子网列表
+        :param azType: (Optional) 路由表az类型，取值：standard(标准路由表)，edge(边缘路由表)
+        :param az: (Optional) 路由表可用区
         :param createdTime: (Optional) 路由表创建时间
         """
 
@@ -40,4 +42,6 @@ class RouteTable(object):
         self.routeTableRules = routeTableRules
         self.routePropagations = routePropagations
         self.subnetIds = subnetIds
+        self.azType = azType
+        self.az = az
         self.createdTime = createdTime

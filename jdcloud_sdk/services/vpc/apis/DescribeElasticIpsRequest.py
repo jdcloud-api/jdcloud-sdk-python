@@ -32,7 +32,7 @@ class DescribeElasticIpsRequest(JDCloudRequest):
 
 class DescribeElasticIpsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
         """
@@ -42,6 +42,7 @@ class DescribeElasticIpsParameters(object):
         self.pageSize = None
         self.filters = None
         self.tags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -62,6 +63,8 @@ elasticIpAddress - eip的IP地址，支持单个
 chargeStatus	- eip的费用支付状态,normal(正常状态) or overdue(预付费已到期) or arrear(欠费状态)，支持单个
 ipType - eip类型，取值：all(所有类型)、standard(标准弹性IP)、edge(边缘弹性IP)，默认standard，支持单个
 azs - eip可用区，支持多个
+bandwidthPackageId - 共享带宽包ID，支持单个
+status - IP是否被绑定，取值：ASSOCIATED（被绑定）、NOT_ASSOCIATED（未被绑定）、ALL（全部）。支持单个
 
         """
         self.filters = filters
@@ -71,4 +74,10 @@ azs - eip可用区，支持多个
         :param tags: (Optional) Tag筛选条件
         """
         self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组筛选条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

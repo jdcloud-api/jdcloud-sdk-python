@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyElasticIpRequest(JDCloudRequest):
     """
-    修改弹性公网IP
+    修改弹性公网IP，当弹性公网IP加入共享带宽包后，此公网IP限速需要调用共享带宽包的接口（修改共享带宽包内公网IP带宽上限）
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class ModifyElasticIpRequest(JDCloudRequest):
 
 class ModifyElasticIpParameters(object):
 
-    def __init__(self, regionId, elasticIpId, bandwidthMbps):
+    def __init__(self, regionId,elasticIpId,bandwidthMbps):
         """
         :param regionId: Region ID
         :param elasticIpId: ElasticIp ID

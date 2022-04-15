@@ -32,10 +32,10 @@ class DescribeQuotaRequest(JDCloudRequest):
 
 class DescribeQuotaParameters(object):
 
-    def __init__(self, regionId, type, ):
+    def __init__(self, regionId,type, ):
         """
         :param regionId: Region ID
-        :param type: 资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）、acl、aclRule、routeTable、staticRoute、propagatedRoute、securityGroupRule
+        :param type: 资源类型，取值范围：vpc、elastic_ip、subnet、security_group、vpcpeering、network_interface（配额只统计辅助网卡）、acl、aclRule、routeTable、staticRoute、propagatedRoute、securityGroupRule、network_interface_cidr、bwpByUsage、bandwidthPackageIp、natGateway
         """
 
         self.regionId = regionId
@@ -44,7 +44,7 @@ class DescribeQuotaParameters(object):
 
     def setParentResourceId(self, parentResourceId):
         """
-        :param parentResourceId: (Optional) type为vpc、elastic_ip、network_interface不设置, type为subnet、security_group、vpcpeering、acl、routeTable设置为vpcId, type为aclRule设置为aclId, type为staticRoute、propagatedRoute设置为routeTableId, type为securityGroupRule为securityGroupId
+        :param parentResourceId: (Optional) type为vpc、elastic_ip、network_interface、bwpByUsage、natGateway不设置, type为subnet、security_group、vpcpeering、acl、routeTable设置为vpcId, type为aclRule设置为aclId, type为staticRoute、propagatedRoute设置为routeTableId, type为securityGroupRule为securityGroupId, type为network_interface_cidr设置为networkInterfaceId，type为bandwidthPackageIp设置为bandwidthPackageId
         """
         self.parentResourceId = parentResourceId
 

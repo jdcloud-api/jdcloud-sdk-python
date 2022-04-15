@@ -32,7 +32,7 @@ class ModifyNetworkSecurityGroupRulesRequest(JDCloudRequest):
 
 class ModifyNetworkSecurityGroupRulesParameters(object):
 
-    def __init__(self, regionId, networkSecurityGroupId, modifySecurityGroupRuleSpecs):
+    def __init__(self, regionId,networkSecurityGroupId,modifySecurityGroupRuleSpecs):
         """
         :param regionId: Region ID
         :param networkSecurityGroupId: NetworkSecurityGroup ID

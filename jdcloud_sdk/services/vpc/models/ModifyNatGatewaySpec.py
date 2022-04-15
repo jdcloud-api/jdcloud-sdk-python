@@ -23,7 +23,7 @@ class ModifyNatGatewaySpec(object):
         """
         :param natGatewayName: (Optional) NAT网关名称
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
-        :param bandwidthMbps: (Optional) 公网IP的限速（单位：Mbps），取值范围为[1-1000]
+        :param bandwidthMbps: (Optional) NAT网关公网IP的限速（单位：Mbps）。计费类型为按配置时，取值范围为[1-1000]；计费类型为按流量时，取值范围为[1-200]
         :param natGatewaySpec: (Optional) NAT网关规格，取值small（100万并发连接数）,medium(300万并发连接数),large（1000万并发连接数）
         """
 

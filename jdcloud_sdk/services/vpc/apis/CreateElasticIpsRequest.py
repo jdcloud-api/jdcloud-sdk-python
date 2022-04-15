@@ -32,7 +32,7 @@ class CreateElasticIpsRequest(JDCloudRequest):
 
 class CreateElasticIpsParameters(object):
 
-    def __init__(self, regionId, maxCount, elasticIpSpec, ):
+    def __init__(self, regionId,maxCount, elasticIpSpec, ):
         """
         :param regionId: Region ID
         :param maxCount: 购买弹性ip数量；取值范围：[1,100]
@@ -45,6 +45,8 @@ class CreateElasticIpsParameters(object):
         self.elasticIpSpec = elasticIpSpec
         self.userTags = None
         self.ipType = None
+        self.resourceGroupId = None
+        self.dryRun = None
 
     def setElasticIpAddress(self, elasticIpAddress):
         """
@@ -63,4 +65,16 @@ class CreateElasticIpsParameters(object):
         :param ipType: (Optional) 弹性ip类型，取值：standard(标准公网IP)，edge(边缘公网IP)，默认为standard
         """
         self.ipType = ipType
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
+
+    def setDryRun(self, dryRun):
+        """
+        :param dryRun: (Optional) 预检标识，默认false，dryRun为true时只作检查，不做变更
+        """
+        self.dryRun = dryRun
 

@@ -32,7 +32,7 @@ class DescribeVpcPeeringsRequest(JDCloudRequest):
 
 class DescribeVpcPeeringsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
         """
@@ -60,6 +60,8 @@ class DescribeVpcPeeringsParameters(object):
 vpcPeeringNames - vpcPeering名称列表，支持多个
 vpcId	- vpcPeering本端Vpc Id，支持单个
 remoteVpcId - vpcPeering对端Vpc Id，支持单个
+azType - vpcPeering本端VPC az类型，取值：all(全部类型)，standard(标准VPC)，edge(边缘VPC)，默认standard ，支持单个
+azs - vpcPeering本端VPC可用区，支持多个
 
         """
         self.filters = filters

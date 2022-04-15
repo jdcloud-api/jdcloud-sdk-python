@@ -32,7 +32,7 @@ class AddRouteTableRulesRequest(JDCloudRequest):
 
 class AddRouteTableRulesParameters(object):
 
-    def __init__(self, regionId, routeTableId, routeTableRuleSpecs):
+    def __init__(self, regionId,routeTableId,routeTableRuleSpecs):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID

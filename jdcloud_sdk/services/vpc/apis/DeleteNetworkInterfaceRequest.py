@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteNetworkInterfaceRequest(JDCloudRequest):
     """
-    删除弹性网卡接口
+    删除弹性网卡
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DeleteNetworkInterfaceRequest(JDCloudRequest):
 
 class DeleteNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId, networkInterfaceId, ):
+    def __init__(self, regionId,networkInterfaceId,):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID

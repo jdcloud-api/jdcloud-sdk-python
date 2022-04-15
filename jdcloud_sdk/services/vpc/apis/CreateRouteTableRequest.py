@@ -32,7 +32,7 @@ class CreateRouteTableRequest(JDCloudRequest):
 
 class CreateRouteTableParameters(object):
 
-    def __init__(self, regionId, vpcId, routeTableName, ):
+    def __init__(self, regionId,vpcId, routeTableName, ):
         """
         :param regionId: Region ID
         :param vpcId: 路由表所属的私有网络ID

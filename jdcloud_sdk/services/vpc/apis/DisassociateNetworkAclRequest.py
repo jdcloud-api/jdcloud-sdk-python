@@ -32,7 +32,7 @@ class DisassociateNetworkAclRequest(JDCloudRequest):
 
 class DisassociateNetworkAclParameters(object):
 
-    def __init__(self, regionId, networkAclId, subnetId):
+    def __init__(self, regionId,networkAclId,subnetId):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID

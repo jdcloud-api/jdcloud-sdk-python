@@ -32,7 +32,7 @@ class RemoveRouteTableRulesRequest(JDCloudRequest):
 
 class RemoveRouteTableRulesParameters(object):
 
-    def __init__(self, regionId, routeTableId, ruleIds):
+    def __init__(self, regionId,routeTableId,ruleIds):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID

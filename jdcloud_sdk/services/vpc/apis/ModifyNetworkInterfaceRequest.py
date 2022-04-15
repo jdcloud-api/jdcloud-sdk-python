@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyNetworkInterfaceRequest(JDCloudRequest):
     """
-    修改弹性网卡接口
+    修改弹性网卡信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class ModifyNetworkInterfaceRequest(JDCloudRequest):
 
 class ModifyNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId, networkInterfaceId, ):
+    def __init__(self, regionId,networkInterfaceId,):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID

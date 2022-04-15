@@ -19,10 +19,10 @@
 
 class Tag(object):
 
-    def __init__(self, key, value, ):
+    def __init__(self, key=None, value=None):
         """
-        :param key:  Tag键
-        :param value:  Tag值
+        :param key: (Optional) Tag键
+        :param value: (Optional) Tag值
         """
 
         self.key = key

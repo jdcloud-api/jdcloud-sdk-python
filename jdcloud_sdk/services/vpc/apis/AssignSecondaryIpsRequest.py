@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class AssignSecondaryIpsRequest(JDCloudRequest):
     """
-    给网卡分配secondaryIp接口
+    给网卡分配secondaryIp
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class AssignSecondaryIpsRequest(JDCloudRequest):
 
 class AssignSecondaryIpsParameters(object):
 
-    def __init__(self, regionId, networkInterfaceId, ):
+    def __init__(self, regionId,networkInterfaceId,):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID
@@ -43,10 +43,12 @@ class AssignSecondaryIpsParameters(object):
         self.force = None
         self.secondaryIps = None
         self.secondaryIpCount = None
+        self.secondaryIpMaskLen = None
+        self.secondaryIpAddress = None
 
     def setForce(self, force):
         """
-        :param force: (Optional) secondary ip被其他接口占用时，是否抢占。false：非抢占重分配，true：抢占重分配，默认抢占重分配。默认值：true
+        :param force: (Optional) secondary ip被其他接口占用时，是否抢占。false：非抢占重分配，true：抢占重分配；按网段分配时，默认非抢占重分配，指定IP或者个数时，默认抢占重分配。
         """
         self.force = force
 
@@ -61,4 +63,16 @@ class AssignSecondaryIpsParameters(object):
         :param secondaryIpCount: (Optional) 指定自动分配的secondaryIp个数
         """
         self.secondaryIpCount = secondaryIpCount
+
+    def setSecondaryIpMaskLen(self, secondaryIpMaskLen):
+        """
+        :param secondaryIpMaskLen: (Optional) 指定分配的网段掩码长度, 支持24-28位掩码长度，不能与secondaryIpCount或secondaryIps同时指定，不支持抢占重分配
+        """
+        self.secondaryIpMaskLen = secondaryIpMaskLen
+
+    def setSecondaryIpAddress(self, secondaryIpAddress):
+        """
+        :param secondaryIpAddress: (Optional) 指定分配的网段中第一个secondaryIp地址，不能与secondaryIpCount或secondaryIps同时指定，secondaryIpAddress与secondaryIpMaskLen需要保持一致，否则无法创建
+        """
+        self.secondaryIpAddress = secondaryIpAddress
 

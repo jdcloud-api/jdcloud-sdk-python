@@ -32,7 +32,7 @@ class CreateVpcRequest(JDCloudRequest):
 
 class CreateVpcParameters(object):
 
-    def __init__(self, regionId, vpcName, ):
+    def __init__(self, regionId,vpcName, ):
         """
         :param regionId: Region ID
         :param vpcName: 私有网络名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -42,6 +42,8 @@ class CreateVpcParameters(object):
         self.vpcName = vpcName
         self.addressPrefix = None
         self.description = None
+        self.azType = None
+        self.az = None
 
     def setAddressPrefix(self, addressPrefix):
         """
@@ -54,4 +56,16 @@ class CreateVpcParameters(object):
         :param description: (Optional) vpc描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         """
         self.description = description
+
+    def setAzType(self, azType):
+        """
+        :param azType: (Optional) VPC az类型，取值：standard(标准VPC)，edge(边缘VPC)
+        """
+        self.azType = azType
+
+    def setAz(self, az):
+        """
+        :param az: (Optional) VPC可用区，边缘VPC必须指定可用区
+        """
+        self.az = az
 

@@ -19,11 +19,12 @@
 
 class NetworkInterface(object):
 
-    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None):
+    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, azType=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, secondaryCidrs=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None):
         """
         :param networkInterfaceName: (Optional) 弹性网卡名称
         :param networkInterfaceId: (Optional) 弹性网卡ID
-        :param az: (Optional) 可用区名称，该参数无效，不建议使用
+        :param azType: (Optional) 网卡所在az类型，取值：standard(标准Az)，edge(边缘Az)
+        :param az: (Optional) 网卡所在Az, 标准为""， 边缘为边缘az
         :param role: (Optional) 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡）
         :param macAddress: (Optional) 以太网地址
         :param vpcId: (Optional) 虚拟网络ID
@@ -32,6 +33,7 @@ class NetworkInterface(object):
         :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1
         :param primaryIp: (Optional) 网卡主IP
         :param secondaryIps: (Optional) 网卡附属IP列表
+        :param secondaryCidrs: (Optional) 网卡附属IP网段
         :param instanceType: (Optional) 关联实例类型，取值范围：vm
         :param instanceId: (Optional) 关联实例ID
         :param instanceOwnerId: (Optional) 实例所属的账号
@@ -44,6 +46,7 @@ class NetworkInterface(object):
 
         self.networkInterfaceName = networkInterfaceName
         self.networkInterfaceId = networkInterfaceId
+        self.azType = azType
         self.az = az
         self.role = role
         self.macAddress = macAddress
@@ -53,6 +56,7 @@ class NetworkInterface(object):
         self.sanityCheck = sanityCheck
         self.primaryIp = primaryIp
         self.secondaryIps = secondaryIps
+        self.secondaryCidrs = secondaryCidrs
         self.instanceType = instanceType
         self.instanceId = instanceId
         self.instanceOwnerId = instanceOwnerId

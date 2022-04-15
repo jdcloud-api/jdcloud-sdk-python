@@ -32,7 +32,7 @@ class ModifyVpcRequest(JDCloudRequest):
 
 class ModifyVpcParameters(object):
 
-    def __init__(self, regionId, vpcId, ):
+    def __init__(self, regionId,vpcId,):
         """
         :param regionId: Region ID
         :param vpcId: Vpc ID

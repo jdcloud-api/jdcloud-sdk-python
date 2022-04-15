@@ -19,13 +19,15 @@
 
 class CreateElasticIpSpec(object):
 
-    def __init__(self, maxCount, elasticIpSpec, elasticIpAddress=None, userTags=None, ipType=None):
+    def __init__(self, maxCount, elasticIpSpec, elasticIpAddress=None, userTags=None, ipType=None, resourceGroupId=None, dryRun=None):
         """
         :param maxCount:  购买弹性ip数量；取值范围：[1,100]
         :param elasticIpAddress: (Optional) 指定弹性ip地址进行创建，当申请创建多个弹性ip时，必须为空
         :param elasticIpSpec:  弹性ip规格
         :param userTags: (Optional) 用户标签
         :param ipType: (Optional) 弹性ip类型，取值：standard(标准公网IP)，edge(边缘公网IP)，默认为standard
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param dryRun: (Optional) 预检标识，默认false，dryRun为true时只作检查，不做变更
         """
 
         self.maxCount = maxCount
@@ -33,3 +35,5 @@ class CreateElasticIpSpec(object):
         self.elasticIpSpec = elasticIpSpec
         self.userTags = userTags
         self.ipType = ipType
+        self.resourceGroupId = resourceGroupId
+        self.dryRun = dryRun

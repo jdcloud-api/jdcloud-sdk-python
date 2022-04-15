@@ -32,7 +32,7 @@ class DisassociateRouteTableRequest(JDCloudRequest):
 
 class DisassociateRouteTableParameters(object):
 
-    def __init__(self, regionId, routeTableId, subnetId):
+    def __init__(self, regionId,routeTableId,subnetId):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID

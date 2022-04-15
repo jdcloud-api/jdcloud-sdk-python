@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteElasticIpRequest(JDCloudRequest):
     """
-    删除弹性公网IP
+    删除弹性公网IP，已加入共享带宽包的公网IP不能删除，需要先从共享带宽包移出
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DeleteElasticIpRequest(JDCloudRequest):
 
 class DeleteElasticIpParameters(object):
 
-    def __init__(self, regionId, elasticIpId, ):
+    def __init__(self, regionId,elasticIpId,):
         """
         :param regionId: Region ID
         :param elasticIpId: ElasticIp ID

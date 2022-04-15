@@ -32,7 +32,7 @@ class CreateVpcPeeringRequest(JDCloudRequest):
 
 class CreateVpcPeeringParameters(object):
 
-    def __init__(self, regionId, vpcPeeringName, vpcId, remoteVpcId, ):
+    def __init__(self, regionId,vpcPeeringName, vpcId, remoteVpcId, ):
         """
         :param regionId: Region ID
         :param vpcPeeringName: VpcPeering的名字,不为空。名称取值范围：1-32个中文、英文大小写的字母、数字和下划线分隔符

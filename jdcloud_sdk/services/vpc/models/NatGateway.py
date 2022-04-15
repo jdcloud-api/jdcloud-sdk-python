@@ -19,7 +19,7 @@
 
 class NatGateway(object):
 
-    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, azIp=None, createdTime=None):
+    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, azIp=None, createdTime=None, tags=None):
         """
         :param natGatewayId: (Optional) NAT网关ID
         :param natGatewayName: (Optional) NAT网关名称
@@ -32,6 +32,7 @@ class NatGateway(object):
         :param subnetId: (Optional) 子网ID
         :param azIp: (Optional) NAT网关的IP可用区属性
         :param createdTime: (Optional) NAT网关创建时间
+        :param tags: (Optional) Tag信息
         """
 
         self.natGatewayId = natGatewayId
@@ -45,3 +46,4 @@ class NatGateway(object):
         self.subnetId = subnetId
         self.azIp = azIp
         self.createdTime = createdTime
+        self.tags = tags

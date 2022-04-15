@@ -19,7 +19,7 @@
 
 class ElasticIp(object):
 
-    def __init__(self, elasticIpId=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None, tags=None, ipType=None):
+    def __init__(self, elasticIpId=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None, tags=None, ipType=None, bandwidthPackageId=None, status=None, resourceGroupId=None):
         """
         :param elasticIpId: (Optional) 弹性公网IP的Id
         :param elasticIpAddress: (Optional) 弹性公网IP的地址
@@ -34,6 +34,9 @@ class ElasticIp(object):
         :param az: (Optional) 弹性公网IP的可用区属性，如果为空，表示全可用区
         :param tags: (Optional) Tag信息
         :param ipType: (Optional) 弹性公网IP的IP类型，取值：standard(标准弹性IP)、edge(边缘弹性IP)
+        :param bandwidthPackageId: (Optional) 加入的共享带宽包ID，如果没有加入共享带宽包该值为空
+        :param status: (Optional) IP是否被绑定，取值：ASSOCIATED（被绑定）、NOT_ASSOCIATED（未被绑定）
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.elasticIpId = elasticIpId
@@ -49,3 +52,6 @@ class ElasticIp(object):
         self.az = az
         self.tags = tags
         self.ipType = ipType
+        self.bandwidthPackageId = bandwidthPackageId
+        self.status = status
+        self.resourceGroupId = resourceGroupId

@@ -23,8 +23,8 @@ class AzIpSpec(object):
         """
         :param provider: (Optional) IP线路类型，仅支持bgp，默认值bgp
         :param az:  公网IP可用区属性
-        :param bandwidthMbps:  公网IP的限速（单位：Mbps），取值范围为[1-1000]
-        :param ipCharge: (Optional) 计费配置,仅支持按配置，默认按配置
+        :param bandwidthMbps:  NAT网关公网IP的限速（单位：Mbps）。计费类型为按配置时，取值范围为[1-1000]；计费类型为按流量时，取值范围为[1-200]
+        :param ipCharge: (Optional) 计费配置,支持按配置、按用量，默认按配置
         """
 
         self.provider = provider

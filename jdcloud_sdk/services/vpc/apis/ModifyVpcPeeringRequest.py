@@ -32,7 +32,7 @@ class ModifyVpcPeeringRequest(JDCloudRequest):
 
 class ModifyVpcPeeringParameters(object):
 
-    def __init__(self, regionId, vpcPeeringId, ):
+    def __init__(self, regionId,vpcPeeringId,):
         """
         :param regionId: Region ID
         :param vpcPeeringId: vpcPeeringId ID

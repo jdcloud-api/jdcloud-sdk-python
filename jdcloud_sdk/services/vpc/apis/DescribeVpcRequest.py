@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeVpcRequest(JDCloudRequest):
     """
-    查询Vpc信息详情
+    查询虚拟网络信息详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DescribeVpcRequest(JDCloudRequest):
 
 class DescribeVpcParameters(object):
 
-    def __init__(self, regionId, vpcId, ):
+    def __init__(self, regionId,vpcId,):
         """
         :param regionId: Region ID
         :param vpcId: Vpc ID

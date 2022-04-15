@@ -32,7 +32,7 @@ class AssociateRouteTableRequest(JDCloudRequest):
 
 class AssociateRouteTableParameters(object):
 
-    def __init__(self, regionId, routeTableId, subnetIds):
+    def __init__(self, regionId,routeTableId,subnetIds):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID

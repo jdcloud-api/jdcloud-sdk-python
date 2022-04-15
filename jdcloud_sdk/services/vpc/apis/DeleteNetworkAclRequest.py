@@ -32,7 +32,7 @@ class DeleteNetworkAclRequest(JDCloudRequest):
 
 class DeleteNetworkAclParameters(object):
 
-    def __init__(self, regionId, networkAclId, ):
+    def __init__(self, regionId,networkAclId,):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID

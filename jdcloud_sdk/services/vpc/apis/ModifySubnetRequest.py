@@ -32,7 +32,7 @@ class ModifySubnetRequest(JDCloudRequest):
 
 class ModifySubnetParameters(object):
 
-    def __init__(self, regionId, subnetId, ):
+    def __init__(self, regionId,subnetId,):
         """
         :param regionId: Region ID
         :param subnetId: Subnet ID
@@ -42,6 +42,7 @@ class ModifySubnetParameters(object):
         self.subnetId = subnetId
         self.subnetName = None
         self.description = None
+        self.ipMaskLen = None
 
     def setSubnetName(self, subnetName):
         """
@@ -54,4 +55,10 @@ class ModifySubnetParameters(object):
         :param description: (Optional) 子网描述信息，允许输入UTF-8编码下的全部字符，不超过256字符。
         """
         self.description = description
+
+    def setIpMaskLen(self, ipMaskLen):
+        """
+        :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请
+        """
+        self.ipMaskLen = ipMaskLen
 

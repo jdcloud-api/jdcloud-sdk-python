@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class OpenjrtcClient(JDCloudClient):
+class JdworkspaceClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('openjrtc.jdcloud-api.com')
+            config = Config('jdworkspace.jdcloud-api.com')
 
-        super(OpenjrtcClient, self).__init__(credential, config, 'openjrtc', '1.1.7', logger)
+        super(JdworkspaceClient, self).__init__(credential, config, 'jdworkspace', '0.1.0', logger)

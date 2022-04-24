@@ -23,7 +23,7 @@ class CallDurationByCodeRate(object):
         """
         :param appId: (Optional) 应用ID
         :param date: (Optional) 时间戳毫秒
-        :param audio: (Optional) 音频时长
+        :param audio: (Optional) 音频通讯时长-second
         :param lte_480: (Optional) (0,480p]通讯时长-second
         :param gt_480_lte_720: (Optional) (480p,720p]通讯时长-second
         :param gte_720: (Optional) (720p,1080p]通讯时长-second

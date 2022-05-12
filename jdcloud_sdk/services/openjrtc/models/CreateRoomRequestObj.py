@@ -19,15 +19,17 @@
 
 class CreateRoomRequestObj(object):
 
-    def __init__(self, roomName=None, appId=None, roomType=None, peerId=None):
+    def __init__(self, roomName=None, appId=None, roomType=None, meetingType=None, peerId=None):
         """
         :param roomName: (Optional) 房间名称
         :param appId: (Optional) 应用ID
         :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
+        :param meetingType: (Optional) 会议类型 0-即时会议 1-预约会议
         :param peerId: (Optional) 用户ID(创建者ID)
         """
 
         self.roomName = roomName
         self.appId = appId
         self.roomType = roomType
+        self.meetingType = meetingType
         self.peerId = peerId

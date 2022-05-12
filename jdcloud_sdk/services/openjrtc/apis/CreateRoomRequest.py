@@ -40,6 +40,7 @@ class CreateRoomParameters(object):
         self.roomName = None
         self.appId = None
         self.roomType = None
+        self.meetingType = None
         self.peerId = None
 
     def setRoomName(self, roomName):
@@ -59,6 +60,12 @@ class CreateRoomParameters(object):
         :param roomType: (Optional) 房间类型 1-小房间(音频单流订阅) 2-大房间(音频固定订阅)
         """
         self.roomType = roomType
+
+    def setMeetingType(self, meetingType):
+        """
+        :param meetingType: (Optional) 会议类型 0-即时会议 1-预约会议
+        """
+        self.meetingType = meetingType
 
     def setPeerId(self, peerId):
         """

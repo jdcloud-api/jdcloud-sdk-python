@@ -32,7 +32,7 @@ class CreateCustomPageRequest(JDCloudRequest):
 
 class CreateCustomPageParameters(object):
 
-    def __init__(self, regionId, instanceId, customPageSpec):
+    def __init__(self, regionId,instanceId,customPageSpec):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param instanceId: 实例 ID

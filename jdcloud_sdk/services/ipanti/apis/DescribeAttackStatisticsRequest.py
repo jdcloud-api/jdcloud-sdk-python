@@ -38,7 +38,7 @@ CC攻击为实例级别, 查询类型 type 为 cc 时, 参数 serviceIp 无效
 
 class DescribeAttackStatisticsParameters(object):
 
-    def __init__(self, regionId, startTime, type):
+    def __init__(self, regionId,startTime, type):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 只能查询最近 90 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ

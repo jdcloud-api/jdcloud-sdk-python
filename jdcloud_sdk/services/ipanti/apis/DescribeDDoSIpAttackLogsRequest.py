@@ -37,7 +37,7 @@ class DescribeDDoSIpAttackLogsRequest(JDCloudRequest):
 
 class DescribeDDoSIpAttackLogsParameters(object):
 
-    def __init__(self, regionId, startTime, ):
+    def __init__(self, regionId,startTime, ):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param startTime: 开始时间, 只能查询最近 90 天以内的数据, UTC 时间, 格式: yyyy-MM-dd'T'HH:mm:ssZ

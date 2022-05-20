@@ -32,7 +32,7 @@ class DescribeInstanceIdByResourceIdRequest(JDCloudRequest):
 
 class DescribeInstanceIdByResourceIdParameters(object):
 
-    def __init__(self, regionId, resourceId):
+    def __init__(self, regionId,resourceId):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param resourceId: 高防实例计费资源ID

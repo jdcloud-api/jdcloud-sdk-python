@@ -32,7 +32,7 @@ class DescribeCpsIpListRequest(JDCloudRequest):
 
 class DescribeCpsIpListParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         """

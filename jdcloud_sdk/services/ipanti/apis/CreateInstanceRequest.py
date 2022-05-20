@@ -32,7 +32,7 @@ class CreateInstanceRequest(JDCloudRequest):
 
 class CreateInstanceParameters(object):
 
-    def __init__(self, regionId, createInstanceSpec, ):
+    def __init__(self, regionId,createInstanceSpec, ):
         """
         :param regionId: 区域 ID, 高防不区分区域, 传 cn-north-1 即可
         :param createInstanceSpec: 新购或升级实例请求参数
@@ -41,10 +41,17 @@ class CreateInstanceParameters(object):
         self.regionId = regionId
         self.createInstanceSpec = createInstanceSpec
         self.autoRenewalSpec = None
+        self.autoPay = None
 
     def setAutoRenewalSpec(self, autoRenewalSpec):
         """
         :param autoRenewalSpec: (Optional) 自动续费配置, 默认不开通, 仅新购实例时可设置
         """
         self.autoRenewalSpec = autoRenewalSpec
+
+    def setAutoPay(self, autoPay):
+        """
+        :param autoPay: (Optional) 自动支付标识
+        """
+        self.autoPay = autoPay
 

@@ -23,7 +23,7 @@ class SetBotThreatIpRuleReq(object):
         """
         :param domain:  域名
         :param botType:  要设置的bot威胁情报库类型，list列表中的值en
-        :param action: (Optional) 动作配置，默认为告警，仅支持1和4和5三种类型动作
+        :param action: (Optional) 动作配置
         :param enable: (Optional) 1-启用 0-禁用
         """
 

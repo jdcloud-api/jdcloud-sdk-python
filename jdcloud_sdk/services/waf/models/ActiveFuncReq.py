@@ -19,15 +19,13 @@
 
 class ActiveFuncReq(object):
 
-    def __init__(self, domain, wafInstanceId=None, enable=None, isGm=None):
+    def __init__(self, domain, wafInstanceId=None, enable=None):
         """
         :param wafInstanceId: (Optional) 实例id，代表要设置的WAF实例
         :param domain:  域名
         :param enable: (Optional) 是否使能 0表示否
-        :param isGm: (Optional) 是否国密
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.enable = enable
-        self.isGm = isGm

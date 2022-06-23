@@ -23,7 +23,7 @@ class SetBotStdRuleReq(object):
         """
         :param domain:  域名
         :param botType:  要设置的bot类型，list列表中的值
-        :param action: (Optional) 动作配置，默认为告警，仅支持1和4和5三种类型动作
+        :param action: (Optional) 动作配置
         :param disable: (Optional) 0-启用 1-禁用
         """
 

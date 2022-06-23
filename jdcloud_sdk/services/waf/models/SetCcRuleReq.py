@@ -28,7 +28,7 @@ class SetCcRuleReq(object):
         :param matchType: (Optional) 精确匹配0  前缀匹配1 包含匹配2 后缀匹配5
         :param detectPeriod:  检测周期，单位是秒，[30~600]
         :param singleIpLimit:  ip访问次数，[1~9999999]
-        :param blockType:  阻断类型 3:封禁，2:人机交互
+        :param blockType:  阻断类型 1:302跳转到指定页面 2:验证码 3:拦截返回自定义页面 4:js跳转 5:观察 6:重定向
         :param blockTime:  block 持续时间，单位为分钟 [1~24*60]
         :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default
         :param dimension: (Optional) cc 统计维度，ip或cookie

@@ -25,7 +25,7 @@ class SetWafRuleReq(object):
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param ruleName:  规则名称
-        :param matchAction:  匹配动作, forbidden redirect verify@jscookie verify@captcha notice
+        :param matchAction:  匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
         :param redirection:  跳转地址，matchAction为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         :param conditions:  条件集
         """

@@ -26,7 +26,7 @@ class RiskRuleCfg(object):
         :param domain: (Optional) 域名
         :param name: (Optional) 规则名称
         :param uri: (Optional) uri 以/开头
-        :param action: (Optional) 动作 支持notice / verify@captcha
+        :param action: (Optional) 匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
         :param methods: (Optional) 请求方法 支持 POST:1,GET:1,PUT:1
         :param sceneRef: (Optional) 场景 支持 account_login / account_register
         :param event: (Optional) 事件 支持 passwd:JSON_BODY.passwd,username:ARGS.username,session:ARGS_BODY.session

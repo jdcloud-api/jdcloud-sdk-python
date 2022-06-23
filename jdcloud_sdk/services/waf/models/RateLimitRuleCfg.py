@@ -28,8 +28,8 @@ class RateLimitRuleCfg(object):
         :param ip: (Optional) ip配置
         :param rate: (Optional) 限速大小
         :param burst: (Optional) 限速burst大小
-        :param matchAction: (Optional) forbidden redirect，缺省为forbidden
-        :param redirection: (Optional) 跳转地址，matchAction为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称，缺省为default
+        :param matchAction: (Optional) 匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
+        :param redirection: (Optional) 跳转地址，matchAction为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         """
 
         self.id = id

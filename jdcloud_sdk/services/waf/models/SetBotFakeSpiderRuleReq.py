@@ -23,7 +23,7 @@ class SetBotFakeSpiderRuleReq(object):
         """
         :param domain:  域名
         :param name:  要设置的bot伪造蜘蛛类型，list列表中的值
-        :param action: (Optional) 动作配置，默认为告警，仅支持1和5 op
+        :param action: (Optional) 动作配置
         :param enable: (Optional) 1-启用 0-禁用
         """
 

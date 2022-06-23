@@ -30,7 +30,7 @@ class SetRiskPolicyReq(object):
         :param disable:  0-使用中 1-禁用
         :param logic:  策略编排逻辑, 格式：1&2&(3\|4\|5)
         :param rules:  策略规则
-        :param action:  动作 支持 verify@captcha / verify@jscookie / forbidden / notice / redirect
+        :param action:  匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
         :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         """
 

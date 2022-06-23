@@ -19,13 +19,15 @@
 
 class IpCfg(object):
 
-    def __init__(self, val, atCfg, id=None):
+    def __init__(self, val, atCfg, id=None, tag=None):
         """
         :param id: (Optional) 序号id,更新时需要
         :param val:  支持 ipv4/8 ipv4/16 ipv4/24 ipv4/32 ipv6/64
-        :param atCfg:  action配置
+        :param atCfg:  动作配置,旗舰版全部支持,其它套餐不支持观察
+        :param tag: (Optional) 备注
         """
 
         self.id = id
         self.val = val
         self.atCfg = atCfg
+        self.tag = tag

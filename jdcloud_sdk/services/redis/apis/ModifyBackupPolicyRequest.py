@@ -32,16 +32,23 @@ class ModifyBackupPolicyRequest(JDCloudRequest):
 
 class ModifyBackupPolicyParameters(object):
 
-    def __init__(self, regionId, cacheInstanceId, backupTime, backupPeriod):
+    def __init__(self, regionId,cacheInstanceId,backupTime, backupPeriod):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
-        :param backupTime: 设置自动备份时间，格式为：HH:mm-HH:mm 时区，例如"01:00-02:00 +0800"，表示东八区的1点到2点,'-'表示关闭自动备份
+        :param backupTime: 设置自动备份时间，格式为：HH:mm-HH:mm 时区，例如"01:00-02:00 +0800"，表示东八区的1点到2点
         :param backupPeriod: 备份周期，包括：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，多个用逗号分隔
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
+        self.autoBackup = None
         self.backupTime = backupTime
         self.backupPeriod = backupPeriod
+
+    def setAutoBackup(self, autoBackup):
+        """
+        :param autoBackup: (Optional) 是否开启自动备份，true表示开启，false表示关闭
+        """
+        self.autoBackup = autoBackup
 

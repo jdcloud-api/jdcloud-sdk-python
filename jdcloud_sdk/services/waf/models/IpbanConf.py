@@ -19,15 +19,13 @@
 
 class IpbanConf(object):
 
-    def __init__(self, enable=None, banTime=None, detectTime=None, threshold=None):
+    def __init__(self, enable=None, ipbanMode=None, action=None):
         """
         :param enable: (Optional) 是否使能 0表示否
-        :param banTime: (Optional) 封禁时间，秒
-        :param detectTime: (Optional) 检测时间，秒
-        :param threshold: (Optional) 封禁阈值
+        :param ipbanMode: (Optional) 防护模式
+        :param action: (Optional) 动作配置
         """
 
         self.enable = enable
-        self.banTime = banTime
-        self.detectTime = detectTime
-        self.threshold = threshold
+        self.ipbanMode = ipbanMode
+        self.action = action

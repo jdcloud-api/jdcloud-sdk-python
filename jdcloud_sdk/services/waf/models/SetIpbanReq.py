@@ -19,17 +19,15 @@
 
 class SetIpbanReq(object):
 
-    def __init__(self, wafInstanceId, domain, detectTime, threshold, banTime, ):
+    def __init__(self, wafInstanceId, domain, ipbanMode, action, ):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
-        :param detectTime:  检测时间 单位秒， 限制[60-600]
-        :param threshold:  封禁阈值，限制[1-20000]
-        :param banTime:  封禁时间，限制[1-86400]
+        :param ipbanMode:  防护模式 1宽松模式，2正常模式，3严格模式
+        :param action:  动作配置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
-        self.detectTime = detectTime
-        self.threshold = threshold
-        self.banTime = banTime
+        self.ipbanMode = ipbanMode
+        self.action = action

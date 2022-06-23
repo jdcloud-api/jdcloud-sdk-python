@@ -24,7 +24,7 @@ class ValCfg(object):
         :param id: (Optional) 序号id,更新时需要
         :param matchOp: (Optional) 0-5 7-8 完全匹配0  前缀匹配1 包含2 正则3 大于4 后缀5 不等于7 不包含8
         :param val:  val
-        :param atCfg:  action配置
+        :param atCfg:  动作配置,旗舰版全部支持,其它套餐不支持观察
         """
 
         self.id = id

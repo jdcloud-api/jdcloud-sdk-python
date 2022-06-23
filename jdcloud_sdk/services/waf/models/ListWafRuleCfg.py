@@ -23,8 +23,8 @@ class ListWafRuleCfg(object):
         """
         :param conditions: (Optional) 使用的条件集
         :param id: (Optional) 规则id
-        :param matchAction: (Optional) 匹配动作
-        :param redirection: (Optional) 重定向连接
+        :param matchAction: (Optional) 匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
+        :param redirection: (Optional) 跳转地址，matchAction为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
         :param ruleName: (Optional) 规则名称
         :param updateTime: (Optional) 规则更新时间
         :param disable: (Optional) 0-使用中，1-禁用

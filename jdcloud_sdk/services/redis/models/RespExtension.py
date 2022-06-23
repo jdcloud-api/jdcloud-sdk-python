@@ -19,11 +19,7 @@
 
 class RespExtension(object):
 
-    def __init__(self, exposeType=None, exposeDomain=None):
+    def __init__(self, ):
         """
-        :param exposeType: (Optional) 外部访问方式，空表示关闭外部访问
-        :param exposeDomain: (Optional) 外部访问域名
         """
 
-        self.exposeType = exposeType
-        self.exposeDomain = exposeDomain

@@ -19,13 +19,15 @@
 
 class AntiSpiderConfReq(object):
 
-    def __init__(self, domain, wafInstanceId=None, action=None):
+    def __init__(self, domain, wafInstanceId=None, spiderMode=None, action=None):
         """
         :param wafInstanceId: (Optional) WAF实例id
         :param domain:  域名
-        :param action: (Optional) action配置, 只支持 1，2，5 atOp
+        :param spiderMode: (Optional) 防护模式 1宽松模式，2正常模式，3严格模式
+        :param action: (Optional) 动作配置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
+        self.spiderMode = spiderMode
         self.action = action

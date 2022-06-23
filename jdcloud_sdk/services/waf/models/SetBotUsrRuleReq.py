@@ -27,7 +27,7 @@ class SetBotUsrRuleReq(object):
         :param detectThrsd:  次数阈值，[1-20000]
         :param detectPeriod:  检测时长，秒，[1-20000]
         :param matchItems:  匹配条件集,总长度不能超过4096
-        :param action:  动作配置，默认为告警,仅支持1和4和5三种动作
+        :param action:  动作配置
         :param ruleType: (Optional) 规则类型，general-通用规则，advanced-高级规则，evaluate-智能规则 缺省为general
         :param status: (Optional) 响应状态码
         :param ststhrst: (Optional) 状态码数量阀值

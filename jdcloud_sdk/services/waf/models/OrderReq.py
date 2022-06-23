@@ -19,7 +19,7 @@
 
 class OrderReq(object):
 
-    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None, appCode=None, serviceCode=None, buyScenario=None):
+    def __init__(self, region, buyType, timeSpan, timeUnit, startTime, packageType, extraDomainsNum, returnURL, extraBitsLimit, wafInstanceId=None, nickName=None, appCode=None, serviceCode=None, buyScenario=None, needPay=None):
         """
         :param region:  地域信息, hb_bgp, hn, hd_bgp 企业版支持两个，旗舰版支持3个，多个以 , 分隔
         :param buyType:  购买类型, 1:创建 2:续费 3:升配
@@ -27,7 +27,7 @@ class OrderReq(object):
         :param timeUnit:  时间单位，month, year
         :param startTime:  创建时间
         :param wafInstanceId: (Optional) 实例id，除新建必传
-        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版 4:基础版
+        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版 4:基础版(仅支持新用户)
         :param extraDomainsNum:  额外的域名扩展包
         :param nickName: (Optional) 实例名，新建订单时必传，只能包含汉字、英文字母、下划线、破折号、数字，且长度不能超过16
         :param returnURL:  下单成功后返回的url, eg:http://abc.com
@@ -35,6 +35,7 @@ class OrderReq(object):
         :param appCode: (Optional) 云鼎的appCode
         :param serviceCode: (Optional) 云鼎的serviceCode
         :param buyScenario: (Optional) 购物车活动参数
+        :param needPay: (Optional) true表示支持autoPay
         """
 
         self.region = region
@@ -51,3 +52,4 @@ class OrderReq(object):
         self.appCode = appCode
         self.serviceCode = serviceCode
         self.buyScenario = buyScenario
+        self.needPay = needPay

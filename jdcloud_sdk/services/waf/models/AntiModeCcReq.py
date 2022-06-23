@@ -19,17 +19,15 @@
 
 class AntiModeCcReq(object):
 
-    def __init__(self, wafInstanceId, domain, ccMode=None, qps=None, action=None):
+    def __init__(self, wafInstanceId, domain, ccMode, action, ):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
-        :param ccMode: (Optional) 0表示正常，1表示攻击紧急，2全局模式 3单ip模式
-        :param qps: (Optional) cc qps配置，ccMode 为0/1时， 该字段传0， 表示不可配；  ccMode为2/3时，qps限制[1-20000]
-        :param action: (Optional) 动作配置，默认为告警，支持1，2，3, 5, 7五种类型动作
+        :param ccMode:  防护模式 1宽松模式，2正常模式 3严格模式
+        :param action:  动作配置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.ccMode = ccMode
-        self.qps = qps
         self.action = action

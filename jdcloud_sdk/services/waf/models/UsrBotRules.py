@@ -26,7 +26,7 @@ class UsrBotRules(object):
         :param detectThrsd: (Optional) 次数阈值
         :param detectPeriod: (Optional) 检测时长，秒
         :param matchItems: (Optional) 匹配条件集,总长度不能超过4096
-        :param action: (Optional) 动作配置，默认为告警
+        :param action: (Optional) 动作配置
         :param disable: (Optional) 0-使用中 1-禁用
         :param updateTime: (Optional) 更新时间
         :param status: (Optional) 响应状态码

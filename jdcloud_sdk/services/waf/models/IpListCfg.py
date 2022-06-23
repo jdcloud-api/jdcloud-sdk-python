@@ -19,13 +19,14 @@
 
 class IpListCfg(object):
 
-    def __init__(self, id=None, updateTime=None, disable=None, ip=None, atCfg=None):
+    def __init__(self, id=None, updateTime=None, disable=None, ip=None, atCfg=None, tag=None):
         """
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 规则更新时间，秒级时间戳, 0 表示历史数据无记录
         :param disable: (Optional) 0-使用中 1-禁用
         :param ip: (Optional) 支持 ipv4/8 ipv4/16 ipv4/24 ipv4/32 ipv6/64
         :param atCfg: (Optional) action配置
+        :param tag: (Optional) 备注
         """
 
         self.id = id
@@ -33,3 +34,4 @@ class IpListCfg(object):
         self.disable = disable
         self.ip = ip
         self.atCfg = atCfg
+        self.tag = tag

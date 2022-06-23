@@ -19,7 +19,7 @@
 
 class DomainConfig(object):
 
-    def __init__(self, domain=None, cname=None, certName=None, lbConf=None, dnsStatus=None, wafConf=None, ccConf=None, aclConf=None, ipbanConf=None, lastAttackReport=None, antispiderConf=None, webcacheConf=None, disableWaf=None, skipConf=None, denyConf=None, webUserdefConf=None, ratelimitConf=None, userDefPageConf=None, filterHeaderConf=None, filterSenseConf=None, intSemConf=None, uriRewriteConf=None, threatinfoConf=None, proxycacheConf=None, botConf=None, riskConf=None):
+    def __init__(self, domain=None, cname=None, certName=None, lbConf=None, dnsStatus=None, wafConf=None, ccConf=None, aclConf=None, ipbanConf=None, ipbanUsrConf=None, lastAttackReport=None, antispiderConf=None, webcacheConf=None, disableWaf=None, skipConf=None, denyConf=None, webUserdefConf=None, ratelimitConf=None, userDefPageConf=None, filterHeaderConf=None, filterSenseConf=None, intSemConf=None, uriRewriteConf=None, threatinfoConf=None, proxycacheConf=None, botConf=None, riskConf=None):
         """
         :param domain: (Optional) 域名
         :param cname: (Optional) cname域名
@@ -30,6 +30,7 @@ class DomainConfig(object):
         :param ccConf: (Optional) 网站cc防护配置
         :param aclConf: (Optional) 网站acl防护配置
         :param ipbanConf: (Optional) 网站恶意ip防护配置
+        :param ipbanUsrConf: (Optional) 网站恶意ip自定义防护配置
         :param lastAttackReport: (Optional) 网站过去两天攻击情况
         :param antispiderConf: (Optional) 网站防爬虫防护配置
         :param webcacheConf: (Optional) 网站防篡改防护配置
@@ -58,6 +59,7 @@ class DomainConfig(object):
         self.ccConf = ccConf
         self.aclConf = aclConf
         self.ipbanConf = ipbanConf
+        self.ipbanUsrConf = ipbanUsrConf
         self.lastAttackReport = lastAttackReport
         self.antispiderConf = antispiderConf
         self.webcacheConf = webcacheConf

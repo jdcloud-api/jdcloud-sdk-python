@@ -23,7 +23,7 @@ class GeoCfg(object):
         """
         :param id: (Optional) 序号id,更新时需要
         :param val:  geo名称
-        :param atCfg:  action配置
+        :param atCfg:  动作配置,旗舰版全部支持,其它套餐不支持观察
         """
 
         self.id = id

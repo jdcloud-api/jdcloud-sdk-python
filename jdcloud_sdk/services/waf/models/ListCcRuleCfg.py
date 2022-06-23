@@ -32,7 +32,7 @@ class ListCcRuleCfg(object):
         :param blockTime: (Optional) block 持续时间，单位为分钟[1~24*60]
         :param updateTime: (Optional) 更新时间，s
         :param disable: (Optional) 0-使用中 1-禁用
-        :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default
+        :param redirection: (Optional) 跳转地址，blockType为1时必须为当前实例下的域名的url，为2时为自定义页面名称
         :param dimension: (Optional) cc 统计维度，ip或cookie
         :param dmvalue: (Optional) cookiename, 只有当 dimension 为 cookie 时才有效
         """

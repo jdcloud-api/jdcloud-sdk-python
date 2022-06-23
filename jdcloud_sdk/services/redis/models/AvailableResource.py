@@ -19,12 +19,18 @@
 
 class AvailableResource(object):
 
-    def __init__(self, architectureType=None, architectureName=None, recommended=None, soldOut=None, availableEngineVersions=None):
+    def __init__(self, architectureType=None, architectureName=None, recommended=None, soldOut=None, supportedMaxReplicas=None, supportedMinReplicas=None, supportedAzSpecifyType=None, minAzLimitForCluster=None, supportedExposeType=None, supportSmartProxy=None, availableEngineVersions=None):
         """
-        :param architectureType: (Optional) 架构类型，目前支持：master-slave（标准版）、cluster（基于代理的集群版）
+        :param architectureType: (Optional) 架构类型，目前支持：master-slave（标准版）、cluster（代理集群版）、native-cluster（cluster集群版）
         :param architectureName: (Optional) 架构类型名
         :param recommended: (Optional) 是否推荐
         :param soldOut: (Optional) 是否售罄
+        :param supportedMaxReplicas: (Optional) 支持的最大副本数
+        :param supportedMinReplicas: (Optional) 支持的最小副本数
+        :param supportedAzSpecifyType: (Optional) 支持的AZ指定方式：SpecifyByReplicaGroup表示按副本组指定，SpecifyByCluster表示按整个集群指定
+        :param minAzLimitForCluster: (Optional) 按集群指定AZ时，需要指定的最小AZ个数
+        :param supportedExposeType: (Optional) 支持的外部访问方式：NodePort、LoadBalancer
+        :param supportSmartProxy: (Optional) 是否支持SmartProxy
         :param availableEngineVersions: (Optional) 引擎版本列表
         """
 
@@ -32,4 +38,10 @@ class AvailableResource(object):
         self.architectureName = architectureName
         self.recommended = recommended
         self.soldOut = soldOut
+        self.supportedMaxReplicas = supportedMaxReplicas
+        self.supportedMinReplicas = supportedMinReplicas
+        self.supportedAzSpecifyType = supportedAzSpecifyType
+        self.minAzLimitForCluster = minAzLimitForCluster
+        self.supportedExposeType = supportedExposeType
+        self.supportSmartProxy = supportSmartProxy
         self.availableEngineVersions = availableEngineVersions

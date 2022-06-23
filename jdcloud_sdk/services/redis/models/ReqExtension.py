@@ -19,9 +19,7 @@
 
 class ReqExtension(object):
 
-    def __init__(self, exposeType=None):
+    def __init__(self, ):
         """
-        :param exposeType: (Optional) 外部访问方式，空表示关闭外部访问
         """
 
-        self.exposeType = exposeType

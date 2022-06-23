@@ -32,7 +32,7 @@ class DescribeSlowLogRequest(JDCloudRequest):
 
 class DescribeSlowLogParameters(object):
 
-    def __init__(self, regionId, cacheInstanceId, ):
+    def __init__(self, regionId,cacheInstanceId,):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
@@ -45,6 +45,7 @@ class DescribeSlowLogParameters(object):
         self.startTime = None
         self.endTime = None
         self.shardId = None
+        self.shardAddr = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -75,4 +76,10 @@ class DescribeSlowLogParameters(object):
         :param shardId: (Optional) 分片id
         """
         self.shardId = shardId
+
+    def setShardAddr(self, shardAddr):
+        """
+        :param shardAddr: (Optional) 分片地址
+        """
+        self.shardAddr = shardAddr
 

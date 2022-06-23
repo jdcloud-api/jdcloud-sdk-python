@@ -19,7 +19,7 @@
 
 class CacheInstanceSpec(object):
 
-    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None, userTags=None, extension=None):
+    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None, userTags=None, resourceGroupId=None, dbNum=None, slaveAppendonly=None, maxmemoryPolicy=None, cacheInstanceType=None, replicaNumber=None, enableSmartProxy=None, port=None, extension=None, cpuArchType=None):
         """
         :param vpcId:  缓存Redis实例所属的私有网络ID
         :param subnetId:  缓存Redis实例在私有网络下所属的子网ID
@@ -32,7 +32,16 @@ class CacheInstanceSpec(object):
         :param ipv6On: (Optional) 是否支持IPv6，0或空表示不支持，1表示支持IPv6，注意不是所有区域都支持IPv6，且必须保证VPC支持IPv6
         :param shardNumber: (Optional) 分片数，自定义分片规格集群版实例必须有，且大于1。每种分片规格支持的分片数可调用describeSpecConfig接口获取
         :param userTags: (Optional) 用户普通标签
+        :param resourceGroupId: (Optional) 缓存Redis实例所属的资源组ID
+        :param dbNum: (Optional) db数量，默认为16，参数范围为16~256
+        :param slaveAppendonly: (Optional) slave节点是否开启持久化
+        :param maxmemoryPolicy: (Optional) 内存淘汰策略
+        :param cacheInstanceType: (Optional) 缓存Redis实例类型，目前支持：master-slave（标准版）、cluster（代理集群版）、native-cluster（cluster集群版）
+        :param replicaNumber: (Optional) 副本数，含主副本
+        :param enableSmartProxy: (Optional) 实例是否开启SmartProxy，当架构类型为native-cluster时才有效，1表示开启，0表示不开启
+        :param port: (Optional) 缓存Redis实例访问端口
         :param extension: (Optional) 扩展配置
+        :param cpuArchType: (Optional) cpu架构类型:arm64、amd64
         """
 
         self.vpcId = vpcId
@@ -46,4 +55,13 @@ class CacheInstanceSpec(object):
         self.ipv6On = ipv6On
         self.shardNumber = shardNumber
         self.userTags = userTags
+        self.resourceGroupId = resourceGroupId
+        self.dbNum = dbNum
+        self.slaveAppendonly = slaveAppendonly
+        self.maxmemoryPolicy = maxmemoryPolicy
+        self.cacheInstanceType = cacheInstanceType
+        self.replicaNumber = replicaNumber
+        self.enableSmartProxy = enableSmartProxy
+        self.port = port
         self.extension = extension
+        self.cpuArchType = cpuArchType

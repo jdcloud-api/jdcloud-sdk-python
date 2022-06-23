@@ -19,11 +19,15 @@
 
 class AzId(object):
 
-    def __init__(self, master=None, slave=None):
+    def __init__(self, azSpecifyType=None, azsForCluster=None, master=None, slave=None):
         """
-        :param master: (Optional) 缓存Redis主实例所在区域的可用区ID
-        :param slave: (Optional) 缓存Redis从实例所在区域的可用区ID
+        :param azSpecifyType: (Optional) AZ指定方式，SpecifyByReplicaGroup表示按副本组指定，SpecifyByCluster表示按整个集群指定
+        :param azsForCluster: (Optional) 为集群指定的AZ范围，按集群指定AZ时生效
+        :param master: (Optional) 缓存Redis主实例所在区域的可用区ID，按副本组指定AZ时生效
+        :param slave: (Optional) 缓存Redis从实例所在区域的可用区ID，按副本组指定AZ时生效
         """
 
+        self.azSpecifyType = azSpecifyType
+        self.azsForCluster = azsForCluster
         self.master = master
         self.slave = slave

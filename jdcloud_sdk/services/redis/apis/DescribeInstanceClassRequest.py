@@ -32,7 +32,7 @@ class DescribeInstanceClassRequest(JDCloudRequest):
 
 class DescribeInstanceClassParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         """

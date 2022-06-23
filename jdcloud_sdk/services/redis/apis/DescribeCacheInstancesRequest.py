@@ -32,7 +32,7 @@ class DescribeCacheInstancesRequest(JDCloudRequest):
 
 class DescribeCacheInstancesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         """
@@ -43,6 +43,7 @@ class DescribeCacheInstancesParameters(object):
         self.filters = None
         self.sorts = None
         self.tagFilters = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -82,4 +83,10 @@ createTime - 按创建时间排序(asc表示按时间正序，desc表示按时�
         :param tagFilters: (Optional) 标签的过滤条件
         """
         self.tagFilters = tagFilters
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 
+        """
+        self.resourceGroupIds = resourceGroupIds
 

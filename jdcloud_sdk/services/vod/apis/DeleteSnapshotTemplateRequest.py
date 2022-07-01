@@ -32,7 +32,7 @@ class DeleteSnapshotTemplateRequest(JDCloudRequest):
 
 class DeleteSnapshotTemplateParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self, templateId,):
         """
         :param templateId: 模板ID
         """

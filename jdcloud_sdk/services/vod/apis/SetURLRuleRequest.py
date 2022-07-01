@@ -32,7 +32,7 @@ class SetURLRuleRequest(JDCloudRequest):
 
 class SetURLRuleParameters(object):
 
-    def __init__(self, domainId, config, enabled):
+    def __init__(self, domainId,config, enabled):
         """
         :param domainId: 域名ID
         :param config: URL鉴权规则配置对象

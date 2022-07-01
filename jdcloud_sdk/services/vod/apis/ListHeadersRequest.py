@@ -32,7 +32,7 @@ class ListHeadersRequest(JDCloudRequest):
 
 class ListHeadersParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

@@ -32,7 +32,7 @@ class DeleteWatermarkRequest(JDCloudRequest):
 
 class DeleteWatermarkParameters(object):
 
-    def __init__(self, watermarkId, ):
+    def __init__(self, watermarkId,):
         """
         :param watermarkId: 水印ID
         """

@@ -19,44 +19,48 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateVeditProjectRequest(JDCloudRequest):
+class ListSnapshotTasksRequest(JDCloudRequest):
     """
-    修改视频剪辑工程信息
+    查询视频截图任务列表
+支持过滤查询：
+  - createTime,ge 最早任务创建时间
+  - createTime,le 最晚任务创建时间
+  - status,in 任务状态IN查询
+  - taskId,eq 任务ID精确查询
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateVeditProjectRequest, self).__init__(
-            '/veditProjects/{projectId}', 'PUT', header, version)
+        super(ListSnapshotTasksRequest, self).__init__(
+            '/snapshotTasks', 'GET', header, version)
         self.parameters = parameters
 
 
-class UpdateVeditProjectParameters(object):
+class ListSnapshotTasksParameters(object):
 
-    def __init__(self, projectId,):
+    def __init__(self, ):
         """
-        :param projectId: 视频剪辑工程ID
         """
 
-        self.projectId = projectId
-        self.projectName = None
-        self.description = None
-        self.timeline = None
+        self.pageNumber = None
+        self.pageSize = None
+        self.filters = None
 
-    def setProjectName(self, projectName):
+    def setPageNumber(self, pageNumber):
         """
-        :param projectName: (Optional) 工程名称
+        :param pageNumber: (Optional) 页码；默认值为 1
         """
-        self.projectName = projectName
+        self.pageNumber = pageNumber
 
-    def setDescription(self, description):
+    def setPageSize(self, pageSize):
         """
-        :param description: (Optional) 工程描述
+        :param pageSize: (Optional) 分页大小；默认值为 10；取值范围 [10, 100]
         """
-        self.description = description
+        self.pageSize = pageSize
 
-    def setTimeline(self, timeline):
+    def setFilters(self, filters):
         """
-        :param timeline: (Optional) 时间线信息
+        :param filters: (Optional) 
         """
-        self.timeline = timeline
+        self.filters = filters
 

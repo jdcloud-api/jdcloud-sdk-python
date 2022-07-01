@@ -32,7 +32,7 @@ class SetIPRuleRequest(JDCloudRequest):
 
 class SetIPRuleParameters(object):
 
-    def __init__(self, domainId, config, enabled):
+    def __init__(self, domainId,config, enabled):
         """
         :param domainId: 域名ID
         :param config: IP黑名单规则配置对象

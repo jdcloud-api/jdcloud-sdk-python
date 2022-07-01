@@ -19,10 +19,16 @@
 
 class MediaTrack(object):
 
-    def __init__(self, trackType=None, clips=None):
+    def __init__(self, trackType, clips, ):
         """
-        :param trackType: (Optional) 轨类型。当前只支持 video
-        :param clips: (Optional) 
+        :param trackType:  轨类型。目前只支持的有：video，audio，text
+- video：视频轨
+- audio：音频轨
+- text：文字轨
+* 视频轨为空时，音频轨必须非空。
+* 音频轨为空时，视频轨必须非空
+
+        :param clips:  视频剪辑素材片段。一个Timeline中的所有MediaClip，总共不能超过20个。
         """
 
         self.trackType = trackType

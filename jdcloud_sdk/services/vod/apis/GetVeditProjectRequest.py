@@ -32,7 +32,7 @@ class GetVeditProjectRequest(JDCloudRequest):
 
 class GetVeditProjectParameters(object):
 
-    def __init__(self, projectId, ):
+    def __init__(self, projectId,):
         """
         :param projectId: 视频剪辑工程ID
         """

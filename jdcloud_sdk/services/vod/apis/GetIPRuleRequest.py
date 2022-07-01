@@ -32,7 +32,7 @@ class GetIPRuleRequest(JDCloudRequest):
 
 class GetIPRuleParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

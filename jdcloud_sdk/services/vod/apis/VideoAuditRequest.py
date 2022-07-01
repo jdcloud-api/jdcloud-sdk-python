@@ -34,7 +34,7 @@ class VideoAuditRequest(JDCloudRequest):
 
 class VideoAuditParameters(object):
 
-    def __init__(self, videoId, auditResult):
+    def __init__(self, videoId,auditResult):
         """
         :param videoId: 视频ID
         :param auditResult: 审核结果，取值范围:

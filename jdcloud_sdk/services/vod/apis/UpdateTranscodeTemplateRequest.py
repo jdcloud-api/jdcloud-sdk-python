@@ -32,7 +32,7 @@ class UpdateTranscodeTemplateRequest(JDCloudRequest):
 
 class UpdateTranscodeTemplateParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self, templateId,):
         """
         :param templateId: 模板ID
         """

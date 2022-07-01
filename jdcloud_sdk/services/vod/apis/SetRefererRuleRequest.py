@@ -32,7 +32,7 @@ class SetRefererRuleRequest(JDCloudRequest):
 
 class SetRefererRuleParameters(object):
 
-    def __init__(self, domainId, config, enabled):
+    def __init__(self, domainId,config, enabled):
         """
         :param domainId: 域名ID
         :param config: Referer防盗链规则配置对象

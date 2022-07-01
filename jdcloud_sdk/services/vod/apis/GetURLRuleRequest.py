@@ -32,7 +32,7 @@ class GetURLRuleRequest(JDCloudRequest):
 
 class GetURLRuleParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

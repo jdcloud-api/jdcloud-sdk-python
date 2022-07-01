@@ -32,7 +32,7 @@ class DeleteVideoStreamsRequest(JDCloudRequest):
 
 class DeleteVideoStreamsParameters(object):
 
-    def __init__(self, videoId, taskIds):
+    def __init__(self, videoId,taskIds):
         """
         :param videoId: 视频ID
         :param taskIds: 

@@ -32,7 +32,7 @@ class DeleteDomainRequest(JDCloudRequest):
 
 class DeleteDomainParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

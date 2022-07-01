@@ -32,7 +32,7 @@ class DeleteCategoryRequest(JDCloudRequest):
 
 class DeleteCategoryParameters(object):
 
-    def __init__(self, categoryId, ):
+    def __init__(self, categoryId,):
         """
         :param categoryId: 分类ID
         """

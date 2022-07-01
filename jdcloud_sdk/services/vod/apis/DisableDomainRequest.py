@@ -32,7 +32,7 @@ class DisableDomainRequest(JDCloudRequest):
 
 class DisableDomainParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

@@ -32,7 +32,7 @@ class UpdateTranscodeTemplateGroupRequest(JDCloudRequest):
 
 class UpdateTranscodeTemplateGroupParameters(object):
 
-    def __init__(self, groupId, ):
+    def __init__(self, groupId,):
         """
         :param groupId: 模板组ID
         """

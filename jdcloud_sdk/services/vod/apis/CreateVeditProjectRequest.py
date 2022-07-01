@@ -32,29 +32,19 @@ class CreateVeditProjectRequest(JDCloudRequest):
 
 class CreateVeditProjectParameters(object):
 
-    def __init__(self, ):
+    def __init__(self, projectName, timeline):
         """
+        :param projectName: 工程名称
+        :param timeline: 时间线信息
         """
 
-        self.projectName = None
-        self.description = None
-        self.timeline = None
-
-    def setProjectName(self, projectName):
-        """
-        :param projectName: (Optional) 工程名称
-        """
         self.projectName = projectName
+        self.description = None
+        self.timeline = timeline
 
     def setDescription(self, description):
         """
         :param description: (Optional) 工程描述
         """
         self.description = description
-
-    def setTimeline(self, timeline):
-        """
-        :param timeline: (Optional) 时间线信息
-        """
-        self.timeline = timeline
 

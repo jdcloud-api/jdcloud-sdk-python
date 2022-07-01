@@ -32,7 +32,7 @@ class GetQualityDetectionTemplateRequest(JDCloudRequest):
 
 class GetQualityDetectionTemplateParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self, templateId,):
         """
         :param templateId: 模板ID
         """

@@ -26,30 +26,47 @@ class UpdateSnapshotTemplateRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(UpdateSnapshotTemplateRequest, self).__init__(
-            '/snapshotTemplates/{templateId}', 'PATCH', header, version)
+            '/snapshotTemplates/{templateId}', 'PUT', header, version)
         self.parameters = parameters
 
 
 class UpdateSnapshotTemplateParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self, templateId,):
         """
         :param templateId: 模板ID
         """
 
         self.templateId = templateId
         self.templateName = None
-        self.templateConfig = None
+        self.snapshotType = None
+        self.imageSampleConfig = None
+        self.imageSpriteConfig = None
 
     def setTemplateName(self, templateName):
         """
-        :param templateName: (Optional) 模板名称
+        :param templateName: (Optional) 模板标题。长度不超过 128 个字节。UTF-8 编码。
         """
         self.templateName = templateName
 
-    def setTemplateConfig(self, templateConfig):
+    def setSnapshotType(self, snapshotType):
         """
-        :param templateConfig: (Optional) 模板配置，JSON格式的字符串
+        :param snapshotType: (Optional) 模板类型。取值范围：
+  sample - 采样截图模板
+  sprite - 雪碧图模板
+
         """
-        self.templateConfig = templateConfig
+        self.snapshotType = snapshotType
+
+    def setImageSampleConfig(self, imageSampleConfig):
+        """
+        :param imageSampleConfig: (Optional) 采样截图模板配置
+        """
+        self.imageSampleConfig = imageSampleConfig
+
+    def setImageSpriteConfig(self, imageSpriteConfig):
+        """
+        :param imageSpriteConfig: (Optional) 雪碧图模板配置
+        """
+        self.imageSpriteConfig = imageSpriteConfig
 

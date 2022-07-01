@@ -32,20 +32,34 @@ class CreateSnapshotTemplateRequest(JDCloudRequest):
 
 class CreateSnapshotTemplateParameters(object):
 
-    def __init__(self, templateName, templateType, templateConfig):
+    def __init__(self, templateName, ):
         """
-        :param templateName: 模板名称
-        :param templateType: 模板类型。取值范围：
-  sample - 采样截图模板
-  sprite - 雪碧图模板
-
-        :param templateConfig: 模板配置，JSON格式的字符串
-若 templateType 取值 sample，则JSON字符串须符合 SnapshotTemplateSampleConfigInfo 格式
-若 templateType 取值 sprite，则JSON字符串须符合 SnapshotTemplateSpriteConfigInfo 格式
-
+        :param templateName: 模板标题。长度不超过 128 个字节。UTF-8 编码。
         """
 
         self.templateName = templateName
-        self.templateType = templateType
-        self.templateConfig = templateConfig
+        self.snapshotType = None
+        self.imageSampleConfig = None
+        self.imageSpriteConfig = None
+
+    def setSnapshotType(self, snapshotType):
+        """
+        :param snapshotType: (Optional) 模板类型。取值范围：
+  sample - 采样截图模板
+  sprite - 雪碧图模板
+
+        """
+        self.snapshotType = snapshotType
+
+    def setImageSampleConfig(self, imageSampleConfig):
+        """
+        :param imageSampleConfig: (Optional) 采样截图模板配置
+        """
+        self.imageSampleConfig = imageSampleConfig
+
+    def setImageSpriteConfig(self, imageSpriteConfig):
+        """
+        :param imageSpriteConfig: (Optional) 雪碧图模板配置
+        """
+        self.imageSpriteConfig = imageSpriteConfig
 

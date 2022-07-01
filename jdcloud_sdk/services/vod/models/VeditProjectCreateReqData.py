@@ -19,11 +19,11 @@
 
 class VeditProjectCreateReqData(object):
 
-    def __init__(self, projectName=None, description=None, timeline=None):
+    def __init__(self, projectName, timeline, description=None):
         """
-        :param projectName: (Optional) 工程名称
+        :param projectName:  工程名称
         :param description: (Optional) 工程描述
-        :param timeline: (Optional) 时间线信息
+        :param timeline:  时间线信息
         """
 
         self.projectName = projectName

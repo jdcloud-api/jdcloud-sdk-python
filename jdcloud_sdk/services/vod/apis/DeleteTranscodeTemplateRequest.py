@@ -32,7 +32,7 @@ class DeleteTranscodeTemplateRequest(JDCloudRequest):
 
 class DeleteTranscodeTemplateParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self, templateId,):
         """
         :param templateId: 模板ID
         """

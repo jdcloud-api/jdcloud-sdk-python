@@ -19,44 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateVeditProjectRequest(JDCloudRequest):
+class ListAllCategoriesRequest(JDCloudRequest):
     """
-    修改视频剪辑工程信息
+    查询所有分类
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateVeditProjectRequest, self).__init__(
-            '/veditProjects/{projectId}', 'PUT', header, version)
+        super(ListAllCategoriesRequest, self).__init__(
+            '/categories:listAll', 'GET', header, version)
         self.parameters = parameters
 
 
-class UpdateVeditProjectParameters(object):
+class ListAllCategoriesParameters(object):
 
-    def __init__(self, projectId,):
+    def __init__(self, ):
         """
-        :param projectId: 视频剪辑工程ID
         """
 
-        self.projectId = projectId
-        self.projectName = None
-        self.description = None
-        self.timeline = None
+        self.flatMode = None
+        self.treeMode = None
 
-    def setProjectName(self, projectName):
+    def setFlatMode(self, flatMode):
         """
-        :param projectName: (Optional) 工程名称
+        :param flatMode: (Optional) 是否返回平坦结构结果,默认为false（flatMode和treeMode不能同时为false）
         """
-        self.projectName = projectName
+        self.flatMode = flatMode
 
-    def setDescription(self, description):
+    def setTreeMode(self, treeMode):
         """
-        :param description: (Optional) 工程描述
+        :param treeMode: (Optional) 是否返回树结构结果,默认为false（flatMode和treeMode不能同时为false）
         """
-        self.description = description
-
-    def setTimeline(self, timeline):
-        """
-        :param timeline: (Optional) 时间线信息
-        """
-        self.timeline = timeline
+        self.treeMode = treeMode
 

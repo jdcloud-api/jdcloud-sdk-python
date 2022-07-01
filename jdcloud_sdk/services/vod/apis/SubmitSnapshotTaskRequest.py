@@ -19,44 +19,36 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateVeditProjectRequest(JDCloudRequest):
+class SubmitSnapshotTaskRequest(JDCloudRequest):
     """
-    修改视频剪辑工程信息
+    提交截图作业
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateVeditProjectRequest, self).__init__(
-            '/veditProjects/{projectId}', 'PUT', header, version)
+        super(SubmitSnapshotTaskRequest, self).__init__(
+            '/snapshotJobs:submit', 'POST', header, version)
         self.parameters = parameters
 
 
-class UpdateVeditProjectParameters(object):
+class SubmitSnapshotTaskParameters(object):
 
-    def __init__(self, projectId,):
+    def __init__(self, ):
         """
-        :param projectId: 视频剪辑工程ID
         """
 
-        self.projectId = projectId
-        self.projectName = None
-        self.description = None
-        self.timeline = None
+        self.videoIds = None
+        self.templateIds = None
 
-    def setProjectName(self, projectName):
+    def setVideoIds(self, videoIds):
         """
-        :param projectName: (Optional) 工程名称
+        :param videoIds: (Optional) 视频ID列表
         """
-        self.projectName = projectName
+        self.videoIds = videoIds
 
-    def setDescription(self, description):
+    def setTemplateIds(self, templateIds):
         """
-        :param description: (Optional) 工程描述
+        :param templateIds: (Optional) 转码模板ID列表
         """
-        self.description = description
-
-    def setTimeline(self, timeline):
-        """
-        :param timeline: (Optional) 时间线信息
-        """
-        self.timeline = timeline
+        self.templateIds = templateIds
 

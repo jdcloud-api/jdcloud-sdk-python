@@ -32,7 +32,7 @@ class SetHttpSslRequest(JDCloudRequest):
 
 class SetHttpSslParameters(object):
 
-    def __init__(self, domainId, ):
+    def __init__(self, domainId,):
         """
         :param domainId: 域名ID
         """

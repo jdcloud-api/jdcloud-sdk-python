@@ -32,7 +32,7 @@ class UpdateVideoRequest(JDCloudRequest):
 
 class UpdateVideoParameters(object):
 
-    def __init__(self, videoId, ):
+    def __init__(self, videoId,):
         """
         :param videoId: 视频ID
         """

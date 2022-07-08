@@ -33,7 +33,7 @@ class RebuildPodRequest(JDCloudRequest):
 
 class RebuildPodParameters(object):
 
-    def __init__(self, regionId, podId, containers):
+    def __init__(self, regionId,podId,containers):
         """
         :param regionId: Region ID
         :param podId: Pod ID

@@ -19,28 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AttachRequest(JDCloudRequest):
+class UpdateConfigFileRequest(JDCloudRequest):
     """
-    将容器连接到本地标准输入输出
+    更新configFile信息
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AttachRequest, self).__init__(
-            '/regions/{regionId}/pods/{podId}/containers/{containerName}:attach', 'GET', header, version)
+        super(UpdateConfigFileRequest, self).__init__(
+            '/regions/{regionId}/configFiles/{name}:update', 'POST', header, version)
         self.parameters = parameters
 
 
-class AttachParameters(object):
+class UpdateConfigFileParameters(object):
 
-    def __init__(self, regionId,podId,containerName,):
+    def __init__(self, regionId,name,data):
         """
         :param regionId: Region ID
-        :param podId: Pod ID
-        :param containerName: container name
+        :param name: Name
+        :param data: key 的有效字符包括字母、数字、-、_和.; <br>
+value 每个value长度上限为32KB，整个data的长度不能超过1M; <br>
+
         """
 
         self.regionId = regionId
-        self.podId = podId
-        self.containerName = containerName
+        self.name = name
+        self.data = data
 

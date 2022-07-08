@@ -19,13 +19,15 @@
 
 class VolumeMountSpec(object):
 
-    def __init__(self, name, mountPath, readOnly=None):
+    def __init__(self, name, mountPath, readOnly=None, subPath=None):
         """
         :param name:  要挂载的云盘，必须使用pod volumeSpec.name。
         :param mountPath:  容器内挂载点，绝对路径，不得重复和嵌套挂载，不得挂载到根目录("/")。长度范围：[1-1024]
         :param readOnly: (Optional) 是否以只读方式挂载。默认 读写模式
+        :param subPath: (Optional) configFile挂载子目录 新增
         """
 
         self.name = name
         self.mountPath = mountPath
         self.readOnly = readOnly
+        self.subPath = subPath

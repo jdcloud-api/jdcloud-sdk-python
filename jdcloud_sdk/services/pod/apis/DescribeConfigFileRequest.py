@@ -19,28 +19,26 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AttachRequest(JDCloudRequest):
+class DescribeConfigFileRequest(JDCloudRequest):
     """
-    将容器连接到本地标准输入输出
+    查询单个 configFile 详情
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AttachRequest, self).__init__(
-            '/regions/{regionId}/pods/{podId}/containers/{containerName}:attach', 'GET', header, version)
+        super(DescribeConfigFileRequest, self).__init__(
+            '/regions/{regionId}/configFiles/{name}', 'GET', header, version)
         self.parameters = parameters
 
 
-class AttachParameters(object):
+class DescribeConfigFileParameters(object):
 
-    def __init__(self, regionId,podId,containerName,):
+    def __init__(self, regionId,name,):
         """
         :param regionId: Region ID
-        :param podId: Pod ID
-        :param containerName: container name
+        :param name: Name
         """
 
         self.regionId = regionId
-        self.podId = podId
-        self.containerName = containerName
+        self.name = name
 

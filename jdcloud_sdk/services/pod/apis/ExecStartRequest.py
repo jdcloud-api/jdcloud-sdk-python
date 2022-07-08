@@ -32,7 +32,7 @@ class ExecStartRequest(JDCloudRequest):
 
 class ExecStartParameters(object):
 
-    def __init__(self, regionId, podId, containerName, execId):
+    def __init__(self, regionId,podId,containerName,execId):
         """
         :param regionId: Region ID
         :param podId: Pod ID

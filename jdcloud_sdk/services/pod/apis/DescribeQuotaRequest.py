@@ -33,7 +33,7 @@ class DescribeQuotaRequest(JDCloudRequest):
 
 class DescribeQuotaParameters(object):
 
-    def __init__(self, regionId, resourceType):
+    def __init__(self, regionId,resourceType):
         """
         :param regionId: Region ID
         :param resourceType: resourceType - 资源类型，支持 [container, pod, secret]

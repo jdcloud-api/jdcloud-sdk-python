@@ -32,7 +32,7 @@ class ResizeTTYRequest(JDCloudRequest):
 
 class ResizeTTYParameters(object):
 
-    def __init__(self, regionId, podId, containerName, height, width, ):
+    def __init__(self, regionId,podId,containerName,height, width, ):
         """
         :param regionId: Region ID
         :param podId: Pod ID

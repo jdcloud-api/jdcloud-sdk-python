@@ -32,7 +32,7 @@ class DescribeContainerRequest(JDCloudRequest):
 
 class DescribeContainerParameters(object):
 
-    def __init__(self, regionId, podId, containerName, ):
+    def __init__(self, regionId,podId,containerName,):
         """
         :param regionId: Region ID
         :param podId: Pod ID

@@ -33,7 +33,7 @@ class CreateSecretRequest(JDCloudRequest):
 
 class CreateSecretParameters(object):
 
-    def __init__(self, regionId, name, secretType, data):
+    def __init__(self, regionId,name, secretType, data):
         """
         :param regionId: Region ID
         :param name: 机密数据名称，不能重复

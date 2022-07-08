@@ -21,7 +21,7 @@ class CloudDiskSpec(object):
 
     def __init__(self, category=None, volumeId=None, name=None, snapshotId=None, diskType=None, sizeGB=None, fsType=None, iops=None, autoDelete=None):
         """
-        :param category: (Optional) 磁盘类型，支持云盘： cloud
+        :param category: (Optional) 磁盘类型，cloud 云盘，local 本地盘（需工单申请）
         :param volumeId: (Optional) 云盘ID，指定使用已有云盘
         :param name: (Optional) 云盘名称
         :param snapshotId: (Optional) 云盘快照ID，根据云盘快照创建云盘。

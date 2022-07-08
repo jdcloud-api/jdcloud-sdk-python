@@ -19,28 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AttachRequest(JDCloudRequest):
+class DescribeBigKeyListRequest(JDCloudRequest):
     """
-    将容器连接到本地标准输入输出
-
+    查询大key分析任务列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AttachRequest, self).__init__(
-            '/regions/{regionId}/pods/{podId}/containers/{containerName}:attach', 'GET', header, version)
+        super(DescribeBigKeyListRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/bigKey', 'GET', header, version)
         self.parameters = parameters
 
 
-class AttachParameters(object):
+class DescribeBigKeyListParameters(object):
 
-    def __init__(self, regionId,podId,containerName,):
+    def __init__(self, regionId,cacheInstanceId,):
         """
-        :param regionId: Region ID
-        :param podId: Pod ID
-        :param containerName: container name
+        :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
+        :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
         """
 
         self.regionId = regionId
-        self.podId = podId
-        self.containerName = containerName
+        self.cacheInstanceId = cacheInstanceId
 

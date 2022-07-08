@@ -27,7 +27,7 @@ class PodSpec(object):
         :param restartPolicy: (Optional) pod中容器重启策略；Always, OnFailure, Never；默认：Always
         :param terminationGracePeriodSeconds: (Optional) 优雅关机宽限时长，如果超时，则触发强制关机。默认：30s，值不能是负数，范围：[0-300]
         :param instanceType:  实例类型；参考[文档](https://www.jdcloud.com/help/detail/1992/isCatalog/1)
-        :param az:  容器所属可用区
+        :param az:  Pod所属可用区，指定agId时非必传<br> Pod、已有云盘的az必须相同，且包含在AG中
         :param dnsConfig: (Optional) pod内容器的/etc/resolv.conf配置
         :param logConfig: (Optional) 容器日志配置信息；默认会在本地分配10MB的存储空间
         :param hostAliases: (Optional) 域名和IP映射的信息；</br> 最大10个alias

@@ -19,13 +19,14 @@
 
 class Pod(object):
 
-    def __init__(self, podId=None, name=None, description=None, az=None, hostname=None, instanceType=None, restartPolicy=None, terminationGracePeriodSeconds=None, vpcId=None, subnetId=None, privateIpAddress=None, dnsConfig=None, logConfig=None, hostAliases=None, volumes=None, containers=None, podStatus=None, elasticIp=None, primaryNetworkInterface=None, tags=None, charge=None, createTime=None):
+    def __init__(self, podId=None, name=None, description=None, az=None, hostname=None, ag=None, instanceType=None, restartPolicy=None, terminationGracePeriodSeconds=None, vpcId=None, subnetId=None, privateIpAddress=None, dnsConfig=None, logConfig=None, hostAliases=None, volumes=None, containers=None, podStatus=None, elasticIp=None, primaryNetworkInterface=None, tags=None, charge=None, createTime=None):
         """
         :param podId: (Optional) pod ID
         :param name: (Optional) pod 名称
         :param description: (Optional) 描述信息，默认为空。
         :param az: (Optional) 可用区
         :param hostname: (Optional) 主机名
+        :param ag: (Optional) 高可用组
         :param instanceType: (Optional) pod 所需的计算资源规格
         :param restartPolicy: (Optional) pod重启策略
         :param terminationGracePeriodSeconds: (Optional) 优雅关闭的时间
@@ -50,6 +51,7 @@ class Pod(object):
         self.description = description
         self.az = az
         self.hostname = hostname
+        self.ag = ag
         self.instanceType = instanceType
         self.restartPolicy = restartPolicy
         self.terminationGracePeriodSeconds = terminationGracePeriodSeconds

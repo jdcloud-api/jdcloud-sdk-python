@@ -34,7 +34,7 @@ class DescribePodsRequest(JDCloudRequest):
 
 class DescribePodsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self, regionId,):
         """
         :param regionId: Region ID
         """
@@ -66,6 +66,7 @@ vpcId - 私有网络ID，精确匹配，支持多个
 phase - pod 状态，精确匹配，支持多个
 name - 实例名称，模糊匹配，支持单个
 subnetId - 镜像ID，精确匹配，支持多个
+agId - 镜像ID，精确匹配，支持多个
 
         """
         self.filters = filters

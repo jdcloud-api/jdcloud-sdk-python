@@ -32,7 +32,7 @@ class UpdateAgRequest(JDCloudRequest):
 
 class UpdateAgParameters(object):
 
-    def __init__(self, regionId, agId, ):
+    def __init__(self, regionId,agId,):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID

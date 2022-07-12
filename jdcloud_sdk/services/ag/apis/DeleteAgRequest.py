@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteAgRequest(JDCloudRequest):
     """
-    根据 id 删除高可用组，需确保 AG 中云主机实例已全部删除
+    根据 ID 删除高可用组，需确保 AG 中云主机实例已全部删除
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DeleteAgRequest(JDCloudRequest):
 
 class DeleteAgParameters(object):
 
-    def __init__(self, regionId, agId, ):
+    def __init__(self, regionId,agId,):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID

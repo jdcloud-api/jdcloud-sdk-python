@@ -32,11 +32,11 @@ class AbandonInstancesRequest(JDCloudRequest):
 
 class AbandonInstancesParameters(object):
 
-    def __init__(self, regionId, agId, instanceIds):
+    def __init__(self, regionId,agId,instanceIds):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID
-        :param instanceIds: 准备剔除出高可用组的实例 id
+        :param instanceIds: 准备剔除出高可用组的实例 ID
         """
 
         self.regionId = regionId

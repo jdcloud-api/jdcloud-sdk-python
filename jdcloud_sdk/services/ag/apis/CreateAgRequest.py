@@ -32,12 +32,12 @@ class CreateAgRequest(JDCloudRequest):
 
 class CreateAgParameters(object):
 
-    def __init__(self, regionId, azs, agName, instanceTemplateId, ):
+    def __init__(self, regionId,azs, agName, instanceTemplateId, ):
         """
         :param regionId: 地域
         :param azs: 支持的可用区，最少一个
         :param agName: 高可用组名称，只支持中文、数字、大小写字母、英文下划线 “_” 及中划线 “-”，且不能超过 32 字符
-        :param instanceTemplateId: 实例模板的Id
+        :param instanceTemplateId: 实例模板的ID
         """
 
         self.regionId = regionId
@@ -46,10 +46,11 @@ class CreateAgParameters(object):
         self.agType = None
         self.instanceTemplateId = instanceTemplateId
         self.description = None
+        self.configurationType = None
 
     def setAgType(self, agType):
         """
-        :param agType: (Optional) 高可用组类型，支持vm
+        :param agType: (Optional) 高可用组资源类型，支持vm
         """
         self.agType = agType
 
@@ -58,4 +59,10 @@ class CreateAgParameters(object):
         :param description: (Optional) 描述，长度不超过 256 字符
         """
         self.description = description
+
+    def setConfigurationType(self, configurationType):
+        """
+        :param configurationType: (Optional) 高可用组配置类型，支持strict(关联模板型)、loose(自定义配置型)
+        """
+        self.configurationType = configurationType
 

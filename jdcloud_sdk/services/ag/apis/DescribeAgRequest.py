@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAgRequest(JDCloudRequest):
     """
-    根据 id 查询高可用组详情
+    根据 ID 查询高可用组详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DescribeAgRequest(JDCloudRequest):
 
 class DescribeAgParameters(object):
 
-    def __init__(self, regionId, agId, ):
+    def __init__(self, regionId,agId,):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID

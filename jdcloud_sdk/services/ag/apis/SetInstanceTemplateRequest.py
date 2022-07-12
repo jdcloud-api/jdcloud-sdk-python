@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetInstanceTemplateRequest(JDCloudRequest):
     """
-    修改高可用组的实例模板
+    修改高可用组的实例模板<br>- 对于更换实例模板来说，如果已经关联负载均衡，则VPC不可以更改。<br>- 自定义配置型不可更改实例模板。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,11 +32,11 @@ class SetInstanceTemplateRequest(JDCloudRequest):
 
 class SetInstanceTemplateParameters(object):
 
-    def __init__(self, regionId, agId, instanceTemplateId):
+    def __init__(self, regionId,agId,instanceTemplateId):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID
-        :param instanceTemplateId: 实例模板 id
+        :param instanceTemplateId: 实例模板 ID
         """
 
         self.regionId = regionId

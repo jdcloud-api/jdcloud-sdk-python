@@ -32,7 +32,7 @@ class GprsStatusByIMSIRequest(JDCloudRequest):
 
 class GprsStatusByIMSIParameters(object):
 
-    def __init__(self, regionId, imsi):
+    def __init__(self, regionId,imsi):
         """
         :param regionId: Region ID
         :param imsi: 物联网卡IMSI

@@ -32,7 +32,7 @@ class OnOffStatusByIMSIRequest(JDCloudRequest):
 
 class OnOffStatusByIMSIParameters(object):
 
-    def __init__(self, regionId, imsi):
+    def __init__(self, regionId,imsi):
         """
         :param regionId: Region ID
         :param imsi: 物联网卡imsi

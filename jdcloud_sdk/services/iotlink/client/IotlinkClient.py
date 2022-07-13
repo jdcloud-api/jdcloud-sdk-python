@@ -26,4 +26,4 @@ class IotlinkClient(JDCloudClient):
         if config is None:
             config = Config('iotlink.jdcloud-api.com')
 
-        super(IotlinkClient, self).__init__(credential, config, 'iotlink', '1.0.5', logger)
+        super(IotlinkClient, self).__init__(credential, config, 'iotlink', '1.0.6', logger)

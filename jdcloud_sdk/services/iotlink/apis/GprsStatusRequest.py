@@ -32,7 +32,7 @@ class GprsStatusRequest(JDCloudRequest):
 
 class GprsStatusParameters(object):
 
-    def __init__(self, regionId, iccid):
+    def __init__(self, regionId,iccid):
         """
         :param regionId: Region ID
         :param iccid: 物联网卡iccid

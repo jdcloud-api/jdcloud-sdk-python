@@ -32,7 +32,7 @@ class OperateRequest(JDCloudRequest):
 
 class OperateParameters(object):
 
-    def __init__(self, regionId, requestType, requestParam):
+    def __init__(self, regionId,requestType, requestParam):
         """
         :param regionId: Region ID
         :param requestType: 物联网卡操作请求类型

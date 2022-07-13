@@ -32,7 +32,7 @@ class SearchRequest(JDCloudRequest):
 
 class SearchParameters(object):
 
-    def __init__(self, regionId, requestType, requestParam):
+    def __init__(self, regionId,requestType, requestParam):
         """
         :param regionId: Region ID
         :param requestType: 物联网卡查询请求类型

@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class OpenIotCardRequest(JDCloudRequest):
+class CardInfoRequest(JDCloudRequest):
     """
-    物联网卡开机操作
+    根据物联网卡iccid查询该卡的基本信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(OpenIotCardRequest, self).__init__(
-            '/regions/{regionId}/openIotCard', 'POST', header, version)
+        super(CardInfoRequest, self).__init__(
+            '/regions/{regionId}/cardInfo', 'GET', header, version)
         self.parameters = parameters
 
 
-class OpenIotCardParameters(object):
+class CardInfoParameters(object):
 
-    def __init__(self, regionId,iccids):
+    def __init__(self, regionId,iccid):
         """
         :param regionId: Region ID
-        :param iccids: 物联网卡号码列表(单次提交最多不超过200个号码)
+        :param iccid: 物联网卡iccid
         """
 
         self.regionId = regionId
-        self.iccids = iccids
+        self.iccid = iccid
 

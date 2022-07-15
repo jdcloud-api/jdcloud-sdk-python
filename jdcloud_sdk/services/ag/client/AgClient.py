@@ -26,4 +26,4 @@ class AgClient(JDCloudClient):
         if config is None:
             config = Config('ag.jdcloud-api.com')
 
-        super(AgClient, self).__init__(credential, config, 'ag', '0.5.0', logger)
+        super(AgClient, self).__init__(credential, config, 'ag', '0.6.0', logger)

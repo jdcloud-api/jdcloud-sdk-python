@@ -19,11 +19,15 @@
 
 class VolumeSpec(object):
 
-    def __init__(self, name, jdcloudDisk, ):
+    def __init__(self, name, jdcloudDisk, cfs=None, configFile=None):
         """
         :param name:  volume名字，符合DNS-1123 label规范，在一个Pod内唯一。
         :param jdcloudDisk:  提供给Pod的cloud disk.
+        :param cfs: (Optional) 提供给Pod的CFS.
+        :param configFile: (Optional) 提供给Pod的ConfigFile.
         """
 
         self.name = name
         self.jdcloudDisk = jdcloudDisk
+        self.cfs = cfs
+        self.configFile = configFile

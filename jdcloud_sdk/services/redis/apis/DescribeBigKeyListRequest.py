@@ -32,12 +32,14 @@ class DescribeBigKeyListRequest(JDCloudRequest):
 
 class DescribeBigKeyListParameters(object):
 
-    def __init__(self, regionId,cacheInstanceId,):
+    def __init__(self, regionId,cacheInstanceId,date):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
+        :param date: 格式:yyyy-MM-dd,表示查询某一天的大key分析列表
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
+        self.date = date
 

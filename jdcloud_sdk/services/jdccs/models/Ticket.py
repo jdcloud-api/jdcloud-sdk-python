@@ -19,7 +19,7 @@
 
 class Ticket(object):
 
-    def __init__(self, ticketNo=None, ticketTemplateName=None, ticketTemplateCode=None, ticketTypeName=None, status=None, description=None, currentTaskNodeId=None, ticketTypeId=None, ticketTemplateId=None, ownerPin=None, subUserPin=None, submitAccount=None, userOperation=None, createdTime=None, closedTime=None, phone=None, email=None, idc=None, idcName=None, count=None, isExternalIdc=None, externalIdcAddress=None, externalIdcContactPerson=None, externalIdcContactPhone=None):
+    def __init__(self, ticketNo=None, ticketTemplateName=None, ticketTemplateCode=None, ticketTypeName=None, status=None, description=None, createdTime=None, closedTime=None, phone=None, email=None, idc=None, idcName=None, count=None, isExternalIdc=None, externalIdcAddress=None, externalIdcContactPerson=None, externalIdcContactPhone=None):
         """
         :param ticketNo: (Optional) 工单编号
         :param ticketTemplateName: (Optional) 工单名称
@@ -27,13 +27,6 @@ class Ticket(object):
         :param ticketTypeName: (Optional) 工单类型
         :param status: (Optional) 工单状态 pendingReview:待审核 已撤销 revoked:已撤销 processing:处理中 pendingVerification:待核验 pendingClose:待关单 rejected:已拒绝 completed:已完成 cancelled:已取消 draft:草稿中
         :param description: (Optional) 描述
-        :param currentTaskNodeId: (Optional) 当前任务节点
-        :param ticketTypeId: (Optional) 工单类型ID
-        :param ticketTemplateId: (Optional) 工单模板ID
-        :param ownerPin: (Optional) 主账号pin
-        :param subUserPin: (Optional) 子用户pin
-        :param submitAccount: (Optional) 提交账号
-        :param userOperation: (Optional) 用户操作
         :param createdTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param closedTime: (Optional) 关闭时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         :param phone: (Optional) 电话
@@ -53,13 +46,6 @@ class Ticket(object):
         self.ticketTypeName = ticketTypeName
         self.status = status
         self.description = description
-        self.currentTaskNodeId = currentTaskNodeId
-        self.ticketTypeId = ticketTypeId
-        self.ticketTemplateId = ticketTemplateId
-        self.ownerPin = ownerPin
-        self.subUserPin = subUserPin
-        self.submitAccount = submitAccount
-        self.userOperation = userOperation
         self.createdTime = createdTime
         self.closedTime = closedTime
         self.phone = phone

@@ -32,7 +32,7 @@ class DescribeCabinetsRequest(JDCloudRequest):
 
 class DescribeCabinetsParameters(object):
 
-    def __init__(self, idc, ):
+    def __init__(self, idc,):
         """
         :param idc: IDC机房ID
         """
@@ -40,11 +40,9 @@ class DescribeCabinetsParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.all = None
         self.cabinetType = None
         self.cabinetOpenStatus = None
         self.cabinetNo = None
-        self.deviceMustBeEmpty = None
         self.filters = None
         self.sorts = None
 
@@ -59,12 +57,6 @@ class DescribeCabinetsParameters(object):
         :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
-
-    def setAll(self, all):
-        """
-        :param all: (Optional) 是否查询全部，默认分页
-        """
-        self.all = all
 
     def setCabinetType(self, cabinetType):
         """
@@ -83,12 +75,6 @@ class DescribeCabinetsParameters(object):
         :param cabinetNo: (Optional) 机柜编码
         """
         self.cabinetNo = cabinetNo
-
-    def setDeviceMustBeEmpty(self, deviceMustBeEmpty):
-        """
-        :param deviceMustBeEmpty: (Optional) 机柜关电工单使用 yes
-        """
-        self.deviceMustBeEmpty = deviceMustBeEmpty
 
     def setFilters(self, filters):
         """

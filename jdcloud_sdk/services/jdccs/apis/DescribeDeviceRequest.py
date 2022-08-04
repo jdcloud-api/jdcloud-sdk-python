@@ -32,7 +32,7 @@ class DescribeDeviceRequest(JDCloudRequest):
 
 class DescribeDeviceParameters(object):
 
-    def __init__(self, idc, deviceId, ):
+    def __init__(self, idc,deviceId,):
         """
         :param idc: IDC机房ID
         :param deviceId: 设备实例ID

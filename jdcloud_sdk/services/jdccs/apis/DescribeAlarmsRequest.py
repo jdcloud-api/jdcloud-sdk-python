@@ -38,7 +38,6 @@ class DescribeAlarmsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
-        self.all = None
         self.resourceType = None
         self.resourceId = None
         self.idc = None
@@ -56,12 +55,6 @@ class DescribeAlarmsParameters(object):
         :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
-
-    def setAll(self, all):
-        """
-        :param all: (Optional) 是否查询全部，默认分页
-        """
-        self.all = all
 
     def setResourceType(self, resourceType):
         """

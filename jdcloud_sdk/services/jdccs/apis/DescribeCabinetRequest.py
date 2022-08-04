@@ -32,7 +32,7 @@ class DescribeCabinetRequest(JDCloudRequest):
 
 class DescribeCabinetParameters(object):
 
-    def __init__(self, idc, cabinetId, ):
+    def __init__(self, idc,cabinetId,):
         """
         :param idc: IDC机房ID
         :param cabinetId: 机柜实例ID

@@ -19,7 +19,7 @@
 
 class DescribeAlarm(object):
 
-    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, switchboard=None, userId=None, groupId=None):
+    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, switchboard=None):
         """
         :param alarmId: (Optional) 规则实例ID
         :param name: (Optional) 规则名称
@@ -38,8 +38,6 @@ class DescribeAlarm(object):
         :param noticePeriod: (Optional) 通知周期 单位：小时
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
         :param switchboard: (Optional) 交换机信息
-        :param userId: (Optional) 通知对象用户ID,若多个用逗号分隔
-        :param groupId: (Optional) 通知对象组ID
         """
 
         self.alarmId = alarmId
@@ -59,5 +57,3 @@ class DescribeAlarm(object):
         self.noticePeriod = noticePeriod
         self.status = status
         self.switchboard = switchboard
-        self.userId = userId
-        self.groupId = groupId

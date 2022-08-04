@@ -19,7 +19,7 @@
 
 class Alarm(object):
 
-    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, noticeMethod=None, switchboard=None, userId=None, groupId=None):
+    def __init__(self, alarmId=None, name=None, idc=None, idcName=None, resourceType=None, resourceId=None, resourceName=None, metric=None, metricName=None, period=None, statisticMethod=None, operator=None, threshold=None, times=None, noticePeriod=None, status=None, noticeMethod=None, switchboard=None):
         """
         :param alarmId: (Optional) 规则实例ID
         :param name: (Optional) 规则名称
@@ -39,8 +39,6 @@ class Alarm(object):
         :param status: (Optional) 规则状态 disabled:禁用 enabled:启用
         :param noticeMethod: (Optional) 通知方式 all:全部 sms：短信 email:邮件
         :param switchboard: (Optional) 交换机信息
-        :param userId: (Optional) 通知对象用户ID,若多个用逗号分隔
-        :param groupId: (Optional) 通知对象组ID
         """
 
         self.alarmId = alarmId
@@ -61,5 +59,3 @@ class Alarm(object):
         self.status = status
         self.noticeMethod = noticeMethod
         self.switchboard = switchboard
-        self.userId = userId
-        self.groupId = groupId

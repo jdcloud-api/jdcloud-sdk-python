@@ -19,7 +19,7 @@
 
 class InstanceTemplateData(object):
 
-    def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None):
+    def __init__(self, instanceType=None, vpcId=None, imageId=None, includePassword=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, elasticIp=None, keyNames=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, burstInfo=None):
         """
         :param instanceType: (Optional) 实例规格。
         :param vpcId: (Optional) 主网卡所属VPC的ID。
@@ -44,6 +44,8 @@ class InstanceTemplateData(object):
 `yes`：使用镜像登录凭证。
 `no`：不使用镜像登录凭证。
 仅使用私有或共享镜像时此参数有效。
+
+        :param burstInfo: (Optional) 突发型实例参数信息
         """
 
         self.instanceType = instanceType
@@ -59,3 +61,4 @@ class InstanceTemplateData(object):
         self.autoImagePolicyId = autoImagePolicyId
         self.passwordAuth = passwordAuth
         self.imageInherit = imageInherit
+        self.burstInfo = burstInfo

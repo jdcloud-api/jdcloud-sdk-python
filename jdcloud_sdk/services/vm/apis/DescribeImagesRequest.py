@@ -135,7 +135,7 @@ class DescribeImagesParameters(object):
 
     def setArchitecture(self, architecture):
         """
-        :param architecture: (Optional) CPU架构。支持范围：`x86_64`、`aarch64`。
+        :param architecture: (Optional) CPU架构。支持范围：`x86_64`、`arm64`。
         """
         self.architecture = architecture
 

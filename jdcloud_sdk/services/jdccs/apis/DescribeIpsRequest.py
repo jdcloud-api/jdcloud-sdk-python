@@ -32,7 +32,7 @@ class DescribeIpsRequest(JDCloudRequest):
 
 class DescribeIpsParameters(object):
 
-    def __init__(self, idc, ):
+    def __init__(self, idc,):
         """
         :param idc: IDC机房ID
         """
@@ -40,7 +40,6 @@ class DescribeIpsParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.all = None
         self.lineType = None
         self.status = None
         self.cidrAddr = None
@@ -58,12 +57,6 @@ class DescribeIpsParameters(object):
         :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
-
-    def setAll(self, all):
-        """
-        :param all: (Optional) 是否查询全部，默认分页
-        """
-        self.all = all
 
     def setLineType(self, lineType):
         """

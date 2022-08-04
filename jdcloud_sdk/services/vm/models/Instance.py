@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, resourceGroupId=None):
+    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, burstInfo=None, resourceGroupId=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -51,6 +51,7 @@ class Instance(object):
         :param policies: (Optional) 自动任务策略，关联了自动任务策略时可获取相应信息。
         :param dedicatedPoolId: (Optional) 云主机所属的专有宿主机池。
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
+        :param burstInfo: (Optional) 突发型实例参数信息
         :param resourceGroupId: (Optional) 资源组ID
         """
 
@@ -81,4 +82,5 @@ class Instance(object):
         self.policies = policies
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
+        self.burstInfo = burstInfo
         self.resourceGroupId = resourceGroupId

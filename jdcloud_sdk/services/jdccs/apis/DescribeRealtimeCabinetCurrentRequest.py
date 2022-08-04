@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeConfigCenterTokenAndCipherRequest(JDCloudRequest):
+class DescribeRealtimeCabinetCurrentRequest(JDCloudRequest):
     """
-    查询通过配置中心接入所需token与秘钥
+    查询多个机柜AB路实时电流
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeConfigCenterTokenAndCipherRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/configCenter', 'GET', header, version)
+        super(DescribeRealtimeCabinetCurrentRequest, self).__init__(
+            '/idcs/{idc}/realtimeCabinetCurrent', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeConfigCenterTokenAndCipherParameters(object):
+class DescribeRealtimeCabinetCurrentParameters(object):
 
-    def __init__(self, regionId,cacheInstanceId,):
+    def __init__(self, idc,resourceId):
         """
-        :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
-        :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
+        :param idc: IDC机房ID
+        :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用英文竖线分隔
         """
 
-        self.regionId = regionId
-        self.cacheInstanceId = cacheInstanceId
+        self.idc = idc
+        self.resourceId = resourceId
 

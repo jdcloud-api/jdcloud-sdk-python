@@ -19,7 +19,7 @@
 
 class InstanceTemplateSpec(object):
 
-    def __init__(self, instanceType, imageId, primaryNetworkInterface, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None):
+    def __init__(self, instanceType, imageId, primaryNetworkInterface, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, burstSpec=None):
         """
         :param instanceType:  实例规格，可查询 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口获得指定地域或可用区的规格信息。
         :param imageId:  镜像ID，可查询 [DescribeImages](https://docs.jdcloud.com/virtual-machines/api/describeimages) 接口获得指定地域的镜像信息。
@@ -53,6 +53,8 @@ class InstanceTemplateSpec(object):
 `yes`：使用镜像登录凭证。
 `no`（默认值）：不使用镜像登录凭证。
 仅使用私有或共享镜像时此参数有效。若指定`imageInherit=yes`则指定的密码或密钥将无效。
+
+        :param burstSpec: (Optional) 突发型实例参数配置
         """
 
         self.instanceType = instanceType
@@ -69,3 +71,4 @@ class InstanceTemplateSpec(object):
         self.autoImagePolicyId = autoImagePolicyId
         self.passWordAuth = passWordAuth
         self.imageInherit = imageInherit
+        self.burstSpec = burstSpec

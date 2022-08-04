@@ -60,6 +60,8 @@ class RebuildInstanceParameters(object):
         self.hostname = None
         self.metadata = None
         self.userdata = None
+        self.passWordAuth = None
+        self.imageInherit = None
 
     def setPassword(self, password):
         """
@@ -115,4 +117,19 @@ class RebuildInstanceParameters(object):
 
         """
         self.userdata = userdata
+
+    def setPassWordAuth(self, passWordAuth):
+        """
+        :param passWordAuth: (Optional) 密码授权，若存在密匙，则根据此参数决定是否使用密码，若没有密匙，此参数无效，会强制使用密码。
+若不使用密码，且密匙对解绑后，用户需重置密码，方可使用密码登录。
+此参数在windows系统中必须为yes。
+
+        """
+        self.passWordAuth = passWordAuth
+
+    def setImageInherit(self, imageInherit):
+        """
+        :param imageInherit: (Optional) 继承镜像中的登录验证方式，"yes"为使用，"no"为不使用，""默认为"no"
+        """
+        self.imageInherit = imageInherit
 

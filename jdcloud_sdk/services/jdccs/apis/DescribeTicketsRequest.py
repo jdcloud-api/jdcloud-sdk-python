@@ -38,17 +38,14 @@ class DescribeTicketsParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
-        self.all = None
         self.type = None
         self.ticketTypeName = None
-        self.ticketTypeId = None
         self.status = None
         self.ticketNo = None
         self.ticketTemplateName = None
         self.description = None
         self.startTime = None
         self.endTime = None
-        self.submitAccount = None
         self.filters = None
         self.sorts = None
 
@@ -64,12 +61,6 @@ class DescribeTicketsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setAll(self, all):
-        """
-        :param all: (Optional) 是否查询全部，默认分页
-        """
-        self.all = all
-
     def setType(self, type):
         """
         :param type: (Optional) 工单TAB类型 pendingProcess:待我处理 pendingReview:待审核 processing:处理中 all:全部(默认)
@@ -81,12 +72,6 @@ class DescribeTicketsParameters(object):
         :param ticketTypeName: (Optional) 工单类型
         """
         self.ticketTypeName = ticketTypeName
-
-    def setTicketTypeId(self, ticketTypeId):
-        """
-        :param ticketTypeId: (Optional) 工单类型ID
-        """
-        self.ticketTypeId = ticketTypeId
 
     def setStatus(self, status):
         """
@@ -123,12 +108,6 @@ class DescribeTicketsParameters(object):
         :param endTime: (Optional) 创建结束时间，遵循ISO8601标准，使用UTC时间，格式为：yyyy-MM-ddTHH:mm:ssZ
         """
         self.endTime = endTime
-
-    def setSubmitAccount(self, submitAccount):
-        """
-        :param submitAccount: (Optional) 提交账号
-        """
-        self.submitAccount = submitAccount
 
     def setFilters(self, filters):
         """

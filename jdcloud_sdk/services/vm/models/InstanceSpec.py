@@ -19,8 +19,10 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, agId=None, instanceTemplateId=None, az=None, instanceType=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None):
+    def __init__(self, name, dedicatedPoolId=None, dedicatedHostId=None, agId=None, instanceTemplateId=None, az=None, instanceType=None, burstSpec=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None):
         """
+        :param dedicatedPoolId: (Optional) 实例所属的专有宿主机池，如果指定了dedicatedHostId,则此参数无效
+        :param dedicatedHostId: (Optional) 专有宿主机ID
         :param agId: (Optional) 高可用组ID。指定此参数后，将默认使用高可用组关联的实例模板创建实例，实例模板中的参数不可覆盖替换。实例模板以外的参数（内网IPv4/Ipv6分配方式、名称、描述、标签）可指定。
 
         :param instanceTemplateId: (Optional) 实例模板ID。指定此参数后，如实例模板中参数不另行指定将默认以模板配置创建实例，如指定则以指定值为准创建。
@@ -32,6 +34,7 @@ class InstanceSpec(object):
         :param instanceType: (Optional) 实例规格。可通过 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口查询各地域及可用区下的规格售卖情况。
 如不指定 `agId` 或 `instanceTemplateId` 以使用实例模板中配置的规格，此参数为必选。
 
+        :param burstSpec: (Optional) 突发型实例参数配置
         :param imageId: (Optional) 镜像ID。可通过 [DescribeImages](https://docs.jdcloud.com/virtual-machines/api/describeimages) 接口获得指定地域的镜像信息。
 如不指定 `agId` 或 `instanceTemplateId` 以使用实例模板中配置的镜像，此参数为必选。
 
@@ -108,10 +111,13 @@ class InstanceSpec(object):
         :param resourceGroupId: (Optional) 资源组ID
         """
 
+        self.dedicatedPoolId = dedicatedPoolId
+        self.dedicatedHostId = dedicatedHostId
         self.agId = agId
         self.instanceTemplateId = instanceTemplateId
         self.az = az
         self.instanceType = instanceType
+        self.burstSpec = burstSpec
         self.imageId = imageId
         self.name = name
         self.hostname = hostname

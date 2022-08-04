@@ -32,7 +32,7 @@ class DescribeDevicesRequest(JDCloudRequest):
 
 class DescribeDevicesParameters(object):
 
-    def __init__(self, idc, ):
+    def __init__(self, idc,):
         """
         :param idc: IDC机房ID
         """
@@ -40,15 +40,12 @@ class DescribeDevicesParameters(object):
         self.idc = idc
         self.pageNumber = None
         self.pageSize = None
-        self.all = None
         self.cabinetId = None
         self.deviceType = None
         self.assetStatus = None
         self.assetBelong = None
         self.deviceNo = None
         self.snNo = None
-        self.cabinetNo = None
-        self.ticketTemplateCode = None
         self.filters = None
         self.sorts = None
 
@@ -63,12 +60,6 @@ class DescribeDevicesParameters(object):
         :param pageSize: (Optional) 分页大小，默认为20
         """
         self.pageSize = pageSize
-
-    def setAll(self, all):
-        """
-        :param all: (Optional) 是否查询全部，默认分页
-        """
-        self.all = all
 
     def setCabinetId(self, cabinetId):
         """
@@ -105,18 +96,6 @@ class DescribeDevicesParameters(object):
         :param snNo: (Optional) 设备SN号
         """
         self.snNo = snNo
-
-    def setCabinetNo(self, cabinetNo):
-        """
-        :param cabinetNo: (Optional) 机柜编码
-        """
-        self.cabinetNo = cabinetNo
-
-    def setTicketTemplateCode(self, ticketTemplateCode):
-        """
-        :param ticketTemplateCode: (Optional) 工单模板CODE
-        """
-        self.ticketTemplateCode = ticketTemplateCode
 
     def setFilters(self, filters):
         """

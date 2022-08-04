@@ -21,8 +21,8 @@ class CFSVolumeSource(object):
 
     def __init__(self, mountTargetId=None, path=None):
         """
-        :param mountTargetId: (Optional) 共享目录id
-        :param path: (Optional) 子目录
+        :param mountTargetId: (Optional) 挂载目标 ID
+        :param path: (Optional) 云文件系统所在容器内的目录
         """
 
         self.mountTargetId = mountTargetId

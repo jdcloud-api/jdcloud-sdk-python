@@ -19,7 +19,7 @@
 
 class UpdateInstanceTemplateSpec(object):
 
-    def __init__(self, instanceType=None, imageId=None, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, noPassword=None, noElasticIp=None):
+    def __init__(self, instanceType=None, imageId=None, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, noPassword=None, noElasticIp=None, burstSpec=None):
         """
         :param instanceType: (Optional) 实例规格，可查询 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口获得指定地域或可用区的规格信息。
         :param imageId: (Optional) 镜像ID，可查询 [DescribeImages](https://docs.jdcloud.com/virtual-machines/api/describeimages) 接口获得指定地域的镜像信息。
@@ -56,6 +56,7 @@ class UpdateInstanceTemplateSpec(object):
 
         :param noPassword: (Optional) 传 `true` 则会清空实例模板配置的密码。
         :param noElasticIp: (Optional) 传 `true` 则会清空实例模板配置的公网IP。
+        :param burstSpec: (Optional) 突发型实例参数配置。传入 `null` 表示忽略，否则以新传入的为准。如指定了该参数则覆盖原有参数。
         """
 
         self.instanceType = instanceType
@@ -74,3 +75,4 @@ class UpdateInstanceTemplateSpec(object):
         self.imageInherit = imageInherit
         self.noPassword = noPassword
         self.noElasticIp = noElasticIp
+        self.burstSpec = burstSpec

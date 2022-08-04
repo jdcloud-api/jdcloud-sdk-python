@@ -27,7 +27,7 @@ class Image(object):
 取值范围：`Ubuntu、CentOS、Windows Server、Other Linux、Other Windows`。
 
         :param osVersion: (Optional) 镜像的操作系统版本。
-        :param architecture: (Optional) 镜像架构。取值范围：`x86_64、i386`。
+        :param architecture: (Optional) 镜像架构。取值范围：`x86_64、arm64`。
         :param systemDiskSizeGB: (Optional) 镜像系统盘大小。
         :param imageSource: (Optional) 镜像来源，取值范围：
 `public`：官方镜像。

@@ -43,7 +43,7 @@ class ImportImageParameters(object):
     def __init__(self, regionId,architecture, osType, platform, diskFormat, systemDiskSizeGB, imageUrl, imageName, ):
         """
         :param regionId: 地域ID。
-        :param architecture: 镜像架构。取值范围：`x86_64、i386`。
+        :param architecture: 镜像架构。取值范围：`x86_64、arm64`。
         :param osType: 镜像的操作系统类型。取值范围：`windows、linux`。
         :param platform: 镜像的操作系统平台名称。
 取值范围：`Ubuntu、CentOS、Windows Server、Other Linux、Other Windows`。

@@ -62,6 +62,7 @@ class DescribeInstanceTypesParameters(object):
         :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
 `instanceTypes`: 实例规格，精确匹配，支持多个
 `az`: 可用区，精确匹配，支持多个
+`architecture`: CPU架构，精确匹配，支持单个，可选范围:x86_64或arm64
 
         """
         self.filters = filters

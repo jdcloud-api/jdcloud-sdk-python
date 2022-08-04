@@ -21,8 +21,8 @@ class FileToPath(object):
 
     def __init__(self, key, value, ):
         """
-        :param key:  configFile 键
-        :param value:  configFile 值
+        :param key:  键名称，不能重复，最大长度不超过128（字母、数字、-、_和.）
+        :param value:  内容（base64） 每个value长度上限为32KB，整个data的长度不能超过1M;
         """
 
         self.key = key

@@ -37,8 +37,7 @@ class UpdateConfigFileParameters(object):
         """
         :param regionId: Region ID
         :param name: Name
-        :param data: key 的有效字符包括字母、数字、-、_和.; <br>
-value 每个value长度上限为32KB，整个data的长度不能超过1M; <br>
+        :param data: configFile数据，个数不超过32个
 
         """
 

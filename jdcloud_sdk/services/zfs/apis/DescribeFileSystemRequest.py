@@ -32,7 +32,7 @@ class DescribeFileSystemRequest(JDCloudRequest):
 
 class DescribeFileSystemParameters(object):
 
-    def __init__(self, regionId, fileSystemId, ):
+    def __init__(self,regionId, fileSystemId):
         """
         :param regionId: 地域ID
         :param fileSystemId: 文件系统ID

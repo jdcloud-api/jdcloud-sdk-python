@@ -32,7 +32,7 @@ class DescribeMountTargetRequest(JDCloudRequest):
 
 class DescribeMountTargetParameters(object):
 
-    def __init__(self, regionId, mountTargetId, ):
+    def __init__(self,regionId, mountTargetId):
         """
         :param regionId: 地域ID
         :param mountTargetId: 挂载目标ID

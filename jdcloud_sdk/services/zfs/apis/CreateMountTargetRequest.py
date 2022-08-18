@@ -34,7 +34,7 @@ class CreateMountTargetRequest(JDCloudRequest):
 
 class CreateMountTargetParameters(object):
 
-    def __init__(self, regionId, fileSystemId, subnetId, vpcId, clientToken):
+    def __init__(self,regionId, fileSystemId, subnetId, vpcId, clientToken):
         """
         :param regionId: 地域ID
         :param fileSystemId: 创建挂载目标的文件系统

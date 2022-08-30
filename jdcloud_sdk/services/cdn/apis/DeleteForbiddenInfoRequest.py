@@ -32,7 +32,7 @@ class DeleteForbiddenInfoRequest(JDCloudRequest):
 
 class DeleteForbiddenInfoParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

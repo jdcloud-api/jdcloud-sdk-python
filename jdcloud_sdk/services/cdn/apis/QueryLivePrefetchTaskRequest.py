@@ -32,7 +32,7 @@ class QueryLivePrefetchTaskRequest(JDCloudRequest):
 
 class QueryLivePrefetchTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

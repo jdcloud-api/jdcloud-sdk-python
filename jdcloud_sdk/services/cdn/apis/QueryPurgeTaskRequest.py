@@ -32,7 +32,7 @@ class QueryPurgeTaskRequest(JDCloudRequest):
 
 class QueryPurgeTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

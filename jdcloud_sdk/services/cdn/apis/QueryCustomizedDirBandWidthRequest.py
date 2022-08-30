@@ -32,7 +32,7 @@ class QueryCustomizedDirBandWidthRequest(JDCloudRequest):
 
 class QueryCustomizedDirBandWidthParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

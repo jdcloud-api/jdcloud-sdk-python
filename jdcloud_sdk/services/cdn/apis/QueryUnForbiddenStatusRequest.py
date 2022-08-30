@@ -32,7 +32,7 @@ class QueryUnForbiddenStatusRequest(JDCloudRequest):
 
 class QueryUnForbiddenStatusParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

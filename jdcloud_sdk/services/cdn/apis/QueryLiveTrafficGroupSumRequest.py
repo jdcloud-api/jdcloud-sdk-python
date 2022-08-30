@@ -32,7 +32,7 @@ class QueryLiveTrafficGroupSumRequest(JDCloudRequest):
 
 class QueryLiveTrafficGroupSumParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

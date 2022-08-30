@@ -32,7 +32,7 @@ class UploadCertRequest(JDCloudRequest):
 
 class UploadCertParameters(object):
 
-    def __init__(self, certName, keyFile, certFile, ):
+    def __init__(self,certName, keyFile, certFile, ):
         """
         :param certName: 证书名称
         :param keyFile: 私钥

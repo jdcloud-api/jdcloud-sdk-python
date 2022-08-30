@@ -32,7 +32,7 @@ class CreateDomainGroupRequest(JDCloudRequest):
 
 class CreateDomainGroupParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

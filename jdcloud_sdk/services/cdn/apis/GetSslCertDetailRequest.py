@@ -32,7 +32,7 @@ class GetSslCertDetailRequest(JDCloudRequest):
 
 class GetSslCertDetailParameters(object):
 
-    def __init__(self, sslCertId,):
+    def __init__(self,sslCertId):
         """
         :param sslCertId: 证书 Id
         """

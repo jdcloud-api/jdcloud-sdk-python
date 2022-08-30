@@ -32,7 +32,7 @@ class GetDomainListRequest(JDCloudRequest):
 
 class GetDomainListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

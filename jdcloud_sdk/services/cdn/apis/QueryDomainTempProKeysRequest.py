@@ -32,7 +32,7 @@ class QueryDomainTempProKeysRequest(JDCloudRequest):
 
 class QueryDomainTempProKeysParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryRefreshLimitRequest(JDCloudRequest):
 
 class QueryRefreshLimitParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class CreateWafBlackRuleRequest(JDCloudRequest):
 
 class CreateWafBlackRuleParameters(object):
 
-    def __init__(self, domain,):
+    def __init__(self,domain, ):
         """
         :param domain: 用户域名
         """

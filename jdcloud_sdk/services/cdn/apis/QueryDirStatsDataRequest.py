@@ -32,7 +32,7 @@ class QueryDirStatsDataRequest(JDCloudRequest):
 
 class QueryDirStatsDataParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

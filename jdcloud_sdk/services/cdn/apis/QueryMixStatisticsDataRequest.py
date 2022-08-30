@@ -32,7 +32,7 @@ class QueryMixStatisticsDataRequest(JDCloudRequest):
 
 class QueryMixStatisticsDataParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
@@ -45,6 +45,7 @@ class QueryMixStatisticsDataParameters(object):
         self.period = None
         self.scheme = None
         self.cacheType = None
+        self.ipType = None
 
     def setStartTime(self, startTime):
         """
@@ -99,4 +100,10 @@ class QueryMixStatisticsDataParameters(object):
         :param cacheType: (Optional) 查询节点层级，可选值:[all,edge,mid],默认查询all,edge边缘 mid中间
         """
         self.cacheType = cacheType
+
+    def setIpType(self, ipType):
+        """
+        :param ipType: (Optional) 查询IP类型，可选值:[,ipv4,ipv6],默认查询all
+        """
+        self.ipType = ipType
 

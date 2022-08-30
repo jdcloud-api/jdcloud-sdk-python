@@ -32,7 +32,7 @@ class QueryRefreshTaskByIdRequest(JDCloudRequest):
 
 class QueryRefreshTaskByIdParameters(object):
 
-    def __init__(self, taskId,):
+    def __init__(self,taskId):
         """
         :param taskId: 域名组id
         """

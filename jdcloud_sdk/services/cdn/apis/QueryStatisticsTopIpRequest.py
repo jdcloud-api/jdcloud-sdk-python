@@ -32,7 +32,7 @@ class QueryStatisticsTopIpRequest(JDCloudRequest):
 
 class QueryStatisticsTopIpParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryWafRegionsRequest(JDCloudRequest):
 
 class QueryWafRegionsParameters(object):
 
-    def __init__(self, skipType):
+    def __init__(self,skipType):
         """
         :param skipType: skipType, valid values [skip, deny]
         """

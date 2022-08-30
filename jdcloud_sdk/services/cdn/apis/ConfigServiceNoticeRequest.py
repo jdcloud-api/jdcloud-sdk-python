@@ -32,7 +32,7 @@ class ConfigServiceNoticeRequest(JDCloudRequest):
 
 class ConfigServiceNoticeParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

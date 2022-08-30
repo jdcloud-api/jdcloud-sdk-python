@@ -32,7 +32,7 @@ class WafQueryPvRequest(JDCloudRequest):
 
 class WafQueryPvParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

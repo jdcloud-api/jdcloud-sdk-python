@@ -32,7 +32,7 @@ class SetNetProtectionRulesSwitchRequest(JDCloudRequest):
 
 class SetNetProtectionRulesSwitchParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

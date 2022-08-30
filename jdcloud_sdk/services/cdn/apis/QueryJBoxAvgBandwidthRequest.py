@@ -32,7 +32,7 @@ class QueryJBoxAvgBandwidthRequest(JDCloudRequest):
 
 class QueryJBoxAvgBandwidthParameters(object):
 
-    def __init__(self, starttime, stoptime, pluginPin, ):
+    def __init__(self,starttime, stoptime, pluginPin, ):
         """
         :param starttime: 指定查询开始时间(格式:201906011000)，返回数据包含该时间点。
         :param stoptime: 指定查询结束时间(格式:201906011100)，返回数据不包含该时间点

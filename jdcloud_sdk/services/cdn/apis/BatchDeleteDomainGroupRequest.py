@@ -32,7 +32,7 @@ class BatchDeleteDomainGroupRequest(JDCloudRequest):
 
 class BatchDeleteDomainGroupParameters(object):
 
-    def __init__(self, ids):
+    def __init__(self,ids):
         """
         :param ids: 
         """

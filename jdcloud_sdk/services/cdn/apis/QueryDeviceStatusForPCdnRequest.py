@@ -32,7 +32,7 @@ class QueryDeviceStatusForPCdnRequest(JDCloudRequest):
 
 class QueryDeviceStatusForPCdnParameters(object):
 
-    def __init__(self, macAddr):
+    def __init__(self,macAddr):
         """
         :param macAddr: 查询dev的mac地址（如DCD87C047117）
         """

@@ -32,7 +32,7 @@ class SearchAttackLogRequest(JDCloudRequest):
 
 class SearchAttackLogParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

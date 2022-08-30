@@ -32,7 +32,7 @@ class QueryNetProtectionRulesRequest(JDCloudRequest):
 
 class QueryNetProtectionRulesParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

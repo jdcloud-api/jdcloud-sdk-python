@@ -32,7 +32,7 @@ class QueryDomainsLogRequest(JDCloudRequest):
 
 class QueryDomainsLogParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

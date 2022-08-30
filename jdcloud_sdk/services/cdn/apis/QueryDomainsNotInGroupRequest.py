@@ -32,7 +32,7 @@ class QueryDomainsNotInGroupRequest(JDCloudRequest):
 
 class QueryDomainsNotInGroupParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

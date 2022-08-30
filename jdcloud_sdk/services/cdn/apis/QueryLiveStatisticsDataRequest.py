@@ -32,7 +32,7 @@ class QueryLiveStatisticsDataRequest(JDCloudRequest):
 
 class QueryLiveStatisticsDataParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

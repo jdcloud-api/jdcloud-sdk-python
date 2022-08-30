@@ -32,7 +32,7 @@ class DeleteCCProtectRuleRequest(JDCloudRequest):
 
 class DeleteCCProtectRuleParameters(object):
 
-    def __init__(self, domain,ids,):
+    def __init__(self,domain, ids):
         """
         :param domain: 用户域名
         :param ids: 

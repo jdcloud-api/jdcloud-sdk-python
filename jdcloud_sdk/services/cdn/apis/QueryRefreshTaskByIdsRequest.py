@@ -32,7 +32,7 @@ class QueryRefreshTaskByIdsRequest(JDCloudRequest):
 
 class QueryRefreshTaskByIdsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

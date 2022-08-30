@@ -32,7 +32,7 @@ class QueryAreaIspListRequest(JDCloudRequest):
 
 class QueryAreaIspListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

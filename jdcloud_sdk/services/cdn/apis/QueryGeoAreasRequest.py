@@ -32,7 +32,7 @@ class QueryGeoAreasRequest(JDCloudRequest):
 
 class QueryGeoAreasParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

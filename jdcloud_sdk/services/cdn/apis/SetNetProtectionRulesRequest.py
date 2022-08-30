@@ -32,7 +32,7 @@ class SetNetProtectionRulesRequest(JDCloudRequest):
 
 class SetNetProtectionRulesParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

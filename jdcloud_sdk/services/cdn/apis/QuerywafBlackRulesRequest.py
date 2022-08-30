@@ -32,7 +32,7 @@ class QuerywafBlackRulesRequest(JDCloudRequest):
 
 class QuerywafBlackRulesParameters(object):
 
-    def __init__(self, domain,ruleType, ):
+    def __init__(self,domain, ruleType, ):
         """
         :param domain: 用户域名
         :param ruleType: ruleType, valid values [ip, geo, uri]

@@ -19,44 +19,49 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteHttpHeaderRequest(JDCloudRequest):
+class BatchIpBlackListRequest(JDCloudRequest):
     """
-    删除httpHeader
+    批量添加域名ip黑名单
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteHttpHeaderRequest, self).__init__(
-            '/domain/{domain}/httpHeader', 'PUT', header, version)
+        super(BatchIpBlackListRequest, self).__init__(
+            '/batchIpBlackList', 'POST', header, version)
         self.parameters = parameters
 
 
-class DeleteHttpHeaderParameters(object):
+class BatchIpBlackListParameters(object):
 
-    def __init__(self,domain, ):
+    def __init__(self,):
         """
-        :param domain: 用户域名
         """
 
-        self.domain = domain
-        self.edgeType = None
-        self.headerType = None
-        self.headerName = None
+        self.domains = None
+        self.ipList = None
+        self.forbidTime = None
+        self.action = None
 
-    def setEdgeType(self, edgeType):
+    def setDomains(self, domains):
         """
-        :param edgeType: (Optional) 0表示header在边缘生效，1表示header回源生效，2表示在边缘和回源都生效，该字段不传时默认header在边缘和回源都生效
+        :param domains: (Optional) 域名列表。最多30个
         """
-        self.edgeType = edgeType
+        self.domains = domains
 
-    def setHeaderType(self, headerType):
+    def setIpList(self, ipList):
         """
-        :param headerType: (Optional) header类型[resp,req]
+        :param ipList: (Optional) ip列表。最多50个
         """
-        self.headerType = headerType
+        self.ipList = ipList
 
-    def setHeaderName(self, headerName):
+    def setForbidTime(self, forbidTime):
         """
-        :param headerName: (Optional) header名
+        :param forbidTime: (Optional) 封禁时长，单位分钟。默认1440
         """
-        self.headerName = headerName
+        self.forbidTime = forbidTime
+
+    def setAction(self, action):
+        """
+        :param action: (Optional) forbid or resume.代表封禁和解封。
+        """
+        self.action = action
 

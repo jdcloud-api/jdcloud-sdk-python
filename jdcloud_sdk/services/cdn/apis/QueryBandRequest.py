@@ -32,7 +32,7 @@ class QueryBandRequest(JDCloudRequest):
 
 class QueryBandParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

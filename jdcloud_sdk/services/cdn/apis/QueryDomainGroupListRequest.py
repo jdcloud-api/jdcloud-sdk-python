@@ -32,7 +32,7 @@ class QueryDomainGroupListRequest(JDCloudRequest):
 
 class QueryDomainGroupListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

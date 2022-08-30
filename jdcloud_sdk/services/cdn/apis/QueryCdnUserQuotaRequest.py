@@ -32,7 +32,7 @@ class QueryCdnUserQuotaRequest(JDCloudRequest):
 
 class QueryCdnUserQuotaParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class UpdateWafWhiteRuleRequest(JDCloudRequest):
 
 class UpdateWafWhiteRuleParameters(object):
 
-    def __init__(self, domain,id,):
+    def __init__(self,domain, id, ):
         """
         :param domain: 用户域名
         :param id: 需要修改的白名单ID

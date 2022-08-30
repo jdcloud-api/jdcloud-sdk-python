@@ -32,7 +32,7 @@ class SetOnlineBillingTypeRequest(JDCloudRequest):
 
 class SetOnlineBillingTypeParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

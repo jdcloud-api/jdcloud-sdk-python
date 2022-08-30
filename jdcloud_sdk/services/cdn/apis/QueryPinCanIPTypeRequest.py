@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryDefaultHttpHeaderKeyRequest(JDCloudRequest):
+class QueryPinCanIPTypeRequest(JDCloudRequest):
     """
-    查询默认http header头部参数列表
+    null
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryDefaultHttpHeaderKeyRequest, self).__init__(
-            '/defaultHttpHeaderKey', 'GET', header, version)
+        super(QueryPinCanIPTypeRequest, self).__init__(
+            '/mix:queryPinCanIPType', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryDefaultHttpHeaderKeyParameters(object):
+class QueryPinCanIPTypeParameters(object):
 
     def __init__(self,):
         """

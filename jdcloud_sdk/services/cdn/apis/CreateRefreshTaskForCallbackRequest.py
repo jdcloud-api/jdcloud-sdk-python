@@ -32,7 +32,7 @@ class CreateRefreshTaskForCallbackRequest(JDCloudRequest):
 
 class CreateRefreshTaskForCallbackParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

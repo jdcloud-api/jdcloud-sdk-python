@@ -32,7 +32,7 @@ class QueryDomainGroupDetailRequest(JDCloudRequest):
 
 class QueryDomainGroupDetailParameters(object):
 
-    def __init__(self, id,):
+    def __init__(self,id):
         """
         :param id: 域名组id
         """

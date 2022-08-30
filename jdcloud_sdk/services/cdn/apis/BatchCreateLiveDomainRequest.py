@@ -32,7 +32,7 @@ class BatchCreateLiveDomainRequest(JDCloudRequest):
 
 class BatchCreateLiveDomainParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryForbiddenInfoListRequest(JDCloudRequest):
 
 class QueryForbiddenInfoListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryAttackTypeCountRequest(JDCloudRequest):
 
 class QueryAttackTypeCountParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

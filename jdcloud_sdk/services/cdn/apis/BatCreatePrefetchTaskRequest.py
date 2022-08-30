@@ -32,7 +32,7 @@ class BatCreatePrefetchTaskRequest(JDCloudRequest):
 
 class BatCreatePrefetchTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

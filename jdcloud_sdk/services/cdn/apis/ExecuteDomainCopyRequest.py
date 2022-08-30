@@ -32,7 +32,7 @@ class ExecuteDomainCopyRequest(JDCloudRequest):
 
 class ExecuteDomainCopyParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

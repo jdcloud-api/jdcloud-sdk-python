@@ -32,7 +32,7 @@ class BatchCreateRequest(JDCloudRequest):
 
 class BatchCreateParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

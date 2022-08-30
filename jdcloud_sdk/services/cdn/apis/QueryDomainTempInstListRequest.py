@@ -32,7 +32,7 @@ class QueryDomainTempInstListRequest(JDCloudRequest):
 
 class QueryDomainTempInstListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryJDBoxStatisticsDataWithGroupRequest(JDCloudRequest):
 
 class QueryJDBoxStatisticsDataWithGroupParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

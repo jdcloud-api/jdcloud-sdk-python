@@ -32,7 +32,7 @@ class CheckWhetherIpBelongToJCloudRequest(JDCloudRequest):
 
 class CheckWhetherIpBelongToJCloudParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

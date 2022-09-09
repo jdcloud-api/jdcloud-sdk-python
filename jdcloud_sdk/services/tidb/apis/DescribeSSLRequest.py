@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupPolicyRequest(JDCloudRequest):
+class DescribeSSLRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    查询TiDB实例的ssl状态
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupPolicyRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
+        super(DescribeSSLRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/ssl', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupPolicyParameters(object):
+class DescribeSSLParameters(object):
 
     def __init__(self,regionId, instanceId):
         """

@@ -32,7 +32,7 @@ class CreateAccountRequest(JDCloudRequest):
 
 class CreateAccountParameters(object):
 
-    def __init__(self, regionId,instanceId,accountName, accountPassword):
+    def __init__(self,regionId, instanceId, accountName, accountPassword):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

@@ -19,25 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupPolicyRequest(JDCloudRequest):
+class DisableInternetAccessRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    关闭TiDB服务的公网访问域名
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupPolicyRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
+        super(DisableInternetAccessRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:disableInternetAccess', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupPolicyParameters(object):
+class DisableInternetAccessParameters(object):
 
-    def __init__(self,regionId, instanceId):
+    def __init__(self,regionId, instanceId, serviceType):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
+        :param serviceType: 按照service type (database pd monitor)关闭公网域名
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.serviceType = serviceType
 

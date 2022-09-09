@@ -32,7 +32,7 @@ class CreateInstanceFromBackupRequest(JDCloudRequest):
 
 class CreateInstanceFromBackupParameters(object):
 
-    def __init__(self, regionId,backupId, instanceSpec):
+    def __init__(self,regionId, backupId, instanceSpec):
         """
         :param regionId: 地域代码
         :param backupId: 要恢复的备份的ID

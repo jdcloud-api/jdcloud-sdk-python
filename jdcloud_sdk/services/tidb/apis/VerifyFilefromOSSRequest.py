@@ -32,7 +32,7 @@ class VerifyFilefromOSSRequest(JDCloudRequest):
 
 class VerifyFilefromOSSParameters(object):
 
-    def __init__(self, regionId,instanceId,ossLink):
+    def __init__(self,regionId, instanceId, ossLink):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

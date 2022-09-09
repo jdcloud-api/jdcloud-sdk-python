@@ -19,25 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupPolicyRequest(JDCloudRequest):
+class StopReplicationRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    暂停复制任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupPolicyRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
+        super(StopReplicationRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/replications/{taskId}:stopReplication', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupPolicyParameters(object):
+class StopReplicationParameters(object):
 
-    def __init__(self,regionId, instanceId):
+    def __init__(self,regionId, instanceId, taskId):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
+        :param taskId: 复制任务ID
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.taskId = taskId
 

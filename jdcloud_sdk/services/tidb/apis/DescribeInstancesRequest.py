@@ -32,7 +32,7 @@ class DescribeInstancesRequest(JDCloudRequest):
 
 class DescribeInstancesParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码
         """
@@ -42,6 +42,7 @@ class DescribeInstancesParameters(object):
         self.pageSize = None
         self.filters = None
         self.tagFilters = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -71,4 +72,10 @@ instanceStatus, 支持operator选项：eq,ne
         :param tagFilters: (Optional) 资源标签
         """
         self.tagFilters = tagFilters
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组id
+        """
+        self.resourceGroupIds = resourceGroupIds
 

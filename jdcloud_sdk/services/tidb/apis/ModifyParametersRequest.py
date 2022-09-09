@@ -32,7 +32,7 @@ class ModifyParametersRequest(JDCloudRequest):
 
 class ModifyParametersParameters(object):
 
-    def __init__(self, regionId,instanceId,parameters):
+    def __init__(self,regionId, instanceId, parameters):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

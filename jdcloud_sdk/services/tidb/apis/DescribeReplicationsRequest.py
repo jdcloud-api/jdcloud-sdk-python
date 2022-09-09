@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupPolicyRequest(JDCloudRequest):
+class DescribeReplicationsRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    查看TiCDC复制任务列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupPolicyRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
+        super(DescribeReplicationsRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/replications', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupPolicyParameters(object):
+class DescribeReplicationsParameters(object):
 
     def __init__(self,regionId, instanceId):
         """

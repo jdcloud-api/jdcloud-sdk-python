@@ -32,7 +32,7 @@ class ModifyWhiteListRequest(JDCloudRequest):
 
 class ModifyWhiteListParameters(object):
 
-    def __init__(self, regionId,instanceId,ips, name):
+    def __init__(self,regionId, instanceId, ips, name):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

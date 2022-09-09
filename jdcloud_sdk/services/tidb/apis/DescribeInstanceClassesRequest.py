@@ -32,7 +32,7 @@ class DescribeInstanceClassesRequest(JDCloudRequest):
 
 class DescribeInstanceClassesParameters(object):
 
-    def __init__(self, regionId,storageType):
+    def __init__(self,regionId, storageType):
         """
         :param regionId: 地域代码
         :param storageType: 存储类型,目前只支持本地SSD;

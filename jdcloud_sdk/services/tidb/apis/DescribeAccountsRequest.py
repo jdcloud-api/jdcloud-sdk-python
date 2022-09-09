@@ -32,7 +32,7 @@ class DescribeAccountsRequest(JDCloudRequest):
 
 class DescribeAccountsParameters(object):
 
-    def __init__(self, regionId,instanceId,):
+    def __init__(self,regionId, instanceId):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

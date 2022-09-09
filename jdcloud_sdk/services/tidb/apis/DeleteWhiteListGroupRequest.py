@@ -32,7 +32,7 @@ class DeleteWhiteListGroupRequest(JDCloudRequest):
 
 class DeleteWhiteListGroupParameters(object):
 
-    def __init__(self, regionId,instanceId,name):
+    def __init__(self,regionId, instanceId, name):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

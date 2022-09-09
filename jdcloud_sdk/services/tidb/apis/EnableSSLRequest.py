@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeBackupPolicyRequest(JDCloudRequest):
+class EnableSSLRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    开启TiDB和MySQL客户端之间的SSL功能
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeBackupPolicyRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:describeBackupPolicy', 'GET', header, version)
+        super(EnableSSLRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/ssl:enableSSL', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeBackupPolicyParameters(object):
+class EnableSSLParameters(object):
 
     def __init__(self,regionId, instanceId):
         """

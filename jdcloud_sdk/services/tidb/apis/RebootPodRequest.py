@@ -32,7 +32,7 @@ class RebootPodRequest(JDCloudRequest):
 
 class RebootPodParameters(object):
 
-    def __init__(self, regionId,instanceId,nodeType):
+    def __init__(self,regionId, instanceId, nodeType):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

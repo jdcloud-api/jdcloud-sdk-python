@@ -19,23 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAvailableZonesRequest(JDCloudRequest):
+class ResumeReplicationRequest(JDCloudRequest):
     """
-    获取可用区
+    启动复制任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAvailableZonesRequest, self).__init__(
-            '/regions/{regionId}/azs', 'GET', header, version)
+        super(ResumeReplicationRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/replications/{taskId}:resumeReplication', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeAvailableZonesParameters(object):
+class ResumeReplicationParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, instanceId, taskId):
         """
         :param regionId: 地域代码
+        :param instanceId: 实例ID
+        :param taskId: 复制任务ID
         """
 
         self.regionId = regionId
+        self.instanceId = instanceId
+        self.taskId = taskId
 

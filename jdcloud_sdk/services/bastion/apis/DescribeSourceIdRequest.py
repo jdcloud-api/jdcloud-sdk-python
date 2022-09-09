@@ -19,23 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DownloadExportFileRequest(JDCloudRequest):
+class DescribeSourceIdRequest(JDCloudRequest):
     """
-    表结构数据导出文件下载
+    查询一个堡垒机的信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DownloadExportFileRequest, self).__init__(
-            '/console:downloadExportFile', 'GET', header, version)
+        super(DescribeSourceIdRequest, self).__init__(
+            '/regions/{regionId}/order/{sourceId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DownloadExportFileParameters(object):
+class DescribeSourceIdParameters(object):
 
-    def __init__(self, exportId):
+    def __init__(self,regionId, sourceId):
         """
-        :param exportId: 文件下载id
+        :param regionId: 地域ID
+        :param sourceId: sourceid
         """
 
-        self.exportId = exportId
+        self.regionId = regionId
+        self.sourceId = sourceId
 

@@ -32,7 +32,7 @@ class DeleteBackupRequest(JDCloudRequest):
 
 class DeleteBackupParameters(object):
 
-    def __init__(self, regionId,backupId,):
+    def __init__(self,regionId, backupId):
         """
         :param regionId: 地域代码
         :param backupId: 备份ID

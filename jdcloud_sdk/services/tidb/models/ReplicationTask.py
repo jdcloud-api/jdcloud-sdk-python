@@ -19,10 +19,11 @@
 
 class ReplicationTask(object):
 
-    def __init__(self, taskId=None, targetType=None, targetIP=None, targetPort=None, targetUser=None, kafkaTopic=None, kafkaVersion=None, targetComment=None, taskStatus=None, startTime=None, checkpointTime=None, createTime=None):
+    def __init__(self, taskId=None, targetType=None, replicationObjects=None, targetIP=None, targetPort=None, targetUser=None, kafkaTopic=None, kafkaVersion=None, targetComment=None, taskStatus=None, startTime=None, checkpointTime=None, createTime=None):
         """
         :param taskId: (Optional) 复制任务ID
         :param targetType: (Optional) 目标实例类型
+        :param replicationObjects: (Optional) 复制的对象，格式为"库名.表名”，支持?* 通配符，例如 db1.* 、 db2.tab? ，*.* 表示复制整个实例
         :param targetIP: (Optional) 目标实例IP
         :param targetPort: (Optional) 目标实例端口
         :param targetUser: (Optional) 目标类型为TiDB或MySQL时，连接目标实例的用户名
@@ -37,6 +38,7 @@ class ReplicationTask(object):
 
         self.taskId = taskId
         self.targetType = targetType
+        self.replicationObjects = replicationObjects
         self.targetIP = targetIP
         self.targetPort = targetPort
         self.targetUser = targetUser

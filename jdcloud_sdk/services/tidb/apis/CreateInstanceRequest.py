@@ -32,7 +32,7 @@ class CreateInstanceRequest(JDCloudRequest):
 
 class CreateInstanceParameters(object):
 
-    def __init__(self, regionId,instanceSpec):
+    def __init__(self,regionId, instanceSpec):
         """
         :param regionId: 地域代码
         :param instanceSpec: 新建实例规格

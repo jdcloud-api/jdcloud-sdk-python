@@ -32,7 +32,7 @@ class LoginRequest(JDCloudRequest):
 
 class LoginParameters(object):
 
-    def __init__(self, regionId,instanceId,):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: rds，drds的实例id。
@@ -47,7 +47,7 @@ class LoginParameters(object):
 
     def setDbType(self, dbType):
         """
-        :param dbType: (Optional) 数据源源类型，CDS("CDS", 1), MYSQL("MYSQL", 2), ORACLE("ORACLE", 3), SQLSERVER("SQLSERVER", 4), CDSMYSQL("CDSMYSQL", 5), CDSORACLE("CDSORACLE", 6), CDSSQLSERVER("CDSSQLSERVER", 7), DATACENTER("DATACENTER", 8), HBASE("Hbase",9),MONGODB("MongoDb",10),ES("ES",11), MYSQL_INS("MYSQL_INS",12), DRDS_INS("DRDS_INS",13)。
+        :param dbType: (Optional) 数据源类型，CDS("CDS", 1), MYSQL("MYSQL", 2), ORACLE("ORACLE", 3), SQLSERVER("SQLSERVER", 4), CDSMYSQL("CDSMYSQL", 5), CDSORACLE("CDSORACLE", 6), CDSSQLSERVER("CDSSQLSERVER", 7), DATACENTER("DATACENTER", 8), HBASE("Hbase",9),MONGODB("MongoDb",10),ES("ES",11), MYSQL_INS("MYSQL_INS",12), DRDS_INS("DRDS_INS",13), STARDB_INS("STARDB_INS",14), STARDB_PROXY_INS("STARDB_PROXY_INS",15), CLICK_HOUSE_INS("CLICK_HOUSE_INS",16), TIDB_INS("TIDB_INS",17);
         """
         self.dbType = dbType
 

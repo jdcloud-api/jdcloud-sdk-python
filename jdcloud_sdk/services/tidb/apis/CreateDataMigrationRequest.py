@@ -32,7 +32,7 @@ class CreateDataMigrationRequest(JDCloudRequest):
 
 class CreateDataMigrationParameters(object):
 
-    def __init__(self, regionId,instanceId,migrationType, importTask):
+    def __init__(self,regionId, instanceId, migrationType, importTask):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID

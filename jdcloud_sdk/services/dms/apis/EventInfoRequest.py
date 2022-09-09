@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExportStructRequest(JDCloudRequest):
+class EventInfoRequest(JDCloudRequest):
     """
-    表结构导出
+    获取事件详情，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExportStructRequest, self).__init__(
-            '/regions/{regionId}/console:exportStruct', 'POST', header, version)
+        super(EventInfoRequest, self).__init__(
+            '/regions/{regionId}/event:info', 'POST', header, version)
         self.parameters = parameters
 
 
-class ExportStructParameters(object):
+class EventInfoParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
@@ -40,8 +40,7 @@ class ExportStructParameters(object):
         self.regionId = regionId
         self.dataSourceId = None
         self.dbName = None
-        self.tableName = None
-        self.charset = None
+        self.eventName = None
 
     def setDataSourceId(self, dataSourceId):
         """
@@ -51,19 +50,13 @@ class ExportStructParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setTableName(self, tableName):
+    def setEventName(self, eventName):
         """
-        :param tableName: (Optional) 导出表名，为空时导出库中所有表
+        :param eventName: (Optional) 事件名称。
         """
-        self.tableName = tableName
-
-    def setCharset(self, charset):
-        """
-        :param charset: (Optional) 导出文件字符编码
-        """
-        self.charset = charset
+        self.eventName = eventName
 

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GeneralDropViewRequest(JDCloudRequest):
     """
-    生成删除视图sql语句
+    生成删除视图sql语句，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class GeneralDropViewRequest(JDCloudRequest):
 
 class GeneralDropViewParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """

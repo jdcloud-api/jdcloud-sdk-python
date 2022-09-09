@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ImportDdlDmlRequest(JDCloudRequest):
+class FunctionListRequest(JDCloudRequest):
     """
-    sql导入
+    获取函数列表，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ImportDdlDmlRequest, self).__init__(
-            '/regions/{regionId}/console:import', 'POST', header, version)
+        super(FunctionListRequest, self).__init__(
+            '/regions/{regionId}/function:list', 'POST', header, version)
         self.parameters = parameters
 
 
-class ImportDdlDmlParameters(object):
+class FunctionListParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
@@ -40,9 +40,7 @@ class ImportDdlDmlParameters(object):
         self.regionId = regionId
         self.dataSourceId = None
         self.dbName = None
-        self.charset = None
-        self.sqls = None
-        self.sqlConsoleTypeEnum = None
+        self.filter = None
 
     def setDataSourceId(self, dataSourceId):
         """
@@ -52,25 +50,13 @@ class ImportDdlDmlParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setCharset(self, charset):
+    def setFilter(self, filter):
         """
-        :param charset: (Optional) 上传文件编码
+        :param filter: (Optional) 过滤条件。
         """
-        self.charset = charset
-
-    def setSqls(self, sqls):
-        """
-        :param sqls: (Optional) sql语句
-        """
-        self.sqls = sqls
-
-    def setSqlConsoleTypeEnum(self, sqlConsoleTypeEnum):
-        """
-        :param sqlConsoleTypeEnum: (Optional) sql类型, CREATE("CREATE", 0), ALTER_DATA("ALTER_DATA", 1), ALTER_STRUCT("ALTER_STRUCT", 2), DROP("DROP", 4), CONSOLE("CONSOLE", 5), BATCH_CREATE("BATCH_CREATE", 6), IMPORT_DATA("IMPORT_DATA", 7), EXPORT_STRUCT_DATA("EXPORT_STRUCT_DATA", 8);
-        """
-        self.sqlConsoleTypeEnum = sqlConsoleTypeEnum
+        self.filter = filter
 

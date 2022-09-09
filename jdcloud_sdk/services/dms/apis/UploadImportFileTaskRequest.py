@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UploadImportFileTaskRequest(JDCloudRequest):
     """
-    上传文件
+    上传文件，支持Stardb，只支持前端页面使用
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class UploadImportFileTaskRequest(JDCloudRequest):
 
 class UploadImportFileTaskParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """

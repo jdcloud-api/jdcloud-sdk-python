@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DatabaseListRequest(JDCloudRequest):
     """
-    获取数据库实例的库列表
+    获取数据库实例的库列表，支持Mysql，Stardb，Tidb，ClickHouse
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DatabaseListRequest(JDCloudRequest):
 
 class DatabaseListParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """

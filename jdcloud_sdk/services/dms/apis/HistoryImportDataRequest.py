@@ -32,7 +32,7 @@ class HistoryImportDataRequest(JDCloudRequest):
 
 class HistoryImportDataParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """

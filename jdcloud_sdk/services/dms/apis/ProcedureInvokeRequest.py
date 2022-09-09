@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class OpenTableRequest(JDCloudRequest):
+class ProcedureInvokeRequest(JDCloudRequest):
     """
-    执行sql语句
+    执行存储过程，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(OpenTableRequest, self).__init__(
-            '/regions/{regionId}/console:openTable', 'POST', header, version)
+        super(ProcedureInvokeRequest, self).__init__(
+            '/regions/{regionId}/procedure:invoke', 'POST', header, version)
         self.parameters = parameters
 
 
-class OpenTableParameters(object):
+class ProcedureInvokeParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
@@ -40,9 +40,8 @@ class OpenTableParameters(object):
         self.regionId = regionId
         self.dataSourceId = None
         self.dbName = None
-        self.tableName = None
-        self.pageNumber = None
-        self.pageSize = None
+        self.procedureName = None
+        self.parameters = None
 
     def setDataSourceId(self, dataSourceId):
         """
@@ -52,25 +51,19 @@ class OpenTableParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setTableName(self, tableName):
+    def setProcedureName(self, procedureName):
         """
-        :param tableName: (Optional) sql语句。
+        :param procedureName: (Optional) 存储过程名称。
         """
-        self.tableName = tableName
+        self.procedureName = procedureName
 
-    def setPageNumber(self, pageNumber):
+    def setParameters(self, parameters):
         """
-        :param pageNumber: (Optional) 显示数据的页码，取值范围：[1,∞)。
+        :param parameters: (Optional) 参数。
         """
-        self.pageNumber = pageNumber
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页显示的数据条数，用于查询列表的接口。
-        """
-        self.pageSize = pageSize
+        self.parameters = parameters
 

@@ -19,23 +19,44 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetDmsDomainRequest(JDCloudRequest):
+class GeneralDropProcedureRequest(JDCloudRequest):
     """
-    获取Dms域名，仅供前端使用
+    生成删除存储过程sql语句，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetDmsDomainRequest, self).__init__(
-            '/regions/{regionId}/getDmsDomain', 'GET', header, version)
+        super(GeneralDropProcedureRequest, self).__init__(
+            '/regions/{regionId}/procedure:generalDrop', 'POST', header, version)
         self.parameters = parameters
 
 
-class GetDmsDomainParameters(object):
+class GeneralDropProcedureParameters(object):
 
-    def __init__(self,regionId):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
+        self.dataSourceId = None
+        self.dbName = None
+        self.procedureName = None
+
+    def setDataSourceId(self, dataSourceId):
+        """
+        :param dataSourceId: (Optional) 数据源id
+        """
+        self.dataSourceId = dataSourceId
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 数据库名称。
+        """
+        self.dbName = dbName
+
+    def setProcedureName(self, procedureName):
+        """
+        :param procedureName: (Optional) 存储过程名称。
+        """
+        self.procedureName = procedureName
 

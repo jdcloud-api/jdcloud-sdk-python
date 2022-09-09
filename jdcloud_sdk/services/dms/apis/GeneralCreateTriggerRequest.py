@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GeneralCreateTableSqlRequest(JDCloudRequest):
+class GeneralCreateTriggerRequest(JDCloudRequest):
     """
-    生成建表语句sql，支持Mysql，Stardb
+    生成创建触发器SQL语句，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GeneralCreateTableSqlRequest, self).__init__(
-            '/regions/{regionId}/createSql:general', 'POST', header, version)
+        super(GeneralCreateTriggerRequest, self).__init__(
+            '/regions/{regionId}/trigger:generalCreate', 'POST', header, version)
         self.parameters = parameters
 
 
-class GeneralCreateTableSqlParameters(object):
+class GeneralCreateTriggerParameters(object):
 
     def __init__(self,regionId, ):
         """
@@ -40,51 +40,51 @@ class GeneralCreateTableSqlParameters(object):
         self.regionId = regionId
         self.dataSourceId = None
         self.dbName = None
-        self.tableName = None
-        self.metaTableInfo = None
-        self.columnInfos = None
-        self.indexInfos = None
-        self.extraTableInfo = None
+        self.triggerName = None
+        self.triggerTiming = None
+        self.triggerEvent = None
+        self.triggerTable = None
+        self.triggerStatement = None
 
     def setDataSourceId(self, dataSourceId):
         """
-        :param dataSourceId: (Optional) 数据源id
+        :param dataSourceId: (Optional) 数据源id。
         """
         self.dataSourceId = dataSourceId
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setTableName(self, tableName):
+    def setTriggerName(self, triggerName):
         """
-        :param tableName: (Optional) 表名
+        :param triggerName: (Optional) 触发器名称。
         """
-        self.tableName = tableName
+        self.triggerName = triggerName
 
-    def setMetaTableInfo(self, metaTableInfo):
+    def setTriggerTiming(self, triggerTiming):
         """
-        :param metaTableInfo: (Optional) 表元信息。
+        :param triggerTiming: (Optional) 触发时机，BEFORE("BEFORE", 1),AFTER("AFTER", 2)。
         """
-        self.metaTableInfo = metaTableInfo
+        self.triggerTiming = triggerTiming
 
-    def setColumnInfos(self, columnInfos):
+    def setTriggerEvent(self, triggerEvent):
         """
-        :param columnInfos: (Optional) 列信息。
+        :param triggerEvent: (Optional) 激活触发器的事件，INSERT("INSERT", 1),UPDATE("UPDATE", 2), DELETE("DELETE", 3)。
         """
-        self.columnInfos = columnInfos
+        self.triggerEvent = triggerEvent
 
-    def setIndexInfos(self, indexInfos):
+    def setTriggerTable(self, triggerTable):
         """
-        :param indexInfos: (Optional) 索引信息。
+        :param triggerTable: (Optional) 触发表。
         """
-        self.indexInfos = indexInfos
+        self.triggerTable = triggerTable
 
-    def setExtraTableInfo(self, extraTableInfo):
+    def setTriggerStatement(self, triggerStatement):
         """
-        :param extraTableInfo: (Optional) 分表信息，stardb数据源中使用。
+        :param triggerStatement: (Optional) 触发器定义。
         """
-        self.extraTableInfo = extraTableInfo
+        self.triggerStatement = triggerStatement
 

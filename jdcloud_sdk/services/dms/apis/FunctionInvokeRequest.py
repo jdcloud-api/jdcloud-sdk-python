@@ -19,72 +19,51 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExportDataRequest(JDCloudRequest):
+class FunctionInvokeRequest(JDCloudRequest):
     """
-    数据导出
+    调用函数，支持Mysql
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExportDataRequest, self).__init__(
-            '/regions/{regionId}/console:exportData', 'POST', header, version)
+        super(FunctionInvokeRequest, self).__init__(
+            '/regions/{regionId}/function:invoke', 'POST', header, version)
         self.parameters = parameters
 
 
-class ExportDataParameters(object):
+class FunctionInvokeParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
         self.dataSourceId = None
-        self.sql = None
         self.dbName = None
-        self.count = None
-        self.charset = None
-        self.exportTypeEnum = None
-        self.exportFileTypeEnum = None
+        self.functionName = None
+        self.parameters = None
 
     def setDataSourceId(self, dataSourceId):
         """
-        :param dataSourceId: (Optional) 数据源id;
+        :param dataSourceId: (Optional) 数据源id
         """
         self.dataSourceId = dataSourceId
 
-    def setSql(self, sql):
-        """
-        :param sql: (Optional) 导出数据的查询sql;
-        """
-        self.sql = sql
-
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setCount(self, count):
+    def setFunctionName(self, functionName):
         """
-        :param count: (Optional) 导出数量
+        :param functionName: (Optional) 函数名称。
         """
-        self.count = count
+        self.functionName = functionName
 
-    def setCharset(self, charset):
+    def setParameters(self, parameters):
         """
-        :param charset: (Optional) 导出文件字符编码
+        :param parameters: (Optional) 参数。
         """
-        self.charset = charset
-
-    def setExportTypeEnum(self, exportTypeEnum):
-        """
-        :param exportTypeEnum: (Optional) 导出方式，SYNC("SYNC", 0), ASYNC("ASYNC", 1)，当前只支持SYNC导出;
-        """
-        self.exportTypeEnum = exportTypeEnum
-
-    def setExportFileTypeEnum(self, exportFileTypeEnum):
-        """
-        :param exportFileTypeEnum: (Optional) 导出文件格式，CSV("CSV", 0), SQL("SQL", 1);
-        """
-        self.exportFileTypeEnum = exportFileTypeEnum
+        self.parameters = parameters
 

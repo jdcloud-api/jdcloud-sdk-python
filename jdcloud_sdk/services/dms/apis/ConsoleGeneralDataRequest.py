@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ConsoleGeneralDataRequest(JDCloudRequest):
     """
-    生成数据
+    生成数据，支持Mysql，Stardb
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class ConsoleGeneralDataRequest(JDCloudRequest):
 
 class ConsoleGeneralDataParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """

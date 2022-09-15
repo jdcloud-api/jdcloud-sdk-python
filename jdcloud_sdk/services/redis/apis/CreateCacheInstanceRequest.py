@@ -33,7 +33,7 @@ class CreateCacheInstanceRequest(JDCloudRequest):
 
 class CreateCacheInstanceParameters(object):
 
-    def __init__(self, regionId,cacheInstance, ):
+    def __init__(self,regionId, cacheInstance, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstance: 实例的创建参数

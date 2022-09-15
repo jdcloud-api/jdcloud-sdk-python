@@ -19,39 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCacheInstanceAttributeRequest(JDCloudRequest):
+class DescribeHotKeyDetail2Request(JDCloudRequest):
     """
-    修改缓存Redis实例的资源名称或描述，二者至少选一
+    查询热key分析详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCacheInstanceAttributeRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}', 'PATCH', header, version)
+        super(DescribeHotKeyDetail2Request, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/hotKeyDetail', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyCacheInstanceAttributeParameters(object):
+class DescribeHotKeyDetail2Parameters(object):
 
-    def __init__(self,regionId, cacheInstanceId, ):
+    def __init__(self,regionId, cacheInstanceId, nodeId, ):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
+        :param nodeId: 节点id
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.cacheInstanceName = None
-        self.cacheInstanceDescription = None
+        self.nodeId = nodeId
+        self.pageNumber = None
+        self.pageSize = None
 
-    def setCacheInstanceName(self, cacheInstanceName):
+    def setPageNumber(self, pageNumber):
         """
-        :param cacheInstanceName: (Optional) 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+        :param pageNumber: (Optional) 页码；默认为1
         """
-        self.cacheInstanceName = cacheInstanceName
+        self.pageNumber = pageNumber
 
-    def setCacheInstanceDescription(self, cacheInstanceDescription):
+    def setPageSize(self, pageSize):
         """
-        :param cacheInstanceDescription: (Optional) 实例的描述，不能超过256个字符
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
         """
-        self.cacheInstanceDescription = cacheInstanceDescription
+        self.pageSize = pageSize
 

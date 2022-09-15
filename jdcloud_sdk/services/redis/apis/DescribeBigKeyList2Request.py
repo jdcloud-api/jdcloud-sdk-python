@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCacheInstanceAttributeRequest(JDCloudRequest):
+class DescribeBigKeyList2Request(JDCloudRequest):
     """
-    修改缓存Redis实例的资源名称或描述，二者至少选一
+    查询大key分析任务列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCacheInstanceAttributeRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}', 'PATCH', header, version)
+        super(DescribeBigKeyList2Request, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/bigKeyAnalysisResultList', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyCacheInstanceAttributeParameters(object):
+class DescribeBigKeyList2Parameters(object):
 
     def __init__(self,regionId, cacheInstanceId, ):
         """
@@ -40,18 +40,18 @@ class ModifyCacheInstanceAttributeParameters(object):
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.cacheInstanceName = None
-        self.cacheInstanceDescription = None
+        self.pageNumber = None
+        self.pageSize = None
 
-    def setCacheInstanceName(self, cacheInstanceName):
+    def setPageNumber(self, pageNumber):
         """
-        :param cacheInstanceName: (Optional) 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+        :param pageNumber: (Optional) 页码；默认为1
         """
-        self.cacheInstanceName = cacheInstanceName
+        self.pageNumber = pageNumber
 
-    def setCacheInstanceDescription(self, cacheInstanceDescription):
+    def setPageSize(self, pageSize):
         """
-        :param cacheInstanceDescription: (Optional) 实例的描述，不能超过256个字符
+        :param pageSize: (Optional) 分页大小；默认为10；取值范围[10, 100]
         """
-        self.cacheInstanceDescription = cacheInstanceDescription
+        self.pageSize = pageSize
 

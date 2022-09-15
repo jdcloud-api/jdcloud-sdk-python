@@ -19,11 +19,27 @@
 
 class PerformanceDataMsg(object):
 
-    def __init__(self, ip=None, tpStat=None):
+    def __init__(self, ts=None, tp999=None, tp99=None, tp90=None, tp50=None, max=None, min=None, success=None, error=None, redirection=None):
         """
-        :param ip: (Optional) 客户端ip
-        :param tpStat: (Optional) 客户端性能日志数据
+        :param ts: (Optional) 时间
+        :param tp999: (Optional) TP999
+        :param tp99: (Optional) TP99
+        :param tp90: (Optional) TP90
+        :param tp50: (Optional) TP50
+        :param max: (Optional) 最大延时
+        :param min: (Optional) 最小延时
+        :param success: (Optional) 成功数
+        :param error: (Optional) 错误数
+        :param redirection: (Optional) 重定向数
         """
 
-        self.ip = ip
-        self.tpStat = tpStat
+        self.ts = ts
+        self.tp999 = tp999
+        self.tp99 = tp99
+        self.tp90 = tp90
+        self.tp50 = tp50
+        self.max = max
+        self.min = min
+        self.success = success
+        self.error = error
+        self.redirection = redirection

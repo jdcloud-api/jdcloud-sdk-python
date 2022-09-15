@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCacheInstanceAttributeRequest(JDCloudRequest):
+class ModifyAnalysisThreshold2Request(JDCloudRequest):
     """
-    修改缓存Redis实例的资源名称或描述，二者至少选一
+    设置缓存分析阈值
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCacheInstanceAttributeRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}', 'PATCH', header, version)
+        super(ModifyAnalysisThreshold2Request, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/bigKeyAnalysisThreshold', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyCacheInstanceAttributeParameters(object):
+class ModifyAnalysisThreshold2Parameters(object):
 
     def __init__(self,regionId, cacheInstanceId, ):
         """
@@ -40,18 +40,39 @@ class ModifyCacheInstanceAttributeParameters(object):
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.cacheInstanceName = None
-        self.cacheInstanceDescription = None
+        self.stringSize = None
+        self.listSize = None
+        self.hashSize = None
+        self.setSize = None
+        self.zsetSize = None
 
-    def setCacheInstanceName(self, cacheInstanceName):
+    def setStringSize(self, stringSize):
         """
-        :param cacheInstanceName: (Optional) 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+        :param stringSize: (Optional) String类型阈值，最小10240
         """
-        self.cacheInstanceName = cacheInstanceName
+        self.stringSize = stringSize
 
-    def setCacheInstanceDescription(self, cacheInstanceDescription):
+    def setListSize(self, listSize):
         """
-        :param cacheInstanceDescription: (Optional) 实例的描述，不能超过256个字符
+        :param listSize: (Optional) List类型阈值，最小1000
         """
-        self.cacheInstanceDescription = cacheInstanceDescription
+        self.listSize = listSize
+
+    def setHashSize(self, hashSize):
+        """
+        :param hashSize: (Optional) Hash类型阈值，最小1000
+        """
+        self.hashSize = hashSize
+
+    def setSetSize(self, setSize):
+        """
+        :param setSize: (Optional) Set类型阈值，最小1000
+        """
+        self.setSize = setSize
+
+    def setZsetSize(self, zsetSize):
+        """
+        :param zsetSize: (Optional) Zset类型阈值，最小1000
+        """
+        self.zsetSize = zsetSize
 

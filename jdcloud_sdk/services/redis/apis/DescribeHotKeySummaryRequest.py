@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCacheInstanceAttributeRequest(JDCloudRequest):
+class DescribeHotKeySummaryRequest(JDCloudRequest):
     """
-    修改缓存Redis实例的资源名称或描述，二者至少选一
+    查询热key分析结果汇总
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCacheInstanceAttributeRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}', 'PATCH', header, version)
+        super(DescribeHotKeySummaryRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/hotKeyAnalysisSummary', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyCacheInstanceAttributeParameters(object):
+class DescribeHotKeySummaryParameters(object):
 
     def __init__(self,regionId, cacheInstanceId, ):
         """
@@ -40,18 +40,18 @@ class ModifyCacheInstanceAttributeParameters(object):
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.cacheInstanceName = None
-        self.cacheInstanceDescription = None
+        self.startTime = None
+        self.endTime = None
 
-    def setCacheInstanceName(self, cacheInstanceName):
+    def setStartTime(self, startTime):
         """
-        :param cacheInstanceName: (Optional) 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+        :param startTime: (Optional) 开始时间，RFC3339格式，最多可以查询30天内的数据
         """
-        self.cacheInstanceName = cacheInstanceName
+        self.startTime = startTime
 
-    def setCacheInstanceDescription(self, cacheInstanceDescription):
+    def setEndTime(self, endTime):
         """
-        :param cacheInstanceDescription: (Optional) 实例的描述，不能超过256个字符
+        :param endTime: (Optional) 结束时间，RFC3339格式，查询时间范围最多7天
         """
-        self.cacheInstanceDescription = cacheInstanceDescription
+        self.endTime = endTime
 

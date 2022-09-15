@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyCacheInstanceAttributeRequest(JDCloudRequest):
+class DescribeHotKeyResult2Request(JDCloudRequest):
     """
-    修改缓存Redis实例的资源名称或描述，二者至少选一
+    查询热key分析结果
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyCacheInstanceAttributeRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}', 'PATCH', header, version)
+        super(DescribeHotKeyResult2Request, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/hotKeyAnalysisResult', 'GET', header, version)
         self.parameters = parameters
 
 
-class ModifyCacheInstanceAttributeParameters(object):
+class DescribeHotKeyResult2Parameters(object):
 
-    def __init__(self,regionId, cacheInstanceId, ):
+    def __init__(self,regionId, cacheInstanceId):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
@@ -40,18 +40,4 @@ class ModifyCacheInstanceAttributeParameters(object):
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.cacheInstanceName = None
-        self.cacheInstanceDescription = None
-
-    def setCacheInstanceName(self, cacheInstanceName):
-        """
-        :param cacheInstanceName: (Optional) 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
-        """
-        self.cacheInstanceName = cacheInstanceName
-
-    def setCacheInstanceDescription(self, cacheInstanceDescription):
-        """
-        :param cacheInstanceDescription: (Optional) 实例的描述，不能超过256个字符
-        """
-        self.cacheInstanceDescription = cacheInstanceDescription
 

@@ -32,7 +32,7 @@ class DescribeAgsRequest(JDCloudRequest):
 
 class DescribeAgsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域
         """
@@ -60,6 +60,7 @@ class DescribeAgsParameters(object):
 agId - ag id，精确匹配
 instanceTemplateId - 实例模板id，精确匹配
 vpcId - vpc id，精确匹配
+placementType - placement type，放置策略
 
         """
         self.filters = filters

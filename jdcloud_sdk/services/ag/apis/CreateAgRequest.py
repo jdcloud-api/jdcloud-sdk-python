@@ -32,7 +32,7 @@ class CreateAgRequest(JDCloudRequest):
 
 class CreateAgParameters(object):
 
-    def __init__(self, regionId,azs, agName, ):
+    def __init__(self,regionId, azs, agName, ):
         """
         :param regionId: 地域
         :param azs: 支持的可用区，最少一个
@@ -46,6 +46,7 @@ class CreateAgParameters(object):
         self.instanceTemplateId = None
         self.description = None
         self.configurationType = None
+        self.placementType = None
 
     def setAgType(self, agType):
         """
@@ -70,4 +71,10 @@ class CreateAgParameters(object):
         :param configurationType: (Optional) 高可用组配置类型，支持strict(关联模板型)、loose(自定义配置型)
         """
         self.configurationType = configurationType
+
+    def setPlacementType(self, placementType):
+        """
+        :param placementType: (Optional) 高可用资源放置类型，支持fd、switch、host
+        """
+        self.placementType = placementType
 

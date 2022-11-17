@@ -54,6 +54,7 @@ class CreateDomainParameters(object):
         self.ossSource = None
         self.accelerateRegion = None
         self.tempInstId = None
+        self.domainCnameTag = None
 
     def setSourceType(self, sourceType):
         """
@@ -150,4 +151,10 @@ class CreateDomainParameters(object):
         :param tempInstId: (Optional) 
         """
         self.tempInstId = tempInstId
+
+    def setDomainCnameTag(self, domainCnameTag):
+        """
+        :param domainCnameTag: (Optional) cname标签,使用时通过queryDomainCnameTag接口获取
+        """
+        self.domainCnameTag = domainCnameTag
 

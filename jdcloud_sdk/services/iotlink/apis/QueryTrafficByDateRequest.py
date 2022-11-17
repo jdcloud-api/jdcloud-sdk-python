@@ -19,27 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SearchRequest(JDCloudRequest):
+class QueryTrafficByDateRequest(JDCloudRequest):
     """
-    物联网卡查询通用操作
+    物联网卡流量查询（时间段）查询接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SearchRequest, self).__init__(
-            '/regions/{regionId}/search', 'POST', header, version)
+        super(QueryTrafficByDateRequest, self).__init__(
+            '/regions/{regionId}/queryTrafficByDate', 'POST', header, version)
         self.parameters = parameters
 
 
-class SearchParameters(object):
+class QueryTrafficByDateParameters(object):
 
-    def __init__(self,regionId, requestType, requestParam):
+    def __init__(self,regionId, requestParam):
         """
         :param regionId: Region ID
-        :param requestType: 物联网卡查询请求类型
-        :param requestParam: 物联网卡查询请求参数json串
+        :param requestParam: 物联网卡流量查询（时间段）查询请求参数
         """
 
         self.regionId = regionId
-        self.requestType = requestType
         self.requestParam = requestParam
 

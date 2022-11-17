@@ -32,7 +32,7 @@ class CloseIotCardRequest(JDCloudRequest):
 
 class CloseIotCardParameters(object):
 
-    def __init__(self, regionId,iccids):
+    def __init__(self,regionId, iccids):
         """
         :param regionId: Region ID
         :param iccids: 物联网卡号码列表(单次提交最多不超过200个号码)

@@ -32,7 +32,7 @@ class SetInstanceTemplateRequest(JDCloudRequest):
 
 class SetInstanceTemplateParameters(object):
 
-    def __init__(self, regionId,agId,instanceTemplateId):
+    def __init__(self,regionId, agId, instanceTemplateId):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID

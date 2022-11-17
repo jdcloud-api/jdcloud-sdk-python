@@ -32,7 +32,7 @@ class AbandonInstancesRequest(JDCloudRequest):
 
 class AbandonInstancesParameters(object):
 
-    def __init__(self, regionId,agId,instanceIds):
+    def __init__(self,regionId, agId, instanceIds):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID

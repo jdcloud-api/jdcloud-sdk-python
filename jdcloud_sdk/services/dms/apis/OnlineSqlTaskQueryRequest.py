@@ -19,36 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpgradeClusterRequest(JDCloudRequest):
+class OnlineSqlTaskQueryRequest(JDCloudRequest):
     """
-    触发升级
+    查询任务状态
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpgradeClusterRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:upgradeCluster', 'POST', header, version)
+        super(OnlineSqlTaskQueryRequest, self).__init__(
+            '/regions/{regionId}/sqltask:query', 'POST', header, version)
         self.parameters = parameters
 
 
-class UpgradeClusterParameters(object):
+class OnlineSqlTaskQueryParameters(object):
 
-    def __init__(self, regionId, clusterId, scope, version):
+    def __init__(self,regionId, ):
         """
-        :param regionId: 地域 ID
-        :param clusterId: 集群 ID
-        :param scope: 升级范围
-        :param version: 指定升级到的版本
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
-        self.clusterId = clusterId
-        self.scope = scope
-        self.nodeGroupIds = None
-        self.version = version
+        self.taskId = None
 
-    def setNodeGroupIds(self, nodeGroupIds):
+    def setTaskId(self, taskId):
         """
-        :param nodeGroupIds: (Optional) 节点组 id
+        :param taskId: (Optional) 任务id
         """
-        self.nodeGroupIds = nodeGroupIds
+        self.taskId = taskId
 

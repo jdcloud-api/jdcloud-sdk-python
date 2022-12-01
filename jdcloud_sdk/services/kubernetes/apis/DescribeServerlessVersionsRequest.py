@@ -19,34 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetAutoUpgradeRequest(JDCloudRequest):
+class DescribeServerlessVersionsRequest(JDCloudRequest):
     """
-    设置自动升级
+    查询Serverless集群版本列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetAutoUpgradeRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:setAutoUpgrade', 'POST', header, version)
+        super(DescribeServerlessVersionsRequest, self).__init__(
+            '/regions/{regionId}/serverless-versions', 'GET', header, version)
         self.parameters = parameters
 
 
-class SetAutoUpgradeParameters(object):
+class DescribeServerlessVersionsParameters(object):
 
-    def __init__(self, regionId, clusterId, autoUpgrade, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域 ID
-        :param clusterId: 集群 ID
-        :param autoUpgrade: 开启或者关闭集群自动升级，开启时必须指定 maintenancePolicy
         """
 
         self.regionId = regionId
-        self.clusterId = clusterId
-        self.autoUpgrade = autoUpgrade
-        self.maintenanceWindow = None
+        self.masterVersion = None
 
-    def setMaintenanceWindow(self, maintenanceWindow):
+    def setMasterVersion(self, masterVersion):
         """
-        :param maintenanceWindow: (Optional) 开启集群自动升级, 必须配置集群维护策略
+        :param masterVersion: (Optional) 
         """
-        self.maintenanceWindow = maintenanceWindow
+        self.masterVersion = masterVersion
 

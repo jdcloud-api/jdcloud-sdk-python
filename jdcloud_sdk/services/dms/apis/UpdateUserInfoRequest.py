@@ -19,32 +19,49 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeProgressRequest(JDCloudRequest):
+class UpdateUserInfoRequest(JDCloudRequest):
     """
-    查询集群操作进度
+    更新用户信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeProgressRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}/progress', 'GET', header, version)
+        super(UpdateUserInfoRequest, self).__init__(
+            '/management:updateUserInfo', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeProgressParameters(object):
+class UpdateUserInfoParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,):
         """
-        :param regionId: 地域 ID
-        :param clusterId: 集群 ID
         """
 
-        self.regionId = regionId
-        self.clusterId = clusterId
-        self.nodeGroupIds = None
+        self.pin = None
+        self.phone = None
+        self.email = None
+        self.roleList = None
 
-    def setNodeGroupIds(self, nodeGroupIds):
+    def setPin(self, pin):
         """
-        :param nodeGroupIds: (Optional) 节点组 ID
+        :param pin: (Optional) 被更新用户的pin信息
         """
-        self.nodeGroupIds = nodeGroupIds
+        self.pin = pin
+
+    def setPhone(self, phone):
+        """
+        :param phone: (Optional) 用户手机号码
+        """
+        self.phone = phone
+
+    def setEmail(self, email):
+        """
+        :param email: (Optional) 用户邮箱
+        """
+        self.email = email
+
+    def setRoleList(self, roleList):
+        """
+        :param roleList: (Optional) 用户角色列表信息
+        """
+        self.roleList = roleList
 

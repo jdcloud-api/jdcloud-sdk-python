@@ -19,25 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class RollbackNodeGroupUpgradeRequest(JDCloudRequest):
+class EnableUserRequest(JDCloudRequest):
     """
-    回滚未升级完的工作节点组
+    启用/禁用用户
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(RollbackNodeGroupUpgradeRequest, self).__init__(
-            '/regions/{regionId}/nodeGroups/{nodeGroupId}:rollbackNodeGroupUpgrade', 'POST', header, version)
+        super(EnableUserRequest, self).__init__(
+            '/management:enableUser', 'POST', header, version)
         self.parameters = parameters
 
 
-class RollbackNodeGroupUpgradeParameters(object):
+class EnableUserParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, ):
+    def __init__(self,):
         """
-        :param regionId: 地域 ID
-        :param nodeGroupId: 工作节点组 ID
         """
 
-        self.regionId = regionId
-        self.nodeGroupId = nodeGroupId
+        self.dmsUserEnableVOList = None
+
+    def setDmsUserEnableVOList(self, dmsUserEnableVOList):
+        """
+        :param dmsUserEnableVOList: (Optional) 启用/禁用的用户列表信息
+        """
+        self.dmsUserEnableVOList = dmsUserEnableVOList
 

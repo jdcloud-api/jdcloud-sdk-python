@@ -19,11 +19,13 @@
 
 class ExtraTableInfo(object):
 
-    def __init__(self, tableTypeEnum=None, stardbSplitInfo=None):
+    def __init__(self, tableTypeEnum=None, stardbSplitInfo=None, dmsOgTableRule=None):
         """
-        :param tableTypeEnum: (Optional) ORIGIN:原始表, STARDB_SPLIT:stardb切分表, STARDB_ISOLATE:stardb孤立表, STARDB_BROADCAST:stardb广播表。
-        :param stardbSplitInfo: (Optional) tableTypeEnum为切分表时的切分信息内容。
+        :param tableTypeEnum: (Optional) ORIGIN:原始表, STARDB_SPLIT:stardb切分表, STARDB_ISOLATE:stardb孤立表, STARDB_BROADCAST:stardb广播表,ORIGIN_OG:og原始表, OG_SPLIT:og切分表, OG_ISOLATE:og孤立表, OG_BROADCAST:og广播表。
+        :param stardbSplitInfo: (Optional) tableTypeEnum为stardb切分表时的切分信息内容。
+        :param dmsOgTableRule: (Optional) sharding opengause切分规则。
         """
 
         self.tableTypeEnum = tableTypeEnum
         self.stardbSplitInfo = stardbSplitInfo
+        self.dmsOgTableRule = dmsOgTableRule

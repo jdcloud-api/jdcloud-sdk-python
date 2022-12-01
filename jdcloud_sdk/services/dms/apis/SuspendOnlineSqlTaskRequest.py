@@ -19,25 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeUpgradableMasterVersionsRequest(JDCloudRequest):
+class SuspendOnlineSqlTaskRequest(JDCloudRequest):
     """
-    查询可升级的控制节点版本
+    暂停Sql任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeUpgradableMasterVersionsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}/upgradableMasterVersions', 'GET', header, version)
+        super(SuspendOnlineSqlTaskRequest, self).__init__(
+            '/regions/{regionId}/sqltask:suspend', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeUpgradableMasterVersionsParameters(object):
+class SuspendOnlineSqlTaskParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, ):
         """
-        :param regionId: Region ID
-        :param clusterId: 集群 ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
-        self.clusterId = clusterId
+        self.taskId = None
+
+    def setTaskId(self, taskId):
+        """
+        :param taskId: (Optional) 任务id
+        """
+        self.taskId = taskId
 

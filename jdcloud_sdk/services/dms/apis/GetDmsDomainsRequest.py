@@ -19,32 +19,21 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeUpgradableNodeVersionsRequest(JDCloudRequest):
+class GetDmsDomainsRequest(JDCloudRequest):
     """
-    查询可升级的节点版本
+    获取Dms域名，仅供前端使用
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeUpgradableNodeVersionsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}/upgradableNodeVersions', 'GET', header, version)
+        super(GetDmsDomainsRequest, self).__init__(
+            '/getDmsDomain', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeUpgradableNodeVersionsParameters(object):
+class GetDmsDomainsParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,):
         """
-        :param regionId: Region ID
-        :param clusterId: 集群 ID
         """
 
-        self.regionId = regionId
-        self.clusterId = clusterId
-        self.nodeGroupIds = None
-
-    def setNodeGroupIds(self, nodeGroupIds):
-        """
-        :param nodeGroupIds: (Optional) 节点组 id
-        """
-        self.nodeGroupIds = nodeGroupIds
 

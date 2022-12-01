@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetCreateTableBatchSqlRequest(JDCloudRequest):
     """
-    获取批量建表sql，仅供前端使用，支持Stardb
+    获取批量建表sql，仅供前端使用，支持Stardb，OpenGauss
     """
 
     def __init__(self, parameters, header=None, version="v1"):

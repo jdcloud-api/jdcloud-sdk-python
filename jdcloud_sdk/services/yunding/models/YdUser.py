@@ -19,11 +19,15 @@
 
 class YdUser(object):
 
-    def __init__(self, ydPin=None, jdcloudPin=None):
+    def __init__(self, ydPin=None, jdcloudPin=None, ydSubPin=None, jdcloudSubPin=None):
         """
         :param ydPin: (Optional) 云鼎pin
         :param jdcloudPin: (Optional) 京东云pin
+        :param ydSubPin: (Optional) 云鼎pin-子账号pin
+        :param jdcloudSubPin: (Optional) 京东云pin-子账号pin
         """
 
         self.ydPin = ydPin
         self.jdcloudPin = jdcloudPin
+        self.ydSubPin = ydSubPin
+        self.jdcloudSubPin = jdcloudSubPin

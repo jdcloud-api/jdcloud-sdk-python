@@ -19,7 +19,7 @@
 
 class NodeGroup(object):
 
-    def __init__(self, clusterId=None, nodeGroupId=None, name=None, description=None, nodeConfig=None, version=None, nodeNetwork=None, currentCount=None, expectCount=None, agId=None, azs=None, instanceTemplateId=None, state=None, tags=None, updateTime=None, stateMessage=None, autoRepair=None, progress=None, caConfig=None, createdTime=None):
+    def __init__(self, clusterId=None, nodeGroupId=None, name=None, description=None, nodeConfig=None, version=None, nodeNetwork=None, currentCount=None, expectCount=None, agId=None, azs=None, instanceTemplateId=None, state=None, tags=None, updateTime=None, stateMessage=None, progress=None, caConfig=None, createdTime=None):
         """
         :param clusterId: (Optional) 集群 id
         :param nodeGroupId: (Optional) 工作节点组 id
@@ -37,7 +37,6 @@ class NodeGroup(object):
         :param tags: (Optional) 
         :param updateTime: (Optional) 更新时间
         :param stateMessage: (Optional) 状态变更原因
-        :param autoRepair: (Optional) 是否开启自动修复
         :param progress: (Optional) 控制节点操作进度
         :param caConfig: (Optional) 自动伸缩配置
         :param createdTime: (Optional) 创建时间
@@ -59,7 +58,6 @@ class NodeGroup(object):
         self.tags = tags
         self.updateTime = updateTime
         self.stateMessage = stateMessage
-        self.autoRepair = autoRepair
         self.progress = progress
         self.caConfig = caConfig
         self.createdTime = createdTime

@@ -19,27 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetAutoRepairRequest(JDCloudRequest):
+class CheckInstanceRequest(JDCloudRequest):
     """
-    设置工作节点组的自动修复
+    校验用户是否有实例权限
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetAutoRepairRequest, self).__init__(
-            '/regions/{regionId}/nodeGroups/{nodeGroupId}:setAutoRepair', 'POST', header, version)
+        super(CheckInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:check', 'GET', header, version)
         self.parameters = parameters
 
 
-class SetAutoRepairParameters(object):
+class CheckInstanceParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, enabled):
+    def __init__(self,regionId, instanceId):
         """
-        :param regionId: 地域 ID
-        :param nodeGroupId: 工作节点组 ID
-        :param enabled: 是否开启自动修复
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: 实例id
         """
 
         self.regionId = regionId
-        self.nodeGroupId = nodeGroupId
-        self.enabled = enabled
+        self.instanceId = instanceId
 

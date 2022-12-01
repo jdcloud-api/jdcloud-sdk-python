@@ -19,23 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeServerConfigRequest(JDCloudRequest):
+class DeleteUserRequest(JDCloudRequest):
     """
-    查询 kubernetes 集群服务配置信息
+    删除用户
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeServerConfigRequest, self).__init__(
-            '/regions/{regionId}/serverConfig', 'GET', header, version)
+        super(DeleteUserRequest, self).__init__(
+            '/management:deleteUser', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeServerConfigParameters(object):
+class DeleteUserParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,):
         """
-        :param regionId: Region ID
         """
 
-        self.regionId = regionId
+        self.dmsUserDeleteList = None
+
+    def setDmsUserDeleteList(self, dmsUserDeleteList):
+        """
+        :param dmsUserDeleteList: (Optional) 删除用户的pin信息
+        """
+        self.dmsUserDeleteList = dmsUserDeleteList
 

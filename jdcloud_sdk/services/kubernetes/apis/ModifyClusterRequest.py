@@ -32,7 +32,7 @@ class ModifyClusterRequest(JDCloudRequest):
 
 class ModifyClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId, ):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID

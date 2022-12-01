@@ -32,7 +32,7 @@ class CreateSubnetRequest(JDCloudRequest):
 
 class CreateSubnetParameters(object):
 
-    def __init__(self, regionId, vpcId, subnetName, addressPrefix, ):
+    def __init__(self,regionId, vpcId, subnetName, addressPrefix, ):
         """
         :param regionId: Region ID
         :param vpcId: 子网所属vpc的Id
@@ -46,8 +46,7 @@ class CreateSubnetParameters(object):
         self.addressPrefix = addressPrefix
         self.routeTableId = None
         self.description = None
-        self.subnetType = None
-        self.az = None
+        self.ipMaskLen = None
 
     def setRouteTableId(self, routeTableId):
         """
@@ -61,15 +60,9 @@ class CreateSubnetParameters(object):
         """
         self.description = description
 
-    def setSubnetType(self, subnetType):
+    def setIpMaskLen(self, ipMaskLen):
         """
-        :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
+        :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请
         """
-        self.subnetType = subnetType
-
-    def setAz(self, az):
-        """
-        :param az: (Optional) 子网可用区，边缘子网必须指定可用区
-        """
-        self.az = az
+        self.ipMaskLen = ipMaskLen
 

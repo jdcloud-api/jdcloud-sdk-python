@@ -32,7 +32,7 @@ class DescribeTasksRequest(JDCloudRequest):
 
 class DescribeTasksParameters(object):
 
-    def __init__(self, instanceId, ):
+    def __init__(self,instanceId):
         """
         :param instanceId: 实例 Id
         """

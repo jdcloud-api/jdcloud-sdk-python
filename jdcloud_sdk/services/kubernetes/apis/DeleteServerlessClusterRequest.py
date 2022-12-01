@@ -19,27 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetAddonsRequest(JDCloudRequest):
+class DeleteServerlessClusterRequest(JDCloudRequest):
     """
-    设置集群组件
+    删除Serverless集群，以及集群的所有网络，云盘等所有资源。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetAddonsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:setAddons', 'POST', header, version)
+        super(DeleteServerlessClusterRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters/{clusterId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class SetAddonsParameters(object):
+class DeleteServerlessClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, addonsConfig):
+    def __init__(self,regionId, clusterId, ):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID
-        :param addonsConfig: 需要设置的集群组件配置
         """
 
         self.regionId = regionId
         self.clusterId = clusterId
-        self.addonsConfig = addonsConfig
+        self.routeTableId = None
+
+    def setRouteTableId(self, routeTableId):
+        """
+        :param routeTableId: (Optional) 替换路由表id
+        """
+        self.routeTableId = routeTableId
 

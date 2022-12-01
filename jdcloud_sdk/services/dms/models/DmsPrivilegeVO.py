@@ -31,8 +31,8 @@ class DmsPrivilegeVO(object):
         :param tableName: (Optional) 表名。
         :param fieldName: (Optional) 字段名称。
         :param authStatus: (Optional) 授权状态。
-        :param authDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
-        :param expireDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
+        :param authDate: (Optional) 授权时间
+        :param expireDate: (Optional) 过期时间
         :param releaseStatus: (Optional) 权限是否已经释放。
         :param instanceType: (Optional) 实例类型。
         :param regionId: (Optional) 实例所属区域。

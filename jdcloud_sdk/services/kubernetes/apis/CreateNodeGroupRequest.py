@@ -34,14 +34,13 @@ class CreateNodeGroupRequest(JDCloudRequest):
 
 class CreateNodeGroupParameters(object):
 
-    def __init__(self, regionId, name, clusterId, nodeConfig, initialNodeCount, vpcId, ):
+    def __init__(self,regionId, name, clusterId, nodeConfig, initialNodeCount, ):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 内部唯一）
         :param clusterId: 工作节点所属的集群
         :param nodeConfig: 工作节点配置信息
         :param initialNodeCount: 工作节点组初始化大小
-        :param vpcId: 工作节点组初始化大小运行的VPC
         """
 
         self.regionId = regionId
@@ -51,9 +50,6 @@ class CreateNodeGroupParameters(object):
         self.nodeConfig = nodeConfig
         self.azs = None
         self.initialNodeCount = initialNodeCount
-        self.vpcId = vpcId
-        self.nodeCidr = None
-        self.autoRepair = None
         self.caConfig = None
         self.nodeGroupNetwork = None
 
@@ -68,18 +64,6 @@ class CreateNodeGroupParameters(object):
         :param azs: (Optional) 工作节点组的 az，必须为集群az的子集，默认为集群az
         """
         self.azs = azs
-
-    def setNodeCidr(self, nodeCidr):
-        """
-        :param nodeCidr: (Optional) 工作节点组的cidr
-        """
-        self.nodeCidr = nodeCidr
-
-    def setAutoRepair(self, autoRepair):
-        """
-        :param autoRepair: (Optional) 是否开启工作节点组的自动修复，默认关闭
-        """
-        self.autoRepair = autoRepair
 
     def setCaConfig(self, caConfig):
         """

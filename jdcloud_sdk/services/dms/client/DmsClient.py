@@ -26,4 +26,4 @@ class DmsClient(JDCloudClient):
         if config is None:
             config = Config('dms.jdcloud-api.com')
 
-        super(DmsClient, self).__init__(credential, config, 'dms', '1.3.0', logger)
+        super(DmsClient, self).__init__(credential, config, 'dms', '1.4.0', logger)

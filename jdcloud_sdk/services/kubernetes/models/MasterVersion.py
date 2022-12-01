@@ -19,19 +19,19 @@
 
 class MasterVersion(object):
 
-    def __init__(self, version=None, isDefault=None, defaultNodeVersion=None, versionStatus=None, nodeVersions=None, nodeOsTypes=None):
+    def __init__(self, version=None, isDefault=None, defaultNodeVersion=None, versionStatus=None, nodeOsTypes=None, clusterAddons=None):
         """
         :param version: (Optional) 集群版本号
         :param isDefault: (Optional) 是否默认版本
         :param defaultNodeVersion: (Optional) 默认工作节点版本号
         :param versionStatus: (Optional) 版本状态
-        :param nodeVersions: (Optional) node 节点的配置
         :param nodeOsTypes: (Optional) node节点操作系统类型列表，以 "," 分割，目前支持 CentOS|Windows
+        :param clusterAddons: (Optional) 该版本可安装的addons
         """
 
         self.version = version
         self.isDefault = isDefault
         self.defaultNodeVersion = defaultNodeVersion
         self.versionStatus = versionStatus
-        self.nodeVersions = nodeVersions
         self.nodeOsTypes = nodeOsTypes
+        self.clusterAddons = clusterAddons

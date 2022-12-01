@@ -19,19 +19,23 @@
 
 class ClusterNetwork(object):
 
-    def __init__(self, publicApiServer=None, masterCidr=None, serviceCidr=None, vpcId=None, clusterSubnets=None, natGateway=None):
+    def __init__(self, publicApiServer=None, masterCidr=None, serviceCidr=None, vpcId=None, podSubnets=None, clusterSubnets=None, natGateway=None, nodeElasticIpSpec=None):
         """
         :param publicApiServer: (Optional) kube-apiserver是否可公网访问，false则kube-apiserver不绑定公网地址，true绑定公网地址
         :param masterCidr: (Optional) master网络的cidr
         :param serviceCidr: (Optional) service网络的cidr
         :param vpcId: (Optional) 用户侧承载node和pod的vpc id
+        :param podSubnets: (Optional) 集群Pod子网信息
         :param clusterSubnets: (Optional) 集群子网信息
         :param natGateway: (Optional) nat网关配置
+        :param nodeElasticIpSpec: (Optional) 节点公网IP的配置，如果设置了节点公网IP，此项不为空
         """
 
         self.publicApiServer = publicApiServer
         self.masterCidr = masterCidr
         self.serviceCidr = serviceCidr
         self.vpcId = vpcId
+        self.podSubnets = podSubnets
         self.clusterSubnets = clusterSubnets
         self.natGateway = natGateway
+        self.nodeElasticIpSpec = nodeElasticIpSpec

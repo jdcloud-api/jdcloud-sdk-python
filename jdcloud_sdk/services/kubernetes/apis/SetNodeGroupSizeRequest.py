@@ -32,7 +32,7 @@ class SetNodeGroupSizeRequest(JDCloudRequest):
 
 class SetNodeGroupSizeParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, expectCount):
+    def __init__(self,regionId, nodeGroupId, expectCount):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID

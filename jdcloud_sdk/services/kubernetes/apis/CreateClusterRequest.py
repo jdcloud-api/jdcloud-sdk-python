@@ -48,13 +48,12 @@ class CreateClusterRequest(JDCloudRequest):
 
 class CreateClusterParameters(object):
 
-    def __init__(self, regionId, name, azs, nodeGroup, masterCidr, accessKey, secretKey, ):
+    def __init__(self,regionId, name, azs, nodeGroup, accessKey, secretKey, ):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 允许重名）
         :param azs: 集群所在的az
         :param nodeGroup: 集群节点组
-        :param masterCidr: k8s的master的cidr
         :param accessKey: 用户的AccessKey，插件调用open-api时的认证凭证
         :param secretKey: 用户的SecretKey，插件调用open-api时的认证凭证
         """
@@ -62,16 +61,17 @@ class CreateClusterParameters(object):
         self.regionId = regionId
         self.name = name
         self.description = None
-        self.basicAuth = None
-        self.clientCertificate = None
         self.version = None
+        self.isEdge = None
         self.azs = azs
         self.nodeGroup = nodeGroup
-        self.masterCidr = masterCidr
         self.accessKey = accessKey
         self.secretKey = secretKey
-        self.userMetrics = None
         self.addonsConfig = None
+        self.clusterNetworkType = None
+        self.autoClusterNetworkSpec = None
+        self.customizedClusterNetworkSpec = None
+        self.clusterEnvironments = None
 
     def setDescription(self, description):
         """
@@ -79,33 +79,45 @@ class CreateClusterParameters(object):
         """
         self.description = description
 
-    def setBasicAuth(self, basicAuth):
-        """
-        :param basicAuth: (Optional) 默认开启 basicAuth与clientCertificate最少选择一个
-        """
-        self.basicAuth = basicAuth
-
-    def setClientCertificate(self, clientCertificate):
-        """
-        :param clientCertificate: (Optional) 默认开启 clientCertificate
-        """
-        self.clientCertificate = clientCertificate
-
     def setVersion(self, version):
         """
         :param version: (Optional) kubernetes的版本
         """
         self.version = version
 
-    def setUserMetrics(self, userMetrics):
+    def setIsEdge(self, isEdge):
         """
-        :param userMetrics: (Optional) deprecated 在addonsConfig中同时指定，将被addonsConfig的设置覆盖 <br>是否启用用户自定义监控
+        :param isEdge: (Optional) 是否是边缘计算集群
         """
-        self.userMetrics = userMetrics
+        self.isEdge = isEdge
 
     def setAddonsConfig(self, addonsConfig):
         """
         :param addonsConfig: (Optional) 集群组件配置
         """
         self.addonsConfig = addonsConfig
+
+    def setClusterNetworkType(self, clusterNetworkType):
+        """
+        :param clusterNetworkType: (Optional) 集群网络配置类型，取值：auto，customized，创建集群接口合并，原CreateCusomizedCluster接口废弃
+        """
+        self.clusterNetworkType = clusterNetworkType
+
+    def setAutoClusterNetworkSpec(self, autoClusterNetworkSpec):
+        """
+        :param autoClusterNetworkSpec: (Optional) clusterNetworkType为【auto】时，此配置必须要配置
+        """
+        self.autoClusterNetworkSpec = autoClusterNetworkSpec
+
+    def setCustomizedClusterNetworkSpec(self, customizedClusterNetworkSpec):
+        """
+        :param customizedClusterNetworkSpec: (Optional) clusterNetworkType为【customized】时，此配置必须要配置
+        """
+        self.customizedClusterNetworkSpec = customizedClusterNetworkSpec
+
+    def setClusterEnvironments(self, clusterEnvironments):
+        """
+        :param clusterEnvironments: (Optional) 用户自定义的集群的环境信息，会影响到创建集群时的组件模版的渲染
+        """
+        self.clusterEnvironments = clusterEnvironments
 

@@ -19,7 +19,7 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, endpoint=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None):
+    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, privateEndpoint=None, endpoint=None, endpointIPV6=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None, clusterEnvironments=None, isEdge=None):
         """
         :param clusterId: (Optional) 集群id
         :param name: (Optional) 名称
@@ -36,7 +36,9 @@ class Cluster(object):
         :param accessKey: (Optional) 用户的AccessKey，插件调用open-api时的认证凭证
         :param basicAuth: (Optional) 基本验证方式
         :param clientCertificate: (Optional) 证书验证方式
+        :param privateEndpoint: (Optional) 用户访问的内网ip
         :param endpoint: (Optional) 用户访问的ip
+        :param endpointIPV6: (Optional) IPv6地址
         :param endpointPort: (Optional) endpoint的port
         :param dashboardPort: (Optional) endpoint的dashboard port
         :param userMetrics: (Optional) deprecated 优先以addonsConfig中的配置为准 <br>用户是否启用集群自定义监控，true 表示开启用，false 表示未开启用
@@ -47,6 +49,8 @@ class Cluster(object):
         :param masterProgress: (Optional) 控制节点操作进度
         :param clusterNetwork: (Optional) 网络配置信息
         :param networkMode: (Optional) 集群网络类型,可取值为auto和customized
+        :param clusterEnvironments: (Optional) 用户自定义的集群的环境信息，会影响到创建集群时的组件模版的渲染
+        :param isEdge: (Optional) 是否是边缘计算集群
         """
 
         self.clusterId = clusterId
@@ -64,7 +68,9 @@ class Cluster(object):
         self.accessKey = accessKey
         self.basicAuth = basicAuth
         self.clientCertificate = clientCertificate
+        self.privateEndpoint = privateEndpoint
         self.endpoint = endpoint
+        self.endpointIPV6 = endpointIPV6
         self.endpointPort = endpointPort
         self.dashboardPort = dashboardPort
         self.userMetrics = userMetrics
@@ -75,3 +81,5 @@ class Cluster(object):
         self.masterProgress = masterProgress
         self.clusterNetwork = clusterNetwork
         self.networkMode = networkMode
+        self.clusterEnvironments = clusterEnvironments
+        self.isEdge = isEdge

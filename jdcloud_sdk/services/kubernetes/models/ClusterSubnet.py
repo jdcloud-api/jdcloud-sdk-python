@@ -19,11 +19,12 @@
 
 class ClusterSubnet(object):
 
-    def __init__(self, subnetId=None, subnetType=None, enabled=None, cidr=None, availableIpNum=None, subnetName=None):
+    def __init__(self, subnetId=None, subnetType=None, enabled=None, autoDelete=None, cidr=None, availableIpNum=None, subnetName=None):
         """
         :param subnetId: (Optional) 子网 ID
         :param subnetType: (Optional) 子网类型，可取值为：pod_subnet/lb_subnet/node_subnet
         :param enabled: (Optional) 子网是否启用，仅pod子网可用。
+        :param autoDelete: (Optional) 子网是否自动删除，用户自定义子网不会自动删除
         :param cidr: (Optional) 子网CIDR
         :param availableIpNum: (Optional) 子网中可用的IP数量
         :param subnetName: (Optional) 子网名称
@@ -32,6 +33,7 @@ class ClusterSubnet(object):
         self.subnetId = subnetId
         self.subnetType = subnetType
         self.enabled = enabled
+        self.autoDelete = autoDelete
         self.cidr = cidr
         self.availableIpNum = availableIpNum
         self.subnetName = subnetName

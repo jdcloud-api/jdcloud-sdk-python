@@ -19,16 +19,13 @@
 
 class NodeGroupSpec(object):
 
-    def __init__(self, name, nodeConfig, initialNodeCount, vpcId, description=None, azs=None, nodeCidr=None, autoRepair=None, caConfig=None):
+    def __init__(self, name, nodeConfig, initialNodeCount, description=None, azs=None, caConfig=None):
         """
         :param name:  名称
         :param description: (Optional) 
         :param nodeConfig:  工作节点组的信息
         :param azs: (Optional) 工作节点组的 az，必须为集群az的子集，默认为集群az
         :param initialNodeCount:  工作节点组初始化大小，至少为1个
-        :param vpcId:  工作节点组运行的vpc
-        :param nodeCidr: (Optional) 工作节点组的cidr
-        :param autoRepair: (Optional) 是否开启自动修复，默认不开启。
         :param caConfig: (Optional) 自动伸缩配置
         """
 
@@ -37,7 +34,4 @@ class NodeGroupSpec(object):
         self.nodeConfig = nodeConfig
         self.azs = azs
         self.initialNodeCount = initialNodeCount
-        self.vpcId = vpcId
-        self.nodeCidr = nodeCidr
-        self.autoRepair = autoRepair
         self.caConfig = caConfig

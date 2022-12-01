@@ -32,7 +32,7 @@ class DeleteNodeInstancesRequest(JDCloudRequest):
 
 class DeleteNodeInstancesParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, instanceIds):
+    def __init__(self,regionId, nodeGroupId, instanceIds):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID

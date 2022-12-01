@@ -33,7 +33,7 @@ class DescribeYdRdsInstancesRequest(JDCloudRequest):
 
 class DescribeYdRdsInstancesParameters(object):
 
-    def __init__(self, regionId, appKey):
+    def __init__(self,regionId, appKey):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param appKey: 应用appKey;

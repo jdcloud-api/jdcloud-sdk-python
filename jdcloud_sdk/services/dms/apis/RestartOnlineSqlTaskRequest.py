@@ -19,32 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetUserMetricsRequest(JDCloudRequest):
+class RestartOnlineSqlTaskRequest(JDCloudRequest):
     """
-    Deprecated 建议使用 setAddons 接口 <br>设置用户自定义监控状态
+    重启Sql任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetUserMetricsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:setUserMetrics', 'POST', header, version)
+        super(RestartOnlineSqlTaskRequest, self).__init__(
+            '/regions/{regionId}/sqltask:restart', 'POST', header, version)
         self.parameters = parameters
 
 
-class SetUserMetricsParameters(object):
+class RestartOnlineSqlTaskParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, ):
         """
-        :param regionId: 地域 ID
-        :param clusterId: 集群 ID
+        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
 
         self.regionId = regionId
-        self.clusterId = clusterId
-        self.enabled = None
+        self.taskId = None
 
-    def setEnabled(self, enabled):
+    def setTaskId(self, taskId):
         """
-        :param enabled: (Optional) 是否开启自定义监控
+        :param taskId: (Optional) 任务id
         """
-        self.enabled = enabled
+        self.taskId = taskId
 

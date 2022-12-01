@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GeneralCreateTableSqlRequest(JDCloudRequest):
     """
-    生成建表语句sql，支持Mysql，Stardb
+    生成建表语句sql，支持Mysql，Stardb，OpenGauss
     """
 
     def __init__(self, parameters, header=None, version="v1"):

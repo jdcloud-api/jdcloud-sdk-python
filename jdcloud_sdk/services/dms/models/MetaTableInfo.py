@@ -23,7 +23,7 @@ class MetaTableInfo(object):
         """
         :param tableName: (Optional) 表名。
         :param tableComment: (Optional) 表注释。
-        :param tableCharset: (Optional) 表字符编码。
+        :param tableCharset: (Optional) 表字符编码（非必须，opengauss不传）。
         """
 
         self.tableName = tableName

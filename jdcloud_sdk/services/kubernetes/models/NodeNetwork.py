@@ -19,19 +19,9 @@
 
 class NodeNetwork(object):
 
-    def __init__(self, podSubnetId=None, nodeSubnetId=None, serviceSubnetId=None, servicePublicSubnetId=None, nodeNetworkCidr=None, vpcId=None):
+    def __init__(self, nodeSubnetId=None):
         """
-        :param podSubnetId: (Optional) pod子网的id
         :param nodeSubnetId: (Optional) node子网的id
-        :param serviceSubnetId: (Optional) service子网的id
-        :param servicePublicSubnetId: (Optional) service关联LB的具有公网访问能力的子网id
-        :param nodeNetworkCidr: (Optional) node的cidr
-        :param vpcId: (Optional) vpc id
         """
 
-        self.podSubnetId = podSubnetId
         self.nodeSubnetId = nodeSubnetId
-        self.serviceSubnetId = serviceSubnetId
-        self.servicePublicSubnetId = servicePublicSubnetId
-        self.nodeNetworkCidr = nodeNetworkCidr
-        self.vpcId = vpcId

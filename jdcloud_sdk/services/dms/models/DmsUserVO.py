@@ -30,10 +30,10 @@ class DmsUserVO(object):
         :param email: (Optional) 用户邮箱。
         :param activeStatus: (Optional) 用户的启用状态。
         :param deleteStatus: (Optional) 用户的删除状态。
-        :param addDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
-        :param loginDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
-        :param createDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
-        :param modifiedDate: (Optional) 用户的添加时间，格式为：YYYY-MM-DD HH:mm:ss。
+        :param addDate: (Optional) 用户的添加时间，格式为：yyyy-MM-dd'T'HH:mm:ss
+        :param loginDate: (Optional) 用户的登录时间，格式为：yyyy-MM-dd'T'HH:mm:ss
+        :param createDate: (Optional) 用户的创建时间，格式为：yyyy-MM-dd'T'HH:mm:ss
+        :param modifiedDate: (Optional) 用户的修改时间，格式为：yyyy-MM-dd'T'HH:mm:ss
         :param roleVOList: (Optional) 用户角色列表。
         """
 

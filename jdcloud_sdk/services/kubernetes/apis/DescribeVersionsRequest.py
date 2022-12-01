@@ -32,7 +32,7 @@ class DescribeVersionsRequest(JDCloudRequest):
 
 class DescribeVersionsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -42,7 +42,7 @@ class DescribeVersionsParameters(object):
 
     def setMasterVersion(self, masterVersion):
         """
-        :param masterVersion: (Optional) 集群的大版本，如 1.12.4-jcs.1
+        :param masterVersion: (Optional) 集群的大版本，如 1.16.4-jcs.3
         """
         self.masterVersion = masterVersion
 

@@ -32,7 +32,7 @@ class DeleteClusterRequest(JDCloudRequest):
 
 class DeleteClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId, ):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID
@@ -40,4 +40,11 @@ class DeleteClusterParameters(object):
 
         self.regionId = regionId
         self.clusterId = clusterId
+        self.routeTableId = None
+
+    def setRouteTableId(self, routeTableId):
+        """
+        :param routeTableId: (Optional) 替换路由表id
+        """
+        self.routeTableId = routeTableId
 

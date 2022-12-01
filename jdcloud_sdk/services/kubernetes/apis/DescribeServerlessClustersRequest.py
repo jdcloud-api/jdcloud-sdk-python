@@ -19,36 +19,46 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpgradeClusterRequest(JDCloudRequest):
+class DescribeServerlessClustersRequest(JDCloudRequest):
     """
-    触发升级
+    查询Serverless集群列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpgradeClusterRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:upgradeCluster', 'POST', header, version)
+        super(DescribeServerlessClustersRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters', 'GET', header, version)
         self.parameters = parameters
 
 
-class UpgradeClusterParameters(object):
+class DescribeServerlessClustersParameters(object):
 
-    def __init__(self, regionId, clusterId, scope, version):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域 ID
-        :param clusterId: 集群 ID
-        :param scope: 升级范围
-        :param version: 指定升级到的版本
         """
 
         self.regionId = regionId
-        self.clusterId = clusterId
-        self.scope = scope
-        self.nodeGroupIds = None
-        self.version = version
+        self.pageNumber = None
+        self.pageSize = None
+        self.filters = None
 
-    def setNodeGroupIds(self, nodeGroupIds):
+    def setPageNumber(self, pageNumber):
         """
-        :param nodeGroupIds: (Optional) 节点组 id
+        :param pageNumber: (Optional) 页码；默认为1
         """
-        self.nodeGroupIds = nodeGroupIds
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        """
+        self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) name - 集群名称，模糊匹配，仅支持单个   
+id - id，支持多个   
+
+        """
+        self.filters = filters
 

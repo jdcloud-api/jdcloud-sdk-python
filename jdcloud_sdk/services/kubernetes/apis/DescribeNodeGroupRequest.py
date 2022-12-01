@@ -32,7 +32,7 @@ class DescribeNodeGroupRequest(JDCloudRequest):
 
 class DescribeNodeGroupParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, ):
+    def __init__(self,regionId, nodeGroupId):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID

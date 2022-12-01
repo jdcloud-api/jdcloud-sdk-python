@@ -19,11 +19,17 @@
 
 class AddonConfigSpec(object):
 
-    def __init__(self, name, enabled=None):
+    def __init__(self, name, version=None, enabled=None, params=None, parameters=None):
         """
         :param name:  组件名称，目前支持customMetrics、logging
+        :param version: (Optional) 组件版本，非必须
         :param enabled: (Optional) 是否开启该组件，默认为false。
+        :param params: (Optional) 组件参数(deprecated)
+        :param parameters: (Optional) 组件的额外参数（新）
         """
 
         self.name = name
+        self.version = version
         self.enabled = enabled
+        self.params = params
+        self.parameters = parameters

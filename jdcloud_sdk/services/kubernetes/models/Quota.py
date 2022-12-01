@@ -21,7 +21,7 @@ class Quota(object):
 
     def __init__(self, resourceType=None, limit=None, used=None):
         """
-        :param resourceType: (Optional) 资源类型[kubernetes]
+        :param resourceType: (Optional) 资源类型[kubernetes、serverless-kubernetes]
         :param limit: (Optional) 可用资源上限
         :param used: (Optional) 已用资源数量
         """

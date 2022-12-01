@@ -19,19 +19,11 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateClusterRequest(JDCloudRequest):
+class CreateServerlessClusterRequest(JDCloudRequest):
     """
-    - 创建集群
+    - 创建Serverless集群
 - 证书
   - 关于kubernetes的证书，默认生成，不需要用户传入。
-- nodegroup
-  - cluster必须与nodeGroup进行绑定
-  - cluster支持多nodegroup
-  - 状态
-    - pending,reconciling,deleting状态不可以操作更新接口
-    - running，running_with_error状态可以操作nodegroup所有接口
-    - error状态只可以查询，删除
-    - delete状态的cluster在十五分钟内可以查询，十五分钟后无法查询到
 - 状态限制
   - pending,reconciling,deleting状态不可以操作更新接口
   - running状态可以操作cluster所有接口
@@ -41,36 +33,32 @@ class CreateClusterRequest(JDCloudRequest):
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateClusterRequest, self).__init__(
-            '/regions/{regionId}/clusters', 'POST', header, version)
+        super(CreateServerlessClusterRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateClusterParameters(object):
+class CreateServerlessClusterParameters(object):
 
-    def __init__(self,regionId, name, azs, nodeGroup, accessKey, secretKey, ):
+    def __init__(self,regionId, name, azs, accessKey, secretKey, clusterNetworkSpec, ):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 允许重名）
         :param azs: 集群所在的az
-        :param nodeGroup: 集群节点组
         :param accessKey: 用户的AccessKey，插件调用open-api时的认证凭证
         :param secretKey: 用户的SecretKey，插件调用open-api时的认证凭证
+        :param clusterNetworkSpec: 集群网络配置
         """
 
         self.regionId = regionId
         self.name = name
         self.description = None
         self.version = None
-        self.isEdge = None
         self.azs = azs
-        self.nodeGroup = nodeGroup
         self.accessKey = accessKey
         self.secretKey = secretKey
         self.addonsConfig = None
-        self.clusterNetworkType = None
-        self.autoClusterNetworkSpec = None
-        self.customizedClusterNetworkSpec = None
+        self.clusterNetworkSpec = clusterNetworkSpec
         self.clusterEnvironments = None
 
     def setDescription(self, description):
@@ -85,35 +73,11 @@ class CreateClusterParameters(object):
         """
         self.version = version
 
-    def setIsEdge(self, isEdge):
-        """
-        :param isEdge: (Optional) 是否是边缘计算集群
-        """
-        self.isEdge = isEdge
-
     def setAddonsConfig(self, addonsConfig):
         """
         :param addonsConfig: (Optional) 集群组件配置
         """
         self.addonsConfig = addonsConfig
-
-    def setClusterNetworkType(self, clusterNetworkType):
-        """
-        :param clusterNetworkType: (Optional) 集群网络配置类型，取值：auto，customized，创建集群接口合并，原CreateCusomizedCluster接口废弃
-        """
-        self.clusterNetworkType = clusterNetworkType
-
-    def setAutoClusterNetworkSpec(self, autoClusterNetworkSpec):
-        """
-        :param autoClusterNetworkSpec: (Optional) clusterNetworkType为【auto】时，此配置必须要配置
-        """
-        self.autoClusterNetworkSpec = autoClusterNetworkSpec
-
-    def setCustomizedClusterNetworkSpec(self, customizedClusterNetworkSpec):
-        """
-        :param customizedClusterNetworkSpec: (Optional) clusterNetworkType为【customized】时，此配置必须要配置
-        """
-        self.customizedClusterNetworkSpec = customizedClusterNetworkSpec
 
     def setClusterEnvironments(self, clusterEnvironments):
         """

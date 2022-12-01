@@ -19,25 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class RollbackNodeGroupUpgradeRequest(JDCloudRequest):
+class DescribeServerlessVersionsRequest(JDCloudRequest):
     """
-    回滚未升级完的工作节点组
+    查询Serverless集群版本列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(RollbackNodeGroupUpgradeRequest, self).__init__(
-            '/regions/{regionId}/nodeGroups/{nodeGroupId}:rollbackNodeGroupUpgrade', 'POST', header, version)
+        super(DescribeServerlessVersionsRequest, self).__init__(
+            '/regions/{regionId}/serverless-versions', 'GET', header, version)
         self.parameters = parameters
 
 
-class RollbackNodeGroupUpgradeParameters(object):
+class DescribeServerlessVersionsParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域 ID
-        :param nodeGroupId: 工作节点组 ID
         """
 
         self.regionId = regionId
-        self.nodeGroupId = nodeGroupId
+        self.masterVersion = None
+
+    def setMasterVersion(self, masterVersion):
+        """
+        :param masterVersion: (Optional) 
+        """
+        self.masterVersion = masterVersion
 

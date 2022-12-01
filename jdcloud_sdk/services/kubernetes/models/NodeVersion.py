@@ -21,7 +21,7 @@ class NodeVersion(object):
 
     def __init__(self, version=None, imageOs=None, versionStatus=None):
         """
-        :param version: (Optional) 节点版本号
+        :param version: (Optional) 节点版本
         :param imageOs: (Optional) 镜像操作系统
         :param versionStatus: (Optional) 版本状态
         """

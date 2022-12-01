@@ -19,32 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeUpgradableNodeVersionsRequest(JDCloudRequest):
+class DescribeServerlessClusterRequest(JDCloudRequest):
     """
-    查询可升级的节点版本
+    查询单个集群详情。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeUpgradableNodeVersionsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}/upgradableNodeVersions', 'GET', header, version)
+        super(DescribeServerlessClusterRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters/{clusterId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeUpgradableNodeVersionsParameters(object):
+class DescribeServerlessClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId):
         """
-        :param regionId: Region ID
+        :param regionId: 地域 ID
         :param clusterId: 集群 ID
         """
 
         self.regionId = regionId
         self.clusterId = clusterId
-        self.nodeGroupIds = None
-
-    def setNodeGroupIds(self, nodeGroupIds):
-        """
-        :param nodeGroupIds: (Optional) 节点组 id
-        """
-        self.nodeGroupIds = nodeGroupIds
 

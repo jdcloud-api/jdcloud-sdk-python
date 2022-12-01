@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SetNodeGroupCARequest(JDCloudRequest):
     """
-    设置工作节点组自动扩容
+    设置工作节点组自动扩容缩容
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class SetNodeGroupCARequest(JDCloudRequest):
 
 class SetNodeGroupCAParameters(object):
 
-    def __init__(self, regionId, nodeGroupId, caConfig):
+    def __init__(self,regionId, nodeGroupId, caConfig):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID

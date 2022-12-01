@@ -19,25 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeUpgradableMasterVersionsRequest(JDCloudRequest):
+class ModifyServerlessClusterRequest(JDCloudRequest):
     """
-    查询可升级的控制节点版本
+    修改Serverless集群的 名称 和 描述。<br>集群 name 和 description 必须要指定一个
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeUpgradableMasterVersionsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}/upgradableMasterVersions', 'GET', header, version)
+        super(ModifyServerlessClusterRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters/{clusterId}', 'PATCH', header, version)
         self.parameters = parameters
 
 
-class DescribeUpgradableMasterVersionsParameters(object):
+class ModifyServerlessClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域 ID
         :param clusterId: 集群 ID
         """
 
         self.regionId = regionId
         self.clusterId = clusterId
+        self.name = None
+        self.description = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 集群名称
+        """
+        self.name = name
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 集群描述
+        """
+        self.description = description
 

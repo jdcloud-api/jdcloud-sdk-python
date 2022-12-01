@@ -19,11 +19,13 @@
 
 class NatGatewaySpec(object):
 
-    def __init__(self, natType=None, natId=None):
+    def __init__(self, natType=None, natId=None, elasticIpSpec=None):
         """
         :param natType: (Optional) nat的类型，nat_vm/nat_gw/nat_none
         :param natId: (Optional) nat虚机id，或者nat网关的实例id
+        :param elasticIpSpec: (Optional) Nat实例对应的公网IP的配置，只有nat_vm时才生效
         """
 
         self.natType = natType
         self.natId = natId
+        self.elasticIpSpec = elasticIpSpec

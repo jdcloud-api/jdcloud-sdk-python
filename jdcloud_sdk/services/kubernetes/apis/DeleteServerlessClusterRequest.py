@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class SetUserMetricsRequest(JDCloudRequest):
+class DeleteServerlessClusterRequest(JDCloudRequest):
     """
-    Deprecated 建议使用 setAddons 接口 <br>设置用户自定义监控状态
+    删除Serverless集群，以及集群的所有网络，云盘等所有资源。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(SetUserMetricsRequest, self).__init__(
-            '/regions/{regionId}/clusters/{clusterId}:setUserMetrics', 'POST', header, version)
+        super(DeleteServerlessClusterRequest, self).__init__(
+            '/regions/{regionId}/serverless-clusters/{clusterId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class SetUserMetricsParameters(object):
+class DeleteServerlessClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId, ):
         """
         :param regionId: 地域 ID
         :param clusterId: 集群 ID
@@ -40,11 +40,11 @@ class SetUserMetricsParameters(object):
 
         self.regionId = regionId
         self.clusterId = clusterId
-        self.enabled = None
+        self.routeTableId = None
 
-    def setEnabled(self, enabled):
+    def setRouteTableId(self, routeTableId):
         """
-        :param enabled: (Optional) 是否开启自定义监控
+        :param routeTableId: (Optional) 替换路由表id
         """
-        self.enabled = enabled
+        self.routeTableId = routeTableId
 

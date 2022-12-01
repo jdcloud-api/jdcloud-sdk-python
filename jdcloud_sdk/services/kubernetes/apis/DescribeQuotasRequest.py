@@ -32,7 +32,7 @@ class DescribeQuotasRequest(JDCloudRequest):
 
 class DescribeQuotasParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -42,7 +42,7 @@ class DescribeQuotasParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) resourceTypes - 资源类型，暂时只支持[kubernetes]
+        :param filters: (Optional) resourceTypes - 资源类型，暂时只支持[kubernetes、serverless-kubernetes]
 
         """
         self.filters = filters

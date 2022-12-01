@@ -19,22 +19,22 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeNetworkInterfacesRequest(JDCloudRequest):
+class DescribeVmInstancesRequest(JDCloudRequest):
     """
-    查询弹性网卡列表
+    批量查询云主机列表信息<br>此接口支持分页查询，默认每页20条。
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DescribeNetworkInterfacesRequest, self).__init__(
-            '/regions/{regionId}/ydNetworkInterfaces', 'GET', header, version)
+        super(DescribeVmInstancesRequest, self).__init__(
+            '/regions/{regionId}/ydVmInstances', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeNetworkInterfacesParameters(object):
+class DescribeVmInstancesParameters(object):
 
     def __init__(self,regionId, ):
         """
-        :param regionId: Region ID
+        :param regionId: 地域ID
         """
 
         self.regionId = regionId
@@ -44,23 +44,29 @@ class DescribeNetworkInterfacesParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞), 页码超过总页数时, 显示最后一页
+        :param pageNumber: (Optional) 页码；默认为1
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) networkInterfaceIds - 弹性网卡ID列表，支持多个
-networkInterfaceNames - 弹性网卡名称列表，支持多个
-vpcId - 弹性网卡所属vpc Id，支持单个
-subnetId	- 弹性网卡所属子网Id，支持单个
-role - 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡）、Managed （受管网卡），支持单个
+        :param filters: (Optional) instanceId - 云主机ID，精确匹配，支持多个
+privateIpAddress - 主网卡内网主IP地址，模糊匹配，支持多个
+az - 可用区，精确匹配，支持多个
+vpcId - 私有网络ID，精确匹配，支持多个
+status - 云主机状态，精确匹配，支持多个，<a href="http://docs.jdcloud.com/virtual-machines/api/vm_status">参考云主机状态</a>
+name - 云主机名称，模糊匹配，支持单个
+imageId - 镜像ID，精确匹配，支持多个
+networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
+subnetId - 子网ID，精确匹配，支持多个
+agId - 使用可用组id，支持单个
+faultDomain - 错误域，支持多个
 
         """
         self.filters = filters

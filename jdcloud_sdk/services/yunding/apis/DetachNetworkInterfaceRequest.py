@@ -19,26 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeYdRdsInstancesRequest(JDCloudRequest):
+class DetachNetworkInterfaceRequest(JDCloudRequest):
     """
-    查询云鼎数据库实例列表
+    云主机缷载一块弹性网卡。<br>
+云主机状态必须为<b>running</b>或<b>stopped</b>状态，并且没有正在进行中的任务才可操作。<br>
+不能缷载主网卡。
 
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DescribeYdRdsInstancesRequest, self).__init__(
-            '/regions/{regionId}/rdsInstances', 'GET', header, version)
+        super(DetachNetworkInterfaceRequest, self).__init__(
+            '/regions/{regionId}/ydVmInstances/{instanceId}:detachNetworkInterface', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeYdRdsInstancesParameters(object):
+class DetachNetworkInterfaceParameters(object):
 
-    def __init__(self,regionId, appKey):
+    def __init__(self,regionId, instanceId, networkInterfaceId):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param appKey: 应用appKey;
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
+        :param networkInterfaceId: 弹性网卡ID
         """
 
         self.regionId = regionId
-        self.appKey = appKey
+        self.instanceId = instanceId
+        self.networkInterfaceId = networkInterfaceId
 

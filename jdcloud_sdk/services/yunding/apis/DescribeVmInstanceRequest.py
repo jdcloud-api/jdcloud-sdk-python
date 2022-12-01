@@ -19,26 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeYdRdsInstancesRequest(JDCloudRequest):
+class DescribeVmInstanceRequest(JDCloudRequest):
     """
-    查询云鼎数据库实例列表
-
+    查询一台云主机的详细信息
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(DescribeYdRdsInstancesRequest, self).__init__(
-            '/regions/{regionId}/rdsInstances', 'GET', header, version)
+        super(DescribeVmInstanceRequest, self).__init__(
+            '/regions/{regionId}/ydVmInstances/{instanceId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeYdRdsInstancesParameters(object):
+class DescribeVmInstanceParameters(object):
 
-    def __init__(self,regionId, appKey):
+    def __init__(self,regionId, instanceId):
         """
-        :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param appKey: 应用appKey;
+        :param regionId: 地域ID
+        :param instanceId: 云主机ID
         """
 
         self.regionId = regionId
-        self.appKey = appKey
+        self.instanceId = instanceId
 

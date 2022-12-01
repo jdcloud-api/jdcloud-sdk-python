@@ -32,7 +32,7 @@ class PutRequest(JDCloudRequest):
 
 class PutParameters(object):
 
-    def __init__(self, regionId, appCode, serviceCode, region, resourceId, dataPoints):
+    def __init__(self,regionId, appCode, serviceCode, region, resourceId, dataPoints):
         """
         :param regionId: 地域ID
         :param appCode: 目前统一用jcloud

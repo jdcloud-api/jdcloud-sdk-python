@@ -32,7 +32,7 @@ class UnassignSecondaryIpsRequest(JDCloudRequest):
 
 class UnassignSecondaryIpsParameters(object):
 
-    def __init__(self, regionId, networkInterfaceId, ):
+    def __init__(self,regionId, networkInterfaceId, ):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID
@@ -41,10 +41,17 @@ class UnassignSecondaryIpsParameters(object):
         self.regionId = regionId
         self.networkInterfaceId = networkInterfaceId
         self.secondaryIps = None
+        self.secondaryCidrs = None
 
     def setSecondaryIps(self, secondaryIps):
         """
         :param secondaryIps: (Optional) 指定删除的secondaryIp地址
         """
         self.secondaryIps = secondaryIps
+
+    def setSecondaryCidrs(self, secondaryCidrs):
+        """
+        :param secondaryCidrs: (Optional) 指定删除的secondaryIp网段
+        """
+        self.secondaryCidrs = secondaryCidrs
 

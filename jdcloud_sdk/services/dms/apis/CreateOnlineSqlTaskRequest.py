@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class GetCreateTableBatchSqlRequest(JDCloudRequest):
+class CreateOnlineSqlTaskRequest(JDCloudRequest):
     """
-    获取批量建表sql，仅供前端使用，支持Stardb，OpenGauss
+    创建Sql任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(GetCreateTableBatchSqlRequest, self).__init__(
-            '/regions/{regionId}/console:getCreateTableBatchSql', 'POST', header, version)
+        super(CreateOnlineSqlTaskRequest, self).__init__(
+            '/regions/{regionId}/sqltask:create', 'POST', header, version)
         self.parameters = parameters
 
 
-class GetCreateTableBatchSqlParameters(object):
+class CreateOnlineSqlTaskParameters(object):
 
     def __init__(self,regionId, ):
         """
@@ -40,7 +40,9 @@ class GetCreateTableBatchSqlParameters(object):
         self.regionId = regionId
         self.dataSourceId = None
         self.dbName = None
-        self.createTableInfos = None
+        self.planTime = None
+        self.sqls = None
+        self.taskTypeEnum = None
 
     def setDataSourceId(self, dataSourceId):
         """
@@ -50,13 +52,25 @@ class GetCreateTableBatchSqlParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名称
+        :param dbName: (Optional) 数据库名称。
         """
         self.dbName = dbName
 
-    def setCreateTableInfos(self, createTableInfos):
+    def setPlanTime(self, planTime):
         """
-        :param createTableInfos: (Optional) 查询结果。
+        :param planTime: (Optional) 计划开始执行时间，stardb数据源固定为空。
         """
-        self.createTableInfos = createTableInfos
+        self.planTime = planTime
+
+    def setSqls(self, sqls):
+        """
+        :param sqls: (Optional) 执行SQL。
+        """
+        self.sqls = sqls
+
+    def setTaskTypeEnum(self, taskTypeEnum):
+        """
+        :param taskTypeEnum: (Optional) 任务类型:DDL, DML
+        """
+        self.taskTypeEnum = taskTypeEnum
 

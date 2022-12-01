@@ -19,30 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryTypeInstanceRequest(JDCloudRequest):
+class CheckInstanceRequest(JDCloudRequest):
     """
-    查询用户数据类型实例
+    校验用户是否有实例权限
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryTypeInstanceRequest, self).__init__(
-            '/regions/{regionId}/typeInstances:query', 'POST', header, version)
+        super(CheckInstanceRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}:check', 'GET', header, version)
         self.parameters = parameters
 
 
-class QueryTypeInstanceParameters(object):
+class CheckInstanceParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, instanceId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
+        :param instanceId: 实例id
         """
 
         self.regionId = regionId
-        self.dbType = None
-
-    def setDbType(self, dbType):
-        """
-        :param dbType: (Optional) 数据源类型，CDS("CDS", 1), MYSQL("MYSQL", 2), ORACLE("ORACLE", 3), SQLSERVER("SQLSERVER", 4), CDSMYSQL("CDSMYSQL", 5), CDSORACLE("CDSORACLE", 6), CDSSQLSERVER("CDSSQLSERVER", 7), DATACENTER("DATACENTER", 8), HBASE("Hbase",9),MONGODB("MongoDb",10),ES("ES",11), MYSQL_INS("MYSQL_INS",12), DRDS_INS("DRDS_INS",13), STARDB_INS("STARDB_INS",14), STARDB_PROXY_INS("STARDB_PROXY_INS",15), CLICK_HOUSE_INS("CLICK_HOUSE_INS",16), TIDB_INS("TIDB_INS",17), OPEN_GAUSS_INS("OPEN_GAUSS_INS",18), SS_OPEN_GAUSS_INS("SS_OPEN_GAUSS_INS",19);
-        """
-        self.dbType = dbType
+        self.instanceId = instanceId
 

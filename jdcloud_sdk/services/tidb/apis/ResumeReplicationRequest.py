@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ResumeReplicationRequest(JDCloudRequest):
     """
-    启动复制任务
+    继续处于“暂停”状态的复制任务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

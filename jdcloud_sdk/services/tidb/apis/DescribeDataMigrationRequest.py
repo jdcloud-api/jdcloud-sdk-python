@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDataMigrationRequest(JDCloudRequest):
     """
-    查询 TiDB 数据迁移任务的信息
+    查询 TiDB 数据迁移任务的详细信息，例如任务的开始、完成时间，任务状态等等。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

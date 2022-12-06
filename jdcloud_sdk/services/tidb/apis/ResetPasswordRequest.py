@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ResetPasswordRequest(JDCloudRequest):
     """
-    创建数据库账号，用户可以使用客户端，应用程序等通过该账号和密码登录RDS数据库实例。
+    重置 TiDB 实例的高权限账号的密码。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,7 +36,7 @@ class ResetPasswordParameters(object):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
-        :param accountName: 账号名，在同一个实例中账号名不能重复
+        :param accountName: 账号名
         :param accountPassword: 新密码
         """
 

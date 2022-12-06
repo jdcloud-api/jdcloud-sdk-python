@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RebootPodRequest(JDCloudRequest):
     """
-    重启实例的pod
+    重启实例的某类节点。重启采用滚动重启的方式，如果该类节点有多个，通常不会中断实例的服务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

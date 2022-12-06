@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteReplicationRequest(JDCloudRequest):
     """
-    删除复制任务
+    删除指定的复制任务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

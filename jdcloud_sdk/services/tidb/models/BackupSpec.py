@@ -21,7 +21,7 @@ class BackupSpec(object):
 
     def __init__(self, backupName, ):
         """
-        :param backupName:  备份名称最长支持64个英文字符或等长的中文字符
+        :param backupName:  备份名称，最长支持64个英文字符或等长的中文字符
         """
 
         self.backupName = backupName

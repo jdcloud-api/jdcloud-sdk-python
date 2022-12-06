@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeReplicationsRequest(JDCloudRequest):
     """
-    查看TiCDC复制任务列表
+    查询当前实例下所有的复制任务。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

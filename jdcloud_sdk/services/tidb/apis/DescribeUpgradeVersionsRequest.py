@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeUpgradeVersionsRequest(JDCloudRequest):
     """
-    获取TiDB数据库可升级到的版本
+    获取当前 TiDB 实例可升级到的目标版本。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

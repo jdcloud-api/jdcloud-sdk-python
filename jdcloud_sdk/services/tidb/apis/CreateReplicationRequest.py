@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateReplicationRequest(JDCloudRequest):
     """
-    创建一个TiCDC
+    创建一个数据复制任务，可以将 TiDB 的增量数据同步到下游的 MySQL， TiDB 或者 Kafka 中。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,7 +36,7 @@ class CreateReplicationParameters(object):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
-        :param replication: 新建TiCDC复制任务
+        :param replication: 数据复制任务的详细信息
         """
 
         self.regionId = regionId

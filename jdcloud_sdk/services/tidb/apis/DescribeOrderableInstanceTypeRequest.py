@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeOrderableInstanceTypeRequest(JDCloudRequest):
     """
-    获取当前用户售罄信息
+    获取当前用户售罄信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

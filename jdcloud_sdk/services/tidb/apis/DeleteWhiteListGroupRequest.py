@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteWhiteListGroupRequest(JDCloudRequest):
     """
-    删除白名单分组。
+    删除指定的白名单分组。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

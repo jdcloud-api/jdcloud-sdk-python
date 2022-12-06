@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyBackupPolicyRequest(JDCloudRequest):
     """
-    修改TiDB实例备份策略。
+    修改 TiDB 实例备份策略，例如全量备份的日期，时间等。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

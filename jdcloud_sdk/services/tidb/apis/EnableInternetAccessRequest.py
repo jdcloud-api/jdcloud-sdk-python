@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableInternetAccessRequest(JDCloudRequest):
     """
-    开启TiDB服务的公网访问域名
+    开启 TiDB 实例的 Internet 公网服务。开启后，并配置 IP 白名单后，可以在 VPC 外通过公网域名访问 TiDB 实例。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

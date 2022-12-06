@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeUpgradePlanRequest(JDCloudRequest):
     """
-    查询TiDB数据库的升级计划
+    查询当前 TiDB 实例的升级计划。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

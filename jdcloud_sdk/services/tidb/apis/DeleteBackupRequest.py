@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteBackupRequest(JDCloudRequest):
     """
-    删除TiDB的备份，仅允许删除用户生成的备份，系统自动备份不允许删除。
+    删除TiDB的备份，仅允许删除用户创建的备份，系统的自动备份不允许删除。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

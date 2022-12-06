@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyNodeNumRequest(JDCloudRequest):
     """
-    增加实例的节点数量。
+    修改 TiDB 实例中各类节点的数量。如果当前实例无TiFlash和TiCDC节点，那么在增加TiFlash和TiCDC节点数目时，可同时指定其规格。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

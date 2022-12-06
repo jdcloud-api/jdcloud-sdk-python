@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceFromBackupRequest(JDCloudRequest):
     """
-    根据源实例全量备份创建一个新实例
+    创建一个新的 TiDB 实例，并将指定的备份恢复到该实例上。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class StopReplicationRequest(JDCloudRequest):
     """
-    暂停复制任务
+    暂停指定的复制任务。注意：如果暂停的时间过长，会导致 TiCDC 节点的磁盘空间写满，导致复制任务错误或失败。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

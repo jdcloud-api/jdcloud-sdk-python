@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupPolicyRequest(JDCloudRequest):
     """
-    查看实例当前的备份备份策略。
+    查看实例当前的备份策略。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyReplicationRequest(JDCloudRequest):
     """
-    修改复制任务
+    修改复制任务，修改前需要先暂停复制任务。为保证复制任务的可靠性，目前仅允许修改部分配置。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeParametersRequest(JDCloudRequest):
     """
-    查看TiDB实例的配置参数
+    查看TiDB实例的主要配置参数。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

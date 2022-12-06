@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteInstanceRequest(JDCloudRequest):
     """
-    删除一个TiDB实例
+    删除指定的 TiDB 实例。实例删除后，数据不可恢复，请谨慎使用。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

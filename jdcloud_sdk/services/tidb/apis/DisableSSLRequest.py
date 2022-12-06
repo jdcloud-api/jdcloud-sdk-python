@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisableSSLRequest(JDCloudRequest):
     """
-    关闭TiDB和MySQL客户端之间的SSL功能
+    关闭 TiDB 和 MySQL 客户端之间的 SSL 连接功能。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

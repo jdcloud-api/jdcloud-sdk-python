@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisableInternetAccessRequest(JDCloudRequest):
     """
-    关闭TiDB服务的公网访问域名
+    关闭 TiDB 实例的 Internet 公网服务。 关闭后，将不能在 VPC 外访问 TiDB 实例。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeSSLRequest(JDCloudRequest):
     """
-    查询TiDB实例的ssl状态
+    查询 TiDB 实例的 SSL 的开启状态。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

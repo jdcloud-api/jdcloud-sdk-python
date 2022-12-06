@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateDataMigrationRequest(JDCloudRequest):
     """
-    查询 TiDB 数据迁移任务的信息
+    创建一个数据迁移任务，可以将对象存储 OSS 中的数据导入到 TiDB 实例中，具体可以参考帮助文档。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,7 +36,7 @@ class CreateDataMigrationParameters(object):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
-        :param migrationType: 迁移任务类型，支持以下类型（大小写不敏感）：-FULL_IMPORT:全量数据导入
+        :param migrationType: 迁移任务类型，支持以下类型（大小写不敏感）：<br>-FULL_IMPORT:全量数据导入
         :param importTask: 使用 TiDB Lightning 进行的数据迁移任务
         """
 

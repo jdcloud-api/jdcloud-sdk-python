@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBackupsRequest(JDCloudRequest):
     """
-    查看该实例下所有备份的详细信息
+    查看该实例下所有备份的详细信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

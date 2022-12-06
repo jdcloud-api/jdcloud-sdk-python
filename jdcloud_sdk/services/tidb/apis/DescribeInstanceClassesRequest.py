@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstanceClassesRequest(JDCloudRequest):
     """
-    规格获取接口
+    获取各种 TiDB 节点支持的具体规格。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

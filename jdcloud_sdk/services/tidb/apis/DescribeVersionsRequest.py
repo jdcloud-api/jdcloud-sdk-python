@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeVersionsRequest(JDCloudRequest):
     """
-    获取TiDB产品提供的所有版本
+    查询指定地域下 TiDB 服务支持的数据库版本。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

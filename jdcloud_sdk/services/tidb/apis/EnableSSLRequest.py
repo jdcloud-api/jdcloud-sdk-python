@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableSSLRequest(JDCloudRequest):
     """
-    开启TiDB和MySQL客户端之间的SSL功能
+    开启 TiDB 和 MySQL 客户端之间的 SSL 连接功能。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

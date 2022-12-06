@@ -21,12 +21,12 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstancesRequest(JDCloudRequest):
     """
-    查询实例列表
+    查询当前账号下所有的 TiDB 实例。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeInstancesRequest, self).__init__(
-            '/regions/{regionId}/instances:describeInstances', 'GET', header, version)
+            '/regions/{regionId}/instances:describeInstances', 'POST', header, version)
         self.parameters = parameters
 
 

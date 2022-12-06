@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeNodesRequest(JDCloudRequest):
     """
-    获取某个实例下的节点信息
+    获取某个实例下的所有节点的主要性能信息，如CPU，内存，存储空间等。 该性能信息从云监控获取，为上一个监控周期的数据。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

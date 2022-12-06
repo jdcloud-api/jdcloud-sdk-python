@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class VerifyFilefromOSSRequest(JDCloudRequest):
     """
-    校验需要导入的备份文件在OSS上是否存在，需要的读取权限是否具备
+    校验需要导入的备份文件在OSS上是否存在，需要的读取权限是否具备。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

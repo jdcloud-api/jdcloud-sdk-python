@@ -47,6 +47,7 @@ class ModifyReplicationParameters(object):
         self.targetPassword = None
         self.kafkaTopic = None
         self.kafkaVersion = None
+        self.replicationObjects = None
 
     def setTargetComment(self, targetComment):
         """
@@ -77,4 +78,10 @@ class ModifyReplicationParameters(object):
         :param kafkaVersion: (Optional) Kafka的版本
         """
         self.kafkaVersion = kafkaVersion
+
+    def setReplicationObjects(self, replicationObjects):
+        """
+        :param replicationObjects: (Optional) 过滤规则列表
+        """
+        self.replicationObjects = replicationObjects
 

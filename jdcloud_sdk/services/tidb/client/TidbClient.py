@@ -26,4 +26,4 @@ class TidbClient(JDCloudClient):
         if config is None:
             config = Config('tidb.jdcloud-api.com')
 
-        super(TidbClient, self).__init__(credential, config, 'tidb', '1.0.2', logger)
+        super(TidbClient, self).__init__(credential, config, 'tidb', '1.0.4', logger)

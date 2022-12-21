@@ -32,7 +32,7 @@ class DescribeProbeHistoryRequest(JDCloudRequest):
 
 class DescribeProbeHistoryParameters(object):
 
-    def __init__(self, probeTaskID, probeID, ):
+    def __init__(self,probeTaskID, probeID, ):
         """
         :param probeTaskID: 可用性监控task_id, id长度(0,50]
         :param probeID: 探测源id，  id长度（0,50]

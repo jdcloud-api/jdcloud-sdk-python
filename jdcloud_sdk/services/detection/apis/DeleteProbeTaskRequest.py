@@ -32,7 +32,7 @@ class DeleteProbeTaskRequest(JDCloudRequest):
 
 class DeleteProbeTaskParameters(object):
 
-    def __init__(self, probeTaskIDs):
+    def __init__(self,probeTaskIDs):
         """
         :param probeTaskIDs: 探测任务的task_id,多个taskId用|分隔
         """

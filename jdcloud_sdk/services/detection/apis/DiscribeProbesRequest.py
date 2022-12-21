@@ -32,7 +32,7 @@ class DiscribeProbesRequest(JDCloudRequest):
 
 class DiscribeProbesParameters(object):
 
-    def __init__(self, probeTaskID, ):
+    def __init__(self,probeTaskID, ):
         """
         :param probeTaskID: 探测任务的task_id
         """

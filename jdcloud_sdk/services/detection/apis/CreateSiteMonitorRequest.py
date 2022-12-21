@@ -32,7 +32,7 @@ class CreateSiteMonitorRequest(JDCloudRequest):
 
 class CreateSiteMonitorParameters(object):
 
-    def __init__(self, address, cycle, name, source, taskType, ):
+    def __init__(self,address, cycle, name, source, taskType, ):
         """
         :param address: 地址
         :param cycle: 探测频率

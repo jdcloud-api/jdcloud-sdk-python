@@ -32,7 +32,7 @@ class DescribeMetricDataAmRequest(JDCloudRequest):
 
 class DescribeMetricDataAmParameters(object):
 
-    def __init__(self, resourceId, ):
+    def __init__(self,resourceId, ):
         """
         :param resourceId: 资源的uuid
         """

@@ -32,7 +32,7 @@ class UpdateProbeTaskRequest(JDCloudRequest):
 
 class UpdateProbeTaskParameters(object):
 
-    def __init__(self, probeTaskID, probes):
+    def __init__(self,probeTaskID, probes):
         """
         :param probeTaskID: 探测任务的task_id
         :param probes: 探测源（发起对探测目标探测的云主机，需安装相应的agent才能探测）

@@ -32,7 +32,7 @@ class CreateProbeTaskRequest(JDCloudRequest):
 
 class CreateProbeTaskParameters(object):
 
-    def __init__(self, clientToken, createProbeTaskSpec):
+    def __init__(self,clientToken, createProbeTaskSpec):
         """
         :param clientToken: 幂等性校验参数,最长36位
         :param createProbeTaskSpec: 

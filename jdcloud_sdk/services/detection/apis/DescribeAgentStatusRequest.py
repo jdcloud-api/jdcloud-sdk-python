@@ -32,7 +32,7 @@ class DescribeAgentStatusRequest(JDCloudRequest):
 
 class DescribeAgentStatusParameters(object):
 
-    def __init__(self, filters):
+    def __init__(self,filters):
         """
         :param filters: agent id列表
 uuid - agent id，精确匹配，支持多个

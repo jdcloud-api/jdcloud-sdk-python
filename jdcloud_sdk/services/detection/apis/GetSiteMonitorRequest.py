@@ -32,7 +32,7 @@ class GetSiteMonitorRequest(JDCloudRequest):
 
 class GetSiteMonitorParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

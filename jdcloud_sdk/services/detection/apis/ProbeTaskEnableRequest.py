@@ -32,7 +32,7 @@ class ProbeTaskEnableRequest(JDCloudRequest):
 
 class ProbeTaskEnableParameters(object):
 
-    def __init__(self, taskId):
+    def __init__(self,taskId):
         """
         :param taskId: 要启用或禁用的探测任务的task_id列表，列表长度[1，100)
         """

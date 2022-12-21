@@ -32,7 +32,7 @@ class ValidateSiteMonitorAddressRequest(JDCloudRequest):
 
 class ValidateSiteMonitorAddressParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -19,32 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCacheAnalysisRequest(JDCloudRequest):
+class ClientKillRequest(JDCloudRequest):
     """
-    创建缓存分析任务，一天最多创建12次分析任务
+    关闭4.0实例客户端连接
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCacheAnalysisRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/cacheAnalysis', 'POST', header, version)
+        super(ClientKillRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/clientKill', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateCacheAnalysisParameters(object):
+class ClientKillParameters(object):
 
-    def __init__(self,regionId, cacheInstanceId, ):
+    def __init__(self,regionId, cacheInstanceId, option, value):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
+        :param option: 关闭属性, 支持addr/type/db三种属性
+addr - 根据客户端地址关闭连接
+type - 根据链接类型关闭连接
+db - 根据db关闭连接
+
+        :param value: 筛选条件
+属性是addr时 - ip:port, port空表示此ip所有port
+属性是type时 - 支持normal/pubsub/all三种条件
+属性是db时 - db列表, 0,1,2..
+
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.sizeMode = None
-
-    def setSizeMode(self, sizeMode):
-        """
-        :param sizeMode: (Optional) 计算大key的方式。若为elementCounts，则使用元素个数计算大key；若为memorySize，则使用内存大小计算大key。默认为memorySize。
-        """
-        self.sizeMode = sizeMode
+        self.option = option
+        self.value = value
 

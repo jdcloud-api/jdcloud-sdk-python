@@ -19,13 +19,15 @@
 
 class RedisHotKey(object):
 
-    def __init__(self, key, accessTime, accessCount, ):
+    def __init__(self, key, accessTime, accessCount, db=None):
         """
         :param key:  key名称
         :param accessTime:  统计时间
         :param accessCount:  访问频率
+        :param db: (Optional) key所在的db号
         """
 
         self.key = key
         self.accessTime = accessTime
         self.accessCount = accessCount
+        self.db = db

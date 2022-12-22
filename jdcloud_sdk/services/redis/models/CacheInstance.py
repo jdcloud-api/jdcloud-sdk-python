@@ -19,7 +19,7 @@
 
 class CacheInstance(object):
 
-    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, auth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, resourceGroupId=None, shardNumber=None, memoryMBPerShard=None, extension=None, otherDomains=None, slaveAppendonly=None, databaseNum=None, maxmemoryPolicy=None, replicaNumber=None, enableSmartProxy=None, cpuArchType=None):
+    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, auth=None, isAllowNoAuth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, resourceGroupId=None, shardNumber=None, memoryMBPerShard=None, extension=None, otherDomains=None, slaveAppendonly=None, databaseNum=None, maxmemoryPolicy=None, replicaNumber=None, enableSmartProxy=None, cpuArchType=None):
         """
         :param cacheInstanceId: (Optional) 实例ID
         :param cacheInstanceName: (Optional) 实例名称
@@ -36,6 +36,7 @@ class CacheInstance(object):
         :param charge: (Optional) 实例的计费信息
         :param instanceVersion: (Optional) 实例的详细版本号，形如x.x-x.x
         :param auth: (Optional) 连接实例时，是否需要密码认证，false表示无密码
+        :param isAllowNoAuth: (Optional) 实例是否允许修改为免密
         :param redisVersion: (Optional) 创建实例时选择的引擎版本：目前支持2.8和4.0
         :param cacheInstanceType: (Optional) 实例类型：master-slave（标准版）、cluster（代理集群版）、native-cluster（cluster集群版）
         :param ipv6On: (Optional) 是否支持IPv6，0表示不支持（只能用IPv4），1表示支持
@@ -68,6 +69,7 @@ class CacheInstance(object):
         self.charge = charge
         self.instanceVersion = instanceVersion
         self.auth = auth
+        self.isAllowNoAuth = isAllowNoAuth
         self.redisVersion = redisVersion
         self.cacheInstanceType = cacheInstanceType
         self.ipv6On = ipv6On

@@ -19,32 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCacheAnalysisRequest(JDCloudRequest):
+class RestartProxyRequest(JDCloudRequest):
     """
-    创建缓存分析任务，一天最多创建12次分析任务
+    重启4.0实例代理
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCacheAnalysisRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/cacheAnalysis', 'POST', header, version)
+        super(RestartProxyRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/restartProxy', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateCacheAnalysisParameters(object):
+class RestartProxyParameters(object):
 
-    def __init__(self,regionId, cacheInstanceId, ):
+    def __init__(self,regionId, cacheInstanceId, proxyIds):
         """
         :param regionId: 缓存Redis实例所在区域的Region ID。目前有华北-北京、华南-广州、华东-上海三个区域，Region ID分别为cn-north-1、cn-south-1、cn-east-2
         :param cacheInstanceId: 缓存Redis实例ID，是访问实例的唯一标识
+        :param proxyIds: proxy节点id列表
         """
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.sizeMode = None
-
-    def setSizeMode(self, sizeMode):
-        """
-        :param sizeMode: (Optional) 计算大key的方式。若为elementCounts，则使用元素个数计算大key；若为memorySize，则使用内存大小计算大key。默认为memorySize。
-        """
-        self.sizeMode = sizeMode
+        self.proxyIds = proxyIds
 

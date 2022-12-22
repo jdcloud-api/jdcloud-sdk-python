@@ -19,18 +19,19 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCacheAnalysisRequest(JDCloudRequest):
+class DescribeResizeModeIpTimeInfoRequest(JDCloudRequest):
     """
-    创建缓存分析任务，一天最多创建12次分析任务
+    查询缓存Red4.0实例是否支持新变配功能，是否支持并行变配, 变配需要的IP数量及变配预估时间
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCacheAnalysisRequest, self).__init__(
-            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/cacheAnalysis', 'POST', header, version)
+        super(DescribeResizeModeIpTimeInfoRequest, self).__init__(
+            '/regions/{regionId}/cacheInstance/{cacheInstanceId}/describeResizeModeIpTimeInfo', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateCacheAnalysisParameters(object):
+class DescribeResizeModeIpTimeInfoParameters(object):
 
     def __init__(self,regionId, cacheInstanceId, ):
         """
@@ -40,11 +41,18 @@ class CreateCacheAnalysisParameters(object):
 
         self.regionId = regionId
         self.cacheInstanceId = cacheInstanceId
-        self.sizeMode = None
+        self.cacheInstanceClass = None
+        self.shardNumber = None
 
-    def setSizeMode(self, sizeMode):
+    def setCacheInstanceClass(self, cacheInstanceClass):
         """
-        :param sizeMode: (Optional) 计算大key的方式。若为elementCounts，则使用元素个数计算大key；若为memorySize，则使用内存大小计算大key。默认为memorySize。
+        :param cacheInstanceClass: (Optional) 新规格。不传参只返回是否支持新变配功能。
         """
-        self.sizeMode = sizeMode
+        self.cacheInstanceClass = cacheInstanceClass
+
+    def setShardNumber(self, shardNumber):
+        """
+        :param shardNumber: (Optional) 自定义分片数。不传参只返回是否支持新变配功能。
+        """
+        self.shardNumber = shardNumber
 

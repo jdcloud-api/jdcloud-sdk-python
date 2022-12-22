@@ -46,6 +46,7 @@ class CreateBigKeyAnalysisParameters(object):
         self.setSize = None
         self.zsetSize = None
         self.top = None
+        self.sizeMode = None
 
     def setStringSize(self, stringSize):
         """
@@ -82,4 +83,10 @@ class CreateBigKeyAnalysisParameters(object):
         :param top: (Optional) top值，范围10~1000
         """
         self.top = top
+
+    def setSizeMode(self, sizeMode):
+        """
+        :param sizeMode: (Optional) 计算大key的方式。若为“elementCounts”，则使用元素个数计算大key；若为“memorySize”，则使用内存大小计算大key。默认为“elementCounts”。
+        """
+        self.sizeMode = sizeMode
 

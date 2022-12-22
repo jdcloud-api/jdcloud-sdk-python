@@ -44,10 +44,17 @@ class ModifyCacheInstanceClassParameters(object):
         self.cacheInstanceId = cacheInstanceId
         self.cacheInstanceClass = cacheInstanceClass
         self.shardNumber = None
+        self.parallel = None
 
     def setShardNumber(self, shardNumber):
         """
         :param shardNumber: (Optional) 自定义分片数，只对自定义分片规格实例有效
         """
         self.shardNumber = shardNumber
+
+    def setParallel(self, parallel):
+        """
+        :param parallel: (Optional) 是否开启4.0集群并行变配
+        """
+        self.parallel = parallel
 

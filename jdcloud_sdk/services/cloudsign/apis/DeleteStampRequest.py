@@ -32,7 +32,7 @@ class DeleteStampRequest(JDCloudRequest):
 
 class DeleteStampParameters(object):
 
-    def __init__(self, stampId, ):
+    def __init__(self,stampId):
         """
         :param stampId: 印章ID
         """

@@ -37,7 +37,7 @@ class SignContractRequest(JDCloudRequest):
 
 class SignContractParameters(object):
 
-    def __init__(self, contractSpec):
+    def __init__(self,contractSpec):
         """
         :param contractSpec: 
         """

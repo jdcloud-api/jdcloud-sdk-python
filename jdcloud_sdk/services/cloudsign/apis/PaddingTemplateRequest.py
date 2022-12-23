@@ -32,7 +32,7 @@ class PaddingTemplateRequest(JDCloudRequest):
 
 class PaddingTemplateParameters(object):
 
-    def __init__(self, templateId, paddingSpec):
+    def __init__(self,templateId, paddingSpec):
         """
         :param templateId: 合同模板ID
         :param paddingSpec: 

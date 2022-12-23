@@ -34,7 +34,7 @@ class DownloadStampsRequest(JDCloudRequest):
 
 class DownloadStampsParameters(object):
 
-    def __init__(self, stampId, ):
+    def __init__(self,stampId):
         """
         :param stampId: 印章ID
         """

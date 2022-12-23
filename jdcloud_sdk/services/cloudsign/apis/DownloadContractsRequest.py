@@ -34,7 +34,7 @@ class DownloadContractsRequest(JDCloudRequest):
 
 class DownloadContractsParameters(object):
 
-    def __init__(self, contractId, ):
+    def __init__(self,contractId):
         """
         :param contractId: 合同ID
         """

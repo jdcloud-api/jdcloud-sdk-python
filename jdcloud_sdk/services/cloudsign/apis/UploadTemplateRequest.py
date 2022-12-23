@@ -32,7 +32,7 @@ class UploadTemplateRequest(JDCloudRequest):
 
 class UploadTemplateParameters(object):
 
-    def __init__(self, templateSpec):
+    def __init__(self,templateSpec):
         """
         :param templateSpec: 
         """

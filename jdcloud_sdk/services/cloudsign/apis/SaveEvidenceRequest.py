@@ -19,21 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class EnableContractSaveRequest(JDCloudRequest):
+class SaveEvidenceRequest(JDCloudRequest):
     """
-    启用合同存管
+    单证据链存证接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(EnableContractSaveRequest, self).__init__(
-            '/manage:enableContractSave', 'PATCH', header, version)
+        super(SaveEvidenceRequest, self).__init__(
+            '/evidence:evidenceSave', 'POST', header, version)
         self.parameters = parameters
 
 
-class EnableContractSaveParameters(object):
+class SaveEvidenceParameters(object):
 
-    def __init__(self,):
+    def __init__(self,businessId, file):
         """
+        :param businessId: 业务流水号
+        :param file: 存证数据json字符串的Base64
         """
 
+        self.businessId = businessId
+        self.file = file
 

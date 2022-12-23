@@ -32,7 +32,7 @@ class DescribeTemplateListRequest(JDCloudRequest):
 
 class DescribeTemplateListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

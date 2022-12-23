@@ -32,7 +32,7 @@ class VerifyContractRequest(JDCloudRequest):
 
 class VerifyContractParameters(object):
 
-    def __init__(self, contractId, contractVerifySpec):
+    def __init__(self,contractId, contractVerifySpec):
         """
         :param contractId: 合同ID
         :param contractVerifySpec: 

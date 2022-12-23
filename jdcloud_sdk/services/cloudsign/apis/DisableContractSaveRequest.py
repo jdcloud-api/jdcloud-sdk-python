@@ -32,7 +32,7 @@ class DisableContractSaveRequest(JDCloudRequest):
 
 class DisableContractSaveParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

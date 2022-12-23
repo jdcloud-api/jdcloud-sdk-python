@@ -32,7 +32,7 @@ class UploadStampRequest(JDCloudRequest):
 
 class UploadStampParameters(object):
 
-    def __init__(self, stampSpec):
+    def __init__(self,stampSpec):
         """
         :param stampSpec: 
         """

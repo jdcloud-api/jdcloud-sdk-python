@@ -34,7 +34,7 @@ class DownloadTemplatesRequest(JDCloudRequest):
 
 class DownloadTemplatesParameters(object):
 
-    def __init__(self, templateId, ):
+    def __init__(self,templateId):
         """
         :param templateId: 合同模板ID
         """

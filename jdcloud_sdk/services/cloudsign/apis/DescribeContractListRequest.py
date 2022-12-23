@@ -32,7 +32,7 @@ class DescribeContractListRequest(JDCloudRequest):
 
 class DescribeContractListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

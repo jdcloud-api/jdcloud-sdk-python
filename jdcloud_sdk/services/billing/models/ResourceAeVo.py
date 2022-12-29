@@ -33,7 +33,7 @@ class ResourceAeVo(object):
         :param subBillId: (Optional) 账单ID
         :param state: (Optional) 状态 0:无 1:正常 2:欠费, 3:因欠费而停机, 4:欠费删除资源, 6:已删除但已不欠费, 7:欠费延期，8:删除并且欠费，9:欠费删除数据，12:已过期, 13:因过期而停机, 14:过期删除资源, 17:过期延期 19:过期删除数据23:管理员停服，24:管理员删除,34:用户删除,35:退款删除
         :param stateTime: (Optional) 首次欠费时间（各欠费状态）或过期时间（各过期状态）
-        :param op: (Optional) 变成此状态的原因.0:无 1:账单欠费, 2:资源过期 ,3:加入、移出白名单 ,4:补扣款成功, 5:规则修改,6:续费 7:管理员操作,8:用户操作
+        :param op: (Optional) 变成此状态的原因.0:无 1:账单欠费, 2:资源过期 ,3:加入、移出白名单 ,4:补扣款成功, 5:规则修改,6:续费 7:管理员操作,8:用户操作,9:加入/移出回收站
         :param isLastRecord: (Optional) 是否为最后状态记录
         :param createTime: (Optional) 本条记录生成时刻、进入当前state的时刻
         :param updateTime: (Optional) 修改时间

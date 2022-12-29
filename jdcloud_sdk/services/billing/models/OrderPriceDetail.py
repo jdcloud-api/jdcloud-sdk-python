@@ -19,12 +19,14 @@
 
 class OrderPriceDetail(object):
 
-    def __init__(self, price=None, priceScale4=None, discount=None, discountedPrice=None, originalPrice=None, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, favorableInfo=None, priceSnapShot=None, pin=None, taskId=None, startTime=None, endTime=None, processType=None, sourceId=None):
+    def __init__(self, price=None, priceScale4=None, discount=None, discountedPrice=None, afterFavorablePrice=None, erasePrice=None, originalPrice=None, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, favorableInfo=None, priceSnapShot=None, pin=None, taskId=None, startTime=None, endTime=None, processType=None, sourceId=None, refundPrice=None, cashRefundPrice=None, balanceRefundPrice=None, couponRefundPrice=None, refundOrderList=None, billingItemPriceList=None):
         """
-        :param price: (Optional) 折扣前总价
-        :param priceScale4: (Optional) 四位小数价格
-        :param discount: (Optional) 折扣金额
-        :param discountedPrice: (Optional) 折扣后订单金额
+        :param price: (Optional) 原价(6位，原价为每个计费项原价之和)
+        :param priceScale4: (Optional) 原价(6位，与price一致，兼容之前4位原价保留字段)
+        :param discount: (Optional) 折扣金额（6位，折扣金额为每个计费项折扣金额之和）
+        :param discountedPrice: (Optional) 应付金额（2位，应付金额=折扣后金额舍位保留2位小数)
+        :param afterFavorablePrice: (Optional) 折扣后金额（6位，折扣后金额为每个计费项折扣后金额之和)
+        :param erasePrice: (Optional) 抹零金额（6位，抹零金额=折扣后金额-应付金额)
         :param originalPrice: (Optional) 订单原价 包年时 一年原价为12个月价格，totalPrice为10个月价格
         :param resourceId: (Optional) 资源id
         :param appCode: (Optional) 业务线
@@ -42,14 +44,22 @@ class OrderPriceDetail(object):
         :param taskId: (Optional) 自然单列表
         :param startTime: (Optional) 开始时间
         :param endTime: (Optional) 结束时间
-        :param processType: (Optional) 变配明细（1-升配补差价，2-降配延时，3-临时升配）
+        :param processType: (Optional) 变配明细（1-升配补差价，2-降配延时，3-临时升配，9-降配退款）
         :param sourceId: (Optional) 交易单模块sourceId
+        :param refundPrice: (Optional) 资源退款金额
+        :param cashRefundPrice: (Optional) 资源现金退款金额
+        :param balanceRefundPrice: (Optional) 资源余额退款金额
+        :param couponRefundPrice: (Optional) 资源代金券退款金额
+        :param refundOrderList: (Optional) 退款订单列表
+        :param billingItemPriceList: (Optional) 计费项价格列表
         """
 
         self.price = price
         self.priceScale4 = priceScale4
         self.discount = discount
         self.discountedPrice = discountedPrice
+        self.afterFavorablePrice = afterFavorablePrice
+        self.erasePrice = erasePrice
         self.originalPrice = originalPrice
         self.resourceId = resourceId
         self.appCode = appCode
@@ -69,3 +79,9 @@ class OrderPriceDetail(object):
         self.endTime = endTime
         self.processType = processType
         self.sourceId = sourceId
+        self.refundPrice = refundPrice
+        self.cashRefundPrice = cashRefundPrice
+        self.balanceRefundPrice = balanceRefundPrice
+        self.couponRefundPrice = couponRefundPrice
+        self.refundOrderList = refundOrderList
+        self.billingItemPriceList = billingItemPriceList

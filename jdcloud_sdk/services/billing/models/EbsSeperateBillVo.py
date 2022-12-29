@@ -34,7 +34,7 @@ class EbsSeperateBillVo(object):
         :param costFee: (Optional) 成本金额
         :param taxRate: (Optional) 税率
         :param deptNo: (Optional) 部门
-        :param sourceId: (Optional) 部门
+        :param sourceId: (Optional) 
         :param code: (Optional) 返回编码0成功
         :param message: (Optional) 返回消息
         """

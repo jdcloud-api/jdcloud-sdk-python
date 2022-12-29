@@ -19,34 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryBillDetailRequest(JDCloudRequest):
+class DescribeFormulaSummaryListRequest(JDCloudRequest):
     """
-    查询账单明细数据
+    查询计费项账单月汇总数据
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryBillDetailRequest, self).__init__(
-            '/regions/{regionId}/billDetail:list', 'POST', header, version)
+        super(DescribeFormulaSummaryListRequest, self).__init__(
+            '/regions/{regionId}/describeFormulaSummaryList', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryBillDetailParameters(object):
+class DescribeFormulaSummaryListParameters(object):
 
-    def __init__(self,regionId, startTime, endTime, ):
+    def __init__(self,regionId, billDate, ):
         """
         :param regionId: Region ID
-        :param startTime: 账期开始时间,不支持跨月查询。格式:yyyy-MM-dd HH:mm:ss
-        :param endTime: 账期结束时间,不支持跨月查询。格式:yyyy-MM-dd HH:mm:ss
+        :param billDate: 账期时间,不支持跨月查询。格式:yyyyMM
         """
 
         self.regionId = regionId
-        self.startTime = startTime
-        self.endTime = endTime
+        self.billDate = billDate
         self.appCode = None
         self.serviceCode = None
-        self.billingType = None
-        self.resourceIds = None
-        self.tags = None
+        self.region = None
+        self.resourceId = None
         self.pageIndex = None
         self.pageSize = None
 
@@ -62,27 +59,17 @@ class QueryBillDetailParameters(object):
         """
         self.serviceCode = serviceCode
 
-    def setBillingType(self, billingType):
+    def setRegion(self, region):
         """
-        :param billingType: (Optional) 计费类型 1、按配置 2、按用量 3、包年包月 4、按次
+        :param region: (Optional) 地域编码，如：cn-north-1
         """
-        self.billingType = billingType
+        self.region = region
 
-    def setResourceIds(self, resourceIds):
+    def setResourceId(self, resourceId):
         """
-        :param resourceIds: (Optional) 资源单id列表,最多支持传入500个
+        :param resourceId: (Optional) 资源单id
         """
-        self.resourceIds = resourceIds
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) 标签,JSON格式:[{"k1":"v1"},{"k1":"v2"},{"k2":""}]
-示例:
-选择的标签为, 部门:广告部、部门:物流部、项目
-则传值为:[{"部门":"广告部"},{"部门":"物流部"},{"项目":""}]
-
-        """
-        self.tags = tags
+        self.resourceId = resourceId
 
     def setPageIndex(self, pageIndex):
         """

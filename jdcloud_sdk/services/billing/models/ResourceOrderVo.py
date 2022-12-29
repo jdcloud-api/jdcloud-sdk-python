@@ -19,7 +19,7 @@
 
 class ResourceOrderVo(object):
 
-    def __init__(self, id=None, transactionNo=None, resourceId=None, billingType=None, timeUnit=None, timeSpan=None, status=None, billingStatus=None, networkOperator=None, pin=None, appCode=None, serviceCode=None, site=None, region=None, formula=None, isOnTrial=None, startTime=None, endTime=None, createTime=None, payTime=None, formulaStr=None, chargeMode=None, chargeDuration=None, chargeUnit=None, aeStatus=None, releasingTime=None, sourceId=None, billingStartTime=None, priceMap=None, priceSnapshot=None, price=None, discountedPrice=None, expiringDays=None, billingCategoryDescription=None, description=None, refundNo=None, billingTypeName=None, favorableInfo=None, resourceName=None, processType=None, applicant=None, billingMode=None, operateTime=None, arrearsType=None):
+    def __init__(self, id=None, transactionNo=None, resourceId=None, billingType=None, timeUnit=None, timeSpan=None, status=None, billingStatus=None, networkOperator=None, pin=None, appCode=None, serviceCode=None, site=None, region=None, formula=None, isOnTrial=None, startTime=None, endTime=None, createTime=None, payTime=None, formulaStr=None, chargeMode=None, chargeDuration=None, chargeUnit=None, aeStatus=None, releasingTime=None, sourceId=None, billingStartTime=None, priceMap=None, priceSnapshot=None, price=None, discountedPrice=None, expiringDays=None, billingCategoryDescription=None, description=None, refundNo=None, billingTypeName=None, favorableInfo=None, resourceName=None, processType=None, applicant=None, billingMode=None, operateTime=None, arrearsType=None, recycleBinReleasingTime=None):
         """
         :param id: (Optional) 主键id
         :param transactionNo: (Optional) 交易单唯一标识
@@ -65,6 +65,7 @@ class ResourceOrderVo(object):
         :param billingMode: (Optional) 计费模式  1.停服停止计费  2.关机停止计费
         :param operateTime: (Optional) 启服、停服、停止计费时间
         :param arrearsType: (Optional) 欠费类型 1、无欠费，2、按配置欠费，3、按用量欠费，4、按配置和按用量都欠费
+        :param recycleBinReleasingTime: (Optional) 欠费、过期资源释放时间-仅面向资源回收站使用
         """
 
         self.id = id
@@ -111,3 +112,4 @@ class ResourceOrderVo(object):
         self.billingMode = billingMode
         self.operateTime = operateTime
         self.arrearsType = arrearsType
+        self.recycleBinReleasingTime = recycleBinReleasingTime

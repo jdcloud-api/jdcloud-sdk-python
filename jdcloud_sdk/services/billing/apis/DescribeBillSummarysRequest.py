@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryBillDetailRequest(JDCloudRequest):
+class DescribeBillSummarysRequest(JDCloudRequest):
     """
-    查询账单明细数据
+    查询账单资源汇总数据V2版本
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryBillDetailRequest, self).__init__(
-            '/regions/{regionId}/billDetail:list', 'POST', header, version)
+        super(DescribeBillSummarysRequest, self).__init__(
+            '/regions/{regionId}/describeBillSummarys', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryBillDetailParameters(object):
+class DescribeBillSummarysParameters(object):
 
     def __init__(self,regionId, startTime, endTime, ):
         """
@@ -44,7 +44,6 @@ class QueryBillDetailParameters(object):
         self.endTime = endTime
         self.appCode = None
         self.serviceCode = None
-        self.billingType = None
         self.resourceIds = None
         self.tags = None
         self.pageIndex = None
@@ -61,12 +60,6 @@ class QueryBillDetailParameters(object):
         :param serviceCode: (Optional) 产品代码
         """
         self.serviceCode = serviceCode
-
-    def setBillingType(self, billingType):
-        """
-        :param billingType: (Optional) 计费类型 1、按配置 2、按用量 3、包年包月 4、按次
-        """
-        self.billingType = billingType
 
     def setResourceIds(self, resourceIds):
         """

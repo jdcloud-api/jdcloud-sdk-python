@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class QueryBillDetailRequest(JDCloudRequest):
+class DescribeBillDetailsRequest(JDCloudRequest):
     """
-    查询账单明细数据
+    查询账单明细数据V2版本
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(QueryBillDetailRequest, self).__init__(
-            '/regions/{regionId}/billDetail:list', 'POST', header, version)
+        super(DescribeBillDetailsRequest, self).__init__(
+            '/regions/{regionId}/describeBillDetails', 'POST', header, version)
         self.parameters = parameters
 
 
-class QueryBillDetailParameters(object):
+class DescribeBillDetailsParameters(object):
 
     def __init__(self,regionId, startTime, endTime, ):
         """

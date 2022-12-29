@@ -32,10 +32,10 @@ class CalculateTotalPriceRequest(JDCloudRequest):
 
 class CalculateTotalPriceParameters(object):
 
-    def __init__(self, regionId, cmd, packageCount, ):
+    def __init__(self,regionId, cmd, packageCount, ):
         """
         :param regionId: 
-        :param cmd: 操作类型 1:创建 2:续费 3:升配 4:删除
+        :param cmd: 操作类型 1:新购 2:续费 3:变配
         :param packageCount: 批量购买时数量
         """
 

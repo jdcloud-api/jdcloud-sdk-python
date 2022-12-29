@@ -32,7 +32,7 @@ class QueryBillSummaryRequest(JDCloudRequest):
 
 class QueryBillSummaryParameters(object):
 
-    def __init__(self, regionId, startTime, endTime, ):
+    def __init__(self,regionId, startTime, endTime, ):
         """
         :param regionId: Region ID
         :param startTime: 账期开始时间,不支持跨月查询。格式:yyyy-MM-dd HH:mm:ss

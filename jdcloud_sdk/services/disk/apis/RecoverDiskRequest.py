@@ -19,37 +19,26 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeSnapshotChainRequest(JDCloudRequest):
+class RecoverDiskRequest(JDCloudRequest):
     """
-    查询快照链的快照个数和快照总容量
+    -   从回收站中恢复云盘，云盘的状态必须为in-recyclebin。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeSnapshotChainRequest, self).__init__(
-            '/regions/{regionId}/snapshots:chain', 'GET', header, version)
+        super(RecoverDiskRequest, self).__init__(
+            '/regions/{regionId}/disks/{diskId}:recover', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeSnapshotChainParameters(object):
+class RecoverDiskParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, diskId):
         """
         :param regionId: 地域ID
+        :param diskId: 云硬盘ID
         """
 
         self.regionId = regionId
-        self.diskId = None
-        self.snapshotId = None
-
-    def setDiskId(self, diskId):
-        """
-        :param diskId: (Optional) 云硬盘ID
-        """
         self.diskId = diskId
-
-    def setSnapshotId(self, snapshotId):
-        """
-        :param snapshotId: (Optional) 快照ID
-        """
-        self.snapshotId = snapshotId
 

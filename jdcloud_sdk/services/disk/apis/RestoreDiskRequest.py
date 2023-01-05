@@ -35,7 +35,7 @@ class RestoreDiskRequest(JDCloudRequest):
 
 class RestoreDiskParameters(object):
 
-    def __init__(self, regionId, diskId, snapshotId):
+    def __init__(self,regionId, diskId, snapshotId):
         """
         :param regionId: 地域ID
         :param diskId: 云硬盘ID

@@ -32,7 +32,7 @@ class DeleteSnapshotPolicyRequest(JDCloudRequest):
 
 class DeleteSnapshotPolicyParameters(object):
 
-    def __init__(self, regionId, policyId, ):
+    def __init__(self,regionId, policyId):
         """
         :param regionId: 地域ID
         :param policyId: 策略ID

@@ -38,7 +38,7 @@ class CreateSnapshotRequest(JDCloudRequest):
 
 class CreateSnapshotParameters(object):
 
-    def __init__(self, regionId, snapshotSpec, clientToken):
+    def __init__(self,regionId, snapshotSpec, clientToken):
         """
         :param regionId: 地域ID
         :param snapshotSpec: 创建快照规格

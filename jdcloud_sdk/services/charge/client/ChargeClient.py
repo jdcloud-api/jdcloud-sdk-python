@@ -26,4 +26,4 @@ class ChargeClient(JDCloudClient):
         if config is None:
             config = Config('charge.jdcloud-api.com')
 
-        super(ChargeClient, self).__init__(credential, config, 'charge', '0.4.0', logger)
+        super(ChargeClient, self).__init__(credential, config, 'charge', '0.4.1', logger)

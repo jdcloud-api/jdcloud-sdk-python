@@ -19,7 +19,7 @@
 
 class InternalInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, hostIp=None, rack=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, hostIp=None, rack=None, tor=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -46,6 +46,7 @@ class InternalInstance(object):
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
         :param hostIp: (Optional) 实例所在的物理机IP地址。
         :param rack: (Optional) 实例所在机架信息。
+        :param tor: (Optional) 实例所在的逻辑机架信息
         """
 
         self.instanceId = instanceId
@@ -70,3 +71,4 @@ class InternalInstance(object):
         self.dedicatedHostId = dedicatedHostId
         self.hostIp = hostIp
         self.rack = rack
+        self.tor = tor

@@ -41,7 +41,7 @@ class ModifyInstanceDiskAttributeRequest(JDCloudRequest):
 
 class ModifyInstanceDiskAttributeParameters(object):
 
-    def __init__(self, regionId,instanceId,):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

@@ -40,7 +40,7 @@ class ModifyInstanceNetworkAttributeRequest(JDCloudRequest):
 
 class ModifyInstanceNetworkAttributeParameters(object):
 
-    def __init__(self, regionId,instanceId,networks):
+    def __init__(self,regionId, instanceId, networks):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。

@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, dedicatedPoolId=None, dedicatedHostId=None, agId=None, instanceTemplateId=None, az=None, instanceType=None, burstSpec=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None):
+    def __init__(self, name, dedicatedPoolId=None, dedicatedHostId=None, agId=None, instanceTemplateId=None, az=None, instanceType=None, burstSpec=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, noInstanceTags=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None, cpuTopology=None):
         """
         :param dedicatedPoolId: (Optional) 实例所属的专有宿主机池，如果指定了dedicatedHostId,则此参数无效
         :param dedicatedHostId: (Optional) 专有宿主机ID
@@ -65,6 +65,7 @@ class InstanceSpec(object):
 云主机不支持按用量方式计费，默认为按配置计费。
 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
+autoChangeChargeMode和autoChangeChargeModeDate字段只有在按配置计费按时间自动转包年包月的场景下有效
 
         :param metadata: (Optional) 用户自定义元数据。以key-value键值对形式指定，可在实例系统内通过元数据服务查询获取。最多支持40对键值对，且key不超过256字符，value不超过16KB，不区分大小写。
 注意：key不要以连字符(-)结尾，否则此key不生效。
@@ -86,6 +87,9 @@ class InstanceSpec(object):
 
         :param noElasticIp: (Optional) 使用实例模板创建实例时，如模板中已设置弹性公网IP，期望不绑定弹性公网IP时，可通过此参数（`true`）实现。
 仅在未指定 `agId` 且指定 `instanceTemplateId`，且 `elasticIp` 为空时，此参数(`true`)生效。
+
+        :param noInstanceTags: (Optional) 使用实例模板创建实例时，如模板中已设置自定义实例标签，期望不使用自定义实例标签时，可通过此参数（`true`）实现。
+仅在指定 `agId` 或指定 `instanceTemplateId`，且 `userTags` 为空时，此参数(`true`)生效。
 
         :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
 
@@ -109,6 +113,7 @@ class InstanceSpec(object):
 仅使用私有或共享镜像时此参数有效。
 
         :param resourceGroupId: (Optional) 资源组ID
+        :param cpuTopology: (Optional) 虚机CPU拓扑
         """
 
         self.dedicatedPoolId = dedicatedPoolId
@@ -134,9 +139,11 @@ class InstanceSpec(object):
         self.noPassword = noPassword
         self.noKeyNames = noKeyNames
         self.noElasticIp = noElasticIp
+        self.noInstanceTags = noInstanceTags
         self.userTags = userTags
         self.chargeOnStopped = chargeOnStopped
         self.autoImagePolicyId = autoImagePolicyId
         self.passwordAuth = passwordAuth
         self.imageInherit = imageInherit
         self.resourceGroupId = resourceGroupId
+        self.cpuTopology = cpuTopology

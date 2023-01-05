@@ -40,7 +40,7 @@ class DeleteKeypairRequest(JDCloudRequest):
 
 class DeleteKeypairParameters(object):
 
-    def __init__(self, regionId,keyName,):
+    def __init__(self,regionId, keyName):
         """
         :param regionId: 地域ID。
         :param keyName: 密钥名称。

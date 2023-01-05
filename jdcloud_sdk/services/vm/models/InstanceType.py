@@ -19,7 +19,7 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, architecture=None, memoryMB=None, nicLimit=None, cloudDiskCountLimit=None, desc=None, state=None, gpu=None, localDisks=None, generation=None, burstInfo=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, architecture=None, memoryMB=None, nicLimit=None, cloudDiskCountLimit=None, desc=None, state=None, gpu=None, localDisks=None, generation=None, burstInfo=None, cloudDiskTypes=None):
         """
         :param family: (Optional) 实例规格族。
         :param instanceType: (Optional) 实例规格。
@@ -34,6 +34,7 @@ class InstanceType(object):
         :param localDisks: (Optional) 本地数据盘配置（缓存盘），针对GPU类型、或本地存储型的实例规格有效。
         :param generation: (Optional) 实例规格代数。
         :param burstInfo: (Optional) 突发型规格信息
+        :param cloudDiskTypes: (Optional) 支持的云盘类型
         """
 
         self.family = family
@@ -49,3 +50,4 @@ class InstanceType(object):
         self.localDisks = localDisks
         self.generation = generation
         self.burstInfo = burstInfo
+        self.cloudDiskTypes = cloudDiskTypes

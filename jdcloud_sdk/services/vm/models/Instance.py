@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, burstInfo=None, resourceGroupId=None):
+    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, burstInfo=None, resourceGroupId=None, osType=None, cpuTopology=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -53,6 +53,8 @@ class Instance(object):
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
         :param burstInfo: (Optional) 突发型实例参数信息
         :param resourceGroupId: (Optional) 资源组ID
+        :param osType: (Optional) 云主机操作系统类型，如linux或者windows
+        :param cpuTopology: (Optional) 虚机CPU拓扑
         """
 
         self.instanceId = instanceId
@@ -84,3 +86,5 @@ class Instance(object):
         self.dedicatedHostId = dedicatedHostId
         self.burstInfo = burstInfo
         self.resourceGroupId = resourceGroupId
+        self.osType = osType
+        self.cpuTopology = cpuTopology

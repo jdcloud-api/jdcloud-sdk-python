@@ -19,7 +19,7 @@
 
 class UpdateInstanceTemplateSpec(object):
 
-    def __init__(self, instanceType=None, imageId=None, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, noPassword=None, noElasticIp=None, burstSpec=None):
+    def __init__(self, instanceType=None, imageId=None, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, noPassword=None, noElasticIp=None, burstSpec=None, instanceTags=None, removeInstanceTags=None):
         """
         :param instanceType: (Optional) 实例规格，可查询 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口获得指定地域或可用区的规格信息。
         :param imageId: (Optional) 镜像ID，可查询 [DescribeImages](https://docs.jdcloud.com/virtual-machines/api/describeimages) 接口获得指定地域的镜像信息。
@@ -57,6 +57,9 @@ class UpdateInstanceTemplateSpec(object):
         :param noPassword: (Optional) 传 `true` 则会清空实例模板配置的密码。
         :param noElasticIp: (Optional) 传 `true` 则会清空实例模板配置的公网IP。
         :param burstSpec: (Optional) 突发型实例参数配置。传入 `null` 表示忽略，否则以新传入的为准。如指定了该参数则覆盖原有参数。
+        :param instanceTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
+
+        :param removeInstanceTags: (Optional) 移除模板中的自定义实例标签。指定要移除标签的key。
         """
 
         self.instanceType = instanceType
@@ -76,3 +79,5 @@ class UpdateInstanceTemplateSpec(object):
         self.noPassword = noPassword
         self.noElasticIp = noElasticIp
         self.burstSpec = burstSpec
+        self.instanceTags = instanceTags
+        self.removeInstanceTags = removeInstanceTags

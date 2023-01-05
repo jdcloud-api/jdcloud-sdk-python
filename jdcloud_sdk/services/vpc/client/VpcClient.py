@@ -26,4 +26,4 @@ class VpcClient(JDCloudClient):
         if config is None:
             config = Config('vpc.jdcloud-api.com')
 
-        super(VpcClient, self).__init__(credential, config, 'vpc', '1.0.1', logger)
+        super(VpcClient, self).__init__(credential, config, 'vpc', '1.1.0', logger)

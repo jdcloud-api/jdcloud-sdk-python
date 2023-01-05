@@ -32,7 +32,7 @@ class CreateRouteTableRequest(JDCloudRequest):
 
 class CreateRouteTableParameters(object):
 
-    def __init__(self, regionId,vpcId, routeTableName, ):
+    def __init__(self,regionId, vpcId, routeTableName, ):
         """
         :param regionId: Region ID
         :param vpcId: 路由表所属的私有网络ID
@@ -43,10 +43,17 @@ class CreateRouteTableParameters(object):
         self.vpcId = vpcId
         self.routeTableName = routeTableName
         self.description = None
+        self.associateType = None
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param description: (Optional) 描述，允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setAssociateType(self, associateType):
+        """
+        :param associateType: (Optional) 绑定资源类型，取值：subnet(缺省时默认值)，gateway
+        """
+        self.associateType = associateType
 

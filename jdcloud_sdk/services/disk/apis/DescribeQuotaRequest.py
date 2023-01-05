@@ -32,7 +32,7 @@ class DescribeQuotaRequest(JDCloudRequest):
 
 class DescribeQuotaParameters(object):
 
-    def __init__(self, regionId, type):
+    def __init__(self,regionId, type):
         """
         :param regionId: 地域ID
         :param type: 资源类型  disk：用户能创建的云盘的配额  snapshot： 用户能创建的快照的配额 snapshot_policy： 用户能创建的快照策略的配额

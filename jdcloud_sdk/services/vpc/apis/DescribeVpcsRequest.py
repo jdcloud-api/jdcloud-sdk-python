@@ -32,7 +32,7 @@ class DescribeVpcsRequest(JDCloudRequest):
 
 class DescribeVpcsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -58,7 +58,7 @@ class DescribeVpcsParameters(object):
         """
         :param filters: (Optional) vpcIds - vpc ID列表，支持多个
 vpcNames - vpc名称列表,支持多个
-azType - VPC az类型，取值：all(全部类型)，standard(标准VPC)，edge(边缘VPC)，默认standard ，支持单个
+azType - VPC az类型，取值：all(全部类型)，standard(标准VPC)，edge(边缘VPC)，默认all，支持单个
 azs - 可用区，支持多个
 
         """

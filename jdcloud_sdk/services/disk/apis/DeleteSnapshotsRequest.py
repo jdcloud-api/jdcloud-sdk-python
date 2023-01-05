@@ -35,7 +35,7 @@ class DeleteSnapshotsRequest(JDCloudRequest):
 
 class DeleteSnapshotsParameters(object):
 
-    def __init__(self, regionId, snapshotIds):
+    def __init__(self,regionId, snapshotIds):
         """
         :param regionId: 地域ID
         :param snapshotIds: 快照ID列表

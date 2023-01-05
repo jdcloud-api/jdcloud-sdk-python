@@ -38,7 +38,7 @@ class ModifyBandwidthPackageIpBandwidthRequest(JDCloudRequest):
 
 class ModifyBandwidthPackageIpBandwidthParameters(object):
 
-    def __init__(self, regionId,bandwidthPackageId,bandwidthPackageIPSpecs):
+    def __init__(self,regionId, bandwidthPackageId, bandwidthPackageIPSpecs):
         """
         :param regionId: Region ID
         :param bandwidthPackageId: 共享带宽包ID

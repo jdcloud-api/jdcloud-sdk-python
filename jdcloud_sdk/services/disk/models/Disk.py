@@ -19,7 +19,7 @@
 
 class Disk(object):
 
-    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enabled=None, createTime=None, charge=None, tags=None, snapshotPolicies=None):
+    def __init__(self, diskId=None, az=None, name=None, description=None, diskType=None, diskSizeGB=None, iops=None, throughput=None, status=None, attachments=None, snapshotId=None, multiAttachable=None, encrypted=None, enabled=None, createTime=None, charge=None, tags=None, snapshotPolicies=None, resourceGroupId=None, canPutInRecycleBin=None, trashTime=None):
         """
         :param diskId: (Optional) 云硬盘ID
         :param az: (Optional) 云硬盘所属AZ
@@ -29,7 +29,7 @@ class Disk(object):
         :param diskSizeGB: (Optional) 云硬盘大小，单位为 GiB
         :param iops: (Optional) 该云硬盘实际应用的iops值
         :param throughput: (Optional) 该云硬盘实际应用的吞吐量的数值
-        :param status: (Optional) 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_create、error_delete、error_restore、error_extend 之一
+        :param status: (Optional) 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_create、error_delete、error_restore、error_extend、in-recyclebin 之一
         :param attachments: (Optional) 挂载信息
         :param snapshotId: (Optional) 创建该云硬盘的快照ID
         :param multiAttachable: (Optional) 云盘是否支持多挂载
@@ -39,6 +39,9 @@ class Disk(object):
         :param charge: (Optional) 云硬盘计费配置信息
         :param tags: (Optional) null
         :param snapshotPolicies: (Optional) 
+        :param resourceGroupId: (Optional) 资源组ID
+        :param canPutInRecycleBin: (Optional) 云盘是否可以加入回收站
+        :param trashTime: (Optional) 加入回收站的时间
         """
 
         self.diskId = diskId
@@ -59,3 +62,6 @@ class Disk(object):
         self.charge = charge
         self.tags = tags
         self.snapshotPolicies = snapshotPolicies
+        self.resourceGroupId = resourceGroupId
+        self.canPutInRecycleBin = canPutInRecycleBin
+        self.trashTime = trashTime

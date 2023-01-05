@@ -19,7 +19,7 @@
 
 class NatGateway(object):
 
-    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, azIp=None, createdTime=None, tags=None):
+    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIps=None, azIp=None, createdTime=None, tags=None, routeTableIds=None):
         """
         :param natGatewayId: (Optional) NAT网关ID
         :param natGatewayName: (Optional) NAT网关名称
@@ -30,9 +30,12 @@ class NatGateway(object):
         :param azs: (Optional) NAT网关可用区属性
         :param vpcId: (Optional) 私有网络ID
         :param subnetId: (Optional) 子网ID
-        :param azIp: (Optional) NAT网关的IP可用区属性
+        :param privateIpAddress: (Optional) NAT网关私有IP地址
+        :param elasticIps: (Optional) NAT网关公网IP
+        :param azIp: (Optional) NAT网关的IP可用区属性,即将废弃
         :param createdTime: (Optional) NAT网关创建时间
         :param tags: (Optional) Tag信息
+        :param routeTableIds: (Optional) 包含下一跳为本NAT网关路由的子网路由表id列表
         """
 
         self.natGatewayId = natGatewayId
@@ -44,6 +47,9 @@ class NatGateway(object):
         self.azs = azs
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.privateIpAddress = privateIpAddress
+        self.elasticIps = elasticIps
         self.azIp = azIp
         self.createdTime = createdTime
         self.tags = tags
+        self.routeTableIds = routeTableIds

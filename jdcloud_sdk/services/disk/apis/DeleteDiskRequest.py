@@ -35,7 +35,7 @@ class DeleteDiskRequest(JDCloudRequest):
 
 class DeleteDiskParameters(object):
 
-    def __init__(self, regionId, diskId, ):
+    def __init__(self,regionId, diskId, ):
         """
         :param regionId: 地域ID
         :param diskId: 云硬盘ID
@@ -43,4 +43,11 @@ class DeleteDiskParameters(object):
 
         self.regionId = regionId
         self.diskId = diskId
+        self.putInRecycleBin = None
+
+    def setPutInRecycleBin(self, putInRecycleBin):
+        """
+        :param putInRecycleBin: (Optional) true 加入回收站 false 或者不传直接删除
+        """
+        self.putInRecycleBin = putInRecycleBin
 

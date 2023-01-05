@@ -32,7 +32,7 @@ class DeleteElasticIpRequest(JDCloudRequest):
 
 class DeleteElasticIpParameters(object):
 
-    def __init__(self, regionId,elasticIpId,):
+    def __init__(self,regionId, elasticIpId):
         """
         :param regionId: Region ID
         :param elasticIpId: ElasticIp ID

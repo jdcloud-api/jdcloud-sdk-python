@@ -32,7 +32,7 @@ class ModifySnapshotAttributeRequest(JDCloudRequest):
 
 class ModifySnapshotAttributeParameters(object):
 
-    def __init__(self, regionId, snapshotId, ):
+    def __init__(self,regionId, snapshotId, ):
         """
         :param regionId: 地域ID
         :param snapshotId: 快照ID

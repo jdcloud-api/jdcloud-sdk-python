@@ -28,7 +28,7 @@ class UpdateInstanceTemplateRequest(JDCloudRequest):
 
 ## 接口说明
 - 名称、描述、实例模板配置信息至少要传一项。
-- 参数时，对应的参数不做更改。
+- 参数为 null 时，对应的参数不做更改。
 
     """
 
@@ -40,7 +40,7 @@ class UpdateInstanceTemplateRequest(JDCloudRequest):
 
 class UpdateInstanceTemplateParameters(object):
 
-    def __init__(self, regionId,instanceTemplateId,):
+    def __init__(self,regionId, instanceTemplateId, ):
         """
         :param regionId: 地域ID。
         :param instanceTemplateId: 实例模板ID。

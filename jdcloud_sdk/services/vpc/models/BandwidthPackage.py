@@ -32,7 +32,7 @@ class BandwidthPackage(object):
         :param ipCount: (Optional) 共享带宽包内加入公网IP个数
         :param guaranteedRatio: (Optional) 按用量计费模式的保底带宽百分比，-1代表无效值 ，目前保底带宽百分比为20%
         :param guaranteedBandwidth: (Optional) 按用量计费模式的保底带宽，-1代表无效值，保底带宽 = 共享带宽包带宽上限 * 20%
-        :param adminStatus: (Optional) 是否欠费停服，UP正常，DOWN停服
+        :param adminStatus: (Optional) 是否欠费停服，UP正常，DOWN停服，PROCESSING处理中
         :param tags: (Optional) Tag信息
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """

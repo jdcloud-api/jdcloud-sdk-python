@@ -40,7 +40,7 @@ class CreateDisksRequest(JDCloudRequest):
 
 class CreateDisksParameters(object):
 
-    def __init__(self, regionId, diskSpec, maxCount, clientToken):
+    def __init__(self,regionId, diskSpec, maxCount, clientToken, ):
         """
         :param regionId: 地域ID
         :param diskSpec: 创建云硬盘规格
@@ -53,10 +53,17 @@ class CreateDisksParameters(object):
         self.maxCount = maxCount
         self.userTags = None
         self.clientToken = clientToken
+        self.resourceGroupId = None
 
     def setUserTags(self, userTags):
         """
         :param userTags: (Optional) 用户标签,默认为空;tag标签的限制：每个资源最多允许绑定 10 个不同的标签，同一资源每个标签“键”上只能存在1个标签“值”；标签键/值只支持中文、数字、大小写字母、空格及特殊符号_.:/=+-@;当无tags时,reps结果返回中tagmsg为空
         """
         self.userTags = userTags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
 

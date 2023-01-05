@@ -52,7 +52,7 @@ class CreateInstancesRequest(JDCloudRequest):
 
 class CreateInstancesParameters(object):
 
-    def __init__(self, regionId,instanceSpec, ):
+    def __init__(self,regionId, instanceSpec, ):
         """
         :param regionId: 地域ID。
         :param instanceSpec: 实例配置。

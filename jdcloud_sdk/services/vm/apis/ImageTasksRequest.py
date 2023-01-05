@@ -43,7 +43,7 @@ class ImageTasksRequest(JDCloudRequest):
 
 class ImageTasksParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID。
         """

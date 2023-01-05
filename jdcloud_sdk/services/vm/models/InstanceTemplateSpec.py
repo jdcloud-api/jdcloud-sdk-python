@@ -19,7 +19,7 @@
 
 class InstanceTemplateSpec(object):
 
-    def __init__(self, instanceType, imageId, primaryNetworkInterface, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, burstSpec=None):
+    def __init__(self, instanceType, imageId, primaryNetworkInterface, password=None, keyNames=None, metadata=None, userdata=None, elasticIp=None, systemDisk=None, dataDisks=None, chargeOnStopped=None, autoImagePolicyId=None, passWordAuth=None, imageInherit=None, burstSpec=None, instanceTags=None):
         """
         :param instanceType:  实例规格，可查询 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口获得指定地域或可用区的规格信息。
         :param imageId:  镜像ID，可查询 [DescribeImages](https://docs.jdcloud.com/virtual-machines/api/describeimages) 接口获得指定地域的镜像信息。
@@ -55,6 +55,7 @@ class InstanceTemplateSpec(object):
 仅使用私有或共享镜像时此参数有效。若指定`imageInherit=yes`则指定的密码或密钥将无效。
 
         :param burstSpec: (Optional) 突发型实例参数配置
+        :param instanceTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
         """
 
         self.instanceType = instanceType
@@ -72,3 +73,4 @@ class InstanceTemplateSpec(object):
         self.passWordAuth = passWordAuth
         self.imageInherit = imageInherit
         self.burstSpec = burstSpec
+        self.instanceTags = instanceTags

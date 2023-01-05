@@ -40,7 +40,7 @@ class DescribeInstanceTemplateRequest(JDCloudRequest):
 
 class DescribeInstanceTemplateParameters(object):
 
-    def __init__(self, regionId,instanceTemplateId,):
+    def __init__(self,regionId, instanceTemplateId):
         """
         :param regionId: 地域ID。
         :param instanceTemplateId: 实例模板ID。

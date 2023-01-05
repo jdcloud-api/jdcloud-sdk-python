@@ -32,7 +32,7 @@ class AssignSecondaryIpsRequest(JDCloudRequest):
 
 class AssignSecondaryIpsParameters(object):
 
-    def __init__(self, regionId,networkInterfaceId,):
+    def __init__(self,regionId, networkInterfaceId, ):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID

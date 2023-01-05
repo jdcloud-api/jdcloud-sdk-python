@@ -40,7 +40,7 @@ class ImportImageRequest(JDCloudRequest):
 
 class ImportImageParameters(object):
 
-    def __init__(self, regionId,architecture, osType, platform, diskFormat, systemDiskSizeGB, imageUrl, imageName, ):
+    def __init__(self,regionId, architecture, osType, platform, diskFormat, systemDiskSizeGB, imageUrl, imageName, ):
         """
         :param regionId: 地域ID。
         :param architecture: 镜像架构。取值范围：`x86_64、arm64`。

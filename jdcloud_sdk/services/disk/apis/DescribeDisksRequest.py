@@ -34,16 +34,26 @@ class DescribeDisksRequest(JDCloudRequest):
 
 class DescribeDisksParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """
 
         self.regionId = regionId
+        self.orders = None
         self.pageNumber = None
         self.pageSize = None
         self.tags = None
         self.filters = None
+        self.resourceGroupIds = None
+
+    def setOrders(self, orders):
+        """
+        :param orders: (Optional) name - 排序字段，只支持create_time和trash_time字段
+direction - 排序规则
+
+        """
+        self.orders = orders
 
     def setPageNumber(self, pageNumber):
         """
@@ -79,4 +89,10 @@ notPolicyId - 未绑定policyId的云硬盘，精确匹配，支持多个
 
         """
         self.filters = filters
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组筛选条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

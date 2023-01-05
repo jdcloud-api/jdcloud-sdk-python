@@ -31,7 +31,7 @@ class DeleteInstanceRequest(JDCloudRequest):
 - 不可以删除没有计费信息的云主机，该情况只限于创建过程中出现了异常。
 - 云主机状态必须为运行 `running`、停止 `stopped`、错误 `error`、状态，同时云主机没有正在进行中的任务才可以删除。
 - 如果云主机中挂载的数据盘为按配置计费的云硬盘且 `AutoDelete` 属性为 `true`，那么数据盘会随云主机一起删除。
-- 云主机中绑定的弹性公网IP不会随云主机一起删除，如果不需要保留，需要单独进行删除，需要使用者注意。
+- 云主机中绑定的弹性公网IP可以选择是否随云主机一起删除。
 - 如出现不能删除的情况请 [提交工单](https://ticket.jdcloud.com/applyorder/submit) 或联系京东云客服。
  [MFA enabled]
     """
@@ -44,7 +44,7 @@ class DeleteInstanceRequest(JDCloudRequest):
 
 class DeleteInstanceParameters(object):
 
-    def __init__(self, regionId,instanceId,):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 云主机ID。
@@ -52,4 +52,15 @@ class DeleteInstanceParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.deletePrimaryNetworkInterfaceAllElasticIp = None
+
+    def setDeletePrimaryNetworkInterfaceAllElasticIp(self, deletePrimaryNetworkInterfaceAllElasticIp):
+        """
+        :param deletePrimaryNetworkInterfaceAllElasticIp: (Optional) 是否删除主机的主网卡绑定的所有弹性公网IP，默认为否。可选值：`true`，`false`。
+当回收站功能关闭的时候，此参数生效。
+当回收站功能开启的时候，且参数 `destroy` 为 `true` 的时候，此参数生效。
+当回收站功能开启的时候，且参数 `destroy` 为 `false` 的时候，此参数不生效。
+
+        """
+        self.deletePrimaryNetworkInterfaceAllElasticIp = deletePrimaryNetworkInterfaceAllElasticIp
 

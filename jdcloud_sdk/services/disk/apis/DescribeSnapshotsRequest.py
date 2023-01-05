@@ -32,7 +32,7 @@ class DescribeSnapshotsRequest(JDCloudRequest):
 
 class DescribeSnapshotsParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """

@@ -19,14 +19,14 @@
 
 class Subnet(object):
 
-    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None, subnetType=None, az=None):
+    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None, subnetType=None, az=None, publicSubnet=None):
         """
         :param subnetId: (Optional) Subnet的Id
         :param subnetName: (Optional) 子网名称
         :param vpcId: (Optional) 子网所属VPC的Id
         :param addressPrefix: (Optional) 子网网段，vpc内子网网段不能重叠，cidr的取值范围：10.0.0.0/8、172.16.0.0/12和192.168.0.0/16及它们包含的子网，且子网掩码长度为16-28之间，如果VPC含有Cidr，则必须为VPC所在Cidr的子网
         :param availableIpCount: (Optional) 子网可用ip数量
-        :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请
+        :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请(范围是[max{24, 子网掩码}, 28])
         :param description: (Optional) 子网描述信息
         :param routeTableId: (Optional) 子网关联的路由表Id
         :param aclId: (Optional) 子网关联的acl Id
@@ -35,6 +35,7 @@ class Subnet(object):
         :param createdTime: (Optional) 子网创建时间
         :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
         :param az: (Optional) 子网可用区
+        :param publicSubnet: (Optional) 子网是否为外部子网（即子网路由表中存在下一跳为internet的路由）。true表示外部子网，false表示内部子网
         """
 
         self.subnetId = subnetId
@@ -51,3 +52,4 @@ class Subnet(object):
         self.createdTime = createdTime
         self.subnetType = subnetType
         self.az = az
+        self.publicSubnet = publicSubnet

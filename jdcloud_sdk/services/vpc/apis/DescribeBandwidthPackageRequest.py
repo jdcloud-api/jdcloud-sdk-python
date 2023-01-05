@@ -40,7 +40,7 @@ class DescribeBandwidthPackageRequest(JDCloudRequest):
 
 class DescribeBandwidthPackageParameters(object):
 
-    def __init__(self, regionId,bandwidthPackageId,):
+    def __init__(self,regionId, bandwidthPackageId):
         """
         :param regionId: Region ID
         :param bandwidthPackageId: 共享带宽包ID

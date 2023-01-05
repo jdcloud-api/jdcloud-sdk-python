@@ -24,7 +24,7 @@ class DiskSpec(object):
         :param az:  云硬盘所属的可用区
         :param name:  云硬盘名称
         :param description: (Optional) 云硬盘描述,默认为空
-        :param diskType:  云硬盘类型，取值为ssd、premium-hdd、ssd.gp1、ssd.io1、hdd.std1之一
+        :param diskType:  云硬盘类型，取值为ssd、premium-hdd、ssd.gp1、ssd.io1、hdd.std1、ssd.io2、ssd.gp2之一
         :param diskSizeGB:  云硬盘大小，单位为 GiB，ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G, ssd.gp1, ssd.io1, hdd.std1 类型取值均是范围[20,16000]GB，步长为10G
         :param iops: (Optional) 云硬盘IOPS的大小，当且仅当云盘类型是ssd.io1型的云盘有效，步长是10.默认值为容量30，最大值为容量50
         :param snapshotId: (Optional) 用于创建云硬盘的快照ID，默认为空

@@ -34,7 +34,7 @@ class ExtendDiskRequest(JDCloudRequest):
 
 class ExtendDiskParameters(object):
 
-    def __init__(self, regionId, diskId, diskSizeGB, ):
+    def __init__(self,regionId, diskId, diskSizeGB, ):
         """
         :param regionId: 地域ID
         :param diskId: 云硬盘ID

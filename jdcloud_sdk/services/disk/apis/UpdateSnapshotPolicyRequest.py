@@ -32,7 +32,7 @@ class UpdateSnapshotPolicyRequest(JDCloudRequest):
 
 class UpdateSnapshotPolicyParameters(object):
 
-    def __init__(self, regionId, policyId, name, interval, effectiveTime, snapshotLifecycle, status):
+    def __init__(self,regionId, policyId, name, interval, effectiveTime, snapshotLifecycle, status):
         """
         :param regionId: 地域ID
         :param policyId: 策略ID

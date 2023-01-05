@@ -32,7 +32,7 @@ class CreateElasticIpsRequest(JDCloudRequest):
 
 class CreateElasticIpsParameters(object):
 
-    def __init__(self, regionId,maxCount, elasticIpSpec, ):
+    def __init__(self,regionId, maxCount, elasticIpSpec, ):
         """
         :param regionId: Region ID
         :param maxCount: 购买弹性ip数量；取值范围：[1,100]

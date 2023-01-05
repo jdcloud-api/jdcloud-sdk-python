@@ -32,7 +32,7 @@ class ModifyNetworkInterfaceRequest(JDCloudRequest):
 
 class ModifyNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId,networkInterfaceId,):
+    def __init__(self,regionId, networkInterfaceId, ):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID

@@ -32,7 +32,7 @@ class ModifyElasticIpRequest(JDCloudRequest):
 
 class ModifyElasticIpParameters(object):
 
-    def __init__(self, regionId,elasticIpId,bandwidthMbps):
+    def __init__(self,regionId, elasticIpId, bandwidthMbps):
         """
         :param regionId: Region ID
         :param elasticIpId: ElasticIp ID

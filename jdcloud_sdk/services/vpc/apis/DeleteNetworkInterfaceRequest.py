@@ -32,7 +32,7 @@ class DeleteNetworkInterfaceRequest(JDCloudRequest):
 
 class DeleteNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId,networkInterfaceId,):
+    def __init__(self,regionId, networkInterfaceId):
         """
         :param regionId: Region ID
         :param networkInterfaceId: networkInterface ID

@@ -19,7 +19,7 @@
 
 class SubnetSpec(object):
 
-    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None, ipMaskLen=None):
+    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None, ipMaskLen=None, dryRun=None):
         """
         :param vpcId:  子网所属vpc的Id
         :param subnetName:  子网名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -27,6 +27,7 @@ class SubnetSpec(object):
         :param routeTableId: (Optional) 子网关联的路由表Id, 默认为vpc的默认路由表,子网关联路由表需检查路由表中已绑定的子网与本子网类型是否一致（一致标准为：或者都为标准子网，或者都为相同边缘可用区的边缘子网）
         :param description: (Optional) 子网描述信息,允许输入UTF-8编码下的全部字符，不超过256字符。
         :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请
+        :param dryRun: (Optional) 是否只预检此次请求。true：不会创建子网，只会对参数进行校验；false：正常的创建请求。默认为false。
         """
 
         self.vpcId = vpcId
@@ -35,3 +36,4 @@ class SubnetSpec(object):
         self.routeTableId = routeTableId
         self.description = description
         self.ipMaskLen = ipMaskLen
+        self.dryRun = dryRun

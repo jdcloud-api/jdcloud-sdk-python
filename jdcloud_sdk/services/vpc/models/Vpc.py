@@ -19,7 +19,7 @@
 
 class Vpc(object):
 
-    def __init__(self, vpcId=None, addressPrefix=None, description=None, vpcName=None, aclIds=None, routeTableIds=None, subnets=None, createdTime=None, azType=None, az=None):
+    def __init__(self, vpcId=None, addressPrefix=None, description=None, vpcName=None, aclIds=None, routeTableIds=None, subnets=None, createdTime=None, azType=None, az=None, vpcPolicyId=None):
         """
         :param vpcId: (Optional) Vpc的Id
         :param addressPrefix: (Optional) 如果为空，则不限制网段，如果不为空，10.0.0.0/8、172.16.0.0/12和192.168.0.0/16及它们包含的子网，且子网掩码长度为16-28之间
@@ -31,6 +31,7 @@ class Vpc(object):
         :param createdTime: (Optional) vpc创建时间
         :param azType: (Optional) VPC az类型，取值：standard(标准VPC)，edge(边缘VPC)
         :param az: (Optional) VPC可用区, 标准VPC为""， 边缘VPC为边缘az
+        :param vpcPolicyId: (Optional) VPC关联的策略Id
         """
 
         self.vpcId = vpcId
@@ -43,3 +44,4 @@ class Vpc(object):
         self.createdTime = createdTime
         self.azType = azType
         self.az = az
+        self.vpcPolicyId = vpcPolicyId

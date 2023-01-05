@@ -32,7 +32,7 @@ class RemoveNetworkSecurityGroupRulesRequest(JDCloudRequest):
 
 class RemoveNetworkSecurityGroupRulesParameters(object):
 
-    def __init__(self, regionId,networkSecurityGroupId,ruleIds):
+    def __init__(self,regionId, networkSecurityGroupId, ruleIds):
         """
         :param regionId: Region ID
         :param networkSecurityGroupId: NetworkSecurityGroup ID

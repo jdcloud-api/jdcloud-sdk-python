@@ -24,7 +24,7 @@ class AddBandwidthPackageIPRequest(JDCloudRequest):
     
 向共享带宽包内增加公网IP
 
-## 接口说明 
+## 接口说明
 
 - 确保已有至少一个共享带宽包资源。
 
@@ -50,7 +50,7 @@ class AddBandwidthPackageIPRequest(JDCloudRequest):
 
 class AddBandwidthPackageIPParameters(object):
 
-    def __init__(self, regionId,bandwidthPackageId,bandwidthPackageIPSpecs):
+    def __init__(self,regionId, bandwidthPackageId, bandwidthPackageIPSpecs):
         """
         :param regionId: Region ID
         :param bandwidthPackageId: 共享带宽包ID

@@ -32,7 +32,7 @@ class AssociateNetworkAclRequest(JDCloudRequest):
 
 class AssociateNetworkAclParameters(object):
 
-    def __init__(self, regionId,networkAclId,subnetIds):
+    def __init__(self,regionId, networkAclId, subnetIds):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID

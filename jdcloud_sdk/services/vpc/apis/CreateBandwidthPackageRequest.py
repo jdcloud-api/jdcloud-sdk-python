@@ -43,7 +43,7 @@ class CreateBandwidthPackageRequest(JDCloudRequest):
 
 class CreateBandwidthPackageParameters(object):
 
-    def __init__(self, regionId,name, bandwidthMbps, ):
+    def __init__(self,regionId, name, bandwidthMbps, ):
         """
         :param regionId: Region ID
         :param name: 名称，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且长度不超过32个字符

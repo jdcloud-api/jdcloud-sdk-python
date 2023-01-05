@@ -32,7 +32,7 @@ class ModifyNetworkAclRulesRequest(JDCloudRequest):
 
 class ModifyNetworkAclRulesParameters(object):
 
-    def __init__(self, regionId,networkAclId,modifyNetworkAclRuleSpecs):
+    def __init__(self,regionId, networkAclId, modifyNetworkAclRuleSpecs):
         """
         :param regionId: Region ID
         :param networkAclId: networkAclId ID

@@ -32,7 +32,7 @@ class DescribeElasticIpsRequest(JDCloudRequest):
 
 class DescribeElasticIpsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """

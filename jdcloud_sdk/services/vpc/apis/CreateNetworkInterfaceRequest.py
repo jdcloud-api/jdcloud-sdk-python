@@ -32,7 +32,7 @@ class CreateNetworkInterfaceRequest(JDCloudRequest):
 
 class CreateNetworkInterfaceParameters(object):
 
-    def __init__(self, regionId,subnetId, ):
+    def __init__(self,regionId, subnetId, ):
         """
         :param regionId: Region ID
         :param subnetId: 子网ID

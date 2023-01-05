@@ -32,11 +32,11 @@ class AssociateRouteTableRequest(JDCloudRequest):
 
 class AssociateRouteTableParameters(object):
 
-    def __init__(self, regionId,routeTableId,subnetIds):
+    def __init__(self,regionId, routeTableId, subnetIds):
         """
         :param regionId: Region ID
         :param routeTableId: RouteTable ID
-        :param subnetIds: 路由表要绑定的子网ID列表, subnet已被其他路由表绑定时，自动解绑。路由表绑定的子网属性要相同，或者都是标准子网，或者都是相同边缘可用区的边缘子网。
+        :param subnetIds: 路由表要绑定的子网ID列表, 只有associateType是subnet类型的路由表才支持绑定；subnet已被其他路由表绑定时，自动解绑。路由表绑定的子网属性要相同，或者都是标准子网，或者都是相同边缘可用区的边缘子网。
         """
 
         self.regionId = regionId

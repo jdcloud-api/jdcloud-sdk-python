@@ -32,7 +32,7 @@ class CreateSubnetRequest(JDCloudRequest):
 
 class CreateSubnetParameters(object):
 
-    def __init__(self, regionId,vpcId, subnetName, addressPrefix, ):
+    def __init__(self,regionId, vpcId, subnetName, addressPrefix, ):
         """
         :param regionId: Region ID
         :param vpcId: 子网所属vpc的Id
@@ -47,6 +47,7 @@ class CreateSubnetParameters(object):
         self.routeTableId = None
         self.description = None
         self.ipMaskLen = None
+        self.dryRun = None
 
     def setRouteTableId(self, routeTableId):
         """
@@ -65,4 +66,10 @@ class CreateSubnetParameters(object):
         :param ipMaskLen: (Optional) 子网内预留网段掩码长度，此网段IP地址按照单个申请，子网内其余部分IP地址以网段形式分配。此参数非必选，缺省值为0，代表子网内所有IP地址都按照单个申请
         """
         self.ipMaskLen = ipMaskLen
+
+    def setDryRun(self, dryRun):
+        """
+        :param dryRun: (Optional) 是否只预检此次请求。true：不会创建子网，只会对参数进行校验；false：正常的创建请求。默认为false。
+        """
+        self.dryRun = dryRun
 

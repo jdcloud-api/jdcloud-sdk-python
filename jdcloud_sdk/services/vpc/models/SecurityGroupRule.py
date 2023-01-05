@@ -29,7 +29,7 @@ class SecurityGroupRule(object):
         :param fromPort: (Optional) 规则限定起始传输层端口, 默认1 ，若protocal不是传输层协议，恒为0
         :param toPort: (Optional) 规则限定终止传输层端口, 默认1 ，若protocal不是传输层协议，恒为0
         :param createdTime: (Optional) 安全组规则创建时间
-        :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param description: (Optional) 描述, 允许输入UTF-8编码下的全部字符，不超过256字符
         :param ruleType: (Optional) 安全组规则类型, default：默认安全组规则，custom：自定义安全组规则
         """
 

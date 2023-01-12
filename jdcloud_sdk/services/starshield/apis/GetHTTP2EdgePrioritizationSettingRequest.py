@@ -33,7 +33,7 @@ class GetHTTP2EdgePrioritizationSettingRequest(JDCloudRequest):
 
 class GetHTTP2EdgePrioritizationSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier):
         """
         :param zone_identifier: 
         """

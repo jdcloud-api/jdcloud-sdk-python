@@ -32,7 +32,7 @@ class ListRuleGroupsRequest(JDCloudRequest):
 
 class ListRuleGroupsParameters(object):
 
-    def __init__(self, zone_identifier, package_identifier, ):
+    def __init__(self,zone_identifier, package_identifier, ):
         """
         :param zone_identifier: 
         :param package_identifier: 

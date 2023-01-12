@@ -37,7 +37,7 @@ Basic+JPEG（有损），进一步减少JPEG文件的大小，以加快图像加
 
 class ChangePolishSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """

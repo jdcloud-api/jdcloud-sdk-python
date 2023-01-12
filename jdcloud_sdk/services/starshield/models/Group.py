@@ -21,8 +21,8 @@ class Group(object):
 
     def __init__(self, id=None, name=None):
         """
-        :param id: (Optional) WAF group identifier tag
-        :param name: (Optional) Name of the firewall rule group
+        :param id: (Optional) WAF组标识符标签
+        :param name: (Optional) 防火墙规则组的名称
         """
 
         self.id = id

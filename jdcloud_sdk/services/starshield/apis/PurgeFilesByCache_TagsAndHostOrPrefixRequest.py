@@ -35,7 +35,7 @@ class PurgeFilesByCache_TagsAndHostOrPrefixRequest(JDCloudRequest):
 
 class PurgeFilesByCache_TagsAndHostOrPrefixParameters(object):
 
-    def __init__(self, identifier, ):
+    def __init__(self,identifier, ):
         """
         :param identifier: 
         """

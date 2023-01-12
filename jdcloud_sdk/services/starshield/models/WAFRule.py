@@ -19,7 +19,7 @@
 
 class WAFRule(object):
 
-    def __init__(self, id=None, description=None, priority=None, group=None, package_id=None, allowed_modes=None, mode=None):
+    def __init__(self, id=None, description=None, priority=None, group=None, package_id=None, allowed_modes=None, default_mode=None, mode=None):
         """
         :param id: (Optional) WAF规则标识符标签
         :param description: (Optional) 规则的公开说明
@@ -27,6 +27,7 @@ class WAFRule(object):
         :param group: (Optional) 
         :param package_id: (Optional) WAF包标识符标签
         :param allowed_modes: (Optional) 定义触发规则时规则交互方式的可用模式。
+        :param default_mode: (Optional) 规则的默认模式。
         :param mode: (Optional) 评估请求时是否使用基于异常的规则。
         """
 
@@ -36,4 +37,5 @@ class WAFRule(object):
         self.group = group
         self.package_id = package_id
         self.allowed_modes = allowed_modes
+        self.default_mode = default_mode
         self.mode = mode

@@ -32,7 +32,7 @@ class CreateZoneRequest(JDCloudRequest):
 
 class CreateZoneParameters(object):
 
-    def __init__(self, name, account, ):
+    def __init__(self,name, account, ):
         """
         :param name: 域名
         :param account: 

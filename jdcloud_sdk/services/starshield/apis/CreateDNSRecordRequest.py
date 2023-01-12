@@ -32,7 +32,7 @@ class CreateDNSRecordRequest(JDCloudRequest):
 
 class CreateDNSRecordParameters(object):
 
-    def __init__(self, zone_identifier, name, content, ttl, ):
+    def __init__(self,zone_identifier, name, content, ttl, ):
         """
         :param zone_identifier: 
         :param name: DNS记录名称

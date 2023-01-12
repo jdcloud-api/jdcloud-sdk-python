@@ -27,16 +27,28 @@ class CustomSSL(object):
         :param expires_on: (Optional) 来自授权机构的证书过期时间
         :param hosts: (Optional) 
         :param zone_id: (Optional) 域标识符标签
-        :param status: (Optional) 域的自定义SSL的状态
+        :param status: (Optional) 域的自定义SSL的状态，
+active              激活
+expired             已过期
+deleted             已删除
+pending             待处理
+pending_validation  待验证
+pending_issuance    待签发
+pending_deployment  待部署
+holding_deployment  等待部署
+initializing        初始化
+inactive            未激活
+
         :param geo_restrictions: (Optional) 
         :param modified_on: (Optional) 上次修改证书的时间
         :param signature: (Optional) 用于证书的哈希类型
         :param issuer: (Optional) 颁发证书的证书颁发机构
         :param id: (Optional) 自定义证书标识符标签
         :param uploaded_on: (Optional) 证书上载到星盾的时间
-        :param bundle_method: (Optional) SSL泛捆绑在各处有着最高的概率被验证，甚至能被使用过时的或不寻常的信任存储的客户端验证。
-最佳捆绑使用最短的认证链和最新的中间证书。
-而强制捆绑会验证证书链，但不以其他方式修改证书链。
+        :param bundle_method: (Optional) 合法值ubiquitous/optimal/force，默认值ubiquitous。
+ubiquitous：SSL泛捆绑在各处有着最高的概率被验证，甚至能被使用过时的或不寻常的信任存储的客户端验证。
+optimal：最佳捆绑使用最短的认证链和最新的中间证书。
+force：强制捆绑会验证证书链，但不以其他方式修改证书链。
 
         """
 

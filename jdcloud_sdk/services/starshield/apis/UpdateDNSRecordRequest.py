@@ -32,7 +32,7 @@ class UpdateDNSRecordRequest(JDCloudRequest):
 
 class UpdateDNSRecordParameters(object):
 
-    def __init__(self, zone_identifier, identifier, name, content, ttl, ):
+    def __init__(self,zone_identifier, identifier, name, content, ttl, ):
         """
         :param zone_identifier: 
         :param identifier: 

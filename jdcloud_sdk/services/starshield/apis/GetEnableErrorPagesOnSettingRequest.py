@@ -33,7 +33,7 @@ class GetEnableErrorPagesOnSettingRequest(JDCloudRequest):
 
 class GetEnableErrorPagesOnSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier):
         """
         :param zone_identifier: 
         """

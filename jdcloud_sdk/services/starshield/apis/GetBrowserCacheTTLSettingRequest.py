@@ -33,7 +33,7 @@ class GetBrowserCacheTTLSettingRequest(JDCloudRequest):
 
 class GetBrowserCacheTTLSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier):
         """
         :param zone_identifier: 
         """

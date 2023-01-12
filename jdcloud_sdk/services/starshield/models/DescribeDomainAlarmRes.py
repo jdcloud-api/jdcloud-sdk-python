@@ -19,11 +19,13 @@
 
 class DescribeDomainAlarmRes(object):
 
-    def __init__(self, id=None, ruleName=None, alarmType=None, statCycle=None, statCycleUnit=None, statThreshold=None, alarmTimesLimit=None, smsEnable=None, emailEnable=None, webMsEnable=None, enable=None, instanceId=None, domains=None, contactUsers=None, contactGroups=None):
+    def __init__(self, id=None, ruleName=None, alarmType=None, detectItems=None, unit=None, statCycle=None, statCycleUnit=None, statThreshold=None, alarmTimesLimit=None, smsEnable=None, emailEnable=None, webMsEnable=None, enable=None, instanceId=None, domains=None, contactUsers=None, contactGroups=None):
         """
         :param id: (Optional) 告警规则ID
         :param ruleName: (Optional) 规则名称
-        :param alarmType: (Optional) 告警类型 WEB_ATTACK->网站攻击 CC_ATTACK->CC攻击 DDOS_ATTACK->DDOS攻击 STATUS_CODE_ERROR->状态码错误
+        :param alarmType: (Optional) 告警类型 WEB_ATTACK->网站攻击 CC_ATTACK->CC攻击 DDOS_ATTACK->DDOS攻击 STATUS_CODE_ERROR->状态码错误 UPSTREAM_STATUS->回源IP异常告警
+        :param detectItems: (Optional) warnType为statusCode时为要检测的状态码
+        :param unit: (Optional) 阈值单位，""-个数，"percent"-百分比。缺省为个数
         :param statCycle: (Optional) 统计周期
         :param statCycleUnit: (Optional) 统计周期单位
         :param statThreshold: (Optional) 统计阈值
@@ -41,6 +43,8 @@ class DescribeDomainAlarmRes(object):
         self.id = id
         self.ruleName = ruleName
         self.alarmType = alarmType
+        self.detectItems = detectItems
+        self.unit = unit
         self.statCycle = statCycle
         self.statCycleUnit = statCycleUnit
         self.statThreshold = statThreshold

@@ -19,7 +19,7 @@
 
 class Zone(object):
 
-    def __init__(self, plan_pending=None, original_dnshost=None, permissions=None, development_mode=None, verification_key=None, plan=None, original_name_servers=None, name=None, account=None, activated_on=None, paused=None, status=None, owner=None, modified_on=None, created_on=None, ty_pe=None, id=None, name_servers=None, original_registrar=None):
+    def __init__(self, plan_pending=None, original_dnshost=None, permissions=None, development_mode=None, verification_key=None, plan=None, original_name_servers=None, name=None, account=None, activated_on=None, paused=None, status=None, owner=None, modified_on=None, created_on=None, ty_pe=None, id=None, name_servers=None, original_registrar=None, enableCname2Rs=None):
         """
         :param plan_pending: (Optional) 
         :param original_dnshost: (Optional) 切换到星盾时的DNS主机
@@ -41,6 +41,7 @@ class Zone(object):
         :param id: (Optional) 域标识符标签
         :param name_servers: (Optional) 星盾分配的域名服务器。这仅适用于使用星盾DNS的域
         :param original_registrar: (Optional) 切换到星盾时的域注册商
+        :param enableCname2Rs: (Optional) cname解析状态。0为解析到云端VIP，1为解析到回源地址
         """
 
         self.plan_pending = plan_pending
@@ -62,3 +63,4 @@ class Zone(object):
         self.id = id
         self.name_servers = name_servers
         self.original_registrar = original_registrar
+        self.enableCname2Rs = enableCname2Rs

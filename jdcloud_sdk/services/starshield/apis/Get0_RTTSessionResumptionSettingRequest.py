@@ -32,7 +32,7 @@ class Get0_RTTSessionResumptionSettingRequest(JDCloudRequest):
 
 class Get0_RTTSessionResumptionSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier):
         """
         :param zone_identifier: 
         """

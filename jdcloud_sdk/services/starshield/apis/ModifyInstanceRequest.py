@@ -32,7 +32,7 @@ class ModifyInstanceRequest(JDCloudRequest):
 
 class ModifyInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID
         :param instanceId: 实例ID
@@ -43,6 +43,7 @@ class ModifyInstanceParameters(object):
         self.packType = None
         self.zonePackNum = None
         self.returnUrl = None
+        self.buyScenario = None
 
     def setPackType(self, packType):
         """
@@ -61,4 +62,10 @@ class ModifyInstanceParameters(object):
         :param returnUrl: (Optional) 支付成功后返回到该路径
         """
         self.returnUrl = returnUrl
+
+    def setBuyScenario(self, buyScenario):
+        """
+        :param buyScenario: (Optional) 购买上下文JSON字符串
+        """
+        self.buyScenario = buyScenario
 

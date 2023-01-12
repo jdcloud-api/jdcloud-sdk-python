@@ -32,7 +32,7 @@ class DeleteIndividualFirewallRulesRequest(JDCloudRequest):
 
 class DeleteIndividualFirewallRulesParameters(object):
 
-    def __init__(self, zone_identifier, id, ):
+    def __init__(self,zone_identifier, id, ):
         """
         :param zone_identifier: 
         :param id: 

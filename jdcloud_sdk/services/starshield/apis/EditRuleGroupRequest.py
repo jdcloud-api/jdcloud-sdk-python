@@ -32,7 +32,7 @@ class EditRuleGroupRequest(JDCloudRequest):
 
 class EditRuleGroupParameters(object):
 
-    def __init__(self, zone_identifier, package_identifier, identifier, ):
+    def __init__(self,zone_identifier, package_identifier, identifier, ):
         """
         :param zone_identifier: 
         :param package_identifier: 

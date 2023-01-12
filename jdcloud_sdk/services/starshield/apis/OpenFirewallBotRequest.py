@@ -32,7 +32,7 @@ class OpenFirewallBotRequest(JDCloudRequest):
 
 class OpenFirewallBotParameters(object):
 
-    def __init__(self, zoneId, ):
+    def __init__(self,zoneId):
         """
         :param zoneId: 
         """

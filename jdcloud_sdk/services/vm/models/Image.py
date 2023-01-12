@@ -19,7 +19,7 @@
 
 class Image(object):
 
-    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None, offline=None, serviceCode=None, imported=None):
+    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None, offline=None, serviceCode=None, imported=None, expiredTime=None):
         """
         :param imageId: (Optional) 镜像ID。
         :param name: (Optional) 镜像名称。
@@ -58,6 +58,7 @@ class Image(object):
         :param offline: (Optional) 镜像的上下线状态。`offline=true` 的镜像不再允许创建云主机。
         :param serviceCode: (Optional) 已废弃。
         :param imported: (Optional) 是否来自导入镜像。
+        :param expiredTime: (Optional) 镜像过期时间，空表示永久有效。
         """
 
         self.imageId = imageId
@@ -82,3 +83,4 @@ class Image(object):
         self.offline = offline
         self.serviceCode = serviceCode
         self.imported = imported
+        self.expiredTime = expiredTime

@@ -32,7 +32,7 @@ class FirewallPackageDetailsRequest(JDCloudRequest):
 
 class FirewallPackageDetailsParameters(object):
 
-    def __init__(self, zone_identifier, identifier, ):
+    def __init__(self,zone_identifier, identifier):
         """
         :param zone_identifier: 
         :param identifier: 

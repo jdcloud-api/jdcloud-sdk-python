@@ -39,7 +39,7 @@ Full (Strict), 访客和星盾之间的 SSL -- 访客在您的网站上看到 HT
 
 class ChangeSSLSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """
@@ -49,7 +49,7 @@ class ChangeSSLSettingParameters(object):
 
     def setValue(self, value):
         """
-        :param value: (Optional) 该设置的有效值
+        :param value: (Optional) 该设置的有效值，off/flexible/full/strict
         """
         self.value = value
 

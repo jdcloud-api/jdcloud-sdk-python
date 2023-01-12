@@ -26,7 +26,13 @@ class FirewallRule(object):
         :param paused: (Optional) 此防火墙规则当前是否已暂停。
         :param ref: (Optional) 短引用标记，用于快速选择相关规则。
         :param action_parameters: (Optional) 
-        :param action: (Optional) 应用于匹配请求的行动。注意，行动 "log "只适用于企业客户。
+        :param action: (Optional) 对匹配到的请求采取的措施。有效值：js_challenge/block/challenge/allow/bypass
+js_challenge表示Js挑战
+block表示阻止
+challenge表示验证码
+allow表示允许
+bypass表示绕过
+
         :param filter: (Optional) 
         :param id: (Optional) 防火墙规则标识符
         :param description: (Optional) 对规则的描述，以帮助识别它。

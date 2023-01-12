@@ -21,8 +21,12 @@ class Item(object):
 
     def __init__(self, name=None, value=None, unit=None):
         """
-        :param name: (Optional) 
-        :param value: (Optional) 
+        :param name: (Optional) 项的名称
+        :param value: (Optional) 项的值。
+如果是带宽，值的单位是bps（bit per second）
+如果是流量，值的单位是Byte
+如果是请求量，值的单位是次数
+
         :param unit: (Optional) 
         """
 

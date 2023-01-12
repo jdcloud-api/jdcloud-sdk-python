@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInstanceRequest(JDCloudRequest):
     """
-    创建套餐实例
+    创建套餐实例，调用成功，将自动扣费（请保证账户充足，否则无法成功创建实例）。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class CreateInstanceRequest(JDCloudRequest):
 
 class CreateInstanceParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """
@@ -47,6 +48,7 @@ class CreateInstanceParameters(object):
         self.instanceName = None
         self.memo = None
         self.returnUrl = None
+        self.buyScenario = None
 
     def setChargeMode(self, chargeMode):
         """
@@ -115,4 +117,10 @@ SMB_BUSINESS 按流量 商业版
         :param returnUrl: (Optional) 支付成功返回路径
         """
         self.returnUrl = returnUrl
+
+    def setBuyScenario(self, buyScenario):
+        """
+        :param buyScenario: (Optional) 购买上下文JSON字符串
+        """
+        self.buyScenario = buyScenario
 

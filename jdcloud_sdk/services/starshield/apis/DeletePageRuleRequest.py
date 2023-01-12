@@ -32,7 +32,7 @@ class DeletePageRuleRequest(JDCloudRequest):
 
 class DeletePageRuleParameters(object):
 
-    def __init__(self, zone_identifier, identifier, ):
+    def __init__(self,zone_identifier, identifier):
         """
         :param zone_identifier: 
         :param identifier: 

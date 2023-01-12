@@ -32,7 +32,7 @@ class DescribeInstanceByOrderNoRequest(JDCloudRequest):
 
 class DescribeInstanceByOrderNoParameters(object):
 
-    def __init__(self, regionId, orderNumber, ):
+    def __init__(self,regionId, orderNumber):
         """
         :param regionId: 地域ID
         :param orderNumber: 

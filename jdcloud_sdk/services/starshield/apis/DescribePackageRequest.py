@@ -32,7 +32,7 @@ class DescribePackageRequest(JDCloudRequest):
 
 class DescribePackageParameters(object):
 
-    def __init__(self, regionId, packType, ):
+    def __init__(self,regionId, packType):
         """
         :param regionId: 地域ID
         :param packType: 套餐类型

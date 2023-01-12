@@ -21,8 +21,12 @@ class SimpleDateHistogram(object):
 
     def __init__(self, dataSeries=None, timeSeries=None):
         """
-        :param dataSeries: (Optional) 
-        :param timeSeries: (Optional) 
+        :param dataSeries: (Optional) 数据点集合。
+如果是带宽，数据点的单位是bps（bit per second）
+如果是流量，数据点的单位是Byte
+如果是请求量，数据点的单位是次数
+
+        :param timeSeries: (Optional) 时间点集合。时间点的值为时间戳对应的long值。
         """
 
         self.dataSeries = dataSeries

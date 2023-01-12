@@ -32,7 +32,7 @@ class SelectDetailListRequest(JDCloudRequest):
 
 class SelectDetailListParameters(object):
 
-    def __init__(self, regionId, resourceList):
+    def __init__(self,regionId, resourceList):
         """
         :param regionId: 地域ID
         :param resourceList: 资源列表

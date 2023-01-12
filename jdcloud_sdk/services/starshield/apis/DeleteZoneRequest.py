@@ -32,7 +32,7 @@ class DeleteZoneRequest(JDCloudRequest):
 
 class DeleteZoneParameters(object):
 
-    def __init__(self, identifier, ):
+    def __init__(self,identifier):
         """
         :param identifier: 
         """

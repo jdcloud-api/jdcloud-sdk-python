@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateFlowPackRequest(JDCloudRequest):
     """
-    购买流量包
+    购买流量包，调用成功，将自动扣费（请保证账户充足，否则无法成功创建流量包）。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class CreateFlowPackRequest(JDCloudRequest):
 
 class CreateFlowPackParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID
         :param instanceId: 实例ID
@@ -40,12 +41,27 @@ class CreateFlowPackParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.fixedFlowPackType = None
+        self.fixedFlowPackNum = None
         self.flowPackNum = None
         self.returnUrl = None
+        self.buyScenario = None
+
+    def setFixedFlowPackType(self, fixedFlowPackType):
+        """
+        :param fixedFlowPackType: (Optional) 定量流量包类型(1->10TB 2->50TB 3->200TB 4->1PB 5->5PB)
+        """
+        self.fixedFlowPackType = fixedFlowPackType
+
+    def setFixedFlowPackNum(self, fixedFlowPackNum):
+        """
+        :param fixedFlowPackNum: (Optional) 定量流量包数量
+        """
+        self.fixedFlowPackNum = fixedFlowPackNum
 
     def setFlowPackNum(self, flowPackNum):
         """
-        :param flowPackNum: (Optional) 流量包数量
+        :param flowPackNum: (Optional) 按需购买流量包数量
         """
         self.flowPackNum = flowPackNum
 
@@ -54,4 +70,10 @@ class CreateFlowPackParameters(object):
         :param returnUrl: (Optional) 支付成功返回路径
         """
         self.returnUrl = returnUrl
+
+    def setBuyScenario(self, buyScenario):
+        """
+        :param buyScenario: (Optional) 购买上下文JSON字符串
+        """
+        self.buyScenario = buyScenario
 

@@ -22,7 +22,11 @@ class CertificatePack(object):
     def __init__(self, id=None, ty_pe=None, hosts=None, certificates=None, primary_certificate=None):
         """
         :param id: (Optional) 证书包的唯一标识符
-        :param ty_pe: (Optional) 证书包的类型
+        :param ty_pe: (Optional) 证书包的类型，有效值universal/sni_custom/advanced
+universal    通用
+sni_custom   自定义
+advanced     专用
+
         :param hosts: (Optional) 证书包的有效主机名的逗号分隔列表。必须包含域的顶级域名，不能包含超过50个主机，并且不能为空。
         :param certificates: (Optional) 
         :param primary_certificate: (Optional) 包中主证书的标识符

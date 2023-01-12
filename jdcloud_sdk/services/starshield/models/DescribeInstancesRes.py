@@ -19,7 +19,7 @@
 
 class DescribeInstancesRes(object):
 
-    def __init__(self, instanceId=None, instanceName=None, packType=None, chargeState=None, zonePackNum=None, trafficExpansion=None, flowUsedCnt=None, flowRemain=None, packMode=None, memo=None, createTime=None, expireTime=None, packageInfo=None):
+    def __init__(self, instanceId=None, instanceName=None, packType=None, chargeState=None, zonePackNum=None, trafficExpansion=None, flowUsedCnt=None, flowRemain=None, totalFlowStr=None, usedFlowStr=None, remainingFlowStr=None, packMode=None, memo=None, createTime=None, expireTime=None, packageInfo=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -29,6 +29,9 @@ class DescribeInstancesRes(object):
         :param trafficExpansion: (Optional) 流量包数量
         :param flowUsedCnt: (Optional) 已使用流量（单位：Byte）
         :param flowRemain: (Optional) 剩余流量(单位：Gb)
+        :param totalFlowStr: (Optional) 套餐总流量
+        :param usedFlowStr: (Optional) 套餐已使用流量
+        :param remainingFlowStr: (Optional) 套餐剩余流量
         :param packMode: (Optional) 套餐模式(BASE->基础套餐 FLOW->流量套餐)
         :param memo: (Optional) 备注
         :param createTime: (Optional) 购买时间, UTC时间格式，例如2017-11-10T23:00:00Z
@@ -44,6 +47,9 @@ class DescribeInstancesRes(object):
         self.trafficExpansion = trafficExpansion
         self.flowUsedCnt = flowUsedCnt
         self.flowRemain = flowRemain
+        self.totalFlowStr = totalFlowStr
+        self.usedFlowStr = usedFlowStr
+        self.remainingFlowStr = remainingFlowStr
         self.packMode = packMode
         self.memo = memo
         self.createTime = createTime

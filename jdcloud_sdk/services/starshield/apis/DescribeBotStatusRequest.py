@@ -32,7 +32,7 @@ class DescribeBotStatusRequest(JDCloudRequest):
 
 class DescribeBotStatusParameters(object):
 
-    def __init__(self, zoneId, ):
+    def __init__(self,zoneId):
         """
         :param zoneId: 
         """

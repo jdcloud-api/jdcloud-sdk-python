@@ -36,7 +36,7 @@ class PurgeFilesByURLRequest(JDCloudRequest):
 
 class PurgeFilesByURLParameters(object):
 
-    def __init__(self, identifier, ):
+    def __init__(self,identifier, ):
         """
         :param identifier: 
         """

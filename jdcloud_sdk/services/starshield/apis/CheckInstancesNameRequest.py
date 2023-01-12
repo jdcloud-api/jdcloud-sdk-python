@@ -32,7 +32,7 @@ class CheckInstancesNameRequest(JDCloudRequest):
 
 class CheckInstancesNameParameters(object):
 
-    def __init__(self, regionId, instanceName):
+    def __init__(self,regionId, instanceName):
         """
         :param regionId: 地域ID
         :param instanceName: 实例名称

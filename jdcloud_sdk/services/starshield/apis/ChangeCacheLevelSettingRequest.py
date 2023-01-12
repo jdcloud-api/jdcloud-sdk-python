@@ -36,7 +36,7 @@ aggressive设置将缓存所有的静态资源，包括有查询字符串的资�
 
 class ChangeCacheLevelSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """

@@ -23,9 +23,9 @@ class DescribeZonesRes(object):
         """
         :param zoneId: (Optional) zone id
         :param name: (Optional) zone name
-        :param status: (Optional) zone状态
+        :param status: (Optional) zone状态(active->已激活 deleted->已删除 pending->未激活)
         :param paused: (Optional) 是否暂停
-        :param ty_pe: (Optional) zone接入类型
+        :param ty_pe: (Optional) zone接入类型(full->全接入 partial->半接入)
         :param development_mode: (Optional) 开发者模式
         :param verification_key: (Optional) 校验key
         :param cname_suffix: (Optional) cname后缀

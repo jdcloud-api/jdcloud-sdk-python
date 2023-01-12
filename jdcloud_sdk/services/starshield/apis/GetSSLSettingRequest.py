@@ -39,7 +39,7 @@ Full (Strict), 访客和星盾之间的 SSL -- 访客在您的网站上看到 HT
 
 class GetSSLSettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier):
         """
         :param zone_identifier: 
         """

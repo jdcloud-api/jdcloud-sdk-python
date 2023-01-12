@@ -32,7 +32,7 @@ class PurgeAllFilesRequest(JDCloudRequest):
 
 class PurgeAllFilesParameters(object):
 
-    def __init__(self, identifier, purge_everything):
+    def __init__(self,identifier, purge_everything):
         """
         :param identifier: 
         :param purge_everything: 指示星盾缓存中的所有资源都应该删除的标志。

@@ -32,7 +32,7 @@ class CreateSSLConfigurationRequest(JDCloudRequest):
 
 class CreateSSLConfigurationParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """
@@ -46,7 +46,7 @@ class CreateSSLConfigurationParameters(object):
 
     def setCertificate(self, certificate):
         """
-        :param certificate: (Optional) 域的SSL证书或证书以及中间层
+        :param certificate: (Optional) 域的SSL证书或证书以及中间证书
         """
         self.certificate = certificate
 
@@ -58,9 +58,10 @@ class CreateSSLConfigurationParameters(object):
 
     def setBundle_method(self, bundle_method):
         """
-        :param bundle_method: (Optional) SSL泛捆绑在各处有着最高的概率被验证，甚至能被使用过时的或不寻常的信任存储的客户端验证。
-最佳捆绑使用最短的认证链和最新的中间证书。
-而强制捆绑会验证证书链，但不以其他方式修改证书链。
+        :param bundle_method: (Optional) 合法值ubiquitous/optimal/force，默认值ubiquitous。
+ubiquitous：SSL泛捆绑在各处有着最高的概率被验证，甚至能被使用过时的或不寻常的信任存储的客户端验证。
+optimal：最佳捆绑使用最短的认证链和最新的中间证书。
+force：强制捆绑会验证证书链，但不以其他方式修改证书链。
 
         """
         self.bundle_method = bundle_method
@@ -74,6 +75,10 @@ class CreateSSLConfigurationParameters(object):
     def setTy_pe(self, ty_pe):
         """
         :param ty_pe: (Optional) “legacy_custom”类型支持在TLS握手中不包含SNI的传统客户端。
+合法值：
+legacy_custom
+sni_custom
+
         """
         self.ty_pe = ty_pe
 

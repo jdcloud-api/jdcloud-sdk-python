@@ -32,7 +32,7 @@ class ChangeTLS1_3SettingRequest(JDCloudRequest):
 
 class ChangeTLS1_3SettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """

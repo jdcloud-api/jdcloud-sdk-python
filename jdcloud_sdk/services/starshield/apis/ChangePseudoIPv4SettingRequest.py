@@ -32,7 +32,7 @@ class ChangePseudoIPv4SettingRequest(JDCloudRequest):
 
 class ChangePseudoIPv4SettingParameters(object):
 
-    def __init__(self, zone_identifier, ):
+    def __init__(self,zone_identifier, ):
         """
         :param zone_identifier: 
         """

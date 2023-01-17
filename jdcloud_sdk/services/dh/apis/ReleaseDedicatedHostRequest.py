@@ -34,7 +34,7 @@ class ReleaseDedicatedHostRequest(JDCloudRequest):
 
 class ReleaseDedicatedHostParameters(object):
 
-    def __init__(self, regionId,dedicatedHostId,):
+    def __init__(self,regionId, dedicatedHostId):
         """
         :param regionId: 地域ID
         :param dedicatedHostId: 专有宿主机ID

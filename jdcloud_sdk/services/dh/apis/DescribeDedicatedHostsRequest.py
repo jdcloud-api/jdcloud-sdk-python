@@ -34,7 +34,7 @@ class DescribeDedicatedHostsRequest(JDCloudRequest):
 
 class DescribeDedicatedHostsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """
@@ -42,6 +42,7 @@ class DescribeDedicatedHostsParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -55,6 +56,12 @@ class DescribeDedicatedHostsParameters(object):
         :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件。
+        """
+        self.tags = tags
 
     def setFilters(self, filters):
         """

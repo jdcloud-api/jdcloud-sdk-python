@@ -33,7 +33,7 @@ class ModifyDedicatedPoolAttributeRequest(JDCloudRequest):
 
 class ModifyDedicatedPoolAttributeParameters(object):
 
-    def __init__(self, regionId,dedicatedPoolId,):
+    def __init__(self,regionId, dedicatedPoolId, ):
         """
         :param regionId: 地域ID
         :param dedicatedPoolId: 专有宿主机ID

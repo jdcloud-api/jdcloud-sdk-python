@@ -34,7 +34,7 @@ class AllocDedicatedHostsRequest(JDCloudRequest):
 
 class AllocDedicatedHostsParameters(object):
 
-    def __init__(self, regionId,dedicatedHostSpec, ):
+    def __init__(self,regionId, dedicatedHostSpec, ):
         """
         :param regionId: 地域ID
         :param dedicatedHostSpec: 描述专有宿主机配置
@@ -46,6 +46,7 @@ class AllocDedicatedHostsParameters(object):
         self.deployPolicy = None
         self.maxCount = None
         self.clientToken = None
+        self.enableCpuTopology = None
 
     def setDeployPolicy(self, deployPolicy):
         """
@@ -67,4 +68,11 @@ class AllocDedicatedHostsParameters(object):
 
         """
         self.clientToken = clientToken
+
+    def setEnableCpuTopology(self, enableCpuTopology):
+        """
+        :param enableCpuTopology: (Optional) 是否开启cpu拓扑，true:开启，false:关闭，只有宿主机是非超卖模式，且没有资源的时候才能开启；开启后，该宿主机上的虚机可以配置cpu拓扑和NUMA映射等。
+
+        """
+        self.enableCpuTopology = enableCpuTopology
 

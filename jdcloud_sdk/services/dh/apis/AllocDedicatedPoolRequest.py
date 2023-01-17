@@ -36,7 +36,7 @@ deployPolicy表示是否强制池中专有宿主机在每个AZ内数量均衡。
 
 class AllocDedicatedPoolParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """

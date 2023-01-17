@@ -33,7 +33,7 @@ class ModifyDedicatedHostAttributeRequest(JDCloudRequest):
 
 class ModifyDedicatedHostAttributeParameters(object):
 
-    def __init__(self, regionId,dedicatedHostId,):
+    def __init__(self,regionId, dedicatedHostId, ):
         """
         :param regionId: 地域ID
         :param dedicatedHostId: 专有宿主机ID
@@ -43,6 +43,7 @@ class ModifyDedicatedHostAttributeParameters(object):
         self.dedicatedHostId = dedicatedHostId
         self.name = None
         self.description = None
+        self.enableCpuTopology = None
 
     def setName(self, name):
         """
@@ -55,4 +56,11 @@ class ModifyDedicatedHostAttributeParameters(object):
         :param description: (Optional) 描述，<a href="http://docs.jdcloud.com/virtual-machines/api/general_parameters">参考公共参数规范</a>。
         """
         self.description = description
+
+    def setEnableCpuTopology(self, enableCpuTopology):
+        """
+        :param enableCpuTopology: (Optional) 是否开启cpu拓扑，true:开启，false:关闭，只有宿主机是非超卖模式，且没有资源的时候才能开启；开启后，该宿主机上的虚机可以配置cpu拓扑和NUMA映射等。
+
+        """
+        self.enableCpuTopology = enableCpuTopology
 

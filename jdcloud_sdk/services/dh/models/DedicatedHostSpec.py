@@ -19,7 +19,7 @@
 
 class DedicatedHostSpec(object):
 
-    def __init__(self, dedicatedPoolId, name, az=None, description=None, charge=None):
+    def __init__(self, dedicatedPoolId, name, az=None, description=None, charge=None, userTags=None, resourceGroupId=None):
         """
         :param dedicatedPoolId:  专有宿主机池ID，创建专有宿主机必须指定专有宿主机池ID
         :param az: (Optional) 专有宿主机所属的可用区，不传入该参数时可用区属性从专有宿主机池中继承；指定的可用区必须是对应专有宿主机池中设置的可用区的子集
@@ -27,6 +27,10 @@ class DedicatedHostSpec(object):
         :param description: (Optional) 专有宿主机描述
         :param charge: (Optional) 计费配置。
 专有宿主机不支持按用量方式计费，默认为按配置计费。
+
+        :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
+
+        :param resourceGroupId: (Optional) 资源组ID
         """
 
         self.dedicatedPoolId = dedicatedPoolId
@@ -34,3 +38,5 @@ class DedicatedHostSpec(object):
         self.name = name
         self.description = description
         self.charge = charge
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

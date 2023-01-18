@@ -33,7 +33,7 @@ class DisassociateElasticIpRequest(JDCloudRequest):
 
 class DisassociateElasticIpParameters(object):
 
-    def __init__(self, regionId,podId,elasticIpId):
+    def __init__(self,regionId, podId, elasticIpId):
         """
         :param regionId: Region ID
         :param podId: Pod ID

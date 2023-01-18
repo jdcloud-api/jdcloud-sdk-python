@@ -41,7 +41,7 @@ class ResizePodRequest(JDCloudRequest):
 
 class ResizePodParameters(object):
 
-    def __init__(self, regionId,podId,instanceType, ):
+    def __init__(self,regionId, podId, instanceType, ):
         """
         :param regionId: Region ID
         :param podId: Pod ID

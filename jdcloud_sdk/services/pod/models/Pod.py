@@ -19,7 +19,7 @@
 
 class Pod(object):
 
-    def __init__(self, podId=None, name=None, description=None, az=None, hostname=None, ag=None, instanceType=None, restartPolicy=None, terminationGracePeriodSeconds=None, vpcId=None, subnetId=None, privateIpAddress=None, dnsConfig=None, logConfig=None, hostAliases=None, volumes=None, containers=None, podStatus=None, elasticIp=None, primaryNetworkInterface=None, tags=None, charge=None, createTime=None):
+    def __init__(self, podId=None, name=None, description=None, az=None, hostname=None, ag=None, instanceType=None, restartPolicy=None, terminationGracePeriodSeconds=None, vpcId=None, subnetId=None, privateIpAddress=None, dnsConfig=None, logConfig=None, hostAliases=None, volumes=None, containers=None, podStatus=None, elasticIp=None, primaryNetworkInterface=None, tags=None, charge=None, createTime=None, resourceGroupId=None):
         """
         :param podId: (Optional) pod ID
         :param name: (Optional) pod 名称
@@ -44,6 +44,7 @@ class Pod(object):
         :param tags: (Optional) 
         :param charge: (Optional) 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
         :param createTime: (Optional) Pod创建时间
+        :param resourceGroupId: (Optional) 资源组ID
         """
 
         self.podId = podId
@@ -69,3 +70,4 @@ class Pod(object):
         self.tags = tags
         self.charge = charge
         self.createTime = createTime
+        self.resourceGroupId = resourceGroupId

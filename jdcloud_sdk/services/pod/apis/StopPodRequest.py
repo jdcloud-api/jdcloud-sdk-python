@@ -33,7 +33,7 @@ class StopPodRequest(JDCloudRequest):
 
 class StopPodParameters(object):
 
-    def __init__(self, regionId,podId,):
+    def __init__(self,regionId, podId):
         """
         :param regionId: Region ID
         :param podId: Pod ID

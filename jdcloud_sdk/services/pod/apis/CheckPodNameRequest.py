@@ -33,7 +33,7 @@ class CheckPodNameRequest(JDCloudRequest):
 
 class CheckPodNameParameters(object):
 
-    def __init__(self, regionId,podName, ):
+    def __init__(self,regionId, podName, ):
         """
         :param regionId: Region ID
         :param podName: 用户定义的 pod 名称，符合 DNS-1123 subdomain 规范。

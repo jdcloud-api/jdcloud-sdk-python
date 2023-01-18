@@ -33,7 +33,7 @@ class ExecGetExitCodeRequest(JDCloudRequest):
 
 class ExecGetExitCodeParameters(object):
 
-    def __init__(self, regionId, containerId, execId):
+    def __init__(self,regionId, containerId, execId):
         """
         :param regionId: Region ID
         :param containerId: Container ID

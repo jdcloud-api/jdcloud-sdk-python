@@ -34,7 +34,7 @@ class DescribeContainersRequest(JDCloudRequest):
 
 class DescribeContainersParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -66,6 +66,7 @@ vpcId - 私有网络ID，精确匹配，支持多个
 status - 容器状态，精确匹配，支持多个
 name - 容器名称，模糊匹配，支持单个
 subnetId - 子网ID，精确匹配，支持多个
+agId - 镜像ID，精确匹配，支持多个
 
         """
         self.filters = filters

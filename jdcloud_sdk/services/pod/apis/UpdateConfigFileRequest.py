@@ -33,7 +33,7 @@ class UpdateConfigFileRequest(JDCloudRequest):
 
 class UpdateConfigFileParameters(object):
 
-    def __init__(self, regionId,name,data):
+    def __init__(self,regionId, name, data):
         """
         :param regionId: Region ID
         :param name: Name

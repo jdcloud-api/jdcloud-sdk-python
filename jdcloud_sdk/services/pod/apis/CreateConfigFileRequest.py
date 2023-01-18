@@ -33,7 +33,7 @@ class CreateConfigFileRequest(JDCloudRequest):
 
 class CreateConfigFileParameters(object):
 
-    def __init__(self, regionId,name, data):
+    def __init__(self,regionId, name, data):
         """
         :param regionId: Region ID
         :param name: ConfigFile 的名字，名称不能重复

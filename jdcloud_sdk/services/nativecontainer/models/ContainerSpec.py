@@ -19,10 +19,10 @@
 
 class ContainerSpec(object):
 
-    def __init__(self, instanceType, az, name, image, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None, userTags=None):
+    def __init__(self, instanceType, az, name, image, rootVolume, primaryNetworkInterface, hostAliases=None, hostname=None, command=None, args=None, envs=None, secret=None, tty=None, workingDir=None, dataVolumes=None, elasticIp=None, logConfiguration=None, description=None, charge=None, userTags=None, resourceGroupId=None):
         """
         :param instanceType:  实例类型；参考[文档](https://www.jdcloud.com/help/detail/1992/isCatalog/1)
-        :param az:  容器所属可用区
+        :param az:  容器所属可用区，指定agId时非必传<br> 容器、已有云盘的az必须相同，且包含在AG中
         :param name:  容器名称，不可为空，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且不能超过32字符
         :param hostAliases: (Optional) 域名和IP映射的信息；</br> 最大10个alias
         :param hostname: (Optional) 主机名，规范请参考说明文档；默认容器ID
@@ -41,6 +41,7 @@ class ContainerSpec(object):
         :param description: (Optional) 容器描述
         :param charge: (Optional) 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
         :param userTags: (Optional) 用户普通标签集合
+        :param resourceGroupId: (Optional) 资源组ID
         """
 
         self.instanceType = instanceType
@@ -63,3 +64,4 @@ class ContainerSpec(object):
         self.description = description
         self.charge = charge
         self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

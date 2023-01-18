@@ -33,7 +33,7 @@ class ResizeTTYRequest(JDCloudRequest):
 
 class ResizeTTYParameters(object):
 
-    def __init__(self, regionId, containerId, height, width, ):
+    def __init__(self,regionId, containerId, height, width, ):
         """
         :param regionId: Region ID
         :param containerId: Container ID

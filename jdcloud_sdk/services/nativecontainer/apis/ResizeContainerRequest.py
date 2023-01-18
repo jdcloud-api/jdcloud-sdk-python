@@ -38,7 +38,7 @@ class ResizeContainerRequest(JDCloudRequest):
 
 class ResizeContainerParameters(object):
 
-    def __init__(self, regionId, containerId, instanceType):
+    def __init__(self,regionId, containerId, instanceType):
         """
         :param regionId: Region ID
         :param containerId: Container ID

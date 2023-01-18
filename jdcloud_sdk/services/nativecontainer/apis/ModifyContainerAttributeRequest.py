@@ -34,7 +34,7 @@ name 和 description 必须要指定一个
 
 class ModifyContainerAttributeParameters(object):
 
-    def __init__(self, regionId, containerId, ):
+    def __init__(self,regionId, containerId, ):
         """
         :param regionId: Region ID
         :param containerId: Container ID

@@ -33,7 +33,7 @@ class DeleteSecretRequest(JDCloudRequest):
 
 class DeleteSecretParameters(object):
 
-    def __init__(self, regionId,name,):
+    def __init__(self,regionId, name):
         """
         :param regionId: Region ID
         :param name: Secret Name

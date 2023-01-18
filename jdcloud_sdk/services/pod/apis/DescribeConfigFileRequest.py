@@ -33,7 +33,7 @@ class DescribeConfigFileRequest(JDCloudRequest):
 
 class DescribeConfigFileParameters(object):
 
-    def __init__(self, regionId,name,):
+    def __init__(self,regionId, name):
         """
         :param regionId: Region ID
         :param name: Name

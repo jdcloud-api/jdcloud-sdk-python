@@ -19,7 +19,7 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, memoryMB=None, nicLimit=None, desc=None, state=None, cloudDiskTypes=None):
         """
         :param family: (Optional) 实例规格类型
         :param instanceType: (Optional) 实例规格，比如g.b1.2xlarge
@@ -28,6 +28,7 @@ class InstanceType(object):
         :param nicLimit: (Optional) 支持弹性网卡的数量
         :param desc: (Optional) 描述
         :param state: (Optional) 规格状态
+        :param cloudDiskTypes: (Optional) 支持的云盘类型
         """
 
         self.family = family
@@ -37,3 +38,4 @@ class InstanceType(object):
         self.nicLimit = nicLimit
         self.desc = desc
         self.state = state
+        self.cloudDiskTypes = cloudDiskTypes

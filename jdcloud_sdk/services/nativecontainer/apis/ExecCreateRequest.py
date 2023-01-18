@@ -33,7 +33,7 @@ class ExecCreateRequest(JDCloudRequest):
 
 class ExecCreateParameters(object):
 
-    def __init__(self, regionId, containerId, command, ):
+    def __init__(self,regionId, containerId, command, ):
         """
         :param regionId: Region ID
         :param containerId: Container ID

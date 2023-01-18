@@ -34,7 +34,7 @@ pod 实例或其绑定的云盘已欠费时，容器将无法正常启动。<br>
 
 class StartPodParameters(object):
 
-    def __init__(self, regionId,podId,):
+    def __init__(self,regionId, podId):
         """
         :param regionId: Region ID
         :param podId: Pod ID

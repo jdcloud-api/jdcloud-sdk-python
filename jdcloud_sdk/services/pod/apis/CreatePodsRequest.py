@@ -94,7 +94,7 @@ class CreatePodsRequest(JDCloudRequest):
 
 class CreatePodsParameters(object):
 
-    def __init__(self, regionId,podSpec, maxCount, ):
+    def __init__(self,regionId, podSpec, maxCount, ):
         """
         :param regionId: Region ID
         :param podSpec: pod 创建参数

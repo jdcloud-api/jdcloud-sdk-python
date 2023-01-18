@@ -19,7 +19,7 @@
 
 class Container(object):
 
-    def __init__(self, containerId=None, status=None, instanceType=None, az=None, name=None, hostAliases=None, hostname=None, command=None, args=None, envs=None, image=None, secret=None, tty=None, workingDir=None, rootVolume=None, dataVolumes=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, logConfiguration=None, tags=None, charge=None, launchTime=None, reason=None, description=None):
+    def __init__(self, containerId=None, status=None, instanceType=None, az=None, name=None, hostAliases=None, hostname=None, ag=None, command=None, args=None, envs=None, image=None, secret=None, tty=None, workingDir=None, rootVolume=None, dataVolumes=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, logConfiguration=None, tags=None, charge=None, launchTime=None, reason=None, description=None, resourceGroupId=None):
         """
         :param containerId: (Optional) 容器ID
         :param status: (Optional) 容器状态
@@ -28,6 +28,7 @@ class Container(object):
         :param name: (Optional) 容器名称
         :param hostAliases: (Optional) 域名和IP映射的信息
         :param hostname: (Optional) 主机名
+        :param ag: (Optional) 高可用组
         :param command: (Optional) 容器执行命令
         :param args: (Optional) 容器执行命令的参数
         :param envs: (Optional) 动态指定的容器执行的环境变量
@@ -50,6 +51,7 @@ class Container(object):
         :param launchTime: (Optional) 创建时间
         :param reason: (Optional) 容器终止原因
         :param description: (Optional) 容器描述
+        :param resourceGroupId: (Optional) 资源组ID
         """
 
         self.containerId = containerId
@@ -59,6 +61,7 @@ class Container(object):
         self.name = name
         self.hostAliases = hostAliases
         self.hostname = hostname
+        self.ag = ag
         self.command = command
         self.args = args
         self.envs = envs
@@ -81,3 +84,4 @@ class Container(object):
         self.launchTime = launchTime
         self.reason = reason
         self.description = description
+        self.resourceGroupId = resourceGroupId

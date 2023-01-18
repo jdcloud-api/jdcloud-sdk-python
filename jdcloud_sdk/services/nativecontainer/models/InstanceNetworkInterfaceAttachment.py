@@ -22,7 +22,7 @@ class InstanceNetworkInterfaceAttachment(object):
     def __init__(self, autoDelete=None, deviceIndex=None, attachStatus=None, attachTime=None, networkInterface=None):
         """
         :param autoDelete: (Optional) 指明删除实例时是否删除网卡
-        :param deviceIndex: (Optional) 设备Index
+        :param deviceIndex: (Optional) 设备Index，暂不提供辅助网卡index
         :param attachStatus: (Optional) 绑定状态
         :param attachTime: (Optional) 绑定时间
         :param networkInterface: (Optional) 弹性网卡信息

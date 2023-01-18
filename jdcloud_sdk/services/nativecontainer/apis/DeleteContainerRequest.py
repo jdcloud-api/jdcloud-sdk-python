@@ -35,7 +35,7 @@ class DeleteContainerRequest(JDCloudRequest):
 
 class DeleteContainerParameters(object):
 
-    def __init__(self, regionId, containerId, ):
+    def __init__(self,regionId, containerId):
         """
         :param regionId: Region ID
         :param containerId: Container ID

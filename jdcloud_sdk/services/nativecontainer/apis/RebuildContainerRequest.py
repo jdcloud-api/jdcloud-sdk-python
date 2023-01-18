@@ -42,7 +42,7 @@ class RebuildContainerRequest(JDCloudRequest):
 
 class RebuildContainerParameters(object):
 
-    def __init__(self, regionId, containerId, image, ):
+    def __init__(self,regionId, containerId, image, ):
         """
         :param regionId: Region ID
         :param containerId: Container ID

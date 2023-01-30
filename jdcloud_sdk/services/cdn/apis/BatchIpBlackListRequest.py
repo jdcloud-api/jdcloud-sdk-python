@@ -36,14 +36,21 @@ class BatchIpBlackListParameters(object):
         """
         """
 
+        self.operateDomainRange = None
         self.domains = None
         self.ipList = None
         self.forbidTime = None
         self.action = None
 
+    def setOperateDomainRange(self, operateDomainRange):
+        """
+        :param operateDomainRange: (Optional) 可选值。表示域名操作范围，可指定为all代表操作该账号下全量域名,全量域名个数应<=单次可批量操作的域名个数(默认50)
+        """
+        self.operateDomainRange = operateDomainRange
+
     def setDomains(self, domains):
         """
-        :param domains: (Optional) 域名列表。最多30个
+        :param domains: (Optional) 可选值。待操作的域名列表,个数默认限制50个。注意operateDomainRange和domains至少指定一个参数。operateDomainRange为all时该参数不生效.
         """
         self.domains = domains
 

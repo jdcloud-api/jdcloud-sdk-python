@@ -44,6 +44,7 @@ class GetDomainListByFilterParameters(object):
         self.accelerateRegion = None
         self.filterBy = None
         self.tagFilters = None
+        self.withThirdPartyStatus = None
 
     def setKeyWord(self, keyWord):
         """
@@ -92,4 +93,10 @@ class GetDomainListByFilterParameters(object):
         :param tagFilters: (Optional) 标签过滤条件
         """
         self.tagFilters = tagFilters
+
+    def setWithThirdPartyStatus(self, withThirdPartyStatus):
+        """
+        :param withThirdPartyStatus: (Optional) 筛选依据（false不需要查询, true 需要查询海外状态)默认false
+        """
+        self.withThirdPartyStatus = withThirdPartyStatus
 

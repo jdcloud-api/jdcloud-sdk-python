@@ -19,7 +19,7 @@
 
 class ListDomainItemByFilter(object):
 
-    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, wafStatus=None, type=None, auditStatus=None, accelerateRegion=None, tags=None):
+    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, wafStatus=None, type=None, auditStatus=None, accelerateRegion=None, overseaStatus=None, tags=None):
         """
         :param cname: (Optional) 
         :param description: (Optional) 
@@ -31,6 +31,7 @@ class ListDomainItemByFilter(object):
         :param type: (Optional) 
         :param auditStatus: (Optional) 
         :param accelerateRegion: (Optional) 
+        :param overseaStatus: (Optional) 海外状态(-1:不涉及海外加速,0:未激活,1:已激活,2:域名在cf不存在)
         :param tags: (Optional) 
         """
 
@@ -44,4 +45,5 @@ class ListDomainItemByFilter(object):
         self.type = type
         self.auditStatus = auditStatus
         self.accelerateRegion = accelerateRegion
+        self.overseaStatus = overseaStatus
         self.tags = tags

@@ -19,7 +19,7 @@
 
 class ContractSpec(object):
 
-    def __init__(self, personStamps=None, companyStamps=None, contractContent=None, templateContent=None, templateId=None, contractTitle=None, caType=None):
+    def __init__(self, personStamps=None, companyStamps=None, contractContent=None, templateContent=None, templateId=None, contractTitle=None, caType=None, stampStyle=None):
         """
         :param personStamps: (Optional) 个人用户盖章信息
         :param companyStamps: (Optional) 企业用户盖章信息
@@ -28,6 +28,7 @@ class ContractSpec(object):
         :param templateId: (Optional) 合同模板文件ID
         :param contractTitle: (Optional) 合同标题或名称
         :param caType: (Optional) 证书类型
+        :param stampStyle: (Optional) 自定义签章类型（如需增加时间戳，此字段传time）
         """
 
         self.personStamps = personStamps
@@ -37,3 +38,4 @@ class ContractSpec(object):
         self.templateId = templateId
         self.contractTitle = contractTitle
         self.caType = caType
+        self.stampStyle = stampStyle

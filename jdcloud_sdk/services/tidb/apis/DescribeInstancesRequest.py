@@ -26,7 +26,7 @@ class DescribeInstancesRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeInstancesRequest, self).__init__(
-            '/regions/{regionId}/instances:describeInstances', 'POST', header, version)
+            '/regions/{regionId}/instances:describeInstances', 'GET', header, version)
         self.parameters = parameters
 
 

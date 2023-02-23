@@ -19,11 +19,12 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engineVersion=None, minorVersion=None, totalNodeNum=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, createTime=None, charge=None, tags=None):
+    def __init__(self, instanceId=None, instanceName=None, engineVersion=None, architecture=None, minorVersion=None, totalNodeNum=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, createTime=None, charge=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
         :param engineVersion: (Optional) 实例引擎版本
+        :param architecture: (Optional) CPU架构
         :param minorVersion: (Optional) 实例引擎版本的详细版本号
         :param totalNodeNum: (Optional) 集群中节点的总数
         :param totalCPU: (Optional) 整个集群总的CPU核数
@@ -42,6 +43,7 @@ class Instance(object):
         self.instanceId = instanceId
         self.instanceName = instanceName
         self.engineVersion = engineVersion
+        self.architecture = architecture
         self.minorVersion = minorVersion
         self.totalNodeNum = totalNodeNum
         self.totalCPU = totalCPU

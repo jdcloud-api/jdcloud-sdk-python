@@ -19,10 +19,11 @@
 
 class TidbInstanceSpec(object):
 
-    def __init__(self, instanceName, tidbNodeSpec, tikvNodeSpec, pdNodeSpec, monitorNodeSpec, azId, vpcId, subnetId, chargeSpec, engineVersion=None, tiflashNodeSpec=None, ticdcNodeSpec=None, tagSpec=None):
+    def __init__(self, instanceName, architecture, tidbNodeSpec, tikvNodeSpec, pdNodeSpec, monitorNodeSpec, azId, vpcId, subnetId, chargeSpec, engineVersion=None, tiflashNodeSpec=None, ticdcNodeSpec=None, tagSpec=None):
         """
         :param instanceName:  实例名
         :param engineVersion: (Optional) TiDB引擎版本
+        :param architecture:  CPU架构
         :param tidbNodeSpec:  TiDB节点规格和数目
         :param tikvNodeSpec:  TiKV节点规格和数目
         :param pdNodeSpec:  PD节点规格和数目
@@ -38,6 +39,7 @@ class TidbInstanceSpec(object):
 
         self.instanceName = instanceName
         self.engineVersion = engineVersion
+        self.architecture = architecture
         self.tidbNodeSpec = tidbNodeSpec
         self.tikvNodeSpec = tikvNodeSpec
         self.pdNodeSpec = pdNodeSpec

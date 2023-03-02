@@ -19,7 +19,7 @@
 
 class TaskInfo(object):
 
-    def __init__(self, taskId=None, action=None, taskStatus=None, progress=None, errorInfo=None, message=None, createdTime=None, finishedTime=None, imageId=None, ossUrl=None, ossObject=None, imageName=None, imageUrl=None):
+    def __init__(self, taskId=None, action=None, taskStatus=None, progress=None, errorInfo=None, message=None, createdTime=None, finishedTime=None, imageId=None, ossUrl=None, ossObject=None, ossObjects=None, imageName=None, imageUrl=None):
         """
         :param taskId: (Optional) 任务ID。
         :param action: (Optional) 任务操作类型。支持范围：`ImportImage、ExportImage`。
@@ -31,7 +31,8 @@ class TaskInfo(object):
         :param finishedTime: (Optional) 任务完成时间。
         :param imageId: (Optional) 镜像ID。
         :param ossUrl: (Optional) 导出镜像时有效，表示目标OSS存储地址。
-        :param ossObject: (Optional) 导出镜像时有效，表示生成的ossObject名称。
+        :param ossObject: (Optional) 导出镜像时有效，表示生成的系统盘对应的ossObject名称。
+        :param ossObjects: (Optional) 导出镜像时有效，表示生成的系统盘和数据盘对应的ossObject名称列表。
         :param imageName: (Optional) 导入镜像时有效，表示用户指定的镜像名称。
         :param imageUrl: (Optional) 导入镜像时有效，源OSS外链地址。
         """
@@ -47,5 +48,6 @@ class TaskInfo(object):
         self.imageId = imageId
         self.ossUrl = ossUrl
         self.ossObject = ossObject
+        self.ossObjects = ossObjects
         self.imageName = imageName
         self.imageUrl = imageUrl

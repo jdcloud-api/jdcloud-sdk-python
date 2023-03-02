@@ -49,6 +49,7 @@ class DescribeInstanceTypesParameters(object):
 
         self.regionId = regionId
         self.serviceName = None
+        self.chargeMode = None
         self.filters = None
 
     def setServiceName(self, serviceName):
@@ -56,6 +57,12 @@ class DescribeInstanceTypesParameters(object):
         :param serviceName: (Optional) 产品线类型，默认为 `vm`。支持范围：`vm` 云主机，`nc` 原生容器。
         """
         self.serviceName = serviceName
+
+    def setChargeMode(self, chargeMode):
+        """
+        :param chargeMode: (Optional) 目前支持postpaid_by_spot：抢占式实例(后付费)。
+        """
+        self.chargeMode = chargeMode
 
     def setFilters(self, filters):
         """

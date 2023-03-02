@@ -59,6 +59,7 @@ class ExportImageParameters(object):
         self.ossUrl = ossUrl
         self.ossPrefix = None
         self.clientToken = None
+        self.isAllDisk = None
 
     def setOssPrefix(self, ossPrefix):
         """
@@ -71,4 +72,10 @@ class ExportImageParameters(object):
         :param clientToken: (Optional) 用户导出镜像的幂等性保证。每次导出请传入不同的值，如果传值与某次的clientToken相同，则返还同一个请求结果，不能超过64个字符。
         """
         self.clientToken = clientToken
+
+    def setIsAllDisk(self, isAllDisk):
+        """
+        :param isAllDisk: (Optional) 是否导出整机镜像（包含数据盘），默认为false，仅导出系统盘。
+        """
+        self.isAllDisk = isAllDisk
 

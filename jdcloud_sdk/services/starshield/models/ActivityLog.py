@@ -19,7 +19,7 @@
 
 class ActivityLog(object):
 
-    def __init__(self, timestamp=None, firewallAction=None, country=None, ip=None, host=None, httpMethod=None, httpProtocol=None, requestUri=None, firewallSource=None, userAgent=None, ruleId=None):
+    def __init__(self, timestamp=None, firewallAction=None, country=None, ip=None, host=None, httpMethod=None, httpProtocol=None, requestUri=None, firewallSource=None, userAgent=None, ruleId=None, group=None, ruleMessage=None):
         """
         :param timestamp: (Optional) 
         :param firewallAction: (Optional) 
@@ -32,6 +32,8 @@ class ActivityLog(object):
         :param firewallSource: (Optional) 
         :param userAgent: (Optional) 
         :param ruleId: (Optional) 
+        :param group: (Optional) 
+        :param ruleMessage: (Optional) 
         """
 
         self.timestamp = timestamp
@@ -45,3 +47,5 @@ class ActivityLog(object):
         self.firewallSource = firewallSource
         self.userAgent = userAgent
         self.ruleId = ruleId
+        self.group = group
+        self.ruleMessage = ruleMessage

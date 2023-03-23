@@ -46,10 +46,17 @@ class CreateFileSystemParameters(object):
         self.description = description
         self.clientToken = clientToken
         self.fileSystemType = None
+        self.serviceCode = None
 
     def setFileSystemType(self, fileSystemType):
         """
         :param fileSystemType: (Optional) 文件系统类型(通用型:gp1,容量型:std1),默认为通用型
         """
         self.fileSystemType = fileSystemType
+
+    def setServiceCode(self, serviceCode):
+        """
+        :param serviceCode: (Optional) 文件系统的serviceCode，默认为zfs
+        """
+        self.serviceCode = serviceCode
 

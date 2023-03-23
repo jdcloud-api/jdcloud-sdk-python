@@ -19,7 +19,7 @@
 
 class FileSystem(object):
 
-    def __init__(self, fileSystemId=None, name=None, description=None, numberOfMountTargets=None, sizeByte=None, status=None, fileSystemType=None, createTime=None, dnsName=None, tags=None):
+    def __init__(self, fileSystemId=None, name=None, description=None, numberOfMountTargets=None, sizeByte=None, status=None, fileSystemType=None, az=None, createTime=None, dnsName=None, tags=None):
         """
         :param fileSystemId: (Optional) 文件系统ID
         :param name: (Optional) 文件系统名称(参数规则：不可为空，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且不能超过32字符)
@@ -28,6 +28,7 @@ class FileSystem(object):
         :param sizeByte: (Optional) 最近一次统计的文件系统的使用量单位为:Byte
         :param status: (Optional) 文件系统状态(创建中:creating、可用:available、使用中:in-use、删除中:deleting)
         :param fileSystemType: (Optional) 文件系统类型(通用型:gp1,容量型:std1)
+        :param az: (Optional) 文件系统所属的可用区
         :param createTime: (Optional) 创建时间
         :param dnsName: (Optional) dns名称
         :param tags: (Optional) Tag信息
@@ -40,6 +41,7 @@ class FileSystem(object):
         self.sizeByte = sizeByte
         self.status = status
         self.fileSystemType = fileSystemType
+        self.az = az
         self.createTime = createTime
         self.dnsName = dnsName
         self.tags = tags

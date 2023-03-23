@@ -19,7 +19,7 @@
 
 class MountTarget(object):
 
-    def __init__(self, fileSystemId=None, ipAddress=None, status=None, mountTargetId=None, subnetId=None, vpcId=None, createTime=None, dnsName=None):
+    def __init__(self, fileSystemId=None, ipAddress=None, status=None, mountTargetId=None, subnetId=None, vpcId=None, securityGroupId=None, createTime=None, dnsName=None):
         """
         :param fileSystemId: (Optional) 文件系统ID
         :param ipAddress: (Optional) ipv4地址
@@ -27,6 +27,7 @@ class MountTarget(object):
         :param mountTargetId: (Optional) 挂载目标ID
         :param subnetId: (Optional) 子网ID
         :param vpcId: (Optional) vpcID
+        :param securityGroupId: (Optional) 安全组ID
         :param createTime: (Optional) 创建时间
         :param dnsName: (Optional) dns名称
         """
@@ -37,5 +38,6 @@ class MountTarget(object):
         self.mountTargetId = mountTargetId
         self.subnetId = subnetId
         self.vpcId = vpcId
+        self.securityGroupId = securityGroupId
         self.createTime = createTime
         self.dnsName = dnsName

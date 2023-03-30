@@ -32,27 +32,25 @@ class SaveMultiEvidenceRequest(JDCloudRequest):
 
 class SaveMultiEvidenceParameters(object):
 
-    def __init__(self,businessId, file, businessCode, ):
+    def __init__(self,businessId, file, ):
         """
         :param businessId: 业务流水号
         :param file: 存证数据json字符串的Base64
-        :param businessCode: 证据链代码
         """
 
         self.businessId = businessId
         self.file = file
-        self.businessCode = businessCode
-        self.token = None
+        self.businessCode = None
         self.lender = None
         self.messageId = None
         self.evidenceType = None
         self.messageDate = None
 
-    def setToken(self, token):
+    def setBusinessCode(self, businessCode):
         """
-        :param token: (Optional) 业务token
+        :param businessCode: (Optional) 证据链代码
         """
-        self.token = token
+        self.businessCode = businessCode
 
     def setLender(self, lender):
         """

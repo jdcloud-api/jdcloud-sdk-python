@@ -32,36 +32,42 @@ class GetMultiEvidenceRequest(JDCloudRequest):
 
 class GetMultiEvidenceParameters(object):
 
-    def __init__(self,businessId, evidenceId, applicantIdType, applicantIdNum, ):
+    def __init__(self,):
         """
-        :param businessId: 业务流水号
-        :param evidenceId: 存证编号
-        :param applicantIdType: 申请取证主体的ID类型
-        :param applicantIdNum: 申请取证主体的ID
         """
 
-        self.businessId = businessId
-        self.evidenceId = evidenceId
-        self.applicantIdType = applicantIdType
-        self.applicantIdNum = applicantIdNum
-        self.businessCode = None
-        self.token = None
+        self.businessId = None
+        self.evidenceId = None
+        self.applicantIdType = None
+        self.applicantIdNum = None
         self.messageId = None
         self.evidenceType = None
         self.messageDate = None
         self.evidenceMessageId = None
 
-    def setBusinessCode(self, businessCode):
+    def setBusinessId(self, businessId):
         """
-        :param businessCode: (Optional) 证据链代码
+        :param businessId: (Optional) 业务流水号
         """
-        self.businessCode = businessCode
+        self.businessId = businessId
 
-    def setToken(self, token):
+    def setEvidenceId(self, evidenceId):
         """
-        :param token: (Optional) 业务token
+        :param evidenceId: (Optional) 存证编号
         """
-        self.token = token
+        self.evidenceId = evidenceId
+
+    def setApplicantIdType(self, applicantIdType):
+        """
+        :param applicantIdType: (Optional) 申请取证主体的ID类型
+        """
+        self.applicantIdType = applicantIdType
+
+    def setApplicantIdNum(self, applicantIdNum):
+        """
+        :param applicantIdNum: (Optional) 申请取证主体的ID
+        """
+        self.applicantIdNum = applicantIdNum
 
     def setMessageId(self, messageId):
         """

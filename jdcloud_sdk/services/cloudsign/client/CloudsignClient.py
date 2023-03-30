@@ -26,4 +26,4 @@ class CloudsignClient(JDCloudClient):
         if config is None:
             config = Config('cloudsign.jdcloud-api.com')
 
-        super(CloudsignClient, self).__init__(credential, config, 'cloudsign', '2.0.2', logger)
+        super(CloudsignClient, self).__init__(credential, config, 'cloudsign', '2.0.3', logger)

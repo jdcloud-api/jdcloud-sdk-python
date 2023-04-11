@@ -42,6 +42,7 @@ class GetDomainListParameters(object):
         self.status = None
         self.type = None
         self.accelerateRegion = None
+        self.withThirdPartyStatus = None
 
     def setKeyWord(self, keyWord):
         """
@@ -78,4 +79,10 @@ class GetDomainListParameters(object):
         :param accelerateRegion: (Optional) 加速区域，(mainLand:中国大陆，nonMainLand:海外加港澳台，all:全球),不传为全球
         """
         self.accelerateRegion = accelerateRegion
+
+    def setWithThirdPartyStatus(self, withThirdPartyStatus):
+        """
+        :param withThirdPartyStatus: (Optional) 筛选依据（false不需要查询, true 需要查询海外状态)默认false
+        """
+        self.withThirdPartyStatus = withThirdPartyStatus
 

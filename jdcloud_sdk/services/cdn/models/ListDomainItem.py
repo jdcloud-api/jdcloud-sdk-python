@@ -19,7 +19,7 @@
 
 class ListDomainItem(object):
 
-    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, wafStatus=None, type=None, auditStatus=None, accelerateRegion=None):
+    def __init__(self, cname=None, description=None, domain=None, created=None, modified=None, status=None, wafStatus=None, type=None, auditStatus=None, accelerateRegion=None, overseaStatus=None):
         """
         :param cname: (Optional) 
         :param description: (Optional) 
@@ -31,6 +31,7 @@ class ListDomainItem(object):
         :param type: (Optional) 
         :param auditStatus: (Optional) 
         :param accelerateRegion: (Optional) 
+        :param overseaStatus: (Optional) 海外状态(-1:不涉及海外加速,0:未激活,1:已激活,2:域名在cf不存在)
         """
 
         self.cname = cname
@@ -43,3 +44,4 @@ class ListDomainItem(object):
         self.type = type
         self.auditStatus = auditStatus
         self.accelerateRegion = accelerateRegion
+        self.overseaStatus = overseaStatus

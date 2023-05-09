@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DomainTxtGenerateRequest(JDCloudRequest):
+class GenerateDomainTxtRequest(JDCloudRequest):
     """
-    域名txt记录生成
+    生成域名txt记录
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DomainTxtGenerateRequest, self).__init__(
-            '/domainTxtGenerate', 'POST', header, version)
+        super(GenerateDomainTxtRequest, self).__init__(
+            '/generateDomainTxt', 'POST', header, version)
         self.parameters = parameters
 
 
-class DomainTxtGenerateParameters(object):
+class GenerateDomainTxtParameters(object):
 
     def __init__(self,):
         """

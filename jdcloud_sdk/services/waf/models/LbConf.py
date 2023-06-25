@@ -19,13 +19,14 @@
 
 class LbConf(object):
 
-    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, sslModify=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
         """
         :param protocols:  使用协议，["http","https"]
         :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3","TLSv1.3"]
         :param lbType:  负载均衡算法，eg:"rr"，"ip_hash"
         :param rsConfig: (Optional) 网站回源配置
         :param pureClient: (Optional) 是否使用前置代理，0为未使用，1为使用
+        :param sslModify: (Optional) 是否可对ssl配置进行修改，0为不可修改，1可修改
         :param httpsRedirect: (Optional) 1为跳转 0为不跳转
         :param rsOnlySupportHttp: (Optional) 用户服务器是否只能http回源，1为是，0为否
         :param httpsCertUpdateStatus: (Optional) https证书状态,非配置项。-10为未绑定，0为已绑定
@@ -47,6 +48,7 @@ class LbConf(object):
         self.lbType = lbType
         self.rsConfig = rsConfig
         self.pureClient = pureClient
+        self.sslModify = sslModify
         self.httpsRedirect = httpsRedirect
         self.rsOnlySupportHttp = rsOnlySupportHttp
         self.httpsCertUpdateStatus = httpsCertUpdateStatus

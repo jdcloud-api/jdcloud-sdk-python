@@ -32,7 +32,7 @@ class GetWafInstanceRequest(JDCloudRequest):
 
 class GetWafInstanceParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 实例所属的地域ID
         """

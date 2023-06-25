@@ -19,12 +19,14 @@
 
 class SetIpReq(object):
 
-    def __init__(self, wafInstanceId, domain, ips, iswhite=None, isEnable=None):
+    def __init__(self, wafInstanceId, domain, ips, iswhite=None, isEnable=None, ruleType=None, skipRuleId=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param iswhite: (Optional) 0表示黑名单，1表示白名单
         :param isEnable: (Optional) 0默认关闭，1默认打开
+        :param ruleType: (Optional) 0-单ip，1-ip集
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         :param ips:  ip配置
         """
 
@@ -32,4 +34,6 @@ class SetIpReq(object):
         self.domain = domain
         self.iswhite = iswhite
         self.isEnable = isEnable
+        self.ruleType = ruleType
+        self.skipRuleId = skipRuleId
         self.ips = ips

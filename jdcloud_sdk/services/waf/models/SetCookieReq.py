@@ -19,15 +19,17 @@
 
 class SetCookieReq(object):
 
-    def __init__(self, wafInstanceId, domain, cookies, iswhite=None):
+    def __init__(self, wafInstanceId, domain, cookies, iswhite=None, skipRuleId=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param iswhite: (Optional) 0表示黑名单，1表示白名单
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         :param cookies:  cookie配置
         """
 
         self.wafInstanceId = wafInstanceId
         self.domain = domain
         self.iswhite = iswhite
+        self.skipRuleId = skipRuleId
         self.cookies = cookies

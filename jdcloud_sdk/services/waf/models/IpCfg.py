@@ -22,7 +22,7 @@ class IpCfg(object):
     def __init__(self, val, atCfg, id=None, tag=None):
         """
         :param id: (Optional) 序号id,更新时需要
-        :param val:  支持 ipv4/8 ipv4/16 ipv4/24 ipv4/32 ipv6/64
+        :param val:  ruleType为0时,支持ipv4/8,ipv4/16,ipv4/24,ipv4/32,ipv6/64;ruleType为1时,为ip集名称
         :param atCfg:  动作配置,旗舰版全部支持,其它套餐不支持观察
         :param tag: (Optional) 备注
         """

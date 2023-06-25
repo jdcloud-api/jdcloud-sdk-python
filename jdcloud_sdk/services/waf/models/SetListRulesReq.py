@@ -19,12 +19,13 @@
 
 class SetListRulesReq(object):
 
-    def __init__(self, wafInstanceId, domain, iswhite, listType, listRules, ):
+    def __init__(self, wafInstanceId, domain, iswhite, listType, listRules, skipRuleId=None):
         """
         :param wafInstanceId:  WAF实例id
         :param domain:  域名
         :param iswhite:  0表示黑名单，1表示白名单
         :param listType:  黑白名单类型，目前支持"method"
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         :param listRules:  黑白名单规则
         """
 
@@ -32,4 +33,5 @@ class SetListRulesReq(object):
         self.domain = domain
         self.iswhite = iswhite
         self.listType = listType
+        self.skipRuleId = skipRuleId
         self.listRules = listRules

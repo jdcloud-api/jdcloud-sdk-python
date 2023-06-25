@@ -32,7 +32,7 @@ class DescribeLbOutIpRequest(JDCloudRequest):
 
 class DescribeLbOutIpParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId):
         """
         :param regionId: 
         """

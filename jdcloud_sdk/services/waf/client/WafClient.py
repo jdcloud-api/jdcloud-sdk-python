@@ -26,4 +26,4 @@ class WafClient(JDCloudClient):
         if config is None:
             config = Config('waf.jdcloud-api.com')
 
-        super(WafClient, self).__init__(credential, config, 'waf', '1.0.6', logger)
+        super(WafClient, self).__init__(credential, config, 'waf', '1.0.7', logger)

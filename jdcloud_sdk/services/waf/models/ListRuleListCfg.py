@@ -19,7 +19,7 @@
 
 class ListRuleListCfg(object):
 
-    def __init__(self, id=None, updateTime=None, disable=None, val=None, matchOp=None, atCfg=None):
+    def __init__(self, id=None, updateTime=None, disable=None, val=None, matchOp=None, atCfg=None, skipRuleId=None):
         """
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 规则更新时间，秒级时间戳, 0 表示历史数据无记录
@@ -27,6 +27,7 @@ class ListRuleListCfg(object):
         :param val: (Optional) 设置值,method黑白名单支持"GET"/"HEAD"/"PUT"/"POST"/"COPY"/"OPTIONS"/"LINK"/"UNLINK"/"PURGE"/"LOCK"/"UNLOCK"/"PROPFIND"/"DELETE"/"PATCH"/"VIEW"
         :param matchOp: (Optional) 匹配类型 method黑白名单支持0（完全匹配）
         :param atCfg: (Optional) action配置
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         """
 
         self.id = id
@@ -35,3 +36,4 @@ class ListRuleListCfg(object):
         self.val = val
         self.matchOp = matchOp
         self.atCfg = atCfg
+        self.skipRuleId = skipRuleId

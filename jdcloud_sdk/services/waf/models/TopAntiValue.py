@@ -24,7 +24,7 @@ class TopAntiValue(object):
         :param rank: (Optional) 排名
         :param src: (Optional) 具体值
         :param pv: (Optional) 统计值
-        :param count: (Optional) 
+        :param count: (Optional) 攻击分布
         """
 
         self.rank = rank

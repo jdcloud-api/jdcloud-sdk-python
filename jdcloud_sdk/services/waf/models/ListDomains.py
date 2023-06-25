@@ -24,7 +24,7 @@ class ListDomains(object):
         :param wafInstanceId:  WAF实例id
         :param domain: (Optional) 域名
         :param pageIndex: (Optional) 页码，[1-100]，默认为1
-        :param pageSize: (Optional) 页大小，[1-100]，默认为10
+        :param pageSize: (Optional) 页大小，[1-100]，默认为20
         """
 
         self.wafInstanceId = wafInstanceId

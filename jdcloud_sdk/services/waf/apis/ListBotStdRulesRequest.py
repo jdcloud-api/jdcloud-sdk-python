@@ -32,7 +32,7 @@ class ListBotStdRulesRequest(JDCloudRequest):
 
 class ListBotStdRulesParameters(object):
 
-    def __init__(self, regionId,wafInstanceId,req):
+    def __init__(self,regionId, wafInstanceId, req):
         """
         :param regionId: 实例所属的地域ID
         :param wafInstanceId: 实例Id

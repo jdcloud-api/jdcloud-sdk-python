@@ -19,10 +19,11 @@
 
 class SignatureRules(object):
 
-    def __init__(self, ruleId=None, ruleName=None, ruleLevel=None, cve=None, updateTime=None, ruleDesc=None):
+    def __init__(self, ruleId=None, ruleName=None, ruleType=None, ruleLevel=None, cve=None, updateTime=None, ruleDesc=None):
         """
         :param ruleId: (Optional) 规则id
         :param ruleName: (Optional) 规则名称
+        :param ruleType: (Optional) 规则类型
         :param ruleLevel: (Optional) 规则等级
         :param cve: (Optional) 应用漏洞
         :param updateTime: (Optional) 更新时间
@@ -31,6 +32,7 @@ class SignatureRules(object):
 
         self.ruleId = ruleId
         self.ruleName = ruleName
+        self.ruleType = ruleType
         self.ruleLevel = ruleLevel
         self.cve = cve
         self.updateTime = updateTime

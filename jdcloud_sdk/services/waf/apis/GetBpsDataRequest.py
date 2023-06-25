@@ -32,7 +32,7 @@ class GetBpsDataRequest(JDCloudRequest):
 
 class GetBpsDataParameters(object):
 
-    def __init__(self, regionId,req):
+    def __init__(self,regionId, req):
         """
         :param regionId: 实例所属的地域ID
         :param req: 请求

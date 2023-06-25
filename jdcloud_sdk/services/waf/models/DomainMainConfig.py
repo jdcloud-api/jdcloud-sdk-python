@@ -19,7 +19,7 @@
 
 class DomainMainConfig(object):
 
-    def __init__(self, domain=None, cname=None, certName=None, protocols=None, sslProtocols=None, pureClient=None, httpStatus=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, antiStatus=None, disableWaf=None, attackInfo=None, dnsStatus=None, enableCname2Rs=None, enableIpv6=None, region=None):
+    def __init__(self, domain=None, cname=None, certName=None, protocols=None, sslProtocols=None, pureClient=None, httpStatus=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, antiStatus=None, antiMode=None, disableWaf=None, attackInfo=None, dnsStatus=None, enableCname2Rs=None, enableIpv6=None, region=None):
         """
         :param domain: (Optional) 域名
         :param cname: (Optional) cname域名
@@ -32,6 +32,7 @@ class DomainMainConfig(object):
         :param gmHttpsCertUpdateStatus: (Optional) 国密https证书绑定状态
         :param gmCertSupport: (Optional) 是否支持国密证书
         :param antiStatus: (Optional) 防护状态，0：关闭 1：开启
+        :param antiMode: (Optional) 防护模式
         :param disableWaf: (Optional) 1：bypass 0：防护模式
         :param attackInfo: (Optional) 近七天攻击详情
         :param dnsStatus: (Optional) 网站dns配置
@@ -51,6 +52,7 @@ class DomainMainConfig(object):
         self.gmHttpsCertUpdateStatus = gmHttpsCertUpdateStatus
         self.gmCertSupport = gmCertSupport
         self.antiStatus = antiStatus
+        self.antiMode = antiMode
         self.disableWaf = disableWaf
         self.attackInfo = attackInfo
         self.dnsStatus = dnsStatus

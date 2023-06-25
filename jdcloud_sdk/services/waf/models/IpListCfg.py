@@ -19,19 +19,23 @@
 
 class IpListCfg(object):
 
-    def __init__(self, id=None, updateTime=None, disable=None, ip=None, atCfg=None, tag=None):
+    def __init__(self, id=None, updateTime=None, disable=None, val=None, ruleType=None, atCfg=None, tag=None, skipRuleId=None):
         """
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 规则更新时间，秒级时间戳, 0 表示历史数据无记录
         :param disable: (Optional) 0-使用中 1-禁用
-        :param ip: (Optional) 支持 ipv4/8 ipv4/16 ipv4/24 ipv4/32 ipv6/64
+        :param val: (Optional) ruleType为0时,支持ipv4/8,ipv4/16,ipv4/24,ipv4/32,ipv6/64;ruleType为1时,为ip集名称
+        :param ruleType: (Optional) 0-单ip 1-ip集
         :param atCfg: (Optional) action配置
         :param tag: (Optional) 备注
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         """
 
         self.id = id
         self.updateTime = updateTime
         self.disable = disable
-        self.ip = ip
+        self.val = val
+        self.ruleType = ruleType
         self.atCfg = atCfg
         self.tag = tag
+        self.skipRuleId = skipRuleId

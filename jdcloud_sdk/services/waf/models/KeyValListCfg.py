@@ -19,7 +19,7 @@
 
 class KeyValListCfg(object):
 
-    def __init__(self, id=None, updateTime=None, disable=None, matchOp=None, key=None, val=None, atCfg=None):
+    def __init__(self, id=None, updateTime=None, disable=None, matchOp=None, key=None, val=None, atCfg=None, skipRuleId=None):
         """
         :param id: (Optional) 序号id
         :param updateTime: (Optional) 规则更新时间，秒级时间戳, 0 表示历史数据无记录
@@ -28,6 +28,7 @@ class KeyValListCfg(object):
         :param key: (Optional) cookie key
         :param val: (Optional) val
         :param atCfg: (Optional) action配置
+        :param skipRuleId: (Optional) 白名单不检查指定Web防护规则id, 多个逗号分隔
         """
 
         self.id = id
@@ -37,3 +38,4 @@ class KeyValListCfg(object):
         self.key = key
         self.val = val
         self.atCfg = atCfg
+        self.skipRuleId = skipRuleId

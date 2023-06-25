@@ -19,15 +19,13 @@
 
 class WafTopN(object):
 
-    def __init__(self, addr_top10=None, url_top10=None, area_top50=None, waf_rule_sum=None):
+    def __init__(self, addr_top10=None, url_top10=None, area_top50=None):
         """
         :param addr_top10: (Optional) 来源ip的top10,当请求字段isWafRule为false时返回
         :param url_top10: (Optional) web攻击路径top10,当请求字段isWafRule为false时返回
         :param area_top50: (Optional) web攻击来源top50,当请求字段isWafRule为false时返回
-        :param waf_rule_sum: (Optional) web攻击规则个数,当请求字段isWafRule为true时返回
         """
 
         self.addr_top10 = addr_top10
         self.url_top10 = url_top10
         self.area_top50 = area_top50
-        self.waf_rule_sum = waf_rule_sum

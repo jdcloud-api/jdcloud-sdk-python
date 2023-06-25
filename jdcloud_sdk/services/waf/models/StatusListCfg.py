@@ -19,8 +19,9 @@
 
 class StatusListCfg(object):
 
-    def __init__(self, name=None, oriStatus=None, setStatus=None, val=None, updateTime=None, disable=None):
+    def __init__(self, id=None, name=None, oriStatus=None, setStatus=None, val=None, updateTime=None, disable=None):
         """
+        :param id: (Optional) id
         :param name: (Optional) 规则名称
         :param oriStatus: (Optional) 原有状态码
         :param setStatus: (Optional) 设置状态码，只能为"200"，"302"
@@ -29,6 +30,7 @@ class StatusListCfg(object):
         :param disable: (Optional) 0-使用中 1-禁用
         """
 
+        self.id = id
         self.name = name
         self.oriStatus = oriStatus
         self.setStatus = setStatus

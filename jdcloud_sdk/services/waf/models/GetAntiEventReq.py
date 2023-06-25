@@ -19,13 +19,13 @@
 
 class GetAntiEventReq(object):
 
-    def __init__(self, antiType, start, end, pageSize, pageIndex, wafInstanceId=None, domain=None, remoteAddr=None, antiStatus=None, sortKey=None, sortDesc=None, isExport=None):
+    def __init__(self, antiType, start, end, pageSize, pageIndex, wafInstanceId=None, domain=None, remoteAddr=None, status=None, sortKey=None, sortDesc=None, isExport=None):
         """
         :param wafInstanceId: (Optional) 实例id，代表要查询的WAF实例，为空时表示当前用户下的所有实例
         :param domain: (Optional) 域名，为空时表示当前实例下的所有域名
         :param antiType:  攻击类型，支持类型："cc"(cc攻击)，"waf"(Web攻击)，"acl"(自定义规则)
         :param remoteAddr: (Optional) 源ip，检索字段
-        :param antiStatus: (Optional) 状态码，检索字段
+        :param status: (Optional) 状态码，检索字段
         :param start:  开始时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
         :param end:  结束时间戳，单位秒，时间间隔要求大于5分钟，小于30天。
         :param pageSize:  每页显示的个数。
@@ -39,7 +39,7 @@ class GetAntiEventReq(object):
         self.domain = domain
         self.antiType = antiType
         self.remoteAddr = remoteAddr
-        self.antiStatus = antiStatus
+        self.status = status
         self.start = start
         self.end = end
         self.pageSize = pageSize

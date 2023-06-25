@@ -19,11 +19,17 @@
 
 class ConditionNameSet(object):
 
-    def __init__(self, conditionName=None, opposite=None):
+    def __init__(self, conditionId=None, conditionName=None, conditionType=None, opposite=None, nand=None):
         """
+        :param conditionId: (Optional) 条件id
         :param conditionName: (Optional) 条件名称
+        :param conditionType: (Optional) 条件类型
         :param opposite: (Optional) 对条件结果的取反操作，does不取反，doesnot取反
+        :param nand: (Optional) 与或逻辑
         """
 
+        self.conditionId = conditionId
         self.conditionName = conditionName
+        self.conditionType = conditionType
         self.opposite = opposite
+        self.nand = nand

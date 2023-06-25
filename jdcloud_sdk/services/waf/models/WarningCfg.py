@@ -19,7 +19,7 @@
 
 class WarningCfg(object):
 
-    def __init__(self, id=None, userPin=None, wafInstanceId=None, domains=None, ruleType=None, ruleName=None, warnType=None, enable=None, detectSpan=None, detectThreshold=None, unit=None, detectUnit=None, contactWays=None, contactorPersons=None, contactorGroups=None, detectItems=None):
+    def __init__(self, id=None, userPin=None, wafInstanceId=None, domains=None, ruleType=None, ruleName=None, warnType=None, enable=None, detectSpan=None, detectThreshold=None, unit=None, detectUnit=None, contactWays=None, contactorPersons=None, contactorGroups=None, detectItems=None, mode=None, userPinScdn=None):
         """
         :param id: (Optional) 规则id
         :param userPin: (Optional) 用户名
@@ -37,6 +37,8 @@ class WarningCfg(object):
         :param contactorPersons: (Optional) 告警通知人
         :param contactorGroups: (Optional) 告警通知群组
         :param detectItems: (Optional) warnType为statusCode时为要检测的状态码
+        :param mode: (Optional) 产品类型, 0waf, 1scdn
+        :param userPinScdn: (Optional) scdn用户名
         """
 
         self.id = id
@@ -55,3 +57,5 @@ class WarningCfg(object):
         self.contactorPersons = contactorPersons
         self.contactorGroups = contactorGroups
         self.detectItems = detectItems
+        self.mode = mode
+        self.userPinScdn = userPinScdn

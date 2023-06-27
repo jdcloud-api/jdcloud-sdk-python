@@ -26,7 +26,7 @@ class GetPriceReq(object):
         :param timeSpan:  购买时长
         :param timeUnit:  时间单位，month, year
         :param wafInstanceId: (Optional) 实例id，除新建必传
-        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版 4:基础版(仅支持新用户)
+        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版
         :param extraDomainsNum:  额外的域名扩展包
         :param extraBitsLimit:  额外的qps扩展包,单位为M 该值为50M的倍数
         :param appCode: (Optional) 云鼎的appCode

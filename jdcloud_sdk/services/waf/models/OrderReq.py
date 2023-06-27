@@ -27,7 +27,7 @@ class OrderReq(object):
         :param timeUnit:  时间单位，month, year
         :param startTime:  创建时间
         :param wafInstanceId: (Optional) 实例id，除新建必传
-        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版 4:基础版(仅支持新用户)
+        :param packageType:  套餐类型 1:高级版, 2:企业版 3:旗舰版
         :param extraDomainsNum:  额外的域名扩展包
         :param nickName: (Optional) 实例名，新建订单时必传，只能包含汉字、英文字母、下划线、破折号、数字，且长度不能超过16
         :param returnURL:  下单成功后返回的url, eg:http://abc.com

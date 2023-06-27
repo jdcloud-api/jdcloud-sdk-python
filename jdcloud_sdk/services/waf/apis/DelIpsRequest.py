@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ListMainCfgFactorRequest(JDCloudRequest):
+class DelIpsRequest(JDCloudRequest):
     """
-    获取网站
+    删除网站黑白名单ip配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ListMainCfgFactorRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/domain:listMainCfgFactor', 'POST', header, version)
+        super(DelIpsRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/userdefine:delIps', 'POST', header, version)
         self.parameters = parameters
 
 
-class ListMainCfgFactorParameters(object):
+class DelIpsParameters(object):
 
     def __init__(self,regionId, wafInstanceId, req):
         """

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateDomainScdnRequest(JDCloudRequest):
+class UpdateIpsRequest(JDCloudRequest):
     """
-    更新网站scdn专属
+    更新网站黑白名单ip配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateDomainScdnRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/domain:updateScdn', 'POST', header, version)
+        super(UpdateIpsRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/userdefine:updateIps', 'POST', header, version)
         self.parameters = parameters
 
 
-class UpdateDomainScdnParameters(object):
+class UpdateIpsParameters(object):
 
     def __init__(self,regionId, wafInstanceId, req):
         """

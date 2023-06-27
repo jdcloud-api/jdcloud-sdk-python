@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class EnableJsRequest(JDCloudRequest):
+class AddIpsRequest(JDCloudRequest):
     """
-    激活 js 验证
+    设置网站黑白名单ip配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(EnableJsRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/waf:enableJs', 'POST', header, version)
+        super(AddIpsRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/userdefine:addIps', 'POST', header, version)
         self.parameters = parameters
 
 
-class EnableJsParameters(object):
+class AddIpsParameters(object):
 
     def __init__(self,regionId, wafInstanceId, req):
         """

@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class AddDomainScdnRequest(JDCloudRequest):
+class AddWebcacheUrlRequest(JDCloudRequest):
     """
-    新增网站scdn专属
+    新增防篡改条目
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(AddDomainScdnRequest, self).__init__(
-            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/domain:addScdn', 'POST', header, version)
+        super(AddWebcacheUrlRequest, self).__init__(
+            '/regions/{regionId}/wafInstanceIds/{wafInstanceId}/webcache:addWebcacheUrl', 'POST', header, version)
         self.parameters = parameters
 
 
-class AddDomainScdnParameters(object):
+class AddWebcacheUrlParameters(object):
 
     def __init__(self,regionId, wafInstanceId, req):
         """

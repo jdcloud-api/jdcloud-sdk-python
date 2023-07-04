@@ -26,7 +26,7 @@ class Certificate(object):
         :param expires_on: (Optional) 来自授权机构的证书过期时间
         :param hosts: (Optional) 
         :param zone_id: (Optional) 域标识符标签
-        :param status: (Optional) 域的自定义SSL的状态
+        :param status: (Optional) 证书的状态，值active/expired/deleted/pending/initializing
         :param geo_restrictions: (Optional) 
         :param modified_on: (Optional) 上次修改证书的时间
         :param signature: (Optional) 用于证书的哈希类型

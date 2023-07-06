@@ -19,7 +19,7 @@
 
 class AvailabilityGroup(object):
 
-    def __init__(self, id=None, name=None, description=None, instanceTemplateId=None, azs=None, agType=None, createTime=None, count=None, autoScaling=None, configurationType=None, placementType=None, instancesQuotas=None):
+    def __init__(self, id=None, name=None, description=None, instanceTemplateId=None, azs=None, agType=None, createTime=None, count=None, autoScaling=None, configurationType=None, placementType=None, instancesQuotas=None, instances=None, autoscalingSpec=None):
         """
         :param id: (Optional) 高可用组ID
         :param name: (Optional) 高可用组名称
@@ -33,6 +33,8 @@ class AvailabilityGroup(object):
         :param configurationType: (Optional) 高可用组配置类型
         :param placementType: (Optional) 高可用组放置类型
         :param instancesQuotas: (Optional) 高可用组中实例数量的限制。
+        :param instances: (Optional) 
+        :param autoscalingSpec: (Optional) 
         """
 
         self.id = id
@@ -47,3 +49,5 @@ class AvailabilityGroup(object):
         self.configurationType = configurationType
         self.placementType = placementType
         self.instancesQuotas = instancesQuotas
+        self.instances = instances
+        self.autoscalingSpec = autoscalingSpec

@@ -47,6 +47,7 @@ class CreateAgParameters(object):
         self.description = None
         self.configurationType = None
         self.placementType = None
+        self.autoscalingSpec = None
 
     def setAgType(self, agType):
         """
@@ -77,4 +78,10 @@ class CreateAgParameters(object):
         :param placementType: (Optional) 高可用资源放置类型，支持fd、switch、host
         """
         self.placementType = placementType
+
+    def setAutoscalingSpec(self, autoscalingSpec):
+        """
+        :param autoscalingSpec: (Optional) 伸缩组详细信息，当创建时选择打开弹性伸缩功能时需要传该参数
+        """
+        self.autoscalingSpec = autoscalingSpec
 

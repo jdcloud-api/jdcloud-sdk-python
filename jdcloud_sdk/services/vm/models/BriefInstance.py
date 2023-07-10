@@ -19,7 +19,7 @@
 
 class BriefInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, cpuTopology=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -44,6 +44,7 @@ class BriefInstance(object):
 
         :param dedicatedPoolId: (Optional) 云主机所属的专有宿主机池。
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
+        :param cpuTopology: (Optional) 虚机CPU拓扑
         """
 
         self.instanceId = instanceId
@@ -66,3 +67,4 @@ class BriefInstance(object):
         self.chargeOnStopped = chargeOnStopped
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
+        self.cpuTopology = cpuTopology

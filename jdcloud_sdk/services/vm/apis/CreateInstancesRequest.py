@@ -63,6 +63,7 @@ class CreateInstancesParameters(object):
         self.instanceSpec = instanceSpec
         self.maxCount = None
         self.clientToken = None
+        self.isManaged = None
 
     def setMaxCount(self, maxCount):
         """
@@ -79,4 +80,11 @@ class CreateInstancesParameters(object):
 
         """
         self.clientToken = clientToken
+
+    def setIsManaged(self, isManaged):
+        """
+        :param isManaged: (Optional) 是否托管实例的生命周期，默认为false；若为包年包月实例，可加入但不支持托管；该字段仅AG开启AS时生效。托管实例将在缩容或健康检查失败时被删除，非托管实例仅移出伸缩组
+
+        """
+        self.isManaged = isManaged
 

@@ -57,6 +57,7 @@ class ModifyInstancePlacementParameters(object):
         self.agId = None
         self.balance = None
         self.clearLocalDisk = None
+        self.isManaged = None
 
     def setAgId(self, agId):
         """
@@ -79,4 +80,11 @@ class ModifyInstancePlacementParameters(object):
 
         """
         self.clearLocalDisk = clearLocalDisk
+
+    def setIsManaged(self, isManaged):
+        """
+        :param isManaged: (Optional) 是否托管实例的生命周期，默认为false；若为包年包月实例，可加入但不支持托管；该字段仅AG开启AS时生效。托管实例将在缩容或健康检查失败时被删除，非托管实例仅移出伸缩组
+
+        """
+        self.isManaged = isManaged
 

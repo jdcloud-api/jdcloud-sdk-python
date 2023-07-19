@@ -19,7 +19,7 @@
 
 class PerStamp(object):
 
-    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, personalName=None, mobile=None, identifyType=None, identifyValue=None):
+    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, personalName=None, mobile=None, identifyType=None, identifyValue=None, stampStyle=None, certExpire=None, pageRange=None):
         """
         :param stampMax: (Optional) 最多盖章数目（默认10）
         :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字，默认为 1）
@@ -42,6 +42,9 @@ class PerStamp(object):
         :param mobile: (Optional) 手机号
         :param identifyType: (Optional) 标记字段 - idCardNum（身份证） passportNum（护照） mtpNum（港澳通行证）
         :param identifyValue: (Optional) 标记值
+        :param stampStyle: (Optional) 自定义签章类型（如需增加时间戳，此字段传time，会覆盖contractSpec中的定义）
+        :param certExpire: (Optional) 0：普通证书 1：事件证书（默认为0，普通证书。会覆盖contractSpec中的定义）
+        :param pageRange: (Optional) 页范围，仅在坐标签章生效 | 1. all，表示所有页码 2. 数字以逗号分隔，形如："1,2,3""1,2,3" 3. 以短横线：以短横线'-'分隔的两个数字，会被扩展为⼀段范围，形如："2-4" 4：规则2和3可以混用，形如："2-4,7"
         """
 
         self.stampMax = stampMax
@@ -65,3 +68,6 @@ class PerStamp(object):
         self.mobile = mobile
         self.identifyType = identifyType
         self.identifyValue = identifyValue
+        self.stampStyle = stampStyle
+        self.certExpire = certExpire
+        self.pageRange = pageRange

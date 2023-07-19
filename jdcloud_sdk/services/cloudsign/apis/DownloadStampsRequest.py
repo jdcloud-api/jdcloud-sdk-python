@@ -28,7 +28,7 @@ class DownloadStampsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DownloadStampsRequest, self).__init__(
-            '/stamp/{stampId}', 'GET', header, version)
+            '/smqStamp/{stampId}:downloadStamps', 'GET', header, version)
         self.parameters = parameters
 
 

@@ -19,23 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteStampRequest(JDCloudRequest):
+class GetSaveReportRequest(JDCloudRequest):
     """
-    删除印章 [MFA enabled]
+    获取存证报告接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteStampRequest, self).__init__(
-            '/smqStamp/{stampId}:deleteStamp', 'DELETE', header, version)
+        super(GetSaveReportRequest, self).__init__(
+            '/evidence:evidenceGetSaveReport', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteStampParameters(object):
+class GetSaveReportParameters(object):
 
-    def __init__(self,stampId):
+    def __init__(self,businessId, ):
         """
-        :param stampId: 印章ID
+        :param businessId: 业务流水号
         """
 
-        self.stampId = stampId
+        self.businessId = businessId
+        self.chainCode = None
+
+    def setChainCode(self, chainCode):
+        """
+        :param chainCode: (Optional) 业务代码
+        """
+        self.chainCode = chainCode
 

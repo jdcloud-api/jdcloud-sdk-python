@@ -26,7 +26,7 @@ class UploadStampRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(UploadStampRequest, self).__init__(
-            '/stamp', 'POST', header, version)
+            '/smqStamp:uploadStamp', 'POST', header, version)
         self.parameters = parameters
 
 

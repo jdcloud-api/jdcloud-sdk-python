@@ -26,7 +26,7 @@ class DeleteTemplateRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DeleteTemplateRequest, self).__init__(
-            '/template/{templateId}', 'DELETE', header, version)
+            '/smqTmplate/{templateId}:deleteTemplate', 'DELETE', header, version)
         self.parameters = parameters
 
 

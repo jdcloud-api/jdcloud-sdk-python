@@ -26,7 +26,7 @@ class UploadTemplateRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(UploadTemplateRequest, self).__init__(
-            '/template', 'POST', header, version)
+            '/smqTmplate:uploadTemplate', 'POST', header, version)
         self.parameters = parameters
 
 

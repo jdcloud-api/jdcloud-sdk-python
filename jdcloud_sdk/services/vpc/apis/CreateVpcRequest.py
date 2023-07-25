@@ -42,6 +42,7 @@ class CreateVpcParameters(object):
         self.vpcName = vpcName
         self.addressPrefix = None
         self.description = None
+        self.enableMulticast = None
         self.azType = None
         self.az = None
 
@@ -56,6 +57,12 @@ class CreateVpcParameters(object):
         :param description: (Optional) vpc描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         """
         self.description = description
+
+    def setEnableMulticast(self, enableMulticast):
+        """
+        :param enableMulticast: (Optional) 取值包括true、false，默认为false，不开启组播。
+        """
+        self.enableMulticast = enableMulticast
 
     def setAzType(self, azType):
         """

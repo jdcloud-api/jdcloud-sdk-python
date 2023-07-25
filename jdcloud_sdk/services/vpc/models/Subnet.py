@@ -19,7 +19,7 @@
 
 class Subnet(object):
 
-    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None, subnetType=None, az=None, publicSubnet=None):
+    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, createdTime=None, subnetType=None, az=None, publicSubnet=None, domainNames=None, domainNameServers=None):
         """
         :param subnetId: (Optional) Subnet的Id
         :param subnetName: (Optional) 子网名称
@@ -36,6 +36,8 @@ class Subnet(object):
         :param subnetType: (Optional) 子网类型，取值：standard(标准子网)，edge(边缘子网)
         :param az: (Optional) 子网可用区
         :param publicSubnet: (Optional) 子网是否为外部子网（即子网路由表中存在下一跳为internet的路由）。true表示外部子网，false表示内部子网
+        :param domainNames: (Optional) 域名后缀，不限制个数。总长度最长254个字符，仅支持字母，数字，中划线，下划线和点。
+        :param domainNameServers: (Optional) 域名服务器地址。最多支持5个IPv4地址，不同IPv4地址使用逗号分隔。如不输入，默认使用京东云默认DNS域名服务器地址。如不添加默认DNS域名服务器，可能会导致您无法访问京东云云上基础服务，请谨慎操作
         """
 
         self.subnetId = subnetId
@@ -53,3 +55,5 @@ class Subnet(object):
         self.subnetType = subnetType
         self.az = az
         self.publicSubnet = publicSubnet
+        self.domainNames = domainNames
+        self.domainNameServers = domainNameServers

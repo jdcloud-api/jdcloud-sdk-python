@@ -42,6 +42,7 @@ class ModifyVpcParameters(object):
         self.vpcId = vpcId
         self.vpcName = None
         self.description = None
+        self.enableMulticast = None
 
     def setVpcName(self, vpcName):
         """
@@ -54,4 +55,10 @@ class ModifyVpcParameters(object):
         :param description: (Optional) vpc描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         """
         self.description = description
+
+    def setEnableMulticast(self, enableMulticast):
+        """
+        :param enableMulticast: (Optional) 取值包括true、false，默认为false，不开启组播。
+        """
+        self.enableMulticast = enableMulticast
 

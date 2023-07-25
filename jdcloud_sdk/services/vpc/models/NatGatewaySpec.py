@@ -19,13 +19,12 @@
 
 class NatGatewaySpec(object):
 
-    def __init__(self, natGatewayName, vpcId, subnetId, natGatewaySpec=None, azIpSpecs=None, azs=None, elasticIpIds=None, elasticIpCount=None, elasticIpSpec=None, natGatewayCharge=None, description=None):
+    def __init__(self, natGatewayName, vpcId, subnetId, natGatewaySpec=None, azs=None, elasticIpIds=None, elasticIpCount=None, elasticIpSpec=None, natGatewayCharge=None, description=None):
         """
         :param natGatewayName:  NAT网关名称
         :param natGatewaySpec: (Optional) NAT网关规格，取值small（100万并发连接数），medium（300万并发连接数），large（1000万并发连接数），默认small
         :param vpcId:  私有网络ID
         :param subnetId:  子网ID
-        :param azIpSpecs: (Optional) NAT网关的可用区属性，即将废弃
         :param azs: (Optional) NAT网关可用区
         :param elasticIpIds: (Optional) 选择已有公网IP列表。选择已有和新购公网IP可以同时配置，也可以配置其一
         :param elasticIpCount: (Optional) 新购公网IP数量
@@ -38,7 +37,6 @@ class NatGatewaySpec(object):
         self.natGatewaySpec = natGatewaySpec
         self.vpcId = vpcId
         self.subnetId = subnetId
-        self.azIpSpecs = azIpSpecs
         self.azs = azs
         self.elasticIpIds = elasticIpIds
         self.elasticIpCount = elasticIpCount

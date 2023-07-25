@@ -19,10 +19,12 @@
 
 class ModifySecurityGroupRules(object):
 
-    def __init__(self, ruleId, protocol=None, fromPort=None, toPort=None, addressPrefix=None, description=None):
+    def __init__(self, ruleId, protocol=None, ruleAction=None, priority=None, fromPort=None, toPort=None, addressPrefix=None, description=None):
         """
         :param ruleId:  安全组规则的ID。
         :param protocol: (Optional) 规则限定协议。300:All; 6:TCP; 17:UDP; 1:ICMP
+        :param ruleAction: (Optional) 访问控制策略：allow:允许，deny：拒绝
+        :param priority: (Optional) 规则匹配优先级，取值范围为[1,100]，优先级数字越小优先级越高
         :param fromPort: (Optional) 安全组规则的起始端口。取值范围：1-65535
         :param toPort: (Optional) 安全组规则的终端口。取值范围：1-65535
         :param addressPrefix: (Optional) 安全组规则前缀，取值范围：正确的CIDR
@@ -31,6 +33,8 @@ class ModifySecurityGroupRules(object):
 
         self.ruleId = ruleId
         self.protocol = protocol
+        self.ruleAction = ruleAction
+        self.priority = priority
         self.fromPort = fromPort
         self.toPort = toPort
         self.addressPrefix = addressPrefix

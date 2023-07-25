@@ -31,7 +31,7 @@ class NetworkAclRule(object):
         :param priority: (Optional) 规则匹配优先级，取值范围为[1,32768]，优先级数字越小优先级越高
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         :param createdTime: (Optional) networkAclRule创建时间
-        :param ruleType: (Optional) 规则类型，default：默认规则，custom：自定义规则
+        :param ruleType: (Optional) 规则类型，default：默认规则，custom：自定义规则，service：服务创建规则
         """
 
         self.ruleId = ruleId

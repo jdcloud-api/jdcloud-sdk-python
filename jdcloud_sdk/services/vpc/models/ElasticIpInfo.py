@@ -19,11 +19,11 @@
 
 class ElasticIpInfo(object):
 
-    def __init__(self, elasticIpAddress=None, isJDEip=None):
+    def __init__(self, elasticIpId=None, elasticIpAddress=None):
         """
-        :param elasticIpAddress: (Optional) 弹性公网IP的Ip地址
-        :param isJDEip: (Optional) 是否存在且属于jd池
+        :param elasticIpId: (Optional) 高可用虚拟ip绑定的公网id
+        :param elasticIpAddress: (Optional) 高可用虚拟ip绑定的公网ip
         """
 
+        self.elasticIpId = elasticIpId
         self.elasticIpAddress = elasticIpAddress
-        self.isJDEip = isJDEip

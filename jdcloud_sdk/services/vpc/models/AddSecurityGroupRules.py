@@ -19,10 +19,12 @@
 
 class AddSecurityGroupRules(object):
 
-    def __init__(self, protocol, direction, addressPrefix, fromPort=None, toPort=None, description=None):
+    def __init__(self, protocol, direction, addressPrefix, ruleAction=None, priority=None, fromPort=None, toPort=None, description=None):
         """
         :param protocol:  规则限定协议。300:All; 6:TCP; 17:UDP; 1:ICMP
         :param direction:  安全组规则方向。0：入规则; 1：出规则
+        :param ruleAction: (Optional) 访问控制策略：allow:允许，deny：拒绝
+        :param priority: (Optional) 规则匹配优先级，取值范围为[1,100]，优先级数字越小优先级越高
         :param addressPrefix:  匹配地址前缀
         :param fromPort: (Optional) 规则限定起始传输层端口, 取值范围:1-65535, 若protocol为传输层协议，默认值为1，若protocol不是传输层协议，恒为0。如果规则只限定一个端口号，fromPort和toPort填写同一个值
         :param toPort: (Optional) 规则限定终止传输层端口, 取值范围:1-65535, 若protocol为传输层协议，默认值为65535，若protocol不是传输层协议，恒为0。如果规则只限定一个端口号，fromPort和toPort填写同一个值
@@ -31,6 +33,8 @@ class AddSecurityGroupRules(object):
 
         self.protocol = protocol
         self.direction = direction
+        self.ruleAction = ruleAction
+        self.priority = priority
         self.addressPrefix = addressPrefix
         self.fromPort = fromPort
         self.toPort = toPort

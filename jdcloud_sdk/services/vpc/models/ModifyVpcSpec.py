@@ -19,11 +19,13 @@
 
 class ModifyVpcSpec(object):
 
-    def __init__(self, vpcName=None, description=None):
+    def __init__(self, vpcName=None, description=None, enableMulticast=None):
         """
         :param vpcName: (Optional) 私有网络名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param description: (Optional) vpc描述，允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param enableMulticast: (Optional) 取值包括true、false，默认为false，不开启组播。
         """
 
         self.vpcName = vpcName
         self.description = description
+        self.enableMulticast = enableMulticast

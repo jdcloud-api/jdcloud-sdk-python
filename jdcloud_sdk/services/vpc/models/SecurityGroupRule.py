@@ -19,10 +19,12 @@
 
 class SecurityGroupRule(object):
 
-    def __init__(self, ruleId=None, direction=None, protocol=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None, ruleType=None):
+    def __init__(self, ruleId=None, direction=None, ruleAction=None, priority=None, protocol=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None, ruleType=None):
         """
         :param ruleId: (Optional) 安全组规则ID
         :param direction: (Optional) 安全组规则方向。0：入规则; 1：出规则
+        :param ruleAction: (Optional) 访问控制策略：allow:允许，deny：拒绝
+        :param priority: (Optional) 规则匹配优先级，取值范围为[1,100]，优先级数字越小优先级越高
         :param protocol: (Optional) 规则限定协议。300:All; 6:TCP; 17:UDP; 1:ICMP
         :param addressPrefix: (Optional) 匹配地址前缀
         :param ipVersion: (Optional) 匹配地址协议版本。4：IPv4
@@ -35,6 +37,8 @@ class SecurityGroupRule(object):
 
         self.ruleId = ruleId
         self.direction = direction
+        self.ruleAction = ruleAction
+        self.priority = priority
         self.protocol = protocol
         self.addressPrefix = addressPrefix
         self.ipVersion = ipVersion

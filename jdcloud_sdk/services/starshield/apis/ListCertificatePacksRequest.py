@@ -39,10 +39,24 @@ class ListCertificatePacksParameters(object):
 
         self.zone_identifier = zone_identifier
         self.status = None
+        self.page = None
+        self.per_page = None
 
     def setStatus(self, status):
         """
         :param status: (Optional) 包括所有状态的证书包，而不仅仅是激活状态的证书包。
         """
         self.status = status
+
+    def setPage(self, page):
+        """
+        :param page: (Optional) 分页结果的页码
+        """
+        self.page = page
+
+    def setPer_page(self, per_page):
+        """
+        :param per_page: (Optional) 每页的域数
+        """
+        self.per_page = per_page
 

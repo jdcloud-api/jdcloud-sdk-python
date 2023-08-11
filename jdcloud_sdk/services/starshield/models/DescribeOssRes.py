@@ -19,11 +19,13 @@
 
 class DescribeOssRes(object):
 
-    def __init__(self, id=None, zoneName=None, fileName=None, intervalType=None, logType=None, startTime=None, endTime=None, totalCount=None, byteCount=None, gzipByteCount=None, lastTime=None, ossKey=None):
+    def __init__(self, id=None, zoneName=None, fileName=None, datasetType=None, event=None, intervalType=None, logType=None, startTime=None, endTime=None, totalCount=None, byteCount=None, gzipByteCount=None, lastTime=None, ossKey=None):
         """
         :param id: (Optional) oss唯一id
         :param zoneName: (Optional) 域名
         :param fileName: (Optional) 文件名称(oss key日期)
+        :param datasetType: (Optional) 数据集类型(0-默认 1-logpush)
+        :param event: (Optional) 数据集事件(0-http事件 1-firewall事件)
         :param intervalType: (Optional) 时间间隔类型(0->天 1->小时)
         :param logType: (Optional) 文件格式(0->gz)
         :param startTime: (Optional) 开始时间
@@ -38,6 +40,8 @@ class DescribeOssRes(object):
         self.id = id
         self.zoneName = zoneName
         self.fileName = fileName
+        self.datasetType = datasetType
+        self.event = event
         self.intervalType = intervalType
         self.logType = logType
         self.startTime = startTime

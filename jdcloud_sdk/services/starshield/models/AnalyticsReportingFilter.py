@@ -24,7 +24,7 @@ class AnalyticsReportingFilter(object):
         :param name: (Optional) 过滤条件的名称。有效值：
 HttpHost/URI/ResponseStatusCode/ClientDeviceType/
 ServedBy/CacheStatus/ClientHttpMethod/ResponseContentType/
-ASN/IP/ClientHttpProtocol/FirewallSource/UserAgent
+ASN/IP/ClientHttpProtocol/FirewallSource/UserAgent/RuleId
 
         :param operator: (Optional) 过滤条件的操作符
         :param values: (Optional) 过滤条件的值

@@ -19,14 +19,14 @@
 
 class DescribePackRes(object):
 
-    def __init__(self, packType=None, packMode=None, flowLimit=None, availableZoneNum=None, cdnSpeedTraffic=None, ddosBaseProtect=None, ddosElasticProtect=None, freeCert=None, botManage=None, waf=None, customUploadCert=None, ccAttackQpsSingle=None, ccAttackQpsTotal=None, dedicatedIp=None, availableNodeNum=None, specialCertNum=None, trueClientIp=None, originErrorPagePass=None, staticContentCache=None, customClearByUrl=None, advanceCustomClear=None, minCacheTtl=None, clientUploadFileLimit=None, maxCacheFileLimit=None, urlPrefetch=None, pageRuleNum=None, imageOptimize=None, http2=None, developMode=None, queryStringSort=None, customNameServer=None, generalCert=None, customCertNum=None, websiteAnalyseTimeSpecs=None, dnsAnalyseTime=None, attackAnalyseTime=None, auditLog=None, requestLog=None, owaspCoreRule=None, builtInPredefinedRule=None, firewallRuleNum=None, firewalRegularRule=None):
+    def __init__(self, packType=None, packMode=None, flowLimit=None, availableZoneNum=None, cdnSpeedTraffic=None, ddosBaseProtect=None, ddosElasticProtect=None, freeCert=None, botManage=None, waf=None, customUploadCert=None, ccAttackQpsSingle=None, ccAttackQpsTotal=None, dedicatedIp=None, availableNodeNum=None, specialCertNum=None, trueClientIp=None, originErrorPagePass=None, staticContentCache=None, customClearByUrl=None, advanceCustomClear=None, minCacheTtl=None, clientUploadFileLimit=None, maxCacheFileLimit=None, urlPrefetch=None, pageRuleNum=None, imageOptimize=None, http2=None, developMode=None, queryStringSort=None, customNameServer=None, generalCert=None, customCertNum=None, websiteAnalyseTimeSpecs=None, dnsAnalyseTime=None, attackAnalyseTime=None, auditLog=None, requestLog=None, owaspCoreRule=None, builtInPredefinedRule=None, firewallRuleNum=None, firewalRegularRule=None, availableDnsRecordNum=None, zoneAccessType=None, rateLimit=None, logPush=None, protocol=None, appAttackProtection=None, ccAttackStandardProtection=None, ccAttackAdvancedProtection=None, technicalSupport=None, zoneExtPack=None, websocket=None):
         """
         :param packType: (Optional) 套餐类型
         :param packMode: (Optional) 套餐模型(BASE->基础版 FLOW->流量版)
         :param flowLimit: (Optional) 套餐流量
-        :param availableZoneNum: (Optional) 可用域名数
-        :param cdnSpeedTraffic: (Optional) cdn加速流量
-        :param ddosBaseProtect: (Optional) DDoS保底防护
+        :param availableZoneNum: (Optional) 可添加域名总数
+        :param cdnSpeedTraffic: (Optional) 业务带宽
+        :param ddosBaseProtect: (Optional) DDoS攻击防护（L4）
         :param ddosElasticProtect: (Optional) 是否支持DDoS弹性防护
         :param freeCert: (Optional) 是否提供免费证书
         :param botManage: (Optional) 是否支持BOT功能
@@ -37,7 +37,7 @@ class DescribePackRes(object):
         :param dedicatedIp: (Optional) 独享IP数量
         :param availableNodeNum: (Optional) 可用节点数量
         :param specialCertNum: (Optional) 域名专用证书数
-        :param trueClientIp: (Optional) 是否支持TrueCLientIp
+        :param trueClientIp: (Optional) 是否支持True-Client-IP标头
         :param originErrorPagePass: (Optional) 是否支持RriginErrorPagePass
         :param staticContentCache: (Optional) 是否支持静态内容缓存
         :param customClearByUrl: (Optional) 基于URL自定义清除
@@ -46,13 +46,13 @@ class DescribePackRes(object):
         :param clientUploadFileLimit: (Optional) 客户端上传文件限制
         :param maxCacheFileLimit: (Optional) 最大缓存文件限制
         :param urlPrefetch: (Optional) 是否支持基于URL预取
-        :param pageRuleNum: (Optional) 页面规则数量
+        :param pageRuleNum: (Optional) 自定义页面规则
         :param imageOptimize: (Optional) 是否支持页面优化
         :param http2: (Optional) 是否支持HTTP2
         :param developMode: (Optional) 是否支持开发模式
         :param queryStringSort: (Optional) 是否支持查询字符串排序
         :param customNameServer: (Optional) 是否支持自定义名称服务器（忽略）
-        :param generalCert: (Optional) 是否支持通用证书
+        :param generalCert: (Optional) 是否支持免费通用证书
         :param customCertNum: (Optional) 自定义证书数量
         :param websiteAnalyseTimeSpecs: (Optional) 网站分析时间规格
         :param dnsAnalyseTime: (Optional) DNS分析时间（历史时间）
@@ -61,8 +61,19 @@ class DescribePackRes(object):
         :param requestLog: (Optional) 是否支持请求日志
         :param owaspCoreRule: (Optional) 是否支持OWASP核心规则
         :param builtInPredefinedRule: (Optional) 是否支持内置预定义规则
-        :param firewallRuleNum: (Optional) 防火墙规则数量
+        :param firewallRuleNum: (Optional) WAF自定义规则
         :param firewalRegularRule: (Optional) 是否支持防火墙正则表达式规则
+        :param availableDnsRecordNum: (Optional) 单域名解析记录数量上限
+        :param zoneAccessType: (Optional) 域名接入方式 1->CNAME 2->NS 3->IP(Spectrum) 逗号拼接(1,2)
+        :param rateLimit: (Optional) 速率限制Ratelimit数量 0->不支持 大于0->N条
+        :param logPush: (Optional) 日志推送服务 False->不支持 True->支持
+        :param protocol: (Optional) 支持的协议类型 1->HTTP 2->HTTPS 3->HTTP2 4->HTTP3 5->TCP 逗号拼接(1,2)
+        :param appAttackProtection: (Optional) 应用攻击防护 False->不支持 True->支持
+        :param ccAttackStandardProtection: (Optional) CC攻击标准防护 False->不支持 True->自动防护
+        :param ccAttackAdvancedProtection: (Optional) CC攻击高级防护 False->不支持 True->BOT+Rate Limiting
+        :param technicalSupport: (Optional) 技术支持 1->客服工单 2->产品技术专家 逗号拼接(1,2)
+        :param zoneExtPack: (Optional) 域名扩展包 False->不支持 True->支持
+        :param websocket: (Optional) Websocket False->不支持 True->支持
         """
 
         self.packType = packType
@@ -107,3 +118,14 @@ class DescribePackRes(object):
         self.builtInPredefinedRule = builtInPredefinedRule
         self.firewallRuleNum = firewallRuleNum
         self.firewalRegularRule = firewalRegularRule
+        self.availableDnsRecordNum = availableDnsRecordNum
+        self.zoneAccessType = zoneAccessType
+        self.rateLimit = rateLimit
+        self.logPush = logPush
+        self.protocol = protocol
+        self.appAttackProtection = appAttackProtection
+        self.ccAttackStandardProtection = ccAttackStandardProtection
+        self.ccAttackAdvancedProtection = ccAttackAdvancedProtection
+        self.technicalSupport = technicalSupport
+        self.zoneExtPack = zoneExtPack
+        self.websocket = websocket

@@ -26,4 +26,4 @@ class FcClient(JDCloudClient):
         if config is None:
             config = Config('fc.jdcloud-api.com')
 
-        super(FcClient, self).__init__(credential, config, 'fc', '1.0.1', logger)
+        super(FcClient, self).__init__(credential, config, 'fc', '1.0.2', logger)

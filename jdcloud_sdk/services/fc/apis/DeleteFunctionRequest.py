@@ -22,7 +22,6 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteFunctionRequest(JDCloudRequest):
     """
     删除function
-function 状态必须为 active、failed状态。 <br>
  [MFA enabled]
     """
 
@@ -34,7 +33,7 @@ function 状态必须为 active、failed状态。 <br>
 
 class DeleteFunctionParameters(object):
 
-    def __init__(self,regionId, serviceName, functionName):
+    def __init__(self,regionId, serviceName, functionName, ):
         """
         :param regionId: Region ID
         :param serviceName: Service Name
@@ -44,4 +43,11 @@ class DeleteFunctionParameters(object):
         self.regionId = regionId
         self.serviceName = serviceName
         self.functionName = functionName
+        self.deleteTrigger = None
+
+    def setDeleteTrigger(self, deleteTrigger):
+        """
+        :param deleteTrigger: (Optional) 触发器是否随函数删除
+        """
+        self.deleteTrigger = deleteTrigger
 

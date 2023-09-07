@@ -32,7 +32,7 @@ class ModifyDatabaseCommentRequest(JDCloudRequest):
 
 class ModifyDatabaseCommentParameters(object):
 
-    def __init__(self, regionId, instanceId, dbName, comment):
+    def __init__(self,regionId, instanceId, dbName, comment):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例

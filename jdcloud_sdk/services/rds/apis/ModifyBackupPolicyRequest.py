@@ -32,7 +32,7 @@ class ModifyBackupPolicyRequest(JDCloudRequest):
 
 class ModifyBackupPolicyParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -46,6 +46,9 @@ class ModifyBackupPolicyParameters(object):
         self.binlogSpaceProtection = None
         self.retentionPeriod = None
         self.cycleMode = None
+        self.releasedKeepPolicy = None
+        self.backupPeriod = None
+        self.binlogRetentionNumber = None
 
     def setStartWindow(self, startWindow):
         """
@@ -55,25 +58,25 @@ class ModifyBackupPolicyParameters(object):
 
     def setBinlogRetentionPeriod(self, binlogRetentionPeriod):
         """
-        :param binlogRetentionPeriod: (Optional) binlog本地保留周期，单位小时,范围1-168
+        :param binlogRetentionPeriod: (Optional) binlog本地保留周期，单位小时，范围1-168，默认为24
         """
         self.binlogRetentionPeriod = binlogRetentionPeriod
 
     def setBinlogUsageLimit(self, binlogUsageLimit):
         """
-        :param binlogUsageLimit: (Optional) binlog本地占用空间上限，单位%，范围1-50
+        :param binlogUsageLimit: (Optional) binlog本地占用空间上限，单位%，范围5-50，默认为30
         """
         self.binlogUsageLimit = binlogUsageLimit
 
     def setBinlogSpaceProtection(self, binlogSpaceProtection):
         """
-        :param binlogSpaceProtection: (Optional) 设置空间保护，开启：on，关闭：off <br>- 仅支持MySQL
+        :param binlogSpaceProtection: (Optional) 设置空间保护，开启：on，关闭：off；开启后，磁盘剩余空间小于20%或剩余空间不足5GB时，将自动清理本地binlog。 <br>- 仅支持MySQL
         """
         self.binlogSpaceProtection = binlogSpaceProtection
 
     def setRetentionPeriod(self, retentionPeriod):
         """
-        :param retentionPeriod: (Optional) 自动备份保留周期，单位天，范围7-730<br>当enhancedBackup为true时可修改<br>- 仅支持SQL Server
+        :param retentionPeriod: (Optional) 自动备份保留周期，单位天，范围7-730<br>SQL Server需要当enhancedBackup为true时才可修改
         """
         self.retentionPeriod = retentionPeriod
 
@@ -82,4 +85,22 @@ class ModifyBackupPolicyParameters(object):
         :param cycleMode: (Optional) 自动备份循环模式<br>1：表示每天都是全量备份<br>2：表示自动备份按照全量、增量、增量这样的方式进行，例如第1天是全量备份，第2、3天是增量备份；第4天又是全量备份，以此类推<br>当enhancedBackup为true时可修改<br>- 仅支持SQL Server
         """
         self.cycleMode = cycleMode
+
+    def setReleasedKeepPolicy(self, releasedKeepPolicy):
+        """
+        :param releasedKeepPolicy: (Optional) 已删除实例的备份保留策略,取值：<br>• CreateAndKeep：删除时新创建备份并保留<br>• All：全部保留<br>• None：不保留
+        """
+        self.releasedKeepPolicy = releasedKeepPolicy
+
+    def setBackupPeriod(self, backupPeriod):
+        """
+        :param backupPeriod: (Optional) 备份周期。至少需要指定2天，取值：<br>• Monday：周一<br>• Tuesday：周二<br>• Wednesday：周三<br>• Thursday：周四<br>• Friday：周五<br>• Saturday：周六<br>• Sunday：周日
+        """
+        self.backupPeriod = backupPeriod
+
+    def setBinlogRetentionNumber(self, binlogRetentionNumber):
+        """
+        :param binlogRetentionNumber: (Optional) 本地binlog最大保留数量，支持设置保留个数为6-1000个，可传-1表示不限保留个数，默认为-1。
+        """
+        self.binlogRetentionNumber = binlogRetentionNumber
 

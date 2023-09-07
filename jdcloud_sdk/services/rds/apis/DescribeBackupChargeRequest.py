@@ -32,7 +32,7 @@ class DescribeBackupChargeRequest(JDCloudRequest):
 
 class DescribeBackupChargeParameters(object):
 
-    def __init__(self, regionId, engine):
+    def __init__(self,regionId, engine):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param engine: 实例引擎类型

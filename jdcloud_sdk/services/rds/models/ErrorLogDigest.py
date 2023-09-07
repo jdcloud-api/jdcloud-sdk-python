@@ -22,10 +22,10 @@ class ErrorLogDigest(object):
     def __init__(self, startTime=None, dbName=None, dbNameAccount=None, errorLogInformation=None, errorSeverity=None):
         """
         :param startTime: (Optional) 错误日志开始执行时间
-        :param dbName: (Optional) 数据库名，表示该SQL是在哪个数据库中执行的
-        :param dbNameAccount: (Optional) 数据库账号，表示该数据库在哪个账号下面
+        :param dbName: (Optional) 数据库名，表示该SQL是在哪个数据库中执行的<br>- MySQL不支持
+        :param dbNameAccount: (Optional) 数据库账号，表示该数据库在哪个账号下面<br>- MySQL不支持
         :param errorLogInformation: (Optional) 错误日志信息
-        :param errorSeverity: (Optional) 错误日志级别
+        :param errorSeverity: (Optional) 错误日志级别<br>- MySQL不支持
         """
 
         self.startTime = startTime

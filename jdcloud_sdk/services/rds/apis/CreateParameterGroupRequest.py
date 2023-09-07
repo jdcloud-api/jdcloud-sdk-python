@@ -32,7 +32,7 @@ class CreateParameterGroupRequest(JDCloudRequest):
 
 class CreateParameterGroupParameters(object):
 
-    def __init__(self, regionId, engine, engineVersion, parameterGroupName, ):
+    def __init__(self,regionId, engine, engineVersion, parameterGroupName, ):
         """
         :param regionId: Region ID
         :param engine: 实例引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)

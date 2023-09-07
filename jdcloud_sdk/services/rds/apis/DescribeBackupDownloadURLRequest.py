@@ -32,7 +32,7 @@ class DescribeBackupDownloadURLRequest(JDCloudRequest):
 
 class DescribeBackupDownloadURLParameters(object):
 
-    def __init__(self, regionId, backupId, ):
+    def __init__(self,regionId, backupId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param backupId: 备份ID

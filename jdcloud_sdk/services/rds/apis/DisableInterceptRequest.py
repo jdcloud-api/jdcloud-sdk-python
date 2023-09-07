@@ -32,7 +32,7 @@ class DisableInterceptRequest(JDCloudRequest):
 
 class DisableInterceptParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId):
         """
         :param regionId: Region ID
         :param instanceId: Instance ID

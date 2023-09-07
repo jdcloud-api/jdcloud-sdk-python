@@ -32,7 +32,7 @@ class DBInstanceSpecWithoutCharge(object):
         :param parameterGroup: (Optional) 参数组ID, 缺省系统会创建一个默认参数组<br>- 仅支持MySQL
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md), 缺省值为：LOCAL_SSD<br>- 仅支持MySQL
         :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false<br>- 仅支持MySQL
-        :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster<br>- 仅支持SQL Server
+        :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster，multi-replica：三副本<br>- 仅支持SQL Server
         """
 
         self.instanceName = instanceName

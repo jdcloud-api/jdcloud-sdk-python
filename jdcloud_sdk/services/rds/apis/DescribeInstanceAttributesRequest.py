@@ -32,7 +32,7 @@ class DescribeInstanceAttributesRequest(JDCloudRequest):
 
 class DescribeInstanceAttributesParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -40,4 +40,11 @@ class DescribeInstanceAttributesParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.instanceExistence = None
+
+    def setInstanceExistence(self, instanceExistence):
+        """
+        :param instanceExistence: (Optional) 默认不传，返回当前未删除的实例的实例详情 **仅支持 MySQL，Percona，MariaDB。<br>请求参数：<br>- 0:当前存在的实例；<br>- 1:已删除的实例；<br>- 2:全部实例，不区分实例是否删除;
+        """
+        self.instanceExistence = instanceExistence
 

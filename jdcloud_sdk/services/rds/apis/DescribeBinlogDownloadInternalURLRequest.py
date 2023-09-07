@@ -19,25 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateInstanceRequest(JDCloudRequest):
+class DescribeBinlogDownloadInternalURLRequest(JDCloudRequest):
     """
-    创建一个RDS实例，用户可以使用相应的数据库客户端或者应用程序通过域名和端口链接到该RDS实例上，进行操作。
+    获取MySQL实例的binlog的内网下载链接<br>- 仅支持 MySQL, Percona, MariaDB
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateInstanceRequest, self).__init__(
-            '/regions/{regionId}/instances', 'POST', header, version)
+        super(DescribeBinlogDownloadInternalURLRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/binlogs/{binlogBackupId}:describeBinlogDownloadInternalURL', 'GET', header, version)
         self.parameters = parameters
 
 
-class CreateInstanceParameters(object):
+class DescribeBinlogDownloadInternalURLParameters(object):
 
-    def __init__(self,regionId, instanceSpec):
+    def __init__(self,regionId, instanceId, binlogBackupId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceSpec: 新建实例规格
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param binlogBackupId: binlog的备份ID，可以通过describeBinlogs获得
         """
 
         self.regionId = regionId
-        self.instanceSpec = instanceSpec
+        self.instanceId = instanceId
+        self.binlogBackupId = binlogBackupId
+        self.seconds = None
+
+    def setSeconds(self, seconds):
+        """
+        :param seconds: (Optional) 设置链接地址的过期时间，单位是秒，默认值是 300 秒，最长不能超过取值范围为 1 ~ 86400 秒
+        """
+        self.seconds = seconds
 

@@ -32,7 +32,7 @@ class CreateInstanceByTimeInCrossRegionRequest(JDCloudRequest):
 
 class CreateInstanceByTimeInCrossRegionParameters(object):
 
-    def __init__(self, regionId, restoreTime, serviceId, instanceSpec):
+    def __init__(self,regionId, restoreTime, serviceId, instanceSpec):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param restoreTime: 根据源实例的哪个时间点创建新实例

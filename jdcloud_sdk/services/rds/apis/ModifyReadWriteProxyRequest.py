@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyReadWriteProxyRequest(JDCloudRequest):
     """
-    修改数据库读写分离代理服务配置<br>- 仅支持MySQL
+    修改数据库读写分离代理服务配置<br>- 仅支持MySQL、PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class ModifyReadWriteProxyRequest(JDCloudRequest):
 
 class ModifyReadWriteProxyParameters(object):
 
-    def __init__(self, regionId, readWriteProxyId, ):
+    def __init__(self,regionId, readWriteProxyId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param readWriteProxyId: 读写分离代理服务ID
@@ -41,14 +41,21 @@ class ModifyReadWriteProxyParameters(object):
         self.regionId = regionId
         self.readWriteProxyId = readWriteProxyId
         self.delayThreshold = None
+        self.walDelayThreshold = None
         self.loadBalancerPolicy = None
         self.healthCheckSpec = None
 
     def setDelayThreshold(self, delayThreshold):
         """
-        :param delayThreshold: (Optional) 延迟阈值，范围是0~1000，单位：秒，默认为100
+        :param delayThreshold: (Optional) 延迟阈值，范围是1~1000，单位：秒，默认为100，仅MySQL
         """
         self.delayThreshold = delayThreshold
+
+    def setWalDelayThreshold(self, walDelayThreshold):
+        """
+        :param walDelayThreshold: (Optional) wal日志延迟阈值，范围是1~1024，单位：MB，默认为200，仅PostgreSQL
+        """
+        self.walDelayThreshold = walDelayThreshold
 
     def setLoadBalancerPolicy(self, loadBalancerPolicy):
         """

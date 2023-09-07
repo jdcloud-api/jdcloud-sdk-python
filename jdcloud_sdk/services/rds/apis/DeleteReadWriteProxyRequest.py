@@ -32,7 +32,7 @@ class DeleteReadWriteProxyRequest(JDCloudRequest):
 
 class DeleteReadWriteProxyParameters(object):
 
-    def __init__(self, regionId, readWriteProxyId, ):
+    def __init__(self,regionId, readWriteProxyId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param readWriteProxyId: 读写分离代理服务ID

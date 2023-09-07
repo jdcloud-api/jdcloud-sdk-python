@@ -19,7 +19,7 @@
 
 class SlowLogAttributes(object):
 
-    def __init__(self, dbName=None, user=None, sql=None, executionTime=None, elapsedTime=None, lockTime=None, rowsExamined=None, rowsReturned=None):
+    def __init__(self, dbName=None, user=None, sql=None, executionTime=None, elapsedTime=None, lockTime=None, rowsExamined=None, rowsReturned=None, clientIp=None):
         """
         :param dbName: (Optional) 数据库名，表示该SQL是在哪个数据库中执行的
         :param user: (Optional) 数据库账号，表示该SQL是哪个数据库账号发起的
@@ -29,6 +29,7 @@ class SlowLogAttributes(object):
         :param lockTime: (Optional) SQL语句等待锁的时间，单位秒
         :param rowsExamined: (Optional) SQL语句扫描的行数
         :param rowsReturned: (Optional) SQL语句返回的行数
+        :param clientIp: (Optional) 客户端IP
         """
 
         self.dbName = dbName
@@ -39,3 +40,4 @@ class SlowLogAttributes(object):
         self.lockTime = lockTime
         self.rowsExamined = rowsExamined
         self.rowsReturned = rowsReturned
+        self.clientIp = clientIp

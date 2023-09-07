@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisableReadWriteProxyInternetAccessRequest(JDCloudRequest):
     """
-    关闭读写分离代理服务的外网访问功能。关闭后，用户无法通过 Internet 连接读写分离代理服务，但可以在京东云内网通过内网域名连接<br>- 仅支持MySQL
+    关闭读写分离代理服务的外网访问功能。关闭后，用户无法通过 Internet 连接读写分离代理服务，但可以在京东云内网通过内网域名连接<br>- 仅支持MySQL、PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DisableReadWriteProxyInternetAccessRequest(JDCloudRequest):
 
 class DisableReadWriteProxyInternetAccessParameters(object):
 
-    def __init__(self, regionId, readWriteProxyId, ):
+    def __init__(self,regionId, readWriteProxyId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param readWriteProxyId: 读写分离代理服务ID

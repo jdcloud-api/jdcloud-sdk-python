@@ -32,7 +32,7 @@ class CopyParameterGroupRequest(JDCloudRequest):
 
 class CopyParameterGroupParameters(object):
 
-    def __init__(self, regionId, parameterGroupId, parameterGroupName, ):
+    def __init__(self,regionId, parameterGroupId, parameterGroupName, ):
         """
         :param regionId: Region ID
         :param parameterGroupId: 参数组ID

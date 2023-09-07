@@ -32,7 +32,7 @@ class DeleteParameterGroupRequest(JDCloudRequest):
 
 class DeleteParameterGroupParameters(object):
 
-    def __init__(self, regionId, parameterGroupId, ):
+    def __init__(self,regionId, parameterGroupId):
         """
         :param regionId: Region ID
         :param parameterGroupId: Parameter Group ID

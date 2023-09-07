@@ -32,7 +32,7 @@ class DescribeInstancesRequest(JDCloudRequest):
 
 class DescribeInstancesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
@@ -42,10 +42,11 @@ class DescribeInstancesParameters(object):
         self.pageSize = None
         self.filters = None
         self.tagFilters = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页;
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞]。pageNumber为-1时，返回所有数据页码；
         """
         self.pageNumber = pageNumber
 
@@ -68,6 +69,8 @@ vpcId, 支持operator选项：eq
 instanceType, 支持operator选项：eq
 internalDomainName, 支持operator选项：eq
 publicDomainName, 支持operator选项：eq
+roInstanceProxyInternalDomainName, 支持operator选项：like
+readWriteProxyInternalDomainName, 支持operator选项：like
 
         """
         self.filters = filters
@@ -77,4 +80,10 @@ publicDomainName, 支持operator选项：eq
         :param tagFilters: (Optional) 资源标签
         """
         self.tagFilters = tagFilters
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组id
+        """
+        self.resourceGroupIds = resourceGroupIds
 

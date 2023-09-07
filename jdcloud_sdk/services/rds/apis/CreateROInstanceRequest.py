@@ -32,7 +32,7 @@ class CreateROInstanceRequest(JDCloudRequest):
 
 class CreateROInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, instanceName, instanceClass, instanceStorageGB, azId, ):
+    def __init__(self,regionId, instanceId, instanceName, instanceClass, instanceStorageGB, azId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -56,6 +56,8 @@ class CreateROInstanceParameters(object):
         self.count = None
         self.roInstanceProxy = None
         self.tagSpec = None
+        self.resourceGroupId = None
+        self.chargeSpec = None
 
     def setInstanceStorageType(self, instanceStorageType):
         """
@@ -104,4 +106,16 @@ class CreateROInstanceParameters(object):
         :param tagSpec: (Optional) 标签信息
         """
         self.tagSpec = tagSpec
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源组id
+        """
+        self.resourceGroupId = resourceGroupId
+
+    def setChargeSpec(self, chargeSpec):
+        """
+        :param chargeSpec: (Optional) 计费规格，包括计费类型，计费周期等
+        """
+        self.chargeSpec = chargeSpec
 

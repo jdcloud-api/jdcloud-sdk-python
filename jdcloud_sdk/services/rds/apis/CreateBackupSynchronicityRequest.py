@@ -32,7 +32,7 @@ class CreateBackupSynchronicityRequest(JDCloudRequest):
 
 class CreateBackupSynchronicityParameters(object):
 
-    def __init__(self, regionId, instanceId, destRegion):
+    def __init__(self,regionId, instanceId, destRegion):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: 源实例ID

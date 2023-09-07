@@ -32,7 +32,7 @@ class DescribeBinlogsRequest(JDCloudRequest):
 
 class DescribeBinlogsParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -44,28 +44,40 @@ class DescribeBinlogsParameters(object):
         self.pageSize = None
         self.startTime = None
         self.endTime = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页。
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、30、50、100
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]
         """
         self.pageSize = pageSize
 
     def setStartTime(self, startTime):
         """
-        :param startTime: (Optional) 查询开始时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间到结束时间不超过三天
+        :param startTime: (Optional) 查询开始时间，格式为：YYYY-MM-DDTHH:mm:ssZ，开始时间到结束时间不超过7天
         """
         self.startTime = startTime
 
     def setEndTime(self, endTime):
         """
-        :param endTime: (Optional) 查询结束时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间到结束时间不超过三天
+        :param endTime: (Optional) 查询结束时间，格式为：YYYY-MM-DDTHH:mm:ssZ，开始时间到结束时间不超过7天
         """
         self.endTime = endTime
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and支持以下属性的过滤(默认等值)：)
+- instanceId：RDS实例ID，唯一标识一个实例，operator仅支持eq
+- instanceName：RDS实例名称，模糊搜索，operator仅支持eq、like
+- binlogId：Binlog ID，唯一标识一个备份，operator仅支持eq
+- binlogName：Binlog名称，模糊搜索，operator仅支持eq、like
+
+        """
+        self.filters = filters
 

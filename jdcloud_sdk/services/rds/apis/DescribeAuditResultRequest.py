@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAuditResultRequest(JDCloudRequest):
     """
-    仅支持查看MySQL实例的审计内容<br>- 仅支持 MySQL 5.6, MySQL 5.7, Percona, MariaDB, PostgreSQL
+    查看RDS实例的审计内容<br>- 仅支持 MySQL 5.6, MySQL 5.7, Percona, MariaDB, PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,11 +32,11 @@ class DescribeAuditResultRequest(JDCloudRequest):
 
 class DescribeAuditResultParameters(object):
 
-    def __init__(self, regionId, instanceId, startTime, endTime, ):
+    def __init__(self,regionId, instanceId, startTime, endTime, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param startTime: 查询开始时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间不能早于当前时间30天
+        :param startTime: 查询开始时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间不能早于当前时间3天
         :param endTime: 查询截止时间，格式为：YYYY-MM-DD HH:mm:ss，开始时间到结束时间不能超过3天
         """
 
@@ -52,13 +52,13 @@ class DescribeAuditResultParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名
+        :param dbName: (Optional) 废弃，使用filter，数据库名
         """
         self.dbName = dbName
 
     def setAccountName(self, accountName):
         """
-        :param accountName: (Optional) 账号名
+        :param accountName: (Optional) 废弃，使用filter，账号名
         """
         self.accountName = accountName
 
@@ -70,15 +70,18 @@ class DescribeAuditResultParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：10、20、50
+        :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]
         """
         self.pageSize = pageSize
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
-支持以下属性的过滤：
-operation
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and支持以下属性的过滤(默认等值)：)
+- operation：仅第一个value生效，语句类型【create/alter/drop/truncate/select/insert/update/delete/replace/ddl/dml/disconnect/connect/failed_connect/query】,operator仅支持eq或者in
+- account：实例账号名，operator仅支持eq或者in
+- keyword：SQL 关键词，模糊查询，operator仅支持eq或者in
+- database：实例库名，operator仅支持eq或者in
+- threadId：会话id，operator仅支持eq或者in
 
         """
         self.filters = filters

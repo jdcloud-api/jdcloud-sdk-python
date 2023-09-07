@@ -32,7 +32,7 @@ class DeleteBackupSynchronicityRequest(JDCloudRequest):
 
 class DeleteBackupSynchronicityParameters(object):
 
-    def __init__(self, regionId, serviceId, ):
+    def __init__(self,regionId, serviceId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param serviceId: 跨地域备份同步服务ID

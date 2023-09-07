@@ -19,7 +19,7 @@
 
 class DBInstanceInternal(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engine=None, instanceType=None, instanceStatus=None, accessibleStatus=None):
+    def __init__(self, instanceId=None, instanceName=None, engine=None, instanceType=None, instanceStatus=None, accessibleStatus=None, hostIp=None, userIp=None, vmId=None, internalDomainName=None, instancePort=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -27,6 +27,11 @@ class DBInstanceInternal(object):
         :param instanceType: (Optional) 实例类别，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param instanceStatus: (Optional) 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param accessibleStatus: (Optional) 实例的网络状态；0表示实例的网络处于中断状态，1表示实例的网络处于正常状态
+        :param hostIp: (Optional) 物理机IP
+        :param userIp: (Optional) 实例ip
+        :param vmId: (Optional) 云主机ID
+        :param internalDomainName: (Optional) 实例内网域名
+        :param instancePort: (Optional) 应用访问端口
         """
 
         self.instanceId = instanceId
@@ -35,3 +40,8 @@ class DBInstanceInternal(object):
         self.instanceType = instanceType
         self.instanceStatus = instanceStatus
         self.accessibleStatus = accessibleStatus
+        self.hostIp = hostIp
+        self.userIp = userIp
+        self.vmId = vmId
+        self.internalDomainName = internalDomainName
+        self.instancePort = instancePort

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableReadWriteProxyInternetAccessRequest(JDCloudRequest):
     """
-    开启读写分离代理服务的外网访问功能。开启后，用户可以通过 internet 连接读写分离代理服务<br>- 仅支持MySQL
+    开启读写分离代理服务的外网访问功能。开启后，用户可以通过 internet 连接读写分离代理服务<br>- 仅支持MySQL、PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class EnableReadWriteProxyInternetAccessRequest(JDCloudRequest):
 
 class EnableReadWriteProxyInternetAccessParameters(object):
 
-    def __init__(self, regionId, readWriteProxyId, ):
+    def __init__(self,regionId, readWriteProxyId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param readWriteProxyId: 读写分离代理服务ID

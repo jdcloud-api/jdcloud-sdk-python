@@ -32,7 +32,7 @@ class ModifyParameterGroupAttributeRequest(JDCloudRequest):
 
 class ModifyParameterGroupAttributeParameters(object):
 
-    def __init__(self, regionId, parameterGroupId, parameterGroupName, ):
+    def __init__(self,regionId, parameterGroupId, parameterGroupName, ):
         """
         :param regionId: Region ID
         :param parameterGroupId: Parameter Group ID

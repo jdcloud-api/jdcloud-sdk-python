@@ -32,7 +32,7 @@ class DescribeParameterGroupAttachedInstancesRequest(JDCloudRequest):
 
 class DescribeParameterGroupAttachedInstancesParameters(object):
 
-    def __init__(self, regionId, parameterGroupId, ):
+    def __init__(self,regionId, parameterGroupId, ):
         """
         :param regionId: Region ID
         :param parameterGroupId: Parameter Group ID
@@ -45,7 +45,7 @@ class DescribeParameterGroupAttachedInstancesParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；
         """
         self.pageNumber = pageNumber
 

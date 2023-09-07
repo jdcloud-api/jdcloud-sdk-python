@@ -32,7 +32,7 @@ class DescribeAzsRequest(JDCloudRequest):
 
 class DescribeAzsParameters(object):
 
-    def __init__(self, regionId, engine):
+    def __init__(self,regionId, engine):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param engine: RDS引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)

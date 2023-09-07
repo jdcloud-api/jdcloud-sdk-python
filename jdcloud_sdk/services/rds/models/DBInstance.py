@@ -19,7 +19,7 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, storageEncrypted=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None, instancePort=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, storageEncrypted=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None, instancePort=None, azType=None, resourceGroupId=None, resourceGroupName=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -45,6 +45,9 @@ class DBInstance(object):
         :param tags: (Optional) 标签信息
         :param sourceInstanceId: (Optional) MySQL、PostgreSQL只读实例对应的主实例ID
         :param instancePort: (Optional) 应用访问端口<br>- 仅支持MySQL
+        :param azType: (Optional) 可用区类型<br>- 仅支持MySQL
+        :param resourceGroupId: (Optional) 资源组id
+        :param resourceGroupName: (Optional) 资源组名称
         """
 
         self.instanceId = instanceId
@@ -71,3 +74,6 @@ class DBInstance(object):
         self.tags = tags
         self.sourceInstanceId = sourceInstanceId
         self.instancePort = instancePort
+        self.azType = azType
+        self.resourceGroupId = resourceGroupId
+        self.resourceGroupName = resourceGroupName

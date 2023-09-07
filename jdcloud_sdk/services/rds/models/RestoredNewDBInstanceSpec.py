@@ -19,7 +19,7 @@
 
 class RestoredNewDBInstanceSpec(object):
 
-    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None, tagSpec=None):
+    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None, tagSpec=None, resourceGroupId=None):
         """
         :param instanceName: (Optional) 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param instanceClass:  实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
@@ -32,8 +32,9 @@ class RestoredNewDBInstanceSpec(object):
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md), 缺省值为：LOCAL_SSD<br>- 仅支持MySQL
         :param instancePort: (Optional) 应用访问端口，支持的端口范围：1150～5999。MySQL、Percona、MariaDB的默认值为 3306；PostgreSQL的默认端口号为5432；
         :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false<br>- 仅支持MySQL
-        :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster<br>- 仅支持SQL Server
+        :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster，multi-replica：三副本<br>- 仅支持SQL Server
         :param tagSpec: (Optional) 标签信息
+        :param resourceGroupId: (Optional) 资源组id
         """
 
         self.instanceName = instanceName
@@ -49,3 +50,4 @@ class RestoredNewDBInstanceSpec(object):
         self.storageEncrypted = storageEncrypted
         self.instanceType = instanceType
         self.tagSpec = tagSpec
+        self.resourceGroupId = resourceGroupId

@@ -19,25 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateInstanceRequest(JDCloudRequest):
+class DeleteWhiteListGroupRequest(JDCloudRequest):
     """
-    创建一个RDS实例，用户可以使用相应的数据库客户端或者应用程序通过域名和端口链接到该RDS实例上，进行操作。
+    当该白名单分组用户无需使用时，可进行删除。仅适用于MySQL、Percona、MariaDB。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateInstanceRequest, self).__init__(
-            '/regions/{regionId}/instances', 'POST', header, version)
+        super(DeleteWhiteListGroupRequest, self).__init__(
+            '/regions/{regionId}/instances/{instanceId}/whiteList', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class CreateInstanceParameters(object):
+class DeleteWhiteListGroupParameters(object):
 
-    def __init__(self,regionId, instanceSpec):
+    def __init__(self,regionId, instanceId, whiteListName):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceSpec: 新建实例规格
+        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
+        :param whiteListName: 白名单名称
         """
 
         self.regionId = regionId
-        self.instanceSpec = instanceSpec
+        self.instanceId = instanceId
+        self.whiteListName = whiteListName
 

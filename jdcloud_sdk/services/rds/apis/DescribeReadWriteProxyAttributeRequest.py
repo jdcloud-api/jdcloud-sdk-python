@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeReadWriteProxyAttributeRequest(JDCloudRequest):
     """
-    查看指定RDS读写分离代理详情<br>- 仅支持MySQL
+    查看指定RDS读写分离代理详情<br>- 仅支持MySQL、PostgreSQL
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class DescribeReadWriteProxyAttributeRequest(JDCloudRequest):
 
 class DescribeReadWriteProxyAttributeParameters(object):
 
-    def __init__(self, regionId, readWriteProxyId, ):
+    def __init__(self,regionId, readWriteProxyId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param readWriteProxyId: 读写分离代理服务ID

@@ -19,7 +19,7 @@
 
 class ReadWriteProxy(object):
 
-    def __init__(self, readWriteProxyId=None, status=None, instanceId=None, publicDomainName=None, internalDomainName=None, port=None, delayThreshold=None, loadBalancerPolicy=None, healthCheck=None):
+    def __init__(self, readWriteProxyId=None, status=None, instanceId=None, publicDomainName=None, internalDomainName=None, port=None, delayThreshold=None, walDelayThreshold=None, loadBalancerPolicy=None, healthCheck=None):
         """
         :param readWriteProxyId: (Optional) 读写分离代理服务 ID
         :param status: (Optional) 读写分离代理服务的状态；参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
@@ -27,7 +27,8 @@ class ReadWriteProxy(object):
         :param publicDomainName: (Optional) 读写分离代理服务公网域名
         :param internalDomainName: (Optional) 读写分离代理服务内网域名
         :param port: (Optional) 读写分离代理服务访问端口
-        :param delayThreshold: (Optional) 延迟阈值
+        :param delayThreshold: (Optional) 延迟阈值，仅MySQL
+        :param walDelayThreshold: (Optional) WAL日志延迟阈值，仅PostgreSQL
         :param loadBalancerPolicy: (Optional) 读写分离代理后端实例负载均衡策略；当前支持的负载均衡策略请查看[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param healthCheck: (Optional) 后端实例健康检查配置详情
         """
@@ -39,5 +40,6 @@ class ReadWriteProxy(object):
         self.internalDomainName = internalDomainName
         self.port = port
         self.delayThreshold = delayThreshold
+        self.walDelayThreshold = walDelayThreshold
         self.loadBalancerPolicy = loadBalancerPolicy
         self.healthCheck = healthCheck

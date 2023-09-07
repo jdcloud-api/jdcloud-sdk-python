@@ -32,7 +32,7 @@ class DescribeBackupSynchronicitiesRequest(JDCloudRequest):
 
 class DescribeBackupSynchronicitiesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         """
@@ -43,7 +43,7 @@ class DescribeBackupSynchronicitiesParameters(object):
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[1,∞)，页码超过总页数时，显示最后一页，用于查询列表的接口
+        :param pageNumber: (Optional) 显示数据的页码，默认为1，取值范围：[1,∞)，用于查询列表的接口
         """
         self.pageNumber = pageNumber
 

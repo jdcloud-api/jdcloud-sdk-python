@@ -26,7 +26,7 @@ class DeleteStampRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DeleteStampRequest, self).__init__(
-            '/smqStamp/{stampId}:deleteStamp', 'DELETE', header, version)
+            '/stamp/{stampId}', 'DELETE', header, version)
         self.parameters = parameters
 
 

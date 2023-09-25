@@ -19,13 +19,11 @@
 
 class StampSpec(object):
 
-    def __init__(self, stampContent=None, stampName=None, note=None):
+    def __init__(self, stampContent=None, stampName=None):
         """
         :param stampContent: (Optional) 印章图片（base64）
         :param stampName: (Optional) 印章名称
-        :param note: (Optional) 备注
         """
 
         self.stampContent = stampContent
         self.stampName = stampName
-        self.note = note

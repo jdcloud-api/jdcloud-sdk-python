@@ -26,7 +26,7 @@ class DescribeStampListRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeStampListRequest, self).__init__(
-            '/smqStamp:describeStampList', 'GET', header, version)
+            '/stamp', 'GET', header, version)
         self.parameters = parameters
 
 

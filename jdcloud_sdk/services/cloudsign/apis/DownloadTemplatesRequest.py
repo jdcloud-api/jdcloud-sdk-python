@@ -28,7 +28,7 @@ class DownloadTemplatesRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DownloadTemplatesRequest, self).__init__(
-            '/smqTmplate/{templateId}:downloadTemplates', 'GET', header, version)
+            '/template/{templateId}', 'GET', header, version)
         self.parameters = parameters
 
 

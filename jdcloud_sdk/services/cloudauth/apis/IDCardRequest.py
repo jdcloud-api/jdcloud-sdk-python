@@ -19,23 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CheckAgentRequest(JDCloudRequest):
+class IDCardRequest(JDCloudRequest):
     """
-    代理人信息核验
+    个人身份证OCR
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CheckAgentRequest, self).__init__(
-            '/company:agent', 'POST', header, version)
+        super(IDCardRequest, self).__init__(
+            '/ocr:IDCard', 'POST', header, version)
         self.parameters = parameters
 
 
-class CheckAgentParameters(object):
+class IDCardParameters(object):
 
-    def __init__(self, agentSpec):
+    def __init__(self,imageData, side):
         """
-        :param agentSpec: 
+        :param imageData: 身份证图像base64(支持base64编码后小于4M，分辨率不高于4096x4096的图像)
+        :param side: front：身份证含照片的一面
+back：身份证带国徽的一面
+自动检测身份证正反面，如果传参指定方向与图片相反，支持正常识别，返回参数image_status字段为"reversed_side"
+
         """
 
-        self.agentSpec = agentSpec
+        self.imageData = imageData
+        self.side = side
 

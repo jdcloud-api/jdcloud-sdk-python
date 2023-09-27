@@ -32,7 +32,7 @@ class CheckLegalPersonRequest(JDCloudRequest):
 
 class CheckLegalPersonParameters(object):
 
-    def __init__(self, legalPersonSpec):
+    def __init__(self,legalPersonSpec):
         """
         :param legalPersonSpec: 
         """

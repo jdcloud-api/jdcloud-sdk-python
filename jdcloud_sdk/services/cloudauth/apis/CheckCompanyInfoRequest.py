@@ -32,7 +32,7 @@ class CheckCompanyInfoRequest(JDCloudRequest):
 
 class CheckCompanyInfoParameters(object):
 
-    def __init__(self, companyInfo):
+    def __init__(self,companyInfo):
         """
         :param companyInfo: 
         """

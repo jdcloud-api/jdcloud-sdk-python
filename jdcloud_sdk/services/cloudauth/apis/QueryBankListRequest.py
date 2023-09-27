@@ -32,7 +32,7 @@ class QueryBankListRequest(JDCloudRequest):
 
 class QueryBankListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class QueryBankBranchListRequest(JDCloudRequest):
 
 class QueryBankBranchListParameters(object):
 
-    def __init__(self, bankCode, cityCode):
+    def __init__(self,bankCode, cityCode):
         """
         :param bankCode: 银行代码
         :param cityCode: 城市代码

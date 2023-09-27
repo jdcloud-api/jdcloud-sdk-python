@@ -32,7 +32,7 @@ class QueryProvinceListRequest(JDCloudRequest):
 
 class QueryProvinceListParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

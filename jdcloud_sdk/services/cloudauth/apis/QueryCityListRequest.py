@@ -32,7 +32,7 @@ class QueryCityListRequest(JDCloudRequest):
 
 class QueryCityListParameters(object):
 
-    def __init__(self, provinceCode):
+    def __init__(self,provinceCode):
         """
         :param provinceCode: 省份代码
         """

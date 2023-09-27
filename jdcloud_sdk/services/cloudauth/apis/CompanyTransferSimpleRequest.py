@@ -19,23 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CheckLegalPersonAndAgentRequest(JDCloudRequest):
+class CompanyTransferSimpleRequest(JDCloudRequest):
     """
-    企业所有信息核验
+    对公银行账户打款(随机小额)——简单版
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CheckLegalPersonAndAgentRequest, self).__init__(
-            '/company:legalPersonAndAgent', 'POST', header, version)
+        super(CompanyTransferSimpleRequest, self).__init__(
+            '/company:transferSimple', 'POST', header, version)
         self.parameters = parameters
 
 
-class CheckLegalPersonAndAgentParameters(object):
+class CompanyTransferSimpleParameters(object):
 
-    def __init__(self, legalPersonAndAgentSpec):
+    def __init__(self,accountInfo):
         """
-        :param legalPersonAndAgentSpec: 
+        :param accountInfo: 
         """
 
-        self.legalPersonAndAgentSpec = legalPersonAndAgentSpec
+        self.accountInfo = accountInfo
 

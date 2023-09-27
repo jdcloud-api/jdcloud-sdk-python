@@ -25,7 +25,7 @@ class PersonalUser(object):
         :param idCard: (Optional) 身份证号码
         :param bankcard: (Optional) 银行卡号
         :param mobile: (Optional) 手机号
-        :param imgBase64: (Optional) 人像图片
+        :param imgBase64: (Optional) 人像图片(5-150k)
         """
 
         self.name = name

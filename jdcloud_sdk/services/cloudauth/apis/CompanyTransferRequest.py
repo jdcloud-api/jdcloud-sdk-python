@@ -32,7 +32,7 @@ class CompanyTransferRequest(JDCloudRequest):
 
 class CompanyTransferParameters(object):
 
-    def __init__(self, accountInfo):
+    def __init__(self,accountInfo):
         """
         :param accountInfo: 
         """

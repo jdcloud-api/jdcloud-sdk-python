@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeContainerRequest(JDCloudRequest):
     """
-    查询一台原生容器的详细信息
+    "查询一台原生容器的详细信息"
 
     """
 

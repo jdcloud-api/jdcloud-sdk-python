@@ -19,13 +19,13 @@
 
 class ContainerSpec(object):
 
-    def __init__(self, name, image, systemDisk, command=None, args=None, env=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, volumeMounts=None):
+    def __init__(self, name, systemDisk, command=None, args=None, env=None, image=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, volumeMounts=None, imageCacheId=None):
         """
         :param name:  容器名称，符合DNS-1123 label规范，在一个Pod内不可重复、不支持修改
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT。总长度256个字符。
         :param args: (Optional) 容器执行命令的参数，如果不指定默认是docker镜像的CMD。总长度2048个字符。
         :param env: (Optional) 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值。数组范围：[0-100]
-        :param image:  镜像名称 </br>
+        :param image: (Optional) 镜像名称 </br>
 容器镜像名字。 nginx:latest。长度范围：[1-639]
 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 </br> 
 2. repository长度最大256个字符，tag最大128个字符，registry最大255个字符 </br> 
@@ -38,6 +38,7 @@ class ContainerSpec(object):
         :param resources: (Optional) 容器计算资源配置
         :param systemDisk:  容器计算资源配置
         :param volumeMounts: (Optional) 云盘挂载信息
+        :param imageCacheId: (Optional) 镜像缓存ID，与镜像名称至少指定一个
         """
 
         self.name = name
@@ -53,3 +54,4 @@ class ContainerSpec(object):
         self.resources = resources
         self.systemDisk = systemDisk
         self.volumeMounts = volumeMounts
+        self.imageCacheId = imageCacheId

@@ -19,27 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeQuotaRequest(JDCloudRequest):
+class CreateImageCacheRequest(JDCloudRequest):
     """
-    查询资源的配额，支持：原生容器,pod,secret,镜像缓存
+    创建一个镜像缓存信息。镜像缓存加速是将镜像预先拉取到一个云盘中并制作为云盘快照，
+用户在创建Pod/NC时，若使用的镜像已经有镜像缓存，则可以直接基于该镜像缓存对应的快照制作云盘，并挂载为该容器的系统盘，避免重复拉取镜像并加快创建速度。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeQuotaRequest, self).__init__(
-            '/regions/{regionId}/quotas', 'GET', header, version)
+        super(CreateImageCacheRequest, self).__init__(
+            '/regions/{regionId}/imageCache', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeQuotaParameters(object):
+class CreateImageCacheParameters(object):
 
-    def __init__(self,regionId, resourceType):
+    def __init__(self,regionId, imageCacheSpec):
         """
         :param regionId: Region ID
-        :param resourceType: resourceType - 资源类型，支持 [container, pod, secret, imageCache]
-
+        :param imageCacheSpec: 镜像缓存创建参数
         """
 
         self.regionId = regionId
-        self.resourceType = resourceType
+        self.name = None
+        self.imageCacheSpec = imageCacheSpec
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 镜像缓存名称
+        """
+        self.name = name
 

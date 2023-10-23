@@ -19,27 +19,40 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeQuotaRequest(JDCloudRequest):
+class UpdateImageCacheRequest(JDCloudRequest):
     """
-    查询资源的配额，支持：原生容器,pod,secret,镜像缓存
+    修改镜像缓存的属性。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeQuotaRequest, self).__init__(
-            '/regions/{regionId}/quotas', 'GET', header, version)
+        super(UpdateImageCacheRequest, self).__init__(
+            '/regions/{regionId}/imageCache/{imageCacheId}:update', 'PATCH', header, version)
         self.parameters = parameters
 
 
-class DescribeQuotaParameters(object):
+class UpdateImageCacheParameters(object):
 
-    def __init__(self,regionId, resourceType):
+    def __init__(self,regionId, imageCacheId, ):
         """
         :param regionId: Region ID
-        :param resourceType: resourceType - 资源类型，支持 [container, pod, secret, imageCache]
-
+        :param imageCacheId: imageCacheId
         """
 
         self.regionId = regionId
-        self.resourceType = resourceType
+        self.imageCacheId = imageCacheId
+        self.name = None
+        self.retentionDays = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 新的镜像缓存名称
+        """
+        self.name = name
+
+    def setRetentionDays(self, retentionDays):
+        """
+        :param retentionDays: (Optional) 新的保留日期，以创建时间为准计算过期时间，新的过期时间不得为当前时间之前
+        """
+        self.retentionDays = retentionDays
 

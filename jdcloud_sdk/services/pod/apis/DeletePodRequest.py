@@ -35,7 +35,7 @@ class DeletePodRequest(JDCloudRequest):
 
 class DeletePodParameters(object):
 
-    def __init__(self,regionId, podId):
+    def __init__(self,regionId, podId, ):
         """
         :param regionId: Region ID
         :param podId: Pod ID
@@ -43,4 +43,12 @@ class DeletePodParameters(object):
 
         self.regionId = regionId
         self.podId = podId
+        self.deletePrimaryNetworkInterfaceAllElasticIp = None
+
+    def setDeletePrimaryNetworkInterfaceAllElasticIp(self, deletePrimaryNetworkInterfaceAllElasticIp):
+        """
+        :param deletePrimaryNetworkInterfaceAllElasticIp: (Optional) 是否删除主机的主网卡绑定的所有弹性公网IP，默认为否。可选值：`true`，`false`。
+
+        """
+        self.deletePrimaryNetworkInterfaceAllElasticIp = deletePrimaryNetworkInterfaceAllElasticIp
 

@@ -19,27 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeQuotaRequest(JDCloudRequest):
+class CreateImageCachesRequest(JDCloudRequest):
     """
-    查询资源的配额，支持：原生容器,pod,secret,镜像缓存
+    批量创建镜像缓存。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeQuotaRequest, self).__init__(
-            '/regions/{regionId}/quotas', 'GET', header, version)
+        super(CreateImageCachesRequest, self).__init__(
+            '/regions/{regionId}/imageCaches', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeQuotaParameters(object):
+class CreateImageCachesParameters(object):
 
-    def __init__(self,regionId, resourceType):
+    def __init__(self,regionId, imageCacheSpecs):
         """
         :param regionId: Region ID
-        :param resourceType: resourceType - 资源类型，支持 [container, pod, secret, imageCache]
-
+        :param imageCacheSpecs: 镜像缓存创建参数
         """
 
         self.regionId = regionId
-        self.resourceType = resourceType
+        self.name = None
+        self.imageCacheSpecs = imageCacheSpecs
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 镜像缓存名称
+
+        """
+        self.name = name
 

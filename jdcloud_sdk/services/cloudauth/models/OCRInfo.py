@@ -19,23 +19,18 @@
 
 class OCRInfo(object):
 
-    def __init__(self, status=None, name=None, nation=None, address=None, idNumber=None, birthday=None, gender=None):
+    def __init__(self, status=None, name=None, nation=None, address=None, idNumber=None, birthday=None, gender=None, authority=None, issueTime=None, dueTime=None):
         """
-        :param status: (Optional) normal-识别正常
-reversed_side-身份证正反面颠倒
-non_idcard-上传的图片中不包含身份证
-blurred-身份证模糊
-other_type_card-其他类型证照
-over_exposure-身份证关键字段反光或过曝
-over_dark-身份证欠曝（亮度过低）
-unknown-未知状态
-
+        :param status: (Optional) 识别状态
         :param name: (Optional) 姓名
         :param nation: (Optional) 民族
         :param address: (Optional) 住址
         :param idNumber: (Optional) 身份证号
         :param birthday: (Optional) 出生日期
         :param gender: (Optional) 性别
+        :param authority: (Optional) 签发机构
+        :param issueTime: (Optional) 签发时间
+        :param dueTime: (Optional) 到期时间
         """
 
         self.status = status
@@ -45,3 +40,6 @@ unknown-未知状态
         self.idNumber = idNumber
         self.birthday = birthday
         self.gender = gender
+        self.authority = authority
+        self.issueTime = issueTime
+        self.dueTime = dueTime

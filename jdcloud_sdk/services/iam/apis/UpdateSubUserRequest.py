@@ -32,7 +32,7 @@ class UpdateSubUserRequest(JDCloudRequest):
 
 class UpdateSubUserParameters(object):
 
-    def __init__(self, subUser, updateSubUserInfo):
+    def __init__(self,subUser, updateSubUserInfo):
         """
         :param subUser: 子用户名
         :param updateSubUserInfo: 子用户信息

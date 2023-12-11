@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateGroupRequest(JDCloudRequest):
     """
-    创建用户组
+    创建用户组, <br>
+可访问<a href="https://docs.jdcloud.com/cn/iam/group-management">用户组管理</a>了解更多<br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class CreateGroupRequest(JDCloudRequest):
 
 class CreateGroupParameters(object):
 
-    def __init__(self, createGroupInfo):
+    def __init__(self,createGroupInfo):
         """
         :param createGroupInfo: 
         """

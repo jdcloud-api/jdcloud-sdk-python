@@ -19,17 +19,19 @@
 
 class CreateSubUserInfo(object):
 
-    def __init__(self, name, password, phone, email, description=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None):
+    def __init__(self, name, password, description=None, phone=None, email=None, nickName=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None, contactTag=None):
         """
         :param name:  子用户名，支持4~20位的字母，数字以及-和_，以字母开头
         :param description: (Optional) 描述，0~256个字符
         :param password:  按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
-        :param phone:  手机号码，区号-手机号
-        :param email:  邮箱
+        :param phone: (Optional) 手机号码，区号-手机号
+        :param email: (Optional) 邮箱
+        :param nickName: (Optional) 姓名
         :param createAk: (Optional) 是否创建accessKey，默认false
         :param needResetPassword: (Optional) 子用户首次登录是否需要重置密码，默认false
         :param consoleLogin: (Optional) 子用户是否支持控制台登录，默认true
         :param autoGeneratePassword: (Optional) 是否自动生成密码，默认false
+        :param contactTag: (Optional) 是否作为联系人，默认false,为true时手机和邮箱必需
         """
 
         self.name = name
@@ -37,7 +39,9 @@ class CreateSubUserInfo(object):
         self.password = password
         self.phone = phone
         self.email = email
+        self.nickName = nickName
         self.createAk = createAk
         self.needResetPassword = needResetPassword
         self.consoleLogin = consoleLogin
         self.autoGeneratePassword = autoGeneratePassword
+        self.contactTag = contactTag

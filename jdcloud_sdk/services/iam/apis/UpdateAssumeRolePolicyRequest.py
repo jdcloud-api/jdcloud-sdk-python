@@ -32,7 +32,7 @@ class UpdateAssumeRolePolicyRequest(JDCloudRequest):
 
 class UpdateAssumeRolePolicyParameters(object):
 
-    def __init__(self, roleName, updateAssumeRolePolicyInfo):
+    def __init__(self,roleName, updateAssumeRolePolicyInfo):
         """
         :param roleName: 角色名称
         :param updateAssumeRolePolicyInfo: 角色权限信息

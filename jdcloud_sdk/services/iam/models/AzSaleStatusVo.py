@@ -19,13 +19,15 @@
 
 class AzSaleStatusVo(object):
 
-    def __init__(self, az=None, canSale=None, visible=None):
+    def __init__(self, az=None, canSale=None, visible=None, zoneType=None):
         """
-        :param az: (Optional) null
+        :param az: (Optional) 
         :param canSale: (Optional) 是否售罄 (0未售罄 1售罄)
         :param visible: (Optional) 是否可见(1可见 0不可见)
+        :param zoneType: (Optional) 可用区类别:AZ-center EZ-edge
         """
 
         self.az = az
         self.canSale = canSale
         self.visible = visible
+        self.zoneType = zoneType

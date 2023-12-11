@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreatePermissionRequest(JDCloudRequest):
     """
-    创建策略
+    创建策略 <br>
+关于策略的详细介绍，可以查询<a href="https://docs.jdcloud.com/cn/iam/policy-overview">策略概览</a> <br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class CreatePermissionRequest(JDCloudRequest):
 
 class CreatePermissionParameters(object):
 
-    def __init__(self, regionId, createPermissionInfo):
+    def __init__(self,regionId, createPermissionInfo):
         """
         :param regionId: Region ID
         :param createPermissionInfo: 权限信息

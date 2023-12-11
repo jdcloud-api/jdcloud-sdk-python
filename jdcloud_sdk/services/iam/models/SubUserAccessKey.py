@@ -19,17 +19,23 @@
 
 class SubUserAccessKey(object):
 
-    def __init__(self, accessKey=None, secretAccessKey=None, createTime=None, status=None, yn=None):
+    def __init__(self, accessKey=None, secretAccessKey=None, createTime=None, lastVisitTime=None, lastVisitEvent=None, status=None, yn=None, remark=None):
         """
         :param accessKey: (Optional) accessKey
         :param secretAccessKey: (Optional) secretAccessKey
         :param createTime: (Optional) 创建时间
+        :param lastVisitTime: (Optional) 最近一次使用AK访问时间
+        :param lastVisitEvent: (Optional) 最近一次使用AK访问事件
         :param status: (Optional) 禁用/启用状态[0-禁用,1-启用]
         :param yn: (Optional) 删除/有效状态[0-删除,1-有效]
+        :param remark: (Optional) AK备注信息
         """
 
         self.accessKey = accessKey
         self.secretAccessKey = secretAccessKey
         self.createTime = createTime
+        self.lastVisitTime = lastVisitTime
+        self.lastVisitEvent = lastVisitEvent
         self.status = status
         self.yn = yn
+        self.remark = remark

@@ -32,7 +32,7 @@ class DescribeGroupRequest(JDCloudRequest):
 
 class DescribeGroupParameters(object):
 
-    def __init__(self, groupName, ):
+    def __init__(self,groupName):
         """
         :param groupName: 用户组名称
         """

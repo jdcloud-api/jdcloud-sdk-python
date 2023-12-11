@@ -32,7 +32,7 @@ class DescribePermissionDetailRequest(JDCloudRequest):
 
 class DescribePermissionDetailParameters(object):
 
-    def __init__(self, regionId, permissionId, ):
+    def __init__(self,regionId, permissionId):
         """
         :param regionId: Region ID
         :param permissionId: 权限id

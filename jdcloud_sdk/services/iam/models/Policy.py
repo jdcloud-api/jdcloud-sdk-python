@@ -19,7 +19,7 @@
 
 class Policy(object):
 
-    def __init__(self, policyId=None, name=None, jrn=None, description=None, policyType=None, version=None, defaultEdition=None, createTime=None, updateTime=None):
+    def __init__(self, policyId=None, name=None, jrn=None, description=None, policyType=None, version=None, currentDefaultEdition=None, createTime=None, updateTime=None, scopeType=None):
         """
         :param policyId: (Optional) 策略id
         :param name: (Optional) 策略名称
@@ -27,9 +27,10 @@ class Policy(object):
         :param description: (Optional) 描述
         :param policyType: (Optional) 策略类型：0-系统策略，1-用户策略
         :param version: (Optional) 策略版本号
-        :param defaultEdition: (Optional) 默认策略文档版本
+        :param currentDefaultEdition: (Optional) 当前默认策略文档版本
         :param createTime: (Optional) 策略创建时间
         :param updateTime: (Optional) 策略更新时间
+        :param scopeType: (Optional) 授权范围类型：1-全部资源，2-指定资源
         """
 
         self.policyId = policyId
@@ -38,6 +39,7 @@ class Policy(object):
         self.description = description
         self.policyType = policyType
         self.version = version
-        self.defaultEdition = defaultEdition
+        self.currentDefaultEdition = currentDefaultEdition
         self.createTime = createTime
         self.updateTime = updateTime
+        self.scopeType = scopeType

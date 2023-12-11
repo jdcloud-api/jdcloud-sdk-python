@@ -26,7 +26,7 @@ class PasswordPolicy(object):
         :param expirationOperation:  密码过期后重置方式：0-联系主账号重置，1-子用户登录后重置
         :param reusePrevention:  历史密码检查策略，禁止使用前(0~10)次密码，0表示不启用
         :param retryTimes:  1小时内使用错误密码最多(1~16)次
-        :param validLoginDuration:  
+        :param validLoginDuration:  登录有效期（分钟），15~720
         :param rule:  密码字符类型，至少包含一种
         """
 

@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateRoleRequest(JDCloudRequest):
     """
-    创建角色
+    创建角色 <br>
+关于角色的详细介绍，请请参考 <a href="https://docs.jdcloud.com/cn/iam/role-overview">角色概览</a> <br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class CreateRoleRequest(JDCloudRequest):
 
 class CreateRoleParameters(object):
 
-    def __init__(self, createRoleInfo):
+    def __init__(self,createRoleInfo):
         """
         :param createRoleInfo: 角色信息
         """

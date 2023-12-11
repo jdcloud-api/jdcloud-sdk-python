@@ -32,7 +32,7 @@ class DescribeRoleRequest(JDCloudRequest):
 
 class DescribeRoleParameters(object):
 
-    def __init__(self, roleName, ):
+    def __init__(self,roleName):
         """
         :param roleName: 角色名称
         """

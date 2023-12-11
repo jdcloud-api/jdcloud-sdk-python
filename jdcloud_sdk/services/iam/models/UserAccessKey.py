@@ -19,17 +19,25 @@
 
 class UserAccessKey(object):
 
-    def __init__(self, accessKey=None, accessKeySecret=None, createTime=None, state=None, yn=None):
+    def __init__(self, accessKey=None, accessKeySecret=None, createTime=None, modified=None, lastVisitTime=None, lastVisitEvent=None, state=None, yn=None, remark=None):
         """
         :param accessKey: (Optional) accessKey
         :param accessKeySecret: (Optional) accessKeySecret
         :param createTime: (Optional) 创建时间
+        :param modified: (Optional) 修改时间
+        :param lastVisitTime: (Optional) 最近一次使用AK访问时间
+        :param lastVisitEvent: (Optional) 最近一次使用AK访问事件
         :param state: (Optional) 禁用/启用状态[0-禁用,1-启用]
         :param yn: (Optional) 删除/有效状态[0-删除,1-有效]
+        :param remark: (Optional) AK备注信息
         """
 
         self.accessKey = accessKey
         self.accessKeySecret = accessKeySecret
         self.createTime = createTime
+        self.modified = modified
+        self.lastVisitTime = lastVisitTime
+        self.lastVisitEvent = lastVisitEvent
         self.state = state
         self.yn = yn
+        self.remark = remark

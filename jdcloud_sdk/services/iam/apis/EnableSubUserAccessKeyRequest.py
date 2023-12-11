@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnableSubUserAccessKeyRequest(JDCloudRequest):
     """
-    启用子用户AccessKey
+    启用子用户AccessKey <br>, 启用后accessKey 的状态变成 1 <b>启用</b>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class EnableSubUserAccessKeyRequest(JDCloudRequest):
 
 class EnableSubUserAccessKeyParameters(object):
 
-    def __init__(self, subUser, accessKey, ):
+    def __init__(self,subUser, accessKey):
         """
         :param subUser: 子用户名称
         :param accessKey: accessKey

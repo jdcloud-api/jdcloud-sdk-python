@@ -19,13 +19,15 @@
 
 class PolicyEdition(object):
 
-    def __init__(self, isDefaultEdition=None, edition=None, createTime=None):
+    def __init__(self, isDefaultEdition=None, edition=None, policyDocument=None, createTime=None):
         """
         :param isDefaultEdition: (Optional) 是否为默认版本
         :param edition: (Optional) 策略文档版本
-        :param createTime: (Optional) 策略创建时间
+        :param policyDocument: (Optional) 权限策略内容
+        :param createTime: (Optional) 创建时间
         """
 
         self.isDefaultEdition = isDefaultEdition
         self.edition = edition
+        self.policyDocument = policyDocument
         self.createTime = createTime

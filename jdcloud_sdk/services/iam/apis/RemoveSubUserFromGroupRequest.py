@@ -32,7 +32,7 @@ class RemoveSubUserFromGroupRequest(JDCloudRequest):
 
 class RemoveSubUserFromGroupParameters(object):
 
-    def __init__(self, groupName, subUser):
+    def __init__(self,groupName, subUser):
         """
         :param groupName: 用户组名称
         :param subUser: 子用户名

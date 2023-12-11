@@ -32,7 +32,7 @@ class DescribeGroupsRequest(JDCloudRequest):
 
 class DescribeGroupsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

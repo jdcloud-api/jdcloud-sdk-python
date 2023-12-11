@@ -19,15 +19,19 @@
 
 class RolePolicy(object):
 
-    def __init__(self, policyName=None, description=None, type=None, policyJrn=None):
+    def __init__(self, policyId=None, policyName=None, description=None, type=None, policyJrn=None, scopeType=None):
         """
+        :param policyId: (Optional) 策略id
         :param policyName: (Optional) 策略名称
         :param description: (Optional) 描述
         :param type: (Optional) 策略类型：0-系统策略，1-用户策略
         :param policyJrn: (Optional) 京东云策略资源描述
+        :param scopeType: (Optional) 授权范围类型：1-全部资源，2-指定资源
         """
 
+        self.policyId = policyId
         self.policyName = policyName
         self.description = description
         self.type = type
         self.policyJrn = policyJrn
+        self.scopeType = scopeType

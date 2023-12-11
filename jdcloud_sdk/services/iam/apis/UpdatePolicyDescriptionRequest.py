@@ -32,7 +32,7 @@ class UpdatePolicyDescriptionRequest(JDCloudRequest):
 
 class UpdatePolicyDescriptionParameters(object):
 
-    def __init__(self, policyName, updatePolicyDescriptionInfo):
+    def __init__(self,policyName, updatePolicyDescriptionInfo):
         """
         :param policyName: 策略名称
         :param updatePolicyDescriptionInfo: 策略描述信息

@@ -22,6 +22,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DeleteSubUserAccessKeyRequest(JDCloudRequest):
     """
     删除子用户的AccessKey
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class DeleteSubUserAccessKeyRequest(JDCloudRequest):
 
 class DeleteSubUserAccessKeyParameters(object):
 
-    def __init__(self, subUser, accessKey, ):
+    def __init__(self,subUser, accessKey):
         """
         :param subUser: 子用户名称
         :param accessKey: accessKey

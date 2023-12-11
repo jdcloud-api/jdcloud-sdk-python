@@ -32,7 +32,7 @@ class DescribeRolePoliciesRequest(JDCloudRequest):
 
 class DescribeRolePoliciesParameters(object):
 
-    def __init__(self, roleName, sort):
+    def __init__(self,roleName, sort):
         """
         :param roleName: 角色名称
         :param sort: 排序策略,0-按创建时间顺序排序  1-按创建时间倒序

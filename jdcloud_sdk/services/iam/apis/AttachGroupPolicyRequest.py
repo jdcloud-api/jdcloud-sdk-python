@@ -32,7 +32,7 @@ class AttachGroupPolicyRequest(JDCloudRequest):
 
 class AttachGroupPolicyParameters(object):
 
-    def __init__(self, groupName, policyName):
+    def __init__(self,groupName, policyName, ):
         """
         :param groupName: 用户组名称
         :param policyName: 策略名称
@@ -40,4 +40,18 @@ class AttachGroupPolicyParameters(object):
 
         self.groupName = groupName
         self.policyName = policyName
+        self.scopeId = None
+        self.allowAddPolicy = None
+
+    def setScopeId(self, scopeId):
+        """
+        :param scopeId: (Optional) 资源组id
+        """
+        self.scopeId = scopeId
+
+    def setAllowAddPolicy(self, allowAddPolicy):
+        """
+        :param allowAddPolicy: (Optional) 允许添加策略绑定："Deny" 不允许，Allow 允许，空情况默认允许，兼容历史数据
+        """
+        self.allowAddPolicy = allowAddPolicy
 

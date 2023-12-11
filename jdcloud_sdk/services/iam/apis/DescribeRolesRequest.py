@@ -32,7 +32,7 @@ class DescribeRolesRequest(JDCloudRequest):
 
 class DescribeRolesParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

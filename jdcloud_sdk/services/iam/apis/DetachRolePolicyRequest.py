@@ -32,7 +32,7 @@ class DetachRolePolicyRequest(JDCloudRequest):
 
 class DetachRolePolicyParameters(object):
 
-    def __init__(self, roleName, policyName):
+    def __init__(self,roleName, policyName, ):
         """
         :param roleName: 角色名称
         :param policyName: 策略名称
@@ -40,4 +40,18 @@ class DetachRolePolicyParameters(object):
 
         self.roleName = roleName
         self.policyName = policyName
+        self.scopeId = None
+        self.allowDetachAddPolicy = None
+
+    def setScopeId(self, scopeId):
+        """
+        :param scopeId: (Optional) 资源组id
+        """
+        self.scopeId = scopeId
+
+    def setAllowDetachAddPolicy(self, allowDetachAddPolicy):
+        """
+        :param allowDetachAddPolicy: (Optional) 允许解除策略："Deny" 不允许，Allow 允许，空情况默认允许，兼容历史数据
+        """
+        self.allowDetachAddPolicy = allowDetachAddPolicy
 

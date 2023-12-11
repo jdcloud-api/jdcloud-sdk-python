@@ -32,7 +32,7 @@ class DescribePermissionsRequest(JDCloudRequest):
 
 class DescribePermissionsParameters(object):
 
-    def __init__(self, regionId, pageNumber, pageSize, queryType):
+    def __init__(self,regionId, pageNumber, pageSize, queryType):
         """
         :param regionId: Region ID
         :param pageNumber: 页码

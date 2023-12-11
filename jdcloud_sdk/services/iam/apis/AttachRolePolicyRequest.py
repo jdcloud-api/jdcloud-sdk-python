@@ -32,7 +32,7 @@ class AttachRolePolicyRequest(JDCloudRequest):
 
 class AttachRolePolicyParameters(object):
 
-    def __init__(self, roleName, policyName):
+    def __init__(self,roleName, policyName, ):
         """
         :param roleName: 角色名称
         :param policyName: 策略名称
@@ -40,4 +40,18 @@ class AttachRolePolicyParameters(object):
 
         self.roleName = roleName
         self.policyName = policyName
+        self.scopeId = None
+        self.allowAddPolicy = None
+
+    def setScopeId(self, scopeId):
+        """
+        :param scopeId: (Optional) 资源组id
+        """
+        self.scopeId = scopeId
+
+    def setAllowAddPolicy(self, allowAddPolicy):
+        """
+        :param allowAddPolicy: (Optional) 允许添加策略绑定："Deny" 不允许，Allow 允许，空情况默认允许，兼容历史数据
+        """
+        self.allowAddPolicy = allowAddPolicy
 

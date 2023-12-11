@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class EnabledUserAccessKeyRequest(JDCloudRequest):
     """
-    启用主账号AccessKey
+    启用主账号AccessKey, <br> 启用后accessKey的状态变成 1 <b>启用</b>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class EnabledUserAccessKeyRequest(JDCloudRequest):
 
 class EnabledUserAccessKeyParameters(object):
 
-    def __init__(self, regionId, accessKey, ):
+    def __init__(self,regionId, accessKey):
         """
         :param regionId: Region ID
         :param accessKey: accessKey

@@ -19,8 +19,9 @@
 
 class SubUser(object):
 
-    def __init__(self, name=None, phone=None, email=None, description=None, account=None, createTime=None, updateTime=None):
+    def __init__(self, pin=None, name=None, phone=None, email=None, description=None, account=None, createTime=None, updateTime=None, nickName=None):
         """
+        :param pin: (Optional) 用户pin
         :param name: (Optional) 用户名
         :param phone: (Optional) 手机号码
         :param email: (Optional) 邮箱
@@ -28,8 +29,10 @@ class SubUser(object):
         :param account: (Optional) 主账号
         :param createTime: (Optional) 用户创建时间
         :param updateTime: (Optional) 用户更新时间
+        :param nickName: (Optional) 姓名
         """
 
+        self.pin = pin
         self.name = name
         self.phone = phone
         self.email = email
@@ -37,3 +40,4 @@ class SubUser(object):
         self.account = account
         self.createTime = createTime
         self.updateTime = updateTime
+        self.nickName = nickName

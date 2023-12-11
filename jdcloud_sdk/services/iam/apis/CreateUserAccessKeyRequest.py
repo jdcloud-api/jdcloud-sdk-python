@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateUserAccessKeyRequest(JDCloudRequest):
     """
-    创建主账号AccessKey
+    创建主账号AccessKey, <br> 最多可创建5个
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class CreateUserAccessKeyRequest(JDCloudRequest):
 
 class CreateUserAccessKeyParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId):
         """
         :param regionId: Region ID
         """

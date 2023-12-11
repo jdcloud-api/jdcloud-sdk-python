@@ -32,7 +32,7 @@ class DescribeSubUserPermissionsRequest(JDCloudRequest):
 
 class DescribeSubUserPermissionsParameters(object):
 
-    def __init__(self, regionId, subUser, pageNumber, pageSize):
+    def __init__(self,regionId, subUser, pageNumber, pageSize):
         """
         :param regionId: Region ID
         :param subUser: 子用户用户名

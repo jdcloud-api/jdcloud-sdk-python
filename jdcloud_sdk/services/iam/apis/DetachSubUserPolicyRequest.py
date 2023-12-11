@@ -32,7 +32,7 @@ class DetachSubUserPolicyRequest(JDCloudRequest):
 
 class DetachSubUserPolicyParameters(object):
 
-    def __init__(self, subUser, policyName):
+    def __init__(self,subUser, policyName, ):
         """
         :param subUser: 子用户名
         :param policyName: 策略名称
@@ -40,4 +40,18 @@ class DetachSubUserPolicyParameters(object):
 
         self.subUser = subUser
         self.policyName = policyName
+        self.scopeId = None
+        self.allowDetachAddPolicy = None
+
+    def setScopeId(self, scopeId):
+        """
+        :param scopeId: (Optional) 资源组id
+        """
+        self.scopeId = scopeId
+
+    def setAllowDetachAddPolicy(self, allowDetachAddPolicy):
+        """
+        :param allowDetachAddPolicy: (Optional) 允许解除策略："Deny" 不允许，Allow 允许，空情况默认允许，兼容历史数据
+        """
+        self.allowDetachAddPolicy = allowDetachAddPolicy
 

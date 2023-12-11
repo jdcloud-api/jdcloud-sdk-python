@@ -32,7 +32,7 @@ class UpdatePermissionRequest(JDCloudRequest):
 
 class UpdatePermissionParameters(object):
 
-    def __init__(self, regionId, permissionId, updatePermissionInfo):
+    def __init__(self,regionId, permissionId, updatePermissionInfo):
         """
         :param regionId: Region ID
         :param permissionId: 权限id

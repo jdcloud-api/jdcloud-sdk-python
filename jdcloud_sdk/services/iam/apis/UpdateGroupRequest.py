@@ -32,7 +32,7 @@ class UpdateGroupRequest(JDCloudRequest):
 
 class UpdateGroupParameters(object):
 
-    def __init__(self, groupName, updateGroupInfo):
+    def __init__(self,groupName, updateGroupInfo):
         """
         :param groupName: 用户组名称
         :param updateGroupInfo: 

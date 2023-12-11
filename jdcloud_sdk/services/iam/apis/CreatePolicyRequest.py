@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreatePolicyRequest(JDCloudRequest):
     """
-    创建策略
+    创建策略, <br>
+访问 <a href="https://docs.jdcloud.com/cn/iam/policy-overview">策略管理</a> 了解更多内容 <br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class CreatePolicyRequest(JDCloudRequest):
 
 class CreatePolicyParameters(object):
 
-    def __init__(self, createPolicyInfo):
+    def __init__(self,createPolicyInfo):
         """
         :param createPolicyInfo: 策略信息
         """

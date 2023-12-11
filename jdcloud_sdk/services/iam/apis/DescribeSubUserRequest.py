@@ -32,7 +32,7 @@ class DescribeSubUserRequest(JDCloudRequest):
 
 class DescribeSubUserParameters(object):
 
-    def __init__(self, subUser, ):
+    def __init__(self,subUser):
         """
         :param subUser: 子用户名
         """

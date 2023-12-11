@@ -32,7 +32,7 @@ class RemovePermissionOfSubUserRequest(JDCloudRequest):
 
 class RemovePermissionOfSubUserParameters(object):
 
-    def __init__(self, regionId, permissionId, subUser, ):
+    def __init__(self,regionId, permissionId, subUser):
         """
         :param regionId: Region ID
         :param permissionId: 权限id

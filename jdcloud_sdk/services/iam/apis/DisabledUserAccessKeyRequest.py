@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DisabledUserAccessKeyRequest(JDCloudRequest):
     """
-    禁用主账号AccessKey
+    禁用主账号AccessKey, <br> 禁用后accessKey的状态变成 0 <b>禁用</b>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +33,7 @@ class DisabledUserAccessKeyRequest(JDCloudRequest):
 
 class DisabledUserAccessKeyParameters(object):
 
-    def __init__(self, regionId, accessKey, ):
+    def __init__(self,regionId, accessKey):
         """
         :param regionId: Region ID
         :param accessKey: accessKey

@@ -32,7 +32,7 @@ class DescribeSubUsersRequest(JDCloudRequest):
 
 class DescribeSubUsersParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
@@ -40,6 +40,11 @@ class DescribeSubUsersParameters(object):
         self.pageSize = None
         self.keyword = None
         self.sort = None
+        self.phone = None
+        self.email = None
+        self.description = None
+        self.nickName = None
+        self.name = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -64,4 +69,34 @@ class DescribeSubUsersParameters(object):
         :param sort: (Optional) 排序规则：0-创建时间顺序排序，1-创建时间倒序排序
         """
         self.sort = sort
+
+    def setPhone(self, phone):
+        """
+        :param phone: (Optional) 手机号，和keyword互斥，不要都传
+        """
+        self.phone = phone
+
+    def setEmail(self, email):
+        """
+        :param email: (Optional) 邮箱，和keyword互斥，不要都传
+        """
+        self.email = email
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 用户姓名，和keyword互斥，不要都传
+        """
+        self.description = description
+
+    def setNickName(self, nickName):
+        """
+        :param nickName: (Optional) 子用户别名
+        """
+        self.nickName = nickName
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 子用户姓名
+        """
+        self.name = name
 

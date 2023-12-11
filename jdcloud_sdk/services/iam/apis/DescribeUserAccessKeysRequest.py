@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeUserAccessKeysRequest(JDCloudRequest):
     """
-    查询主账号AccessKey列表
+    查询主账号AccessKey列表 <br>
+关于AccessKey的介绍和使用，请参考 <a href="https://docs.jdcloud.com/cn/account-management/accesskey-management">Accesskey管理</a> <br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class DescribeUserAccessKeysRequest(JDCloudRequest):
 
 class DescribeUserAccessKeysParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId):
         """
         :param regionId: Region ID
         """

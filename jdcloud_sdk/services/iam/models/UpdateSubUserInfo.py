@@ -19,13 +19,15 @@
 
 class UpdateSubUserInfo(object):
 
-    def __init__(self, description=None, phone=None, email=None):
+    def __init__(self, description=None, phone=None, email=None, nickName=None):
         """
         :param description: (Optional) 描述，0~256个字符
         :param phone: (Optional) 手机号码，区号-手机号
         :param email: (Optional) 邮箱
+        :param nickName: (Optional) 姓名
         """
 
         self.description = description
         self.phone = phone
         self.email = email
+        self.nickName = nickName

@@ -32,7 +32,7 @@ class AddPermissionsToSubUserRequest(JDCloudRequest):
 
 class AddPermissionsToSubUserParameters(object):
 
-    def __init__(self, regionId, subUser, addPermissionsInfo):
+    def __init__(self,regionId, subUser, addPermissionsInfo):
         """
         :param regionId: Region ID
         :param subUser: 子用户用户名

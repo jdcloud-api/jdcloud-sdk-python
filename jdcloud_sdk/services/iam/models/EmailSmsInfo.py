@@ -22,13 +22,13 @@ class EmailSmsInfo(object):
     def __init__(self, createPin, sendType, receives, templateId, templateParam, smsMessageSource, title=None, content=None):
         """
         :param createPin:  用户pin
-        :param title: (Optional) 邮件标题
+        :param title: (Optional) 邮件标题，短信不填
         :param sendType:  发送类型 1 发邮件 2 发短信
-        :param content: (Optional) 邮件内容
+        :param content: (Optional) 邮件内容，短信不填
         :param receives:  接收人
-        :param templateId:  模版code
-        :param templateParam:  模版参数
-        :param smsMessageSource:  业务编码(和产品申请)
+        :param templateId:  模版code，短信必填，邮件不填
+        :param templateParam:  模版参数，短信必填，邮件不填
+        :param smsMessageSource:  业务编码(和产品申请),短信必填，邮件不填
         """
 
         self.createPin = createPin

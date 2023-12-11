@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateSubUserRequest(JDCloudRequest):
     """
-    创建子用户
+    创建子用户, <br>
+请访问<a href="https://docs.jdcloud.com/cn/iam/subuser-management">子用户管理</a>了解更多 <br>
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +34,7 @@ class CreateSubUserRequest(JDCloudRequest):
 
 class CreateSubUserParameters(object):
 
-    def __init__(self, createSubUserInfo):
+    def __init__(self,createSubUserInfo):
         """
         :param createSubUserInfo: 子用户信息
         """

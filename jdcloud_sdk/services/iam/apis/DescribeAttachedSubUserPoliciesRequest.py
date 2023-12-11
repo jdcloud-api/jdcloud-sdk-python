@@ -32,7 +32,7 @@ class DescribeAttachedSubUserPoliciesRequest(JDCloudRequest):
 
 class DescribeAttachedSubUserPoliciesParameters(object):
 
-    def __init__(self, subUser, ):
+    def __init__(self,subUser):
         """
         :param subUser: 子用户名
         """

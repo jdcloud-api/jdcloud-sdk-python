@@ -32,7 +32,7 @@ class DescribePoliciesRequest(JDCloudRequest):
 
 class DescribePoliciesParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

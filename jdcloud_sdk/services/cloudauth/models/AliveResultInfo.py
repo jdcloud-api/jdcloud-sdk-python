@@ -21,8 +21,8 @@ class AliveResultInfo(object):
 
     def __init__(self, faceImage=None, sceneImage=None, h5Result=None, smResult=None, rxResult=None, score=None, desc=None):
         """
-        :param faceImage: (Optional) 人脸照片
-        :param sceneImage: (Optional) 场景照片
+        :param faceImage: (Optional) 人脸照片base64
+        :param sceneImage: (Optional) 场景照片base64
         :param h5Result: (Optional) H5活体检测结果
         :param smResult: (Optional) 实名认证检测结果
         :param rxResult: (Optional) 人像对比结果

@@ -19,7 +19,7 @@
 
 class OCRInfo(object):
 
-    def __init__(self, status=None, name=None, nation=None, address=None, idNumber=None, birthday=None, gender=None, authority=None, issueTime=None, dueTime=None):
+    def __init__(self, status=None, name=None, nation=None, address=None, idNumber=None, birthday=None, gender=None, authority=None, issueTime=None, dueTime=None, chargeFlag=None):
         """
         :param status: (Optional) 识别状态
         :param name: (Optional) 姓名
@@ -31,6 +31,7 @@ class OCRInfo(object):
         :param authority: (Optional) 签发机构
         :param issueTime: (Optional) 签发时间
         :param dueTime: (Optional) 到期时间
+        :param chargeFlag: (Optional) 1收费，0不收费
         """
 
         self.status = status
@@ -43,3 +44,4 @@ class OCRInfo(object):
         self.authority = authority
         self.issueTime = issueTime
         self.dueTime = dueTime
+        self.chargeFlag = chargeFlag

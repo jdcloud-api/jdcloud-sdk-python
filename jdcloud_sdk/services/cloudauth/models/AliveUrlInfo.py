@@ -19,15 +19,17 @@
 
 class AliveUrlInfo(object):
 
-    def __init__(self, code=None, message=None, url=None, token=None):
+    def __init__(self, code=None, message=None, url=None, token=None, chargeFlag=None):
         """
         :param code: (Optional) 状态码
         :param message: (Optional) 状态信息
         :param url: (Optional) 采集页面URL
         :param token: (Optional) token(获取检测结果时需要用到)
+        :param chargeFlag: (Optional) 1收费，0不收费
         """
 
         self.code = code
         self.message = message
         self.url = url
         self.token = token
+        self.chargeFlag = chargeFlag

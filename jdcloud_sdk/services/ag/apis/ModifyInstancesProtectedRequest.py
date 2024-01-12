@@ -19,29 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ModifyInstancesManagedRequest(JDCloudRequest):
+class ModifyInstancesProtectedRequest(JDCloudRequest):
     """
-    弹性伸缩组内资源托管设置
+    弹性伸缩组内资源保护设置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ModifyInstancesManagedRequest, self).__init__(
-            '/regions/{regionId}/autoScaling/{agId}:modifyInstancesManaged', 'POST', header, version)
+        super(ModifyInstancesProtectedRequest, self).__init__(
+            '/regions/{regionId}/autoScaling/{agId}:modifyInstancesProtected', 'POST', header, version)
         self.parameters = parameters
 
 
-class ModifyInstancesManagedParameters(object):
+class ModifyInstancesProtectedParameters(object):
 
-    def __init__(self,regionId, agId, isManaged, instanceIds):
+    def __init__(self,regionId, agId, isProtected, instanceIds):
         """
         :param regionId: 地域
         :param agId: 高可用组 ID
-        :param isManaged: 实例是否托管给弹性伸缩组，托管后缩容时可以删除该实例。
+        :param isProtected: 实例在弹性伸缩组是否为保护状态，保护状态的实例缩容时不可以删除。
         :param instanceIds: 资源ID数组。
         """
 
         self.regionId = regionId
         self.agId = agId
-        self.isManaged = isManaged
+        self.isProtected = isProtected
         self.instanceIds = instanceIds
 

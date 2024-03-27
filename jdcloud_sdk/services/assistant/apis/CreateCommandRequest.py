@@ -44,7 +44,7 @@ class CreateCommandParameters(object):
         :param regionId: 地域ID。
         :param commandName: 命令名称，长度为1\~128个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
 
-        :param commandContent: 以base64编码的命令内容，编码后长度小于16KB
+        :param commandContent: 以base64编码的命令内容，编码后长度小于36KB
 
         """
 

@@ -19,23 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CheckCompanyTransferRequest(JDCloudRequest):
+class OneClickRequest(JDCloudRequest):
     """
-    对公打款验证
+    一键登录
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CheckCompanyTransferRequest, self).__init__(
-            '/company:check', 'POST', header, version)
+        super(OneClickRequest, self).__init__(
+            '/oneClick:login', 'POST', header, version)
         self.parameters = parameters
 
 
-class CheckCompanyTransferParameters(object):
+class OneClickParameters(object):
 
-    def __init__(self,checkInfo):
+    def __init__(self,token, appType):
         """
-        :param checkInfo: 
+        :param token: 移动端获取的token
+        :param appType: 应用类型（1 ios应用；2 H5应用；3 安卓应用）
         """
 
-        self.checkInfo = checkInfo
+        self.token = token
+        self.userInformation = None
+        self.appType = appType
+
+    def setUserInformation(self, userInformation):
+        """
+        :param userInformation: (Optional) 浏览器加密指纹（H5时必传）
+        """
+        self.userInformation = userInformation
 

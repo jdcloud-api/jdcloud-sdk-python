@@ -19,7 +19,7 @@
 
 class CompanyInfo(object):
 
-    def __init__(self, companyName, idCode, companyType=None, orgCode=None):
+    def __init__(self, companyName, idCode, companyType=None):
         """
         :param companyType: (Optional) 企业类型：
 0: 企业(ET_PE_QiYe)
@@ -28,10 +28,8 @@ class CompanyInfo(object):
 
         :param companyName:  企业名称
         :param idCode:  统一社会信用代码或营业执照注册号
-        :param orgCode: (Optional) 组织机构代码
         """
 
         self.companyType = companyType
         self.companyName = companyName
         self.idCode = idCode
-        self.orgCode = orgCode

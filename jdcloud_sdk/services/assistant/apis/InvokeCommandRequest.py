@@ -39,24 +39,45 @@ class InvokeCommandRequest(JDCloudRequest):
 
 class InvokeCommandParameters(object):
 
-    def __init__(self,regionId, commandId, instances, ):
+    def __init__(self,regionId, commandId, ):
         """
         :param regionId: 地域ID。
         :param commandId: 命令Id
-
-        :param instances: 运行该命令的云主机，最多云主机数50
 
         """
 
         self.regionId = regionId
         self.commandId = commandId
-        self.instances = instances
+        self.instances = None
+        self.tags = None
+        self.execTime = None
         self.timeout = None
         self.username = None
         self.workdir = None
         self.windowsPassword = None
         self.enableParameter = None
         self.parameters = None
+
+    def setInstances(self, instances):
+        """
+        :param instances: (Optional) 运行该命令的云主机，与tags查到云主机取并集，一次最多云主机数50
+
+        """
+        self.instances = instances
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 根据tags确定运行该命令的云主机，与指定instances云主机取并集，一次最多云主机数50
+
+        """
+        self.tags = tags
+
+    def setExecTime(self, execTime):
+        """
+        :param execTime: (Optional) 配置运行该命令的时刻，格式`yyyy-MM-dd HH:mm:ss`。不传该参数，立即执行命令。默认为空，可配置的时间范围为`当前时间+10minute`~`当前时间+6month`。
+
+        """
+        self.execTime = execTime
 
     def setTimeout(self, timeout):
         """

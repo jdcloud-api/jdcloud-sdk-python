@@ -26,4 +26,4 @@ class AssistantClient(JDCloudClient):
         if config is None:
             config = Config('assistant.jdcloud-api.com')
 
-        super(AssistantClient, self).__init__(credential, config, 'assistant', '1.0.0', logger)
+        super(AssistantClient, self).__init__(credential, config, 'assistant', '1.0.1', logger)

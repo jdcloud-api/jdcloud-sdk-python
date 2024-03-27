@@ -69,14 +69,14 @@ class DescribeCommandsParameters(object):
 
     def setCommandIds(self, commandIds):
         """
-        :param commandIds: (Optional) 命令Id
+        :param commandIds: (Optional) 命令Id，最多可传入100个命令Id
 
         """
         self.commandIds = commandIds
 
     def setCommandNames(self, commandNames):
         """
-        :param commandNames: (Optional) 命令名称，长度为1\~128个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
+        :param commandNames: (Optional) 命令名称，长度为1\~128个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。最多可传入100个命令名称。
 
         """
         self.commandNames = commandNames

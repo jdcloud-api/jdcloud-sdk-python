@@ -19,7 +19,7 @@
 
 class LoadBalancer(object):
 
-    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, tags=None, description=None, deleteProtection=None, createdTime=None, azType=None):
+    def __init__(self, loadBalancerId=None, loadBalancerName=None, subnetId=None, vpcId=None, type=None, state=None, azs=None, securityGroupIds=None, privateIp=None, charge=None, tags=None, description=None, deleteProtection=None, createdTime=None, azType=None, customizedConfigurationId=None):
         """
         :param loadBalancerId: (Optional) LoadBalancer的Id
         :param loadBalancerName: (Optional) LoadBalancer的名称
@@ -36,6 +36,7 @@ class LoadBalancer(object):
         :param deleteProtection: (Optional) 删除保护，取值为True(开启)或False(关闭)
         :param createdTime: (Optional) LoadBalancer的创建时间
         :param azType: (Optional) 负载均衡所在可用区类型，取值包括：standard(标准可用区)、edge(边缘可用区)
+        :param customizedConfigurationId: (Optional) 负载均衡绑定的个性化配置id
         """
 
         self.loadBalancerId = loadBalancerId
@@ -53,3 +54,4 @@ class LoadBalancer(object):
         self.deleteProtection = deleteProtection
         self.createdTime = createdTime
         self.azType = azType
+        self.customizedConfigurationId = customizedConfigurationId

@@ -32,7 +32,7 @@ class DescribeBackendsRequest(JDCloudRequest):
 
 class DescribeBackendsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """

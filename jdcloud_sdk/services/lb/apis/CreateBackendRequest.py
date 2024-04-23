@@ -32,7 +32,7 @@ class CreateBackendRequest(JDCloudRequest):
 
 class CreateBackendParameters(object):
 
-    def __init__(self, regionId,backendName, loadBalancerId, protocol, port, healthCheckSpec, ):
+    def __init__(self,regionId, backendName, loadBalancerId, protocol, port, healthCheckSpec, ):
         """
         :param regionId: Region ID
         :param backendName: 后端服务名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
@@ -51,6 +51,7 @@ class CreateBackendParameters(object):
         self.algorithm = None
         self.targetGroupIds = None
         self.agIds = None
+        self.agInfoSpec = None
         self.proxyProtocol = None
         self.description = None
         self.sessionStickiness = None
@@ -80,6 +81,12 @@ class CreateBackendParameters(object):
         :param agIds: (Optional) 高可用组的Id列表，目前只支持一个，且与targetGroupIds不能同时存在
         """
         self.agIds = agIds
+
+    def setAgInfoSpec(self, agInfoSpec):
+        """
+        :param agInfoSpec: (Optional) 高可用组属性设置:1.defatult_weight:默认权重, 优先级 agInfoSpec > agIds
+        """
+        self.agInfoSpec = agInfoSpec
 
     def setProxyProtocol(self, proxyProtocol):
         """

@@ -32,7 +32,7 @@ class DeleteLoadBalancerRequest(JDCloudRequest):
 
 class DeleteLoadBalancerParameters(object):
 
-    def __init__(self, regionId,loadBalancerId,):
+    def __init__(self,regionId, loadBalancerId, ):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID
@@ -40,4 +40,11 @@ class DeleteLoadBalancerParameters(object):
 
         self.regionId = regionId
         self.loadBalancerId = loadBalancerId
+        self.deleteElasticIp = None
+
+    def setDeleteElasticIp(self, deleteElasticIp):
+        """
+        :param deleteElasticIp: (Optional) 是否打包删除弹性公网IP，取值范围：true、false，默认false。true表示删除负载均衡时打包删除其绑定的弹性公网IP；false表示删除负载均衡时不删除其绑定的弹性公网IP。包年包月和无计费信息的弹性公网IP不支持打包删除
+        """
+        self.deleteElasticIp = deleteElasticIp
 

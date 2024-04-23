@@ -19,7 +19,7 @@
 
 class Listener(object):
 
-    def __init__(self, listenerId=None, listenerName=None, status=None, loadBalancerId=None, loadBalancerType=None, protocol=None, hstsEnable=None, hstsMaxAge=None, port=None, action=None, backendId=None, urlMapId=None, connectionIdleTimeSeconds=None, certificateSpecs=None, description=None, createdTime=None, extensionCertificateSpecs=None):
+    def __init__(self, listenerId=None, listenerName=None, status=None, loadBalancerId=None, loadBalancerType=None, protocol=None, hstsEnable=None, hstsMaxAge=None, port=None, action=None, backendId=None, urlMapId=None, connectionIdleTimeSeconds=None, certificateSpecs=None, limitation=None, description=None, createdTime=None, extensionCertificateSpecs=None, securityPolicyId=None):
         """
         :param listenerId: (Optional) Listener的Id
         :param listenerName: (Optional) Listener的名称
@@ -35,9 +35,11 @@ class Listener(object):
         :param urlMapId: (Optional) 【alb Https和Http协议】转发规则组Id
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Udp协议）默认为：300s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
         :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，最多支持两个，两个证书的加密算法需要不同
+        :param limitation: (Optional) 【仅ALB支持】限速配置
         :param description: (Optional) Listener的描述信息
         :param createdTime: (Optional) Listener的创建时间
         :param extensionCertificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的扩展证书列表
+        :param securityPolicyId: (Optional) 绑定的安全策略id，仅支持应用负载均衡的HTTPS、TLS监听配置
         """
 
         self.listenerId = listenerId
@@ -54,6 +56,8 @@ class Listener(object):
         self.urlMapId = urlMapId
         self.connectionIdleTimeSeconds = connectionIdleTimeSeconds
         self.certificateSpecs = certificateSpecs
+        self.limitation = limitation
         self.description = description
         self.createdTime = createdTime
         self.extensionCertificateSpecs = extensionCertificateSpecs
+        self.securityPolicyId = securityPolicyId

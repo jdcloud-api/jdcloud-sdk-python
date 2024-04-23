@@ -19,7 +19,7 @@
 
 class CreateListenerSpec(object):
 
-    def __init__(self, listenerName, protocol, port, backendId, loadBalancerId, hstsEnable=None, hstsMaxAge=None, urlMapId=None, action=None, certificateSpecs=None, connectionIdleTimeSeconds=None, description=None):
+    def __init__(self, listenerName, protocol, port, backendId, loadBalancerId, hstsEnable=None, hstsMaxAge=None, urlMapId=None, action=None, certificateSpecs=None, limitation=None, connectionIdleTimeSeconds=None, description=None, securityPolicyId=None):
         """
         :param listenerName:  Listener的名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param protocol:  监听协议, 取值为Tcp, Tls, Http, Https, Udp <br>【alb】支持Http, Https，Tcp、Tls和Udp <br>【nlb】支持Tcp, Udp  <br>【dnlb】支持Tcp, Udp
@@ -31,8 +31,10 @@ class CreateListenerSpec(object):
         :param urlMapId: (Optional) 【alb Https和Http协议】转发规则组Id
         :param action: (Optional) 默认后端服务的转发策略,取值为Forward或Redirect, 现只支持Forward, 默认为Forward
         :param certificateSpecs: (Optional) 【alb Https和Tls协议】Listener绑定的默认证书，最多支持两个，两个证书的加密算法需要不同
+        :param limitation: (Optional) 【仅ALB支持】限速配置
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Udp协议）默认为：300s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
+        :param securityPolicyId: (Optional) 绑定的安全策略id，仅支持应用负载均衡的HTTPS、TLS监听配置，不传默认使用默认安全策略
         """
 
         self.listenerName = listenerName
@@ -45,5 +47,7 @@ class CreateListenerSpec(object):
         self.urlMapId = urlMapId
         self.action = action
         self.certificateSpecs = certificateSpecs
+        self.limitation = limitation
         self.connectionIdleTimeSeconds = connectionIdleTimeSeconds
         self.description = description
+        self.securityPolicyId = securityPolicyId

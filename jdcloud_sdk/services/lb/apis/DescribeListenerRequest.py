@@ -32,7 +32,7 @@ class DescribeListenerRequest(JDCloudRequest):
 
 class DescribeListenerParameters(object):
 
-    def __init__(self, regionId,listenerId,):
+    def __init__(self,regionId, listenerId):
         """
         :param regionId: Region ID
         :param listenerId: 监听器ID

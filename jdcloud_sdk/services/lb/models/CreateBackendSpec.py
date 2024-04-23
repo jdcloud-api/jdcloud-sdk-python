@@ -19,7 +19,7 @@
 
 class CreateBackendSpec(object):
 
-    def __init__(self, backendName, loadBalancerId, protocol, port, healthCheckSpec, algorithm=None, targetGroupIds=None, agIds=None, proxyProtocol=None, description=None, sessionStickiness=None, sessionStickyTimeout=None, connectionDrainingSeconds=None, httpCookieExpireSeconds=None, httpForwardedProtocol=None, httpForwardedPort=None, httpForwardedHost=None, httpForwardedVip=None, httpForwardedClientPort=None):
+    def __init__(self, backendName, loadBalancerId, protocol, port, healthCheckSpec, algorithm=None, targetGroupIds=None, agIds=None, agInfoSpec=None, proxyProtocol=None, description=None, sessionStickiness=None, sessionStickyTimeout=None, connectionDrainingSeconds=None, httpCookieExpireSeconds=None, httpForwardedProtocol=None, httpForwardedPort=None, httpForwardedHost=None, httpForwardedVip=None, httpForwardedClientPort=None):
         """
         :param backendName:  后端服务名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param loadBalancerId:  后端服务所属负载均衡的Id
@@ -29,6 +29,7 @@ class CreateBackendSpec(object):
         :param algorithm: (Optional) 调度算法 <br>【alb,nlb】取值范围为[IpHash, RoundRobin, LeastConn]（取值范围的含义：加权源Ip哈希，加权轮询和加权最小连接），alb和nlb默认为加权轮询 <br>【dnlb】取值范围为[IpHash, QuintupleHash]（取值范围的含义分别为：加权源Ip哈希和加权五元组哈希），dnlb默认为加权源Ip哈希
         :param targetGroupIds: (Optional) 虚拟服务器组的Id列表，目前只支持一个，且与agIds不能同时存在
         :param agIds: (Optional) 高可用组的Id列表，目前只支持一个，且与targetGroupIds不能同时存在
+        :param agInfoSpec: (Optional) 高可用组属性设置:1.defatult_weight:默认权重, 优先级 agInfoSpec > agIds
         :param proxyProtocol: (Optional) 【alb Tcp、Udp协议】获取真实ip, 取值为False(不获取)或者True(获取,支持Proxy Protocol v1版本)，默认为False
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         :param sessionStickiness: (Optional) 会话保持, 取值为false(不开启)或者true(开启)，默认为false <br>【alb Http协议，RoundRobin算法】支持基于cookie的会话保持 <br>【nlb】支持基于报文源目的IP的会话保持
@@ -50,6 +51,7 @@ class CreateBackendSpec(object):
         self.algorithm = algorithm
         self.targetGroupIds = targetGroupIds
         self.agIds = agIds
+        self.agInfoSpec = agInfoSpec
         self.proxyProtocol = proxyProtocol
         self.description = description
         self.sessionStickiness = sessionStickiness

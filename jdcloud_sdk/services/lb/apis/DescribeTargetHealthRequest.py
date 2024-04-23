@@ -32,7 +32,7 @@ class DescribeTargetHealthRequest(JDCloudRequest):
 
 class DescribeTargetHealthParameters(object):
 
-    def __init__(self, regionId,backendId,):
+    def __init__(self,regionId, backendId, ):
         """
         :param regionId: Region ID
         :param backendId: Backend Id
@@ -40,4 +40,18 @@ class DescribeTargetHealthParameters(object):
 
         self.regionId = regionId
         self.backendId = backendId
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码, 默认为1,取值范围：[1,∞), 页码超过总页数时, 显示最后一页
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小，默认返回全部，取值范围：[10,100]
+        """
+        self.pageSize = pageSize
 

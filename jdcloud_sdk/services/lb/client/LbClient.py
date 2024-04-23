@@ -26,4 +26,4 @@ class LbClient(JDCloudClient):
         if config is None:
             config = Config('lb.jdcloud-api.com')
 
-        super(LbClient, self).__init__(credential, config, 'lb', '0.5.7', logger)
+        super(LbClient, self).__init__(credential, config, 'lb', '0.6.4', logger)

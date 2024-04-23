@@ -32,7 +32,7 @@ class CreateTargetGroupRequest(JDCloudRequest):
 
 class CreateTargetGroupParameters(object):
 
-    def __init__(self, regionId,targetGroupName, loadBalancerId, ):
+    def __init__(self,regionId, targetGroupName, loadBalancerId, ):
         """
         :param regionId: Region ID
         :param targetGroupName: 虚拟服务器组名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符

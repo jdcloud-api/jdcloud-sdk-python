@@ -19,7 +19,7 @@
 
 class TargetHealth(object):
 
-    def __init__(self, targetGroupId=None, agId=None, instanceId=None, type=None, port=None, weight=None, status=None, ipAddress=None):
+    def __init__(self, targetGroupId=None, agId=None, instanceId=None, type=None, port=None, weight=None, status=None, ipAddress=None, unhealthReason=None):
         """
         :param targetGroupId: (Optional) Target所在的虚拟服务器组Id, 与agId不能并存
         :param agId: (Optional) Target所在的高可用组Id，与targetGroupId不能并存
@@ -29,6 +29,7 @@ class TargetHealth(object):
         :param weight: (Optional) 该Target的权重，取值范围：0-100 ，默认为10。0表示不参与流量转发
         :param status: (Optional) 该Target的健康状态，取值为healthy、unhealthy
         :param ipAddress: (Optional) Target的IP地址。当Target type为vm或container时，表示vm或container的私网IP；当Target type为ip时，表示注册Target时指定的IP地址
+        :param unhealthReason: (Optional) 健康异常结构
         """
 
         self.targetGroupId = targetGroupId
@@ -39,3 +40,4 @@ class TargetHealth(object):
         self.weight = weight
         self.status = status
         self.ipAddress = ipAddress
+        self.unhealthReason = unhealthReason

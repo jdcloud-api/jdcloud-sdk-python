@@ -32,7 +32,7 @@ class RegisterTargetsRequest(JDCloudRequest):
 
 class RegisterTargetsParameters(object):
 
-    def __init__(self, regionId,targetGroupId,targetSpecs):
+    def __init__(self,regionId, targetGroupId, targetSpecs):
         """
         :param regionId: Region ID
         :param targetGroupId: TargetGroup Id

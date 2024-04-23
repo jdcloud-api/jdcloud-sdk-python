@@ -32,7 +32,7 @@ class DescribeListenersRequest(JDCloudRequest):
 
 class DescribeListenersParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -61,6 +61,7 @@ listenerIds - 监听器Id列表，支持多个
 loadBalancerId - 负载均衡器Id，支持单个
 loadBalancerType - 负载均衡类型，取值为：alb、nlb、dnlb，默认alb，支持单个
 urlMapIds - 【仅alb支持】转发规则组Id列表，支持多个
+securityPolicyIds - 监听器绑定的安全策略ID，支持多个
 
         """
         self.filters = filters

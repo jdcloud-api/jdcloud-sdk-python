@@ -32,7 +32,7 @@ class DeleteListenerRequest(JDCloudRequest):
 
 class DeleteListenerParameters(object):
 
-    def __init__(self, regionId,listenerId,):
+    def __init__(self,regionId, listenerId):
         """
         :param regionId: Region ID
         :param listenerId: 监听器ID

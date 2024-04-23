@@ -19,7 +19,7 @@
 
 class Rule(object):
 
-    def __init__(self, ruleId=None, host=None, path=None, action=None, backendId=None, redirectAction=None):
+    def __init__(self, ruleId=None, host=None, path=None, action=None, backendId=None, redirectAction=None, preActions=None, postActions=None):
         """
         :param ruleId: (Optional) 转发规则Id
         :param host: (Optional) 域名，用于匹配URL的host字段，支持输入IPv4地址和域名。域名支持精确匹配和通配符匹配：1、仅支持输入大小写字母、数字、英文中划线“-”和点“.”，最少包括一个点"."，不能以点"."和中划线"-"开头或结尾，中划线"-"前后不能为点"."，不区分大小写，且不能超过110字符；2、通配符匹配支持包括一个星"\*"，输入格式为\*.XXX或XXX.\*，不支持仅输入一个星“\*”
@@ -27,6 +27,8 @@ class Rule(object):
         :param action: (Optional) 匹配转发规则后执行的动作，取值为Forward或Redirect。默认为Forward。
         :param backendId: (Optional) 后端服务的Id。当action选择Forward时显示本参数
         :param redirectAction: (Optional) 重定向的相关参数。当action选择Redirect时显示相关参数
+        :param preActions: (Optional) 负载均衡将客户端流量向后端服务器转发时的前置动作配置
+        :param postActions: (Optional) 负载均衡将后端服务器应答流量转发给客户端时的后置动作配置
         """
 
         self.ruleId = ruleId
@@ -35,3 +37,5 @@ class Rule(object):
         self.action = action
         self.backendId = backendId
         self.redirectAction = redirectAction
+        self.preActions = preActions
+        self.postActions = postActions

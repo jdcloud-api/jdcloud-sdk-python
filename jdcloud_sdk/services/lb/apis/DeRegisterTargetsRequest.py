@@ -32,7 +32,7 @@ class DeRegisterTargetsRequest(JDCloudRequest):
 
 class DeRegisterTargetsParameters(object):
 
-    def __init__(self, regionId,targetGroupId,targetIds):
+    def __init__(self,regionId, targetGroupId, targetIds):
         """
         :param regionId: Region ID
         :param targetGroupId: TargetGroup Id

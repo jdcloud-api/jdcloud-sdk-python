@@ -32,7 +32,7 @@ class UpdateListenerRequest(JDCloudRequest):
 
 class UpdateListenerParameters(object):
 
-    def __init__(self, regionId,listenerId,):
+    def __init__(self,regionId, listenerId, ):
         """
         :param regionId: Region ID
         :param listenerId: 监听器ID
@@ -45,10 +45,12 @@ class UpdateListenerParameters(object):
         self.hstsEnable = None
         self.hstsMaxAge = None
         self.certificateSpecs = None
+        self.limitation = None
         self.connectionIdleTimeSeconds = None
         self.backendId = None
         self.urlMapId = None
         self.description = None
+        self.securityPolicyId = None
 
     def setListenerName(self, listenerName):
         """
@@ -80,6 +82,12 @@ class UpdateListenerParameters(object):
         """
         self.certificateSpecs = certificateSpecs
 
+    def setLimitation(self, limitation):
+        """
+        :param limitation: (Optional) 【仅ALB支持】限速配置
+        """
+        self.limitation = limitation
+
     def setConnectionIdleTimeSeconds(self, connectionIdleTimeSeconds):
         """
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持该功能
@@ -103,4 +111,10 @@ class UpdateListenerParameters(object):
         :param description: (Optional) 监听器描述,允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setSecurityPolicyId(self, securityPolicyId):
+        """
+        :param securityPolicyId: (Optional) 绑定的安全策略id，仅支持应用负载均衡的HTTPS、TLS监听配置
+        """
+        self.securityPolicyId = securityPolicyId
 

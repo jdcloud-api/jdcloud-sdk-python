@@ -21,8 +21,8 @@ class Quota(object):
 
     def __init__(self, type=None, parentResourceId=None, maxLimit=None, count=None):
         """
-        :param type: (Optional) 资源类型，取值范围：loadbalancer、listener、target_group、target、backend、urlMap(仅alb支持)、rules(仅alb支持)、extensionCertificate(仅alb支持)
-        :param parentResourceId: (Optional) type为loadbalancer不设置, type为listener、backend、target_group、urlMap设置为loadbalancerId, type为target设置为targetGroupId, type为rules设置为urlMapId，type为extensionCertificate设置为listenerId
+        :param type: (Optional) 资源类型，取值范围：loadbalancer、listener、target_group、target、backend、urlMap(仅alb支持)、rules(仅alb支持)、extensionCertificate(仅alb支持)、customizedConfiguration、securityPolicy
+        :param parentResourceId: (Optional) type为loadbalancer、customizedConfiguration、securityPolicy不设置, type为listener、backend、target_group、urlMap设置为loadbalancerId, type为target设置为targetGroupId, type为rules设置为urlMapId，type为extensionCertificate设置为listenerId
         :param maxLimit: (Optional) 配额大小
         :param count: (Optional) 已存在的资源数量
         """

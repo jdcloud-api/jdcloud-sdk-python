@@ -32,7 +32,7 @@ class UpdateListenerCertificatesRequest(JDCloudRequest):
 
 class UpdateListenerCertificatesParameters(object):
 
-    def __init__(self, regionId,listenerId,certificates):
+    def __init__(self,regionId, listenerId, certificates):
         """
         :param regionId: Region ID
         :param listenerId: 监听器ID

@@ -32,7 +32,7 @@ class DisassociateElasticIpRequest(JDCloudRequest):
 
 class DisassociateElasticIpParameters(object):
 
-    def __init__(self, regionId,loadBalancerId,elasticIpId):
+    def __init__(self,regionId, loadBalancerId, elasticIpId, ):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID
@@ -42,4 +42,11 @@ class DisassociateElasticIpParameters(object):
         self.regionId = regionId
         self.loadBalancerId = loadBalancerId
         self.elasticIpId = elasticIpId
+        self.deleteElasticIp = None
+
+    def setDeleteElasticIp(self, deleteElasticIp):
+        """
+        :param deleteElasticIp: (Optional) 解绑时是否同时删除弹性公网IP，取值范围：true、false，默认false。true表示解绑弹性公网IP时删除该弹性公网IP；false表示解绑弹性公网IP时不删除该弹性公网IP。包年包月和无计费信息的弹性公网IP不支持解绑时删除
+        """
+        self.deleteElasticIp = deleteElasticIp
 

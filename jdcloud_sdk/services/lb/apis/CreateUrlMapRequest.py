@@ -32,7 +32,7 @@ class CreateUrlMapRequest(JDCloudRequest):
 
 class CreateUrlMapParameters(object):
 
-    def __init__(self, regionId,urlMapName, loadBalancerId, ):
+    def __init__(self,regionId, urlMapName, loadBalancerId, ):
         """
         :param regionId: Region ID
         :param urlMapName: 转发规则组名称，同一个负载均衡下，名称不能重复,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符

@@ -32,7 +32,7 @@ class DeleteListenerCertificatesRequest(JDCloudRequest):
 
 class DeleteListenerCertificatesParameters(object):
 
-    def __init__(self, regionId,listenerId,certificateBindIds):
+    def __init__(self,regionId, listenerId, certificateBindIds):
         """
         :param regionId: Region ID
         :param listenerId: 监听器ID

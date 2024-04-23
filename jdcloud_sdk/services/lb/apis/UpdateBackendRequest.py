@@ -32,7 +32,7 @@ class UpdateBackendRequest(JDCloudRequest):
 
 class UpdateBackendParameters(object):
 
-    def __init__(self, regionId,backendId,):
+    def __init__(self,regionId, backendId, ):
         """
         :param regionId: Region ID
         :param backendId: Backend Id
@@ -45,6 +45,7 @@ class UpdateBackendParameters(object):
         self.algorithm = None
         self.targetGroupIds = None
         self.agIds = None
+        self.agInfoSpec = None
         self.proxyProtocol = None
         self.description = None
         self.sessionStickiness = None
@@ -87,6 +88,12 @@ class UpdateBackendParameters(object):
         :param agIds: (Optional) 高可用组的Id列表，目前只支持一个，且与targetGroupIds不能同时存在
         """
         self.agIds = agIds
+
+    def setAgInfoSpec(self, agInfoSpec):
+        """
+        :param agInfoSpec: (Optional) 高可用组属性设置:1.defatult_weight:默认权重, 优先级 agInfoSpec > agIds
+        """
+        self.agInfoSpec = agInfoSpec
 
     def setProxyProtocol(self, proxyProtocol):
         """

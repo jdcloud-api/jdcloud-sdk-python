@@ -32,7 +32,7 @@ class DescribeLoadBalancersRequest(JDCloudRequest):
 
 class DescribeLoadBalancersParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: Region ID
         """
@@ -59,10 +59,17 @@ class DescribeLoadBalancersParameters(object):
         """
         :param filters: (Optional) loadBalancerType - 负载均衡类型，取值为：alb、nlb、dnlb，默认alb，支持单个
 loadBalancerIds - 负载均衡ID列表，支持多个
-loadBalancerNames - 负载均衡名称列表，支持多个
+loadBalancerNames - 负载均衡名称列表，支持多个; 支持operator为like的模糊搜索，此时name只能传单个
 vpcId - 负载均衡所在Vpc的Id，支持单个
-azType - 负载均衡所在可用区类型，取值包括：all(全部可用区)、standard(标准可用区)、edge(边缘可用区)。默认standard ，支持单个
-azs - 边缘可用区，支持多个
+azType - 负载均衡az类型，取值：all(全部类型)，standard(标准负载均衡)，edge(边缘负载均衡)，默认all，支持单个
+azs - 可用区，仅支持边缘可用区，支持多个
+privateIpAddresses - 负载均衡的vip地址，支持多个
+ipv6Addresses - 负载均衡的ipv6地址，支持多个
+serviceCodes -  产品唯一掩码，支持多个
+serviceIds   - 产品唯一ID，支持多个
+elasticIpAddress - 负载均衡的弹性公网ip地址，支持单个
+targetPrivateIpAddress - 后端target的内网IP地址，支持单个
+customizedConfigurationIds - 负载均衡绑定的个性化配置ID，支持多个
 
         """
         self.filters = filters

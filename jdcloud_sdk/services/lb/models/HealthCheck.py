@@ -19,7 +19,7 @@
 
 class HealthCheck(object):
 
-    def __init__(self, protocol=None, healthyThresholdCount=None, unhealthyThresholdCount=None, checkTimeoutSeconds=None, intervalSeconds=None, port=None, httpDomain=None, httpPath=None, httpCode=None):
+    def __init__(self, protocol=None, healthyThresholdCount=None, unhealthyThresholdCount=None, checkTimeoutSeconds=None, intervalSeconds=None, port=None, httpVersion=None, httpDomain=None, httpPath=None, httpCode=None):
         """
         :param protocol: (Optional) 健康检查协议 <br>【alb、nlb】取值为Http, Tcp, Icmp(仅支持alb/nlb的Udp的Backend) <br>【dnlb】取值为Tcp, Icmp(仅支持dnlb的Udp的Backend)
         :param healthyThresholdCount: (Optional) 健康阀值，>=1，默认为3
@@ -27,9 +27,10 @@ class HealthCheck(object):
         :param checkTimeoutSeconds: (Optional) 响应超时时间, 取值范围为[2,60]，默认为3s
         :param intervalSeconds: (Optional) 健康检查间隔, 范围为[5,300], 默认为5s
         :param port: (Optional) 健康检查的目标端口, 取值范围为[0,65535], 默认为0，默认端口为每个后端实例接收负载均衡流量的端口，Icmp不支持端口
+        :param httpVersion: (Optional) 健康检查的协议类型, HTTP1.0/HTTP1.1,默认选择HTTP1.0
         :param httpDomain: (Optional) 健康检查的目标域名，仅支持HTTP协议。支持输入域名和IP地址。如果输入域名，仅支持大小写字母、数字、英文中划线"-"和点"."，不区分大小写，且不超过255个字符。默认为空，表示健康检查不携带域名
         :param httpPath: (Optional) 健康检查的目标路径，仅支持HTTP协议。必须以"/"开头，支持大小写字母、数字、汉字和英文字符-/.%?#&_;~!()*[]@^:',+=<>{}。%后仅支持输入URL编码后字符，且不超过1000个字符
-        :param httpCode: (Optional) 【Http协议】检查来自后端目标服务器的成功响应时，要使用的HTTP状态码。您可以指定：单个数值（例如："200"，取值范围200-499）、一段连续数值（例如："201-205"，取值范围范围200-499，且前面的参数小于后面）和一类连续数值缩写（例如："3xx"，等价于"300-399"，取值范围2xx、3xx和4xx）。多个数值之间通过","分割（例如："200,202-207,302,4xx"）。目前仅支持2xx、3xx、4xx。
+        :param httpCode: (Optional) 健康检查的期望状态码，仅支持HTTP协议。检查来自后端目标服务器的成功响应时，要使用的HTTP状态码。您可以指定：单个数值（例如："200"，取值范围200-499）、一段连续数值（例如："201-205"，取值范围范围200-499，且前面的参数小于后面）和一类连续数值缩写（例如："3xx"，等价于"300-399"，取值范围2xx、3xx和4xx）。多个数值之间通过","分割（例如："200,202-207,302,4xx"）。目前仅支持2xx、3xx、4xx。
         """
 
         self.protocol = protocol
@@ -38,6 +39,7 @@ class HealthCheck(object):
         self.checkTimeoutSeconds = checkTimeoutSeconds
         self.intervalSeconds = intervalSeconds
         self.port = port
+        self.httpVersion = httpVersion
         self.httpDomain = httpDomain
         self.httpPath = httpPath
         self.httpCode = httpCode

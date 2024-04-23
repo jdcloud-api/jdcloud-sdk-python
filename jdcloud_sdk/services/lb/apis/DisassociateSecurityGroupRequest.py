@@ -32,7 +32,7 @@ class DisassociateSecurityGroupRequest(JDCloudRequest):
 
 class DisassociateSecurityGroupParameters(object):
 
-    def __init__(self, regionId,loadBalancerId,securityGroupIds):
+    def __init__(self,regionId, loadBalancerId, securityGroupIds):
         """
         :param regionId: Region ID
         :param loadBalancerId: LB ID

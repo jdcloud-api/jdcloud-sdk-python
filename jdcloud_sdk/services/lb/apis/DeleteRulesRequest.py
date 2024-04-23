@@ -32,7 +32,7 @@ class DeleteRulesRequest(JDCloudRequest):
 
 class DeleteRulesParameters(object):
 
-    def __init__(self, regionId,urlMapId,ruleIds):
+    def __init__(self,regionId, urlMapId, ruleIds):
         """
         :param regionId: Region ID
         :param urlMapId: 转发规则组Id

@@ -19,10 +19,11 @@
 
 class Target(object):
 
-    def __init__(self, targetId=None, targetGroupId=None, type=None, instanceId=None, port=None, weight=None, privateIpAddress=None, ipAddress=None):
+    def __init__(self, targetId=None, targetGroupId=None, agId=None, type=None, instanceId=None, port=None, weight=None, privateIpAddress=None, ipAddress=None):
         """
         :param targetId: (Optional) Target的Id
-        :param targetGroupId: (Optional) TargetGroup的Id
+        :param targetGroupId: (Optional) TargetGroup的Id, target 属于 targetGroup 或者 AG, target 从属于 AG 时,该字段无用
+        :param agId: (Optional) 高可用组(ag)的id, target 属于 targetGroup 或者 AG, target 从属于 targetGroup 时,该字段无用
         :param type: (Optional) Target的类型，取值为vm、container或ip, 默认为vm
         :param instanceId: (Optional) Target所属实例（vm或container）的Id
         :param port: (Optional) Target提供服务的端口，取值范围：0-65535，其中0表示与backend的端口相同，默认为0。 <br>【dnlb】使用限制：dnlb同一TargetGroup下，同一实例/ip仅允许一个端口提供服务
@@ -33,6 +34,7 @@ class Target(object):
 
         self.targetId = targetId
         self.targetGroupId = targetGroupId
+        self.agId = agId
         self.type = type
         self.instanceId = instanceId
         self.port = port

@@ -32,7 +32,7 @@ class CreateListenerRequest(JDCloudRequest):
 
 class CreateListenerParameters(object):
 
-    def __init__(self, regionId,listenerName, protocol, port, backendId, loadBalancerId, ):
+    def __init__(self,regionId, listenerName, protocol, port, backendId, loadBalancerId, ):
         """
         :param regionId: Region ID
         :param listenerName: Listener的名字,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
@@ -53,8 +53,10 @@ class CreateListenerParameters(object):
         self.urlMapId = None
         self.action = None
         self.certificateSpecs = None
+        self.limitation = None
         self.connectionIdleTimeSeconds = None
         self.description = None
+        self.securityPolicyId = None
 
     def setHstsEnable(self, hstsEnable):
         """
@@ -86,6 +88,12 @@ class CreateListenerParameters(object):
         """
         self.certificateSpecs = certificateSpecs
 
+    def setLimitation(self, limitation):
+        """
+        :param limitation: (Optional) 【仅ALB支持】限速配置
+        """
+        self.limitation = limitation
+
     def setConnectionIdleTimeSeconds(self, connectionIdleTimeSeconds):
         """
         :param connectionIdleTimeSeconds: (Optional) 【alb、nlb】空闲连接超时时间, 范围为[1,86400]。 <br>（Tcp和Tls协议）默认为：1800s <br>（Udp协议）默认为：300s <br>（Http和Https协议）默认为：60s <br>【dnlb】不支持
@@ -97,4 +105,10 @@ class CreateListenerParameters(object):
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setSecurityPolicyId(self, securityPolicyId):
+        """
+        :param securityPolicyId: (Optional) 绑定的安全策略id，仅支持应用负载均衡的HTTPS、TLS监听配置，不传默认使用默认安全策略
+        """
+        self.securityPolicyId = securityPolicyId
 

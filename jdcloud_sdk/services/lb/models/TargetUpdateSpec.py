@@ -19,11 +19,13 @@
 
 class TargetUpdateSpec(object):
 
-    def __init__(self, targetId, weight=None):
+    def __init__(self, targetId, port=None, weight=None):
         """
         :param targetId:  Target Id
+        :param port: (Optional) Target提供服务的端口，取值范围：0-65535，其中0表示与backend的端口相同 <br>【dnlb】使用限制：dnlb同一TargetGroup下，同一实例/ip仅允许一个端口提供服务
         :param weight: (Optional) Target的权重，取值范围：0-100。0表示不参与流量转发
         """
 
         self.targetId = targetId
+        self.port = port
         self.weight = weight

@@ -32,7 +32,7 @@ class DescribeOpenDevicesDataRequest(JDCloudRequest):
 
 class DescribeOpenDevicesDataParameters(object):
 
-    def __init__(self, deviceType):
+    def __init__(self,deviceType):
         """
         :param deviceType: 设备类型
         """

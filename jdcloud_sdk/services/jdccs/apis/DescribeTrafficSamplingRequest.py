@@ -32,7 +32,7 @@ class DescribeTrafficSamplingRequest(JDCloudRequest):
 
 class DescribeTrafficSamplingParameters(object):
 
-    def __init__(self, resourceId, startTime, endTime):
+    def __init__(self,resourceId, startTime, endTime):
         """
         :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用英文竖线分隔
         :param startTime: 查询时间范围的开始时间， UNIX时间戳，（支持查询最近30分钟数据且时间范围不超过5分钟）

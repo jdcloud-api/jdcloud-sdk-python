@@ -32,7 +32,7 @@ class DescribeBandwidthsRequest(JDCloudRequest):
 
 class DescribeBandwidthsParameters(object):
 
-    def __init__(self, idc,):
+    def __init__(self,idc, ):
         """
         :param idc: IDC机房ID
         """

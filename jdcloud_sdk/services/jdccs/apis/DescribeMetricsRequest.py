@@ -32,7 +32,7 @@ class DescribeMetricsRequest(JDCloudRequest):
 
 class DescribeMetricsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class DescribeRealtimeCabinetCurrentRequest(JDCloudRequest):
 
 class DescribeRealtimeCabinetCurrentParameters(object):
 
-    def __init__(self, idc,resourceId):
+    def __init__(self,idc, resourceId):
         """
         :param idc: IDC机房ID
         :param resourceId: 资源ID，支持多个resourceId批量查询，每个id用英文竖线分隔

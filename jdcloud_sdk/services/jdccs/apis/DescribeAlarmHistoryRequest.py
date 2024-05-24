@@ -32,7 +32,7 @@ class DescribeAlarmHistoryRequest(JDCloudRequest):
 
 class DescribeAlarmHistoryParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

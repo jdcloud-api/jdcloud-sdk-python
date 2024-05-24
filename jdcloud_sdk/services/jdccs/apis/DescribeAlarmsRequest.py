@@ -32,7 +32,7 @@ class DescribeAlarmsRequest(JDCloudRequest):
 
 class DescribeAlarmsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

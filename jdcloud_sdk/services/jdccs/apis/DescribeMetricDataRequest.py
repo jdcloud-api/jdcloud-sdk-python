@@ -32,7 +32,7 @@ class DescribeMetricDataRequest(JDCloudRequest):
 
 class DescribeMetricDataParameters(object):
 
-    def __init__(self, idc,metric,resourceId, startTime, endTime, ):
+    def __init__(self,idc, metric, resourceId, startTime, endTime, ):
         """
         :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)

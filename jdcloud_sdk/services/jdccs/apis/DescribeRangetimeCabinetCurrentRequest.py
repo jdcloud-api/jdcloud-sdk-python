@@ -32,7 +32,7 @@ class DescribeRangetimeCabinetCurrentRequest(JDCloudRequest):
 
 class DescribeRangetimeCabinetCurrentParameters(object):
 
-    def __init__(self, idc,resourceId, startTime, endTime, ):
+    def __init__(self,idc, resourceId, startTime, endTime, ):
         """
         :param idc: IDC机房ID
         :param resourceId: 机柜资源ID

@@ -32,7 +32,7 @@ class DescribeIdcsRequest(JDCloudRequest):
 
 class DescribeIdcsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

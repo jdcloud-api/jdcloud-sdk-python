@@ -32,7 +32,7 @@ class DescribeTicketRequest(JDCloudRequest):
 
 class DescribeTicketParameters(object):
 
-    def __init__(self, ticketNo,):
+    def __init__(self,ticketNo):
         """
         :param ticketNo: 工单编号
         """

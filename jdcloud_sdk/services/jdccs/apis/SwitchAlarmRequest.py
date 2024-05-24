@@ -32,7 +32,7 @@ class SwitchAlarmRequest(JDCloudRequest):
 
 class SwitchAlarmParameters(object):
 
-    def __init__(self, alarmId,):
+    def __init__(self,alarmId, ):
         """
         :param alarmId: 报警规则ID
         """

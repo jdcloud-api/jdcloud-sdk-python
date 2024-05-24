@@ -19,23 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteAlarmRequest(JDCloudRequest):
+class DescribeRangetimeCabinetOriCurrentRequest(JDCloudRequest):
     """
-    删除报警
+    按照时间段查询单个机柜AB路电流-原始数据
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteAlarmRequest, self).__init__(
-            '/alarms/{alarmId}', 'DELETE', header, version)
+        super(DescribeRangetimeCabinetOriCurrentRequest, self).__init__(
+            '/idcs/{idc}/rangetimeCabinetOriCurrent', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteAlarmParameters(object):
+class DescribeRangetimeCabinetOriCurrentParameters(object):
 
-    def __init__(self,alarmId):
+    def __init__(self,idc, resourceId, startTime, endTime):
         """
-        :param alarmId: 报警规则ID
+        :param idc: IDC机房ID
+        :param resourceId: 机柜资源ID
+        :param startTime: 查询时间范围的开始时间， UNIX时间戳，（最多支持最近90天数据查询）
+        :param endTime: 查询时间范围的结束时间， UNIX时间戳，（最多支持最近90天数据查询）
         """
 
-        self.alarmId = alarmId
+        self.idc = idc
+        self.resourceId = resourceId
+        self.startTime = startTime
+        self.endTime = endTime
 

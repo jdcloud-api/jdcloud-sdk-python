@@ -32,7 +32,7 @@ class LastDownsampleRequest(JDCloudRequest):
 
 class LastDownsampleParameters(object):
 
-    def __init__(self, idc,metric,resourceId):
+    def __init__(self,idc, metric, resourceId):
         """
         :param idc: IDC机房ID
         :param metric: 监控项英文标识(id)

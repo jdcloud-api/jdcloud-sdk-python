@@ -19,8 +19,10 @@
 
 class Command(object):
 
-    def __init__(self, commandName=None, commandType=None, commandContent=None, timeout=None, username=None, workdir=None, commandDescription=None, enableParameter=None, parameters=None, createTime=None, updateTime=None):
+    def __init__(self, commandId=None, commandName=None, commandType=None, commandContent=None, timeout=None, username=None, workdir=None, commandDescription=None, enableParameter=None, parameters=None, createTime=None, updateTime=None):
         """
+        :param commandId: (Optional) 命令Id
+
         :param commandName: (Optional) 命令名称，长度为1\~128个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
 
         :param commandType: (Optional) 命令类型，可选值：shell和powershell，默认shell
@@ -41,6 +43,7 @@ class Command(object):
         :param updateTime: (Optional) 命令更新时间
         """
 
+        self.commandId = commandId
         self.commandName = commandName
         self.commandType = commandType
         self.commandContent = commandContent

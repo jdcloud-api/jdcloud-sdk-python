@@ -32,7 +32,7 @@ class GetEachConsumptionRequest(JDCloudRequest):
 
 class GetEachConsumptionParameters(object):
 
-    def __init__(self, regionId, startTime, endTime, pageSize, pageIndex):
+    def __init__(self,regionId, startTime, endTime, pageSize, pageIndex):
         """
         :param regionId: 
         :param startTime: 按月查询开始时间（yyyy/MM/dd）

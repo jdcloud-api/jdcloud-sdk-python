@@ -31,7 +31,7 @@ class ReturnPolicyQuery(object):
         :param itemName: (Optional) 项目名称
         :param returnRuleType: (Optional) 返还依据类型
         :param productId: (Optional) 产品ID
-        :param productType: (Optional) 产品类型
+        :param productType: (Optional) 产品类型（多个产品类型，分开）
         :param circleType: (Optional) 周期类型
         :param circleName: (Optional) 周期名称
         :param circleFlag: (Optional) 指定周期标识

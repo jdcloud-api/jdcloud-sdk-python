@@ -19,7 +19,7 @@
 
 class Distributor(object):
 
-    def __init__(self, distributorId=None, distributorName=None, pin=None, contractNo=None, businessLicense=None, legalRepresentative=None, businessLicensePic=None, businessDesc=None, workAddress=None, contracter=None, tel=None, email=None, region=None, settleTime=None, status=None, reason=None, distributorLevel=None, distributorType=None, parentDistributorId=None, dept=None, erp=None):
+    def __init__(self, distributorId=None, distributorName=None, pin=None, contractNo=None, businessLicense=None, legalRepresentative=None, businessLicensePic=None, businessDesc=None, workAddress=None, contracter=None, tel=None, email=None, region=None, settleTime=None, status=None, reason=None, distributorLevel=None, distributorType=None, parentDistributorId=None, dept=None, erp=None, discountFlag=None):
         """
         :param distributorId: (Optional) 渠道商ID
         :param distributorName: (Optional) 渠道商名称
@@ -42,6 +42,7 @@ class Distributor(object):
         :param parentDistributorId: (Optional) 上级渠道商ID
         :param dept: (Optional) 所属部门(0企业线、1政府线)
         :param erp: (Optional) 京东云负责人(京东云人员erp或名称)
+        :param discountFlag: (Optional) 是否享受折扣(1享受2不享受)
         """
 
         self.distributorId = distributorId
@@ -65,3 +66,4 @@ class Distributor(object):
         self.parentDistributorId = parentDistributorId
         self.dept = dept
         self.erp = erp
+        self.discountFlag = discountFlag

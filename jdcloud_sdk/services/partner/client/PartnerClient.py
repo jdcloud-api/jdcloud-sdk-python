@@ -26,4 +26,4 @@ class PartnerClient(JDCloudClient):
         if config is None:
             config = Config('partner.jdcloud-api.com')
 
-        super(PartnerClient, self).__init__(credential, config, 'partner', '1.1.4', logger)
+        super(PartnerClient, self).__init__(credential, config, 'partner', '1.3.13', logger)

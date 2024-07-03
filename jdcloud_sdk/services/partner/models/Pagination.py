@@ -23,7 +23,7 @@ class Pagination(object):
         """
         :param currPageNo: (Optional) 当前页
         :param numberPages: (Optional) 页数
-        :param numberRecords: (Optional) 每页记录数
+        :param numberRecords: (Optional) 总记录数
         :param pageSize: (Optional) 页面大小
         :param startIndex: (Optional) 起始页
         """

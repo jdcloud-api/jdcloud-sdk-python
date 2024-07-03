@@ -19,7 +19,7 @@
 
 class DistributorDTO(object):
 
-    def __init__(self, distributorId=None, distributorName=None, pin=None, contractNo=None, businessLicense=None, legalRepresentative=None, businessLicensePic=None, businessDesc=None, workAddress=None, contracter=None, tel=None, email=None, region=None, settleTime=None, status=None, reason=None, distributorLevel=None, distributorType=None, parentDistributorId=None, bankCompanyName=None, bankCardNo=None, bankBranchName=None, bankBranchNo=None, contractSubject=None, dept=None, returnFlag=None, returnPolicyId=None, distributorProductList=None, circleType=None, returnMode=None, subFlag=None, subReturnFlag=None, subReturnPolicyId=None, subCircleType=None, subReturnMode=None, erp=None):
+    def __init__(self, distributorId=None, distributorName=None, pin=None, contractNo=None, businessLicense=None, legalRepresentative=None, businessLicensePic=None, businessDesc=None, workAddress=None, contracter=None, tel=None, email=None, region=None, settleTime=None, status=None, reason=None, distributorLevel=None, distributorType=None, parentDistributorId=None, bankCompanyName=None, bankCardNo=None, bankBranchName=None, bankBranchNo=None, taxNumber=None, invoiceTitle=None, payType=None, contractSubject=None, dept=None, returnFlag=None, returnPolicyId=None, distributorPolicyList=None, subDistributorPolicyList=None, distributorProductList=None, circleType=None, returnMode=None, subFlag=None, subReturnFlag=None, subReturnPolicyId=None, subCircleType=None, subReturnMode=None, erp=None, erpName=None, erpDept=None, grade=None, effectiveDate=None, expirationDate=None, eContractNo=None, ebsContractNo=None, discountFlag=None):
         """
         :param distributorId: (Optional) 渠道商ID
         :param distributorName: (Optional) 渠道商名称
@@ -44,10 +44,15 @@ class DistributorDTO(object):
         :param bankCardNo: (Optional) 银行账户
         :param bankBranchName: (Optional) 开户行支行名称
         :param bankBranchNo: (Optional) 开户行支行联行号
+        :param taxNumber: (Optional) 税务识别号
+        :param invoiceTitle: (Optional) 发票抬头
+        :param payType: (Optional) 1 全强代付,2 全自付, 3 自选
         :param contractSubject: (Optional) 合同主体
         :param dept: (Optional) 所属部门(0企业线、1政府线)
         :param returnFlag: (Optional) 是否需要返还（0需要1不需要）
         :param returnPolicyId: (Optional) 返还政策ID
+        :param distributorPolicyList: (Optional) 
+        :param subDistributorPolicyList: (Optional) 
         :param distributorProductList: (Optional) 
         :param circleType: (Optional) 结算周期类型（1月、2季度、3年、4天、5周）
         :param returnMode: (Optional) 服务商返还方式（1现金2代金券）
@@ -57,6 +62,14 @@ class DistributorDTO(object):
         :param subCircleType: (Optional) 结算周期类型（1月、2季度、3年、4天、5周）
         :param subReturnMode: (Optional) 下级服务商返还方式（1现金2代金券）
         :param erp: (Optional) 京东云负责人(京东云人员erp或名称)
+        :param erpName: (Optional) 京东云负责人姓名
+        :param erpDept: (Optional) 京东云负责人部门
+        :param grade: (Optional) 服务商级别
+        :param effectiveDate: (Optional) 服务期限（开始时间）
+        :param expirationDate: (Optional) 服务期限（结束时间）
+        :param eContractNo: (Optional) 电子合同编号
+        :param ebsContractNo: (Optional) EBS合同编号
+        :param discountFlag: (Optional) 是否享受折扣(1享受2不享受)
         """
 
         self.distributorId = distributorId
@@ -82,10 +95,15 @@ class DistributorDTO(object):
         self.bankCardNo = bankCardNo
         self.bankBranchName = bankBranchName
         self.bankBranchNo = bankBranchNo
+        self.taxNumber = taxNumber
+        self.invoiceTitle = invoiceTitle
+        self.payType = payType
         self.contractSubject = contractSubject
         self.dept = dept
         self.returnFlag = returnFlag
         self.returnPolicyId = returnPolicyId
+        self.distributorPolicyList = distributorPolicyList
+        self.subDistributorPolicyList = subDistributorPolicyList
         self.distributorProductList = distributorProductList
         self.circleType = circleType
         self.returnMode = returnMode
@@ -95,3 +113,11 @@ class DistributorDTO(object):
         self.subCircleType = subCircleType
         self.subReturnMode = subReturnMode
         self.erp = erp
+        self.erpName = erpName
+        self.erpDept = erpDept
+        self.grade = grade
+        self.effectiveDate = effectiveDate
+        self.expirationDate = expirationDate
+        self.eContractNo = eContractNo
+        self.ebsContractNo = ebsContractNo
+        self.discountFlag = discountFlag

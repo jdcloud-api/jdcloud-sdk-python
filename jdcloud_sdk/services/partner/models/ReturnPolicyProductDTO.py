@@ -19,13 +19,13 @@
 
 class ReturnPolicyProductDTO(object):
 
-    def __init__(self, id=None, returnPolicyId=None, returnRuleType=None, productType=None, productId=None, productName=None, status=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None):
+    def __init__(self, returnRuleType, productType, productId, id=None, returnPolicyId=None, productName=None, status=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None):
         """
         :param id: (Optional) ID
         :param returnPolicyId: (Optional) 返还政策明细ID
-        :param returnRuleType: (Optional) 返还规则类型
-        :param productType: (Optional) 产品类型
-        :param productId: (Optional) 产品ID
+        :param returnRuleType:  返还规则类型
+        :param productType:  产品类型
+        :param productId:  产品ID
         :param productName: (Optional) 产品名称
         :param status: (Optional) 状态
         :param remark: (Optional) 备注

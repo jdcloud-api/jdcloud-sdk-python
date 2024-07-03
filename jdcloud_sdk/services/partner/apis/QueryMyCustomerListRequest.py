@@ -32,7 +32,7 @@ class QueryMyCustomerListRequest(JDCloudRequest):
 
 class QueryMyCustomerListParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 
         """
@@ -40,6 +40,8 @@ class QueryMyCustomerListParameters(object):
         self.regionId = regionId
         self.customerPin = None
         self.aliasName = None
+        self.nameLike = None
+        self.accountType = None
         self.loginName = None
         self.startRelTime = None
         self.endRelTime = None
@@ -54,9 +56,21 @@ class QueryMyCustomerListParameters(object):
 
     def setAliasName(self, aliasName):
         """
-        :param aliasName: (Optional) 客户昵称
+        :param aliasName: (Optional) 
         """
         self.aliasName = aliasName
+
+    def setNameLike(self, nameLike):
+        """
+        :param nameLike: (Optional) 客户名称
+        """
+        self.nameLike = nameLike
+
+    def setAccountType(self, accountType):
+        """
+        :param accountType: (Optional) 账户类型（1个人2企业）
+        """
+        self.accountType = accountType
 
     def setLoginName(self, loginName):
         """

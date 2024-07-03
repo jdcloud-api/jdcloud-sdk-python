@@ -19,7 +19,7 @@
 
 class ReturnBillQuery(object):
 
-    def __init__(self, id=None, retrunBillId=None, distributorId=None, pin=None, deptId=None, distributorType=None, distributorName=None, month=None, generateTime=None, billBegin=None, billEnd=None, circleType=None, returnType=None, returnMount=None, returnMode=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, reason=None, beginTime=None, endTime=None, pageIndex=None, pageSize=None, offset=None):
+    def __init__(self, id=None, retrunBillId=None, distributorId=None, pin=None, deptId=None, distributorType=None, distributorName=None, month=None, generateTime=None, billBegin=None, billEnd=None, circleType=None, returnType=None, returnMount=None, returnMode=None, productType=None, queryMonth=None, serviceCode=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None, reason=None, beginTime=None, endTime=None, pageIndex=None, pageSize=None, offset=None):
         """
         :param id: (Optional) ID
         :param retrunBillId: (Optional) 返还单号
@@ -36,6 +36,9 @@ class ReturnBillQuery(object):
         :param returnType: (Optional) 返还类型
         :param returnMount: (Optional) 返还金额
         :param returnMode: (Optional) 返还方式
+        :param productType: (Optional) 产品分类(0公有云1云市场2Elite，多个逗号分开)
+        :param queryMonth: (Optional) 查询月(格式：2023-10)
+        :param serviceCode: (Optional) 产品编码
         :param status: (Optional) 状态
         :param createTime: (Optional) 创建时间
         :param createUser: (Optional) 创建人
@@ -65,6 +68,9 @@ class ReturnBillQuery(object):
         self.returnType = returnType
         self.returnMount = returnMount
         self.returnMode = returnMode
+        self.productType = productType
+        self.queryMonth = queryMonth
+        self.serviceCode = serviceCode
         self.status = status
         self.createTime = createTime
         self.createUser = createUser

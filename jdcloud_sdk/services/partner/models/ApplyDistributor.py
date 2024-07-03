@@ -19,7 +19,7 @@
 
 class ApplyDistributor(object):
 
-    def __init__(self, id=None, pin=None, applyTime=None, contactor=None, tel=None, email=None, cooperateType=None, cooperateTypeName=None, companyName=None, companyScale=None, companyScaleName=None, region=None, regionName=None, webSite=None, status=None, statusName=None):
+    def __init__(self, id=None, pin=None, applyTime=None, contactor=None, tel=None, email=None, position=None, wechatNo=None, cooperateType=None, cooperateTypeName=None, cooperateRequest=None, uuid=None, activityId=None, activityName=None, cooperateArea=None, cooperateContent=None, companyName=None, companyScale=None, companyScaleName=None, region=None, city=None, webSite=None, status=None, statusName=None, followPerson=None, followRemark=None, followRecordList=None, partnerStatusList=None, files=None, applySource=None, applySourceName=None):
         """
         :param id: (Optional) id
         :param pin: (Optional) 用户pin
@@ -27,16 +27,31 @@ class ApplyDistributor(object):
         :param contactor: (Optional) 联系人姓名
         :param tel: (Optional) 联系人电话
         :param email: (Optional) 联系邮箱
+        :param position: (Optional) 职位
+        :param wechatNo: (Optional) 联系人微信号
         :param cooperateType: (Optional) 合作类型
         :param cooperateTypeName: (Optional) 合作类型名称
+        :param cooperateRequest: (Optional) 与京东智联云合作的诉求
+        :param uuid: (Optional) UUID
+        :param activityId: (Optional) 活动ID
+        :param activityName: (Optional) 活动名称
+        :param cooperateArea: (Optional) 合作领域
+        :param cooperateContent: (Optional) 合作内容
         :param companyName: (Optional) 公司名称
         :param companyScale: (Optional) 公司规模
-        :param companyScaleName: (Optional) 公司规模
+        :param companyScaleName: (Optional) 公司规模名称
         :param region: (Optional) 业务区域
-        :param regionName: (Optional) 业务区域
+        :param city: (Optional) 城市
         :param webSite: (Optional) 公司网址
         :param status: (Optional) 状态
         :param statusName: (Optional) 状态
+        :param followPerson: (Optional) 跟进人
+        :param followRemark: (Optional) 跟进说明
+        :param followRecordList: (Optional) 跟进记录列表
+        :param partnerStatusList: (Optional) 状态变更列表
+        :param files: (Optional) 附件信息
+        :param applySource: (Optional) 合作伙伴申请来源 1-官网招募 2-SaaS加速器
+        :param applySourceName: (Optional) 合作伙伴申请来源
         """
 
         self.id = id
@@ -45,13 +60,28 @@ class ApplyDistributor(object):
         self.contactor = contactor
         self.tel = tel
         self.email = email
+        self.position = position
+        self.wechatNo = wechatNo
         self.cooperateType = cooperateType
         self.cooperateTypeName = cooperateTypeName
+        self.cooperateRequest = cooperateRequest
+        self.uuid = uuid
+        self.activityId = activityId
+        self.activityName = activityName
+        self.cooperateArea = cooperateArea
+        self.cooperateContent = cooperateContent
         self.companyName = companyName
         self.companyScale = companyScale
         self.companyScaleName = companyScaleName
         self.region = region
-        self.regionName = regionName
+        self.city = city
         self.webSite = webSite
         self.status = status
         self.statusName = statusName
+        self.followPerson = followPerson
+        self.followRemark = followRemark
+        self.followRecordList = followRecordList
+        self.partnerStatusList = partnerStatusList
+        self.files = files
+        self.applySource = applySource
+        self.applySourceName = applySourceName

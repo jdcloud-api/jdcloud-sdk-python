@@ -19,28 +19,28 @@
 
 class ReturnPolicyDTO(object):
 
-    def __init__(self, id=None, deptId=None, deptName=None, distributorType=None, returnType=None, returnPolicyId=None, returnPolicyName=None, itemId=None, itemName=None, returnRuleType=None, productId=None, productType=None, returnPolicyProductDTOList=None, circleType=None, circleName=None, circleFlag=None, circleValue=None, condition=None, conditionRemark=None, returnRatio=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None):
+    def __init__(self, deptId, distributorType, returnPolicyId, itemId, returnRuleType, approveFileId, circleType, id=None, deptName=None, returnType=None, returnPolicyName=None, itemName=None, returnPolicyProductDTOList=None, returnPolicyProductMap=None, circleName=None, circleFlag=None, circleValue=None, conditions=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, yn=None):
         """
         :param id: (Optional) ID
-        :param deptId: (Optional) 部门ID
+        :param deptId:  部门ID
         :param deptName: (Optional) 部门名称
-        :param distributorType: (Optional) 渠道商类型
+        :param distributorType:  渠道商类型
         :param returnType: (Optional) 返还类型
-        :param returnPolicyId: (Optional) 返还政策主ID
+        :param returnPolicyId:  返还政策主ID
         :param returnPolicyName: (Optional) 返还政策主名称
-        :param itemId: (Optional) 项目编码
+        :param itemId:  项目编码
         :param itemName: (Optional) 项目名称
-        :param returnRuleType: (Optional) 返还依据类型
-        :param productId: (Optional) 产品ID
-        :param productType: (Optional) 产品类型
+        :param returnRuleType:  返还依据类型
+        :param approveFileId:  审批邮件附件id，取上传邮件附件接口返回的approveFileId值
         :param returnPolicyProductDTOList: (Optional) 
-        :param circleType: (Optional) 周期类型
+        :param returnPolicyProductMap: (Optional) 选择的产品列表
+例："returnPolicyProductMap": {"1": ["500138","500139"],"2": ["719","720"]}
+
+        :param circleType:  周期类型
         :param circleName: (Optional) 周期名称
         :param circleFlag: (Optional) 指定周期标识
         :param circleValue: (Optional) 周期值
-        :param condition: (Optional) 
-        :param conditionRemark: (Optional) 说明
-        :param returnRatio: (Optional) 返还比例
+        :param conditions: (Optional) 
         :param status: (Optional) 状态
         :param createTime: (Optional) 创建时间
         :param createUser: (Optional) 创建人
@@ -59,16 +59,14 @@ class ReturnPolicyDTO(object):
         self.itemId = itemId
         self.itemName = itemName
         self.returnRuleType = returnRuleType
-        self.productId = productId
-        self.productType = productType
+        self.approveFileId = approveFileId
         self.returnPolicyProductDTOList = returnPolicyProductDTOList
+        self.returnPolicyProductMap = returnPolicyProductMap
         self.circleType = circleType
         self.circleName = circleName
         self.circleFlag = circleFlag
         self.circleValue = circleValue
-        self.condition = condition
-        self.conditionRemark = conditionRemark
-        self.returnRatio = returnRatio
+        self.conditions = conditions
         self.status = status
         self.createTime = createTime
         self.createUser = createUser

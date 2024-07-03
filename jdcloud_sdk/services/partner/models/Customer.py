@@ -19,11 +19,12 @@
 
 class Customer(object):
 
-    def __init__(self, id=None, pin=None, loginName=None, distributorId=None, distributorPin=None, distributorName=None, distributorLevel=None, relTime=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, accountTypeName=None, realName=None, name=None, yn=None):
+    def __init__(self, id=None, pin=None, loginName=None, accountingId=None, distributorId=None, distributorPin=None, distributorName=None, distributorLevel=None, relTime=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, createTime=None, createUser=None, updateTime=None, updateUser=None, accountTypeName=None, accountType=None, realName=None, realNameFlag=None, name=None, yn=None):
         """
         :param id: (Optional) ID
         :param pin: (Optional) 客户pin
         :param loginName: (Optional) 账户名
+        :param accountingId: (Optional) 账户ID
         :param distributorId: (Optional) 渠道商ID
         :param distributorPin: (Optional) 渠道商PIN
         :param distributorName: (Optional) 渠道商名称
@@ -39,8 +40,10 @@ class Customer(object):
         :param createUser: (Optional) 创建人
         :param updateTime: (Optional) 修改时间
         :param updateUser: (Optional) 修改人
-        :param accountTypeName: (Optional) 账户类型
+        :param accountTypeName: (Optional) 账户类型名称（1个人2企业）
+        :param accountType: (Optional) 账户类型（1个人2企业）
         :param realName: (Optional) 实名标识名称
+        :param realNameFlag: (Optional) 实名标识
         :param name: (Optional) 名称
         :param yn: (Optional) 是否删除0未删除,1已删除
         """
@@ -48,6 +51,7 @@ class Customer(object):
         self.id = id
         self.pin = pin
         self.loginName = loginName
+        self.accountingId = accountingId
         self.distributorId = distributorId
         self.distributorPin = distributorPin
         self.distributorName = distributorName
@@ -64,6 +68,8 @@ class Customer(object):
         self.updateTime = updateTime
         self.updateUser = updateUser
         self.accountTypeName = accountTypeName
+        self.accountType = accountType
         self.realName = realName
+        self.realNameFlag = realNameFlag
         self.name = name
         self.yn = yn

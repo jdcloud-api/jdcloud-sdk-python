@@ -19,7 +19,7 @@
 
 class ReturnPolicyMainQuery(object):
 
-    def __init__(self, id=None, deptId=None, distributorType=None, returnType=None, returnPolicyName=None, returnPolicyNameLike=None, remark=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, pageIndex=None, pageSize=None, offset=None):
+    def __init__(self, id=None, deptId=None, distributorType=None, returnType=None, returnPolicyName=None, returnPolicyNameLike=None, productType=None, remark=None, status=None, createTime=None, createUser=None, updateTime=None, updateUser=None, pageIndex=None, pageSize=None, offset=None):
         """
         :param id: (Optional) ID
         :param deptId: (Optional) 部门ID
@@ -27,6 +27,7 @@ class ReturnPolicyMainQuery(object):
         :param returnType: (Optional) 返还类型
         :param returnPolicyName: (Optional) 返还政策主名称
         :param returnPolicyNameLike: (Optional) 返还政策主名称like
+        :param productType: (Optional) 产品类型(0公有云1云市场2Elite)
         :param remark: (Optional) 备注
         :param status: (Optional) 状态
         :param createTime: (Optional) 创建时间
@@ -44,6 +45,7 @@ class ReturnPolicyMainQuery(object):
         self.returnType = returnType
         self.returnPolicyName = returnPolicyName
         self.returnPolicyNameLike = returnPolicyNameLike
+        self.productType = productType
         self.remark = remark
         self.status = status
         self.createTime = createTime

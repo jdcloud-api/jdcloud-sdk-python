@@ -19,7 +19,7 @@
 
 class CustomerVo(object):
 
-    def __init__(self, pin=None, distributorLevel1Name=None, distributorLevel2Name=None, relTime=None, loginName=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, dept=None, deptName=None, createTime=None, createUser=None, updateTime=None, accountTypeName=None, realName=None, name=None, updateUser=None):
+    def __init__(self, pin=None, distributorLevel1Name=None, distributorLevel2Name=None, relTime=None, loginName=None, source=None, aliasName=None, contracter=None, tel=None, email=None, remark=None, dept=None, deptName=None, createTime=None, createUser=None, updateTime=None, accountTypeName=None, accountType=None, realName=None, realNameFlag=None, name=None, updateUser=None):
         """
         :param pin: (Optional) 客户pin
         :param distributorLevel1Name: (Optional) 一级渠道商名称
@@ -38,7 +38,9 @@ class CustomerVo(object):
         :param createUser: (Optional) 创建人
         :param updateTime: (Optional) 修改时间
         :param accountTypeName: (Optional) 账户类型
+        :param accountType: (Optional) 账户类型（1个人2企业）
         :param realName: (Optional) 实名标识名称
+        :param realNameFlag: (Optional) 实名标识
         :param name: (Optional) 名称
         :param updateUser: (Optional) 修改人
         """
@@ -60,6 +62,8 @@ class CustomerVo(object):
         self.createUser = createUser
         self.updateTime = updateTime
         self.accountTypeName = accountTypeName
+        self.accountType = accountType
         self.realName = realName
+        self.realNameFlag = realNameFlag
         self.name = name
         self.updateUser = updateUser

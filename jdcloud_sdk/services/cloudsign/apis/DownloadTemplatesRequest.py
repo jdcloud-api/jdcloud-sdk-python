@@ -21,14 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DownloadTemplatesRequest(JDCloudRequest):
     """
-    1. 下载合同模板
+    此接口仅供前端使用
+1. 下载合同模板
 2. 多个合同id用逗号分隔
  [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DownloadTemplatesRequest, self).__init__(
-            '/template/{templateId}', 'GET', header, version)
+            '/smqTemplate/{templateId}:downloadTemplates', 'GET', header, version)
         self.parameters = parameters
 
 

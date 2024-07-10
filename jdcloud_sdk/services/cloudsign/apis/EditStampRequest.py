@@ -19,23 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteStampRequest(JDCloudRequest):
+class EditStampRequest(JDCloudRequest):
     """
-    删除印章 [MFA enabled]
+    编辑印章 [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteStampRequest, self).__init__(
-            '/smqStamp/{stampId}:deleteStamp', 'DELETE', header, version)
+        super(EditStampRequest, self).__init__(
+            '/smqStamp:editStamp', 'POST', header, version)
         self.parameters = parameters
 
 
-class DeleteStampParameters(object):
+class EditStampParameters(object):
 
-    def __init__(self,stampId):
+    def __init__(self,):
         """
-        :param stampId: 印章ID
         """
 
+        self.stampId = None
+        self.stampName = None
+
+    def setStampId(self, stampId):
+        """
+        :param stampId: (Optional) 印章ID
+        """
         self.stampId = stampId
+
+    def setStampName(self, stampName):
+        """
+        :param stampName: (Optional) 印章名称
+        """
+        self.stampName = stampName
 

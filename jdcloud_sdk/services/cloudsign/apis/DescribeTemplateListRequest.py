@@ -26,7 +26,7 @@ class DescribeTemplateListRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeTemplateListRequest, self).__init__(
-            '/template', 'GET', header, version)
+            '/smqTemplate:describeTemplateList', 'GET', header, version)
         self.parameters = parameters
 
 

@@ -19,13 +19,15 @@
 
 class StampInfo(object):
 
-    def __init__(self, stampId=None, stampName=None, stampContent=None, stampDigest=None, createTime=None):
+    def __init__(self, stampId=None, stampName=None, stampContent=None, stampDigest=None, createTime=None, stampUrl=None, stampAttributes=None):
         """
         :param stampId: (Optional) 印章ID
         :param stampName: (Optional) 印章名称
         :param stampContent: (Optional) 印章图片（base64）
         :param stampDigest: (Optional) 印章摘要
         :param createTime: (Optional) 印章上传时间
+        :param stampUrl: (Optional) 印章下载地址
+        :param stampAttributes: (Optional) 印章属性
         """
 
         self.stampId = stampId
@@ -33,3 +35,5 @@ class StampInfo(object):
         self.stampContent = stampContent
         self.stampDigest = stampDigest
         self.createTime = createTime
+        self.stampUrl = stampUrl
+        self.stampAttributes = stampAttributes

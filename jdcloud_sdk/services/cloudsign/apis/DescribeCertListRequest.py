@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeStampListRequest(JDCloudRequest):
+class DescribeCertListRequest(JDCloudRequest):
     """
-    获取印章列表
+    获取已申请证书列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeStampListRequest, self).__init__(
-            '/smqStamp:describeStampList', 'GET', header, version)
+        super(DescribeCertListRequest, self).__init__(
+            '/smqCert:list', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeStampListParameters(object):
+class DescribeCertListParameters(object):
 
     def __init__(self,):
         """
@@ -38,7 +38,11 @@ class DescribeStampListParameters(object):
 
         self.pageNumber = None
         self.pageSize = None
-        self.stampName = None
+        self.caType = None
+        self.name = None
+        self.serialNo = None
+        self.keyAlg = None
+        self.certStatus = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -52,9 +56,33 @@ class DescribeStampListParameters(object):
         """
         self.pageSize = pageSize
 
-    def setStampName(self, stampName):
+    def setCaType(self, caType):
         """
-        :param stampName: (Optional) 印章名称
+        :param caType: (Optional) 证书渠道
         """
-        self.stampName = stampName
+        self.caType = caType
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 个人用户姓名或企业名
+        """
+        self.name = name
+
+    def setSerialNo(self, serialNo):
+        """
+        :param serialNo: (Optional) 证书序列号
+        """
+        self.serialNo = serialNo
+
+    def setKeyAlg(self, keyAlg):
+        """
+        :param keyAlg: (Optional) 证书算法
+        """
+        self.keyAlg = keyAlg
+
+    def setCertStatus(self, certStatus):
+        """
+        :param certStatus: (Optional) 证书状态
+        """
+        self.certStatus = certStatus
 

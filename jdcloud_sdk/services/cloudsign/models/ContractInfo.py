@@ -19,7 +19,7 @@
 
 class ContractInfo(object):
 
-    def __init__(self, contractId=None, contractTitle=None, stampNames=None, contractContent=None, contractDigest=None, createTime=None):
+    def __init__(self, contractId=None, contractTitle=None, stampNames=None, contractContent=None, contractDigest=None, createTime=None, businessId=None):
         """
         :param contractId: (Optional) 合同ID
         :param contractTitle: (Optional) 合同标题
@@ -27,6 +27,7 @@ class ContractInfo(object):
         :param contractContent: (Optional) 合同文件（base64）
         :param contractDigest: (Optional) 合同文件摘要
         :param createTime: (Optional) 合同签章时间
+        :param businessId: (Optional) 业务流水号
         """
 
         self.contractId = contractId
@@ -35,3 +36,4 @@ class ContractInfo(object):
         self.contractContent = contractContent
         self.contractDigest = contractDigest
         self.createTime = createTime
+        self.businessId = businessId

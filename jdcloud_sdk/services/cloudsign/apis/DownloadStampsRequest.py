@@ -21,14 +21,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DownloadStampsRequest(JDCloudRequest):
     """
-    1. 下载印章
+    此接口仅供前端使用
+1. 下载印章
 2. 多个印章id用逗号分隔
  [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DownloadStampsRequest, self).__init__(
-            '/stamp/{stampId}', 'GET', header, version)
+            '/smqStamp/{stampId}:downloadStamps', 'GET', header, version)
         self.parameters = parameters
 
 

@@ -26,7 +26,7 @@ class PaddingTemplateRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(PaddingTemplateRequest, self).__init__(
-            '/template/{templateId}', 'PATCH', header, version)
+            '/smqTemplate/{templateId}:paddingTemplate', 'PATCH', header, version)
         self.parameters = parameters
 
 

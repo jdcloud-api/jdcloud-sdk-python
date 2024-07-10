@@ -19,23 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteStampRequest(JDCloudRequest):
+class DescribeStampHistoryListRequest(JDCloudRequest):
     """
-    删除印章 [MFA enabled]
+    获取印章日志列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteStampRequest, self).__init__(
-            '/smqStamp/{stampId}:deleteStamp', 'DELETE', header, version)
+        super(DescribeStampHistoryListRequest, self).__init__(
+            '/smqStamphistory:describeStampHistoryList', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteStampParameters(object):
+class DescribeStampHistoryListParameters(object):
 
     def __init__(self,stampId):
         """
         :param stampId: 印章ID
         """
 
+        self.pageSize = None
+        self.pageNumber = None
         self.stampId = stampId
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小, 默认为10, 取值范围[10, 100]
+        """
+        self.pageSize = pageSize
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码, 默认为1
+        """
+        self.pageNumber = pageNumber
 

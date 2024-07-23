@@ -19,7 +19,7 @@
 
 class BillItemVo(object):
 
-    def __init__(self, itemSourceId, property, propertyName, actualUsage, billFee, actualFee, payState, deductUsage=None, billingUsage=None, startTime=None, endTime=None, usageUnit=None, discountFee=None, cashCouponFee=None, balancePayFee=None, cashPayFee=None, unitPrice=None, priceUnit=None, payTime=None, propertyType=None, propertyUnit=None, propertyQuantity=None, number=None, unitUsage=None, monthTotalUsage=None, favorableInfo=None):
+    def __init__(self, itemSourceId, property, propertyName, actualUsage, billFee, actualFee, payState, deductUsage=None, billingUsage=None, startTime=None, endTime=None, usageUnit=None, discountFee=None, cashCouponFee=None, balancePayFee=None, cashPayFee=None, wire=None, unitPrice=None, priceUnit=None, payTime=None, propertyType=None, propertyUnit=None, propertyQuantity=None, number=None, unitUsage=None, monthTotalUsage=None, favorableInfo=None):
         """
         :param itemSourceId:  计费项明细账单唯一标识，不可重复
         :param property:  计费项Code
@@ -36,6 +36,7 @@ class BillItemVo(object):
         :param cashCouponFee: (Optional) 代金券支付金额，2位精度
         :param balancePayFee: (Optional) 余额支付金额：2位精度
         :param cashPayFee: (Optional) 现金支付金额：2位精度
+        :param wire: (Optional) 电汇金额，2位精度
         :param unitPrice: (Optional) 单价
         :param priceUnit: (Optional) 单价单位
         :param payState:  计费项支付状态 0、未支付 1、己支付
@@ -64,6 +65,7 @@ class BillItemVo(object):
         self.cashCouponFee = cashCouponFee
         self.balancePayFee = balancePayFee
         self.cashPayFee = cashPayFee
+        self.wire = wire
         self.unitPrice = unitPrice
         self.priceUnit = priceUnit
         self.payState = payState

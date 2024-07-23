@@ -38,7 +38,7 @@ class ResourceAeVo(object):
         :param createTime: (Optional) 本条记录生成时刻、进入当前state的时刻
         :param updateTime: (Optional) 修改时间
         :param toDeleteTime: (Optional) 资源预计释放时间
-        :param capState: (Optional) 
+        :param capState: (Optional) 用于中间层判断的状态标识 1:正常(重启) 3:欠费停服 4:欠费删除 13：到期停服 14：到期删除、退款删除 24：运营删除 34:用户删除
         """
 
         self.id = id

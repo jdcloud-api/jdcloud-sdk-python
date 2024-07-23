@@ -19,7 +19,7 @@
 
 class OrderPriceDetail(object):
 
-    def __init__(self, price=None, priceScale4=None, discount=None, discountedPrice=None, afterFavorablePrice=None, erasePrice=None, originalPrice=None, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, favorableInfo=None, priceSnapShot=None, pin=None, taskId=None, startTime=None, endTime=None, processType=None, sourceId=None, refundPrice=None, cashRefundPrice=None, balanceRefundPrice=None, couponRefundPrice=None, refundOrderList=None, billingItemPriceList=None):
+    def __init__(self, price=None, priceScale4=None, discount=None, discountedPrice=None, afterFavorablePrice=None, erasePrice=None, originalPrice=None, resourceId=None, appCode=None, serviceCode=None, site=None, region=None, az=None, billingType=None, timeSpan=None, timeUnit=None, networkOperator=None, formula=None, favorableInfo=None, priceSnapShot=None, pin=None, taskId=None, startTime=None, endTime=None, processType=None, sourceId=None, refundPrice=None, cashRefundPrice=None, balanceRefundPrice=None, couponRefundPrice=None, refundOrderList=None, billingItemPriceList=None):
         """
         :param price: (Optional) 原价(6位，原价为每个计费项原价之和)
         :param priceScale4: (Optional) 原价(6位，与price一致，兼容之前4位原价保留字段)
@@ -33,9 +33,10 @@ class OrderPriceDetail(object):
         :param serviceCode: (Optional) 产品线
         :param site: (Optional) 站点  0:主站  其他:专有云
         :param region: (Optional) 地域
-        :param billingType: (Optional) 计费类型1:按配置2:按用量3:包年包月
+        :param az: (Optional) 可用区
+        :param billingType: (Optional) 计费类型1:按配置2:按用量3:包年包月4:一次性5:抢占式
         :param timeSpan: (Optional) 时长
-        :param timeUnit: (Optional) 时长类型 1:小时2:天3:月4:年
+        :param timeUnit: (Optional) 时长类型 1:小时2:天3:月4:年 5:周
         :param networkOperator: (Optional) 网络类型 0:non1:非BGP2:BGP
         :param formula: (Optional) 配置信息
         :param favorableInfo: (Optional) FavorableInfo转成json后的字符串
@@ -66,6 +67,7 @@ class OrderPriceDetail(object):
         self.serviceCode = serviceCode
         self.site = site
         self.region = region
+        self.az = az
         self.billingType = billingType
         self.timeSpan = timeSpan
         self.timeUnit = timeUnit

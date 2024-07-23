@@ -19,7 +19,7 @@
 
 class BillVo(object):
 
-    def __init__(self, sourceId, startTime, endTime, region, appCode, serviceCode, resourceId, billingType, billFee, actualFee, billTime, payState, currency=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, org=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None, couponList=None, billItemList=None):
+    def __init__(self, sourceId, startTime, endTime, region, appCode, serviceCode, resourceId, billingType, billFee, actualFee, billTime, payState, currency=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, wire=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, org=None, orgName=None, contractNumber=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None, couponList=None, billItemList=None):
         """
         :param sourceId:  账单唯一ID，不可重复，更新时根据该ID进行
         :param startTime:  开始时间(格式为：yyyy-MM-dd HH:mm:ss)
@@ -42,11 +42,14 @@ class BillVo(object):
         :param cashCouponFee: (Optional) 代金券支付金额，2位精度，代金券支付金额=免费代金券金额+付费代金券金额
         :param freeCashCouponFee: (Optional) 免费代金券金额，2位精度
         :param payCashCouponFee: (Optional) 付费代金券金额，2位精度
+        :param wire: (Optional) 电汇金额，2位精度
         :param consumeTime: (Optional) 消费时间
         :param transactionNo: (Optional) 交易单号
         :param refundNo: (Optional) 退款单号,如为退款账单，需要传退款单号
         :param site: (Optional) 站点，0:国内，不可修改
         :param org: (Optional) 组织机构代码
+        :param orgName: (Optional) 组织机构名称
+        :param contractNumber: (Optional) 合同编码
         :param tradeType: (Optional) 交易类型 1、使用 2、 新购 3、续费 4、配置变更 5、退款，不可修改
         :param billType: (Optional) 账单类型 0-普通账单 1-退款账单 2-调账账单 3-保底账单，不可修改
         :param formulaDesc: (Optional) 配置描述，用于控制台账单详情中展示
@@ -78,11 +81,14 @@ class BillVo(object):
         self.cashCouponFee = cashCouponFee
         self.freeCashCouponFee = freeCashCouponFee
         self.payCashCouponFee = payCashCouponFee
+        self.wire = wire
         self.consumeTime = consumeTime
         self.transactionNo = transactionNo
         self.refundNo = refundNo
         self.site = site
         self.org = org
+        self.orgName = orgName
+        self.contractNumber = contractNumber
         self.tradeType = tradeType
         self.billType = billType
         self.formulaDesc = formulaDesc

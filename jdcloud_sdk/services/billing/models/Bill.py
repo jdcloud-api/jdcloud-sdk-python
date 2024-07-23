@@ -19,7 +19,7 @@
 
 class Bill(object):
 
-    def __init__(self, dataSource=None, sourceId=None, globalId=None, pin=None, startTime=None, endTime=None, region=None, appCode=None, serviceCode=None, resourceId=None, billingType=None, billFee=None, actualFee=None, billTime=None, currency=None, payState=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, org=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None):
+    def __init__(self, dataSource=None, sourceId=None, globalId=None, pin=None, startTime=None, endTime=None, region=None, appCode=None, serviceCode=None, resourceId=None, billingType=None, billFee=None, actualFee=None, billTime=None, currency=None, payState=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, wire=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, org=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None):
         """
         :param dataSource: (Optional) 数据来源：10、物联网 11、视频云 12、CDN 13、PCDN 14、IDC 15、通信云
         :param sourceId: (Optional) 账单唯一ID
@@ -45,6 +45,7 @@ class Bill(object):
         :param cashCouponFee: (Optional) 代金券支付金额，2位精度
         :param freeCashCouponFee: (Optional) 免费代金券金额，2位精度
         :param payCashCouponFee: (Optional) 付费代金券金额，2位精度
+        :param wire: (Optional) 电汇金额，2位精度
         :param consumeTime: (Optional) 消费时间
         :param transactionNo: (Optional) 交易单号
         :param refundNo: (Optional) 退款单号
@@ -82,6 +83,7 @@ class Bill(object):
         self.cashCouponFee = cashCouponFee
         self.freeCashCouponFee = freeCashCouponFee
         self.payCashCouponFee = payCashCouponFee
+        self.wire = wire
         self.consumeTime = consumeTime
         self.transactionNo = transactionNo
         self.refundNo = refundNo

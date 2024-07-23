@@ -25,7 +25,7 @@ class ResourceOrderVo(object):
         :param transactionNo: (Optional) 交易单唯一标识
         :param resourceId: (Optional) 资源id
         :param billingType: (Optional) 计费类型 1:按配置 2:按用量 3:包年包月 4:一次性
-        :param timeUnit: (Optional) 时长类型 1:小时 2:天 3:月 4:年
+        :param timeUnit: (Optional) 时长类型 1:小时 2:天 3:月 4:年 5:周
         :param timeSpan: (Optional) 时长字段，与timeUnit字段构成具体时长
         :param status: (Optional) 资源状态 1:正常 2:停服 3:删除
         :param billingStatus: (Optional) 计费状态 0:停止计费 1:计费中

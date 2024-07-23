@@ -19,9 +19,11 @@
 
 class RefundResourceFee(object):
 
-    def __init__(self, resourceId=None, fee=None, cashFee=None, balanceFee=None, couponFee=None, orderFees=None):
+    def __init__(self, resourceId=None, status=None, message=None, fee=None, cashFee=None, balanceFee=None, couponFee=None, orderFees=None):
         """
         :param resourceId: (Optional) 资源id
+        :param status: (Optional) 状态: 1-成功 2-失败
+        :param message: (Optional) 失败信息
         :param fee: (Optional) 资源退款金额
         :param cashFee: (Optional) 现金退款金额
         :param balanceFee: (Optional) 余额退款金额
@@ -30,6 +32,8 @@ class RefundResourceFee(object):
         """
 
         self.resourceId = resourceId
+        self.status = status
+        self.message = message
         self.fee = fee
         self.cashFee = cashFee
         self.balanceFee = balanceFee

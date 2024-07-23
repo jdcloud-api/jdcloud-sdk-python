@@ -19,13 +19,19 @@
 
 class BillAdjustRecord(object):
 
-    def __init__(self, pin=None, serviceCode=None, resourceId=None, actualFee=None, adjustFee=None, property=None, usage=None, adjustUsage=None, usageUnit=None, opType=None, billDate=None, state=None, reason=None, file1Name=None, file1Url=None, file2Name=None, file2Url=None, file3Name=None, file3Url=None, erp=None, createTime=None, updateTime=None):
+    def __init__(self, pin=None, serviceCode=None, resourceId=None, billFee=None, discountFee=None, actualFee=None, adjustFee=None, cashPayFee=None, balancePayFee=None, cashCouponFee=None, couponNumber=None, property=None, usage=None, adjustUsage=None, usageUnit=None, opType=None, billDate=None, state=None, reason=None, file1Name=None, file1Url=None, file2Name=None, file2Url=None, file3Name=None, file3Url=None, erp=None, createTime=None, updateTime=None):
         """
         :param pin: (Optional) pin
         :param serviceCode: (Optional) 产品
         :param resourceId: (Optional) 资源ID
+        :param billFee: (Optional) 原价
+        :param discountFee: (Optional) 优惠金额
         :param actualFee: (Optional) 应付金额
         :param adjustFee: (Optional) 调整金额
+        :param cashPayFee: (Optional) 调整现金金额
+        :param balancePayFee: (Optional) 调整余额金额
+        :param cashCouponFee: (Optional) 调整代金券金额
+        :param couponNumber: (Optional) 代金券券码
         :param property: (Optional) 计费项
         :param usage: (Optional) 用量
         :param adjustUsage: (Optional) 调整用量
@@ -48,8 +54,14 @@ class BillAdjustRecord(object):
         self.pin = pin
         self.serviceCode = serviceCode
         self.resourceId = resourceId
+        self.billFee = billFee
+        self.discountFee = discountFee
         self.actualFee = actualFee
         self.adjustFee = adjustFee
+        self.cashPayFee = cashPayFee
+        self.balancePayFee = balancePayFee
+        self.cashCouponFee = cashCouponFee
+        self.couponNumber = couponNumber
         self.property = property
         self.usage = usage
         self.adjustUsage = adjustUsage

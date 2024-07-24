@@ -32,7 +32,7 @@ class GetAliveUrlNewRequest(JDCloudRequest):
 
 class GetAliveUrlNewParameters(object):
 
-    def __init__(self,returnUrl):
+    def __init__(self,returnUrl, ):
         """
         :param returnUrl: 采集结束后自动跳转的目标地址（须以http或https开头，长度不超过128字符）
         """
@@ -40,6 +40,7 @@ class GetAliveUrlNewParameters(object):
         self.name = None
         self.idcard = None
         self.returnUrl = returnUrl
+        self.actions = None
 
     def setName(self, name):
         """
@@ -52,4 +53,10 @@ class GetAliveUrlNewParameters(object):
         :param idcard: (Optional) 身份证号（需要进行身份核验时传递此参数）
         """
         self.idcard = idcard
+
+    def setActions(self, actions):
+        """
+        :param actions: (Optional) 指定动作，逗号隔开。（LookLeft 向左，LookRight 向右，OpenMouth 张嘴，BlinkEye 眨眼，ShakeHead 摇头，NodHead 点头）
+        """
+        self.actions = actions
 

@@ -19,10 +19,11 @@
 
 class AliveResultInfo(object):
 
-    def __init__(self, faceImage=None, sceneImage=None, h5Result=None, smResult=None, rxResult=None, score=None, desc=None):
+    def __init__(self, faceImage=None, sceneImage=None, video=None, h5Result=None, smResult=None, rxResult=None, score=None, desc=None):
         """
         :param faceImage: (Optional) 人脸照片base64
         :param sceneImage: (Optional) 场景照片base64
+        :param video: (Optional) 现场视频base64
         :param h5Result: (Optional) H5活体检测结果
         :param smResult: (Optional) 实名认证检测结果
         :param rxResult: (Optional) 人像对比结果
@@ -32,6 +33,7 @@ class AliveResultInfo(object):
 
         self.faceImage = faceImage
         self.sceneImage = sceneImage
+        self.video = video
         self.h5Result = h5Result
         self.smResult = smResult
         self.rxResult = rxResult

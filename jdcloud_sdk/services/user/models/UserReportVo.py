@@ -19,13 +19,15 @@
 
 class UserReportVo(object):
 
-    def __init__(self, pin=None, affiliation=None, contacts=None):
+    def __init__(self, pin=None, reportName=None, affiliation=None, contacts=None):
         """
         :param pin: (Optional) 用户pin
-        :param affiliation: (Optional) 用户归属（集团-1、外部-2、云内部-3)
+        :param reportName: (Optional) 报备名称
+        :param affiliation: (Optional) 用户归属（集团-1、外部-2、京东科技内部-3)
         :param contacts: (Optional) 报备为集团时，业务联系人erp
         """
 
         self.pin = pin
+        self.reportName = reportName
         self.affiliation = affiliation
         self.contacts = contacts

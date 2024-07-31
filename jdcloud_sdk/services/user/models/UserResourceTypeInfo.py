@@ -19,11 +19,15 @@
 
 class UserResourceTypeInfo(object):
 
-    def __init__(self, code=None, name=None):
+    def __init__(self, code=None, name=None, networkZoneCode=None, networkZoneName=None):
         """
         :param code: (Optional) 用户资源池类型code
         :param name: (Optional) 用户资源池类型name
+        :param networkZoneCode: (Optional) 用户网络专区属性code
+        :param networkZoneName: (Optional) 用户网络专区属性name
         """
 
         self.code = code
         self.name = name
+        self.networkZoneCode = networkZoneCode
+        self.networkZoneName = networkZoneName

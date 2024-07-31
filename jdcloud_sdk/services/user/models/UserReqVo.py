@@ -19,7 +19,7 @@
 
 class UserReqVo(object):
 
-    def __init__(self, pin=None, cscPhone=None, cscEmail=None, name=None, userType=None, companyName=None, createTimeStart=None, createTimeEnd=None, arrearageStatus=None, groups=None, group=None, billingWhite=None, tag=None, pageSize=None, currentPage=None):
+    def __init__(self, pageSize, currentPage, pin=None, cscPhone=None, cscEmail=None, name=None, userType=None, companyName=None, createTimeStart=None, createTimeEnd=None, arrearageStatus=None, groups=None, group=None, billingWhite=None, tag=None):
         """
         :param pin: (Optional) 用户pin
         :param cscPhone: (Optional) 用户手机号
@@ -34,8 +34,8 @@ class UserReqVo(object):
         :param group: (Optional) 用户分组:1-自然流量，2-内部测试，3-内部重点，4-渠道用户
         :param billingWhite: (Optional) 计费白名单：1、在白名单  2、不在白名单
         :param tag: (Optional) 渠道等级;1普通用户2测试用户4VIP用户8其他VIP用户16boss迁移账户
-        :param pageSize: (Optional) 页大小(必传)
-        :param currentPage: (Optional) 当前页(必传)
+        :param pageSize:  页大小(必传)
+        :param currentPage:  当前页(必传)
         """
 
         self.pin = pin

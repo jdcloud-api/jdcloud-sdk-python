@@ -19,21 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeUserRequest(JDCloudRequest):
+class CreateTicketRequest(JDCloudRequest):
     """
-    查询用户信息
+    创建免登录ticket
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeUserRequest, self).__init__(
-            '/describeUser', 'GET', header, version)
+        super(CreateTicketRequest, self).__init__(
+            '/user:createTicket', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeUserParameters(object):
+class CreateTicketParameters(object):
 
     def __init__(self,):
         """
         """
 
+        self.expire = None
+
+    def setExpire(self, expire):
+        """
+        :param expire: (Optional) 有效期（默认24，最小1，最大24，单位小时）
+        """
+        self.expire = expire
 

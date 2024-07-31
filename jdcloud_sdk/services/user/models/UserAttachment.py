@@ -21,7 +21,7 @@ class UserAttachment(object):
 
     def __init__(self, remark=None, industry=None, subIndustry=None, business=None, website=None, cpState=None, cpProvince=None, cpCity=None, cpCountry=None, cpAddress=None, cpTelphone=None):
         """
-        :param remark: (Optional) 公司名称
+        :param remark: (Optional) 备注信息
         :param industry: (Optional) 主营行业
         :param subIndustry: (Optional) 主营行业子选项
         :param business: (Optional) 主营业务

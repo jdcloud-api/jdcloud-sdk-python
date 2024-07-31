@@ -26,4 +26,4 @@ class UserClient(JDCloudClient):
         if config is None:
             config = Config('user.jdcloud-api.com')
 
-        super(UserClient, self).__init__(credential, config, 'user', '0.1.5', logger)
+        super(UserClient, self).__init__(credential, config, 'user', '0.2.8', logger)

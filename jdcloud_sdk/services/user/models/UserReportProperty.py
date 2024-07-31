@@ -19,19 +19,33 @@
 
 class UserReportProperty(object):
 
-    def __init__(self, affiliation=None, affiliationIndex=None, enterpriseAffiliation=None, enterpriseAffiliationIndex=None, businessLine=None, businessLineIndex=None, userGroup=None, userGroupIndex=None, serviceType=None, deptCode=None, deptName=None):
+    def __init__(self, affiliation=None, affiliationIndex=None, enterpriseAffiliation=None, enterpriseAffiliationIndex=None, businessLine=None, businessLineIndex=None, subBusinessLine=None, userGroup=None, userGroupIndex=None, serviceType=None, deptCode=None, deptName=None, clientType=None, clientIndex=None, whiteList=None, reportName=None, selfDefinitionForIAMUser=None, costDepartmentCode=None, costDepartmentName=None, accountAffiliation=None, accountAffiliationCode=None, pin=None, loginName=None, status=None, sellerErp=None):
         """
-        :param affiliation: (Optional) 用户归属（集团-1、外部-2、云内部-3)
+        :param affiliation: (Optional) 用户归属（集团-1、外部-2、京东科技内部-3)
         :param affiliationIndex: (Optional) 用户归属索引
         :param enterpriseAffiliation: (Optional) 集团归属（自用上云-1、赋能上云-2、回家上云-3、其他-4)
         :param enterpriseAffiliationIndex: (Optional) 集团归属索引
         :param businessLine: (Optional) 业务线（企业云业务部-1、公共业务部-2、生态业务部-3、产品研发部-4、大市场部-5、基础研发部-6、客户成功部-7、投资与运营部-8、应用研发部-9、空值-0）
         :param businessLineIndex: (Optional) 业务线索引
-        :param userGroup: (Optional) 用户分组(自然流量-1、内部测试-2、内部重点-3、渠道用户-4、合作伙伴-5、直接用户-6、ISV-7、内部高级-8、代理用户-9、服务商-10、集采大客户-11、京东云Lab-12、汇桔网-21)
+        :param subBusinessLine: (Optional) 业务线三级部门
+        :param userGroup: (Optional) 用户分组(自然流量-1、内部测试-2、内部重点-3、渠道分销-4、合作伙伴-5、直接用户-6、ISV-7、内部高级-8、渠道代理-9、服务商-10、集采大客户-11、京东云Lab-12、汇桔网-21)
         :param userGroupIndex: (Optional) 用户分组索引
         :param serviceType: (Optional) 当用户分组为服务商时，增加用户分组备注
         :param deptCode: (Optional) 归属为集团，事业部编码
         :param deptName: (Optional) 归属为集团，事业部名称
+        :param clientType: (Optional) 客户级别
+        :param clientIndex: (Optional) 客户级别索引
+        :param whiteList: (Optional) 是否白名单
+        :param reportName: (Optional) 报备名称
+        :param selfDefinitionForIAMUser: (Optional) 是否允许IAM用户自定义创建子用户：1-允许 0-不允许
+        :param costDepartmentCode: (Optional) 集团费用部门编码
+        :param costDepartmentName: (Optional) 集团费用部门名称
+        :param accountAffiliation: (Optional) 财务计收归属：（集团-1、外部-2、云内部-3）
+        :param accountAffiliationCode: (Optional) 财务计收归属子属性
+        :param pin: (Optional) pin
+        :param loginName: (Optional) 账号名
+        :param status: (Optional) 报备状态0未报备，1已报备
+        :param sellerErp: (Optional) 销售erp
         """
 
         self.affiliation = affiliation
@@ -40,8 +54,22 @@ class UserReportProperty(object):
         self.enterpriseAffiliationIndex = enterpriseAffiliationIndex
         self.businessLine = businessLine
         self.businessLineIndex = businessLineIndex
+        self.subBusinessLine = subBusinessLine
         self.userGroup = userGroup
         self.userGroupIndex = userGroupIndex
         self.serviceType = serviceType
         self.deptCode = deptCode
         self.deptName = deptName
+        self.clientType = clientType
+        self.clientIndex = clientIndex
+        self.whiteList = whiteList
+        self.reportName = reportName
+        self.selfDefinitionForIAMUser = selfDefinitionForIAMUser
+        self.costDepartmentCode = costDepartmentCode
+        self.costDepartmentName = costDepartmentName
+        self.accountAffiliation = accountAffiliation
+        self.accountAffiliationCode = accountAffiliationCode
+        self.pin = pin
+        self.loginName = loginName
+        self.status = status
+        self.sellerErp = sellerErp

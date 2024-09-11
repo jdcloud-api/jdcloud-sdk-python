@@ -19,7 +19,7 @@
 
 class ZoneBandwidth(object):
 
-    def __init__(self, zonename=None, instanceName=None, pin=None, packType=None, chargeState=None, instanceExpireTime=None, bps=None, totalFlowStr=None, usedFlowStr=None, remainingFlowStr=None, instanceUsedStatus=None, icpStatus=None):
+    def __init__(self, zonename=None, instanceName=None, pin=None, packType=None, chargeState=None, instanceExpireTime=None, bps=None, normalBps=None, mitigationBps=None, totalFlowStr=None, usedFlowStr=None, remainingFlowStr=None, instanceUsedStatus=None, icpStatus=None):
         """
         :param zonename: (Optional) 域名
         :param instanceName: (Optional) 所属实例名称
@@ -28,6 +28,8 @@ class ZoneBandwidth(object):
         :param chargeState: (Optional) 计费状态
         :param instanceExpireTime: (Optional) 实例到期时间
         :param bps: (Optional) 查询时间段内的峰值带宽，单位bit per second
+        :param normalBps: (Optional) 查询时间段内的业务峰值带宽，单位bit per second
+        :param mitigationBps: (Optional) 查询时间段内的攻击峰值带宽，单位bit per second
         :param totalFlowStr: (Optional) 套餐总流量
         :param usedFlowStr: (Optional) 套餐已使用流量
         :param remainingFlowStr: (Optional) 套餐剩余流量
@@ -42,6 +44,8 @@ class ZoneBandwidth(object):
         self.chargeState = chargeState
         self.instanceExpireTime = instanceExpireTime
         self.bps = bps
+        self.normalBps = normalBps
+        self.mitigationBps = mitigationBps
         self.totalFlowStr = totalFlowStr
         self.usedFlowStr = usedFlowStr
         self.remainingFlowStr = remainingFlowStr

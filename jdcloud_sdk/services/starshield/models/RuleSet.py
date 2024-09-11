@@ -22,10 +22,10 @@ class RuleSet(object):
     def __init__(self, id=None, name=None, description=None, kind=None, phase=None, last_updated=None, rules=None, version=None, source=None):
         """
         :param id: (Optional) 规则集的标识。
-        :param name: (Optional) 规则集的名称。
+        :param name: (Optional) 规则集的名称，例如default。
         :param description: (Optional) 规则集的描述。
         :param kind: (Optional) 规则集的类型，有效值zone。
-        :param phase: (Optional) 执行规则集的阶段，有效值http_ratelimit。
+        :param phase: (Optional) 执行规则集的阶段，有效值http_ratelimit/http_request_late_transform/http_request_firewall_custom/http_request_firewall_managed。
         :param last_updated: (Optional) 规则集最近修改时间。
         :param rules: (Optional) 规则集中的所有规则。
         :param version: (Optional) 规则集的版本。

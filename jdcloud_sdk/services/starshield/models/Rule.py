@@ -19,7 +19,7 @@
 
 class Rule(object):
 
-    def __init__(self, id=None, enabled=None, version=None, description=None, expression=None, action=None, action_parameters=None, ratelimit=None):
+    def __init__(self, id=None, enabled=None, version=None, description=None, expression=None, action=None, action_parameters=None, ratelimit=None, logging=None, last_updated=None, ref=None, categories=None, score_threshold=None):
         """
         :param id: (Optional) 规则的标识。
         :param enabled: (Optional) 是否开启规则，有效值true/false。
@@ -27,6 +27,7 @@ class Rule(object):
         :param description: (Optional) 规则的描述。
         :param expression: (Optional) 表达式。
 UI字段==============API字段==================UI运算符================================================================
+SSL/HTTPS------------ssl------------------------------等于
 ASN----------------ip.geoip.asnum----------------------等于/不等于/大于/小于/大于或等于/小于或等于/包含以下各项/不包含以下各项
 Cookie-------------http.cookie-------------------------等于/不等于/包含/不包含/与正则表达式匹配/与正则表达式不匹配
 国家/地区-----------ip.geoip.country--------------------等于/不等于/包含以下各项/不包含以下各项
@@ -66,9 +67,14 @@ UI运算符============================API运算符
 包含以下各项-------------------------in
 不包含以下各项-----------------------not <x> in，例如：not cf.bot_management.js_score in
 
-        :param action: (Optional) 当表达式匹配时，采取的措施。有效值block/challenge/js_challenge/managed_challenge/log。
+        :param action: (Optional) 当表达式匹配时，采取的措施。有效值block/challenge/js_challenge/managed_challenge/log/rewrite。
         :param action_parameters: (Optional) 
         :param ratelimit: (Optional) 规则中的速率限制规则。
+        :param logging: (Optional) 规则匹配时的日志行为。
+        :param last_updated: (Optional) 规则最近修改时间。
+        :param ref: (Optional) 规则引用（默认是规则标识）。
+        :param categories: (Optional) 
+        :param score_threshold: (Optional) OWASP 异常情况分数阈值。
         """
 
         self.id = id
@@ -79,3 +85,8 @@ UI运算符============================API运算符
         self.action = action
         self.action_parameters = action_parameters
         self.ratelimit = ratelimit
+        self.logging = logging
+        self.last_updated = last_updated
+        self.ref = ref
+        self.categories = categories
+        self.score_threshold = score_threshold

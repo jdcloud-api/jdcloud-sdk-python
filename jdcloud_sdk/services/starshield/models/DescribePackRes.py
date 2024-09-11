@@ -19,7 +19,7 @@
 
 class DescribePackRes(object):
 
-    def __init__(self, packType=None, packMode=None, flowLimit=None, availableZoneNum=None, cdnSpeedTraffic=None, ddosBaseProtect=None, ddosElasticProtect=None, freeCert=None, botManage=None, waf=None, customUploadCert=None, ccAttackQpsSingle=None, ccAttackQpsTotal=None, dedicatedIp=None, availableNodeNum=None, specialCertNum=None, trueClientIp=None, originErrorPagePass=None, staticContentCache=None, customClearByUrl=None, advanceCustomClear=None, minCacheTtl=None, clientUploadFileLimit=None, maxCacheFileLimit=None, urlPrefetch=None, pageRuleNum=None, imageOptimize=None, http2=None, developMode=None, queryStringSort=None, customNameServer=None, generalCert=None, customCertNum=None, websiteAnalyseTimeSpecs=None, dnsAnalyseTime=None, attackAnalyseTime=None, auditLog=None, requestLog=None, owaspCoreRule=None, builtInPredefinedRule=None, firewallRuleNum=None, firewalRegularRule=None, availableDnsRecordNum=None, zoneAccessType=None, rateLimit=None, logPush=None, protocol=None, appAttackProtection=None, ccAttackStandardProtection=None, ccAttackAdvancedProtection=None, technicalSupport=None, zoneExtPack=None, websocket=None):
+    def __init__(self, packType=None, packMode=None, flowLimit=None, availableZoneNum=None, cdnSpeedTraffic=None, ddosBaseProtect=None, ddosElasticProtect=None, freeCert=None, botManage=None, waf=None, customUploadCert=None, ccAttackQpsSingle=None, ccAttackQpsTotal=None, dedicatedIp=None, availableNodeNum=None, specialCertNum=None, trueClientIp=None, originErrorPagePass=None, staticContentCache=None, customClearByUrl=None, advanceCustomClear=None, minCacheTtl=None, clientUploadFileLimit=None, maxCacheFileLimit=None, urlPrefetch=None, pageRuleNum=None, imageOptimize=None, http2=None, developMode=None, queryStringSort=None, customNameServer=None, generalCert=None, customCertNum=None, websiteAnalyseTimeSpecs=None, dnsAnalyseTime=None, attackAnalyseTime=None, auditLog=None, requestLog=None, owaspCoreRule=None, builtInPredefinedRule=None, firewallRuleNum=None, firewalRegularRule=None, availableDnsRecordNum=None, zoneAccessType=None, spectrumIpNum=None, rateLimit=None, logPush=None, protocol=None, appAttackProtection=None, ccAttackStandardProtection=None, ccAttackAdvancedProtection=None, technicalSupport=None, zoneExtPack=None, websocket=None, transformRuleNum=None, isCreateZone=None):
         """
         :param packType: (Optional) 套餐类型
         :param packMode: (Optional) 套餐模型(BASE->基础版 FLOW->流量版)
@@ -65,6 +65,7 @@ class DescribePackRes(object):
         :param firewalRegularRule: (Optional) 是否支持防火墙正则表达式规则
         :param availableDnsRecordNum: (Optional) 单域名解析记录数量上限
         :param zoneAccessType: (Optional) 域名接入方式 1->CNAME 2->NS 3->IP(Spectrum) 逗号拼接(1,2)
+        :param spectrumIpNum: (Optional) spectrum IP数量
         :param rateLimit: (Optional) 速率限制Ratelimit数量 0->不支持 大于0->N条
         :param logPush: (Optional) 日志推送服务 False->不支持 True->支持
         :param protocol: (Optional) 支持的协议类型 1->HTTP 2->HTTPS 3->HTTP2 4->HTTP3 5->TCP 逗号拼接(1,2)
@@ -74,6 +75,8 @@ class DescribePackRes(object):
         :param technicalSupport: (Optional) 技术支持 1->客服工单 2->产品技术专家 逗号拼接(1,2)
         :param zoneExtPack: (Optional) 域名扩展包 False->不支持 True->支持
         :param websocket: (Optional) Websocket False->不支持 True->支持
+        :param transformRuleNum: (Optional) 转换规则数量 0->不支持 大于0->N条
+        :param isCreateZone: (Optional) 实例是否支持创建域名 False->不支持 True->支持
         """
 
         self.packType = packType
@@ -120,6 +123,7 @@ class DescribePackRes(object):
         self.firewalRegularRule = firewalRegularRule
         self.availableDnsRecordNum = availableDnsRecordNum
         self.zoneAccessType = zoneAccessType
+        self.spectrumIpNum = spectrumIpNum
         self.rateLimit = rateLimit
         self.logPush = logPush
         self.protocol = protocol
@@ -129,3 +133,5 @@ class DescribePackRes(object):
         self.technicalSupport = technicalSupport
         self.zoneExtPack = zoneExtPack
         self.websocket = websocket
+        self.transformRuleNum = transformRuleNum
+        self.isCreateZone = isCreateZone

@@ -49,6 +49,7 @@ JA3指纹-----------cf.bot_management.ja3_hash
         :param requests_to_origin: (Optional) true代表,在确定请求速率时，只考虑发往源站的请求（即未缓存的请求）。
         :param counting_expression: (Optional) 定义用于确定请求速率的标准。默认情况下，计数表达式与规则表达式相同。将此字段设置为空字符串（“”）时，也会应用默认值。
 计数表达式可以包括HTTP响应字段。当计数表达式中有响应字段时，计数将在发送响应后进行。
+
         """
 
         self.characteristics = characteristics

@@ -19,7 +19,7 @@
 
 class AliveResultInfo(object):
 
-    def __init__(self, faceImage=None, sceneImage=None, video=None, h5Result=None, smResult=None, rxResult=None, score=None, desc=None):
+    def __init__(self, faceImage=None, sceneImage=None, video=None, h5Result=None, smResult=None, rxResult=None, score=None, desc=None, h5ChargeFlag=None, rxChargeFlag=None):
         """
         :param faceImage: (Optional) 人脸照片base64
         :param sceneImage: (Optional) 场景照片base64
@@ -29,6 +29,8 @@ class AliveResultInfo(object):
         :param rxResult: (Optional) 人像对比结果
         :param score: (Optional) 人像对比相似度
         :param desc: (Optional) 描述
+        :param h5ChargeFlag: (Optional) 活体检测是否收费：0不收费，1收费
+        :param rxChargeFlag: (Optional) 活体检测是否收费：0不收费，1收费
         """
 
         self.faceImage = faceImage
@@ -39,3 +41,5 @@ class AliveResultInfo(object):
         self.rxResult = rxResult
         self.score = score
         self.desc = desc
+        self.h5ChargeFlag = h5ChargeFlag
+        self.rxChargeFlag = rxChargeFlag

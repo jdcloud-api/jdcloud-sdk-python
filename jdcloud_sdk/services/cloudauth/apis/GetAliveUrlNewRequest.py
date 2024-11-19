@@ -41,6 +41,9 @@ class GetAliveUrlNewParameters(object):
         self.idcard = None
         self.returnUrl = returnUrl
         self.actions = None
+        self.showFail = None
+        self.photo = None
+        self.photoThresh = None
 
     def setName(self, name):
         """
@@ -59,4 +62,22 @@ class GetAliveUrlNewParameters(object):
         :param actions: (Optional) 指定动作，逗号隔开。（LookLeft 向左，LookRight 向右，OpenMouth 张嘴，BlinkEye 眨眼，ShakeHead 摇头，NodHead 点头）
         """
         self.actions = actions
+
+    def setShowFail(self, showFail):
+        """
+        :param showFail: (Optional) 是否展示失败结果页面
+        """
+        self.showFail = showFail
+
+    def setPhoto(self, photo):
+        """
+        :param photo: (Optional) 自有源照片（不超过2M）
+        """
+        self.photo = photo
+
+    def setPhotoThresh(self, photoThresh):
+        """
+        :param photoThresh: (Optional) 自有源照片对比通过阈值（0-1000）
+        """
+        self.photoThresh = photoThresh
 

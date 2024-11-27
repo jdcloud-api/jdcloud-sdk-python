@@ -41,14 +41,26 @@ class ShareImageRequest(JDCloudRequest):
 
 class ShareImageParameters(object):
 
-    def __init__(self,regionId, imageId, pins):
+    def __init__(self,regionId, imageId, ):
         """
         :param regionId: 地域ID。
         :param imageId: 镜像ID。
-        :param pins: 共享的目标京东云帐户列表。
         """
 
         self.regionId = regionId
         self.imageId = imageId
+        self.pins = None
+        self.loginNames = None
+
+    def setPins(self, pins):
+        """
+        :param pins: (Optional) 共享的目标用户pin列表。
+        """
         self.pins = pins
+
+    def setLoginNames(self, loginNames):
+        """
+        :param loginNames: (Optional) 共享的目标京东云帐户列表。
+        """
+        self.loginNames = loginNames
 

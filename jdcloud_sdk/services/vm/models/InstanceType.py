@@ -19,7 +19,7 @@
 
 class InstanceType(object):
 
-    def __init__(self, family=None, instanceType=None, cpu=None, architecture=None, memoryMB=None, nicLimit=None, cloudDiskCountLimit=None, desc=None, state=None, gpu=None, localDisks=None, generation=None, burstInfo=None, cloudDiskTypes=None):
+    def __init__(self, family=None, instanceType=None, cpu=None, architecture=None, memoryMB=None, nicLimit=None, cloudDiskCountLimit=None, desc=None, state=None, rdma=None, localDisks=None, generation=None, burstInfo=None, cloudDiskTypes=None):
         """
         :param family: (Optional) 实例规格族。
         :param instanceType: (Optional) 实例规格。
@@ -30,7 +30,7 @@ class InstanceType(object):
         :param cloudDiskCountLimit: (Optional) 支持挂载的云硬盘数量，包括云盘系统盘。
         :param desc: (Optional) 实例规格描述。
         :param state: (Optional) 实例规格售卖状态。已售罄的实例规格无法使用。
-        :param gpu: (Optional) GPU配置，针对GPU类型的实例规格有效。
+        :param rdma: (Optional) RDMA配置，针对HPC类型的实例规格有效。
         :param localDisks: (Optional) 本地数据盘配置（缓存盘），针对GPU类型、或本地存储型的实例规格有效。
         :param generation: (Optional) 实例规格代数。
         :param burstInfo: (Optional) 突发型规格信息
@@ -46,7 +46,7 @@ class InstanceType(object):
         self.cloudDiskCountLimit = cloudDiskCountLimit
         self.desc = desc
         self.state = state
-        self.gpu = gpu
+        self.rdma = rdma
         self.localDisks = localDisks
         self.generation = generation
         self.burstInfo = burstInfo

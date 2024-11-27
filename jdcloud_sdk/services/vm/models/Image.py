@@ -19,7 +19,7 @@
 
 class Image(object):
 
-    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None, offline=None, serviceCode=None, imported=None, expiredTime=None):
+    def __init__(self, imageId=None, name=None, platform=None, osVersion=None, architecture=None, systemDiskSizeGB=None, imageSource=None, osType=None, status=None, createTime=None, sizeMB=None, desc=None, ownerPin=None, loginName=None, launchPermission=None, systemDisk=None, dataDisks=None, snapshotId=None, rootDeviceType=None, progress=None, offline=None, serviceCode=None, imported=None, expiredTime=None, instanceId=None, bootMode=None, chargeInfo=None):
         """
         :param imageId: (Optional) 镜像ID。
         :param name: (Optional) 镜像名称。
@@ -42,6 +42,7 @@ class Image(object):
         :param sizeMB: (Optional) 镜像文件的实际大小。
         :param desc: (Optional) 镜像描述。
         :param ownerPin: (Optional) 该镜像拥有者的用户PIN。
+        :param loginName: (Optional) 该镜像拥有者的用户云账号。
         :param launchPermission: (Optional) 镜像的使用权限。取值范围：
 `all`：没有限制，所有人均可以使用。
 `specifiedUsers`：只有共享用户可以使用。
@@ -59,6 +60,9 @@ class Image(object):
         :param serviceCode: (Optional) 已废弃。
         :param imported: (Optional) 是否来自导入镜像。
         :param expiredTime: (Optional) 镜像过期时间，空表示永久有效。
+        :param instanceId: (Optional) 实例Id
+        :param bootMode: (Optional) 启动模式，默认bios
+        :param chargeInfo: (Optional) 镜像计费配置。
         """
 
         self.imageId = imageId
@@ -74,6 +78,7 @@ class Image(object):
         self.sizeMB = sizeMB
         self.desc = desc
         self.ownerPin = ownerPin
+        self.loginName = loginName
         self.launchPermission = launchPermission
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
@@ -84,3 +89,6 @@ class Image(object):
         self.serviceCode = serviceCode
         self.imported = imported
         self.expiredTime = expiredTime
+        self.instanceId = instanceId
+        self.bootMode = bootMode
+        self.chargeInfo = chargeInfo

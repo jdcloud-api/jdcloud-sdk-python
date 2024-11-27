@@ -27,8 +27,7 @@ class ImportImageRequest(JDCloudRequest):
 详细操作说明请参考帮助文档：[导入私有镜像](https://docs.jdcloud.com/cn/virtual-machines/import-private-image)
 
 ## 接口说明
-- 当前仅支持导入系统盘镜像。
-- 导入后的镜像将以 `云硬盘系统盘镜像` 格式作为私有镜像使用，同时会自动生成一个与导入镜像关联的快照。
+- 导入后的镜像将以 `云硬盘系统盘镜像` 格式作为私有镜像使用，同时会自动生成与导入镜像关联的快照。
 
     """
 
@@ -65,7 +64,9 @@ class ImportImageParameters(object):
         self.imageName = imageName
         self.description = None
         self.forceImport = None
+        self.dataDisks = None
         self.clientToken = None
+        self.bootMode = None
 
     def setOsVersion(self, osVersion):
         """
@@ -85,9 +86,22 @@ class ImportImageParameters(object):
         """
         self.forceImport = forceImport
 
+    def setDataDisks(self, dataDisks):
+        """
+        :param dataDisks: (Optional) 云盘快照信息。
+
+        """
+        self.dataDisks = dataDisks
+
     def setClientToken(self, clientToken):
         """
         :param clientToken: (Optional) 用户导出镜像的幂等性保证。每次导出请传入不同的值，如果传值与某次的clientToken相同，则返还同一个请求结果，不能超过64个字符。
         """
         self.clientToken = clientToken
+
+    def setBootMode(self, bootMode):
+        """
+        :param bootMode: (Optional) 镜像启动模式，默认bios，支持范围：`bios`、`uefi`。
+        """
+        self.bootMode = bootMode
 

@@ -19,11 +19,13 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, name, dedicatedPoolId=None, dedicatedHostId=None, agId=None, instanceTemplateId=None, az=None, instanceType=None, burstSpec=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, noInstanceTags=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None, cpuTopology=None):
+    def __init__(self, name, dedicatedPoolId=None, dedicatedHostId=None, agId=None, isManaged=None, instanceTemplateId=None, az=None, instanceType=None, burstSpec=None, imageId=None, hostname=None, password=None, keyNames=None, elasticIp=None, primaryNetworkInterface=None, systemDisk=None, dataDisks=None, charge=None, metadata=None, userdata=None, description=None, noPassword=None, noKeyNames=None, noElasticIp=None, noInstanceTags=None, userTags=None, chargeOnStopped=None, autoImagePolicyId=None, passwordAuth=None, imageInherit=None, resourceGroupId=None, cpuTopology=None):
         """
         :param dedicatedPoolId: (Optional) 实例所属的专有宿主机池，如果指定了dedicatedHostId,则此参数无效
         :param dedicatedHostId: (Optional) 专有宿主机ID
         :param agId: (Optional) 高可用组ID。指定此参数后，将默认使用高可用组关联的实例模板创建实例，实例模板中的参数不可覆盖替换。实例模板以外的参数（内网IPv4/Ipv6分配方式、名称、描述、标签）可指定。
+
+        :param isManaged: (Optional) 是否托管实例的生命周期，默认为false；若为包年包月实例，可加入但不支持托管；该字段仅AG开启AS时生效。托管实例将在缩容或健康检查失败时被删除，非托管实例仅移出伸缩组
 
         :param instanceTemplateId: (Optional) 实例模板ID。指定此参数后，如实例模板中参数不另行指定将默认以模板配置创建实例，如指定则以指定值为准创建。
 指定 `agId` 时此参数无效。
@@ -119,6 +121,7 @@ autoChangeChargeMode和autoChangeChargeModeDate字段只有在按配置计费按
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
         self.agId = agId
+        self.isManaged = isManaged
         self.instanceTemplateId = instanceTemplateId
         self.az = az
         self.instanceType = instanceType

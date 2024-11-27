@@ -40,7 +40,7 @@ class CreateImageFromSnapshotsRequest(JDCloudRequest):
 
 class CreateImageFromSnapshotsParameters(object):
 
-    def __init__(self,regionId, name, platform, architecture, ):
+    def __init__(self,regionId, name, platform, architecture, bootMode):
         """
         :param regionId: 地域ID。
         :param name: 镜像名称，长度为2\~32个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
@@ -48,6 +48,8 @@ class CreateImageFromSnapshotsParameters(object):
         :param platform: 镜像的操作系统类型, 可选值：CentOS、Ubuntu、Windows Server、OpenEuler、Rocky Linux、Others Linux。
 
         :param architecture: 操作系统架构, 可选值：x86_64、arm64。
+
+        :param bootMode: 启动模式，支持uefi、bios。   
 
         """
 
@@ -59,6 +61,7 @@ class CreateImageFromSnapshotsParameters(object):
         self.architecture = architecture
         self.cloudDisks = None
         self.clientToken = None
+        self.bootMode = bootMode
 
     def setDescription(self, description):
         """

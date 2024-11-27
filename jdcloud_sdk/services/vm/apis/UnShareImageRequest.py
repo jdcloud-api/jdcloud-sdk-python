@@ -40,14 +40,26 @@ class UnShareImageRequest(JDCloudRequest):
 
 class UnShareImageParameters(object):
 
-    def __init__(self,regionId, imageId, pins):
+    def __init__(self,regionId, imageId, ):
         """
         :param regionId: 地域ID。
         :param imageId: 镜像ID。
-        :param pins: 需要取消的京东云帐户列表。
         """
 
         self.regionId = regionId
         self.imageId = imageId
+        self.pins = None
+        self.loginNames = None
+
+    def setPins(self, pins):
+        """
+        :param pins: (Optional) 需要取消的用户pin列表。
+        """
         self.pins = pins
+
+    def setLoginNames(self, loginNames):
+        """
+        :param loginNames: (Optional) 需要取消的京东云帐户列表。
+        """
+        self.loginNames = loginNames
 

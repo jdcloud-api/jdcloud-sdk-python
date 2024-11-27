@@ -22,12 +22,15 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class CopyImagesRequest(JDCloudRequest):
     """
     
-镜像跨地域复制。
+镜像复制。
 
 详细操作说明请参考帮助文档：[镜像复制](https://docs.jdcloud.com/cn/virtual-machines/copy-image)
 
 ## 接口说明
-- 调用该接口将私有镜像复制到其它地域下。
+- 调用该接口可以复制私有或共享镜像。
+- 复制私有镜像时，只允许镜像拥有者进行复制。
+- 复制共享镜像时，允许共享的用户将镜像复制为私有镜像。
+- 支持同地域复制镜像。
 - 只支持云盘系统盘的镜像。
 - 不支持带有加密快照的镜像。
 
@@ -41,7 +44,7 @@ class CopyImagesRequest(JDCloudRequest):
 
 class CopyImagesParameters(object):
 
-    def __init__(self,regionId, sourceImageIds, destinationRegion):
+    def __init__(self,regionId, sourceImageIds, destinationRegion, ):
         """
         :param regionId: 地域ID。
         :param sourceImageIds: 要复制的私有镜像ID列表，最多支持10个。
@@ -51,4 +54,24 @@ class CopyImagesParameters(object):
         self.regionId = regionId
         self.sourceImageIds = sourceImageIds
         self.destinationRegion = destinationRegion
+        self.name = None
+        self.description = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 复制出新镜像的名称，长度为1\~32个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
+指定该参数时，所有复制出的镜像都设置相同的名称。
+不指定该参数时，复制的镜像使用源镜像名称。
+
+        """
+        self.name = name
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 复制出新镜像的描述，不超过256个字符。
+指定该参数时，所有复制出的镜像都设置相同的描述。
+不指定该参数时，复制的镜像使用系统生成的描述信息。
+
+        """
+        self.description = description
 

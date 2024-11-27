@@ -30,7 +30,7 @@ class ModifyInstanceVpcAttributeRequest(JDCloudRequest):
 - 调该接口之前实例必须处于停止 `stopped` 状态。
 - 修改VPC及子网
   - 内网IPv4：可指定或由系统分配。
-  - IPv6：如新子网支持IPv6，可选是否分配，如分配仅支持系统分配。
+  - IPv6：如新子网支持IPv6，可选是否分配，如果选择分配但不指定Ipv6地址，系统会自动分配。
   - 安全组：须指定新VPC下的安全组。
 - 不修改VPC，仅修改子网
   - 内网IPv4：可指定或由系统分配。
@@ -69,6 +69,7 @@ class ModifyInstanceVpcAttributeParameters(object):
         self.instanceId = instanceId
         self.subnetId = subnetId
         self.assignIpv6 = None
+        self.ipv6Address = None
         self.privateIpAddress = None
         self.securityGroups = None
 
@@ -79,6 +80,13 @@ class ModifyInstanceVpcAttributeParameters(object):
 
         """
         self.assignIpv6 = assignIpv6
+
+    def setIpv6Address(self, ipv6Address):
+        """
+        :param ipv6Address: (Optional) 切换子网后的IPV6地址，不可与assignIpv6同时指定。
+
+        """
+        self.ipv6Address = ipv6Address
 
     def setPrivateIpAddress(self, privateIpAddress):
         """

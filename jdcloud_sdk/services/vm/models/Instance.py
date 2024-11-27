@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, spotStatus=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, burstInfo=None, resourceGroupId=None, osType=None, cpuTopology=None, osVersion=None, platform=None, architecture=None):
+    def __init__(self, instanceId=None, instanceName=None, hostname=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, rdmaNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, charge=None, imageCharge=None, spotStatus=None, ag=None, faultDomain=None, tags=None, chargeOnStopped=None, policies=None, dedicatedPoolId=None, dedicatedHostId=None, burstInfo=None, resourceGroupId=None, osType=None, cpuTopology=None, osVersion=None, platform=None, architecture=None, hostGroup=None, autoReleaseTime=None, bootMode=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -37,10 +37,12 @@ class Instance(object):
         :param dataDisks: (Optional) 数据盘配置列表。
         :param primaryNetworkInterface: (Optional) 主网卡主IP关联的弹性公网IP配置。
         :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置列表。
+        :param rdmaNetworkInterfaces: (Optional) RDMA网卡配置列表。
         :param launchTime: (Optional) 云主机实例的创建时间。
         :param az: (Optional) 云主机所在可用区。
         :param keyNames: (Optional) 云主机使用的密钥对名称。
         :param charge: (Optional) 云主机的计费信息。
+        :param imageCharge: (Optional) 云主机使用镜像的计费配置与信息。
         :param spotStatus: (Optional) 抢占实例状态机
         :param ag: (Optional) 云主机关联的高可用组，如果创建云主机使用了高可用组，此处可展示高可用组名称。
         :param faultDomain: (Optional) 高可用组中的错误域。
@@ -59,6 +61,9 @@ class Instance(object):
         :param osVersion: (Optional) 云主机操作系统版本，如7.6
         :param platform: (Optional) 具体操作系统CentOS
         :param architecture: (Optional) 架构信息，如x86_64
+        :param hostGroup: (Optional) 主机组详情
+        :param autoReleaseTime: (Optional) 定时删除时间，例如:"2025-01-01 00:00:00"
+        :param bootMode: (Optional) 启动模式，支持 bios uefi
         """
 
         self.instanceId = instanceId
@@ -77,10 +82,12 @@ class Instance(object):
         self.dataDisks = dataDisks
         self.primaryNetworkInterface = primaryNetworkInterface
         self.secondaryNetworkInterfaces = secondaryNetworkInterfaces
+        self.rdmaNetworkInterfaces = rdmaNetworkInterfaces
         self.launchTime = launchTime
         self.az = az
         self.keyNames = keyNames
         self.charge = charge
+        self.imageCharge = imageCharge
         self.spotStatus = spotStatus
         self.ag = ag
         self.faultDomain = faultDomain
@@ -96,3 +103,6 @@ class Instance(object):
         self.osVersion = osVersion
         self.platform = platform
         self.architecture = architecture
+        self.hostGroup = hostGroup
+        self.autoReleaseTime = autoReleaseTime
+        self.bootMode = bootMode

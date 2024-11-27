@@ -19,7 +19,7 @@
 
 class InternalInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, cpuTopology=None, hostIp=None, rack=None, tor=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, rdmaNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, cpuTopology=None, hostGroup=None, hostIp=None, rack=None, tor=None, bootMode=None, autoReleaseTime=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -34,6 +34,7 @@ class InternalInstance(object):
         :param dataDisks: (Optional) 数据盘配置列表。
         :param primaryNetworkInterface: (Optional) 主网卡主IP关联的弹性公网IP配置。
         :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置列表。
+        :param rdmaNetworkInterfaces: (Optional) RDMA网卡配置列表。
         :param launchTime: (Optional) 云主机实例的创建时间。
         :param az: (Optional) 云主机所在可用区。
         :param keyNames: (Optional) 云主机使用的密钥对名称。
@@ -45,9 +46,12 @@ class InternalInstance(object):
         :param dedicatedPoolId: (Optional) 云主机所属的专有宿主机池。
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
         :param cpuTopology: (Optional) 虚机CPU拓扑
+        :param hostGroup: (Optional) 云主机所属的主机组信息
         :param hostIp: (Optional) 实例所在的物理机IP地址。
         :param rack: (Optional) 实例所在机架信息。
         :param tor: (Optional) 实例所在的逻辑机架信息
+        :param bootMode: (Optional) 启动模式，支持 bios uefi
+        :param autoReleaseTime: (Optional) 定时删除时间，例如:"2025-01-01 00:00:00"。
         """
 
         self.instanceId = instanceId
@@ -63,6 +67,7 @@ class InternalInstance(object):
         self.dataDisks = dataDisks
         self.primaryNetworkInterface = primaryNetworkInterface
         self.secondaryNetworkInterfaces = secondaryNetworkInterfaces
+        self.rdmaNetworkInterfaces = rdmaNetworkInterfaces
         self.launchTime = launchTime
         self.az = az
         self.keyNames = keyNames
@@ -71,6 +76,9 @@ class InternalInstance(object):
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
         self.cpuTopology = cpuTopology
+        self.hostGroup = hostGroup
         self.hostIp = hostIp
         self.rack = rack
         self.tor = tor
+        self.bootMode = bootMode
+        self.autoReleaseTime = autoReleaseTime

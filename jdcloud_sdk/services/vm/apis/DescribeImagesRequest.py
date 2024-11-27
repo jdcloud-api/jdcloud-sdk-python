@@ -62,6 +62,8 @@ class DescribeImagesParameters(object):
         self.architecture = None
         self.pageNumber = None
         self.pageSize = None
+        self.instanceIds = None
+        self.bootMode = None
 
     def setImageSource(self, imageSource):
         """
@@ -150,4 +152,16 @@ class DescribeImagesParameters(object):
         :param pageSize: (Optional) 分页大小；<br>默认为20；取值范围[10, 100]。
         """
         self.pageSize = pageSize
+
+    def setInstanceIds(self, instanceIds):
+        """
+        :param instanceIds: (Optional) 虚机ID， 精确匹配
+        """
+        self.instanceIds = instanceIds
+
+    def setBootMode(self, bootMode):
+        """
+        :param bootMode: (Optional) 镜像启动模式，默认bios，支持范围：`bios`、`uefi`。
+        """
+        self.bootMode = bootMode
 

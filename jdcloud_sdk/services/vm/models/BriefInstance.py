@@ -19,7 +19,7 @@
 
 class BriefInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, cpuTopology=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, vpcId=None, subnetId=None, privateIpAddress=None, status=None, description=None, imageId=None, systemDisk=None, dataDisks=None, primaryNetworkInterface=None, secondaryNetworkInterfaces=None, launchTime=None, az=None, pAz=None, keyNames=None, faultDomain=None, chargeOnStopped=None, dedicatedPoolId=None, dedicatedHostId=None, cpuTopology=None, bootMode=None, autoReleaseTime=None):
         """
         :param instanceId: (Optional) 云主机ID。
         :param instanceName: (Optional) 云主机名称。
@@ -36,6 +36,7 @@ class BriefInstance(object):
         :param secondaryNetworkInterfaces: (Optional) 辅助网卡配置列表。
         :param launchTime: (Optional) 云主机实例的创建时间。
         :param az: (Optional) 云主机所在可用区。
+        :param pAz: (Optional) 云主机所在逻辑可用区。
         :param keyNames: (Optional) 云主机使用的密钥对名称。
         :param faultDomain: (Optional) 高可用组中的错误域。
         :param chargeOnStopped: (Optional) 关机模式，只支持云盘做系统盘的按配置计费云主机。
@@ -45,6 +46,8 @@ class BriefInstance(object):
         :param dedicatedPoolId: (Optional) 云主机所属的专有宿主机池。
         :param dedicatedHostId: (Optional) 云主机所属的专有宿主机ID。
         :param cpuTopology: (Optional) 虚机CPU拓扑
+        :param bootMode: (Optional) 启动模式支持，取值范围[bios uefi]。
+        :param autoReleaseTime: (Optional) 定时删除时间，例如:"2025-01-01 00:00:00"。
         """
 
         self.instanceId = instanceId
@@ -62,9 +65,12 @@ class BriefInstance(object):
         self.secondaryNetworkInterfaces = secondaryNetworkInterfaces
         self.launchTime = launchTime
         self.az = az
+        self.pAz = pAz
         self.keyNames = keyNames
         self.faultDomain = faultDomain
         self.chargeOnStopped = chargeOnStopped
         self.dedicatedPoolId = dedicatedPoolId
         self.dedicatedHostId = dedicatedHostId
         self.cpuTopology = cpuTopology
+        self.bootMode = bootMode
+        self.autoReleaseTime = autoReleaseTime

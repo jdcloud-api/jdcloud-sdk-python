@@ -32,7 +32,7 @@ class AbortHistoricalReplicatTaskRequest(JDCloudRequest):
 
 class AbortHistoricalReplicatTaskParameters(object):
 
-    def __init__(self, regionId, bucketName, taskId, ):
+    def __init__(self,regionId, bucketName, taskId):
         """
         :param regionId: 区域ID
         :param bucketName: Bucket名称

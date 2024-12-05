@@ -32,12 +32,11 @@ class CreateHistoricalReplicatTaskRequest(JDCloudRequest):
 
 class CreateHistoricalReplicatTaskParameters(object):
 
-    def __init__(self, regionId, bucketName, action, bucketName, bucketRegion, targetBucketName, targetBucketRegion, storageClass, ):
+    def __init__(self,regionId, bucketName, action, bucketRegion, targetBucketName, targetBucketRegion, storageClass, ):
         """
         :param regionId: 区域ID
         :param bucketName: Bucket名称
         :param action: 是否覆盖
-        :param bucketName: bucket名称
         :param bucketRegion: bucket所属区域
         :param targetBucketName: 目标bucket名称
         :param targetBucketRegion: 目标bucket所属区域
@@ -47,7 +46,6 @@ class CreateHistoricalReplicatTaskParameters(object):
         self.regionId = regionId
         self.bucketName = bucketName
         self.action = action
-        self.bucketName = bucketName
         self.bucketRegion = bucketRegion
         self.targetBucketName = targetBucketName
         self.targetBucketRegion = targetBucketRegion

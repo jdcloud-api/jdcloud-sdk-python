@@ -32,7 +32,7 @@ class GetBackSourceConfigurationRequest(JDCloudRequest):
 
 class GetBackSourceConfigurationParameters(object):
 
-    def __init__(self, regionId, bucketName, ):
+    def __init__(self,regionId, bucketName):
         """
         :param regionId: 区域ID
         :param bucketName: Bucket名称

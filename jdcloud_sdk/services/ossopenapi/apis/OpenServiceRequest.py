@@ -19,39 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ListHistoricalReplicatTasksRequest(JDCloudRequest):
+class OpenServiceRequest(JDCloudRequest):
     """
-    根据bucket名称获取该bucket下的同步任务列表
+    开通对象存储服务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ListHistoricalReplicatTasksRequest, self).__init__(
-            '/regions/{regionId}/buckets/{bucketName}/historical_replicat_task/', 'GET', header, version)
+        super(OpenServiceRequest, self).__init__(
+            '/regions/{regionId}/users/{userId}/appCodes/{appCode}/serviceCodes/{serviceCode}/openService', 'POST', header, version)
         self.parameters = parameters
 
 
-class ListHistoricalReplicatTasksParameters(object):
+class OpenServiceParameters(object):
 
-    def __init__(self,regionId, bucketName, ):
+    def __init__(self,regionId, userId, appCode, serviceCode):
         """
         :param regionId: 区域ID
-        :param bucketName: Bucket名称
+        :param userId: 用户Id
+        :param appCode: app code
+        :param serviceCode: service code
         """
 
         self.regionId = regionId
-        self.bucketName = bucketName
-        self.marker = None
-        self.limit = None
-
-    def setMarker(self, marker):
-        """
-        :param marker: (Optional) 同步任务列表开始的key
-        """
-        self.marker = marker
-
-    def setLimit(self, limit):
-        """
-        :param limit: (Optional) 每次查询返回的结果数，默认为1000
-        """
-        self.limit = limit
+        self.userId = userId
+        self.appCode = appCode
+        self.serviceCode = serviceCode
 

@@ -19,9 +19,10 @@
 
 class CollectTempalteEnd(object):
 
-    def __init__(self, filterEnabled=None, logFile=None, logFilters=None, logPath=None, regexpStr=None):
+    def __init__(self, filterEnabled=None, formula=None, logFile=None, logFilters=None, logPath=None, regexpStr=None):
         """
         :param filterEnabled: (Optional) 过滤器是否启用
+        :param formula: (Optional) 采集配置规格
         :param logFile: (Optional) 日志文件
         :param logFilters: (Optional) 过滤器
         :param logPath: (Optional) 日志路径
@@ -29,6 +30,7 @@ class CollectTempalteEnd(object):
         """
 
         self.filterEnabled = filterEnabled
+        self.formula = formula
         self.logFile = logFile
         self.logFilters = logFilters
         self.logPath = logPath

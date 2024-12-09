@@ -32,7 +32,7 @@ class DeleteLogsetRequest(JDCloudRequest):
 
 class DeleteLogsetParameters(object):
 
-    def __init__(self, regionId,logsetUIDs,):
+    def __init__(self,regionId, logsetUIDs):
         """
         :param regionId: 地域 Id
         :param logsetUIDs: 日志集ID，多个日志集ID以逗号分割

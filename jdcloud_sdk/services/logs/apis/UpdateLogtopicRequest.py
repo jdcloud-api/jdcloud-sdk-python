@@ -32,7 +32,7 @@ class UpdateLogtopicRequest(JDCloudRequest):
 
 class UpdateLogtopicParameters(object):
 
-    def __init__(self, regionId,logtopicUID,description):
+    def __init__(self,regionId, logtopicUID, description, ):
         """
         :param regionId: 地域 Id
         :param logtopicUID: 日志主题 UID
@@ -41,5 +41,26 @@ class UpdateLogtopicParameters(object):
 
         self.regionId = regionId
         self.logtopicUID = logtopicUID
+        self.name = None
         self.description = description
+        self.lifeCycle = None
+        self.inOrder = None
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 日志主题名称
+        """
+        self.name = name
+
+    def setLifeCycle(self, lifeCycle):
+        """
+        :param lifeCycle: (Optional) 保存周期，只能是 7， 15， 30
+        """
+        self.lifeCycle = lifeCycle
+
+    def setInOrder(self, inOrder):
+        """
+        :param inOrder: (Optional) 保序
+        """
+        self.inOrder = inOrder
 

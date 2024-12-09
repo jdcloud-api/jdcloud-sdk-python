@@ -19,7 +19,7 @@
 
 class LogsetEnd(object):
 
-    def __init__(self, uID=None, createTime=None, description=None, hasTopic=None, lifeCycle=None, name=None, region=None):
+    def __init__(self, uID=None, createTime=None, description=None, hasTopic=None, lifeCycle=None, name=None, region=None, resourceGroupUID=None, tags=None):
         """
         :param uID: (Optional) UID
         :param createTime: (Optional) 创建时间
@@ -28,6 +28,8 @@ class LogsetEnd(object):
         :param lifeCycle: (Optional) 保存周期
         :param name: (Optional) 日志集名称
         :param region: (Optional) 地域信息
+        :param resourceGroupUID: (Optional) 资源组
+        :param tags: (Optional) 标签列表
         """
 
         self.uID = uID
@@ -37,3 +39,5 @@ class LogsetEnd(object):
         self.lifeCycle = lifeCycle
         self.name = name
         self.region = region
+        self.resourceGroupUID = resourceGroupUID
+        self.tags = tags

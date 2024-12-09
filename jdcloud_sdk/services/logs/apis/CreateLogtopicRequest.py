@@ -32,7 +32,7 @@ class CreateLogtopicRequest(JDCloudRequest):
 
 class CreateLogtopicParameters(object):
 
-    def __init__(self, regionId,logsetUID,name, ):
+    def __init__(self,regionId, logsetUID, name, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集 UID
@@ -43,10 +43,31 @@ class CreateLogtopicParameters(object):
         self.logsetUID = logsetUID
         self.name = name
         self.description = None
+        self.inOrder = None
+        self.lifeCycle = None
+        self.tags = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) 日志集描述
         """
         self.description = description
+
+    def setInOrder(self, inOrder):
+        """
+        :param inOrder: (Optional) 保序
+        """
+        self.inOrder = inOrder
+
+    def setLifeCycle(self, lifeCycle):
+        """
+        :param lifeCycle: (Optional) 保存周期，只能是 7， 15， 30
+        """
+        self.lifeCycle = lifeCycle
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 标签列表
+        """
+        self.tags = tags
 

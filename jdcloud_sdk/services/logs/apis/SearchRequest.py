@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class SearchRequest(JDCloudRequest):
     """
-    搜索日志
+    
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,7 +32,7 @@ class SearchRequest(JDCloudRequest):
 
 class SearchParameters(object):
 
-    def __init__(self, regionId,logsetUID,logtopicUID,action, ):
+    def __init__(self,regionId, logsetUID, logtopicUID, action, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集ID

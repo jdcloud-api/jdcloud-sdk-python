@@ -32,7 +32,7 @@ class UpdateParserRequest(JDCloudRequest):
 
 class UpdateParserParameters(object):
 
-    def __init__(self, regionId,logtopicUID,parserFields, parserMode, ):
+    def __init__(self,regionId, logtopicUID, parserFields, parserMode, ):
         """
         :param regionId: 地域 Id
         :param logtopicUID: 日志主题 UID
@@ -42,11 +42,19 @@ class UpdateParserParameters(object):
 
         self.regionId = regionId
         self.logtopicUID = logtopicUID
+        self.indexToken = None
         self.parserFields = parserFields
         self.parserMode = parserMode
         self.parserPattern = None
         self.parserSample = None
         self.pipelines = None
+        self.reserveOriginContent = None
+
+    def setIndexToken(self, indexToken):
+        """
+        :param indexToken: (Optional) 行级索引分词符。 Rune 数组
+        """
+        self.indexToken = indexToken
 
     def setParserPattern(self, parserPattern):
         """
@@ -65,4 +73,10 @@ class UpdateParserParameters(object):
         :param pipelines: (Optional) 预处理任务列表。按照数组的顺序执行。
         """
         self.pipelines = pipelines
+
+    def setReserveOriginContent(self, reserveOriginContent):
+        """
+        :param reserveOriginContent: (Optional) 是否保留原始内容字段
+        """
+        self.reserveOriginContent = reserveOriginContent
 

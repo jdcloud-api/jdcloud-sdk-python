@@ -32,7 +32,7 @@ class DescribeLogsetsRequest(JDCloudRequest):
 
 class DescribeLogsetsParameters(object):
 
-    def __init__(self, regionId,):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域 Id
         """
@@ -41,6 +41,9 @@ class DescribeLogsetsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.name = None
+        self.filters = None
+        self.tags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -50,13 +53,31 @@ class DescribeLogsetsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 200]
         """
         self.pageSize = pageSize
 
     def setName(self, name):
         """
-        :param name: (Optional) 日志集名称
+        :param name: (Optional) 日志集名称. 已废弃，需要通过filter传递
         """
         self.name = name
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤条件，key，Values。 支持的key:  name
+        """
+        self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 标签过滤条件，key，Values
+        """
+        self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组过滤条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

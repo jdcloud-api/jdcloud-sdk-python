@@ -32,7 +32,7 @@ class UpdateSubscribeRequest(JDCloudRequest):
 
 class UpdateSubscribeParameters(object):
 
-    def __init__(self, regionId,logsetUID,logtopicUID,):
+    def __init__(self,regionId, logsetUID, logtopicUID, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集 UID

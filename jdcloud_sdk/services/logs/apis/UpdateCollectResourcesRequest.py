@@ -32,7 +32,7 @@ class UpdateCollectResourcesRequest(JDCloudRequest):
 
 class UpdateCollectResourcesParameters(object):
 
-    def __init__(self, regionId,collectInfoUID,action, ):
+    def __init__(self,regionId, collectInfoUID, action, ):
         """
         :param regionId: 地域 Id
         :param collectInfoUID: 采集配置 UID

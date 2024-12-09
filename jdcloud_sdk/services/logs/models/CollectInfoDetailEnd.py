@@ -19,16 +19,16 @@
 
 class CollectInfoDetailEnd(object):
 
-    def __init__(self, uID=None, agResource=None, appCode=None, detail=None, enabled=None, logCustomTarget=None, logCustomTargetConf=None, logtopicEnabled=None, resourceMode=None, resourceType=None, resourcesCount=None, serviceCode=None, tagResource=None, templateName=None, templateUID=None):
+    def __init__(self, uID=None, agResource=None, appCode=None, binlogSpec=None, detail=None, enabled=None, k8sSpec=None, name=None, resourceMode=None, resourceType=None, resourcesCount=None, serviceCode=None, tagResource=None, templateName=None, templateUID=None):
         """
         :param uID: (Optional) UID
         :param agResource: (Optional) 高可用组资源multi
         :param appCode: (Optional) 日志来源
+        :param binlogSpec: (Optional) binlog规格
         :param detail: (Optional) 
         :param enabled: (Optional) 
-        :param logCustomTarget: (Optional) 自定义日志转发目的地, 只支持业务应用日志。支持类型："kafka"，"es"
-        :param logCustomTargetConf: (Optional) 自定义日志转发目的地配置，KV 结构，具体配置参考 LogCustomTargetKafkaConf 和 LogCustomTargetEsConf
-        :param logtopicEnabled: (Optional) 目的地是否是日志服务logtopic，只支持业务应用日志。默认是
+        :param k8sSpec: (Optional) k8s规格
+        :param name: (Optional) 采集配置名称
         :param resourceMode: (Optional) 采集资源时选择的模式，1.正常的选择实例模式（默认模式）；2.选择标签tag模式 3.选择高可用组ag模式
         :param resourceType: (Optional) 采集实例类型, 只能是 all/part
         :param resourcesCount: (Optional) 采集实例数量
@@ -41,11 +41,11 @@ class CollectInfoDetailEnd(object):
         self.uID = uID
         self.agResource = agResource
         self.appCode = appCode
+        self.binlogSpec = binlogSpec
         self.detail = detail
         self.enabled = enabled
-        self.logCustomTarget = logCustomTarget
-        self.logCustomTargetConf = logCustomTargetConf
-        self.logtopicEnabled = logtopicEnabled
+        self.k8sSpec = k8sSpec
+        self.name = name
         self.resourceMode = resourceMode
         self.resourceType = resourceType
         self.resourcesCount = resourcesCount

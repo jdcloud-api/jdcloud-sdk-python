@@ -19,37 +19,39 @@
 
 class CreateCollectInfoSpec(object):
 
-    def __init__(self, appCode, enabled, resourceType, serviceCode, agResource=None, filterEnabled=None, logCustomTarget=None, logCustomTargetConf=None, logFile=None, logFilters=None, logPath=None, logtopicEnabled=None, regexpStr=None, resourceMode=None, resources=None, tagResource=None, templateUID=None):
+    def __init__(self, appCode, enabled, resourceType, serviceCode, agResource=None, binlogSpec=None, filterEnabled=None, k8sSpec=None, logFile=None, logFilters=None, logPath=None, logtopicEnabled=None, name=None, regexpStr=None, resourceMode=None, resources=None, tagResource=None, templateUID=None):
         """
         :param agResource: (Optional) 高可用组资源
         :param appCode:  日志来源，只能是 custom/jdcloud
+        :param binlogSpec: (Optional) 
         :param enabled:  采集状态，0-禁用，1-启用
         :param filterEnabled: (Optional) 过滤器是否启用。当appcode为custom时必填
-        :param logCustomTarget: (Optional) 自定义日志转发目的地, 只支持业务应用日志。支持类型："kafka"，"es"，默认为空:不进行自定义目的上报
-        :param logCustomTargetConf: (Optional) 自定义日志转发目的地配置，KV 结构，具体配置参考 LogCustomTargetKafkaConf 和 LogCustomTargetEsConf
+        :param k8sSpec: (Optional) 
         :param logFile: (Optional) 日志文件名。当appcode为custom时为必填。日志文件名支持正则表达式。
         :param logFilters: (Optional) 过滤器。设置过滤器后可根据用户设定的关键词采集部分日志，如仅采集 Error 的日志。目前最大允许5个。
         :param logPath: (Optional) 日志路径。当appcode为custom时为必填。目前仅支持对 Linux 云主机上的日志进行采集，路径支持通配符“*”和“？”，文件路径应符合 Linux 的文件路径规则
         :param logtopicEnabled: (Optional) 目的地是否是日志服务logtopic，只支持业务应用日志
+        :param name: (Optional) 采集配置名称
         :param regexpStr: (Optional) 首行正则
         :param resourceMode: (Optional) 采集资源时选择的模式，1.正常的选择实例模式（默认模式）；2.选择标签tag模式 3.选择高可用组ag模式
         :param resourceType:  采集实例类型, 只能是 all/part  当选择all时，传入的实例列表无效；custom类型的采集配置目前仅支持part方式，即用户指定实例列表；
         :param resources: (Optional) 采集实例列表：jdcloud类型最多添加20个资源；custom类型支持的资源数量不限；
-        :param serviceCode:  产品线,当日志来源为jdcloud时，必填
+        :param serviceCode:  产品线,当日志来源为jdcloud时,填写云产品serviceCode。否则填写自定义日志类型：vm,k8s,binlog,etc
         :param tagResource: (Optional) 
         :param templateUID: (Optional) 日志类型。当appcode为jdcloud时为必填
         """
 
         self.agResource = agResource
         self.appCode = appCode
+        self.binlogSpec = binlogSpec
         self.enabled = enabled
         self.filterEnabled = filterEnabled
-        self.logCustomTarget = logCustomTarget
-        self.logCustomTargetConf = logCustomTargetConf
+        self.k8sSpec = k8sSpec
         self.logFile = logFile
         self.logFilters = logFilters
         self.logPath = logPath
         self.logtopicEnabled = logtopicEnabled
+        self.name = name
         self.regexpStr = regexpStr
         self.resourceMode = resourceMode
         self.resourceType = resourceType

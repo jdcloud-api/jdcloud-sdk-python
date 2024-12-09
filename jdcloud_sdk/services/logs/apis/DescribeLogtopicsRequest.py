@@ -32,7 +32,7 @@ class DescribeLogtopicsRequest(JDCloudRequest):
 
 class DescribeLogtopicsParameters(object):
 
-    def __init__(self, regionId,logsetUID,):
+    def __init__(self,regionId, logsetUID, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集 UID
@@ -44,6 +44,8 @@ class DescribeLogtopicsParameters(object):
         self.pageSize = None
         self.name = None
         self.appName = None
+        self.filters = None
+        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -53,7 +55,7 @@ class DescribeLogtopicsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 200]
         """
         self.pageSize = pageSize
 
@@ -68,4 +70,16 @@ class DescribeLogtopicsParameters(object):
         :param appName: (Optional) 日志主题采集的日志类型
         """
         self.appName = appName
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤条件，key，Values
+        """
+        self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 过滤条件，key，Values
+        """
+        self.tags = tags
 

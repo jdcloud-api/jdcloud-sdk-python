@@ -32,7 +32,7 @@ class HistogramsRequest(JDCloudRequest):
 
 class HistogramsParameters(object):
 
-    def __init__(self, regionId,logsetUID,logtopicUID,action, ):
+    def __init__(self,regionId, logsetUID, logtopicUID, action, ):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集ID

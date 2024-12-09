@@ -32,21 +32,47 @@ class CreateLogsetRequest(JDCloudRequest):
 
 class CreateLogsetParameters(object):
 
-    def __init__(self, regionId,name, lifeCycle):
+    def __init__(self,regionId, name, ):
         """
         :param regionId: 地域 Id
         :param name: 日志集名称
-        :param lifeCycle: 保存周期，只能是 7， 15， 30
         """
 
         self.regionId = regionId
         self.name = name
         self.description = None
-        self.lifeCycle = lifeCycle
+        self.lifeCycle = None
+        self.tags = None
+        self.resourceGroupUID = None
+        self.inner = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) 日志集描述
         """
         self.description = description
+
+    def setLifeCycle(self, lifeCycle):
+        """
+        :param lifeCycle: (Optional) 保存周期，只能是 7， 15， 30
+        """
+        self.lifeCycle = lifeCycle
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 标签列表
+        """
+        self.tags = tags
+
+    def setResourceGroupUID(self, resourceGroupUID):
+        """
+        :param resourceGroupUID: (Optional) 资源组信息
+        """
+        self.resourceGroupUID = resourceGroupUID
+
+    def setInner(self, inner):
+        """
+        :param inner: (Optional) 是否是内部资源。 设置为 true，则外部租户不可见。
+        """
+        self.inner = inner
 

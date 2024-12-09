@@ -32,7 +32,7 @@ class DescribeParserRequest(JDCloudRequest):
 
 class DescribeParserParameters(object):
 
-    def __init__(self, regionId,logtopicUID,):
+    def __init__(self,regionId, logtopicUID):
         """
         :param regionId: 地域 Id
         :param logtopicUID: 日志主题 UID

@@ -19,8 +19,9 @@
 
 class ParserField(object):
 
-    def __init__(self, fieldType, fieldValue, name, fieldFormat=None, index=None):
+    def __init__(self, fieldType, fieldValue, name, enableStatistics=None, fieldFormat=None, index=None):
         """
+        :param enableStatistics: (Optional) 是否开启统计。开启则改字段支持键值检索，统计分析。如果字段的值的长度可能大于1KB，则必须禁用统计功能，否则会导致数据写入失败。
         :param fieldFormat: (Optional) 
         :param fieldType:  
         :param fieldValue:  
@@ -28,6 +29,7 @@ class ParserField(object):
         :param name:  
         """
 
+        self.enableStatistics = enableStatistics
         self.fieldFormat = fieldFormat
         self.fieldType = fieldType
         self.fieldValue = fieldValue

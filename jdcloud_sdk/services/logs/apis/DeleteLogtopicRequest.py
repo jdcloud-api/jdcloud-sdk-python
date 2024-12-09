@@ -32,7 +32,7 @@ class DeleteLogtopicRequest(JDCloudRequest):
 
 class DeleteLogtopicParameters(object):
 
-    def __init__(self, regionId,logsetUID,logtopicUIDs,):
+    def __init__(self,regionId, logsetUID, logtopicUIDs):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集 UID

@@ -19,14 +19,16 @@
 
 class LogParserFieldEnd(object):
 
-    def __init__(self, fieldFormat=None, fieldName=None, fieldType=None, index=None):
+    def __init__(self, enableStatistics=None, fieldFormat=None, fieldName=None, fieldType=None, index=None):
         """
+        :param enableStatistics: (Optional) 
         :param fieldFormat: (Optional) 
         :param fieldName: (Optional) 
         :param fieldType: (Optional) 
         :param index: (Optional) 
         """
 
+        self.enableStatistics = enableStatistics
         self.fieldFormat = fieldFormat
         self.fieldName = fieldName
         self.fieldType = fieldType

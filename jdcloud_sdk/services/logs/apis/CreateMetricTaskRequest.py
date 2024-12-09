@@ -32,7 +32,7 @@ class CreateMetricTaskRequest(JDCloudRequest):
 
 class CreateMetricTaskParameters(object):
 
-    def __init__(self, regionId,logsetUID,logtopicUID,customUnit, interval, name, unit):
+    def __init__(self,regionId, logsetUID, logtopicUID, customUnit, interval, name, unit):
         """
         :param regionId: 地域 Id
         :param logsetUID: 日志集 UID

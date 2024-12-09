@@ -32,28 +32,29 @@ class CreateCollectInfoRequest(JDCloudRequest):
 
 class CreateCollectInfoParameters(object):
 
-    def __init__(self, regionId,logtopicUID,appCode, enabled, resourceType, serviceCode, ):
+    def __init__(self,regionId, logtopicUID, appCode, enabled, resourceType, serviceCode, ):
         """
         :param regionId: 地域 Id
         :param logtopicUID: 日志主题 UID
         :param appCode: 日志来源，只能是 custom/jdcloud
         :param enabled: 采集状态，0-禁用，1-启用
         :param resourceType: 采集实例类型, 只能是 all/part  当选择all时，传入的实例列表无效；custom类型的采集配置目前仅支持part方式，即用户指定实例列表；
-        :param serviceCode: 产品线,当日志来源为jdcloud时，必填
+        :param serviceCode: 产品线,当日志来源为jdcloud时,填写云产品serviceCode。否则填写自定义日志类型：vm,k8s,binlog,etc
         """
 
         self.regionId = regionId
         self.logtopicUID = logtopicUID
         self.agResource = None
         self.appCode = appCode
+        self.binlogSpec = None
         self.enabled = enabled
         self.filterEnabled = None
-        self.logCustomTarget = None
-        self.logCustomTargetConf = None
+        self.k8sSpec = None
         self.logFile = None
         self.logFilters = None
         self.logPath = None
         self.logtopicEnabled = None
+        self.name = None
         self.regexpStr = None
         self.resourceMode = None
         self.resourceType = resourceType
@@ -68,23 +69,23 @@ class CreateCollectInfoParameters(object):
         """
         self.agResource = agResource
 
+    def setBinlogSpec(self, binlogSpec):
+        """
+        :param binlogSpec: (Optional) 
+        """
+        self.binlogSpec = binlogSpec
+
     def setFilterEnabled(self, filterEnabled):
         """
         :param filterEnabled: (Optional) 过滤器是否启用。当appcode为custom时必填
         """
         self.filterEnabled = filterEnabled
 
-    def setLogCustomTarget(self, logCustomTarget):
+    def setK8sSpec(self, k8sSpec):
         """
-        :param logCustomTarget: (Optional) 自定义日志转发目的地, 只支持业务应用日志。支持类型："kafka"，"es"，默认为空:不进行自定义目的上报
+        :param k8sSpec: (Optional) 
         """
-        self.logCustomTarget = logCustomTarget
-
-    def setLogCustomTargetConf(self, logCustomTargetConf):
-        """
-        :param logCustomTargetConf: (Optional) 自定义日志转发目的地配置，KV 结构，具体配置参考 LogCustomTargetKafkaConf 和 LogCustomTargetEsConf
-        """
-        self.logCustomTargetConf = logCustomTargetConf
+        self.k8sSpec = k8sSpec
 
     def setLogFile(self, logFile):
         """
@@ -109,6 +110,12 @@ class CreateCollectInfoParameters(object):
         :param logtopicEnabled: (Optional) 目的地是否是日志服务logtopic，只支持业务应用日志
         """
         self.logtopicEnabled = logtopicEnabled
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 采集配置名称
+        """
+        self.name = name
 
     def setRegexpStr(self, regexpStr):
         """

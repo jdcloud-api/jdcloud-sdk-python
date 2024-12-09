@@ -32,7 +32,7 @@ class ValidateParserRequest(JDCloudRequest):
 
 class ValidateParserParameters(object):
 
-    def __init__(self, parserMode, ):
+    def __init__(self,parserMode, ):
         """
         :param parserMode: 解析类型。oneline - 单行，split - 分割， json - json， regexp - regexp
         """
@@ -41,6 +41,7 @@ class ValidateParserParameters(object):
         self.parserPattern = None
         self.parserSample = None
         self.pipelines = None
+        self.reserveOriginContent = None
 
     def setParserPattern(self, parserPattern):
         """
@@ -59,4 +60,10 @@ class ValidateParserParameters(object):
         :param pipelines: (Optional) 预处理任务列表。按照数组的顺序执行。
         """
         self.pipelines = pipelines
+
+    def setReserveOriginContent(self, reserveOriginContent):
+        """
+        :param reserveOriginContent: (Optional) 是否保留原始内容字段
+        """
+        self.reserveOriginContent = reserveOriginContent
 

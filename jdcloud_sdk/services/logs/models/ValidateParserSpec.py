@@ -19,15 +19,17 @@
 
 class ValidateParserSpec(object):
 
-    def __init__(self, parserMode, parserPattern=None, parserSample=None, pipelines=None):
+    def __init__(self, parserMode, parserPattern=None, parserSample=None, pipelines=None, reserveOriginContent=None):
         """
         :param parserMode:  解析类型。oneline - 单行，split - 分割， json - json， regexp - regexp
         :param parserPattern: (Optional) 解析语法
         :param parserSample: (Optional) 日志样例
         :param pipelines: (Optional) 预处理任务列表。按照数组的顺序执行。
+        :param reserveOriginContent: (Optional) 是否保留原始内容字段
         """
 
         self.parserMode = parserMode
         self.parserPattern = parserPattern
         self.parserSample = parserSample
         self.pipelines = pipelines
+        self.reserveOriginContent = reserveOriginContent

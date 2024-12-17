@@ -26,4 +26,4 @@ class BillingClient(JDCloudClient):
         if config is None:
             config = Config('billing.jdcloud-api.com')
 
-        super(BillingClient, self).__init__(credential, config, 'billing', '1.1.13', logger)
+        super(BillingClient, self).__init__(credential, config, 'billing', '1.1.16', logger)

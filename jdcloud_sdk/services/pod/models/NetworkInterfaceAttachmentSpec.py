@@ -22,7 +22,7 @@ class NetworkInterfaceAttachmentSpec(object):
     def __init__(self, networkInterface, autoDelete=None, deviceIndex=None):
         """
         :param autoDelete: (Optional) 指明删除pod时是否删除网卡，主网卡默认是true,辅助网卡默认false
-        :param deviceIndex: (Optional) 设备Index，目前pod只支持一个网卡，所以只能设置为1
+        :param deviceIndex: (Optional) 设备Index。
         :param networkInterface:  网卡接口规范
         """
 

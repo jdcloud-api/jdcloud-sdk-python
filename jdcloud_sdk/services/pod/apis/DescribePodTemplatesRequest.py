@@ -19,20 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribePodsRequest(JDCloudRequest):
+class DescribePodTemplatesRequest(JDCloudRequest):
     """
-    批量查询 pod 的详细信息<br>
-此接口支持分页查询，默认每页20条。
-
+    批量查询Pod模板。支持分页查询，默认每页20条。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribePodsRequest, self).__init__(
-            '/regions/{regionId}/pods', 'GET', header, version)
+        super(DescribePodTemplatesRequest, self).__init__(
+            '/regions/{regionId}/podTemplates', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribePodsParameters(object):
+class DescribePodTemplatesParameters(object):
 
     def __init__(self,regionId, ):
         """
@@ -43,11 +41,10 @@ class DescribePodsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
-        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1
+        :param pageNumber: (Optional) 页码；默认为1。取值范围：[1,∞)
         """
         self.pageNumber = pageNumber
 
@@ -59,21 +56,9 @@ class DescribePodsParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) podId - pod ID，精确匹配，支持多个
-privateIpAddress - 主网卡IP地址，模糊匹配，支持单个
-az - 可用区，精确匹配，支持多个
-vpcId - 私有网络ID，精确匹配，支持多个
-phase - pod 状态，精确匹配，支持多个
-name - 实例名称，模糊匹配，支持单个
-subnetId - 镜像ID，精确匹配，支持多个
-agId - 高可用组ID，精确匹配，支持多个
+        :param filters: (Optional) podTemplateIds - podTemplate ID，精确匹配，支持多个
+name - pod模板名称，模糊匹配，支持单个
 
         """
         self.filters = filters
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) Tag筛选条件
-        """
-        self.tags = tags
 

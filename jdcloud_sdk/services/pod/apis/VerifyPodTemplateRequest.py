@@ -19,27 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeQuotaRequest(JDCloudRequest):
+class VerifyPodTemplateRequest(JDCloudRequest):
     """
-    查询资源的配额，支持：原生容器,pod,secret,镜像缓存,Pod模板
+    校验pod模板的有效性。
+
+## 接口说明
+- 调用该接口可以校验Pod模板是否有效，例如某些关联资源（如子网、镜像等）已经被删除了。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeQuotaRequest, self).__init__(
-            '/regions/{regionId}/quotas', 'GET', header, version)
+        super(VerifyPodTemplateRequest, self).__init__(
+            '/regions/{regionId}/podTemplates/{podTemplateId}:verify', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeQuotaParameters(object):
+class VerifyPodTemplateParameters(object):
 
-    def __init__(self,regionId, resourceType):
+    def __init__(self,regionId, podTemplateId):
         """
         :param regionId: Region ID
-        :param resourceType: resourceType - 资源类型，支持 [container, pod, secret, imageCache,podTemplate]
-
+        :param podTemplateId: Pod模板ID
         """
 
         self.regionId = regionId
-        self.resourceType = resourceType
+        self.podTemplateId = podTemplateId
 

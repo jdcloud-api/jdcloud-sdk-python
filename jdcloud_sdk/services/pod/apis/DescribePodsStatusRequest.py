@@ -19,20 +19,20 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribePodsRequest(JDCloudRequest):
+class DescribePodsStatusRequest(JDCloudRequest):
     """
-    批量查询 pod 的详细信息<br>
+    批量查询 pod 的状态信息<br>
 此接口支持分页查询，默认每页20条。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribePodsRequest, self).__init__(
-            '/regions/{regionId}/pods', 'GET', header, version)
+        super(DescribePodsStatusRequest, self).__init__(
+            '/regions/{regionId}/podsStatus', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribePodsParameters(object):
+class DescribePodsStatusParameters(object):
 
     def __init__(self,regionId, ):
         """
@@ -43,7 +43,6 @@ class DescribePodsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
-        self.tags = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -53,7 +52,7 @@ class DescribePodsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]
+        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 500]
         """
         self.pageSize = pageSize
 
@@ -70,10 +69,4 @@ agId - 高可用组ID，精确匹配，支持多个
 
         """
         self.filters = filters
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) Tag筛选条件
-        """
-        self.tags = tags
 

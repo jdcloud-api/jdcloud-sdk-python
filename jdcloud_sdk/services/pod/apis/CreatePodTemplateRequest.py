@@ -19,27 +19,34 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeQuotaRequest(JDCloudRequest):
+class CreatePodTemplateRequest(JDCloudRequest):
     """
-    查询资源的配额，支持：原生容器,pod,secret,镜像缓存,Pod模板
-
+    创建Pod模板
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeQuotaRequest, self).__init__(
-            '/regions/{regionId}/quotas', 'GET', header, version)
+        super(CreatePodTemplateRequest, self).__init__(
+            '/regions/{regionId}/podTemplates', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeQuotaParameters(object):
+class CreatePodTemplateParameters(object):
 
-    def __init__(self,regionId, resourceType):
+    def __init__(self,regionId, name, podTemplateSpec):
         """
         :param regionId: Region ID
-        :param resourceType: resourceType - 资源类型，支持 [container, pod, secret, imageCache,podTemplate]
-
+        :param name: pod模板的名称，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
+        :param podTemplateSpec: pod模板创建参数
         """
 
         self.regionId = regionId
-        self.resourceType = resourceType
+        self.name = name
+        self.description = None
+        self.podTemplateSpec = podTemplateSpec
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) pod模板描述，参考 [公共参数规范](https://docs.jdcloud.com/virtual-machines/api/general_parameters)。
+        """
+        self.description = description
 

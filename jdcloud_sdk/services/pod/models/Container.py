@@ -19,9 +19,10 @@
 
 class Container(object):
 
-    def __init__(self, name=None, command=None, args=None, env=None, image=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, systemDisk=None, volumeMounts=None, containerStatus=None):
+    def __init__(self, name=None, type=None, command=None, args=None, env=None, image=None, secret=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, systemDisk=None, volumeMounts=None, containerStatus=None):
         """
         :param name: (Optional) 容器名称
+        :param type: (Optional) 容器类型，如果是init则为initContainer
         :param command: (Optional) 容器执行的命令。
         :param args: (Optional) 容器执行命令的参数。
         :param env: (Optional) 容器执行的环境变量。
@@ -38,6 +39,7 @@ class Container(object):
         """
 
         self.name = name
+        self.type = type
         self.command = command
         self.args = args
         self.env = env

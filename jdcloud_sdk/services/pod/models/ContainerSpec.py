@@ -19,7 +19,7 @@
 
 class ContainerSpec(object):
 
-    def __init__(self, name, systemDisk, command=None, args=None, env=None, image=None, secret=None, imageCacheId=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, volumeMounts=None):
+    def __init__(self, name, systemDisk, command=None, args=None, env=None, image=None, secret=None, imageCacheId=None, tty=None, workingDir=None, livenessProbe=None, readinessProbe=None, resources=None, volumeMounts=None, type=None):
         """
         :param name:  容器名称，符合DNS-1123 label规范，在一个Pod内不可重复、不支持修改
         :param command: (Optional) 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT。总长度256个字符。
@@ -39,6 +39,7 @@ class ContainerSpec(object):
         :param resources: (Optional) 容器计算资源配置
         :param systemDisk:  容器计算资源配置
         :param volumeMounts: (Optional) 云盘挂载信息
+        :param type: (Optional) 容器类型，取值 init 表示 InitContainer
         """
 
         self.name = name
@@ -55,3 +56,4 @@ class ContainerSpec(object):
         self.resources = resources
         self.systemDisk = systemDisk
         self.volumeMounts = volumeMounts
+        self.type = type

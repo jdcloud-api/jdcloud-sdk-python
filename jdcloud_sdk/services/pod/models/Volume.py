@@ -19,15 +19,17 @@
 
 class Volume(object):
 
-    def __init__(self, name=None, jdcloudDisk=None, cfs=None, configFile=None):
+    def __init__(self, name=None, jdcloudDisk=None, cfs=None, configFile=None, emptyDir=None):
         """
         :param name: (Optional) volume名字，在一个Pod唯一。
         :param jdcloudDisk: (Optional) 提供给Pod的cloud disk.
         :param cfs: (Optional) 提供给Pod的CFS.
         :param configFile: (Optional) 提供给Pod的ConfigFile.
+        :param emptyDir: (Optional) EmptyDir卷源
         """
 
         self.name = name
         self.jdcloudDisk = jdcloudDisk
         self.cfs = cfs
         self.configFile = configFile
+        self.emptyDir = emptyDir

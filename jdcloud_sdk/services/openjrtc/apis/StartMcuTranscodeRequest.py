@@ -33,7 +33,7 @@ class StartMcuTranscodeRequest(JDCloudRequest):
 
 class StartMcuTranscodeParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
@@ -41,10 +41,16 @@ class StartMcuTranscodeParameters(object):
         self.userRoomId = None
         self.layoutTemplate = None
         self.mainUserId = None
+        self.mainVideoStreamType = None
+        self.showAudioIcon = None
+        self.showNickName = None
         self.outputType = None
         self.outputName = None
+        self.outputRecordFormat = None
+        self.pushLiveUrl = None
         self.mcuUserInfos = None
         self.outputEncode = None
+        self.waterMarkInfo = None
 
     def setAppId(self, appId):
         """
@@ -60,7 +66,7 @@ class StartMcuTranscodeParameters(object):
 
     def setLayoutTemplate(self, layoutTemplate):
         """
-        :param layoutTemplate: (Optional) 布局模板-支持参数1
+        :param layoutTemplate: (Optional) 布局模板 1-九宫格 2-左右屏幕分享 3-上下屏幕分享 4-画中画
         """
         self.layoutTemplate = layoutTemplate
 
@@ -70,6 +76,24 @@ class StartMcuTranscodeParameters(object):
         """
         self.mainUserId = mainUserId
 
+    def setMainVideoStreamType(self, mainVideoStreamType):
+        """
+        :param mainVideoStreamType: (Optional) 1:摄像头  2：屏幕分享
+        """
+        self.mainVideoStreamType = mainVideoStreamType
+
+    def setShowAudioIcon(self, showAudioIcon):
+        """
+        :param showAudioIcon: (Optional) 是否显示音频图标 0：不显示  1:显示
+        """
+        self.showAudioIcon = showAudioIcon
+
+    def setShowNickName(self, showNickName):
+        """
+        :param showNickName: (Optional) 是否显示昵称  0：不显示  1:显示
+        """
+        self.showNickName = showNickName
+
     def setOutputType(self, outputType):
         """
         :param outputType: (Optional) 输出类型 1：录制 2：旁路转推
@@ -78,13 +102,25 @@ class StartMcuTranscodeParameters(object):
 
     def setOutputName(self, outputName):
         """
-        :param outputName: (Optional) 输出名称
+        :param outputName: (Optional) 输出录制文件的名称
         """
         self.outputName = outputName
 
+    def setOutputRecordFormat(self, outputRecordFormat):
+        """
+        :param outputRecordFormat: (Optional) 输出录制文件的格式：mp4、flv、m3u8；为空时默认m3u8。
+        """
+        self.outputRecordFormat = outputRecordFormat
+
+    def setPushLiveUrl(self, pushLiveUrl):
+        """
+        :param pushLiveUrl: (Optional) 转推直播地址（outputType=2生效）
+        """
+        self.pushLiveUrl = pushLiveUrl
+
     def setMcuUserInfos(self, mcuUserInfos):
         """
-        :param mcuUserInfos: (Optional) 参与混流人员参数
+        :param mcuUserInfos: (Optional) 参与混流人员参数；为空时，默认使用房间参会人进行混流
         """
         self.mcuUserInfos = mcuUserInfos
 
@@ -93,4 +129,10 @@ class StartMcuTranscodeParameters(object):
         :param outputEncode: (Optional) 输出格式
         """
         self.outputEncode = outputEncode
+
+    def setWaterMarkInfo(self, waterMarkInfo):
+        """
+        :param waterMarkInfo: (Optional) 水印信息
+        """
+        self.waterMarkInfo = waterMarkInfo
 

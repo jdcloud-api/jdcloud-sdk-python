@@ -33,7 +33,7 @@ class CreateRoomRequest(JDCloudRequest):
 
 class CreateRoomParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

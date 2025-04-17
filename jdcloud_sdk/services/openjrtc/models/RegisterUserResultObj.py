@@ -22,7 +22,7 @@ class RegisterUserResultObj(object):
     def __init__(self, appId=None, userId=None, peerId=None):
         """
         :param appId: (Optional) 应用ID
-        :param userId: (Optional) 业务接入方的用户ID
+        :param userId: (Optional) 业务接入方用户体系定义的userId
         :param peerId: (Optional) jrtc系统用户ID
         """
 

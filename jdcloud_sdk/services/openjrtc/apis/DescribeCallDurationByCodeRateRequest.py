@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeCallDurationByCodeRateRequest(JDCloudRequest):
     """
-    获取历史音频、区分视频码率通讯时长
+    获取历史音频、区分视频码率通讯时长(分钟)
 
     """
 
@@ -33,24 +33,19 @@ class DescribeCallDurationByCodeRateRequest(JDCloudRequest):
 
 class DescribeCallDurationByCodeRateParameters(object):
 
-    def __init__(self, startTime, ):
+    def __init__(self,startTime, endTime):
         """
         :param startTime: 开始时间 UTC格式
+        :param endTime: 结束时间 UTC格式
         """
 
         self.appId = None
         self.startTime = startTime
-        self.endTime = None
+        self.endTime = endTime
 
     def setAppId(self, appId):
         """
         :param appId: (Optional) 应用ID
         """
         self.appId = appId
-
-    def setEndTime(self, endTime):
-        """
-        :param endTime: (Optional) 结束时间 UTC格式
-        """
-        self.endTime = endTime
 

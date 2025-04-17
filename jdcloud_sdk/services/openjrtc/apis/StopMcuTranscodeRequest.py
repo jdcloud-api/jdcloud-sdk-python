@@ -33,12 +33,13 @@ class StopMcuTranscodeRequest(JDCloudRequest):
 
 class StopMcuTranscodeParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
         self.appId = None
         self.userRoomId = None
+        self.taskId = None
 
     def setAppId(self, appId):
         """
@@ -51,4 +52,10 @@ class StopMcuTranscodeParameters(object):
         :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
         """
         self.userRoomId = userRoomId
+
+    def setTaskId(self, taskId):
+        """
+        :param taskId: (Optional) 混流任务ID
+        """
+        self.taskId = taskId
 

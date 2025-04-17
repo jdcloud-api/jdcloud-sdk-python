@@ -33,7 +33,7 @@ class DescribeRegisterUserRequest(JDCloudRequest):
 
 class DescribeRegisterUserParameters(object):
 
-    def __init__(self, appId,userId):
+    def __init__(self,appId, userId):
         """
         :param appId: 应用ID
         :param userId: 业务接入方用户体系定义的且在JRTC系统内注册过的userId

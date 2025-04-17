@@ -33,7 +33,7 @@ class DescribeAppsRequest(JDCloudRequest):
 
 class DescribeAppsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

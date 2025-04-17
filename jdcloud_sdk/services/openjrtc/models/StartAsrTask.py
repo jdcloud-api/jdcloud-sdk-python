@@ -19,13 +19,19 @@
 
 class StartAsrTask(object):
 
-    def __init__(self, appId=None, userRoomId=None, asrTaskType=None):
+    def __init__(self, appId=None, userRoomId=None, asrTaskType=None, aiModel=None, extInfo=None, subtitle=None):
         """
         :param appId: (Optional) 应用ID
         :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
-        :param asrTaskType: (Optional) 语音识别场景 0-全部识别转文字
+        :param asrTaskType: (Optional) 语音任务类型 0-转写 1-翻译； asrTaskType =0 Subtitle不生效；asrTaskType =1 Subtitle.enableTranslate=true(转写+翻译)Subtitle.enableTranslate=false(只转写)
+        :param aiModel: (Optional) ai模型
+        :param extInfo: (Optional) 附加参数
+        :param subtitle: (Optional) 字幕配置
         """
 
         self.appId = appId
         self.userRoomId = userRoomId
         self.asrTaskType = asrTaskType
+        self.aiModel = aiModel
+        self.extInfo = extInfo
+        self.subtitle = subtitle

@@ -33,7 +33,7 @@ class StopAsrTaskRequest(JDCloudRequest):
 
 class StopAsrTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
@@ -55,7 +55,7 @@ class StopAsrTaskParameters(object):
 
     def setAsrTaskType(self, asrTaskType):
         """
-        :param asrTaskType: (Optional) 语音识别场景 0-全部识别转文字
+        :param asrTaskType: (Optional) 语音任务类型 0-转写 1-翻译
         """
         self.asrTaskType = asrTaskType
 

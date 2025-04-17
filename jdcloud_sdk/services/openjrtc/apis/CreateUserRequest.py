@@ -33,13 +33,14 @@ class CreateUserRequest(JDCloudRequest):
 
 class CreateUserParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
         self.appId = None
         self.userName = None
         self.userId = None
+        self.portraitUrl = None
         self.temporary = None
 
     def setAppId(self, appId):
@@ -59,6 +60,12 @@ class CreateUserParameters(object):
         :param userId: (Optional) 业务接入方的用户ID
         """
         self.userId = userId
+
+    def setPortraitUrl(self, portraitUrl):
+        """
+        :param portraitUrl: (Optional) 用户头像url
+        """
+        self.portraitUrl = portraitUrl
 
     def setTemporary(self, temporary):
         """

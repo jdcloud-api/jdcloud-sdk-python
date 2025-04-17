@@ -19,15 +19,17 @@
 
 class CreateUserRequestObj(object):
 
-    def __init__(self, appId=None, userName=None, userId=None, temporary=None):
+    def __init__(self, appId=None, userName=None, userId=None, portraitUrl=None, temporary=None):
         """
         :param appId: (Optional) 应用ID
         :param userName: (Optional) 用户名称
         :param userId: (Optional) 业务接入方的用户ID
+        :param portraitUrl: (Optional) 用户头像url
         :param temporary: (Optional) 是否临时用户
         """
 
         self.appId = appId
         self.userName = userName
         self.userId = userId
+        self.portraitUrl = portraitUrl
         self.temporary = temporary

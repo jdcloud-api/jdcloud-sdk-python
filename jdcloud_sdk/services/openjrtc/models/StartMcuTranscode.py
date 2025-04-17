@@ -19,23 +19,35 @@
 
 class StartMcuTranscode(object):
 
-    def __init__(self, appId=None, userRoomId=None, layoutTemplate=None, mainUserId=None, outputType=None, outputName=None, mcuUserInfos=None, outputEncode=None):
+    def __init__(self, appId=None, userRoomId=None, layoutTemplate=None, mainUserId=None, mainVideoStreamType=None, showAudioIcon=None, showNickName=None, outputType=None, outputName=None, outputRecordFormat=None, pushLiveUrl=None, mcuUserInfos=None, outputEncode=None, waterMarkInfo=None):
         """
         :param appId: (Optional) 应用ID
         :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
-        :param layoutTemplate: (Optional) 布局模板-支持参数1
+        :param layoutTemplate: (Optional) 布局模板 1-九宫格 2-左右屏幕分享 3-上下屏幕分享 4-画中画
         :param mainUserId: (Optional) 主人员userId
+        :param mainVideoStreamType: (Optional) 1:摄像头  2：屏幕分享
+        :param showAudioIcon: (Optional) 是否显示音频图标 0：不显示  1:显示
+        :param showNickName: (Optional) 是否显示昵称  0：不显示  1:显示
         :param outputType: (Optional) 输出类型 1：录制 2：旁路转推
-        :param outputName: (Optional) 输出名称
-        :param mcuUserInfos: (Optional) 参与混流人员参数
+        :param outputName: (Optional) 输出录制文件的名称
+        :param outputRecordFormat: (Optional) 输出录制文件的格式：mp4、flv、m3u8；为空时默认m3u8。
+        :param pushLiveUrl: (Optional) 转推直播地址（outputType=2生效）
+        :param mcuUserInfos: (Optional) 参与混流人员参数；为空时，默认使用房间参会人进行混流
         :param outputEncode: (Optional) 输出格式
+        :param waterMarkInfo: (Optional) 水印信息
         """
 
         self.appId = appId
         self.userRoomId = userRoomId
         self.layoutTemplate = layoutTemplate
         self.mainUserId = mainUserId
+        self.mainVideoStreamType = mainVideoStreamType
+        self.showAudioIcon = showAudioIcon
+        self.showNickName = showNickName
         self.outputType = outputType
         self.outputName = outputName
+        self.outputRecordFormat = outputRecordFormat
+        self.pushLiveUrl = pushLiveUrl
         self.mcuUserInfos = mcuUserInfos
         self.outputEncode = outputEncode
+        self.waterMarkInfo = waterMarkInfo

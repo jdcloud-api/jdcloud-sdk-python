@@ -36,7 +36,7 @@ class DescribeRegisterUsersRequest(JDCloudRequest):
 
 class DescribeRegisterUsersParameters(object):
 
-    def __init__(self, appId,):
+    def __init__(self,appId, ):
         """
         :param appId: 应用ID
         """

@@ -19,11 +19,13 @@
 
 class StopMcuTranscode(object):
 
-    def __init__(self, appId=None, userRoomId=None):
+    def __init__(self, appId=None, userRoomId=None, taskId=None):
         """
         :param appId: (Optional) 应用ID
         :param userRoomId: (Optional) 业务接入方定义的且在JRTC系统内注册过的房间号
+        :param taskId: (Optional) 混流任务ID
         """
 
         self.appId = appId
         self.userRoomId = userRoomId
+        self.taskId = taskId

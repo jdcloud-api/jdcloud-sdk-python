@@ -19,9 +19,17 @@
 
 class McuUser(object):
 
-    def __init__(self, userId=None):
+    def __init__(self, userId=None, nickName=None, placeImageUrl=None, roleName=None, keepOrder=None):
         """
         :param userId: (Optional) 业务接入方用户体系定义的且在JRTC系统内注册过的userId
+        :param nickName: (Optional) 昵称
+        :param placeImageUrl: (Optional) 占位图URL
+        :param roleName: (Optional) 角色名称
+        :param keepOrder: (Optional) 是否严格保持数组顺序  0：不保持  1：保持
         """
 
         self.userId = userId
+        self.nickName = nickName
+        self.placeImageUrl = placeImageUrl
+        self.roleName = roleName
+        self.keepOrder = keepOrder

@@ -33,7 +33,7 @@ class DescribeUserByPeerRequest(JDCloudRequest):
 
 class DescribeUserByPeerParameters(object):
 
-    def __init__(self, peerId):
+    def __init__(self,peerId):
         """
         :param peerId: peerId
         """

@@ -37,7 +37,7 @@ class DescribeStreamRecordsByUserIdRequest(JDCloudRequest):
 
 class DescribeStreamRecordsByUserIdParameters(object):
 
-    def __init__(self, appId,userRoomId, userId, ):
+    def __init__(self,appId, userRoomId, userId, ):
         """
         :param appId: 应用ID
         :param userRoomId: 业务接入方定义的且在JRTC系统内注册过的房间号

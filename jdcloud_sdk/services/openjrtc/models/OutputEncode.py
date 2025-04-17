@@ -22,7 +22,7 @@ class OutputEncode(object):
     def __init__(self, outputKind=None, audioSampleRate=None, audioBitrate=None, audioChannels=None, videoBitrate=None, videoFrame=None, videoWidth=None, videoHeight=None, videoGop=None):
         """
         :param outputKind: (Optional) 混流类型：1：音频 2：视频  3：音视频
-        :param audioSampleRate: (Optional) 音频采样率
+        :param audioSampleRate: (Optional) 混流-输出流音频采样率。取值为[48000, 44100, 32000, 24000, 16000, 8000]，单位Hz。
         :param audioBitrate: (Optional) 音频比特率：取值范围[8,500]
         :param audioChannels: (Optional) 通道：取值范围[1,2]
         :param videoBitrate: (Optional) 视频比特率：取值范围[1,10000]

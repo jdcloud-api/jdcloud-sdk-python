@@ -36,7 +36,7 @@ class DescribeStreamRecordsByStreamIdRequest(JDCloudRequest):
 
 class DescribeStreamRecordsByStreamIdParameters(object):
 
-    def __init__(self, appId,streamId, ):
+    def __init__(self,appId, streamId, ):
         """
         :param appId: 应用ID
         :param streamId: 流ID

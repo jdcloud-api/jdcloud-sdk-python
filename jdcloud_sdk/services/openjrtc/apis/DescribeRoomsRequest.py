@@ -35,7 +35,7 @@ class DescribeRoomsRequest(JDCloudRequest):
 
 class DescribeRoomsParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

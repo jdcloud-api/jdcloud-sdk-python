@@ -33,13 +33,16 @@ class StartAsrTaskRequest(JDCloudRequest):
 
 class StartAsrTaskParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 
         self.appId = None
         self.userRoomId = None
         self.asrTaskType = None
+        self.aiModel = None
+        self.extInfo = None
+        self.subtitle = None
 
     def setAppId(self, appId):
         """
@@ -55,7 +58,25 @@ class StartAsrTaskParameters(object):
 
     def setAsrTaskType(self, asrTaskType):
         """
-        :param asrTaskType: (Optional) 语音识别场景 0-全部识别转文字
+        :param asrTaskType: (Optional) 语音任务类型 0-转写 1-翻译； asrTaskType =0 Subtitle不生效；asrTaskType =1 Subtitle.enableTranslate=true(转写+翻译)Subtitle.enableTranslate=false(只转写)
         """
         self.asrTaskType = asrTaskType
+
+    def setAiModel(self, aiModel):
+        """
+        :param aiModel: (Optional) ai模型
+        """
+        self.aiModel = aiModel
+
+    def setExtInfo(self, extInfo):
+        """
+        :param extInfo: (Optional) 附加参数
+        """
+        self.extInfo = extInfo
+
+    def setSubtitle(self, subtitle):
+        """
+        :param subtitle: (Optional) 字幕配置
+        """
+        self.subtitle = subtitle
 

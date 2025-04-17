@@ -38,7 +38,7 @@ class DescribeOnlineUserNumRequest(JDCloudRequest):
 
 class DescribeOnlineUserNumParameters(object):
 
-    def __init__(self, filters):
+    def __init__(self,filters):
         """
         :param filters: 传参字段描述:
   appId:   应用ID (必填)

@@ -33,7 +33,7 @@ class DescribeP2pStreamBitRateRequest(JDCloudRequest):
 
 class DescribeP2pStreamBitRateParameters(object):
 
-    def __init__(self, appId, userRoomId, userId, kind, type, joinTime, ):
+    def __init__(self,appId, userRoomId, userId, kind, type, joinTime, ):
         """
         :param appId: 应用ID
         :param userRoomId: 业务接入方定义的且在JRTC系统内注册过的用户房间号

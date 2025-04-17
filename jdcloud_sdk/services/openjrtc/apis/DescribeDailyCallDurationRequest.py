@@ -33,7 +33,7 @@ class DescribeDailyCallDurationRequest(JDCloudRequest):
 
 class DescribeDailyCallDurationParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

@@ -32,7 +32,7 @@ class SendMessageToRoomRequest(JDCloudRequest):
 
 class SendMessageToRoomParameters(object):
 
-    def __init__(self, appId,roomId,):
+    def __init__(self,appId, roomId, ):
         """
         :param appId: 应用ID
         :param roomId: 房间ID

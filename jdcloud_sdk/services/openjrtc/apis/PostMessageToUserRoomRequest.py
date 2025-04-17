@@ -32,7 +32,7 @@ class PostMessageToUserRoomRequest(JDCloudRequest):
 
 class PostMessageToUserRoomParameters(object):
 
-    def __init__(self, ):
+    def __init__(self,):
         """
         """
 

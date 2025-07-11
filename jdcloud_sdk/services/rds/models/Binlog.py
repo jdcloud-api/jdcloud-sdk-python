@@ -19,11 +19,12 @@
 
 class Binlog(object):
 
-    def __init__(self, binlogBackupId=None, binlogName=None, binlogSizeKB=None, binlogStartTime=None, binlogEndTime=None, descriptionkey=None, instanceId=None, instanceName=None, serverId=None):
+    def __init__(self, binlogBackupId=None, binlogName=None, binlogSizeKB=None, binlogSizeByte=None, binlogStartTime=None, binlogEndTime=None, descriptionkey=None, instanceId=None, instanceName=None, serverId=None):
         """
         :param binlogBackupId: (Optional) binlog日志备份ID
         :param binlogName: (Optional) binlog日志名称
         :param binlogSizeKB: (Optional) binlog日志大小，单位KB
+        :param binlogSizeByte: (Optional) binlog日志大小，单位Byte
         :param binlogStartTime: (Optional) binlog开始时间,格式为：YYYY-MM-DD HH:mm:ss
         :param binlogEndTime: (Optional) binlog结束时间,格式为：YYYY-MM-DD HH:mm:ss
         :param descriptionkey: (Optional) 加密秘钥
@@ -35,6 +36,7 @@ class Binlog(object):
         self.binlogBackupId = binlogBackupId
         self.binlogName = binlogName
         self.binlogSizeKB = binlogSizeKB
+        self.binlogSizeByte = binlogSizeByte
         self.binlogStartTime = binlogStartTime
         self.binlogEndTime = binlogEndTime
         self.descriptionkey = descriptionkey

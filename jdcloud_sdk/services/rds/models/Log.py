@@ -19,7 +19,7 @@
 
 class Log(object):
 
-    def __init__(self, id=None, name=None, sizeByte=None, lastModified=None, publicURL=None, internalURL=None):
+    def __init__(self, id=None, name=None, sizeByte=None, lastModified=None, publicURL=None, internalURL=None, logType=None):
         """
         :param id: (Optional) 日志文件id
         :param name: (Optional) 日志文件名称
@@ -27,6 +27,7 @@ class Log(object):
         :param lastModified: (Optional) 日志最后更改时间
         :param publicURL: (Optional) 公网下载链接
         :param internalURL: (Optional) 内网下载链接
+        :param logType: (Optional) 日志类型
         """
 
         self.id = id
@@ -35,3 +36,4 @@ class Log(object):
         self.lastModified = lastModified
         self.publicURL = publicURL
         self.internalURL = internalURL
+        self.logType = logType

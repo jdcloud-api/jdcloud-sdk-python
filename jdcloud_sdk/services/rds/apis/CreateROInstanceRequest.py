@@ -58,6 +58,7 @@ class CreateROInstanceParameters(object):
         self.tagSpec = None
         self.resourceGroupId = None
         self.chargeSpec = None
+        self.deviceType = None
 
     def setInstanceStorageType(self, instanceStorageType):
         """
@@ -118,4 +119,10 @@ class CreateROInstanceParameters(object):
         :param chargeSpec: (Optional) 计费规格，包括计费类型，计费周期等
         """
         self.chargeSpec = chargeSpec
+
+    def setDeviceType(self, deviceType):
+        """
+        :param deviceType: (Optional) 实例隔离类型。仅支持 MySQL。shared：通用型，exclusive：独享型，公有云默认为独享型，其他环境默认为通用型
+        """
+        self.deviceType = deviceType
 

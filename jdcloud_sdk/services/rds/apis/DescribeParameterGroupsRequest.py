@@ -40,6 +40,7 @@ class DescribeParameterGroupsParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -52,4 +53,13 @@ class DescribeParameterGroupsParameters(object):
         :param pageSize: (Optional) 每页显示的数据条数，默认为10，取值范围：[10,100]，且为10的整数倍
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
+支持以下属性的过滤：engine, 支持operator选项：eq, 仅支持 MySQL，Percona，PostgreSQL
+支持以下属性的过滤：engineVersion, 支持operator选项：eq, 仅支持 5.7，8.0，12，13
+
+        """
+        self.filters = filters
 

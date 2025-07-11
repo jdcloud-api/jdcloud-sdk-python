@@ -19,7 +19,7 @@
 
 class DBInstanceSpecWithoutCharge(object):
 
-    def __init__(self, instanceName, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, parameterGroup=None, instanceStorageType=None, storageEncrypted=None, instanceType=None):
+    def __init__(self, instanceName, engine, engineVersion, instanceClass, instanceStorageGB, azId, vpcId, subnetId, parameterGroup=None, instanceStorageType=None, storageEncrypted=None, instanceType=None, deviceType=None):
         """
         :param instanceName:  实例名，具体规则可参见帮助中心文档:[名称及密码限制](https://docs.jdcloud.com/cn/rds/sqlserver-restrictions)
         :param engine:  实例引擎类型，参见[枚举参数定义](https://docs.jdcloud.com/cn/rds/api/enum-definitions)
@@ -33,6 +33,7 @@ class DBInstanceSpecWithoutCharge(object):
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md), 缺省值为：LOCAL_SSD<br>- 仅支持MySQL
         :param storageEncrypted: (Optional) 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false<br>- 仅支持MySQL
         :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster，multi-replica：三副本<br>- 仅支持SQL Server
+        :param deviceType: (Optional) 实例隔离类型。仅支持 MySQL。shared：通用型，exclusive：独享型，公有云默认为独享型，其他环境默认为通用型
         """
 
         self.instanceName = instanceName
@@ -47,3 +48,4 @@ class DBInstanceSpecWithoutCharge(object):
         self.instanceStorageType = instanceStorageType
         self.storageEncrypted = storageEncrypted
         self.instanceType = instanceType
+        self.deviceType = deviceType

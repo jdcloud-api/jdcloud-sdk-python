@@ -19,29 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class RestoreInstanceByTimeRequest(JDCloudRequest):
+class DescribeTaskRequest(JDCloudRequest):
     """
-    根据时间点，选择单表恢复当前实例<br>- 仅支持MySQL
+    查看指定的任务记录详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(RestoreInstanceByTimeRequest, self).__init__(
-            '/regions/{regionId}/instances/{instanceId}:restoreInstanceByTime', 'POST', header, version)
+        super(DescribeTaskRequest, self).__init__(
+            '/regions/{regionId}/tasks/{taskId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class RestoreInstanceByTimeParameters(object):
+class DescribeTaskParameters(object):
 
-    def __init__(self,regionId, instanceId, restoreTime, restoreSchema):
+    def __init__(self,regionId, taskId):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
-        :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param restoreTime: 根据源实例的哪个时间点创建新实例，UTC格式，格式为yyyy-MM-dd'T'HH:mm:ssZ，例如：2020-01-07T19:26:00Z
-        :param restoreSchema: 需要进行单库，单表恢复的概要信息
+        :param taskId: 任务ID，唯一标识一个RDS任务
         """
 
         self.regionId = regionId
-        self.instanceId = instanceId
-        self.restoreTime = restoreTime
-        self.restoreSchema = restoreSchema
+        self.taskId = taskId
 

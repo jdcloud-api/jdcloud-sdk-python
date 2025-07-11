@@ -82,6 +82,7 @@ class DescribeAuditResultParameters(object):
 - keyword：SQL 关键词，模糊查询，operator仅支持eq或者in
 - database：实例库名，operator仅支持eq或者in
 - threadId：会话id，operator仅支持eq或者in
+- ip：源ip，operator仅支持eq或者in，仅支持 MySQL，Percona，MariaDB
 
         """
         self.filters = filters

@@ -32,7 +32,7 @@ class CreateDatabaseRequest(JDCloudRequest):
 
 class CreateDatabaseParameters(object):
 
-    def __init__(self,regionId, instanceId, dbName, characterSetName):
+    def __init__(self,regionId, instanceId, dbName, characterSetName, ):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
@@ -44,4 +44,32 @@ class CreateDatabaseParameters(object):
         self.instanceId = instanceId
         self.dbName = dbName
         self.characterSetName = characterSetName
+        self.collate = None
+        self.ctype = None
+        self.comment = None
+        self.owner = None
+
+    def setCollate(self, collate):
+        """
+        :param collate: (Optional) 数据库的字符序， 仅PostgreSQL支持
+        """
+        self.collate = collate
+
+    def setCtype(self, ctype):
+        """
+        :param ctype: (Optional) 数据库的字符分类， 仅PostgreSQL支持
+        """
+        self.ctype = ctype
+
+    def setComment(self, comment):
+        """
+        :param comment: (Optional) 数据库的备注信息， 仅PostgreSQL支持
+        """
+        self.comment = comment
+
+    def setOwner(self, owner):
+        """
+        :param owner: (Optional) 数据库的属主， 仅PostgreSQL支持
+        """
+        self.owner = owner
 

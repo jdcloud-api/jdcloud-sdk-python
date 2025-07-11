@@ -43,6 +43,7 @@ class DescribeInstancesParameters(object):
         self.filters = None
         self.tagFilters = None
         self.resourceGroupIds = None
+        self.recycle = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -66,6 +67,7 @@ engine, 支持operator选项：eq
 engineVersion, 支持operator选项：eq
 instanceStatus, 支持operator选项：eq
 vpcId, 支持operator选项：eq
+subnetId, 支持operator选项：eq
 instanceType, 支持operator选项：eq
 internalDomainName, 支持operator选项：eq
 publicDomainName, 支持operator选项：eq
@@ -86,4 +88,10 @@ readWriteProxyInternalDomainName, 支持operator选项：like
         :param resourceGroupIds: (Optional) 资源组id
         """
         self.resourceGroupIds = resourceGroupIds
+
+    def setRecycle(self, recycle):
+        """
+        :param recycle: (Optional) 默认不传，返回当前未删除的实例的实例列表<br>请求参数：<br>- false:当前存在的实例；<br>- true:进入回收站的实例；
+        """
+        self.recycle = recycle
 

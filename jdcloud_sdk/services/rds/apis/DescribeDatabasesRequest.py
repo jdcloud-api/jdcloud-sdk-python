@@ -46,7 +46,7 @@ class DescribeDatabasesParameters(object):
 
     def setDbName(self, dbName):
         """
-        :param dbName: (Optional) 数据库名。如果不指定数据库名，则返回所有数据库列表<br>- **MySQL：不支持该字段**<br>- **SQL Server：支持该字段**
+        :param dbName: (Optional) 数据库名。如果不指定数据库名，则返回所有数据库列表<br>- **MySQL：不支持该字段**<br>- **SQL Server：支持该字段**<br>- **PostgreSQL：支持该字段**
         """
         self.dbName = dbName
 

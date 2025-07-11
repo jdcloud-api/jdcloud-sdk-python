@@ -19,7 +19,7 @@
 
 class DBInstance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, storageEncrypted=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None, instancePort=None, azType=None, resourceGroupId=None, resourceGroupName=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, instanceStorageType=None, storageEncrypted=None, engine=None, engineVersion=None, instanceClass=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, publicDomainName=None, internalDomainName=None, createTime=None, backupSynchronicity=None, charge=None, tags=None, sourceInstanceId=None, instancePort=None, azType=None, resourceGroupId=None, resourceGroupName=None, destroyTime=None, deviceType=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -48,6 +48,8 @@ class DBInstance(object):
         :param azType: (Optional) 可用区类型<br>- 仅支持MySQL
         :param resourceGroupId: (Optional) 资源组id
         :param resourceGroupName: (Optional) 资源组名称
+        :param destroyTime: (Optional) 实例销毁时间
+        :param deviceType: (Optional) 实例隔离类型。shared：通用型，exclusive：独享型，公有云默认为独享型，其他环境默认为通用型
         """
 
         self.instanceId = instanceId
@@ -77,3 +79,5 @@ class DBInstance(object):
         self.azType = azType
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
+        self.destroyTime = destroyTime
+        self.deviceType = deviceType

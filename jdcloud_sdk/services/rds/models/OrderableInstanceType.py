@@ -23,7 +23,7 @@ class OrderableInstanceType(object):
         """
         :param engine: (Optional) 实例引擎类型，如MySQL或SQL Server等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param engineVersions: (Optional) 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
-        :param engineStatus: (Optional) 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+        :param engineStatus: (Optional) 实例引擎可售卖的状态，可能的返回值：0-售罄；1-可售卖
         :param regionId: (Optional) 地域ID，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
         :param orderableAZs: (Optional) 支持售卖的可用区列表
         :param orderableStorageTypes: (Optional) 支持售卖的实例存储规格集合

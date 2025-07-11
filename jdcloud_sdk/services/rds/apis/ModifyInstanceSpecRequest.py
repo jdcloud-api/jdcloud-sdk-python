@@ -49,6 +49,7 @@ class ModifyInstanceSpecParameters(object):
         self.subnetId = None
         self.effectiveTime = None
         self.postponeTime = None
+        self.deviceType = None
 
     def setNewInstanceStorageType(self, newInstanceStorageType):
         """
@@ -70,7 +71,7 @@ class ModifyInstanceSpecParameters(object):
 
     def setEffectiveTime(self, effectiveTime):
         """
-        :param effectiveTime: (Optional) 生效时间，取值：<br>immediate：立即生效<br>maintainTime：在可维护时间段内生效。<br>postpone：延后生效。
+        :param effectiveTime: (Optional) 生效时间，取值：<br>immediate：立即生效<br>maintainTime：在可维护时间段内生效。<br>postpone：延后生效。默认immediate
         """
         self.effectiveTime = effectiveTime
 
@@ -79,4 +80,10 @@ class ModifyInstanceSpecParameters(object):
         :param postponeTime: (Optional) 延后生效的时间，单位为分钟。effectiveTime为postpone时必传，取值1-1440分钟
         """
         self.postponeTime = postponeTime
+
+    def setDeviceType(self, deviceType):
+        """
+        :param deviceType: (Optional) 规格族（仅MySQL支持），默认使用变配之前的类型。可选值：shared：通用型，exclusive：独享型。
+        """
+        self.deviceType = deviceType
 

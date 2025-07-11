@@ -45,10 +45,17 @@ class CreateAccountParameters(object):
         self.accountName = accountName
         self.accountPassword = accountPassword
         self.notes = None
+        self.accountType = None
 
     def setNotes(self, notes):
         """
         :param notes: (Optional) 备注信息，仅支持PostgreSQL
         """
         self.notes = notes
+
+    def setAccountType(self, accountType):
+        """
+        :param accountType: (Optional) 账号类型，normal：普通账号，super：高权限账号
+        """
+        self.accountType = accountType
 

@@ -19,7 +19,7 @@
 
 class RestoredNewDBInstanceSpec(object):
 
-    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None, tagSpec=None, resourceGroupId=None):
+    def __init__(self, instanceClass, instanceStorageGB, azId, vpcId, subnetId, chargeSpec, instanceName=None, parameterGroup=None, instanceStorageType=None, instancePort=None, storageEncrypted=None, instanceType=None, tagSpec=None, resourceGroupId=None, deviceType=None, ebsDiskAutoScale=None, ebsDiskThreshold=None, ebsDiskUpperBound=None):
         """
         :param instanceName: (Optional) 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
         :param instanceClass:  实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
@@ -35,6 +35,10 @@ class RestoredNewDBInstanceSpec(object):
         :param instanceType: (Optional) 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster，multi-replica：三副本<br>- 仅支持SQL Server
         :param tagSpec: (Optional) 标签信息
         :param resourceGroupId: (Optional) 资源组id
+        :param deviceType: (Optional) 实例隔离类型。仅支持 MySQL。shared：通用型，exclusive：独享型，公有云默认为独享型，其他环境默认为通用型
+        :param ebsDiskAutoScale: (Optional) 云盘是否开启自动扩容，Enable:开启，Disable:关闭，默认关闭
+        :param ebsDiskThreshold: (Optional) 触发阈值百分比（10-50且为10的倍数），前提要求ebsDiskAutoScale为Enable
+        :param ebsDiskUpperBound: (Optional) 自动扩容上限（GB），前提要求ebsDiskAutoScale为Enable
         """
 
         self.instanceName = instanceName
@@ -51,3 +55,7 @@ class RestoredNewDBInstanceSpec(object):
         self.instanceType = instanceType
         self.tagSpec = tagSpec
         self.resourceGroupId = resourceGroupId
+        self.deviceType = deviceType
+        self.ebsDiskAutoScale = ebsDiskAutoScale
+        self.ebsDiskThreshold = ebsDiskThreshold
+        self.ebsDiskUpperBound = ebsDiskUpperBound

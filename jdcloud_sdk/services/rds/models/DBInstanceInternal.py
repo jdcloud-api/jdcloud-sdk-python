@@ -19,7 +19,7 @@
 
 class DBInstanceInternal(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engine=None, instanceType=None, instanceStatus=None, accessibleStatus=None, hostIp=None, userIp=None, vmId=None, internalDomainName=None, instancePort=None):
+    def __init__(self, instanceId=None, instanceName=None, engine=None, instanceType=None, instanceStatus=None, accessibleStatus=None, hostIp=None, userIp=None, vmId=None, internalDomainName=None, instancePort=None, instanceStorageType=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -32,6 +32,7 @@ class DBInstanceInternal(object):
         :param vmId: (Optional) 云主机ID
         :param internalDomainName: (Optional) 实例内网域名
         :param instancePort: (Optional) 应用访问端口
+        :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         """
 
         self.instanceId = instanceId
@@ -45,3 +46,4 @@ class DBInstanceInternal(object):
         self.vmId = vmId
         self.internalDomainName = internalDomainName
         self.instancePort = instancePort
+        self.instanceStorageType = instanceStorageType

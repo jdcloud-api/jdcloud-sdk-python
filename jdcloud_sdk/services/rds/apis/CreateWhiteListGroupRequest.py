@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateWhiteListGroupRequest(JDCloudRequest):
     """
-    创建一个白名单分组并设置白名单允许访问的IP，仅MySQL、Percona、MariaDB支持。修改允许访问实例的IP白名单。白名单是允许访问当前实例的IP/IP段列表，缺省情况下，白名单对本VPC开放。如果用户开启了外网访问的功能，还需要对外网的IP配置白名单。
+    创建一个白名单分组并设置白名单允许访问的IP。所有分组的ip数量不超过99。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,8 +36,8 @@ class CreateWhiteListGroupParameters(object):
         """
         :param regionId: 地域代码，取值范围参见[《各地域及可用区对照表》](../Enum-Definitions/Regions-AZ.md)
         :param instanceId: RDS 实例ID，唯一标识一个RDS实例
-        :param whiteListName: 白名单名称
-        :param ips: IP或IP段，不同的IP/IP段之间用英文逗号分隔，例如0.0.0.0/0,192.168.0.10
+        :param whiteListName: 白名单名称，由英文、中文、数字、下划线、中划线组成，长度不超过64个字符，区分大小写
+        :param ips: IP或IP段，不同的IP/IP段之间用英文逗号分隔，例如0.0.0.0/0,192.168.0.10/32
         """
 
         self.regionId = regionId

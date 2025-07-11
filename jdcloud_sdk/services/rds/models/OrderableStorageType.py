@@ -19,13 +19,15 @@
 
 class OrderableStorageType(object):
 
-    def __init__(self, instanceStorageType=None, storageTypeStatus=None, orderableInstanceClasses=None):
+    def __init__(self, instanceStorageType=None, storageTypeStatus=None, orderableInstanceClasses=None, orderableStorageTypeAZs=None):
         """
         :param instanceStorageType: (Optional) 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param storageTypeStatus: (Optional) 存储可售卖状态。可能的返回值：0-售罄；1-可售卖
         :param orderableInstanceClasses: (Optional) 实例跨地域备份服务开启相关信息
+        :param orderableStorageTypeAZs: (Optional) 支持售卖的可用区列表
         """
 
         self.instanceStorageType = instanceStorageType
         self.storageTypeStatus = storageTypeStatus
         self.orderableInstanceClasses = orderableInstanceClasses
+        self.orderableStorageTypeAZs = orderableStorageTypeAZs

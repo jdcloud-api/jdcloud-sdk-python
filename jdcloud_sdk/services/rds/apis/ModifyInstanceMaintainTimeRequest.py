@@ -51,7 +51,7 @@ class ModifyInstanceMaintainTimeParameters(object):
 
     def setMaintainPeriod(self, maintainPeriod):
         """
-        :param maintainPeriod: (Optional) 选择维护周期，可选择一周中的某一天或多天
+        :param maintainPeriod: (Optional) 选择维护周期，可选择一周中的某一天或多天，如["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
         """
         self.maintainPeriod = maintainPeriod
 

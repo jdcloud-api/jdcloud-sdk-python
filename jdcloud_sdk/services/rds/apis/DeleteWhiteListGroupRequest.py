@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteWhiteListGroupRequest(JDCloudRequest):
     """
-    当该白名单分组用户无需使用时，可进行删除。仅适用于MySQL、Percona、MariaDB。
+    当该白名单分组用户无需使用时，可进行删除，不能删除默认的白名单分组。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

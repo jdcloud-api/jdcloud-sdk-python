@@ -19,7 +19,7 @@
 
 class DBInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, minorVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None, activeDirectory=None, roInstanceProxyID=None, roInstanceProxyName=None, readWriteProxyId=None, syncTaskId=None, instanceVip=None, azType=None, resourceGroupId=None, resourceGroupName=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceType=None, engine=None, engineVersion=None, minorVersion=None, instanceClass=None, instanceStorageType=None, storageEncrypted=None, instanceStorageGB=None, instanceCPU=None, instanceMemoryMB=None, regionId=None, azId=None, vpcId=None, subnetId=None, parameterGroupId=None, parameterGroupName=None, parameterStatus=None, internalDomainName=None, publicDomainName=None, instancePort=None, connectionMode=None, auditStatus=None, instanceStatus=None, createTime=None, charge=None, sourceInstanceId=None, roInstanceIds=None, primaryNode=None, secondaryNode=None, tags=None, activeDirectory=None, roInstanceProxyID=None, roInstanceProxyName=None, readWriteProxyId=None, syncTaskId=None, instanceVip=None, azType=None, resourceGroupId=None, resourceGroupName=None, deviceType=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
@@ -62,6 +62,7 @@ class DBInstanceAttribute(object):
         :param azType: (Optional) 可用区类型，1为标准子网，2为边缘子网
         :param resourceGroupId: (Optional) 资源组id
         :param resourceGroupName: (Optional) 资源组名称
+        :param deviceType: (Optional) 实例隔离类型。shared：通用型，exclusive：独享型，公有云默认为独享型，其他环境默认为通用型
         """
 
         self.instanceId = instanceId
@@ -105,3 +106,4 @@ class DBInstanceAttribute(object):
         self.azType = azType
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
+        self.deviceType = deviceType

@@ -43,6 +43,7 @@ class ModifyNetworkInterfaceParameters(object):
         self.networkInterfaceName = None
         self.description = None
         self.securityGroups = None
+        self.macAddress = None
 
     def setNetworkInterfaceName(self, networkInterfaceName):
         """
@@ -61,4 +62,10 @@ class ModifyNetworkInterfaceParameters(object):
         :param securityGroups: (Optional) 以覆盖原有安全组的方式更新的安全组。如果更新安全组ID列表，最多5个安全组
         """
         self.securityGroups = securityGroups
+
+    def setMacAddress(self, macAddress):
+        """
+        :param macAddress: (Optional) 弹性网卡mac地址，不超过32字符
+        """
+        self.macAddress = macAddress
 

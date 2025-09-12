@@ -19,13 +19,14 @@
 
 class BandwidthPackage(object):
 
-    def __init__(self, bandwidthPackageId=None, bandwidthPackageName=None, description=None, bandwidthMbps=None, provider=None, charge=None, createdTime=None, publicIps=None, ipCount=None, guaranteedRatio=None, guaranteedBandwidth=None, adminStatus=None, tags=None, resourceGroupId=None):
+    def __init__(self, bandwidthPackageId=None, bandwidthPackageName=None, description=None, bandwidthMbps=None, provider=None, providerNameCN=None, charge=None, createdTime=None, publicIps=None, ipCount=None, guaranteedRatio=None, guaranteedBandwidth=None, adminStatus=None, tags=None, resourceGroupId=None):
         """
         :param bandwidthPackageId: (Optional) 共享带宽包ID
         :param bandwidthPackageName: (Optional) 名称
         :param description: (Optional) 描述
-        :param bandwidthMbps: (Optional) 共享带宽包带宽上限，取值范围200-5000，单位为Mbps，按用量计费模式的保底带宽 = 共享带宽包带宽上限 * 20%
+        :param bandwidthMbps: (Optional) 共享带宽包带宽上限，单位为Mbps，按用量计费模式的保底带宽 = 共享带宽包带宽上限 * 20%
         :param provider: (Optional) 线路信息
+        :param providerNameCN: (Optional) 线路中文信息
         :param charge: (Optional) 计费配置
         :param createdTime: (Optional) 创建时间，时间格式为UTC
         :param publicIps: (Optional) 共享带宽包内公网IP信息
@@ -42,6 +43,7 @@ class BandwidthPackage(object):
         self.description = description
         self.bandwidthMbps = bandwidthMbps
         self.provider = provider
+        self.providerNameCN = providerNameCN
         self.charge = charge
         self.createdTime = createdTime
         self.publicIps = publicIps

@@ -49,7 +49,10 @@ class CreateSubnetParameters(object):
         self.ipMaskLen = None
         self.domainNames = None
         self.domainNameServers = None
+        self.eipPriorExcludeDestCidrs = None
         self.dryRun = None
+        self.userTags = None
+        self.resourceGroupId = None
 
     def setRouteTableId(self, routeTableId):
         """
@@ -81,9 +84,27 @@ class CreateSubnetParameters(object):
         """
         self.domainNameServers = domainNameServers
 
+    def setEipPriorExcludeDestCidrs(self, eipPriorExcludeDestCidrs):
+        """
+        :param eipPriorExcludeDestCidrs: (Optional) 用户网段，绑定EIP的云资源访问用户网段还是走子网关联的路由策略，只在eipPriorEnable为true时参数有效。
+        """
+        self.eipPriorExcludeDestCidrs = eipPriorExcludeDestCidrs
+
     def setDryRun(self, dryRun):
         """
         :param dryRun: (Optional) 是否只预检此次请求。true：不会创建子网，只会对参数进行校验；false：正常的创建请求。默认为false。
         """
         self.dryRun = dryRun
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户标签
+        """
+        self.userTags = userTags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
 

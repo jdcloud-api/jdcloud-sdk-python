@@ -41,18 +41,32 @@ class CreateElasticIpsParameters(object):
 
         self.regionId = regionId
         self.maxCount = maxCount
+        self.elasticIpName = None
         self.elasticIpAddress = None
+        self.elasticIpPoolId = None
         self.elasticIpSpec = elasticIpSpec
         self.userTags = None
         self.ipType = None
         self.resourceGroupId = None
         self.dryRun = None
 
+    def setElasticIpName(self, elasticIpName):
+        """
+        :param elasticIpName: (Optional) 弹性公网ip的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不超过32字符。
+        """
+        self.elasticIpName = elasticIpName
+
     def setElasticIpAddress(self, elasticIpAddress):
         """
         :param elasticIpAddress: (Optional) 指定弹性ip地址进行创建，当申请创建多个弹性ip时，必须为空
         """
         self.elasticIpAddress = elasticIpAddress
+
+    def setElasticIpPoolId(self, elasticIpPoolId):
+        """
+        :param elasticIpPoolId: (Optional) 弹性ip池id。若值不为空，则会在指定的弹性公网ip池内分配ip
+        """
+        self.elasticIpPoolId = elasticIpPoolId
 
     def setUserTags(self, userTags):
         """

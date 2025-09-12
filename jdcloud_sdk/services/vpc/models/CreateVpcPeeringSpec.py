@@ -19,15 +19,19 @@
 
 class CreateVpcPeeringSpec(object):
 
-    def __init__(self, vpcPeeringName, vpcId, remoteVpcId, description=None):
+    def __init__(self, vpcPeeringName, vpcId, remoteVpcId, description=None, userTags=None, resourceGroupId=None):
         """
         :param vpcPeeringName:  VpcPeering的名字,不为空。名称取值范围：1-32个中文、英文大小写的字母、数字和下划线分隔符
         :param vpcId:  VpcPeering本端Vpc的Id
         :param remoteVpcId:  VpcPeering对端Vpc的Id
         :param description: (Optional) VpcPeering 描述，取值范围：0-256个中文、英文大小写的字母、数字和下划线分隔符
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcPeeringName = vpcPeeringName
         self.vpcId = vpcId
         self.remoteVpcId = remoteVpcId
         self.description = description
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

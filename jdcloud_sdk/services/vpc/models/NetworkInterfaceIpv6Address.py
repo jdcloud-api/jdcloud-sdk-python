@@ -19,9 +19,11 @@
 
 class NetworkInterfaceIpv6Address(object):
 
-    def __init__(self, ipv6Address=None):
+    def __init__(self, ipv6Id=None, ipv6Address=None):
         """
+        :param ipv6Id: (Optional) 弹性网卡ipv6的ID
         :param ipv6Address: (Optional) 弹性网卡ipv6地址
         """
 
+        self.ipv6Id = ipv6Id
         self.ipv6Address = ipv6Address

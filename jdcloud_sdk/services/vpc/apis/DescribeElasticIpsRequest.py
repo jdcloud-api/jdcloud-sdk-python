@@ -59,12 +59,15 @@ class DescribeElasticIpsParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) elasticIpIds - elasticip id数组条件，支持多个
+elasticIpNames - elasticip Name数组条件，支持多个
 elasticIpAddress - eip的IP地址，支持单个
+elasticIpPoolId - 弹性公网ip池id，支持单个
 chargeStatus	- eip的费用支付状态,normal(正常状态) or overdue(预付费已到期) or arrear(欠费状态)，支持单个
 ipType - eip类型，取值：all(所有类型)、standard(标准弹性IP)、edge(边缘弹性IP)，默认standard，支持单个
 azs - eip可用区，支持多个
 bandwidthPackageId - 共享带宽包ID，支持单个
 status - IP是否被绑定，取值：ASSOCIATED（被绑定）、NOT_ASSOCIATED（未被绑定）、ALL（全部）。支持单个
+providers = IP的provider信息，支持多个，可通过describeEdgeIpProviders接口获取
 
         """
         self.filters = filters

@@ -19,13 +19,15 @@
 
 class ModifyNetworkInterfaceSpec(object):
 
-    def __init__(self, networkInterfaceName=None, description=None, securityGroups=None):
+    def __init__(self, networkInterfaceName=None, description=None, securityGroups=None, macAddress=None):
         """
         :param networkInterfaceName: (Optional) 弹性网卡名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
         :param securityGroups: (Optional) 以覆盖原有安全组的方式更新的安全组。如果更新安全组ID列表，最多5个安全组
+        :param macAddress: (Optional) 弹性网卡mac地址，不超过32字符
         """
 
         self.networkInterfaceName = networkInterfaceName
         self.description = description
         self.securityGroups = securityGroups
+        self.macAddress = macAddress

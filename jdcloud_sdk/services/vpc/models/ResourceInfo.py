@@ -23,7 +23,7 @@ class ResourceInfo(object):
         """
         :param resourceId: (Optional) 资源ID
         :param resourceName: (Optional) 资源名称
-        :param remark: (Optional) 备注
+        :param remark: (Optional) 备注，格式由"|"组合成的字符串，每个字符串包括key:value，网络eip使用的是chargeConver:false表示不允许转换，此时disableConverMessage中的内容表示报错的内容，chargeConver:true表示允许转换
         :param bind: (Optional) 绑定资源(如vm绑定ip)
         """
 

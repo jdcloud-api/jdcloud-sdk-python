@@ -19,7 +19,7 @@
 
 class Vpc(object):
 
-    def __init__(self, vpcId=None, addressPrefix=None, description=None, vpcName=None, aclIds=None, routeTableIds=None, subnets=None, createdTime=None, azType=None, az=None, vpcPolicyId=None, enableMulticast=None):
+    def __init__(self, vpcId=None, addressPrefix=None, description=None, vpcName=None, aclIds=None, routeTableIds=None, subnets=None, createdTime=None, vpcPolicyId=None, tags=None, resourceGroupId=None):
         """
         :param vpcId: (Optional) Vpc的Id
         :param addressPrefix: (Optional) 如果为空，则不限制网段，如果不为空，10.0.0.0/8、172.16.0.0/12和192.168.0.0/16及它们包含的子网，且子网掩码长度为16-28之间
@@ -29,10 +29,9 @@ class Vpc(object):
         :param routeTableIds: (Optional) 
         :param subnets: (Optional) 私有网络包含的子网列表
         :param createdTime: (Optional) vpc创建时间
-        :param azType: (Optional) VPC az类型，取值：standard(标准VPC)，edge(边缘VPC)
-        :param az: (Optional) VPC可用区, 标准VPC为""， 边缘VPC为边缘az
         :param vpcPolicyId: (Optional) VPC关联的策略Id
-        :param enableMulticast: (Optional) 取值包括true、false，是否开启组播。
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcId = vpcId
@@ -43,7 +42,6 @@ class Vpc(object):
         self.routeTableIds = routeTableIds
         self.subnets = subnets
         self.createdTime = createdTime
-        self.azType = azType
-        self.az = az
         self.vpcPolicyId = vpcPolicyId
-        self.enableMulticast = enableMulticast
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

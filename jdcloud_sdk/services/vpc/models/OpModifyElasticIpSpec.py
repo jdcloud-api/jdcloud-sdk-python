@@ -19,11 +19,13 @@
 
 class OpModifyElasticIpSpec(object):
 
-    def __init__(self, bandwidthMbps, userPin, ):
+    def __init__(self, userPin, bandwidthMbps=None, elasticIpName=None):
         """
-        :param bandwidthMbps:  弹性公网IP的限速（单位：Mbps），取值范围为[1-3000]
+        :param bandwidthMbps: (Optional) 弹性公网IP的限速（单位：Mbps），取值范围为[1-3000]
         :param userPin:  资源所属的用户pin
+        :param elasticIpName: (Optional) 弹性公网ip的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不超过32字符。
         """
 
         self.bandwidthMbps = bandwidthMbps
         self.userPin = userPin
+        self.elasticIpName = elasticIpName

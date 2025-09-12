@@ -19,15 +19,19 @@
 
 class RouteTableSpec(object):
 
-    def __init__(self, vpcId, routeTableName, description=None, associateType=None):
+    def __init__(self, vpcId, routeTableName, description=None, associateType=None, userTags=None, resourceGroupId=None):
         """
         :param vpcId:  路由表所属的私有网络ID
         :param routeTableName:  路由表名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param description: (Optional) 描述，允许输入UTF-8编码下的全部字符，不超过256字符
         :param associateType: (Optional) 绑定资源类型，取值：subnet(缺省时默认值)，gateway
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcId = vpcId
         self.routeTableName = routeTableName
         self.description = description
         self.associateType = associateType
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

@@ -19,13 +19,14 @@
 
 class AddNetworkAclRuleSpec(object):
 
-    def __init__(self, protocol, direction, addressPrefix, ruleAction, priority, fromPort=None, toPort=None, description=None):
+    def __init__(self, protocol, direction, addressPrefix, ruleAction, priority, fromPort=None, toPort=None, addressPrefixType=None, description=None):
         """
         :param protocol:  规则限定协议。取值范围：All,TCP,UDP,ICMP
         :param fromPort: (Optional) 规则限定起始传输层端口, 取值范围:1-65535, 若protocol为传输层协议，默认值为1，若protocol不是传输层协议，设置无效，恒为0。如果规则只限定一个端口号，fromPort和toPort填写同一个值
         :param toPort: (Optional) 规则限定终止传输层端口, 取值范围:1-65535, 若protocol为传输层协议，默认值为65535，若protocol不是传输层协议，设置无效，恒为0。如果规则只限定一个端口号，fromPort和toPort填写同一个值
         :param direction:  networkAcl规则方向。ingress：入规则; egress：出规则
-        :param addressPrefix:  匹配地址前缀
+        :param addressPrefixType: (Optional) 匹配地址前缀类型, 取值范围为CIDR、PREFIXLIST, 默认CIDR
+        :param addressPrefix:  匹配地址前缀, 源/目的IP. addressPrefixType为CIDR时，传IP地址或网段，如：10.0.0.0/24; addressPrefixType为PREFIXLIST时，传前缀列表ID，如：pl-bkh3jumsqk
         :param ruleAction:  访问控制策略：allow:允许，deny：拒绝
         :param priority:  规则匹配优先级，取值范围为[1,32768]，优先级数字越小优先级越高
         :param description: (Optional) 描述,允许输入UTF-8编码下的全部字符，不超过256字符
@@ -35,6 +36,7 @@ class AddNetworkAclRuleSpec(object):
         self.fromPort = fromPort
         self.toPort = toPort
         self.direction = direction
+        self.addressPrefixType = addressPrefixType
         self.addressPrefix = addressPrefix
         self.ruleAction = ruleAction
         self.priority = priority

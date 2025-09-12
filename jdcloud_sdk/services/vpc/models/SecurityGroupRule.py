@@ -19,13 +19,14 @@
 
 class SecurityGroupRule(object):
 
-    def __init__(self, ruleId=None, direction=None, ruleAction=None, priority=None, protocol=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None, ruleType=None):
+    def __init__(self, ruleId=None, direction=None, ruleAction=None, priority=None, protocol=None, addressPrefixType=None, addressPrefix=None, ipVersion=None, fromPort=None, toPort=None, createdTime=None, description=None, ruleType=None):
         """
         :param ruleId: (Optional) 安全组规则ID
         :param direction: (Optional) 安全组规则方向。0：入规则; 1：出规则
-        :param ruleAction: (Optional) 访问控制策略：allow:允许，deny：拒绝
+        :param ruleAction: (Optional) 访问控制策略：ALLOW:允许，DENY：拒绝
         :param priority: (Optional) 规则匹配优先级，取值范围为[1,100]，优先级数字越小优先级越高
         :param protocol: (Optional) 规则限定协议。300:All; 6:TCP; 17:UDP; 1:ICMP
+        :param addressPrefixType: (Optional) 匹配地址前缀类型, 取值范围为CIDR、PREFIXLIST
         :param addressPrefix: (Optional) 匹配地址前缀
         :param ipVersion: (Optional) 匹配地址协议版本。4：IPv4
         :param fromPort: (Optional) 规则限定起始传输层端口, 默认1 ，若protocal不是传输层协议，恒为0
@@ -40,6 +41,7 @@ class SecurityGroupRule(object):
         self.ruleAction = ruleAction
         self.priority = priority
         self.protocol = protocol
+        self.addressPrefixType = addressPrefixType
         self.addressPrefix = addressPrefix
         self.ipVersion = ipVersion
         self.fromPort = fromPort

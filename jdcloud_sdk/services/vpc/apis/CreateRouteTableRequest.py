@@ -44,6 +44,8 @@ class CreateRouteTableParameters(object):
         self.routeTableName = routeTableName
         self.description = None
         self.associateType = None
+        self.userTags = None
+        self.resourceGroupId = None
 
     def setDescription(self, description):
         """
@@ -56,4 +58,16 @@ class CreateRouteTableParameters(object):
         :param associateType: (Optional) 绑定资源类型，取值：subnet(缺省时默认值)，gateway
         """
         self.associateType = associateType
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户标签
+        """
+        self.userTags = userTags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
 

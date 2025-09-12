@@ -19,7 +19,7 @@
 
 class NatGatewaySpec(object):
 
-    def __init__(self, natGatewayName, vpcId, subnetId, natGatewaySpec=None, azs=None, elasticIpIds=None, elasticIpCount=None, elasticIpSpec=None, natGatewayCharge=None, description=None):
+    def __init__(self, natGatewayName, vpcId, subnetId, natGatewaySpec=None, azs=None, elasticIpIds=None, elasticIpCount=None, elasticIpSpec=None, natGatewayCharge=None, description=None, userTags=None, resourceGroupId=None):
         """
         :param natGatewayName:  NAT网关名称
         :param natGatewaySpec: (Optional) NAT网关规格，取值small（100万并发连接数），medium（300万并发连接数），large（1000万并发连接数），默认small
@@ -30,7 +30,9 @@ class NatGatewaySpec(object):
         :param elasticIpCount: (Optional) 新购公网IP数量
         :param elasticIpSpec: (Optional) 新购公网IP配置。NAT网关仅支持打包创建标准公网IP，不支持边缘公网IP。且标准公网IP仅支持按配置、按用量两种计费模式。
         :param natGatewayCharge: (Optional) 计费配置，仅支持按配置，默认按配置
-        :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param description: (Optional) 描述, 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.natGatewayName = natGatewayName
@@ -43,3 +45,5 @@ class NatGatewaySpec(object):
         self.elasticIpSpec = elasticIpSpec
         self.natGatewayCharge = natGatewayCharge
         self.description = description
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

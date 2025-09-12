@@ -19,11 +19,25 @@
 
 class NetworkOperator(object):
 
-    def __init__(self, provider=None, networkOperator=None):
+    def __init__(self, provider=None, networkOperator=None, flowType=None, configType=None, billItem=None, ccProvider=None, providerType=None, providerNameCN=None, bandwidthLimits=None):
         """
         :param provider: (Optional) 公网IP的线路
         :param networkOperator: (Optional) network operator序号
+        :param flowType: (Optional) 按用量流量费计费项
+        :param configType: (Optional) 按用量占用费计费项
+        :param billItem: (Optional) 包年包月/按配置计费项
+        :param ccProvider: (Optional) 网络底层的provider
+        :param providerType: (Optional) provider类型，standard（中心）、edge（边缘）
+        :param providerNameCN: (Optional) provider中文名称
+        :param bandwidthLimits: (Optional) 带宽限制
         """
 
         self.provider = provider
         self.networkOperator = networkOperator
+        self.flowType = flowType
+        self.configType = configType
+        self.billItem = billItem
+        self.ccProvider = ccProvider
+        self.providerType = providerType
+        self.providerNameCN = providerNameCN
+        self.bandwidthLimits = bandwidthLimits

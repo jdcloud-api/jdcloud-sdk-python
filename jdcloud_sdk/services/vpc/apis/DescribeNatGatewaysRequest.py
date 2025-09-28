@@ -42,6 +42,7 @@ class DescribeNatGatewaysParameters(object):
         self.pageSize = None
         self.filters = None
         self.tags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -73,4 +74,10 @@ subnetId - NAT网关所属子网ID，支持单个
         :param tags: (Optional) Tag筛选条件
         """
         self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组筛选条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

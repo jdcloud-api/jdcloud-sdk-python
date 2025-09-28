@@ -19,7 +19,7 @@
 
 class NatGateway(object):
 
-    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIps=None, createdTime=None, tags=None, routeTableIds=None):
+    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIps=None, createdTime=None, tags=None, resourceGroupId=None, routeTableIds=None):
         """
         :param natGatewayId: (Optional) NAT网关ID
         :param natGatewayName: (Optional) NAT网关名称
@@ -34,6 +34,7 @@ class NatGateway(object):
         :param elasticIps: (Optional) NAT网关公网IP
         :param createdTime: (Optional) NAT网关创建时间
         :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         :param routeTableIds: (Optional) 包含下一跳为本NAT网关路由的子网路由表id列表
         """
 
@@ -50,4 +51,5 @@ class NatGateway(object):
         self.elasticIps = elasticIps
         self.createdTime = createdTime
         self.tags = tags
+        self.resourceGroupId = resourceGroupId
         self.routeTableIds = routeTableIds

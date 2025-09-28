@@ -41,6 +41,8 @@ class DescribeVpcPeeringsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -65,4 +67,16 @@ azs - vpcPeering本端VPC可用区，支持多个
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组筛选条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

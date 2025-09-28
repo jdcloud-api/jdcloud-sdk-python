@@ -19,16 +19,17 @@
 
 class ElasticIpInternal(object):
 
-    def __init__(self, elasticIpId=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None, tags=None, ipType=None, bandwidthPackageId=None, status=None, state=None, resourceGroupId=None):
+    def __init__(self, elasticIpId=None, elasticIpName=None, elasticIpAddress=None, bandwidthMbps=None, provider=None, privateIpAddress=None, networkInterfaceId=None, instanceId=None, instanceType=None, charge=None, createdTime=None, az=None, tags=None, ipType=None, bandwidthPackageId=None, status=None, state=None, resourceGroupId=None):
         """
         :param elasticIpId: (Optional) 弹性公网IP的Id
+        :param elasticIpName: (Optional) 弹性公网IP的名称
         :param elasticIpAddress: (Optional) 弹性公网IP的地址
         :param bandwidthMbps: (Optional) 弹性公网IP的限速（单位：Mbps)
         :param provider: (Optional) 弹性公网IP的线路，标准公网IP的线路、取值为bgp或no_bgp；边缘公网IP的线路、可通过describeEdgeIpProviders接口获取
         :param privateIpAddress: (Optional) 私有IP的IPV4地址
         :param networkInterfaceId: (Optional) 配置弹性网卡Id
         :param instanceId: (Optional) 实例Id
-        :param instanceType: (Optional) 实例类型,取值为：compute、lb、container、pod、natgw
+        :param instanceType: (Optional) 实例类型,取值为：compute、lb、container、pod、natgw、redis
         :param charge: (Optional) 计费配置
         :param createdTime: (Optional) 弹性公网IP的创建时间
         :param az: (Optional) 弹性公网IP的可用区属性，如果为空，表示全可用区
@@ -41,6 +42,7 @@ class ElasticIpInternal(object):
         """
 
         self.elasticIpId = elasticIpId
+        self.elasticIpName = elasticIpName
         self.elasticIpAddress = elasticIpAddress
         self.bandwidthMbps = bandwidthMbps
         self.provider = provider

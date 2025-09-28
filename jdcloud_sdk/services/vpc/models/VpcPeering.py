@@ -19,17 +19,17 @@
 
 class VpcPeering(object):
 
-    def __init__(self, vpcPeeringId=None, vpcPeeringName=None, vpcPeeringState=None, description=None, vpcInfo=None, azType=None, az=None, remoteVpcInfo=None, createdTime=None):
+    def __init__(self, vpcPeeringId=None, vpcPeeringName=None, vpcPeeringState=None, description=None, vpcInfo=None, remoteVpcInfo=None, createdTime=None, tags=None, resourceGroupId=None):
         """
         :param vpcPeeringId: (Optional) VpcPeering的Id
         :param vpcPeeringName: (Optional) VpcPeering名称，同账号下不允许重名，取值范围：1-32个中文、英文大小写的字母、数字和下划线分隔符
         :param vpcPeeringState: (Optional) 状态，取值为Connected，Disconnected，Initiated
         :param description: (Optional) VpcPeering 描述，可为空值，取值范围：0-256个中文、英文大小写的字母、数字和下划线分隔符
         :param vpcInfo: (Optional) 发起VpcPeering的Vpc信息
-        :param azType: (Optional) VPC az类型，取值：standard(标准VPC)，edge(边缘VPC)
-        :param az: (Optional) VPC可用区，边缘VPC非空，标准VPC为""
         :param remoteVpcInfo: (Optional) 对端的Vpc信息
         :param createdTime: (Optional) VpcPeering创建时间
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcPeeringId = vpcPeeringId
@@ -37,7 +37,7 @@ class VpcPeering(object):
         self.vpcPeeringState = vpcPeeringState
         self.description = description
         self.vpcInfo = vpcInfo
-        self.azType = azType
-        self.az = az
         self.remoteVpcInfo = remoteVpcInfo
         self.createdTime = createdTime
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

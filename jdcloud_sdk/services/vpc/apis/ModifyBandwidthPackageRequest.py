@@ -54,7 +54,11 @@ class ModifyBandwidthPackageParameters(object):
 
     def setBandwidthMbps(self, bandwidthMbps):
         """
-        :param bandwidthMbps: (Optional) 共享带宽包带宽上限，取值范围200-5000，单位为Mbps，且不能低于共享带宽包内公网IP带宽上限
+        :param bandwidthMbps: (Optional) 共享带宽包带宽上限，单位为Mbps，保底带宽 = 共享带宽包带宽上限 * 20%
+chargeMode=postpaid_by_duration，范围支50～5000
+chargeMode=prepaid_by_duration，范围支持100～5000
+chargeMode=postpaid_by_usage，范围支持200～5000
+
         """
         self.bandwidthMbps = bandwidthMbps
 

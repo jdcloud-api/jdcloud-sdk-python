@@ -19,7 +19,7 @@
 
 class NetworkInterface(object):
 
-    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, azType=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, secondaryCidrs=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None):
+    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, azType=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, secondaryCidrs=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None, tags=None, resourceGroupId=None):
         """
         :param networkInterfaceName: (Optional) 弹性网卡名称
         :param networkInterfaceId: (Optional) 弹性网卡ID
@@ -42,6 +42,8 @@ class NetworkInterface(object):
         :param attachmentStatus: (Optional) 弹性网卡绑定实例状态，attached（已绑定）、detached（未绑定）
         :param networkInterfaceStatus: (Optional) 弹性网卡可用状态，enabled（启用）、disabled（停用）
         :param createdTime: (Optional) 弹性网卡创建时间
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.networkInterfaceName = networkInterfaceName
@@ -65,3 +67,5 @@ class NetworkInterface(object):
         self.attachmentStatus = attachmentStatus
         self.networkInterfaceStatus = networkInterfaceStatus
         self.createdTime = createdTime
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

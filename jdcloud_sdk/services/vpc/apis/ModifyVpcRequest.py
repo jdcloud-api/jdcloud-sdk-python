@@ -42,7 +42,8 @@ class ModifyVpcParameters(object):
         self.vpcId = vpcId
         self.vpcName = None
         self.description = None
-        self.enableMulticast = None
+        self.enableIpv6SubIds = None
+        self.addressPrefix = None
 
     def setVpcName(self, vpcName):
         """
@@ -56,9 +57,15 @@ class ModifyVpcParameters(object):
         """
         self.description = description
 
-    def setEnableMulticast(self, enableMulticast):
+    def setEnableIpv6SubIds(self, enableIpv6SubIds):
         """
-        :param enableMulticast: (Optional) 取值包括true、false，默认为false，不开启组播。
+        :param enableIpv6SubIds: (Optional) 开启Ipv6的子网ID列表。
         """
-        self.enableMulticast = enableMulticast
+        self.enableIpv6SubIds = enableIpv6SubIds
+
+    def setAddressPrefix(self, addressPrefix):
+        """
+        :param addressPrefix: (Optional) 仅支持""，表示修改为不限制网段的vpc
+        """
+        self.addressPrefix = addressPrefix
 

@@ -47,13 +47,18 @@ class CreateBandwidthPackageParameters(object):
         """
         :param regionId: Region ID
         :param name: 名称，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且长度不超过32个字符
-        :param bandwidthMbps: 共享带宽包带宽上限，取值范围200-5000，单位为Mbps，保底带宽 = 共享带宽包带宽上限 * 20%
+        :param bandwidthMbps: 共享带宽包带宽上限，单位为Mbps，保底带宽 = 共享带宽包带宽上限 * 20%
+chargeMode=postpaid_by_duration，范围支50～5000
+chargeMode=prepaid_by_duration，范围支持100～5000
+chargeMode=postpaid_by_usage，范围支持200～5000
+
         """
 
         self.regionId = regionId
         self.name = name
         self.description = None
         self.bandwidthMbps = bandwidthMbps
+        self.chargeType = None
         self.provider = None
         self.chargeSpec = None
         self.userTags = None
@@ -65,9 +70,15 @@ class CreateBandwidthPackageParameters(object):
         """
         self.description = description
 
+    def setChargeType(self, chargeType):
+        """
+        :param chargeType: (Optional) 按用量计费类型，当chargeSpec为按用量时有效，0代表按增强95，1代表按95消峰，2代表按主流量计费，缺省不填写时为增强95
+        """
+        self.chargeType = chargeType
+
     def setProvider(self, provider):
         """
-        :param provider: (Optional) 线路信息，默认bgp，目前只支持中心节点的BGP线路
+        :param provider: (Optional) 线路信息，默认bgp，可以通过describeUserProviders接口获取
         """
         self.provider = provider
 

@@ -32,14 +32,33 @@ class ModifyElasticIpRequest(JDCloudRequest):
 
 class ModifyElasticIpParameters(object):
 
-    def __init__(self,regionId, elasticIpId, bandwidthMbps):
+    def __init__(self,regionId, elasticIpId, ):
         """
         :param regionId: Region ID
         :param elasticIpId: ElasticIp ID
-        :param bandwidthMbps: 弹性公网IP的限速（单位：Mbps），取值范围为[1-200]
         """
 
         self.regionId = regionId
         self.elasticIpId = elasticIpId
+        self.bandwidthMbps = None
+        self.tempUpgradeEndTime = None
+        self.elasticIpName = None
+
+    def setBandwidthMbps(self, bandwidthMbps):
+        """
+        :param bandwidthMbps: (Optional) 弹性公网IP的限速（单位：Mbps），取值范围为[1-200]
+        """
         self.bandwidthMbps = bandwidthMbps
+
+    def setTempUpgradeEndTime(self, tempUpgradeEndTime):
+        """
+        :param tempUpgradeEndTime: (Optional) 包月资源临时升配还原到基础配置的时间，仅包月资源临时升配时有效，时间格式：yyyy-MM-dd HH:mm:ss
+        """
+        self.tempUpgradeEndTime = tempUpgradeEndTime
+
+    def setElasticIpName(self, elasticIpName):
+        """
+        :param elasticIpName: (Optional) 弹性公网ip的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不超过32字符。
+        """
+        self.elasticIpName = elasticIpName
 

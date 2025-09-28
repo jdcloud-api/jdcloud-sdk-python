@@ -52,6 +52,8 @@ class CreateNatGatewayParameters(object):
         self.elasticIpSpec = None
         self.natGatewayCharge = None
         self.description = None
+        self.userTags = None
+        self.resourceGroupId = None
 
     def setNatGatewaySpec(self, natGatewaySpec):
         """
@@ -97,7 +99,19 @@ class CreateNatGatewayParameters(object):
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
+        :param description: (Optional) 描述, 允许输入UTF-8编码下的全部字符，不超过256字符
         """
         self.description = description
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户标签
+        """
+        self.userTags = userTags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
 

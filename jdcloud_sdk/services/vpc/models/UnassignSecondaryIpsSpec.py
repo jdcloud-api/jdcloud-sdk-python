@@ -19,11 +19,13 @@
 
 class UnassignSecondaryIpsSpec(object):
 
-    def __init__(self, secondaryIps=None, secondaryCidrs=None):
+    def __init__(self, secondaryIps=None, secondaryCidrs=None, deleteElasticIp=None):
         """
         :param secondaryIps: (Optional) 指定删除的secondaryIp地址
         :param secondaryCidrs: (Optional) 指定删除的secondaryIp网段
+        :param deleteElasticIp: (Optional) 公网是否同步删除
         """
 
         self.secondaryIps = secondaryIps
         self.secondaryCidrs = secondaryCidrs
+        self.deleteElasticIp = deleteElasticIp

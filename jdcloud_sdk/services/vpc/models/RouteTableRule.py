@@ -19,12 +19,13 @@
 
 class RouteTableRule(object):
 
-    def __init__(self, ruleId=None, priority=None, nextHopType=None, nextHopId=None, addressPrefix=None, origin=None, description=None):
+    def __init__(self, ruleId=None, priority=None, nextHopType=None, nextHopId=None, addressPrefixType=None, addressPrefix=None, origin=None, description=None):
         """
         :param ruleId: (Optional) 路由表规则ID
         :param priority: (Optional) 规则匹配优先级，取值范围[1,255]，默认为100。当路由规则子网掩码不同时，路由最长匹配优先；当路由规则子网掩码相同时, 按照优先级匹配转发, 优先级数字越小优先级越高，路由规则子网掩码相同、优先级相同、下一跳不同时，形成等价路由，不同下一跳负载均担。
-        :param nextHopType: (Optional) 下一跳类型, 取值范围:local:本地, instance:云主机, internet:公网, vpc_peering:vpc对等连接, bgw:边界网关, natgw:NAT网关, elastic_network_interface:弹性网卡, havip:高可用虚拟ip
+        :param nextHopType: (Optional) 下一跳类型, 取值范围:local:本地, instance:云主机, internet:公网, vpc_peering:vpc对等连接, bgw:边界网关, natgw:NAT网关, elastic_network_interface:弹性网卡, havip:高可用虚拟ip, l2gw:二层网关
         :param nextHopId: (Optional) 下一跳id
+        :param addressPrefixType: (Optional) 匹配地址前缀类型, 取值范围为CIDR、PREFIXLIST
         :param addressPrefix: (Optional) 匹配地址前缀, internet类型路由跟其他类型的路由，addressPrefix不允许重复
         :param origin: (Optional) 路由类型，propagated:传播、static:静态
         :param description: (Optional) 路由描述，允许输入UTF-8编码下的全部字符，不超过256字符。
@@ -34,6 +35,7 @@ class RouteTableRule(object):
         self.priority = priority
         self.nextHopType = nextHopType
         self.nextHopId = nextHopId
+        self.addressPrefixType = addressPrefixType
         self.addressPrefix = addressPrefix
         self.origin = origin
         self.description = description

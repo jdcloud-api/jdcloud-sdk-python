@@ -42,9 +42,8 @@ class CreateVpcParameters(object):
         self.vpcName = vpcName
         self.addressPrefix = None
         self.description = None
-        self.enableMulticast = None
-        self.azType = None
-        self.az = None
+        self.userTags = None
+        self.resourceGroupId = None
 
     def setAddressPrefix(self, addressPrefix):
         """
@@ -58,21 +57,15 @@ class CreateVpcParameters(object):
         """
         self.description = description
 
-    def setEnableMulticast(self, enableMulticast):
+    def setUserTags(self, userTags):
         """
-        :param enableMulticast: (Optional) 取值包括true、false，默认为false，不开启组播。
+        :param userTags: (Optional) 用户标签
         """
-        self.enableMulticast = enableMulticast
+        self.userTags = userTags
 
-    def setAzType(self, azType):
+    def setResourceGroupId(self, resourceGroupId):
         """
-        :param azType: (Optional) VPC az类型，取值：standard(标准VPC)，edge(边缘VPC)
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
-        self.azType = azType
-
-    def setAz(self, az):
-        """
-        :param az: (Optional) VPC可用区，边缘VPC必须指定可用区
-        """
-        self.az = az
+        self.resourceGroupId = resourceGroupId
 

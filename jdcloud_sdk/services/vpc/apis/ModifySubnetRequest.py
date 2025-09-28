@@ -45,6 +45,7 @@ class ModifySubnetParameters(object):
         self.ipMaskLen = None
         self.domainNames = None
         self.domainNameServers = None
+        self.eipPriorExcludeDestCidrs = None
 
     def setSubnetName(self, subnetName):
         """
@@ -75,4 +76,10 @@ class ModifySubnetParameters(object):
         :param domainNameServers: (Optional) 域名服务器地址。最多支持5个IPv4地址，不同IPv4地址使用逗号分隔。如输入空数组，默认使用京东云默认DNS域名服务器地址。如不添加默认DNS域名服务器，可能会导致您无法访问京东云云上基础服务，请谨慎操作
         """
         self.domainNameServers = domainNameServers
+
+    def setEipPriorExcludeDestCidrs(self, eipPriorExcludeDestCidrs):
+        """
+        :param eipPriorExcludeDestCidrs: (Optional) 更新用户网段，绑定EIP的云资源访问用户网段还是走子网关联的路由策略，仅在eipPriorEnable为true时参数有效。
+        """
+        self.eipPriorExcludeDestCidrs = eipPriorExcludeDestCidrs
 

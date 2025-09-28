@@ -45,10 +45,24 @@ class CreateVpcPeeringParameters(object):
         self.vpcId = vpcId
         self.remoteVpcId = remoteVpcId
         self.description = None
+        self.userTags = None
+        self.resourceGroupId = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) VpcPeering 描述，取值范围：0-256个中文、英文大小写的字母、数字和下划线分隔符
         """
         self.description = description
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户标签
+        """
+        self.userTags = userTags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        """
+        self.resourceGroupId = resourceGroupId
 

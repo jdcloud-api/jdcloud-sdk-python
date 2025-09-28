@@ -42,6 +42,7 @@ class UnassignSecondaryIpsParameters(object):
         self.networkInterfaceId = networkInterfaceId
         self.secondaryIps = None
         self.secondaryCidrs = None
+        self.deleteElasticIp = None
 
     def setSecondaryIps(self, secondaryIps):
         """
@@ -54,4 +55,10 @@ class UnassignSecondaryIpsParameters(object):
         :param secondaryCidrs: (Optional) 指定删除的secondaryIp网段
         """
         self.secondaryCidrs = secondaryCidrs
+
+    def setDeleteElasticIp(self, deleteElasticIp):
+        """
+        :param deleteElasticIp: (Optional) 公网是否同步删除
+        """
+        self.deleteElasticIp = deleteElasticIp
 

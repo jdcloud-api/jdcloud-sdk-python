@@ -27,7 +27,7 @@ class DescribeCustomRegistryTokenRequest(JDCloudRequest):
 
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DescribeCustomRegistryTokenRequest, self).__init__(
             '/app/{appId}:customRegistryToken', 'GET', header, version)
         self.parameters = parameters

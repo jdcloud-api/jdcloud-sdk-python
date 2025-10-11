@@ -24,7 +24,7 @@ class DescribeCustomImagesRequest(JDCloudRequest):
     支持分页查询和版本过滤的镜像列表获取
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DescribeCustomImagesRequest, self).__init__(
             '/app/{appId}/customImages', 'GET', header, version)
         self.parameters = parameters

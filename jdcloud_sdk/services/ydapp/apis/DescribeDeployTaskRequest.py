@@ -24,7 +24,7 @@ class DescribeDeployTaskRequest(JDCloudRequest):
     根据应用ID、分组ID和部署ID查询指定的部署任务详情
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DescribeDeployTaskRequest, self).__init__(
             '/app/{appId}/group/{groupId}/deploy/{deployId}', 'GET', header, version)
         self.parameters = parameters

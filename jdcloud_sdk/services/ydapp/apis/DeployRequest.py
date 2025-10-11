@@ -24,7 +24,7 @@ class DeployRequest(JDCloudRequest):
     创建新的部署任务，支持自定义镜像和标准镜像的部署
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DeployRequest, self).__init__(
             '/app/{appId}/group/{groupId}/deploy', 'POST', header, version)
         self.parameters = parameters

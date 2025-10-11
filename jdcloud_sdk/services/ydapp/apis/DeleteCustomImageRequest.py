@@ -24,7 +24,7 @@ class DeleteCustomImageRequest(JDCloudRequest):
     根据镜像摘要删除指定的镜像
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DeleteCustomImageRequest, self).__init__(
             '/app/{appId}/customImage/{imageDigest}', 'DELETE', header, version)
         self.parameters = parameters

@@ -19,44 +19,39 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeCustomImagesRequest(JDCloudRequest):
+class DescribeCodeInterpreterSessionsRequest(JDCloudRequest):
     """
-    支持分页查询和版本过滤的镜像列表获取
+    查询codeInterpreter sessions 列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeCustomImagesRequest, self).__init__(
-            '/app/{appId}/customImages', 'GET', header, version)
+        super(DescribeCodeInterpreterSessionsRequest, self).__init__(
+            '/regions/{regionId}/codeinterpreters/{codeInterpreterId}/sessions', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeCustomImagesParameters(object):
+class DescribeCodeInterpreterSessionsParameters(object):
 
-    def __init__(self,appId, ):
+    def __init__(self,regionId, codeInterpreterId, ):
         """
-        :param appId: 应用ID，E.g.，app-123456789
+        :param regionId: 地域 Id
+        :param codeInterpreterId: CodeInterpreter id
         """
 
-        self.appId = appId
-        self.pageNum = None
+        self.regionId = regionId
+        self.codeInterpreterId = codeInterpreterId
+        self.pageNumber = None
         self.pageSize = None
-        self.version = None
 
-    def setPageNum(self, pageNum):
+    def setPageNumber(self, pageNumber):
         """
-        :param pageNum: (Optional) 页码，E.g.，6
+        :param pageNumber: (Optional) 当前所在页，默认为1
         """
-        self.pageNum = pageNum
+        self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页数量(10-100)，E.g.，20
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 200]
         """
         self.pageSize = pageSize
-
-    def setVersion(self, version):
-        """
-        :param version: (Optional) 镜像版本，E.g.，busybox-v1.0.0
-        """
-        self.version = version
 

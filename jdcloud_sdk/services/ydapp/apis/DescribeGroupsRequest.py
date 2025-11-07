@@ -24,7 +24,7 @@ class DescribeGroupsRequest(JDCloudRequest):
     分页获取指定应用下的应用组列表
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DescribeGroupsRequest, self).__init__(
             '/app/{appId}/groups', 'GET', header, version)
         self.parameters = parameters

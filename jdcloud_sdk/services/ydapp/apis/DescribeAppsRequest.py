@@ -24,7 +24,7 @@ class DescribeAppsRequest(JDCloudRequest):
     分页获取应用信息列表
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(DescribeAppsRequest, self).__init__(
             '/apps', 'GET', header, version)
         self.parameters = parameters

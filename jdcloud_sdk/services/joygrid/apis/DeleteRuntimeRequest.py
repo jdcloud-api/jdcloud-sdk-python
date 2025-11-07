@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteCustomImageRequest(JDCloudRequest):
+class DeleteRuntimeRequest(JDCloudRequest):
     """
-    根据镜像摘要删除指定的镜像
+    删除指定的Agent运行时环境
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteCustomImageRequest, self).__init__(
-            '/app/{appId}/customImage/{imageDigest}', 'DELETE', header, version)
+        super(DeleteRuntimeRequest, self).__init__(
+            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DeleteCustomImageParameters(object):
+class DeleteRuntimeParameters(object):
 
-    def __init__(self,appId, imageDigest):
+    def __init__(self,regionId, agentRuntimeId):
         """
-        :param appId: 应用ID，E.g.，app-123456789
-        :param imageDigest: 镜像摘要，从 customImages 接口返回参数 imageDigest 获取该值，E.g.，sha256:e5785cb0c62436fd7aaa95354a056f1e9db97a
+        :param regionId: 地域 Id
+        :param agentRuntimeId: Runtime ID
         """
 
-        self.appId = appId
-        self.imageDigest = imageDigest
+        self.regionId = regionId
+        self.agentRuntimeId = agentRuntimeId
 

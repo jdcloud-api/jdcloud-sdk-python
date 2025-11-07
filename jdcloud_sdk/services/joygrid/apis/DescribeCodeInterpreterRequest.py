@@ -19,25 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteCustomImageRequest(JDCloudRequest):
+class DescribeCodeInterpreterRequest(JDCloudRequest):
     """
-    根据镜像摘要删除指定的镜像
+    查询指定codeInterpreter的详细信息
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteCustomImageRequest, self).__init__(
-            '/app/{appId}/customImage/{imageDigest}', 'DELETE', header, version)
+        super(DescribeCodeInterpreterRequest, self).__init__(
+            '/regions/{regionId}/codeinterpreters/{codeInterpreterId}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteCustomImageParameters(object):
+class DescribeCodeInterpreterParameters(object):
 
-    def __init__(self,appId, imageDigest):
+    def __init__(self,regionId, codeInterpreterId):
         """
-        :param appId: 应用ID，E.g.，app-123456789
-        :param imageDigest: 镜像摘要，从 customImages 接口返回参数 imageDigest 获取该值，E.g.，sha256:e5785cb0c62436fd7aaa95354a056f1e9db97a
+        :param regionId: 地域 Id
+        :param codeInterpreterId: CodeInterpreter id
         """
 
-        self.appId = appId
-        self.imageDigest = imageDigest
+        self.regionId = regionId
+        self.codeInterpreterId = codeInterpreterId
 

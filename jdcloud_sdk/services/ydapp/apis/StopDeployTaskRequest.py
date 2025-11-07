@@ -24,7 +24,7 @@ class StopDeployTaskRequest(JDCloudRequest):
     停止指定的部署任务执行
     """
 
-    def __init__(self, parameters, header=None, version="2.0.0"):
+    def __init__(self, parameters, header=None, version="v1"):
         super(StopDeployTaskRequest, self).__init__(
             '/app/{appId}/group/{groupId}/deploy/{deployId}:stop', 'POST', header, version)
         self.parameters = parameters

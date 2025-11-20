@@ -32,7 +32,7 @@ class AddDatapushVenderRequest(JDCloudRequest):
 
 class AddDatapushVenderParameters(object):
 
-    def __init__(self, datapushVender):
+    def __init__(self,datapushVender):
         """
         :param datapushVender: 添加数据推送用户对象
 

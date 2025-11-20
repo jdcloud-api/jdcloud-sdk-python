@@ -32,7 +32,7 @@ class DescribeDatapushVendersRequest(JDCloudRequest):
 
 class DescribeDatapushVendersParameters(object):
 
-    def __init__(self, appkey, ):
+    def __init__(self,appkey, ):
         """
         :param appkey: appkey
         """

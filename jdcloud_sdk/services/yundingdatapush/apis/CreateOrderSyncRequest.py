@@ -32,7 +32,7 @@ class CreateOrderSyncRequest(JDCloudRequest):
 
 class CreateOrderSyncParameters(object):
 
-    def __init__(self, orderSyncSpec):
+    def __init__(self,orderSyncSpec):
         """
         :param orderSyncSpec: 历史订单同步对象
 

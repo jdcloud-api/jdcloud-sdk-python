@@ -19,13 +19,15 @@
 
 class OrderSyncSpec(object):
 
-    def __init__(self, appKey, venderId, days, ):
+    def __init__(self, appKey, venderId, days, venderType=None):
         """
         :param appKey:  appKey
         :param venderId:  商家ID
+        :param venderType: (Optional) 商家类型，支持：POP(默认)，DROPSHIP
         :param days:  同步天数
         """
 
         self.appKey = appKey
         self.venderId = venderId
+        self.venderType = venderType
         self.days = days

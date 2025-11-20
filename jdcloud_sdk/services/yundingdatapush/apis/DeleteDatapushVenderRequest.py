@@ -32,7 +32,7 @@ class DeleteDatapushVenderRequest(JDCloudRequest):
 
 class DeleteDatapushVenderParameters(object):
 
-    def __init__(self, appkey, ydRdsInstanceId, venderId):
+    def __init__(self,appkey, ydRdsInstanceId, venderId):
         """
         :param appkey: appkey
         :param ydRdsInstanceId: 云鼎数据库实例ID

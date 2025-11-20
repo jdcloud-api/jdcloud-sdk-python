@@ -19,13 +19,15 @@
 
 class Vender(object):
 
-    def __init__(self, appkey, ydRdsInstanceId, venderId, ):
+    def __init__(self, appkey, ydRdsInstanceId, venderId, venderType=None):
         """
         :param appkey:  appkey
         :param ydRdsInstanceId:  云鼎数据库实例ID
         :param venderId:  商家ID
+        :param venderType: (Optional) 商家类型，支持：POP(默认)，DROPSHIP
         """
 
         self.appkey = appkey
         self.ydRdsInstanceId = ydRdsInstanceId
         self.venderId = venderId
+        self.venderType = venderType

@@ -32,7 +32,7 @@ class DescribeRdsInstancesRequest(JDCloudRequest):
 
 class DescribeRdsInstancesParameters(object):
 
-    def __init__(self, appkey):
+    def __init__(self,appkey):
         """
         :param appkey: appkey
         """

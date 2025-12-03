@@ -20,10 +20,10 @@ from jdcloud_sdk.core.jdcloudclient import JDCloudClient
 from jdcloud_sdk.core.config import Config
 
 
-class JoygridClient(JDCloudClient):
+class CmpClient(JDCloudClient):
 
     def __init__(self, credential, config=None, logger=None):
         if config is None:
-            config = Config('joygrid.jdcloud-api.com')
+            config = Config('cmp.jdcloud-api.com')
 
-        super(JoygridClient, self).__init__(credential, config, 'joygrid', '1.0.1', logger)
+        super(CmpClient, self).__init__(credential, config, 'cmp', '0.2.1', logger)

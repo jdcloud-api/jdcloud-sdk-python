@@ -19,34 +19,40 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCodeInterpreterRequest(JDCloudRequest):
+class CreateEventRequest(JDCloudRequest):
     """
-    创建一个codeInterpreter服务
+    创建一个 event
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCodeInterpreterRequest, self).__init__(
-            '/regions/{regionId}/codeinterpreters', 'POST', header, version)
+        super(CreateEventRequest, self).__init__(
+            '/regions/{regionId}/memories/{memoryId}/events', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateCodeInterpreterParameters(object):
+class CreateEventParameters(object):
 
-    def __init__(self,regionId, pin, requestId, ):
+    def __init__(self,regionId, pin, requestId, actor, memoryId, messages, ):
         """
         :param regionId: 地域 Id
         :param pin: 用户（主、子）账号。base64编码。格式为：base64(subuser-pin) @ base64(owner-pin)。@前后有空格。若不支持主子账号，则不需要@，格式为 base64(owner-pin)
 in: header
         :param requestId: 请求ID
 in: header
+        :param actor: 触发用户
+        :param memoryId: 内存id
+        :param messages: 消息内容
         """
 
         self.regionId = regionId
         self.erpAccount = None
         self.pin = pin
         self.requestId = requestId
-        self.description = None
-        self.name = None
+        self.actor = actor
+        self.infer = None
+        self.memoryId = memoryId
+        self.messages = messages
+        self.sessionId = None
 
     def setErpAccount(self, erpAccount):
         """
@@ -55,15 +61,15 @@ in: header
         """
         self.erpAccount = erpAccount
 
-    def setDescription(self, description):
+    def setInfer(self, infer):
         """
-        :param description: (Optional) 
+        :param infer: (Optional) 是否进行推理并保存长期记忆。 默认为 true。
         """
-        self.description = description
+        self.infer = infer
 
-    def setName(self, name):
+    def setSessionId(self, sessionId):
         """
-        :param name: (Optional) 
+        :param sessionId: (Optional) 会话ID： 传入会话 ID 的，会保存为临时记忆
         """
-        self.name = name
+        self.sessionId = sessionId
 

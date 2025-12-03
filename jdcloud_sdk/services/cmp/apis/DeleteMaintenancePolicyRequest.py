@@ -19,36 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateRuntimeRequest(JDCloudRequest):
+class DeleteMaintenancePolicyRequest(JDCloudRequest):
     """
-    更新指定Agent运行时环境的信息
+    删除自定义运维策略
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'PUT', header, version)
+        super(DeleteMaintenancePolicyRequest, self).__init__(
+            '/regions/{regionId}/maintenancePolicies/{maintenancePolicyId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class UpdateRuntimeParameters(object):
+class DeleteMaintenancePolicyParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
+    def __init__(self,regionId, maintenancePolicyId):
         """
-        :param regionId: 地域 Id
-        :param agentRuntimeId: Runtime ID
-        :param agentRuntimeArtifact: 
-        :param agentRuntimeName: 名称
+        :param regionId: 地域ID。
+        :param maintenancePolicyId: 运维策略ID
         """
 
         self.regionId = regionId
-        self.agentRuntimeId = agentRuntimeId
-        self.agentRuntimeArtifact = agentRuntimeArtifact
-        self.agentRuntimeName = agentRuntimeName
-        self.description = None
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 描述
-        """
-        self.description = description
+        self.maintenancePolicyId = maintenancePolicyId
 

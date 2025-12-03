@@ -19,36 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateRuntimeRequest(JDCloudRequest):
+class RecommendedInstanceTypesRequest(JDCloudRequest):
     """
-    更新指定Agent运行时环境的信息
+    查询规格实例的推荐规格（用于实例所在宿主机器下线事件）
+如果实例规格没有查询到对应的推荐规格，返回的推荐规格为空
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'PUT', header, version)
+        super(RecommendedInstanceTypesRequest, self).__init__(
+            '/regions/{regionId}/recommendedInstanceTypes', 'GET', header, version)
         self.parameters = parameters
 
 
-class UpdateRuntimeParameters(object):
+class RecommendedInstanceTypesParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
+    def __init__(self,regionId, instanceTypes):
         """
-        :param regionId: 地域 Id
-        :param agentRuntimeId: Runtime ID
-        :param agentRuntimeArtifact: 
-        :param agentRuntimeName: 名称
+        :param regionId: 地域ID。
+        :param instanceTypes: 规格实例列表
         """
 
         self.regionId = regionId
-        self.agentRuntimeId = agentRuntimeId
-        self.agentRuntimeArtifact = agentRuntimeArtifact
-        self.agentRuntimeName = agentRuntimeName
-        self.description = None
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 描述
-        """
-        self.description = description
+        self.instanceTypes = instanceTypes
 

@@ -19,36 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateRuntimeRequest(JDCloudRequest):
+class DisassociateMaintenancePolicyRequest(JDCloudRequest):
     """
-    更新指定Agent运行时环境的信息
+    云主机解关联运维策略
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'PUT', header, version)
+        super(DisassociateMaintenancePolicyRequest, self).__init__(
+            '/regions/{regionId}/maintenancePolicies/{maintenancePolicyId}:disassociateInstance', 'POST', header, version)
         self.parameters = parameters
 
 
-class UpdateRuntimeParameters(object):
+class DisassociateMaintenancePolicyParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
+    def __init__(self,regionId, maintenancePolicyId, instanceIds):
         """
-        :param regionId: 地域 Id
-        :param agentRuntimeId: Runtime ID
-        :param agentRuntimeArtifact: 
-        :param agentRuntimeName: 名称
+        :param regionId: 地域ID。
+        :param maintenancePolicyId: 运维策略ID
+        :param instanceIds: 主机ID列表
         """
 
         self.regionId = regionId
-        self.agentRuntimeId = agentRuntimeId
-        self.agentRuntimeArtifact = agentRuntimeArtifact
-        self.agentRuntimeName = agentRuntimeName
-        self.description = None
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 描述
-        """
-        self.description = description
+        self.maintenancePolicyId = maintenancePolicyId
+        self.instanceIds = instanceIds
 

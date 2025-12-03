@@ -19,36 +19,26 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateRuntimeRequest(JDCloudRequest):
+class AuthorizeEventRequest(JDCloudRequest):
     """
-    更新指定Agent运行时环境的信息
+    授权计划迁移系统中的运维事件，授权前会校验事件是否存在且归属当前账号，仅支持计划迁移系统内的事件。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'PUT', header, version)
+        super(AuthorizeEventRequest, self).__init__(
+            '/regions/{regionId}/maintenanceEvents/{eventId}:authorizeEvent', 'PUT', header, version)
         self.parameters = parameters
 
 
-class UpdateRuntimeParameters(object):
+class AuthorizeEventParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
+    def __init__(self,regionId, eventId):
         """
-        :param regionId: 地域 Id
-        :param agentRuntimeId: Runtime ID
-        :param agentRuntimeArtifact: 
-        :param agentRuntimeName: 名称
+        :param regionId: 地域ID。
+        :param eventId: 运维事件ID
         """
 
         self.regionId = regionId
-        self.agentRuntimeId = agentRuntimeId
-        self.agentRuntimeArtifact = agentRuntimeArtifact
-        self.agentRuntimeName = agentRuntimeName
-        self.description = None
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 描述
-        """
-        self.description = description
+        self.eventId = eventId
 

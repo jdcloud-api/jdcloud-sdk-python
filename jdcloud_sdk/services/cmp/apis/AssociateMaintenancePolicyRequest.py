@@ -19,36 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateRuntimeRequest(JDCloudRequest):
+class AssociateMaintenancePolicyRequest(JDCloudRequest):
     """
-    更新指定Agent运行时环境的信息
+    云主机关联自定义运维策略
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}', 'PUT', header, version)
+        super(AssociateMaintenancePolicyRequest, self).__init__(
+            '/regions/{regionId}/maintenancePolicies/{maintenancePolicyId}:associateInstance', 'POST', header, version)
         self.parameters = parameters
 
 
-class UpdateRuntimeParameters(object):
+class AssociateMaintenancePolicyParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
+    def __init__(self,regionId, maintenancePolicyId, instanceIds):
         """
-        :param regionId: 地域 Id
-        :param agentRuntimeId: Runtime ID
-        :param agentRuntimeArtifact: 
-        :param agentRuntimeName: 名称
+        :param regionId: 地域ID。
+        :param maintenancePolicyId: 运维策略ID
+        :param instanceIds: 主机ID列表。带本地数据盘的云主机不能绑定系统运维策略，每条策略最多关联100个云主机。
+
         """
 
         self.regionId = regionId
-        self.agentRuntimeId = agentRuntimeId
-        self.agentRuntimeArtifact = agentRuntimeArtifact
-        self.agentRuntimeName = agentRuntimeName
-        self.description = None
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 描述
-        """
-        self.description = description
+        self.maintenancePolicyId = maintenancePolicyId
+        self.instanceIds = instanceIds
 

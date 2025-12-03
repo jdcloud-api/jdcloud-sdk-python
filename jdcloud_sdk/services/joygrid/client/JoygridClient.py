@@ -26,4 +26,4 @@ class JoygridClient(JDCloudClient):
         if config is None:
             config = Config('joygrid.jdcloud-api.com')
 
-        super(JoygridClient, self).__init__(credential, config, 'joygrid', '1.0.0', logger)
+        super(JoygridClient, self).__init__(credential, config, 'joygrid', '1.0.1', logger)

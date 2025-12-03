@@ -32,17 +32,38 @@ class CreateMemoryRequest(JDCloudRequest):
 
 class CreateMemoryParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, pin, requestId, ):
         """
         :param regionId: 地域 Id
+        :param pin: 用户（主、子）账号。base64编码。格式为：base64(subuser-pin) @ base64(owner-pin)。@前后有空格。若不支持主子账号，则不需要@，格式为 base64(owner-pin)
+in: header
+        :param requestId: 请求ID
+in: header
         """
 
         self.regionId = regionId
-        self.body = None
+        self.erpAccount = None
+        self.pin = pin
+        self.requestId = requestId
+        self.description = None
+        self.name = None
 
-    def setBody(self, body):
+    def setErpAccount(self, erpAccount):
         """
-        :param body: (Optional) 
+        :param erpAccount: (Optional) x-jdcloud-erp   base64(username)
+in: header
         """
-        self.body = body
+        self.erpAccount = erpAccount
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 
+        """
+        self.description = description
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 
+        """
+        self.name = name
 

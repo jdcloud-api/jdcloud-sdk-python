@@ -32,19 +32,23 @@ class SearchEventsRequest(JDCloudRequest):
 
 class SearchEventsParameters(object):
 
-    def __init__(self,regionId, memoryId, ):
+    def __init__(self,regionId, memoryId, actor, query, ):
         """
         :param regionId: 地域 Id
         :param memoryId: 内存id
+        :param actor: 触发用户
+        :param query: 查询条件
         """
 
         self.regionId = regionId
         self.memoryId = memoryId
-        self.body = None
+        self.actor = actor
+        self.query = query
+        self.sessionId = None
 
-    def setBody(self, body):
+    def setSessionId(self, sessionId):
         """
-        :param body: (Optional) 
+        :param sessionId: (Optional) 会话ID
         """
-        self.body = body
+        self.sessionId = sessionId
 

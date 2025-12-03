@@ -26,7 +26,7 @@ class DescribeEventsRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(DescribeEventsRequest, self).__init__(
-            '/regions/{regionId}/memories/{memoryId}/events', 'POST', header, version)
+            '/regions/{regionId}/memories/{memoryId}/events', 'GET', header, version)
         self.parameters = parameters
 
 

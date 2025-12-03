@@ -32,19 +32,23 @@ class UpdateRuntimeRequest(JDCloudRequest):
 
 class UpdateRuntimeParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, ):
+    def __init__(self,regionId, agentRuntimeId, agentRuntimeArtifact, agentRuntimeName, ):
         """
         :param regionId: 地域 Id
         :param agentRuntimeId: Runtime ID
+        :param agentRuntimeArtifact: 
+        :param agentRuntimeName: 名称
         """
 
         self.regionId = regionId
         self.agentRuntimeId = agentRuntimeId
-        self.body = None
+        self.agentRuntimeArtifact = agentRuntimeArtifact
+        self.agentRuntimeName = agentRuntimeName
+        self.description = None
 
-    def setBody(self, body):
+    def setDescription(self, description):
         """
-        :param body: (Optional) 
+        :param description: (Optional) 描述
         """
-        self.body = body
+        self.description = description
 

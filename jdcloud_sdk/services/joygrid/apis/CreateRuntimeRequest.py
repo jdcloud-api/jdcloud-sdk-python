@@ -32,17 +32,21 @@ class CreateRuntimeRequest(JDCloudRequest):
 
 class CreateRuntimeParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, agentRuntimeArtifact, agentRuntimeName, ):
         """
         :param regionId: 地域 Id
+        :param agentRuntimeArtifact: 
+        :param agentRuntimeName: 名称
         """
 
         self.regionId = regionId
-        self.body = None
+        self.agentRuntimeArtifact = agentRuntimeArtifact
+        self.agentRuntimeName = agentRuntimeName
+        self.description = None
 
-    def setBody(self, body):
+    def setDescription(self, description):
         """
-        :param body: (Optional) 
+        :param description: (Optional) 描述
         """
-        self.body = body
+        self.description = description
 

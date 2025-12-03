@@ -26,22 +26,20 @@ class InvokeRuntimeRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(InvokeRuntimeRequest, self).__init__(
-            '/regions/{regionId}/runtimes/{agentRuntimeId}/invocations/{proxyPath}', 'POST', header, version)
+            '/regions/{regionId}/runtimes/{agentRuntimeId}/invocations', 'POST', header, version)
         self.parameters = parameters
 
 
 class InvokeRuntimeParameters(object):
 
-    def __init__(self,regionId, agentRuntimeId, proxyPath, ):
+    def __init__(self,regionId, agentRuntimeId, ):
         """
         :param regionId: 地域 Id
         :param agentRuntimeId: Runtime ID
-        :param proxyPath: proxy path
         """
 
         self.regionId = regionId
         self.agentRuntimeId = agentRuntimeId
-        self.proxyPath = proxyPath
         self.sessionId = None
 
     def setSessionId(self, sessionId):

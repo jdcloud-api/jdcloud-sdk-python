@@ -19,15 +19,19 @@
 
 class SlowLog(object):
 
-    def __init__(self, command, startTime, executionTime, shardId=None):
+    def __init__(self, command, startTime, executionTime, clientAddr, clientName, shardId=None):
         """
         :param command:  命令
         :param startTime:  命令开始执行时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
         :param executionTime:  命令执行时长（带单位）
         :param shardId: (Optional) 执行命令的分片id
+        :param clientAddr:  client的地址，包括ip和端口号
+        :param clientName:  client名称，无则为空
         """
 
         self.command = command
         self.startTime = startTime
         self.executionTime = executionTime
         self.shardId = shardId
+        self.clientAddr = clientAddr
+        self.clientName = clientName

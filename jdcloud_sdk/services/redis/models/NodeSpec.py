@@ -19,10 +19,11 @@
 
 class NodeSpec(object):
 
-    def __init__(self, cpuCores=None, memoryGBs=None, totalDiskGBs=None, localDiskGBs=None, cloudDiskGBs=None):
+    def __init__(self, cpuCores=None, memoryGBs=None, memoryMBs=None, totalDiskGBs=None, localDiskGBs=None, cloudDiskGBs=None):
         """
         :param cpuCores: (Optional) CPU核数
         :param memoryGBs: (Optional) 内存大小（GB）
+        :param memoryMBs: (Optional) 内存大小（MB）
         :param totalDiskGBs: (Optional) 总磁盘大小（GB）
         :param localDiskGBs: (Optional) 本地磁盘大小（GB）
         :param cloudDiskGBs: (Optional) 云盘大小（GB）
@@ -30,6 +31,7 @@ class NodeSpec(object):
 
         self.cpuCores = cpuCores
         self.memoryGBs = memoryGBs
+        self.memoryMBs = memoryMBs
         self.totalDiskGBs = totalDiskGBs
         self.localDiskGBs = localDiskGBs
         self.cloudDiskGBs = cloudDiskGBs

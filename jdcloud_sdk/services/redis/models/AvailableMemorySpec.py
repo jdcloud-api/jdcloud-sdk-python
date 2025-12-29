@@ -19,15 +19,17 @@
 
 class AvailableMemorySpec(object):
 
-    def __init__(self, memoryGB=None, soldOut=None, availableZones=None, availableFlavors=None):
+    def __init__(self, memoryGB=None, memoryMB=None, soldOut=None, availableZones=None, availableFlavors=None):
         """
         :param memoryGB: (Optional) 售卖内存（GB）
+        :param memoryMB: (Optional) 售卖内存（MB）
         :param soldOut: (Optional) 是否售罄
         :param availableZones: (Optional) 可用区列表
         :param availableFlavors: (Optional) 规格列表
         """
 
         self.memoryGB = memoryGB
+        self.memoryMB = memoryMB
         self.soldOut = soldOut
         self.availableZones = availableZones
         self.availableFlavors = availableFlavors

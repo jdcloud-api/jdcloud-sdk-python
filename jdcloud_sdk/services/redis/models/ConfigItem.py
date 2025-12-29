@@ -19,7 +19,7 @@
 
 class ConfigItem(object):
 
-    def __init__(self, configName, configValue, configDefaultValue=None, configValueType=None, configValueMin=None, configValueMax=None, configValueOptional=None, configValueOutputBuffer=None):
+    def __init__(self, configName, configValue, configDefaultValue=None, configValueType=None, configValueMin=None, configValueMax=None, configValueOptional=None, configValueOutputBuffer=None, configDescription=None, configUnSupport=None):
         """
         :param configName:  configName目前只支持以下参数：
 maxmemory-policy（redis 2.8和redis 4.0都支持，但配置值不相同）：内存剔除策略的最大使用内存限制
@@ -55,6 +55,8 @@ notify-keyspace-events（redis 4.0的默认值为空，redis 2.8不支持）：[
         :param configValueMax: (Optional) 参数值的最大值，在configValueType为int时有效
         :param configValueOptional: (Optional) 参数值的可选值，在configValueType为string或byteArray时有效
         :param configValueOutputBuffer: (Optional) configValueType为outputBuffer时的参数值规则
+        :param configDescription: (Optional) 参数说明
+        :param configUnSupport: (Optional) 配置项是否不支持
         """
 
         self.configName = configName
@@ -65,3 +67,5 @@ notify-keyspace-events（redis 4.0的默认值为空，redis 2.8不支持）：[
         self.configValueMax = configValueMax
         self.configValueOptional = configValueOptional
         self.configValueOutputBuffer = configValueOutputBuffer
+        self.configDescription = configDescription
+        self.configUnSupport = configUnSupport

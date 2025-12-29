@@ -46,6 +46,9 @@ class DescribeSlowLogParameters(object):
         self.endTime = None
         self.shardId = None
         self.shardAddr = None
+        self.cmdPattern = None
+        self.execTimeThreshold = None
+        self.role = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -82,4 +85,22 @@ class DescribeSlowLogParameters(object):
         :param shardAddr: (Optional) 分片地址
         """
         self.shardAddr = shardAddr
+
+    def setCmdPattern(self, cmdPattern):
+        """
+        :param cmdPattern: (Optional) 命令匹配模式(正则)，仅支持tpaas
+        """
+        self.cmdPattern = cmdPattern
+
+    def setExecTimeThreshold(self, execTimeThreshold):
+        """
+        :param execTimeThreshold: (Optional) 查询的耗时阈值，单位是微妙，仅支持tpaas
+        """
+        self.execTimeThreshold = execTimeThreshold
+
+    def setRole(self, role):
+        """
+        :param role: (Optional) redis节点的角色(master或者slave)，仅支持tpaas
+        """
+        self.role = role
 

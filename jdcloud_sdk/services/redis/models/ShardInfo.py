@@ -19,15 +19,11 @@
 
 class ShardInfo(object):
 
-    def __init__(self, defaultShardNumber=None, defaultShardClass=None, shardNumberList=None, ipNumberList=None):
+    def __init__(self, master=None, replicas=None):
         """
-        :param defaultShardNumber: (Optional) 默认分片数
-        :param defaultShardClass: (Optional) 默认单分片规格代码
-        :param shardNumberList: (Optional) 分片数列表
-        :param ipNumberList: (Optional) 需要的IP数列表
+        :param master: (Optional) master信息
+        :param replicas: (Optional) replica信息
         """
 
-        self.defaultShardNumber = defaultShardNumber
-        self.defaultShardClass = defaultShardClass
-        self.shardNumberList = shardNumberList
-        self.ipNumberList = ipNumberList
+        self.master = master
+        self.replicas = replicas

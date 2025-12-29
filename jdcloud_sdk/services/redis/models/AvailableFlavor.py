@@ -19,10 +19,11 @@
 
 class AvailableFlavor(object):
 
-    def __init__(self, shardNumber=None, ipNumber=None, recommended=None, instanceClasses=None, detail=None):
+    def __init__(self, shardNumber=None, ipNumber=None, ipNumbers=None, recommended=None, instanceClasses=None, detail=None):
         """
         :param shardNumber: (Optional) 分片数
         :param ipNumber: (Optional) IP数
+        :param ipNumbers: (Optional) 不同副本的IP数
         :param recommended: (Optional) 是否推荐
         :param instanceClasses: (Optional) 规格代码，标准版为实例的规格代码；集群版为单分片规格代码
         :param detail: (Optional) 规格详情
@@ -30,6 +31,7 @@ class AvailableFlavor(object):
 
         self.shardNumber = shardNumber
         self.ipNumber = ipNumber
+        self.ipNumbers = ipNumbers
         self.recommended = recommended
         self.instanceClasses = instanceClasses
         self.detail = detail

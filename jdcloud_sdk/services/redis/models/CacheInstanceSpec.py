@@ -19,7 +19,7 @@
 
 class CacheInstanceSpec(object):
 
-    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None, userTags=None, resourceGroupId=None, dbNum=None, slaveAppendonly=None, maxmemoryPolicy=None, cacheInstanceType=None, replicaNumber=None, enableSmartProxy=None, port=None, extension=None, cpuArchType=None):
+    def __init__(self, vpcId, subnetId, cacheInstanceName, cacheInstanceClass, azId, password=None, cacheInstanceDescription=None, redisVersion=None, ipv6On=None, shardNumber=None, userTags=None, resourceGroupId=None, dbNum=None, slaveAppendonly=None, maxmemoryPolicy=None, cacheInstanceType=None, replicaNumber=None, enableSmartProxy=None, port=None, extension=None, cpuArchType=None, backupId=None, srcInstanceId=None, configTemplateId=None, opsTags=None):
         """
         :param vpcId:  缓存Redis实例所属的私有网络ID
         :param subnetId:  缓存Redis实例在私有网络下所属的子网ID
@@ -42,6 +42,10 @@ class CacheInstanceSpec(object):
         :param port: (Optional) 缓存Redis实例访问端口
         :param extension: (Optional) 扩展配置
         :param cpuArchType: (Optional) cpu架构类型:arm64、amd64
+        :param backupId: (Optional) 从备份克隆实例时，指定备份的baseId,需要与srcInstanceId同时指定
+        :param srcInstanceId: (Optional) 从备份克隆实例时，指定的备份实例的instanceId,需要与backupId同时指定
+        :param configTemplateId: (Optional) 配置模板ID
+        :param opsTags: (Optional) 容器标签信息
         """
 
         self.vpcId = vpcId
@@ -65,3 +69,7 @@ class CacheInstanceSpec(object):
         self.port = port
         self.extension = extension
         self.cpuArchType = cpuArchType
+        self.backupId = backupId
+        self.srcInstanceId = srcInstanceId
+        self.configTemplateId = configTemplateId
+        self.opsTags = opsTags

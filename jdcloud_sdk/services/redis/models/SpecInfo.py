@@ -19,9 +19,10 @@
 
 class SpecInfo(object):
 
-    def __init__(self, memoryGB=None, instanceClass=None, cpu=None, diskGB=None, maxConnection=None, bandwidthMbps=None, ipNumber=None, shard=None, azs=None):
+    def __init__(self, memoryGB=None, memoryMB=None, instanceClass=None, cpu=None, diskGB=None, maxConnection=None, bandwidthMbps=None, ipNumber=None, shard=None, azs=None):
         """
         :param memoryGB: (Optional) 内存大小（GB）
+        :param memoryMB: (Optional) 内存大小（MB）
         :param instanceClass: (Optional) 实例规格，标准版不为空，4.0 自定义分片集群版规格为空，具体规格参考单分片规格
         :param cpu: (Optional) 实例CPU核数，0表示自定义分片集群版规格，CPU核数由分片数变化
         :param diskGB: (Optional) 实例磁盘大小（GB)，0表示自定义分片集群版规格，磁盘大小由分片数变化
@@ -33,6 +34,7 @@ class SpecInfo(object):
         """
 
         self.memoryGB = memoryGB
+        self.memoryMB = memoryMB
         self.instanceClass = instanceClass
         self.cpu = cpu
         self.diskGB = diskGB

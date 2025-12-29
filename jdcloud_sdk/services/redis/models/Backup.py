@@ -19,7 +19,7 @@
 
 class Backup(object):
 
-    def __init__(self, baseId, backupFileName, cacheInstanceId, backupStartTime, backupEndTime, backupType, backupSize, backupStatus, backupDownloadURL, ):
+    def __init__(self, baseId, backupFileName, cacheInstanceId, backupStartTime, backupEndTime, backupType, backupSize, backupStatus, backupDownloadURL, backupShardMemoryMB=None, backupShardNum=None):
         """
         :param baseId:  备份操作ID
         :param backupFileName:  备份文件的名称
@@ -29,6 +29,8 @@ class Backup(object):
         :param backupType:  备份类型，1表示手动备份，0表示自动备份
         :param backupSize:  备份文件总字节大小，如果实例是集群版，则表示每个分片备份文件大小的总和
         :param backupStatus:  备份任务状态状态，0表示备份中，1表示失败，2表示成功
+        :param backupShardMemoryMB: (Optional) 备份时刻分片的内存规格
+        :param backupShardNum: (Optional) 备份分片数
         :param backupDownloadURL:  备份文件下载地址（已废弃，调用获取备份文件下载地址接口获取）
         """
 
@@ -40,4 +42,6 @@ class Backup(object):
         self.backupType = backupType
         self.backupSize = backupSize
         self.backupStatus = backupStatus
+        self.backupShardMemoryMB = backupShardMemoryMB
+        self.backupShardNum = backupShardNum
         self.backupDownloadURL = backupDownloadURL

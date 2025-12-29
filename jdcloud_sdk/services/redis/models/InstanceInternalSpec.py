@@ -19,13 +19,15 @@
 
 class InstanceInternalSpec(object):
 
-    def __init__(self, instanceId=None, instanceMemoryGB=None, nodeRoles=None):
+    def __init__(self, instanceId=None, instanceMemoryGB=None, instanceMemoryMB=None, nodeRoles=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceMemoryGB: (Optional) 实例总内存（GB）
+        :param instanceMemoryMB: (Optional) 实例总内存（MB）
         :param nodeRoles: (Optional) 内部节点角色列表
         """
 
         self.instanceId = instanceId
         self.instanceMemoryGB = instanceMemoryGB
+        self.instanceMemoryMB = instanceMemoryMB
         self.nodeRoles = nodeRoles

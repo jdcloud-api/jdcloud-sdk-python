@@ -19,7 +19,7 @@
 
 class CacheInstance(object):
 
-    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, auth=None, isAllowNoAuth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, resourceGroupId=None, shardNumber=None, memoryMBPerShard=None, extension=None, otherDomains=None, slaveAppendonly=None, databaseNum=None, maxmemoryPolicy=None, replicaNumber=None, enableSmartProxy=None, cpuArchType=None):
+    def __init__(self, cacheInstanceId=None, cacheInstanceName=None, cacheInstanceClass=None, cacheInstanceMemoryMB=None, cacheInstanceStatus=None, cacheInstanceDescription=None, createTime=None, softDeletedTime=None, retainExpireTime=None, azId=None, vpcId=None, subnetId=None, connectionDomain=None, port=None, charge=None, instanceVersion=None, instanceProxyVersion=None, auth=None, isAllowNoAuth=None, redisVersion=None, cacheInstanceType=None, ipv6On=None, tags=None, resourceGroupId=None, shardNumber=None, memoryMBPerShard=None, extension=None, otherDomains=None, slaveAppendonly=None, databaseNum=None, maxmemoryPolicy=None, replicaNumber=None, enableSmartProxy=None, cpuArchType=None, maintenanceStartTime=None, maintenanceEndTime=None, toBeExecutedTaskType=None, supportAssociateEIP=None, platform=None):
         """
         :param cacheInstanceId: (Optional) 实例ID
         :param cacheInstanceName: (Optional) 实例名称
@@ -28,13 +28,16 @@ class CacheInstance(object):
         :param cacheInstanceStatus: (Optional) 实例状态：creating表示创建中，running表示运行中，error表示错误，changing表示变更规格中，deleting表示删除中，configuring表示修改参数中，restoring表示备份恢复中，upgrading表示升级中
         :param cacheInstanceDescription: (Optional) 实例描述
         :param createTime: (Optional) 创建时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
+        :param softDeletedTime: (Optional) 软删除时间，即实例进入回收站的时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
+        :param retainExpireTime: (Optional) 回收站实例的过期时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
         :param azId: (Optional) az信息
         :param vpcId: (Optional) 实例所属VPC ID
         :param subnetId: (Optional) 实例所属子网ID
         :param connectionDomain: (Optional) 实例的访问域名
         :param port: (Optional) 实例的访问端口
         :param charge: (Optional) 实例的计费信息
-        :param instanceVersion: (Optional) 实例的详细版本号，形如x.x-x.x
+        :param instanceVersion: (Optional) 实例Redis的详细版本号，形如x.x-x.x
+        :param instanceProxyVersion: (Optional) 实例Proxy的详细版本号，形如x.x-x.x
         :param auth: (Optional) 连接实例时，是否需要密码认证，false表示无密码
         :param isAllowNoAuth: (Optional) 实例是否允许修改为免密
         :param redisVersion: (Optional) 创建实例时选择的引擎版本：目前支持2.8和4.0
@@ -52,6 +55,11 @@ class CacheInstance(object):
         :param replicaNumber: (Optional) 副本数，含主副本
         :param enableSmartProxy: (Optional) 实例是否开启SmartProxy，当架构类型为native-cluster时才有效，1表示开启，0表示不开启
         :param cpuArchType: (Optional) cpu架构类型:arm64、amd64
+        :param maintenanceStartTime: (Optional) 可维护时间段的开始时间，格式为HH:mmZ（UTC时间）
+        :param maintenanceEndTime: (Optional) 可维护时间段的结束时间，格式为HH:mmZ（UTC时间）
+        :param toBeExecutedTaskType: (Optional) 实例待执行的任务
+        :param supportAssociateEIP: (Optional) 是否支持绑定弹性公网IP
+        :param platform: (Optional) 平台
         """
 
         self.cacheInstanceId = cacheInstanceId
@@ -61,6 +69,8 @@ class CacheInstance(object):
         self.cacheInstanceStatus = cacheInstanceStatus
         self.cacheInstanceDescription = cacheInstanceDescription
         self.createTime = createTime
+        self.softDeletedTime = softDeletedTime
+        self.retainExpireTime = retainExpireTime
         self.azId = azId
         self.vpcId = vpcId
         self.subnetId = subnetId
@@ -68,6 +78,7 @@ class CacheInstance(object):
         self.port = port
         self.charge = charge
         self.instanceVersion = instanceVersion
+        self.instanceProxyVersion = instanceProxyVersion
         self.auth = auth
         self.isAllowNoAuth = isAllowNoAuth
         self.redisVersion = redisVersion
@@ -85,3 +96,8 @@ class CacheInstance(object):
         self.replicaNumber = replicaNumber
         self.enableSmartProxy = enableSmartProxy
         self.cpuArchType = cpuArchType
+        self.maintenanceStartTime = maintenanceStartTime
+        self.maintenanceEndTime = maintenanceEndTime
+        self.toBeExecutedTaskType = toBeExecutedTaskType
+        self.supportAssociateEIP = supportAssociateEIP
+        self.platform = platform

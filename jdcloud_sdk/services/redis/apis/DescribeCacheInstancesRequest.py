@@ -62,6 +62,8 @@ class DescribeCacheInstancesParameters(object):
         :param filters: (Optional) 过滤属性：
 cacheInstanceId - 实例Id，精确匹配，可选择多个
 cacheInstanceName - 实例名称，模糊匹配
+vpcId - VPC ID，精确匹配
+subnetId - 子网 ID，精确匹配
 cacheInstanceStatus - 实例状态，精确匹配，可选择多个(running：运行中，error：错误，creating：创建中，changing：变配中，configuring：参数修改中，restoring：备份恢复中，deleting：删除中)
 redisVersion - redis引擎版本，精确匹配，可选择2.8和4.0
 instanceType - 实例类型，精确匹配（redis表示主从版，redis_cluster表示集群版）
@@ -74,6 +76,8 @@ chargeMode - 计费类型，精确匹配（prepaid_by_duration表示包年包月
         """
         :param sorts: (Optional) 排序属性：
 createTime - 按创建时间排序(asc表示按时间正序，desc表示按时间倒序)
+totalMemory - 按照集群总内存排序(asc表示按内存正序，desc表示按内存倒序, 默认为空表示不按内存排序)
+同时排序时totalMemory优先级高于createTime
 
         """
         self.sorts = sorts

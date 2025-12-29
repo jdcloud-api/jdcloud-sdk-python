@@ -19,13 +19,14 @@
 
 class RedisNode(object):
 
-    def __init__(self, name, shardId, role=None, address=None, az=None, status=None, slots=None, usedMemory=None, maxMemory=None):
+    def __init__(self, name, shardId, role=None, address=None, az=None, ng=None, status=None, slots=None, usedMemory=None, maxMemory=None):
         """
         :param name:  节点名称，唯一标识一个节点
         :param shardId:  节点分片ID，从0开始
         :param role: (Optional) 节点角色，master表示主节点，slave表示从节点
         :param address: (Optional) 节点访问地址
         :param az: (Optional) 节点所属AZ
+        :param ng: (Optional) 节点的node group索引
         :param status: (Optional) 节点状态，running表示节点正常，error表示节点异常
         :param slots: (Optional) 节点负责的Slot个数
         :param usedMemory: (Optional) 节点已使用内存，单位Byte
@@ -37,6 +38,7 @@ class RedisNode(object):
         self.role = role
         self.address = address
         self.az = az
+        self.ng = ng
         self.status = status
         self.slots = slots
         self.usedMemory = usedMemory

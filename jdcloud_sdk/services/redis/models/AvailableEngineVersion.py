@@ -19,15 +19,17 @@
 
 class AvailableEngineVersion(object):
 
-    def __init__(self, version=None, recommended=None, soldOut=None, availableCPUArchs=None):
+    def __init__(self, version=None, recommended=None, soldOut=None, mustEnableSmartProxy=None, availableCPUArchs=None):
         """
         :param version: (Optional) redis引擎主从版本号，目前支持：2.8、4.0
         :param recommended: (Optional) 是否推荐
         :param soldOut: (Optional) 是否售罄
+        :param mustEnableSmartProxy: (Optional) 是否必须有代理
         :param availableCPUArchs: (Optional) 售卖CPU架构列表
         """
 
         self.version = version
         self.recommended = recommended
         self.soldOut = soldOut
+        self.mustEnableSmartProxy = mustEnableSmartProxy
         self.availableCPUArchs = availableCPUArchs

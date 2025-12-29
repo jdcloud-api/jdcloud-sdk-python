@@ -44,7 +44,10 @@ class ModifyCacheInstanceClassParameters(object):
         self.cacheInstanceId = cacheInstanceId
         self.cacheInstanceClass = cacheInstanceClass
         self.shardNumber = None
+        self.replicaNumber = None
+        self.replicaAzs2Add = None
         self.parallel = None
+        self.effectiveTime = None
 
     def setShardNumber(self, shardNumber):
         """
@@ -52,9 +55,30 @@ class ModifyCacheInstanceClassParameters(object):
         """
         self.shardNumber = shardNumber
 
+    def setReplicaNumber(self, replicaNumber):
+        """
+        :param replicaNumber: (Optional) 副本数
+        """
+        self.replicaNumber = replicaNumber
+
+    def setReplicaAzs2Add(self, replicaAzs2Add):
+        """
+        :param replicaAzs2Add: (Optional) 增加副本时指定az
+        """
+        self.replicaAzs2Add = replicaAzs2Add
+
     def setParallel(self, parallel):
         """
         :param parallel: (Optional) 是否开启4.0集群并行变配
         """
         self.parallel = parallel
+
+    def setEffectiveTime(self, effectiveTime):
+        """
+        :param effectiveTime: (Optional) 任务执行时间:
+Immediately - 任务立即执行，默认值
+MaintainTime - 任务在运维时间内执行
+
+        """
+        self.effectiveTime = effectiveTime
 

@@ -19,41 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExternalWebSearchRequest(JDCloudRequest):
+class ExternalSubmitVirtualTryOnTaskBase64Request(JDCloudRequest):
     """
-    webSearch
+    提交虚拟试衣任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExternalWebSearchRequest, self).__init__(
-            '/external:webSearch', 'POST', header, version)
+        super(ExternalSubmitVirtualTryOnTaskBase64Request, self).__init__(
+            '/external:submitVirtualTryOnTaskBase64', 'POST', header, version)
         self.parameters = parameters
 
 
-class ExternalWebSearchParameters(object):
+class ExternalSubmitVirtualTryOnTaskBase64Parameters(object):
 
-    def __init__(self,apiKey, requestId, query, ):
+    def __init__(self,apiKey, requestId, modelImageBase64, clothesImageBase64):
         """
         :param apiKey: api key编号
         :param requestId: 请求id,api key下唯一
-        :param query: 查询内容
+        :param modelImageBase64: 模特图片Base64
+        :param clothesImageBase64: 服装图片Base64
         """
 
         self.apiKey = apiKey
         self.requestId = requestId
-        self.query = query
-        self.page = None
-        self.pageSize = None
-
-    def setPage(self, page):
-        """
-        :param page: (Optional) page 默认1
-        """
-        self.page = page
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) pageSize 默认10
-        """
-        self.pageSize = pageSize
+        self.modelImageBase64 = modelImageBase64
+        self.clothesImageBase64 = clothesImageBase64
 

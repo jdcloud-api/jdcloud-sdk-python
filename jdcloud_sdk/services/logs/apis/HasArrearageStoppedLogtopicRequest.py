@@ -19,41 +19,21 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExternalWebSearchRequest(JDCloudRequest):
+class HasArrearageStoppedLogtopicRequest(JDCloudRequest):
     """
-    webSearch
+    检查是否存在欠费logtopic
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExternalWebSearchRequest, self).__init__(
-            '/external:webSearch', 'POST', header, version)
+        super(HasArrearageStoppedLogtopicRequest, self).__init__(
+            '/hasArrearageStoppedLogtopic', 'GET', header, version)
         self.parameters = parameters
 
 
-class ExternalWebSearchParameters(object):
+class HasArrearageStoppedLogtopicParameters(object):
 
-    def __init__(self,apiKey, requestId, query, ):
+    def __init__(self,):
         """
-        :param apiKey: api key编号
-        :param requestId: 请求id,api key下唯一
-        :param query: 查询内容
         """
 
-        self.apiKey = apiKey
-        self.requestId = requestId
-        self.query = query
-        self.page = None
-        self.pageSize = None
-
-    def setPage(self, page):
-        """
-        :param page: (Optional) page 默认1
-        """
-        self.page = page
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) pageSize 默认10
-        """
-        self.pageSize = pageSize
 

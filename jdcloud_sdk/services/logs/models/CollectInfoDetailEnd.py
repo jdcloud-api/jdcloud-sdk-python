@@ -19,10 +19,11 @@
 
 class CollectInfoDetailEnd(object):
 
-    def __init__(self, uID=None, agResource=None, appCode=None, binlogSpec=None, detail=None, enabled=None, k8sSpec=None, name=None, resourceMode=None, resourceType=None, resourcesCount=None, serviceCode=None, tagResource=None, templateName=None, templateUID=None):
+    def __init__(self, uID=None, agResource=None, agentMeta=None, appCode=None, binlogSpec=None, detail=None, enabled=None, k8sSpec=None, name=None, resourceMode=None, resourceType=None, resourcesCount=None, serviceCode=None, tagResource=None, templateName=None, templateUID=None):
         """
         :param uID: (Optional) UID
         :param agResource: (Optional) 高可用组资源multi
+        :param agentMeta: (Optional) agentMeta
         :param appCode: (Optional) 日志来源
         :param binlogSpec: (Optional) binlog规格
         :param detail: (Optional) 
@@ -40,6 +41,7 @@ class CollectInfoDetailEnd(object):
 
         self.uID = uID
         self.agResource = agResource
+        self.agentMeta = agentMeta
         self.appCode = appCode
         self.binlogSpec = binlogSpec
         self.detail = detail

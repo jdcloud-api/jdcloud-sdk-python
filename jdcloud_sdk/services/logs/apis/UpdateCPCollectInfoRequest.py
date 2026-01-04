@@ -19,34 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCollectInfoRequest(JDCloudRequest):
+class UpdateCPCollectInfoRequest(JDCloudRequest):
     """
-    创建采集配置，支持基于云产品模板生成采集模板；支持用于自定义采集配置。
+    更新采集配置。若传入的实例列表不为空，将覆盖之前的所有实例，而非新增。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCollectInfoRequest, self).__init__(
-            '/regions/{regionId}/logtopics/{logtopicUID}/collectinfos', 'POST', header, version)
+        super(UpdateCPCollectInfoRequest, self).__init__(
+            '/regions/{regionId}/cpCollectinfos/{collectInfoUID}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class CreateCollectInfoParameters(object):
+class UpdateCPCollectInfoParameters(object):
 
-    def __init__(self,regionId, logtopicUID, appCode, enabled, resourceType, serviceCode, ):
+    def __init__(self,regionId, collectInfoUID, enabled, resourceType, ):
         """
         :param regionId: 地域 Id
-        :param logtopicUID: 日志主题 UID
-        :param appCode: 日志来源，只能是 custom/jdcloud
+        :param collectInfoUID: 采集配置 UID
         :param enabled: 采集状态，0-禁用，1-启用
         :param resourceType: 采集实例类型, 只能是 all/part  当选择all时，传入的实例列表无效；custom类型的采集配置目前仅支持part方式，即用户指定实例列表；
-        :param serviceCode: 产品线,当日志来源为jdcloud时,填写云产品serviceCode。否则填写自定义日志类型：vm,k8s,binlog,etc
         """
 
         self.regionId = regionId
-        self.logtopicUID = logtopicUID
+        self.collectInfoUID = collectInfoUID
         self.agResource = None
         self.agentMeta = None
-        self.appCode = appCode
         self.binlogSpec = None
         self.enabled = enabled
         self.filterEnabled = None
@@ -61,9 +58,7 @@ class CreateCollectInfoParameters(object):
         self.resourceMode = None
         self.resourceType = resourceType
         self.resources = None
-        self.serviceCode = serviceCode
         self.tagResource = None
-        self.templateUID = None
 
     def setAgResource(self, agResource):
         """
@@ -154,10 +149,4 @@ class CreateCollectInfoParameters(object):
         :param tagResource: (Optional) 
         """
         self.tagResource = tagResource
-
-    def setTemplateUID(self, templateUID):
-        """
-        :param templateUID: (Optional) 日志类型。当appcode为jdcloud时为必填
-        """
-        self.templateUID = templateUID
 

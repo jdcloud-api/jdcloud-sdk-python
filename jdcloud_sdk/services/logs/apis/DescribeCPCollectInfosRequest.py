@@ -19,31 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLogsetsRequest(JDCloudRequest):
+class DescribeCPCollectInfosRequest(JDCloudRequest):
     """
-    查询日志集列表。支持按照名称进行模糊查询。结果中包含了该日志集是否存在日志主题的信息。存在日志主题的日志集不允许删除。
+    采集配置列表信息。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLogsetsRequest, self).__init__(
-            '/regions/{regionId}/logsets', 'GET', header, version)
+        super(DescribeCPCollectInfosRequest, self).__init__(
+            '/regions/{regionId}/logtopics/{logtopicUID}/cpCollectinfos', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLogsetsParameters(object):
+class DescribeCPCollectInfosParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, logtopicUID, ):
         """
         :param regionId: 地域 Id
+        :param logtopicUID: 日志主题 UID
         """
 
         self.regionId = regionId
+        self.logtopicUID = logtopicUID
         self.pageNumber = None
         self.pageSize = None
         self.name = None
-        self.filters = None
-        self.tags = None
-        self.resourceGroupIds = None
+        self.collectInfoUID = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -59,25 +59,13 @@ class DescribeLogsetsParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 日志集名称. 已废弃，需要通过filter传递
+        :param name: (Optional) 采集配置名称
         """
         self.name = name
 
-    def setFilters(self, filters):
+    def setCollectInfoUID(self, collectInfoUID):
         """
-        :param filters: (Optional) 过滤条件，key，Values。 支持的key:  name, logsets(logsetId列表)，logtopicName(主题名称)，logtopicUid(主题id列表)
+        :param collectInfoUID: (Optional) 采集配置UID
         """
-        self.filters = filters
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) 标签过滤条件，key，Values
-        """
-        self.tags = tags
-
-    def setResourceGroupIds(self, resourceGroupIds):
-        """
-        :param resourceGroupIds: (Optional) 资源组过滤条件
-        """
-        self.resourceGroupIds = resourceGroupIds
+        self.collectInfoUID = collectInfoUID
 

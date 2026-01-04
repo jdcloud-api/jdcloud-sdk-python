@@ -19,19 +19,31 @@
 
 class CollectConf(object):
 
-    def __init__(self, collectTemplateUID=None, file=None, filters=None, logsetUID=None, logtopicUID=None, path=None):
+    def __init__(self, collectTemplateUID=None, collectType=None, destination=None, extSpec=None, file=None, filters=None, logtopicUID=None, path=None, pin=None, readFromHead=None, regexpStr=None, agentMeta=None):
         """
         :param collectTemplateUID: (Optional) collectTemplateUID
+        :param collectType: (Optional) 采集配置类型, 默认为vm，可支持binlog
+        :param destination: (Optional) 
+        :param extSpec: (Optional) other Spec
         :param file: (Optional) 采集文件名称，支持通配
         :param filters: (Optional) filters 过滤器V1：多个词之间为or的关系
-        :param logsetUID: (Optional) logsetUID 日志集UID
         :param logtopicUID: (Optional) logtopicUID 日志主题UID
         :param path: (Optional) 采集文件路径，支持通配
+        :param pin: (Optional) 用户 PIN
+        :param readFromHead: (Optional) 是否开启从头采集
+        :param regexpStr: (Optional) 首行正则表达式
+        :param agentMeta: (Optional) agent元信息
         """
 
         self.collectTemplateUID = collectTemplateUID
+        self.collectType = collectType
+        self.destination = destination
+        self.extSpec = extSpec
         self.file = file
         self.filters = filters
-        self.logsetUID = logsetUID
         self.logtopicUID = logtopicUID
         self.path = path
+        self.pin = pin
+        self.readFromHead = readFromHead
+        self.regexpStr = regexpStr
+        self.agentMeta = agentMeta

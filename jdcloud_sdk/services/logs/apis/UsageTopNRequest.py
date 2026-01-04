@@ -19,41 +19,29 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExternalWebSearchRequest(JDCloudRequest):
+class UsageTopNRequest(JDCloudRequest):
     """
-    webSearch
+    日志用量TopN的logtopic
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExternalWebSearchRequest, self).__init__(
-            '/external:webSearch', 'POST', header, version)
+        super(UsageTopNRequest, self).__init__(
+            '/usageTopN', 'GET', header, version)
         self.parameters = parameters
 
 
-class ExternalWebSearchParameters(object):
+class UsageTopNParameters(object):
 
-    def __init__(self,apiKey, requestId, query, ):
+    def __init__(self,startTime, endTime, metric, topN):
         """
-        :param apiKey: api key编号
-        :param requestId: 请求id,api key下唯一
-        :param query: 查询内容
+        :param startTime: 开始时间. 格式RFC3339 (例:2006-01-02T15:04:05+08:00)
+        :param endTime: 结束时间. 格式RFC3339 (例:2006-01-02T15:04:05+08:00)
+        :param metric: 统计topN的metric (index_storage,write_traffic,index_traffic,read_traffic)
+        :param topN: 前N,  1--100
         """
 
-        self.apiKey = apiKey
-        self.requestId = requestId
-        self.query = query
-        self.page = None
-        self.pageSize = None
-
-    def setPage(self, page):
-        """
-        :param page: (Optional) page 默认1
-        """
-        self.page = page
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) pageSize 默认10
-        """
-        self.pageSize = pageSize
+        self.startTime = startTime
+        self.endTime = endTime
+        self.metric = metric
+        self.topN = topN
 

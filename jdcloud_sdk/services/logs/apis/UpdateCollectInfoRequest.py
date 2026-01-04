@@ -43,6 +43,7 @@ class UpdateCollectInfoParameters(object):
         self.regionId = regionId
         self.collectInfoUID = collectInfoUID
         self.agResource = None
+        self.agentMeta = None
         self.binlogSpec = None
         self.enabled = enabled
         self.filterEnabled = None
@@ -52,6 +53,7 @@ class UpdateCollectInfoParameters(object):
         self.logPath = None
         self.logtopicEnabled = None
         self.name = None
+        self.readFromHead = None
         self.regexpStr = None
         self.resourceMode = None
         self.resourceType = resourceType
@@ -63,6 +65,12 @@ class UpdateCollectInfoParameters(object):
         :param agResource: (Optional) 高可用组资源
         """
         self.agResource = agResource
+
+    def setAgentMeta(self, agentMeta):
+        """
+        :param agentMeta: (Optional) 
+        """
+        self.agentMeta = agentMeta
 
     def setBinlogSpec(self, binlogSpec):
         """
@@ -111,6 +119,12 @@ class UpdateCollectInfoParameters(object):
         :param name: (Optional) 采集配置名称
         """
         self.name = name
+
+    def setReadFromHead(self, readFromHead):
+        """
+        :param readFromHead: (Optional) 开启全量采集
+        """
+        self.readFromHead = readFromHead
 
     def setRegexpStr(self, regexpStr):
         """

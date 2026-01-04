@@ -51,7 +51,7 @@ class DescribeCollectResourcesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 100]
+        :param pageSize: (Optional) 页面大小，默认为20；取值范围[1, 200]
         """
         self.pageSize = pageSize
 

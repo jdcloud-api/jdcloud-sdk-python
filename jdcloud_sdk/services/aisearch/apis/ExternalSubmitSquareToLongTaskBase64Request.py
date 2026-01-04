@@ -19,41 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class ExternalWebSearchRequest(JDCloudRequest):
+class ExternalSubmitSquareToLongTaskBase64Request(JDCloudRequest):
     """
-    webSearch
+    提交方图转长图任务
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(ExternalWebSearchRequest, self).__init__(
-            '/external:webSearch', 'POST', header, version)
+        super(ExternalSubmitSquareToLongTaskBase64Request, self).__init__(
+            '/external:submitSquareToLongTaskBase64', 'POST', header, version)
         self.parameters = parameters
 
 
-class ExternalWebSearchParameters(object):
+class ExternalSubmitSquareToLongTaskBase64Parameters(object):
 
-    def __init__(self,apiKey, requestId, query, ):
+    def __init__(self,apiKey, requestId, imageBase64):
         """
         :param apiKey: api key编号
-        :param requestId: 请求id,api key下唯一
-        :param query: 查询内容
+        :param requestId: 请求id，api key下唯一
+        :param imageBase64: 方形图片
         """
 
         self.apiKey = apiKey
         self.requestId = requestId
-        self.query = query
-        self.page = None
-        self.pageSize = None
-
-    def setPage(self, page):
-        """
-        :param page: (Optional) page 默认1
-        """
-        self.page = page
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) pageSize 默认10
-        """
-        self.pageSize = pageSize
+        self.imageBase64 = imageBase64
 

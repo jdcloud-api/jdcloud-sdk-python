@@ -73,7 +73,7 @@ class DescribeLogtopicsParameters(object):
 
     def setFilters(self, filters):
         """
-        :param filters: (Optional) 过滤条件，key，Values
+        :param filters: (Optional) 过滤条件，key，Values. 支持的key:  name, logtopics(logtopicId列表)
         """
         self.filters = filters
 

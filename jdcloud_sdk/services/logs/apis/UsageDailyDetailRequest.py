@@ -19,31 +19,32 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLogsetsRequest(JDCloudRequest):
+class UsageDailyDetailRequest(JDCloudRequest):
     """
-    查询日志集列表。支持按照名称进行模糊查询。结果中包含了该日志集是否存在日志主题的信息。存在日志主题的日志集不允许删除。
+    日志每日用量详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLogsetsRequest, self).__init__(
-            '/regions/{regionId}/logsets', 'GET', header, version)
+        super(UsageDailyDetailRequest, self).__init__(
+            '/usageDailyDetail', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeLogsetsParameters(object):
+class UsageDailyDetailParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,startTime, endTime, ):
         """
-        :param regionId: 地域 Id
+        :param startTime: 开始时间. 格式RFC3339 (例:2006-01-02T15:04:05+08:00)
+        :param endTime: 结束时间, 与starTime间隔不能超过30天. 格式RFC3339 (例:2006-01-02T15:04:05+08:00)
         """
 
-        self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
-        self.name = None
-        self.filters = None
-        self.tags = None
-        self.resourceGroupIds = None
+        self.startTime = startTime
+        self.endTime = endTime
+        self.region = None
+        self.logsetId = None
+        self.logtopicId = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -57,27 +58,21 @@ class DescribeLogsetsParameters(object):
         """
         self.pageSize = pageSize
 
-    def setName(self, name):
+    def setRegion(self, region):
         """
-        :param name: (Optional) 日志集名称. 已废弃，需要通过filter传递
+        :param region: (Optional) region
         """
-        self.name = name
+        self.region = region
 
-    def setFilters(self, filters):
+    def setLogsetId(self, logsetId):
         """
-        :param filters: (Optional) 过滤条件，key，Values。 支持的key:  name, logsets(logsetId列表)，logtopicName(主题名称)，logtopicUid(主题id列表)
+        :param logsetId: (Optional) 日志集
         """
-        self.filters = filters
+        self.logsetId = logsetId
 
-    def setTags(self, tags):
+    def setLogtopicId(self, logtopicId):
         """
-        :param tags: (Optional) 标签过滤条件，key，Values
+        :param logtopicId: (Optional) 日志主题
         """
-        self.tags = tags
-
-    def setResourceGroupIds(self, resourceGroupIds):
-        """
-        :param resourceGroupIds: (Optional) 资源组过滤条件
-        """
-        self.resourceGroupIds = resourceGroupIds
+        self.logtopicId = logtopicId
 

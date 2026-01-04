@@ -19,44 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeLogtopicsGlobalRequest(JDCloudRequest):
+class DeleteCPCollectInfoRequest(JDCloudRequest):
     """
-    查询日志主题列表
+    删除系统级采集配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeLogtopicsGlobalRequest, self).__init__(
-            '/describeLogtopicsGlobal', 'GET', header, version)
+        super(DeleteCPCollectInfoRequest, self).__init__(
+            '/regions/{regionId}/cpCollectinfos/{collectInfoUID}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DescribeLogtopicsGlobalParameters(object):
+class DeleteCPCollectInfoParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, collectInfoUID):
         """
         :param regionId: 地域 Id
+        :param collectInfoUID: 采集配置 UID
         """
 
         self.regionId = regionId
-        self.filters = None
-        self.tags = None
-        self.appName = None
-
-    def setFilters(self, filters):
-        """
-        :param filters: (Optional) 过滤条件，key，Values， 合法的key：logtopicName， logtopicUID， logsetName， logsetUID，regionId
-        """
-        self.filters = filters
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) 过滤条件，key，Values
-        """
-        self.tags = tags
-
-    def setAppName(self, appName):
-        """
-        :param appName: (Optional) 日志主题采集的日志类型
-        """
-        self.appName = appName
+        self.collectInfoUID = collectInfoUID
 

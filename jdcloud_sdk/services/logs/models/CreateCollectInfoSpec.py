@@ -19,9 +19,10 @@
 
 class CreateCollectInfoSpec(object):
 
-    def __init__(self, appCode, enabled, resourceType, serviceCode, agResource=None, binlogSpec=None, filterEnabled=None, k8sSpec=None, logFile=None, logFilters=None, logPath=None, logtopicEnabled=None, name=None, regexpStr=None, resourceMode=None, resources=None, tagResource=None, templateUID=None):
+    def __init__(self, appCode, enabled, resourceType, serviceCode, agResource=None, agentMeta=None, binlogSpec=None, filterEnabled=None, k8sSpec=None, logFile=None, logFilters=None, logPath=None, logtopicEnabled=None, name=None, readFromHead=None, regexpStr=None, resourceMode=None, resources=None, tagResource=None, templateUID=None):
         """
         :param agResource: (Optional) 高可用组资源
+        :param agentMeta: (Optional) 
         :param appCode:  日志来源，只能是 custom/jdcloud
         :param binlogSpec: (Optional) 
         :param enabled:  采集状态，0-禁用，1-启用
@@ -32,6 +33,7 @@ class CreateCollectInfoSpec(object):
         :param logPath: (Optional) 日志路径。当appcode为custom时为必填。目前仅支持对 Linux 云主机上的日志进行采集，路径支持通配符“*”和“？”，文件路径应符合 Linux 的文件路径规则
         :param logtopicEnabled: (Optional) 目的地是否是日志服务logtopic，只支持业务应用日志
         :param name: (Optional) 采集配置名称
+        :param readFromHead: (Optional) 开启全量采集
         :param regexpStr: (Optional) 首行正则
         :param resourceMode: (Optional) 采集资源时选择的模式，1.正常的选择实例模式（默认模式）；2.选择标签tag模式 3.选择高可用组ag模式
         :param resourceType:  采集实例类型, 只能是 all/part  当选择all时，传入的实例列表无效；custom类型的采集配置目前仅支持part方式，即用户指定实例列表；
@@ -42,6 +44,7 @@ class CreateCollectInfoSpec(object):
         """
 
         self.agResource = agResource
+        self.agentMeta = agentMeta
         self.appCode = appCode
         self.binlogSpec = binlogSpec
         self.enabled = enabled
@@ -52,6 +55,7 @@ class CreateCollectInfoSpec(object):
         self.logPath = logPath
         self.logtopicEnabled = logtopicEnabled
         self.name = name
+        self.readFromHead = readFromHead
         self.regexpStr = regexpStr
         self.resourceMode = resourceMode
         self.resourceType = resourceType

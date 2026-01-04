@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CreateCollectInfoRequest(JDCloudRequest):
+class CreateCPCollectInfoRequest(JDCloudRequest):
     """
-    创建采集配置，支持基于云产品模板生成采集模板；支持用于自定义采集配置。
+    创建系统采集配置，支持基于云产品模板生成采集模板；支持用于自定义采集配置。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CreateCollectInfoRequest, self).__init__(
-            '/regions/{regionId}/logtopics/{logtopicUID}/collectinfos', 'POST', header, version)
+        super(CreateCPCollectInfoRequest, self).__init__(
+            '/regions/{regionId}/logtopics/{logtopicUID}/cpCollectinfos', 'POST', header, version)
         self.parameters = parameters
 
 
-class CreateCollectInfoParameters(object):
+class CreateCPCollectInfoParameters(object):
 
     def __init__(self,regionId, logtopicUID, appCode, enabled, resourceType, serviceCode, ):
         """

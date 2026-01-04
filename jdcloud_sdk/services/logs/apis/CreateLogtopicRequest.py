@@ -46,6 +46,7 @@ class CreateLogtopicParameters(object):
         self.inOrder = None
         self.lifeCycle = None
         self.tags = None
+        self.isPushedCustomLog = None
 
     def setDescription(self, description):
         """
@@ -70,4 +71,10 @@ class CreateLogtopicParameters(object):
         :param tags: (Optional) 标签列表
         """
         self.tags = tags
+
+    def setIsPushedCustomLog(self, isPushedCustomLog):
+        """
+        :param isPushedCustomLog: (Optional) push接口上报的业务日志
+        """
+        self.isPushedCustomLog = isPushedCustomLog
 

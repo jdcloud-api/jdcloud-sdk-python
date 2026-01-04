@@ -19,12 +19,13 @@
 
 class LogtopicDetailEnd(object):
 
-    def __init__(self, collectInfo=None, uID=None, appCode=None, appName=None, collectInfoUID=None, createTime=None, description=None, inOrder=None, lastRecordTime=None, lifeCycle=None, logsetName=None, logsetUID=None, name=None, prePattern=None, region=None, serviceCode=None, tags=None):
+    def __init__(self, collectInfo=None, uID=None, appCode=None, appName=None, chargeStatus=None, collectInfoUID=None, createTime=None, description=None, inOrder=None, lastRecordTime=None, lifeCycle=None, logsetName=None, logsetUID=None, name=None, prePattern=None, region=None, serviceCode=None, status=None, tags=None):
         """
         :param collectInfo: (Optional) 
         :param uID: (Optional) UID
         :param appCode: (Optional) 日志来源,只在查询单个日志主题并且创建了采集配置时返回值
         :param appName: (Optional) 日志主题采集的日志类型
+        :param chargeStatus: (Optional) 计费状态。normal: 正常，stopped: 欠费停服
         :param collectInfoUID: (Optional) 采集配置UID
         :param createTime: (Optional) 创建时间
         :param description: (Optional) 描述信息
@@ -37,6 +38,7 @@ class LogtopicDetailEnd(object):
         :param prePattern: (Optional) 预处理模式
         :param region: (Optional) 地域信息
         :param serviceCode: (Optional) 产品线serviceCode
+        :param status: (Optional) 服务状态。 normal: 正常，arrearage_stopped: 停服
         :param tags: (Optional) 标签列表
         """
 
@@ -44,6 +46,7 @@ class LogtopicDetailEnd(object):
         self.uID = uID
         self.appCode = appCode
         self.appName = appName
+        self.chargeStatus = chargeStatus
         self.collectInfoUID = collectInfoUID
         self.createTime = createTime
         self.description = description
@@ -56,4 +59,5 @@ class LogtopicDetailEnd(object):
         self.prePattern = prePattern
         self.region = region
         self.serviceCode = serviceCode
+        self.status = status
         self.tags = tags

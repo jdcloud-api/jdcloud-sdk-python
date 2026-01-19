@@ -19,7 +19,7 @@
 
 class ComStamp(object):
 
-    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, orgName=None, legalPersonName=None, transactorName=None, transactorIdCardNum=None, transactorMobile=None, identifyType=None, identifyValue=None, stampStyle=None, certExpire=None, pageRange=None, positionPoint=None, keywordCenter=None):
+    def __init__(self, stampMax=None, signPositionType=None, keyword=None, positionX=None, positionY=None, offsetX=None, offsetY=None, page=None, sealName=None, imageB64=None, stampId=None, desc=None, isDefault=None, imageType=None, imageSize=None, imageHeight=None, imageWidth=None, orgName=None, legalPersonName=None, transactorName=None, transactorIdCardNum=None, transactorMobile=None, identifyType=None, identifyValue=None, stampStyle=None, certExpire=None, certType=None, pageRange=None, positionPoint=None, keywordCenter=None):
         """
         :param stampMax: (Optional) 最多盖章数目（默认10）
         :param signPositionType: (Optional) 盖章类型（0 坐标 1 关键字 默认1 ）
@@ -47,6 +47,7 @@ class ComStamp(object):
         :param identifyValue: (Optional) 标记值
         :param stampStyle: (Optional) 自定义签章类型time(带时间印章)、crossPage（骑缝章）（如需增加时间戳，此字段传time，会覆盖contractSpec中的定义）
         :param certExpire: (Optional) 0：普通证书 1：事件证书（默认为0，普通证书。会覆盖contractSpec中的定义）
+        :param certType: (Optional) 0：RSA 1：SM2(国密证书)（默认为0，RSA证书）
         :param pageRange: (Optional) 页范围，仅在坐标签章生效 1. all，表示所有页码;2. 数字以逗号分隔，形如："1,2,3""1,2,3";3. 以短横线：以短横线'-'分隔的两个数字，会被扩展为⼀段范围，形如："2-4";4：规则2和3可以混用，形如："2-4,7"
         :param positionPoint: (Optional) 关键字盖章坐标位置（right盖章在关键字右边，left盖章在关键字左边，center盖章在关键字中间。不传默认center）
         :param keywordCenter: (Optional) 关键字盖章,关键字中心点是否和印章中心点重合，默认false，positionPoint为center时生效
@@ -78,6 +79,7 @@ class ComStamp(object):
         self.identifyValue = identifyValue
         self.stampStyle = stampStyle
         self.certExpire = certExpire
+        self.certType = certType
         self.pageRange = pageRange
         self.positionPoint = positionPoint
         self.keywordCenter = keywordCenter

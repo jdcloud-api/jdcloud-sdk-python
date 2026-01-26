@@ -19,9 +19,47 @@
 
 class Features(object):
 
-    def __init__(self, auth=None):
+    def __init__(self, auth=None, isCheckUsernameAndPassword=None, isCheckClusterName=None, esdtsEnable=None, clusterType=None, isForceOpenAuth=None, isTurnTaskSubmodule=None, isShowClusterType=None, tasklist=None, clusterTypeInfos=None, upgradeVersion=None, snapshotDefaultReserveTime=None, snapshotEnableCustomReserveTime=None, whiteList=None, whiteListMaxItem=None, crossRestoreSnapshot=None, capacityEvaluate=None, kibanaCharge=None, kibanaPublicServiceExpose=None, maintenanceTime=None):
         """
         :param auth: (Optional) 是否支持身份验证功能；true为支持，false为不支持
+        :param isCheckUsernameAndPassword: (Optional) 数科上tpaas定制功能；true为校验，false为不校验(最低标准是账户名密码都非空)
+        :param isCheckClusterName: (Optional) 创建集群时，是否检查集群名格式；true为校验，false为不校验
+        :param esdtsEnable: (Optional) esdts功能对指定用户是否可见
+        :param clusterType: (Optional) 指定集群类型(共享存储型-shared, 通用存储型-general)
+        :param isForceOpenAuth: (Optional) 是否强制开启鉴权
+        :param isTurnTaskSubmodule: (Optional) 前端是否展示任务管理子模块
+        :param isShowClusterType: (Optional) 是否展示集群类型
+        :param tasklist: (Optional) 开启任务列表(true-开启任务列表功能, false-关闭任务列表功能)
+        :param clusterTypeInfos: (Optional) 集群类型信息
+        :param upgradeVersion: (Optional) 是否支持版本升级
+        :param snapshotDefaultReserveTime: (Optional) 快照默认保存时间
+        :param snapshotEnableCustomReserveTime: (Optional) 是否允许自定义快照时间
+        :param whiteList: (Optional) 是否开启白名单
+        :param whiteListMaxItem: (Optional) 白名单最大数量
+        :param crossRestoreSnapshot: (Optional) 是否支持跨实例恢复快照
+        :param capacityEvaluate: (Optional) 是否开启容量评估特性
+        :param kibanaCharge: (Optional) 是否开启kibana单独计费开关，true为是
+        :param kibanaPublicServiceExpose: (Optional) 是否展示kibana开启公网访问的开关，true-是
+        :param maintenanceTime: (Optional) 是否开启可维护时间特性，true为是
         """
 
         self.auth = auth
+        self.isCheckUsernameAndPassword = isCheckUsernameAndPassword
+        self.isCheckClusterName = isCheckClusterName
+        self.esdtsEnable = esdtsEnable
+        self.clusterType = clusterType
+        self.isForceOpenAuth = isForceOpenAuth
+        self.isTurnTaskSubmodule = isTurnTaskSubmodule
+        self.isShowClusterType = isShowClusterType
+        self.tasklist = tasklist
+        self.clusterTypeInfos = clusterTypeInfos
+        self.upgradeVersion = upgradeVersion
+        self.snapshotDefaultReserveTime = snapshotDefaultReserveTime
+        self.snapshotEnableCustomReserveTime = snapshotEnableCustomReserveTime
+        self.whiteList = whiteList
+        self.whiteListMaxItem = whiteListMaxItem
+        self.crossRestoreSnapshot = crossRestoreSnapshot
+        self.capacityEvaluate = capacityEvaluate
+        self.kibanaCharge = kibanaCharge
+        self.kibanaPublicServiceExpose = kibanaPublicServiceExpose
+        self.maintenanceTime = maintenanceTime

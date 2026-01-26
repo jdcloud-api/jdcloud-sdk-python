@@ -34,20 +34,35 @@ class ModifyInstanceSpecRequest(JDCloudRequest):
 
 class ModifyInstanceSpecParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: regionId
-        :param instanceId: 实例ID
+        :param instanceId: 实例Id
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.azId = None
         self.nodeClass = None
         self.nodeDiskGB = None
         self.nodeCount = None
+        self.warmNodeClass = None
+        self.warmNodeDiskGB = None
+        self.warmNodeCount = None
+        self.warmNodeDiskType = None
         self.masterClass = None
         self.coordinatingClass = None
         self.coordinatingCount = None
+        self.changeType = None
+        self.kibanaClass = None
+        self.kibanaCount = None
+        self.validatedAllowed = None
+
+    def setAzId(self, azId):
+        """
+        :param azId: (Optional) 可用区
+        """
+        self.azId = azId
 
     def setNodeClass(self, nodeClass):
         """
@@ -67,6 +82,30 @@ class ModifyInstanceSpecParameters(object):
         """
         self.nodeCount = nodeCount
 
+    def setWarmNodeClass(self, warmNodeClass):
+        """
+        :param warmNodeClass: (Optional) warmdata节点规格
+        """
+        self.warmNodeClass = warmNodeClass
+
+    def setWarmNodeDiskGB(self, warmNodeDiskGB):
+        """
+        :param warmNodeDiskGB: (Optional) warmdata节点磁盘
+        """
+        self.warmNodeDiskGB = warmNodeDiskGB
+
+    def setWarmNodeCount(self, warmNodeCount):
+        """
+        :param warmNodeCount: (Optional) warmdata节点数
+        """
+        self.warmNodeCount = warmNodeCount
+
+    def setWarmNodeDiskType(self, warmNodeDiskType):
+        """
+        :param warmNodeDiskType: (Optional) warmdata存储类型
+        """
+        self.warmNodeDiskType = warmNodeDiskType
+
     def setMasterClass(self, masterClass):
         """
         :param masterClass: (Optional) master节点规格
@@ -84,4 +123,28 @@ class ModifyInstanceSpecParameters(object):
         :param coordinatingCount: (Optional) coordinating节点数
         """
         self.coordinatingCount = coordinatingCount
+
+    def setChangeType(self, changeType):
+        """
+        :param changeType: (Optional) 变配类型
+        """
+        self.changeType = changeType
+
+    def setKibanaClass(self, kibanaClass):
+        """
+        :param kibanaClass: (Optional) kibana节点规格
+        """
+        self.kibanaClass = kibanaClass
+
+    def setKibanaCount(self, kibanaCount):
+        """
+        :param kibanaCount: (Optional) kibana节点数
+        """
+        self.kibanaCount = kibanaCount
+
+    def setValidatedAllowed(self, validatedAllowed):
+        """
+        :param validatedAllowed: (Optional) 经过验证的允许项
+        """
+        self.validatedAllowed = validatedAllowed
 

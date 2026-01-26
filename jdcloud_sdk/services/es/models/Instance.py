@@ -19,11 +19,12 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, instanceVersion=None, instanceStatus=None, instanceClass=None, createTime=None, azId=None, vpcId=None, subnetId=None, charge=None, internalEndpoint=None, endpoint=None, kibanaUrl=None, headUrl=None, ipVersion=None, tags=None, dedicatedMaster=None, coordinating=None, kibanaFiUrl=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceVersion=None, clusterType=None, instanceStatus=None, instanceClass=None, createTime=None, azId=None, vpcId=None, subnetId=None, charge=None, internalEndpoint=None, tags=None, dedicatedMaster=None, coordinating=None, warmnode=None, tpaasExtension=None, taskStartTime=None, taskProgress=None, taskStatus=None, taskTimeConsuming=None, isTaskTimeConsumeContinueIncrease=None, taskErrorInfo=None, archType=None, extendInfo=None, scenarioTemplate=None, appRelation=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
-        :param instanceVersion: (Optional) 实例版本，目前支持5.6.9和6.5.4两个版本
+        :param instanceVersion: (Optional) 实例版本，目前主流支持6.8.23和7.10.2
+        :param clusterType: (Optional) 集群类型，根据es底层使用的存储类型区分。可选类型(通用存储型-general, 共享存储型-shared)。默认是general
         :param instanceStatus: (Optional) 实例状态，running：运行，error：错误，creating：创建中，changing：变配中，stop：已停止，processing：处理中
         :param instanceClass: (Optional) 实例的配置信息
         :param createTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
@@ -32,19 +33,27 @@ class Instance(object):
         :param subnetId: (Optional) 所属子网的ID
         :param charge: (Optional) 计费信息
         :param internalEndpoint: (Optional) 内网地址
-        :param endpoint: (Optional) deprecated，见internalEndpoint
-        :param kibanaUrl: (Optional) kibana地址
-        :param headUrl: (Optional) head地址
-        :param ipVersion: (Optional) 值为v4&v6时支持ipv6和ipv4, 值为空时仅支持ipv4
         :param tags: (Optional) Tag信息
         :param dedicatedMaster: (Optional) 是否开启了专用主节点，true为开启，false为不开启
         :param coordinating: (Optional) 是否开启了协调节点，true为开启，false为不开启
-        :param kibanaFiUrl: (Optional) kibana floatIp地址
+        :param warmnode: (Optional) 是否开启了warmnode，true为开启，false为不开启
+        :param tpaasExtension: (Optional) tpaas环境扩展参数
+        :param taskStartTime: (Optional) 任务的开始时间（包括变配、创建、重启等任务），时间格式 2022-07-04T09:55:20Z
+        :param taskProgress: (Optional) 0-100 正整数，任务进度条
+        :param taskStatus: (Optional) 任务的执行状态,包括（init、executing、timeout、succ、fail、error）
+        :param taskTimeConsuming: (Optional) 任务的持续运行时间，单位为s（秒）；如果任务成功则返回0
+        :param isTaskTimeConsumeContinueIncrease: (Optional) 标志任务的持续运行时间(taskTimeConsuming)是否还会继续增加。
+        :param taskErrorInfo: (Optional) taskStatus==error时, 展示错误信息
+        :param archType: (Optional) cpu的架构类型（armd64、amd64）
+        :param extendInfo: (Optional) 实例的扩展信息
+        :param scenarioTemplate: (Optional) scenarioTemplate
+        :param appRelation: (Optional) appRelation
         """
 
         self.instanceId = instanceId
         self.instanceName = instanceName
         self.instanceVersion = instanceVersion
+        self.clusterType = clusterType
         self.instanceStatus = instanceStatus
         self.instanceClass = instanceClass
         self.createTime = createTime
@@ -53,11 +62,18 @@ class Instance(object):
         self.subnetId = subnetId
         self.charge = charge
         self.internalEndpoint = internalEndpoint
-        self.endpoint = endpoint
-        self.kibanaUrl = kibanaUrl
-        self.headUrl = headUrl
-        self.ipVersion = ipVersion
         self.tags = tags
         self.dedicatedMaster = dedicatedMaster
         self.coordinating = coordinating
-        self.kibanaFiUrl = kibanaFiUrl
+        self.warmnode = warmnode
+        self.tpaasExtension = tpaasExtension
+        self.taskStartTime = taskStartTime
+        self.taskProgress = taskProgress
+        self.taskStatus = taskStatus
+        self.taskTimeConsuming = taskTimeConsuming
+        self.isTaskTimeConsumeContinueIncrease = isTaskTimeConsumeContinueIncrease
+        self.taskErrorInfo = taskErrorInfo
+        self.archType = archType
+        self.extendInfo = extendInfo
+        self.scenarioTemplate = scenarioTemplate
+        self.appRelation = appRelation

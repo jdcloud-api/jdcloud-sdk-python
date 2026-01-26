@@ -19,43 +19,71 @@
 
 class InstanceClass(object):
 
-    def __init__(self, nodeClass=None, nodeCpu=None, nodeMemoryGB=None, nodeDiskGB=None, nodeDiskType=None, nodeCount=None, masterClass=None, masterCpu=None, masterMemoryGB=None, masterDiskGB=None, masterDiskType=None, masterCount=None, coordinatingClass=None, coordinatingCpu=None, coordinatingMemoryGB=None, coordinatingDiskGB=None, coordinatingDiskType=None, coordinatingCount=None):
+    def __init__(self, nodeClass=None, nodeCpu=None, nodeMemoryGB=None, nodeDiskEncrypt=None, nodeDiskGB=None, nodeDiskType=None, nodeCount=None, warmNodeClass=None, warmNodeCpu=None, warmNodeMemoryGB=None, warmNodeDiskEncrypt=None, warmNodeDiskGB=None, warmNodeDiskType=None, warmNodeCount=None, masterClass=None, masterCpu=None, masterMemoryGB=None, masterDiskEncrypt=None, masterDiskGB=None, masterDiskType=None, masterCount=None, coordinatingClass=None, coordinatingCpu=None, coordinatingMemoryGB=None, coordinatingDiskEncrypt=None, coordinatingDiskGB=None, coordinatingDiskType=None, coordinatingCount=None, kibanaCount=None, kibanaClass=None, kibanaCpu=None, kibanaMemoryGB=None):
         """
         :param nodeClass: (Optional) data节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
         :param nodeCpu: (Optional) data节点cpu核数
         :param nodeMemoryGB: (Optional) data节点内存单位GB
+        :param nodeDiskEncrypt: (Optional) data节点磁盘是否加密
         :param nodeDiskGB: (Optional) data节点存储大小单位GB
         :param nodeDiskType: (Optional) data节点存储类型
         :param nodeCount: (Optional) data节点数量
+        :param warmNodeClass: (Optional) warmdata节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
+        :param warmNodeCpu: (Optional) warmdata节点cpu核数
+        :param warmNodeMemoryGB: (Optional) warmdata节点内存单位GB
+        :param warmNodeDiskEncrypt: (Optional) warmdata节点磁盘是否加密
+        :param warmNodeDiskGB: (Optional) warmdata节点存储大小单位GB
+        :param warmNodeDiskType: (Optional) warmdata节点存储类型
+        :param warmNodeCount: (Optional) warmdata节点数量
         :param masterClass: (Optional) master节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
         :param masterCpu: (Optional) master节点cpu核数
         :param masterMemoryGB: (Optional) master节点内存单位GB
+        :param masterDiskEncrypt: (Optional) master节点磁盘是否加密
         :param masterDiskGB: (Optional) master节点存储大小单位GB
         :param masterDiskType: (Optional) master节点存储类型
         :param masterCount: (Optional) master节点数量
         :param coordinatingClass: (Optional) coordinating节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
         :param coordinatingCpu: (Optional) coordinating节点cpu核数
         :param coordinatingMemoryGB: (Optional) coordinating节点内存单位GB
+        :param coordinatingDiskEncrypt: (Optional) coordinating节点磁盘是否加密
         :param coordinatingDiskGB: (Optional) coordinating节点存储大小单位GB
         :param coordinatingDiskType: (Optional) coordinating节点存储类型
         :param coordinatingCount: (Optional) coordinating节点数量
+        :param kibanaCount: (Optional) kibana节点数量
+        :param kibanaClass: (Optional) kibana节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
+        :param kibanaCpu: (Optional) kibana节点规格代码节点cpu核数
+        :param kibanaMemoryGB: (Optional) kibana节点规格代码节点内存单位GB
         """
 
         self.nodeClass = nodeClass
         self.nodeCpu = nodeCpu
         self.nodeMemoryGB = nodeMemoryGB
+        self.nodeDiskEncrypt = nodeDiskEncrypt
         self.nodeDiskGB = nodeDiskGB
         self.nodeDiskType = nodeDiskType
         self.nodeCount = nodeCount
+        self.warmNodeClass = warmNodeClass
+        self.warmNodeCpu = warmNodeCpu
+        self.warmNodeMemoryGB = warmNodeMemoryGB
+        self.warmNodeDiskEncrypt = warmNodeDiskEncrypt
+        self.warmNodeDiskGB = warmNodeDiskGB
+        self.warmNodeDiskType = warmNodeDiskType
+        self.warmNodeCount = warmNodeCount
         self.masterClass = masterClass
         self.masterCpu = masterCpu
         self.masterMemoryGB = masterMemoryGB
+        self.masterDiskEncrypt = masterDiskEncrypt
         self.masterDiskGB = masterDiskGB
         self.masterDiskType = masterDiskType
         self.masterCount = masterCount
         self.coordinatingClass = coordinatingClass
         self.coordinatingCpu = coordinatingCpu
         self.coordinatingMemoryGB = coordinatingMemoryGB
+        self.coordinatingDiskEncrypt = coordinatingDiskEncrypt
         self.coordinatingDiskGB = coordinatingDiskGB
         self.coordinatingDiskType = coordinatingDiskType
         self.coordinatingCount = coordinatingCount
+        self.kibanaCount = kibanaCount
+        self.kibanaClass = kibanaClass
+        self.kibanaCpu = kibanaCpu
+        self.kibanaMemoryGB = kibanaMemoryGB

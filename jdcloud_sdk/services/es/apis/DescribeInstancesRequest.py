@@ -32,7 +32,7 @@ class DescribeInstancesRequest(JDCloudRequest):
 
 class DescribeInstancesParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: regionId
         """
@@ -42,6 +42,7 @@ class DescribeInstancesParameters(object):
         self.pageSize = None
         self.filters = None
         self.tagFilters = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -59,11 +60,12 @@ class DescribeInstancesParameters(object):
         """
         :param filters: (Optional) 过滤条件：
 instanceId -实例Id，精确匹配，支持多个
-instanceVersion -实例版本，精确匹配，支持单个
+instanceVersion -实例版本，模糊匹配，支持单个
 azId -azId，精确匹配，支持单个
 instanceName - 实例名称，模糊匹配，支持单个
-instanceStatus - 实例状态，精确匹配，支持多个(running：运行，error：错误，creating：创建中，changing：变配中，stop：已停止，processing：处理中)
+instanceStatus - 实例状态，精确匹配，支持多个(running：运行，error：错误，creating：创建中，changing：变配中，stop：已停止，backing：处理中，configuring：配置中)
 chargeMode - 计费类型，按配置postpaid_by_duration或者包年包月prepaid_by_duration
+clusterType - 集群类型,
 
         """
         self.filters = filters
@@ -73,4 +75,10 @@ chargeMode - 计费类型，按配置postpaid_by_duration或者包年包月prepa
         :param tagFilters: (Optional) 标签过滤条件
         """
         self.tagFilters = tagFilters
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组id列表
+        """
+        self.resourceGroupIds = resourceGroupIds
 

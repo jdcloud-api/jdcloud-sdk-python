@@ -19,13 +19,7 @@
 
 class Resource(object):
 
-    def __init__(self, resName=None, hostIp=None, ipPort=None):
+    def __init__(self, ):
         """
-        :param resName: (Optional) 资源名称，即节点名称
-        :param hostIp: (Optional) 节点宿主机IP
-        :param ipPort: (Optional) 节点IP及端口
         """
 
-        self.resName = resName
-        self.hostIp = hostIp
-        self.ipPort = ipPort

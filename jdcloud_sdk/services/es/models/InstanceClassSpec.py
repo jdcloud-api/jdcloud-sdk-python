@@ -19,31 +19,37 @@
 
 class InstanceClassSpec(object):
 
-    def __init__(self, nodeClass=None, nodeDiskGB=None, nodeDiskType=None, nodeCount=None, masterClass=None, masterDiskGB=None, masterDiskType=None, masterCount=None, coordinatingClass=None, coordinatingDiskGB=None, coordinatingDiskType=None, coordinatingCount=None):
+    def __init__(self, nodeClass=None, nodeDiskGB=None, nodeCount=None, warmNodeClass=None, warmNodeDiskGB=None, warmNodeDiskType=None, warmNodeCount=None, masterClass=None, masterDiskGB=None, masterCount=None, coordinatingClass=None, coordinatingDiskGB=None, coordinatingCount=None, kibanaCount=None, kibanaClass=None):
         """
         :param nodeClass: (Optional) data节点规格代码，详细规格请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
         :param nodeDiskGB: (Optional) data节点存储大小，单位GB。单点存储规格范围20-4000GB，只允许输入整数且步长为10GB，
-        :param nodeDiskType: (Optional) data节点存储类型，包括zbs(性能型SSD云盘)、ssd.gp1(通用型SSD云盘)、hdd.std1(容量型HDD云盘)，默认zbs
         :param nodeCount: (Optional) data节点数量，各region和可用区的节点数量规格限制不完全相同，详情请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/restrictions
+        :param warmNodeClass: (Optional) warmdata节点规格代码，详细规格请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
+        :param warmNodeDiskGB: (Optional) warmdata节点存储大小，单位GB。单点存储规格范围20-4000GB，只允许输入整数且步长为10GB，
+        :param warmNodeDiskType: (Optional) warmdata节点存储类型，ssd.gp1(通用型SSD云盘)、hdd.std1(容量型HDD云盘)
+        :param warmNodeCount: (Optional) warmdata节点数量，各region和可用区的warmnode节点数量规格限制不完全相同，详情请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/restrictions
         :param masterClass: (Optional) master节点规格代码，与data节点规格代码一致。
         :param masterDiskGB: (Optional) master节点存储大小，固定为20GB，不可调整
-        :param masterDiskType: (Optional) master节点存储类型，默认zbs
         :param masterCount: (Optional) master节点数量，固定为3，不可调整
         :param coordinatingClass: (Optional) coordinating节点规格代码，与data节点规格代码一致。
         :param coordinatingDiskGB: (Optional) coordinating节点存储大小，固定为20GB，不可调整
-        :param coordinatingDiskType: (Optional) coordinating存储类型，默认zbs
         :param coordinatingCount: (Optional) coordinating节点数量，各region和可用区的节点数量规格限制不完全相同，详情请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/restrictions
+        :param kibanaCount: (Optional) kibana节点数量
+        :param kibanaClass: (Optional) kibana节点规格代码，规格代码对照关系参见：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
         """
 
         self.nodeClass = nodeClass
         self.nodeDiskGB = nodeDiskGB
-        self.nodeDiskType = nodeDiskType
         self.nodeCount = nodeCount
+        self.warmNodeClass = warmNodeClass
+        self.warmNodeDiskGB = warmNodeDiskGB
+        self.warmNodeDiskType = warmNodeDiskType
+        self.warmNodeCount = warmNodeCount
         self.masterClass = masterClass
         self.masterDiskGB = masterDiskGB
-        self.masterDiskType = masterDiskType
         self.masterCount = masterCount
         self.coordinatingClass = coordinatingClass
         self.coordinatingDiskGB = coordinatingDiskGB
-        self.coordinatingDiskType = coordinatingDiskType
         self.coordinatingCount = coordinatingCount
+        self.kibanaCount = kibanaCount
+        self.kibanaClass = kibanaClass

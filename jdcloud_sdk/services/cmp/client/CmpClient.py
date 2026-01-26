@@ -26,4 +26,4 @@ class CmpClient(JDCloudClient):
         if config is None:
             config = Config('cmp.jdcloud-api.com')
 
-        super(CmpClient, self).__init__(credential, config, 'cmp', '0.2.1', logger)
+        super(CmpClient, self).__init__(credential, config, 'cmp', '0.2.2', logger)

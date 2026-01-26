@@ -19,16 +19,25 @@
 
 class IndexTemplateCronConf(object):
 
-    def __init__(self, templateName, beginTime, cycle, indexPrefix, indexSuffixFormat, aheadOfDay, isAutoDelete, reserveOfDay, ):
+    def __init__(self, templateName, beginTime, cycle, indexPrefix, indexSuffixFormat, aheadOfDay, isAutoDelete, reserveOfDay, isAutoSwitchToWarmdata, deleteWhitelist=None, warmdataDelayOfDay=None, warmdataWhitelist=None, isWarmdataZeroReplicas=None, isWarmdataReadonly=None, deleteRegexp=None, isZeroReplicas=None, zeroReplicasOfDay=None):
         """
         :param templateName:  索引模板名称
         :param beginTime:  任务起始执行时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
-        :param cycle:  任务执行频率, day： 每天，week： 每周，month：每月
-        :param indexPrefix:  索引前缀
-        :param indexSuffixFormat:  索引后缀格式, "yyyy-MM-dd", "yyyy.MM.dd", "yyyy_MM_dd", "yyyyMMdd", "yyyyww", "yyyy-MM", "yyyy.MM", "yyyy_MM", "yyyyMM"
+        :param cycle:  任务执行频率, day： 每天，month：每月，quarter：季度，halfyear：半年，year：年，fix：固定，week：周
+        :param indexPrefix:  索引前缀, 最大长度255
+        :param indexSuffixFormat:  索引后缀格式, "yyyy-MM-dd", "yyyy.MM.dd", "yyyy_MM_dd", "yyyyMMdd", "yyyy-MM", "yyyy.MM", "yyyy_MM", "yyyyMM", "yyyy"
         :param aheadOfDay:  提前创建索引天数
         :param isAutoDelete:  是否开启自动删除索引
         :param reserveOfDay:  索引保留天数, 开启自动删除索引后生效
+        :param deleteWhitelist: (Optional) 删除白名单，最多可以添加150个索引白名单
+        :param isAutoSwitchToWarmdata:  是否开启自动迁移索引到冷节点
+        :param warmdataDelayOfDay: (Optional) 冷数据转换(天)
+        :param warmdataWhitelist: (Optional) 冷节点索引白名单：不改为冷节点
+        :param isWarmdataZeroReplicas: (Optional) 迁移到冷节点后，索引是否为0副本
+        :param isWarmdataReadonly: (Optional) 迁移到冷节点后，索引是否只读
+        :param deleteRegexp: (Optional) 删除正则表达式
+        :param isZeroReplicas: (Optional) 是否0副本
+        :param zeroReplicasOfDay: (Optional) 0副本天数
         """
 
         self.templateName = templateName
@@ -39,3 +48,12 @@ class IndexTemplateCronConf(object):
         self.aheadOfDay = aheadOfDay
         self.isAutoDelete = isAutoDelete
         self.reserveOfDay = reserveOfDay
+        self.deleteWhitelist = deleteWhitelist
+        self.isAutoSwitchToWarmdata = isAutoSwitchToWarmdata
+        self.warmdataDelayOfDay = warmdataDelayOfDay
+        self.warmdataWhitelist = warmdataWhitelist
+        self.isWarmdataZeroReplicas = isWarmdataZeroReplicas
+        self.isWarmdataReadonly = isWarmdataReadonly
+        self.deleteRegexp = deleteRegexp
+        self.isZeroReplicas = isZeroReplicas
+        self.zeroReplicasOfDay = zeroReplicasOfDay

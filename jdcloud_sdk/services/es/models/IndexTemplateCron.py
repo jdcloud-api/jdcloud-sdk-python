@@ -19,13 +19,13 @@
 
 class IndexTemplateCron(object):
 
-    def __init__(self, taskID=None, createTime=None, settings=None):
+    def __init__(self, taskID=None, createdTime=None, settings=None):
         """
         :param taskID: (Optional) 任务ID
-        :param createTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param createdTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
         :param settings: (Optional) 任务配置信息
         """
 
         self.taskID = taskID
-        self.createTime = createTime
+        self.createdTime = createdTime
         self.settings = settings

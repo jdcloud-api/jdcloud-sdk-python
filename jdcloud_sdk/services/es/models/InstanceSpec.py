@@ -19,29 +19,37 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, vpcId, subnetId, instanceVersion, instanceName, azId, instanceClass, ipVersion=None, dedicatedMaster=None, coordinating=None, autoSnapshot=None, authConfig=None):
+    def __init__(self, vpcId, subnetId, instanceVersion, instanceName, azId, instanceClass, clusterType=None, dedicatedMaster=None, coordinating=None, warmnode=None, autoSnapshot=None, authConfig=None, userTags=None, tpaasExtension=None, extendInfo=None):
         """
         :param vpcId:  私有网络vpcId
         :param subnetId:  子网subnetId
-        :param instanceVersion:  es版本，当前支持5.6.9和6.5.4
+        :param clusterType: (Optional) 集群类型，根据es底层使用的存储类型区分。可选类型(通用存储型-general, 共享存储型-shared)。默认是general
+        :param instanceVersion:  es版本，当前支持5.6.9、6.5.4、6.7.0、7.5.2
         :param instanceName:  es集群名称，不可为空，只支持大小写字母、数字、英文下划线或者中划线，以字母开头且不能超过32位
         :param azId:  可用区，各可用区编码请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/restrictions
         :param instanceClass:  规格配置，规格代码请参考：https://docs.jdcloud.com/cn/jcs-for-elasticsearch/specifications
-        :param ipVersion: (Optional) 是否支持ipv6，支持值为v4&v6,不支持为空
         :param dedicatedMaster: (Optional) 是否包含专用主节点，默认false
         :param coordinating: (Optional) 是否包含协调节点，默认false
+        :param warmnode: (Optional) 是否包含warnnode，默认false
         :param autoSnapshot: (Optional) 自动快照设置。
         :param authConfig: (Optional) es数据面身份验证设置信息
+        :param userTags: (Optional) 用户普通标签
+        :param tpaasExtension: (Optional) tpaas环境的扩展参数
+        :param extendInfo: (Optional) es实例的扩展信息
         """
 
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.clusterType = clusterType
         self.instanceVersion = instanceVersion
         self.instanceName = instanceName
         self.azId = azId
         self.instanceClass = instanceClass
-        self.ipVersion = ipVersion
         self.dedicatedMaster = dedicatedMaster
         self.coordinating = coordinating
+        self.warmnode = warmnode
         self.autoSnapshot = autoSnapshot
         self.authConfig = authConfig
+        self.userTags = userTags
+        self.tpaasExtension = tpaasExtension
+        self.extendInfo = extendInfo

@@ -23,7 +23,7 @@ class DeleteInstanceRequest(JDCloudRequest):
     """
     删除按配置计费或包年包月已到期的es实例，包年包月未到期不可删除。
 状态为创建中和变配中的不可删除。
-
+ [MFA enabled]
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -34,12 +34,19 @@ class DeleteInstanceRequest(JDCloudRequest):
 
 class DeleteInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: regionId
-        :param instanceId: 实例ID
+        :param instanceId: 实例Id
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.reservedOfHour = None
+
+    def setReservedOfHour(self, reservedOfHour):
+        """
+        :param reservedOfHour: (Optional) 软删除保留时间
+        """
+        self.reservedOfHour = reservedOfHour
 

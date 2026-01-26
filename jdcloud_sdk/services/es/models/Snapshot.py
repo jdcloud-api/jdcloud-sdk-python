@@ -19,13 +19,18 @@
 
 class Snapshot(object):
 
-    def __init__(self, snapshotId=None, type=None, createTime=None, indices=None, status=None):
+    def __init__(self, snapshotId=None, type=None, createTime=None, indices=None, status=None, category=None, customSnapshotConfigId=None, progress=None, taskTimeConsuming=None, taskId=None):
         """
         :param snapshotId: (Optional) 快照ID
         :param type: (Optional) 快照类型，Auto：自动，Manual：人工
         :param createTime: (Optional) 创建时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
         :param indices: (Optional) 备份的索引
         :param status: (Optional) 快照状态，Available：可用，Unavailable：不可用，Creating：创建中
+        :param category: (Optional) 快照种类，精确匹配，支持单个(System:系统、Custom:自定义）默认：System
+        :param customSnapshotConfigId: (Optional) 自定义快照配置id
+        :param progress: (Optional) 快照进度（0～100），仅当快照状态为创建中、恢复中时返回
+        :param taskTimeConsuming: (Optional) task运行时长，仅当快照状态为创建中、恢复中时返回
+        :param taskId: (Optional) taskId，仅当快照状态为创建中、恢复中时返回
         """
 
         self.snapshotId = snapshotId
@@ -33,3 +38,8 @@ class Snapshot(object):
         self.createTime = createTime
         self.indices = indices
         self.status = status
+        self.category = category
+        self.customSnapshotConfigId = customSnapshotConfigId
+        self.progress = progress
+        self.taskTimeConsuming = taskTimeConsuming
+        self.taskId = taskId

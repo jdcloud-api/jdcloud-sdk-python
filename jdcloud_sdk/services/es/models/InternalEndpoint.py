@@ -19,13 +19,9 @@
 
 class InternalEndpoint(object):
 
-    def __init__(self, esHttpEndpoint=None, esTcpEndpoint=None, kibanaEndpoint=None):
+    def __init__(self, esHttpEndpoint=None):
         """
         :param esHttpEndpoint: (Optional) es http endpoint
-        :param esTcpEndpoint: (Optional) es tcp endpoint
-        :param kibanaEndpoint: (Optional) kibana endpoint
         """
 
         self.esHttpEndpoint = esHttpEndpoint
-        self.esTcpEndpoint = esTcpEndpoint
-        self.kibanaEndpoint = kibanaEndpoint

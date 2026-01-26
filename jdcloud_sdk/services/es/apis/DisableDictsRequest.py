@@ -32,7 +32,7 @@ class DisableDictsRequest(JDCloudRequest):
 
 class DisableDictsParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId):
         """
         :param regionId: regionId
         :param instanceId: 实例ID

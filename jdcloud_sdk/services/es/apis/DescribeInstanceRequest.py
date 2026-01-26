@@ -32,10 +32,10 @@ class DescribeInstanceRequest(JDCloudRequest):
 
 class DescribeInstanceParameters(object):
 
-    def __init__(self, regionId, instanceId, ):
+    def __init__(self,regionId, instanceId):
         """
         :param regionId: regionId
-        :param instanceId: 实例ID
+        :param instanceId: 实例Id
         """
 
         self.regionId = regionId

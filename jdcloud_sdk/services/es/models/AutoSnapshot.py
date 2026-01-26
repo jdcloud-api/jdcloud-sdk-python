@@ -19,11 +19,17 @@
 
 class AutoSnapshot(object):
 
-    def __init__(self, open=None, hour=None):
+    def __init__(self, open=None, hour=None, reservedOfDay=None, indices=None, category=None):
         """
         :param open: (Optional) 是否开启自动备份；true为开启，false为不开启
         :param hour: (Optional) 自动备份时间，0时区的小时数，[0，24）范围内取整
+        :param reservedOfDay: (Optional) 备份保存天数
+        :param indices: (Optional) 备份索引
+        :param category: (Optional) 快照种类，精确匹配，支持单个(System:系统、Custom:自定义）默认：System
         """
 
         self.open = open
         self.hour = hour
+        self.reservedOfDay = reservedOfDay
+        self.indices = indices
+        self.category = category

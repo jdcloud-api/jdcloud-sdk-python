@@ -26,4 +26,4 @@ class AisearchClient(JDCloudClient):
         if config is None:
             config = Config('aisearch.jdcloud-api.com')
 
-        super(AisearchClient, self).__init__(credential, config, 'aisearch', '0.2.0', logger)
+        super(AisearchClient, self).__init__(credential, config, 'aisearch', '2.0.0', logger)

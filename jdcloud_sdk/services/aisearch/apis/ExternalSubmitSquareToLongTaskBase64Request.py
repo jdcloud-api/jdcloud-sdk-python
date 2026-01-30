@@ -32,7 +32,7 @@ class ExternalSubmitSquareToLongTaskBase64Request(JDCloudRequest):
 
 class ExternalSubmitSquareToLongTaskBase64Parameters(object):
 
-    def __init__(self,apiKey, requestId, imageBase64):
+    def __init__(self,apiKey, requestId, imageBase64, ):
         """
         :param apiKey: api key编号
         :param requestId: 请求id，api key下唯一
@@ -42,4 +42,18 @@ class ExternalSubmitSquareToLongTaskBase64Parameters(object):
         self.apiKey = apiKey
         self.requestId = requestId
         self.imageBase64 = imageBase64
+        self.taskType = None
+        self.hwType = None
+
+    def setTaskType(self, taskType):
+        """
+        :param taskType: (Optional) 任务类型
+        """
+        self.taskType = taskType
+
+    def setHwType(self, hwType):
+        """
+        :param hwType: (Optional) 扩图类型:1-竖向扩图,2-横向扩图（仅对方转长无文字任务有效）
+        """
+        self.hwType = hwType
 

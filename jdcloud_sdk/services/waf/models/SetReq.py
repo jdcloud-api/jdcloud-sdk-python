@@ -19,7 +19,7 @@
 
 class SetReq(object):
 
-    def __init__(self, id, warnType, detectSpan, detectThreshold, ruleName=None, wafInstanceId=None, domains=None, unit=None, detectUnit=None, detectItems=None, contactWays=None, contactorPersons=None, contactorGroups=None, enable=None, glbDisable=None, usrDisable=None, ruleType=None, mode=None, userPinScdn=None):
+    def __init__(self, id, warnType, detectSpan, detectThreshold, ruleName=None, wafInstanceId=None, domains=None, unit=None, detectUnit=None, detectItems=None, contactWays=None, contactorPersons=None, contactorGroups=None, enable=None, glbDisable=None, usrDisable=None, ruleType=None, mode=None, userPinScdn=None, userPinExternal=None):
         """
         :param id:  规则id
         :param ruleName: (Optional) 规则名称
@@ -40,6 +40,7 @@ class SetReq(object):
         :param ruleType: (Optional) 全局告警globle 自定义告警userdefine ,默认是全局告警
         :param mode: (Optional) 产品类型, 0waf, 1scdn
         :param userPinScdn: (Optional) scdn用户名
+        :param userPinExternal: (Optional) 外部pin,目前仅供云鼎使用
         """
 
         self.id = id
@@ -61,3 +62,4 @@ class SetReq(object):
         self.ruleType = ruleType
         self.mode = mode
         self.userPinScdn = userPinScdn
+        self.userPinExternal = userPinExternal

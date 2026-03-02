@@ -28,9 +28,19 @@ class SetCcRuleReq(object):
         :param matchType: (Optional) 精确匹配0  前缀匹配1 包含匹配2 后缀匹配5
         :param detectPeriod:  检测周期，单位是秒，[30~600]
         :param singleIpLimit:  ip访问次数，[1~9999999]
-        :param blockType:  阻断类型 1:302跳转到指定页面 2:验证码 3:拦截返回自定义页面 4:js跳转 5:观察 6:重定向
+        :param blockType:  阻断类型
+拦截-302跳转到指定页面 1:redirect@
+人机交互-验证码(高) 2:verify@captcha
+拦截-返回自定义页面 3:forbidden@
+人机交互-JS挑战(中) 4:verify@jscookie
+观察 5:notice
+人机交互-重定向挑战(低) 6:verify@rdtcookie
+动态防护(仅cc安全防护支持) 7:auto
+拦截-返回自定义内容-200 8:status@200
+拦截-返回自定义内容-403 9:status@403
+
         :param blockTime:  block 持续时间，单位为分钟 [1~24*60]
-        :param redirection: (Optional) blockType 为3 时，为自定义页面名称，缺省为default
+        :param redirection: (Optional) blockType 为3/8/9 时，为自定义页面名称，缺省为default
         :param dimension: (Optional) cc 统计维度，ip或cookie
         :param dmvalue: (Optional) cookiename, 只有当 dimension 为 cookie 时才有效
         """

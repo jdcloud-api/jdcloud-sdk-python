@@ -19,7 +19,7 @@
 
 class LbConf(object):
 
-    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, sslModify=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, protocols, lbType, sslProtocols=None, rsConfig=None, pureClient=None, sslModify=None, httpsRedirect=None, rsOnlySupportHttp=None, httpsCertUpdateStatus=None, gmHttpsCertUpdateStatus=None, gmCertSupport=None, httpStatus=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, maxBodySize=None, disableHealthCheck=None, proxyConnectTimeout=None, sse=None):
         """
         :param protocols:  使用协议，["http","https"]
         :param sslProtocols: (Optional) ssl协议，eg:["TLSv1","TLSv1.1","TLSv1.2","SSLv2","SSLv3","TLSv1.3"]
@@ -41,6 +41,7 @@ class LbConf(object):
         :param maxBodySize: (Optional) 请求body最大值，默认300M，可为G/K
         :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
         :param proxyConnectTimeout: (Optional) 连接超时时间，3-60s
+        :param sse: (Optional) 是否支持SSE
         """
 
         self.protocols = protocols
@@ -63,3 +64,4 @@ class LbConf(object):
         self.maxBodySize = maxBodySize
         self.disableHealthCheck = disableHealthCheck
         self.proxyConnectTimeout = proxyConnectTimeout
+        self.sse = sse

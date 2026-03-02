@@ -52,8 +52,8 @@ class GetEsLogDetailParameters(object):
         self.action = None
         self.status = None
         self.logType = None
-        self.logId = None
         self.request_id = None
+        self.upstreamErr = None
         self.start = start
         self.end = end
         self.pageSize = pageSize
@@ -119,15 +119,15 @@ class GetEsLogDetailParameters(object):
         """
         self.logType = logType
 
-    def setLogId(self, logId):
-        """
-        :param logId: (Optional) 日志Id，检索字段
-        """
-        self.logId = logId
-
     def setRequest_id(self, request_id):
         """
         :param request_id: (Optional) 请求Id，检索字段
         """
         self.request_id = request_id
+
+    def setUpstreamErr(self, upstreamErr):
+        """
+        :param upstreamErr: (Optional) 状态标识，检索字段
+        """
+        self.upstreamErr = upstreamErr
 

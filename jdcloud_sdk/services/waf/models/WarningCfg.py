@@ -19,10 +19,9 @@
 
 class WarningCfg(object):
 
-    def __init__(self, id=None, userPin=None, wafInstanceId=None, domains=None, ruleType=None, ruleName=None, warnType=None, enable=None, detectSpan=None, detectThreshold=None, unit=None, detectUnit=None, contactWays=None, contactorPersons=None, contactorGroups=None, detectItems=None, mode=None, userPinScdn=None):
+    def __init__(self, id=None, wafInstanceId=None, domains=None, ruleType=None, ruleName=None, warnType=None, enable=None, detectSpan=None, detectThreshold=None, unit=None, detectUnit=None, contactWays=None, contactorPersons=None, contactorGroups=None, detectItems=None, mode=None, userPinScdn=None):
         """
         :param id: (Optional) 规则id
-        :param userPin: (Optional) 用户名
         :param wafInstanceId: (Optional) WAF实例id
         :param domains: (Optional) 域名集
         :param ruleType: (Optional) 全局告警globle 自定义告警userdefine
@@ -42,7 +41,6 @@ class WarningCfg(object):
         """
 
         self.id = id
-        self.userPin = userPin
         self.wafInstanceId = wafInstanceId
         self.domains = domains
         self.ruleType = ruleType

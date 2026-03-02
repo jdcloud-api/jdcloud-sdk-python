@@ -19,7 +19,7 @@
 
 class PageListCfg(object):
 
-    def __init__(self, id=None, wafInstanceId=None, domain=None, name=None, updateTime=None, content=None, checkStatus=None):
+    def __init__(self, id=None, wafInstanceId=None, domain=None, name=None, updateTime=None, content=None, contentType=None, checkStatus=None):
         """
         :param id: (Optional) 序号id
         :param wafInstanceId: (Optional) WAF实例id
@@ -27,6 +27,7 @@ class PageListCfg(object):
         :param name: (Optional) 自定义页面名称
         :param updateTime: (Optional) 规则更新时间，秒级时间戳
         :param content: (Optional) 内容
+        :param contentType: (Optional) Content-Type
         :param checkStatus: (Optional) 审核状态，0审核中，1通过，2未通过
         """
 
@@ -36,4 +37,5 @@ class PageListCfg(object):
         self.name = name
         self.updateTime = updateTime
         self.content = content
+        self.contentType = contentType
         self.checkStatus = checkStatus

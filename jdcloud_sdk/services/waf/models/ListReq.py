@@ -19,15 +19,17 @@
 
 class ListReq(object):
 
-    def __init__(self, id=None, ruleType=None, pageIndex=None, pageSize=None):
+    def __init__(self, id=None, ruleType=None, userPinExternal=None, pageIndex=None, pageSize=None):
         """
         :param id: (Optional) 指定规则id
         :param ruleType: (Optional) 全局告警globle 自定义告警userdefine ,默认是全局告警
+        :param userPinExternal: (Optional) 外部pin,目前仅供云鼎使用
         :param pageIndex: (Optional) 页码，[1-100]，默认是1
         :param pageSize: (Optional) 页大小，[1-100]，默认是10
         """
 
         self.id = id
         self.ruleType = ruleType
+        self.userPinExternal = userPinExternal
         self.pageIndex = pageIndex
         self.pageSize = pageSize

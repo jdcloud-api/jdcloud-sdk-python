@@ -26,13 +26,13 @@ class RiskRuleCfg(object):
         :param domain: (Optional) 域名
         :param name: (Optional) 规则名称
         :param uri: (Optional) uri 以/开头
-        :param action: (Optional) 匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
+        :param action: (Optional) 匹配动作, 拦截:forbidden,redirect,status@200,status@403 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
         :param methods: (Optional) 请求方法 支持 POST:1,GET:1,PUT:1
         :param sceneRef: (Optional) 场景 支持 account_login / account_register
         :param event: (Optional) 事件 支持 passwd:JSON_BODY.passwd,username:ARGS.username,session:ARGS_BODY.session
         :param disable: (Optional) 0-使用中 1-禁用
         :param updateTime: (Optional) 更新时间，s
-        :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
+        :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden/status时为自定义页面名称
         """
 
         self.id = id

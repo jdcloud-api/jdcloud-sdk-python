@@ -19,7 +19,7 @@
 
 class InstanceIdCfg(object):
 
-    def __init__(self, instanceId=None, nickName=None, packageType=None, region=None, sourceId=None, domainPackages=None, extraBitsLimit=None, startTime=None, releaseingTime=None, status=None, valid=None):
+    def __init__(self, instanceId=None, nickName=None, packageType=None, region=None, sourceId=None, domainPackages=None, extraBitsLimit=None, extraPackage=None, startTime=None, endTime=None, releaseingTime=None, expiringDays=None, status=None, valid=None, tag=None, vips=None):
         """
         :param instanceId: (Optional) 实例id
         :param nickName: (Optional) 实例id别称
@@ -28,10 +28,17 @@ class InstanceIdCfg(object):
         :param sourceId: (Optional) 资源ID，续费,标签用
         :param domainPackages: (Optional) 额外的域名扩展包
         :param extraBitsLimit: (Optional) 额外的qps扩展包，单位为M
+        :param extraPackage: (Optional) 防护扩展包
+0x00000002防护扩展包
+
         :param startTime: (Optional) 创建时间
+        :param endTime: (Optional) 到期时间
         :param releaseingTime: (Optional) 资源预计释放时间，仅过期且未释放时有效
+        :param expiringDays: (Optional) 距离到期时间的天数
         :param status: (Optional) 资源的计费状态，1-服务中，2-过期停服，3-过期释放
         :param valid: (Optional) 资源的可用状态，1-可用，其他不可用
+        :param tag: (Optional) 标签
+        :param vips: (Optional) vip信息
         """
 
         self.instanceId = instanceId
@@ -41,7 +48,12 @@ class InstanceIdCfg(object):
         self.sourceId = sourceId
         self.domainPackages = domainPackages
         self.extraBitsLimit = extraBitsLimit
+        self.extraPackage = extraPackage
         self.startTime = startTime
+        self.endTime = endTime
         self.releaseingTime = releaseingTime
+        self.expiringDays = expiringDays
         self.status = status
         self.valid = valid
+        self.tag = tag
+        self.vips = vips

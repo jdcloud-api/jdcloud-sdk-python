@@ -19,7 +19,7 @@
 
 class AddDomain(object):
 
-    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, domains=None, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, gmCertSupport=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None):
+    def __init__(self, wafInstanceId, domain, protocols, lbType, rsConfig, domains=None, sslProtocols=None, pureClient=None, httpsRedirect=None, rsOnlySupportHttp=None, gmCertSupport=None, httpVersion=None, enableKeepalive=None, suiteLevel=None, userSuiteLevel=None, enableUnderscores=None, disableHealthCheck=None, proxyConnectTimeout=None, sse=None):
         """
         :param wafInstanceId:  实例id，代表要设置的WAF实例
         :param domain:  域名，单个
@@ -39,6 +39,7 @@ class AddDomain(object):
         :param enableUnderscores: (Optional) 请求头是否支持下划线，0-否，1-是。缺省为0
         :param disableHealthCheck: (Optional) 禁用被动健康检查，缺省为0-否
         :param proxyConnectTimeout: (Optional) 连接超时时间，3-60s
+        :param sse: (Optional) 是否支持SSE
         """
 
         self.wafInstanceId = wafInstanceId
@@ -59,3 +60,4 @@ class AddDomain(object):
         self.enableUnderscores = enableUnderscores
         self.disableHealthCheck = disableHealthCheck
         self.proxyConnectTimeout = proxyConnectTimeout
+        self.sse = sse

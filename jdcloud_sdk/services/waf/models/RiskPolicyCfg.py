@@ -32,8 +32,8 @@ class RiskPolicyCfg(object):
         :param eventCode: (Optional) 事件编码
         :param logic: (Optional) 策略编排逻辑, 1&2&(3\|4)
         :param rules: (Optional) rules
-        :param action: (Optional) 匹配动作, 拦截:forbidden,redirect 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
-        :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden时为自定义页面名称
+        :param action: (Optional) 匹配动作, 拦截:forbidden,redirect,status@200,status@403 人机识别:verify@jscookie,verify@captcha,verify@rdtcookie 观察:notice
+        :param redirection: (Optional) 跳转地址，Action为redirect时必须为当前实例下的域名的url，forbidden/status时为自定义页面名称
         """
 
         self.id = id

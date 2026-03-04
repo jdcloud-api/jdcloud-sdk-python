@@ -116,7 +116,7 @@ class Signer(object):
                 if len(s) <= 0:
                     continue
                 list = []
-                for val in s.split('='， 1):
+                for val in s.split('=', 1):
                     list.append(self.__urlencode(self.__urldecode(val)))
                 params.append(list)
         elif isinstance(query, dict):

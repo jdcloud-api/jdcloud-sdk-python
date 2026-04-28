@@ -19,7 +19,7 @@
 
 class NetworkInterfaceSpec(object):
 
-    def __init__(self, subnetId, az=None, networkInterfaceName=None, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, securityGroups=None, sanityCheck=None, description=None, userTags=None, resourceGroupId=None):
+    def __init__(self, subnetId, az=None, networkInterfaceName=None, primaryIpAddress=None, secondaryIpAddresses=None, secondaryIpCount=None, secondaryIpSubnetId=None, securityGroups=None, sanityCheck=None, description=None, userTags=None, resourceGroupId=None, connectionTrackingConfiguration=None):
         """
         :param subnetId:  子网ID
         :param az: (Optional) 可用区，用户的默认可用区，该参数无效，不建议使用
@@ -27,11 +27,13 @@ class NetworkInterfaceSpec(object):
         :param primaryIpAddress: (Optional) 网卡主IP，如果不指定，会自动从子网中分配
         :param secondaryIpAddresses: (Optional) SecondaryIp列表
         :param secondaryIpCount: (Optional) 自动分配的SecondaryIp数量
+        :param secondaryIpSubnetId: (Optional) SecondaryIp所在子网ID，不传默认使用网卡所在子网里分配
         :param securityGroups: (Optional) 要绑定的安全组ID列表，最多指定5个安全组
         :param sanityCheck: (Optional) 源和目标IP地址校验，取值为0或者1,默认为1
         :param description: (Optional) 描述,​ 允许输入UTF-8编码下的全部字符，不超过256字符
         :param userTags: (Optional) 用户标签
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param connectionTrackingConfiguration: (Optional) 网卡连接超时时间设置
         """
 
         self.subnetId = subnetId
@@ -40,8 +42,10 @@ class NetworkInterfaceSpec(object):
         self.primaryIpAddress = primaryIpAddress
         self.secondaryIpAddresses = secondaryIpAddresses
         self.secondaryIpCount = secondaryIpCount
+        self.secondaryIpSubnetId = secondaryIpSubnetId
         self.securityGroups = securityGroups
         self.sanityCheck = sanityCheck
         self.description = description
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
+        self.connectionTrackingConfiguration = connectionTrackingConfiguration

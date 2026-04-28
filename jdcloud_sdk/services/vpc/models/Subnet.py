@@ -19,7 +19,7 @@
 
 class Subnet(object):
 
-    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, availableCidrIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, ipv6StartIp=None, ipv6EndIp=None, createdTime=None, subnetType=None, az=None, publicSubnet=None, tags=None, resourceGroupId=None):
+    def __init__(self, subnetId=None, subnetName=None, vpcId=None, addressPrefix=None, availableIpCount=None, availableCidrIpCount=None, ipMaskLen=None, description=None, routeTableId=None, aclId=None, startIp=None, endIp=None, ipv6StartIp=None, ipv6EndIp=None, createdTime=None, subnetType=None, az=None, publicSubnet=None, tags=None, resourceGroupId=None, type=None, hpcClusterId=None):
         """
         :param subnetId: (Optional) Subnet的Id
         :param subnetName: (Optional) 子网名称
@@ -41,6 +41,8 @@ class Subnet(object):
         :param publicSubnet: (Optional) 子网是否为外部子网（即子网路由表中存在下一跳为internet的路由或开启了eip优先访问）。true表示外部子网，false表示内部子网
         :param tags: (Optional) Tag信息
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param type: (Optional) 子网类型（hpc:智算,normal:普通）
+        :param hpcClusterId: (Optional) 子网所属hpc集群id
         """
 
         self.subnetId = subnetId
@@ -63,3 +65,5 @@ class Subnet(object):
         self.publicSubnet = publicSubnet
         self.tags = tags
         self.resourceGroupId = resourceGroupId
+        self.type = type
+        self.hpcClusterId = hpcClusterId

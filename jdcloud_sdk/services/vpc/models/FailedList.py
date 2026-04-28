@@ -19,11 +19,13 @@
 
 class FailedList(object):
 
-    def __init__(self, ipAddress=None, reason=None):
+    def __init__(self, ipAddress=None, reason=None, code=None):
         """
         :param ipAddress: (Optional) 失败ipaddress
         :param reason: (Optional) 失败原因
+        :param code: (Optional) 失败code码 422表示不在上云白名单；409表示找不到nat路由；404表示找不到ip的子网和acl；410表示nat路由已经不存在；411：表示acl规则添加冲突；500服务内部错误
         """
 
         self.ipAddress = ipAddress
         self.reason = reason
+        self.code = code

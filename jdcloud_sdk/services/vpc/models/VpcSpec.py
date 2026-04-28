@@ -19,13 +19,14 @@
 
 class VpcSpec(object):
 
-    def __init__(self, vpcName, addressPrefix=None, description=None, userTags=None, resourceGroupId=None):
+    def __init__(self, vpcName, addressPrefix=None, description=None, userTags=None, resourceGroupId=None, resourceTag=None):
         """
         :param vpcName:  私有网络名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param addressPrefix: (Optional) 如果为空，则不限制网段，如果不为空，10.0.0.0/8、172.16.0.0/12和192.168.0.0/16及它们包含的子网，且子网掩码长度为16-28之间
         :param description: (Optional) vpc描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         :param userTags: (Optional) 用户标签
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
         """
 
         self.vpcName = vpcName
@@ -33,3 +34,4 @@ class VpcSpec(object):
         self.description = description
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
+        self.resourceTag = resourceTag

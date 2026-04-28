@@ -68,6 +68,7 @@ azs - eip可用区，支持多个
 bandwidthPackageId - 共享带宽包ID，支持单个
 status - IP是否被绑定，取值：ASSOCIATED（被绑定）、NOT_ASSOCIATED（未被绑定）、ALL（全部）。支持单个
 providers = IP的provider信息，支持多个，可通过describeEdgeIpProviders接口获取
+resourceTag - 物理资源专区， 支持单个[JDStack]
 
         """
         self.filters = filters

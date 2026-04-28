@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateNetworkInterfaceRequest(JDCloudRequest):
     """
-    创建网卡接口，只能创建辅助网卡
+    创建网卡接口
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -45,12 +45,14 @@ class CreateNetworkInterfaceParameters(object):
         self.primaryIpAddress = None
         self.secondaryIpAddresses = None
         self.secondaryIpCount = None
+        self.secondaryIpSubnetId = None
         self.securityGroups = None
         self.sanityCheck = None
         self.description = None
         self.ipv6Addresses = None
         self.userTags = None
         self.resourceGroupId = None
+        self.connectionTrackingConfiguration = None
 
     def setAz(self, az):
         """
@@ -81,6 +83,12 @@ class CreateNetworkInterfaceParameters(object):
         :param secondaryIpCount: (Optional) 自动分配的SecondaryIp数量
         """
         self.secondaryIpCount = secondaryIpCount
+
+    def setSecondaryIpSubnetId(self, secondaryIpSubnetId):
+        """
+        :param secondaryIpSubnetId: (Optional) SecondaryIp所在子网ID，不传默认使用网卡所在子网里分配
+        """
+        self.secondaryIpSubnetId = secondaryIpSubnetId
 
     def setSecurityGroups(self, securityGroups):
         """
@@ -117,4 +125,10 @@ class CreateNetworkInterfaceParameters(object):
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
         self.resourceGroupId = resourceGroupId
+
+    def setConnectionTrackingConfiguration(self, connectionTrackingConfiguration):
+        """
+        :param connectionTrackingConfiguration: (Optional) 网卡连接超时时间设置
+        """
+        self.connectionTrackingConfiguration = connectionTrackingConfiguration
 

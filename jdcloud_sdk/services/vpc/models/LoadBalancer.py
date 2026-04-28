@@ -19,11 +19,15 @@
 
 class LoadBalancer(object):
 
-    def __init__(self, loadBalancerId=None, loadBalancerName=None):
+    def __init__(self, loadBalancerId=None, loadBalancerName=None, loadBalancerAz=None, loadBalancerAzType=None):
         """
         :param loadBalancerId: (Optional) loadBalancer的Id
         :param loadBalancerName: (Optional) loadBalancer的名称
+        :param loadBalancerAz: (Optional) loadBalancer所在的az，中心为""，边缘为对应az
+        :param loadBalancerAzType: (Optional) loadBalancer所在的az类型，中心为standard，边缘为edge
         """
 
         self.loadBalancerId = loadBalancerId
         self.loadBalancerName = loadBalancerName
+        self.loadBalancerAz = loadBalancerAz
+        self.loadBalancerAzType = loadBalancerAzType

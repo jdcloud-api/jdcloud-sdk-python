@@ -19,11 +19,15 @@
 
 class NatGateway(object):
 
-    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIps=None, createdTime=None, tags=None, resourceGroupId=None, routeTableIds=None):
+    def __init__(self, natGatewayId=None, natGatewayName=None, natGatewaySpec=None, networkType=None, state=None, description=None, natGatewayCharge=None, azs=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIps=None, natIps=None, createdTime=None, tags=None, resourceGroupId=None, routeTableIds=None):
         """
         :param natGatewayId: (Optional) NAT网关ID
         :param natGatewayName: (Optional) NAT网关名称
         :param natGatewaySpec: (Optional) NAT网关规格，取值small（100万并发连接数），medium（300万并发连接数），large（1000万并发连接数）
+        :param networkType: (Optional) NAT 网关类型，取值：
+- internet：公网 NAT 网关（默认值）。
+- intranet：VPC NAT 网关。
+
         :param state: (Optional) NAT网关的状态
         :param description: (Optional) NAT网关的描述信息
         :param natGatewayCharge: (Optional) NAT网关计费配置
@@ -32,6 +36,7 @@ class NatGateway(object):
         :param subnetId: (Optional) 子网ID
         :param privateIpAddress: (Optional) NAT网关私有IP地址
         :param elasticIps: (Optional) NAT网关公网IP
+        :param natIps: (Optional) NAT网关 NAT IP 列表
         :param createdTime: (Optional) NAT网关创建时间
         :param tags: (Optional) Tag信息
         :param resourceGroupId: (Optional) 资源所属资源组ID
@@ -41,6 +46,7 @@ class NatGateway(object):
         self.natGatewayId = natGatewayId
         self.natGatewayName = natGatewayName
         self.natGatewaySpec = natGatewaySpec
+        self.networkType = networkType
         self.state = state
         self.description = description
         self.natGatewayCharge = natGatewayCharge
@@ -49,6 +55,7 @@ class NatGateway(object):
         self.subnetId = subnetId
         self.privateIpAddress = privateIpAddress
         self.elasticIps = elasticIps
+        self.natIps = natIps
         self.createdTime = createdTime
         self.tags = tags
         self.resourceGroupId = resourceGroupId

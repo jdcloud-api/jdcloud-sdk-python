@@ -53,6 +53,8 @@ class CreateSubnetParameters(object):
         self.dryRun = None
         self.userTags = None
         self.resourceGroupId = None
+        self.type = None
+        self.hpcClusterId = None
 
     def setRouteTableId(self, routeTableId):
         """
@@ -107,4 +109,16 @@ class CreateSubnetParameters(object):
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
         self.resourceGroupId = resourceGroupId
+
+    def setType(self, type):
+        """
+        :param type: (Optional) 子网类型 hpc:智算,normal:普通(默认)
+        """
+        self.type = type
+
+    def setHpcClusterId(self, hpcClusterId):
+        """
+        :param hpcClusterId: (Optional) 子网所属hpc集群id（type=hpc必填）
+        """
+        self.hpcClusterId = hpcClusterId
 

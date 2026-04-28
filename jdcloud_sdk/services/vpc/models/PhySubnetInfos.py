@@ -19,9 +19,15 @@
 
 class PhySubnetInfos(object):
 
-    def __init__(self, subnetId=None):
+    def __init__(self, subnetId=None, name=None, clusterId=None, clusterName=None):
         """
         :param subnetId: (Optional) 子网Id
+        :param name: (Optional) 子网名字
+        :param clusterId: (Optional) 集群id
+        :param clusterName: (Optional) 集群名字
         """
 
         self.subnetId = subnetId
+        self.name = name
+        self.clusterId = clusterId
+        self.clusterName = clusterName

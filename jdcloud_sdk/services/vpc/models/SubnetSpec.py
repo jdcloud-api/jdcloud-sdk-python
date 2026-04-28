@@ -19,7 +19,7 @@
 
 class SubnetSpec(object):
 
-    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None, ipMaskLen=None, dryRun=None, userTags=None, resourceGroupId=None):
+    def __init__(self, vpcId, subnetName, addressPrefix, routeTableId=None, description=None, ipMaskLen=None, dryRun=None, userTags=None, resourceGroupId=None, type=None, hpcClusterId=None):
         """
         :param vpcId:  子网所属vpc的Id
         :param subnetName:  子网名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -30,6 +30,8 @@ class SubnetSpec(object):
         :param dryRun: (Optional) 是否只预检此次请求。true：不会创建子网，只会对参数进行校验；false：正常的创建请求。默认为false。
         :param userTags: (Optional) 用户标签
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param type: (Optional) 子网类型 hpc:智算,normal:普通(默认)
+        :param hpcClusterId: (Optional) 子网所属hpc集群id（type=hpc必填）
         """
 
         self.vpcId = vpcId
@@ -41,3 +43,5 @@ class SubnetSpec(object):
         self.dryRun = dryRun
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
+        self.type = type
+        self.hpcClusterId = hpcClusterId

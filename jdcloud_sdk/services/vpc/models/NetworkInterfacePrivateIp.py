@@ -19,13 +19,15 @@
 
 class NetworkInterfacePrivateIp(object):
 
-    def __init__(self, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None):
+    def __init__(self, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, subnetId=None):
         """
         :param privateIpAddress: (Optional) 私有IP的IPV4地址
         :param elasticIpId: (Optional) 弹性IP实例ID
         :param elasticIpAddress: (Optional) 弹性IP实例地址
+        :param subnetId: (Optional) ip所在子网ID
         """
 
         self.privateIpAddress = privateIpAddress
         self.elasticIpId = elasticIpId
         self.elasticIpAddress = elasticIpAddress
+        self.subnetId = subnetId

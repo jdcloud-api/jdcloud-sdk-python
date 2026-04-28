@@ -19,7 +19,7 @@
 
 class IpInfos(object):
 
-    def __init__(self, privateIpType=None, privateIpAddress=None, elasticIpAddress=None, elasticIpId=None, cidr=None, bindMode=None):
+    def __init__(self, privateIpType=None, privateIpAddress=None, elasticIpAddress=None, elasticIpId=None, cidr=None, bindMode=None, subnetId=None):
         """
         :param privateIpType: (Optional) 内网IP类型，主IP或辅IP
         :param privateIpAddress: (Optional) 内网IP地址
@@ -27,6 +27,7 @@ class IpInfos(object):
         :param elasticIpId: (Optional) 弹性IP实例ID
         :param cidr: (Optional) 网卡所分配的网段
         :param bindMode: (Optional) IP绑定模式，取值：STANDARD（标准模式，EIP绑定网卡后在OS中不可见）、EIP_VISIBLE（EIP网卡可见模式，EIP绑定网卡后在OS中可见）
+        :param subnetId: (Optional) 内网IP地址所在子网ID
         """
 
         self.privateIpType = privateIpType
@@ -35,3 +36,4 @@ class IpInfos(object):
         self.elasticIpId = elasticIpId
         self.cidr = cidr
         self.bindMode = bindMode
+        self.subnetId = subnetId

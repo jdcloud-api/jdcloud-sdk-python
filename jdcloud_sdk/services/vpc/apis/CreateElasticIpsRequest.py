@@ -48,6 +48,7 @@ class CreateElasticIpsParameters(object):
         self.userTags = None
         self.ipType = None
         self.resourceGroupId = None
+        self.resourceTag = None
         self.dryRun = None
 
     def setElasticIpName(self, elasticIpName):
@@ -85,6 +86,12 @@ class CreateElasticIpsParameters(object):
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
         self.resourceGroupId = resourceGroupId
+
+    def setResourceTag(self, resourceTag):
+        """
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
+        """
+        self.resourceTag = resourceTag
 
     def setDryRun(self, dryRun):
         """

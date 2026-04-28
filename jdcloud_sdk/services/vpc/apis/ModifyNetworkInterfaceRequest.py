@@ -44,6 +44,7 @@ class ModifyNetworkInterfaceParameters(object):
         self.description = None
         self.securityGroups = None
         self.macAddress = None
+        self.connectionTrackingConfiguration = None
 
     def setNetworkInterfaceName(self, networkInterfaceName):
         """
@@ -68,4 +69,10 @@ class ModifyNetworkInterfaceParameters(object):
         :param macAddress: (Optional) 弹性网卡mac地址，不超过32字符
         """
         self.macAddress = macAddress
+
+    def setConnectionTrackingConfiguration(self, connectionTrackingConfiguration):
+        """
+        :param connectionTrackingConfiguration: (Optional) 网卡连接超时时间设置
+        """
+        self.connectionTrackingConfiguration = connectionTrackingConfiguration
 

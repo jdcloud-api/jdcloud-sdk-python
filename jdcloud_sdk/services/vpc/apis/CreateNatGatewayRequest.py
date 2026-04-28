@@ -43,6 +43,7 @@ class CreateNatGatewayParameters(object):
         self.regionId = regionId
         self.natGatewayName = natGatewayName
         self.natGatewaySpec = None
+        self.networkType = None
         self.vpcId = vpcId
         self.subnetId = subnetId
         self.azIpSpecs = None
@@ -54,12 +55,22 @@ class CreateNatGatewayParameters(object):
         self.description = None
         self.userTags = None
         self.resourceGroupId = None
+        self.resourceTag = None
 
     def setNatGatewaySpec(self, natGatewaySpec):
         """
         :param natGatewaySpec: (Optional) NAT网关规格，取值small（100万并发连接数），medium（300万并发连接数），large（1000万并发连接数），默认small
         """
         self.natGatewaySpec = natGatewaySpec
+
+    def setNetworkType(self, networkType):
+        """
+        :param networkType: (Optional) 创建的 NAT 网关类型，可不填，取值：
+- internet：公网 NAT 网关（默认值/不填时默认值）。
+- intranet：VPC NAT 网关。
+
+        """
+        self.networkType = networkType
 
     def setAzIpSpecs(self, azIpSpecs):
         """
@@ -69,7 +80,7 @@ class CreateNatGatewayParameters(object):
 
     def setAzs(self, azs):
         """
-        :param azs: (Optional) NAT网关可用区
+        :param azs: (Optional) NAT网关可用区，目前仅支持单个可用区（例如 ["cn-north-1a"]）
         """
         self.azs = azs
 
@@ -93,7 +104,7 @@ class CreateNatGatewayParameters(object):
 
     def setNatGatewayCharge(self, natGatewayCharge):
         """
-        :param natGatewayCharge: (Optional) 计费配置，仅支持按配置，默认按配置
+        :param natGatewayCharge: (Optional) 计费配置，公网 NAT 仅支持按配置，VPC NAT 仅支持按用量，默认按配置
         """
         self.natGatewayCharge = natGatewayCharge
 
@@ -114,4 +125,10 @@ class CreateNatGatewayParameters(object):
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
         self.resourceGroupId = resourceGroupId
+
+    def setResourceTag(self, resourceTag):
+        """
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
+        """
+        self.resourceTag = resourceTag
 

@@ -44,6 +44,7 @@ class CreateVpcParameters(object):
         self.description = None
         self.userTags = None
         self.resourceGroupId = None
+        self.resourceTag = None
 
     def setAddressPrefix(self, addressPrefix):
         """
@@ -68,4 +69,10 @@ class CreateVpcParameters(object):
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
         self.resourceGroupId = resourceGroupId
+
+    def setResourceTag(self, resourceTag):
+        """
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
+        """
+        self.resourceTag = resourceTag
 

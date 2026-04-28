@@ -19,14 +19,18 @@
 
 class SnatRule(object):
 
-    def __init__(self, sourceCidr, snatRuleId=None, description=None, snatElasticIpAddresses=None, subnetId=None, snatRuleStatus=None, snatRuleType=None, createdTime=None, updatedTime=None):
+    def __init__(self, sourceCidr, snatRuleId=None, description=None, snatElasticIpAddresses=None, snatIpAddresses=None, subnetId=None, snatRuleStatus=None, intelliDstISP=None, ipAffinity=None, snatRuleType=None, createdTime=None, updatedTime=None):
         """
         :param snatRuleId: (Optional) SNAT 规则ID
         :param description: (Optional) SNAT 规则描述
-        :param snatElasticIpAddresses: (Optional) SNAT规则的公网IP地址
+        :param snatElasticIpAddresses: (Optional) SNAT规则的公网IP地址[废弃，请使用snatIpAddresses]
+        :param snatIpAddresses: (Optional) NAT 网关 SNAT 规则时的 NAT IP 地址（兼容 EIP 或 NAT IP）
+
         :param sourceCidr:  SNAT 规则的源网段，如子网或云主机实例的网段
         :param subnetId: (Optional) 如果匹配上子网，输出该sourceCidr对应的子网
-        :param snatRuleStatus: (Optional) SNAT 规则状态（ ENALBE - 启用； DISABLE - 禁用）
+        :param snatRuleStatus: (Optional) SNAT 规则状态（ ENABLE - 启用； DISABLE - 禁用）
+        :param intelliDstISP: (Optional) 按照运营商智能调度出口ip（ENABLE - 启用； DISABLE - 禁用）
+        :param ipAffinity: (Optional) 出口ip保持（ENABLE - 启用； DISABLE - 禁用）
         :param snatRuleType: (Optional) SNAT 规则类型（ SYSTEM - 系统创建的； USER - 用户自定义的）
         :param createdTime: (Optional) 创建时间，时间格式为UTC
         :param updatedTime: (Optional) 修改时间，时间格式为UTC
@@ -35,9 +39,12 @@ class SnatRule(object):
         self.snatRuleId = snatRuleId
         self.description = description
         self.snatElasticIpAddresses = snatElasticIpAddresses
+        self.snatIpAddresses = snatIpAddresses
         self.sourceCidr = sourceCidr
         self.subnetId = subnetId
         self.snatRuleStatus = snatRuleStatus
+        self.intelliDstISP = intelliDstISP
+        self.ipAffinity = ipAffinity
         self.snatRuleType = snatRuleType
         self.createdTime = createdTime
         self.updatedTime = updatedTime

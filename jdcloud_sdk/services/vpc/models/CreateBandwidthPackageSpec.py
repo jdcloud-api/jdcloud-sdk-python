@@ -19,7 +19,7 @@
 
 class CreateBandwidthPackageSpec(object):
 
-    def __init__(self, name, bandwidthMbps, description=None, chargeType=None, provider=None, chargeSpec=None, userTags=None, resourceGroupId=None):
+    def __init__(self, name, bandwidthMbps, description=None, chargeType=None, provider=None, bandwidthPackageType=None, chargeSpec=None, userTags=None, resourceGroupId=None):
         """
         :param name:  名称，只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且长度不超过32个字符
         :param description: (Optional) 描述，长度不超过256个字符
@@ -30,6 +30,7 @@ chargeMode=postpaid_by_usage，范围支持200～5000
 
         :param chargeType: (Optional) 按用量计费类型，当chargeSpec为按用量时有效，0代表按增强95，1代表按95消峰，2代表按主流量计费，缺省不填写时为增强95
         :param provider: (Optional) 线路信息，默认bgp，可以通过describeUserProviders接口获取
+        :param bandwidthPackageType: (Optional) 共享带宽包类型，取值：standard(标准带宽包)，edge(边缘带宽包)，默认取值为standard，需与 provider 的 providerType 一致
         :param chargeSpec: (Optional) 计费配置。支持包年包月、按配置、按用量计费模式
         :param userTags: (Optional) 用户标签
         :param resourceGroupId: (Optional) 资源所属资源组ID
@@ -40,6 +41,7 @@ chargeMode=postpaid_by_usage，范围支持200～5000
         self.bandwidthMbps = bandwidthMbps
         self.chargeType = chargeType
         self.provider = provider
+        self.bandwidthPackageType = bandwidthPackageType
         self.chargeSpec = chargeSpec
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId

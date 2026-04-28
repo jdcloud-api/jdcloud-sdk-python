@@ -62,6 +62,7 @@ class DescribeVpcsParameters(object):
 vpcNames - vpc名称列表,支持多个
 azType - VPC az类型，取值：all(全部类型)，standard(标准VPC)，edge(边缘VPC)，默认all，支持单个
 azs - 可用区，支持多个
+resourceTag - 物理资源专区，支持单个[JDStack]
 
         """
         self.filters = filters

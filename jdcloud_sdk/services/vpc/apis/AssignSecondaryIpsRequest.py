@@ -45,6 +45,7 @@ class AssignSecondaryIpsParameters(object):
         self.secondaryIpCount = None
         self.secondaryIpMaskLen = None
         self.secondaryIpAddress = None
+        self.secondaryIpSubnetId = None
 
     def setForce(self, force):
         """
@@ -75,4 +76,10 @@ class AssignSecondaryIpsParameters(object):
         :param secondaryIpAddress: (Optional) 指定分配的网段中第一个secondaryIp地址，不能与secondaryIpCount或secondaryIps同时指定，secondaryIpAddress与secondaryIpMaskLen需要保持一致，否则无法创建
         """
         self.secondaryIpAddress = secondaryIpAddress
+
+    def setSecondaryIpSubnetId(self, secondaryIpSubnetId):
+        """
+        :param secondaryIpSubnetId: (Optional) SecondaryIp所在子网ID，不传默认使用网卡所在子网里分配
+        """
+        self.secondaryIpSubnetId = secondaryIpSubnetId
 

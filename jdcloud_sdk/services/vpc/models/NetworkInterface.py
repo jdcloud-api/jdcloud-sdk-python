@@ -19,7 +19,7 @@
 
 class NetworkInterface(object):
 
-    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, azType=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, secondaryCidrs=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None, tags=None, resourceGroupId=None):
+    def __init__(self, networkInterfaceName=None, networkInterfaceId=None, azType=None, az=None, role=None, macAddress=None, vpcId=None, subnetId=None, networkSecurityGroupIds=None, sanityCheck=None, primaryIp=None, secondaryIps=None, secondaryCidrs=None, secondaryCidrsEx=None, instanceType=None, instanceId=None, instanceOwnerId=None, deviceIndex=None, description=None, attachmentStatus=None, networkInterfaceStatus=None, createdTime=None, tags=None, resourceGroupId=None, connectionTrackingConfiguration=None):
         """
         :param networkInterfaceName: (Optional) 弹性网卡名称
         :param networkInterfaceId: (Optional) 弹性网卡ID
@@ -34,7 +34,8 @@ class NetworkInterface(object):
         :param primaryIp: (Optional) 网卡主IP
         :param secondaryIps: (Optional) 网卡附属IP列表
         :param secondaryCidrs: (Optional) 网卡附属IP网段
-        :param instanceType: (Optional) 关联实例类型，取值范围：vm
+        :param secondaryCidrsEx: (Optional) 网卡附属IP网段
+        :param instanceType: (Optional) 关联实例类型，取值范围：compute、lb、container、pod
         :param instanceId: (Optional) 关联实例ID
         :param instanceOwnerId: (Optional) 实例所属的账号
         :param deviceIndex: (Optional) 网卡在实例上的设备索引号，取值范围：[0,8]，0：辅助网卡未绑定设备，1：主网卡，2-8：辅助网卡已绑定设备
@@ -44,6 +45,7 @@ class NetworkInterface(object):
         :param createdTime: (Optional) 弹性网卡创建时间
         :param tags: (Optional) Tag信息
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param connectionTrackingConfiguration: (Optional) 弹性网卡的连接超时时间配置
         """
 
         self.networkInterfaceName = networkInterfaceName
@@ -59,6 +61,7 @@ class NetworkInterface(object):
         self.primaryIp = primaryIp
         self.secondaryIps = secondaryIps
         self.secondaryCidrs = secondaryCidrs
+        self.secondaryCidrsEx = secondaryCidrsEx
         self.instanceType = instanceType
         self.instanceId = instanceId
         self.instanceOwnerId = instanceOwnerId
@@ -69,3 +72,4 @@ class NetworkInterface(object):
         self.createdTime = createdTime
         self.tags = tags
         self.resourceGroupId = resourceGroupId
+        self.connectionTrackingConfiguration = connectionTrackingConfiguration

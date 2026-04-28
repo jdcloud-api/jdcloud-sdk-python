@@ -60,6 +60,10 @@ class DescribeRouteTableRulesParameters(object):
         """
         :param filters: (Optional) ruleIds - 路由表 rule ID列表，支持多个
 origins - 路由表 origin列表，支持多个(static,propagated)
+nextHopTypes - 下一跳类型精确，支持多个(instance,internet,vpc_peering,bgw,natgw,elastic_network_interface,havip,local)
+addressPrefix - 支持根据目的模糊/精确查询（单个）[填写多个默认取第一个]
+description - 备注模糊/精确查询（单个）[填写多个默认取第一个]
+nextHopId -下一跳实例ID精确查询（单个）[填写多个默认取第一个]
 
         """
         self.filters = filters

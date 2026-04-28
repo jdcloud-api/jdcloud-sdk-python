@@ -19,13 +19,14 @@
 
 class EdgeIpProvider(object):
 
-    def __init__(self, provider=None, pointOfAccess=None, associationScope=None, serviceType=None, az=None):
+    def __init__(self, provider=None, pointOfAccess=None, associationScope=None, serviceType=None, az=None, productCodes=None):
         """
         :param provider: (Optional) 边缘公网IP的线路
         :param pointOfAccess: (Optional) 边缘公网IP的线路接入区
         :param associationScope: (Optional) 边缘公网IP的资源关联范围
         :param serviceType: (Optional) 边缘公网IP的服务类型
         :param az: (Optional) 边缘公网IP的可用区
+        :param productCodes: (Optional) 产品编码。 支持:IP(弹性公网IP), BWP(共享带宽包), IPAP(公网IP地址池)
         """
 
         self.provider = provider
@@ -33,3 +34,4 @@ class EdgeIpProvider(object):
         self.associationScope = associationScope
         self.serviceType = serviceType
         self.az = az
+        self.productCodes = productCodes

@@ -19,13 +19,14 @@
 
 class AssignSecondaryIpsSpec(object):
 
-    def __init__(self, force=None, secondaryIps=None, secondaryIpCount=None, secondaryIpMaskLen=None, secondaryIpAddress=None):
+    def __init__(self, force=None, secondaryIps=None, secondaryIpCount=None, secondaryIpMaskLen=None, secondaryIpAddress=None, secondaryIpSubnetId=None):
         """
         :param force: (Optional) secondary ip被其他接口占用时，是否抢占。false：非抢占重分配，true：抢占重分配；按网段分配时，默认非抢占重分配，指定IP或者个数时，默认抢占重分配。
         :param secondaryIps: (Optional) 指定分配的secondaryIp地址
         :param secondaryIpCount: (Optional) 指定自动分配的secondaryIp个数
         :param secondaryIpMaskLen: (Optional) 指定分配的网段掩码长度, 支持24-28位掩码长度，不能与secondaryIpCount或secondaryIps同时指定，不支持抢占重分配
         :param secondaryIpAddress: (Optional) 指定分配的网段中第一个secondaryIp地址，不能与secondaryIpCount或secondaryIps同时指定，secondaryIpAddress与secondaryIpMaskLen需要保持一致，否则无法创建
+        :param secondaryIpSubnetId: (Optional) SecondaryIp所在子网ID，不传默认使用网卡所在子网里分配
         """
 
         self.force = force
@@ -33,3 +34,4 @@ class AssignSecondaryIpsSpec(object):
         self.secondaryIpCount = secondaryIpCount
         self.secondaryIpMaskLen = secondaryIpMaskLen
         self.secondaryIpAddress = secondaryIpAddress
+        self.secondaryIpSubnetId = secondaryIpSubnetId

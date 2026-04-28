@@ -19,7 +19,7 @@
 
 class CreateElasticIpSpec(object):
 
-    def __init__(self, maxCount, elasticIpSpec, elasticIpName=None, elasticIpAddress=None, elasticIpPoolId=None, userTags=None, ipType=None, resourceGroupId=None, dryRun=None):
+    def __init__(self, maxCount, elasticIpSpec, elasticIpName=None, elasticIpAddress=None, elasticIpPoolId=None, userTags=None, ipType=None, resourceGroupId=None, resourceTag=None, dryRun=None):
         """
         :param maxCount:  购买弹性ip数量；取值范围：[1,100]
         :param elasticIpName: (Optional) 弹性公网ip的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不超过32字符。
@@ -29,6 +29,7 @@ class CreateElasticIpSpec(object):
         :param userTags: (Optional) 用户标签
         :param ipType: (Optional) 弹性ip类型，取值：standard(标准公网IP)，edge(边缘公网IP)，默认为standard
         :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
         :param dryRun: (Optional) 预检标识，默认false，dryRun为true时只作检查，不做变更
         """
 
@@ -40,4 +41,5 @@ class CreateElasticIpSpec(object):
         self.userTags = userTags
         self.ipType = ipType
         self.resourceGroupId = resourceGroupId
+        self.resourceTag = resourceTag
         self.dryRun = dryRun

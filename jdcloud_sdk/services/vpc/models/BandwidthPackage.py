@@ -19,7 +19,7 @@
 
 class BandwidthPackage(object):
 
-    def __init__(self, bandwidthPackageId=None, bandwidthPackageName=None, description=None, bandwidthMbps=None, provider=None, providerNameCN=None, charge=None, createdTime=None, publicIps=None, ipCount=None, guaranteedRatio=None, guaranteedBandwidth=None, adminStatus=None, tags=None, resourceGroupId=None):
+    def __init__(self, bandwidthPackageId=None, bandwidthPackageName=None, description=None, bandwidthMbps=None, provider=None, providerNameCN=None, charge=None, createdTime=None, publicIps=None, ipCount=None, guaranteedRatio=None, guaranteedBandwidth=None, adminStatus=None, az=None, bandwidthPackageType=None, tags=None, resourceGroupId=None):
         """
         :param bandwidthPackageId: (Optional) 共享带宽包ID
         :param bandwidthPackageName: (Optional) 名称
@@ -34,6 +34,8 @@ class BandwidthPackage(object):
         :param guaranteedRatio: (Optional) 按用量计费模式的保底带宽百分比，-1代表无效值 ，目前保底带宽百分比为20%
         :param guaranteedBandwidth: (Optional) 按用量计费模式的保底带宽，-1代表无效值，保底带宽 = 共享带宽包带宽上限 * 20%
         :param adminStatus: (Optional) 是否欠费停服，UP正常，DOWN停服，PROCESSING处理中
+        :param az: (Optional) 带宽包的可用区属性，如果为空，表示全部中心可用区
+        :param bandwidthPackageType: (Optional) 共享带宽包类型，取值：standard(标准共享带宽包)，edge(边缘共享带宽包)
         :param tags: (Optional) Tag信息
         :param resourceGroupId: (Optional) 资源所属资源组ID
         """
@@ -51,5 +53,7 @@ class BandwidthPackage(object):
         self.guaranteedRatio = guaranteedRatio
         self.guaranteedBandwidth = guaranteedBandwidth
         self.adminStatus = adminStatus
+        self.az = az
+        self.bandwidthPackageType = bandwidthPackageType
         self.tags = tags
         self.resourceGroupId = resourceGroupId

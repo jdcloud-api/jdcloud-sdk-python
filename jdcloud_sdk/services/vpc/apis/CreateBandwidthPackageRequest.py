@@ -60,6 +60,7 @@ chargeMode=postpaid_by_usage，范围支持200～5000
         self.bandwidthMbps = bandwidthMbps
         self.chargeType = None
         self.provider = None
+        self.bandwidthPackageType = None
         self.chargeSpec = None
         self.userTags = None
         self.resourceGroupId = None
@@ -81,6 +82,12 @@ chargeMode=postpaid_by_usage，范围支持200～5000
         :param provider: (Optional) 线路信息，默认bgp，可以通过describeUserProviders接口获取
         """
         self.provider = provider
+
+    def setBandwidthPackageType(self, bandwidthPackageType):
+        """
+        :param bandwidthPackageType: (Optional) 共享带宽包类型，取值：standard(标准带宽包)，edge(边缘带宽包)，默认取值为standard，需与 provider 的 providerType 一致
+        """
+        self.bandwidthPackageType = bandwidthPackageType
 
     def setChargeSpec(self, chargeSpec):
         """

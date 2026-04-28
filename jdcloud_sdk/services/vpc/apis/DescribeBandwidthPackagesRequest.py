@@ -74,6 +74,8 @@ class DescribeBandwidthPackagesParameters(object):
         """
         :param filters: (Optional) bwpIds - 共享带宽包ID，支持多个进行精确搜索
 name - 共享带宽包名称，支持单个进行精确搜索
+bandwidthPackageType - 共享带宽包类型，standard(中心)，edge(边缘)，支持单个进行精确搜索，默认查询全部
+azs - 带宽包的边缘可用区，支持多个进行精确搜索
 
         """
         self.filters = filters

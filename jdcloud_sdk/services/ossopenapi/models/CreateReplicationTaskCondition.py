@@ -19,13 +19,20 @@
 
 class CreateReplicationTaskCondition(object):
 
-    def __init__(self, action, bucketName, bucketRegion, targetBucketName, targetBucketRegion, storageClass, prefixSet=None):
+    def __init__(self, action, bucketName, bucketRegion, targetBucketName, targetBucketRegion, storageClass, sourceBucketCloud=None, targetBucketCloudEndpoint=None, targetBucketCloudAk=None, targetBucketCloudSk=None, targetBucketUserPin=None, targetBucketUserId=None, targetBucketCloud=None, prefixSet=None):
         """
         :param action:  是否覆盖
         :param bucketName:  bucket名称
         :param bucketRegion:  bucket所属区域
         :param targetBucketName:  目标bucket名称
         :param targetBucketRegion:  目标bucket所属区域
+        :param sourceBucketCloud: (Optional) 源bucket云名称，JDStack跨云同步使用
+        :param targetBucketCloudEndpoint: (Optional) 目标bucket云endpoint，JDStack跨云同步使用
+        :param targetBucketCloudAk: (Optional) 目标bucket云代理密钥Ak，JDStack跨云同步使用
+        :param targetBucketCloudSk: (Optional) 目标bucket云代理密钥Sk，JDStack跨云同步使用
+        :param targetBucketUserPin: (Optional) 目标bucket用户Pin，JDStack跨云同步使用
+        :param targetBucketUserId: (Optional) 目标bucket用户Id，JDStack跨云同步使用
+        :param targetBucketCloud: (Optional) 目标bucket云名称，JDStack跨云同步使用
         :param storageClass:  存储类型
         :param prefixSet: (Optional) 
         """
@@ -35,5 +42,12 @@ class CreateReplicationTaskCondition(object):
         self.bucketRegion = bucketRegion
         self.targetBucketName = targetBucketName
         self.targetBucketRegion = targetBucketRegion
+        self.sourceBucketCloud = sourceBucketCloud
+        self.targetBucketCloudEndpoint = targetBucketCloudEndpoint
+        self.targetBucketCloudAk = targetBucketCloudAk
+        self.targetBucketCloudSk = targetBucketCloudSk
+        self.targetBucketUserPin = targetBucketUserPin
+        self.targetBucketUserId = targetBucketUserId
+        self.targetBucketCloud = targetBucketCloud
         self.storageClass = storageClass
         self.prefixSet = prefixSet

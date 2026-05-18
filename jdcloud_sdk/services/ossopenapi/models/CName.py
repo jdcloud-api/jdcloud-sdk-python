@@ -19,7 +19,7 @@
 
 class CName(object):
 
-    def __init__(self, id=None, pin=None, originDomain=None, cname=None, status=None, bucketName=None, isCName=None, createTime=None, protoType=None):
+    def __init__(self, id=None, pin=None, originDomain=None, cname=None, status=None, bucketName=None, isCName=None, createTime=None, protoType=None, certId=None, certStatus=None, domainOperationStatus=None):
         """
         :param id: (Optional) 自定义域名id
         :param pin: (Optional) 用户pin
@@ -30,6 +30,9 @@ class CName(object):
         :param isCName: (Optional) cname是否成功，1：已解析；0:未解析
         :param createTime: (Optional) 创建时间
         :param protoType: (Optional) http版本，0：http，1：https
+        :param certId: (Optional) 证书ID
+        :param certStatus: (Optional) 证书状态
+        :param domainOperationStatus: (Optional) 域名操作状态
         """
 
         self.id = id
@@ -41,3 +44,6 @@ class CName(object):
         self.isCName = isCName
         self.createTime = createTime
         self.protoType = protoType
+        self.certId = certId
+        self.certStatus = certStatus
+        self.domainOperationStatus = domainOperationStatus

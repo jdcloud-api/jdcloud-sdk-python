@@ -19,15 +19,17 @@
 
 class CNameInfo(object):
 
-    def __init__(self, cname, endPoint, protoType=None, internal=None):
+    def __init__(self, cname, endPoint, protoType=None, internal=None, certId=None):
         """
         :param cname:  自定义域名
         :param protoType: (Optional) http版本，0：http，1：https
         :param endPoint:  域名
         :param internal: (Optional) 是否拦截内部域名添，任意值跳过拦截
+        :param certId: (Optional) 证书ID，添加域名时可同时绑定证书
         """
 
         self.cname = cname
         self.protoType = protoType
         self.endPoint = endPoint
         self.internal = internal
+        self.certId = certId

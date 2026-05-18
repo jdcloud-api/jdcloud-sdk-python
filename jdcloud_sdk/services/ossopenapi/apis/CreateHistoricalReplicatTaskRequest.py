@@ -49,8 +49,57 @@ class CreateHistoricalReplicatTaskParameters(object):
         self.bucketRegion = bucketRegion
         self.targetBucketName = targetBucketName
         self.targetBucketRegion = targetBucketRegion
+        self.sourceBucketCloud = None
+        self.targetBucketCloudEndpoint = None
+        self.targetBucketCloudAk = None
+        self.targetBucketCloudSk = None
+        self.targetBucketUserPin = None
+        self.targetBucketUserId = None
+        self.targetBucketCloud = None
         self.storageClass = storageClass
         self.prefixSet = None
+
+    def setSourceBucketCloud(self, sourceBucketCloud):
+        """
+        :param sourceBucketCloud: (Optional) 源bucket云名称，JDStack跨云同步使用
+        """
+        self.sourceBucketCloud = sourceBucketCloud
+
+    def setTargetBucketCloudEndpoint(self, targetBucketCloudEndpoint):
+        """
+        :param targetBucketCloudEndpoint: (Optional) 目标bucket云endpoint，JDStack跨云同步使用
+        """
+        self.targetBucketCloudEndpoint = targetBucketCloudEndpoint
+
+    def setTargetBucketCloudAk(self, targetBucketCloudAk):
+        """
+        :param targetBucketCloudAk: (Optional) 目标bucket云代理密钥Ak，JDStack跨云同步使用
+        """
+        self.targetBucketCloudAk = targetBucketCloudAk
+
+    def setTargetBucketCloudSk(self, targetBucketCloudSk):
+        """
+        :param targetBucketCloudSk: (Optional) 目标bucket云代理密钥Sk，JDStack跨云同步使用
+        """
+        self.targetBucketCloudSk = targetBucketCloudSk
+
+    def setTargetBucketUserPin(self, targetBucketUserPin):
+        """
+        :param targetBucketUserPin: (Optional) 目标bucket用户Pin，JDStack跨云同步使用
+        """
+        self.targetBucketUserPin = targetBucketUserPin
+
+    def setTargetBucketUserId(self, targetBucketUserId):
+        """
+        :param targetBucketUserId: (Optional) 目标bucket用户Id，JDStack跨云同步使用
+        """
+        self.targetBucketUserId = targetBucketUserId
+
+    def setTargetBucketCloud(self, targetBucketCloud):
+        """
+        :param targetBucketCloud: (Optional) 目标bucket云名称，JDStack跨云同步使用
+        """
+        self.targetBucketCloud = targetBucketCloud
 
     def setPrefixSet(self, prefixSet):
         """

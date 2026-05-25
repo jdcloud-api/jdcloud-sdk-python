@@ -34,10 +34,92 @@ class CreateSubUserInnerRequest(JDCloudRequest):
 
 class CreateSubUserInnerParameters(object):
 
-    def __init__(self,createSubUserInfo):
+    def __init__(self,):
         """
-        :param createSubUserInfo: 子用户信息
         """
 
-        self.createSubUserInfo = createSubUserInfo
+        self.description = None
+        self.password = None
+        self.phone = None
+        self.email = None
+        self.nickName = None
+        self.createAk = None
+        self.needResetPassword = None
+        self.consoleLogin = None
+        self.autoGeneratePassword = None
+        self.account = None
+        self.subUser = None
+        self.createType = None
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 描述，0~256个字符
+        """
+        self.description = description
+
+    def setPassword(self, password):
+        """
+        :param password: (Optional) 按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
+        """
+        self.password = password
+
+    def setPhone(self, phone):
+        """
+        :param phone: (Optional) 手机号码，区号-手机号
+        """
+        self.phone = phone
+
+    def setEmail(self, email):
+        """
+        :param email: (Optional) 邮箱
+        """
+        self.email = email
+
+    def setNickName(self, nickName):
+        """
+        :param nickName: (Optional) 姓名
+        """
+        self.nickName = nickName
+
+    def setCreateAk(self, createAk):
+        """
+        :param createAk: (Optional) 是否创建accessKey，默认false
+        """
+        self.createAk = createAk
+
+    def setNeedResetPassword(self, needResetPassword):
+        """
+        :param needResetPassword: (Optional) 子用户首次登录是否需要重置密码，默认false
+        """
+        self.needResetPassword = needResetPassword
+
+    def setConsoleLogin(self, consoleLogin):
+        """
+        :param consoleLogin: (Optional) 子用户是否支持控制台登录，默认true
+        """
+        self.consoleLogin = consoleLogin
+
+    def setAutoGeneratePassword(self, autoGeneratePassword):
+        """
+        :param autoGeneratePassword: (Optional) 是否自动生成密码，默认false
+        """
+        self.autoGeneratePassword = autoGeneratePassword
+
+    def setAccount(self, account):
+        """
+        :param account: (Optional) 主用户pin
+        """
+        self.account = account
+
+    def setSubUser(self, subUser):
+        """
+        :param subUser: (Optional) 子用户名(注意不是pin)，支持4~20位的字母，数字以及-和_，以字母开头 必填
+        """
+        self.subUser = subUser
+
+    def setCreateType(self, createType):
+        """
+        :param createType: (Optional) 创建类型 0自定义 1组织 2ldap 3jd 4wx 5joyCode
+        """
+        self.createType = createType
 

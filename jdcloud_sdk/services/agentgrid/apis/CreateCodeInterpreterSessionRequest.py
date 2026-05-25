@@ -51,7 +51,7 @@ class CreateCodeInterpreterSessionParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) Session 名称。
+        :param name: (Optional) Session 名称。长度为 1~32 个字符，可包含中文、数字、大小写字母、下划线、中划线或点。
         """
         self.name = name
 

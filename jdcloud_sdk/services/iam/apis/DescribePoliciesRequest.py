@@ -40,6 +40,7 @@ class DescribePoliciesParameters(object):
         self.pageSize = None
         self.keyword = None
         self.queryType = None
+        self.types = None
         self.sort = None
 
     def setPageNumber(self, pageNumber):
@@ -62,9 +63,15 @@ class DescribePoliciesParameters(object):
 
     def setQueryType(self, queryType):
         """
-        :param queryType: (Optional) 策略类型：0-全部（默认），1-系统策略，2-自定义策略
+        :param queryType: (Optional) 废弃，请使用types 策略类型：0-全部（默认），1-系统策略，2-自定义策略
         """
         self.queryType = queryType
+
+    def setTypes(self, types):
+        """
+        :param types: (Optional) 类型列表 逗号分隔  1系统策略 2当前用户私有策略 3系统ak策略
+        """
+        self.types = types
 
     def setSort(self, sort):
         """

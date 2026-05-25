@@ -43,7 +43,7 @@ class CreateBrowserToolParameters(object):
         """
         :param regionId: Region ID
         :param name: Browser Tool 名称。长度为 1~32 个字符，可包含中文、数字、大小写字母、下划线、中划线或点。
-        :param networkConfiguration: Browser Tool 网络配置类型。当前支持 `Public` 和 `SandBox`，建议显式传值。
+        :param networkConfiguration: Code Interpreter 网络配置。支持 public｜sandbox 两种。默认为sandbox。
         """
 
         self.regionId = regionId

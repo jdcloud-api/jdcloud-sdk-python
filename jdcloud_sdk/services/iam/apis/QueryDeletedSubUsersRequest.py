@@ -19,27 +19,28 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAttachedGroupPoliciesRequest(JDCloudRequest):
+class QueryDeletedSubUsersRequest(JDCloudRequest):
     """
-    列举用户组的策略
+    查询已删除子用户
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAttachedGroupPoliciesRequest, self).__init__(
-            '/group/{groupName}/policies', 'GET', header, version)
+        super(QueryDeletedSubUsersRequest, self).__init__(
+            '/subUsers:deleted', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAttachedGroupPoliciesParameters(object):
+class QueryDeletedSubUsersParameters(object):
 
-    def __init__(self,groupName, ):
+    def __init__(self,account, ):
         """
-        :param groupName: 用户组名称
+        :param account: 主用户pin
         """
 
-        self.groupName = groupName
         self.pageNumber = None
         self.pageSize = None
+        self.account = account
+        self.name = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -52,4 +53,10 @@ class DescribeAttachedGroupPoliciesParameters(object):
         :param pageSize: (Optional) 分页大小，默认50，取值范围[10, 100]
         """
         self.pageSize = pageSize
+
+    def setName(self, name):
+        """
+        :param name: (Optional) 子用户名称
+        """
+        self.name = name
 

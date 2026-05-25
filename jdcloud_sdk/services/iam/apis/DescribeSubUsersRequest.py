@@ -45,6 +45,7 @@ class DescribeSubUsersParameters(object):
         self.description = None
         self.nickName = None
         self.name = None
+        self.pin = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -99,4 +100,10 @@ class DescribeSubUsersParameters(object):
         :param name: (Optional) 子用户姓名
         """
         self.name = name
+
+    def setPin(self, pin):
+        """
+        :param pin: (Optional) 子用户pin
+        """
+        self.pin = pin
 

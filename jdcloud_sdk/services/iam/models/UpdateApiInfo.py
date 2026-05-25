@@ -19,11 +19,51 @@
 
 class UpdateApiInfo(object):
 
-    def __init__(self, success, message, ):
+    def __init__(self, id, serviceName, serviceNameCN, resourceType, actionName, actionType, actionDescription, region, method, accessLevel, version, status, showRule, supply, ignoreDeny, tagResourceLevel, showType, serviceOldCode=None, createTime=None, createUser=None, updateTime=None, updateUser=None):
         """
-        :param success:  
-        :param message:  
+        :param id:  
+        :param serviceName:  
+        :param serviceNameCN:  
+        :param serviceOldCode: (Optional) 
+        :param resourceType:  
+        :param actionName:  
+        :param actionType:  
+        :param actionDescription:  
+        :param region:  
+        :param method:  
+        :param accessLevel:  
+        :param version:  
+        :param status:  
+        :param showRule:  
+        :param supply:  
+        :param ignoreDeny:  
+        :param tagResourceLevel:  
+        :param showType:  
+        :param createTime: (Optional) 
+        :param createUser: (Optional) 
+        :param updateTime: (Optional) 
+        :param updateUser: (Optional) 
         """
 
-        self.success = success
-        self.message = message
+        self.id = id
+        self.serviceName = serviceName
+        self.serviceNameCN = serviceNameCN
+        self.serviceOldCode = serviceOldCode
+        self.resourceType = resourceType
+        self.actionName = actionName
+        self.actionType = actionType
+        self.actionDescription = actionDescription
+        self.region = region
+        self.method = method
+        self.accessLevel = accessLevel
+        self.version = version
+        self.status = status
+        self.showRule = showRule
+        self.supply = supply
+        self.ignoreDeny = ignoreDeny
+        self.tagResourceLevel = tagResourceLevel
+        self.showType = showType
+        self.createTime = createTime
+        self.createUser = createUser
+        self.updateTime = updateTime
+        self.updateUser = updateUser

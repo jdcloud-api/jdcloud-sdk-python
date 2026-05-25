@@ -19,9 +19,10 @@
 
 class BrowserToolSession(object):
 
-    def __init__(self, browserToolId=None, sessionId=None, state=None, maxLifeTime=None, cdpEndpoint=None, vncEndpoint=None, vncAccessToken=None, failureReason=None, createTime=None, expireTime=None):
+    def __init__(self, browserToolId=None, name=None, sessionId=None, state=None, maxLifeTime=None, cdpEndpoint=None, vncEndpoint=None, vncAccessToken=None, failureReason=None, createTime=None, expireTime=None):
         """
         :param browserToolId: (Optional) Browser Tool ID
+        :param name: (Optional) browser tool 名字
         :param sessionId: (Optional) Session ID
         :param state: (Optional) Session 状态。可选值：`pending`（已受理，等待资源准备）、`creating`（初始化中）、`ready`（可连接使用）、`deleting`（删除中）、`deleted`（已删除）、`failed`（初始化失败）
         :param maxLifeTime: (Optional) Session 最大存活时长（秒）
@@ -34,6 +35,7 @@ class BrowserToolSession(object):
         """
 
         self.browserToolId = browserToolId
+        self.name = name
         self.sessionId = sessionId
         self.state = state
         self.maxLifeTime = maxLifeTime

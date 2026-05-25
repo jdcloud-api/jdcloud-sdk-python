@@ -19,9 +19,8 @@
 
 class CreateSubUserInfoInner(object):
 
-    def __init__(self, name, description=None, password=None, phone=None, email=None, nickName=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None):
+    def __init__(self, description=None, password=None, phone=None, email=None, nickName=None, createAk=None, needResetPassword=None, consoleLogin=None, autoGeneratePassword=None, account=None, subUser=None, createType=None):
         """
-        :param name:  子用户名，支持4~20位的字母，数字以及-和_，以字母开头
         :param description: (Optional) 描述，0~256个字符
         :param password: (Optional) 按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
         :param phone: (Optional) 手机号码，区号-手机号
@@ -31,9 +30,11 @@ class CreateSubUserInfoInner(object):
         :param needResetPassword: (Optional) 子用户首次登录是否需要重置密码，默认false
         :param consoleLogin: (Optional) 子用户是否支持控制台登录，默认true
         :param autoGeneratePassword: (Optional) 是否自动生成密码，默认false
+        :param account: (Optional) 主用户pin
+        :param subUser: (Optional) 子用户名(注意不是pin)，支持4~20位的字母，数字以及-和_，以字母开头 必填
+        :param createType: (Optional) 创建类型 0自定义 1组织 2ldap 3jd 4wx 5joyCode
         """
 
-        self.name = name
         self.description = description
         self.password = password
         self.phone = phone
@@ -43,3 +44,6 @@ class CreateSubUserInfoInner(object):
         self.needResetPassword = needResetPassword
         self.consoleLogin = consoleLogin
         self.autoGeneratePassword = autoGeneratePassword
+        self.account = account
+        self.subUser = subUser
+        self.createType = createType

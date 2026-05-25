@@ -25,7 +25,7 @@ class DeleteBrowserToolRequest(JDCloudRequest):
 
 ## 接口说明
 - 删除时会级联停止并删除该 Browser Tool 下的所有 Session。
-- 删除请求受理后，Browser Tool 状态会变为 `deleting`，删除完成后变为 `deleted`。`deleting` 期间不可继续创建新的 Session。
+- 删除请求受理后，Browser Tool 状态会变为 deleting，删除完成后变为 deleted；deleting 期间不可继续创建新的 Session
 
     """
 

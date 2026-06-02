@@ -41,6 +41,7 @@ class QueryDeletedSubUsersParameters(object):
         self.pageSize = None
         self.account = account
         self.name = None
+        self.accessKey = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -59,4 +60,10 @@ class QueryDeletedSubUsersParameters(object):
         :param name: (Optional) 子用户名称
         """
         self.name = name
+
+    def setAccessKey(self, accessKey):
+        """
+        :param accessKey: (Optional) 子用户ak
+        """
+        self.accessKey = accessKey
 

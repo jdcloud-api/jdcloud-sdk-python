@@ -26,18 +26,35 @@ class RestoreSubUserRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(RestoreSubUserRequest, self).__init__(
-            '/subUser:restore', 'GET', header, version)
+            '/subUser:restore', 'PUT', header, version)
         self.parameters = parameters
 
 
 class RestoreSubUserParameters(object):
 
-    def __init__(self,account, subUserPin):
+    def __init__(self,):
         """
-        :param account: 主用户pin
-        :param subUserPin: 子用户pin
         """
 
+        self.account = None
+        self.subUserPin = None
+        self.accessKeyList = None
+
+    def setAccount(self, account):
+        """
+        :param account: (Optional) 主账号
+        """
         self.account = account
+
+    def setSubUserPin(self, subUserPin):
+        """
+        :param subUserPin: (Optional) 子用户pin
+        """
         self.subUserPin = subUserPin
+
+    def setAccessKeyList(self, accessKeyList):
+        """
+        :param accessKeyList: (Optional) accessKey列表
+        """
+        self.accessKeyList = accessKeyList
 

@@ -19,7 +19,7 @@
 
 class SubUser(object):
 
-    def __init__(self, pin=None, name=None, phone=None, email=None, description=None, account=None, createTime=None, updateTime=None, nickName=None, createType=None, orgId=None, orgName=None, orgPath=None):
+    def __init__(self, pin=None, name=None, phone=None, email=None, description=None, account=None, createTime=None, updateTime=None, nickName=None, createType=None, orgId=None, orgName=None, orgPath=None, operator=None):
         """
         :param pin: (Optional) 用户pin
         :param name: (Optional) 用户名
@@ -34,6 +34,7 @@ class SubUser(object):
         :param orgId: (Optional) 用户所在组织id
         :param orgName: (Optional) 用户所在组织名称
         :param orgPath: (Optional) 用户所在组织路径
+        :param operator: (Optional) 操作者
         """
 
         self.pin = pin
@@ -49,3 +50,4 @@ class SubUser(object):
         self.orgId = orgId
         self.orgName = orgName
         self.orgPath = orgPath
+        self.operator = operator

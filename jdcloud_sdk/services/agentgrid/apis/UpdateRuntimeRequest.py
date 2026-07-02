@@ -53,7 +53,9 @@ class UpdateRuntimeParameters(object):
         self.networkConfiguration = None
         self.warmSession = None
         self.maxSession = None
+        self.roleName = None
         self.envs = None
+        self.filesystemConfiguration = None
         self.protocol = None
         self.lifecycleConfiguration = None
 
@@ -93,23 +95,35 @@ class UpdateRuntimeParameters(object):
         """
         self.maxSession = maxSession
 
+    def setRoleName(self, roleName):
+        """
+        :param roleName: (Optional) runtime 绑定的实例角色
+        """
+        self.roleName = roleName
+
     def setEnvs(self, envs):
         """
         :param envs: (Optional) Runtime 环境变量配置，以 `key-value` 键值对形式指定，单次请求最多支持 50 组。
 
-## 参数说明
-- 不传该参数时，保留当前生效版本中的环境变量配置。
-- 当 `key` 以连字符 `-` 结尾时，表示删除旧版本中对应 `key` 的环境变量。
-- 当 `key` 不以连字符 `-` 结尾时，表示新增或更新该环境变量。
-- 本次调用后，环境变量不能超过50组
-- `key` 长度上限为 256 个字符。
+参数说明
+不传该参数时，保留当前生效版本中的环境变量配置。
+当 `key` 以连字符 `-` 结尾时，表示删除旧版本中对应 `key` 的环境变量。
+当 `key` 不以连字符 `-` 结尾时，表示新增或更新该环境变量。
+本次调用后，环境变量不能超过50组
+`key` 长度上限为 256 个字符。
 
         """
         self.envs = envs
 
+    def setFilesystemConfiguration(self, filesystemConfiguration):
+        """
+        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。不传该参数时，保留当前生效版本中的文件系统配置；传入该参数时，将用本次配置替换新版本中的文件系统配置。
+        """
+        self.filesystemConfiguration = filesystemConfiguration
+
     def setProtocol(self, protocol):
         """
-        :param protocol: (Optional) Runtime 支持的协议类型，当前仅支持 HTTP。
+        :param protocol: (Optional) Runtime 支持的协议类型，当前支持http、mcp、a2a。
         """
         self.protocol = protocol
 

@@ -19,13 +19,16 @@
 
 class AccountingRuleUpdate(object):
 
-    def __init__(self, site=None, pin=None, outAccountType=None, outAccountDay=None, timeCron=None):
+    def __init__(self, site=None, pin=None, outAccountType=None, outAccountDay=None, timeCron=None, appCode=None, targetType=None, serviceCode=None):
         """
         :param site: (Optional) 站点
         :param pin: (Optional) pin
         :param outAccountType: (Optional) 出账类型  1：实时出账    2：定期出账
         :param outAccountDay: (Optional) 出账周期：限制范围 1-28
         :param timeCron: (Optional) 定期出账  时间表达式
+        :param appCode: (Optional) 产品线
+        :param targetType: (Optional) 出账对象类型 1：通用 2：用户
+        :param serviceCode: (Optional) 产品
         """
 
         self.site = site
@@ -33,3 +36,6 @@ class AccountingRuleUpdate(object):
         self.outAccountType = outAccountType
         self.outAccountDay = outAccountDay
         self.timeCron = timeCron
+        self.appCode = appCode
+        self.targetType = targetType
+        self.serviceCode = serviceCode

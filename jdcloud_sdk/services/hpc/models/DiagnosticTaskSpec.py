@@ -19,17 +19,29 @@
 
 class DiagnosticTaskSpec(object):
 
-    def __init__(self, nodeIds, diagnosticType, clusterId=None, params=None):
+    def __init__(self, clusterName, diagnosticType, instanceIds=None, hardwareStaticCheckSpec=None, networkNcclTestSpec=None, oneClickDiagnosisSpec=None):
         """
-        :param clusterId: (Optional) 集群ID。
-        :param nodeIds:  诊断目标节点ID列表。
+        :param clusterName:  集群名称。
+        :param instanceIds: (Optional) 诊断目标实例ID列表。
+当 `scopeType` 为 `instances` 时必填；当 `scopeType` 为 `cluster` 时可为空。
+
         :param diagnosticType:  诊断类型。
-当前支持：`HPCHealthCheck`。
+取值：`HardwareStaticCheck`、`NetworkNcclTest`、`OneClickDiagnosis`。
 
-        :param params: (Optional) 诊断参数。参数结构由 `diagnosticType` 决定。
+        :param hardwareStaticCheckSpec: (Optional) 硬件静态检查配置。
+当 `diagnosticType` 为 `HardwareStaticCheck` 时必填。
+
+        :param networkNcclTestSpec: (Optional) NCCL 网络测试配置。
+当 `diagnosticType` 为 `NetworkNcclTest` 时必填。
+
+        :param oneClickDiagnosisSpec: (Optional) 一键诊断配置。
+当 `diagnosticType` 为 `OneClickDiagnosis` 时必填。
+
         """
 
-        self.clusterId = clusterId
-        self.nodeIds = nodeIds
+        self.clusterName = clusterName
+        self.instanceIds = instanceIds
         self.diagnosticType = diagnosticType
-        self.params = params
+        self.hardwareStaticCheckSpec = hardwareStaticCheckSpec
+        self.networkNcclTestSpec = networkNcclTestSpec
+        self.oneClickDiagnosisSpec = oneClickDiagnosisSpec

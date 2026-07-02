@@ -19,12 +19,13 @@
 
 class InstanceNetworkInterface(object):
 
-    def __init__(self, networkInterfaceId=None, macAddress=None, vpcId=None, subnetId=None, primaryIp=None):
+    def __init__(self, networkInterfaceId=None, macAddress=None, vpcId=None, subnetId=None, secondaryIpMaskLen=None, primaryIp=None):
         """
         :param networkInterfaceId: (Optional) 弹性网卡ID。
         :param macAddress: (Optional) 弹性网卡MAC地址。
         :param vpcId: (Optional) 弹性网卡所属VPC的ID。
         :param subnetId: (Optional) 子网ID。
+        :param secondaryIpMaskLen: (Optional) 指定分配的网段掩码长度, 支持24-28位掩码长度，不能与secondaryIpCount同时指定，不支持抢占重分配。
         :param primaryIp: (Optional) 网卡主IP配置。
         """
 
@@ -32,4 +33,5 @@ class InstanceNetworkInterface(object):
         self.macAddress = macAddress
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.secondaryIpMaskLen = secondaryIpMaskLen
         self.primaryIp = primaryIp

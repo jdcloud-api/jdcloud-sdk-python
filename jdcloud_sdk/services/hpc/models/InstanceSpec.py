@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, installGpuDriver=None, su=None, hpcClusterId=None, hpcClusterName=None):
+    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, installGpuDriver=None, su=None, hpcClusterId=None, hpcClusterName=None, resourceGroupId=None, userTags=None):
         """
         :param az: (Optional) 可用区
         :param instanceType: (Optional) 实例规格
@@ -44,6 +44,9 @@ class InstanceSpec(object):
         :param su: (Optional) 传入指定调度的su列表：如果参数中的su不在用户配置的数据库su列表中，则禁止调度；传入的参数没有指定su列表时：1.用户数据库中配置了su，则走配置的su调度；2.用户未配置su则进行默认调度策略
         :param hpcClusterId: (Optional) 实例网络集群Id
         :param hpcClusterName: (Optional) 实例网络集群名称
+        :param resourceGroupId: (Optional) 资源组ID
+        :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
+
         """
 
         self.az = az
@@ -60,3 +63,5 @@ class InstanceSpec(object):
         self.su = su
         self.hpcClusterId = hpcClusterId
         self.hpcClusterName = hpcClusterName
+        self.resourceGroupId = resourceGroupId
+        self.userTags = userTags

@@ -42,6 +42,7 @@ class ExportInstancesDataParameters(object):
         self.startPage = None
         self.endPage = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
         self.columns = None
         self.networkTopologyOrder = None
@@ -63,6 +64,12 @@ class ExportInstancesDataParameters(object):
         :param pageSize: (Optional) 每页大小，startPage、endPage、pageSize都没有指定的情况下代表导出全部。
         """
         self.pageSize = pageSize
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
 
     def setFilters(self, filters):
         """
@@ -93,6 +100,8 @@ class ExportInstancesDataParameters(object):
 "status": 运行状态
 "instanceType": 实例规格
 "charge": 计费信息
+"tag": "标签"
+"resourceGroup": "资源组ID","资源组名称"
 
         """
         self.columns = columns

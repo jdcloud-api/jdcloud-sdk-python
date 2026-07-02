@@ -19,7 +19,7 @@
 
 class RuntimeView(object):
 
-    def __init__(self, runtimeId=None, name=None, currentVersion=None, queriedVersion=None, state=None, description=None, versionView=None, apiKey=None, createTime=None, updateTime=None):
+    def __init__(self, runtimeId=None, name=None, currentVersion=None, queriedVersion=None, state=None, description=None, versionView=None, apiKey=None, roleName=None, createTime=None, updateTime=None):
         """
         :param runtimeId: (Optional) Runtime ID
         :param name: (Optional) Runtime 名称
@@ -29,6 +29,7 @@ class RuntimeView(object):
         :param description: (Optional) Runtime 描述信息
         :param versionView: (Optional) 本次查询返回的 Runtime 版本详情；其中 `state` 表示该版本自身状态
         :param apiKey: (Optional) 访问 agent 的 APIKey
+        :param roleName: (Optional) 绑定 IAM 角色名
         :param createTime: (Optional) Runtime 创建时间
         :param updateTime: (Optional) Runtime 最近一次更新时间
         """
@@ -41,5 +42,6 @@ class RuntimeView(object):
         self.description = description
         self.versionView = versionView
         self.apiKey = apiKey
+        self.roleName = roleName
         self.createTime = createTime
         self.updateTime = updateTime

@@ -26,4 +26,4 @@ class AgentgridClient(JDCloudClient):
         if config is None:
             config = Config('agentgrid.jdcloud-api.com')
 
-        super(AgentgridClient, self).__init__(credential, config, 'agentgrid', '1.0.1', logger)
+        super(AgentgridClient, self).__init__(credential, config, 'agentgrid', '1.0.2', logger)

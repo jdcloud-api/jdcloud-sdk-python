@@ -19,24 +19,22 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDiagnosticResultRequest(JDCloudRequest):
+class DeleteDiagnosticTaskRequest(JDCloudRequest):
     """
-    查询单个诊断任务详情。
+    删除诊断任务。
 
 ## 接口说明
-- 返回结果中，仅与 `diagnosticType` 匹配的 spec 和 result 字段有值，其余为空。
-- 当 `diagnosticType` 为 `HardwareStaticCheck` 时，`hardwareStaticCheckResult.nodeSummary` 返回节点名称、实例ID、内网IP、公网IP、实例规格、操作系统和检查结论。
-- 当 `diagnosticType` 为 `OneClickDiagnosis` 时，`oneClickDiagnosisResult.instanceResults` 返回节点名称、实例ID、内网IP、公网IP、实例规格、操作系统、检查结论、诊断结果和失败原因。
+- 删除成功后，该任务将不再返回。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDiagnosticResultRequest, self).__init__(
-            '/regions/{regionId}/diagnosis/{diagnosticId}', 'GET', header, version)
+        super(DeleteDiagnosticTaskRequest, self).__init__(
+            '/regions/{regionId}/diagnosis/{diagnosticId}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DescribeDiagnosticResultParameters(object):
+class DeleteDiagnosticTaskParameters(object):
 
     def __init__(self,regionId, diagnosticId):
         """

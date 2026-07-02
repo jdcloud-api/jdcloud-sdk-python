@@ -19,7 +19,7 @@
 
 class RuntimeVersionView(object):
 
-    def __init__(self, version=None, artifact=None, network=None, state=None, versionDescription=None, warmSession=None, maxSession=None, protocol=None, lifecycle=None, envs=None, createTime=None):
+    def __init__(self, version=None, artifact=None, network=None, state=None, versionDescription=None, warmSession=None, maxSession=None, protocol=None, lifecycle=None, envs=None, fileSystem=None, createTime=None):
         """
         :param version: (Optional) Runtime 版本号
         :param artifact: (Optional) 当前版本镜像信息
@@ -31,6 +31,7 @@ class RuntimeVersionView(object):
         :param protocol: (Optional) Runtime 协议
         :param lifecycle: (Optional) Runtime 存活周期配置
         :param envs: (Optional) 环境变量信息
+        :param fileSystem: (Optional) 当前版本文件系统配置
         :param createTime: (Optional) 当前版本创建时间
         """
 
@@ -44,4 +45,5 @@ class RuntimeVersionView(object):
         self.protocol = protocol
         self.lifecycle = lifecycle
         self.envs = envs
+        self.fileSystem = fileSystem
         self.createTime = createTime

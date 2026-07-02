@@ -39,9 +39,16 @@ class DescribeInstancesParameters(object):
         """
 
         self.regionId = regionId
+        self.tags = None
         self.filters = None
         self.pageNumber = None
         self.pageSize = None
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件。
+        """
+        self.tags = tags
 
     def setFilters(self, filters):
         """

@@ -63,9 +63,9 @@ class DescribeRuntimesParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) 过滤条件。支持的键如下：
-- runtimeId：按 Runtime ID 精确匹配，支持多个值。
-- runtimeName：按 Runtime 名称模糊匹配，仅支持单个值。
-- state：按 Runtime 状态过滤，支持多个值。可选值：`pending`、`creating`、`running`、`updating`、`failed`、`deleted`
+`runtimeId`：按 Runtime ID 精确匹配，支持多个值。
+`runtimeName`：按 Runtime 名称模糊匹配，仅支持单个值。
+`state`：按 Runtime 状态过滤，支持多个值。可选值：`pending`、`creating`、`running`、`updating`、`failed`、`deleted`
 
         """
         self.filters = filters

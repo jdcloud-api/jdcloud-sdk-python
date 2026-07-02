@@ -53,6 +53,7 @@ class RebuildInstanceParameters(object):
         self.metadata = None
         self.userdata = None
         self.clearDataDisks = None
+        self.secondaryIpMaskLen = None
 
     def setPackageId(self, packageId):
         """
@@ -92,4 +93,10 @@ class RebuildInstanceParameters(object):
         :param clearDataDisks: (Optional) 是否清空数据盘数据，false为不清空，true为清空，默认不清空。
         """
         self.clearDataDisks = clearDataDisks
+
+    def setSecondaryIpMaskLen(self, secondaryIpMaskLen):
+        """
+        :param secondaryIpMaskLen: (Optional) 指定分配的网段掩码长度, 支持24-28位掩码长度，不能与secondaryIpCount同时指定，不支持抢占重分配。该参数依赖子网的预分配网段。
+        """
+        self.secondaryIpMaskLen = secondaryIpMaskLen
 

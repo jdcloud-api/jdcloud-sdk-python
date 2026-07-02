@@ -19,12 +19,13 @@
 
 class RdmaNetworkInterface(object):
 
-    def __init__(self, name=None, portId=None, guid=None, macAddress=None, ipAddress=None, scene=None):
+    def __init__(self, name=None, portId=None, guid=None, macAddress=None, logicMacAddress=None, ipAddress=None, scene=None):
         """
         :param name: (Optional) 名称
         :param portId: (Optional) rdma网卡ID
         :param guid: (Optional) RDMA网卡GUID，当RDMA网卡为IB类型时有意义。
-        :param macAddress: (Optional) RDMA网卡MAC地址。
+        :param macAddress: (Optional) RDMA网卡物理MAC地址。
+        :param logicMacAddress: (Optional) RDMA网卡逻辑MAC地址。
         :param ipAddress: (Optional) RDMA网卡IP地址。
         :param scene: (Optional) 网卡应用场景，取值：compute、storage。
         """
@@ -33,5 +34,6 @@ class RdmaNetworkInterface(object):
         self.portId = portId
         self.guid = guid
         self.macAddress = macAddress
+        self.logicMacAddress = logicMacAddress
         self.ipAddress = ipAddress
         self.scene = scene

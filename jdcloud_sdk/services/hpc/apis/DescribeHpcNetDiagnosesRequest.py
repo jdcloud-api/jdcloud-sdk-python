@@ -19,60 +19,45 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeDiagnosticResultsRequest(JDCloudRequest):
+class DescribeHpcNetDiagnosesRequest(JDCloudRequest):
     """
-    查询诊断任务列表。
-支持按筛选条件过滤与分页。
-
-## 接口说明
-- 通过 `filters` 进行条件筛选，支持以下过滤键(每个key均只支持一个value)：
-  - `diagnosticId`：诊断任务ID
-  - `diagnosticType`：诊断类型
-  - `clusterId`：集群ID
-  - `instanceId`：节点ID
-  - `diagnosticState`：诊断任务状态
-
+    查询hpc网络诊断
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeDiagnosticResultsRequest, self).__init__(
-            '/regions/{regionId}/diagnosis', 'GET', header, version)
+        super(DescribeHpcNetDiagnosesRequest, self).__init__(
+            '/regions/{regionId}/hpcNetDiagnose/', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeDiagnosticResultsParameters(object):
+class DescribeHpcNetDiagnosesParameters(object):
 
     def __init__(self,regionId, ):
         """
-        :param regionId: 地域ID。
+        :param regionId: Region ID
         """
 
         self.regionId = regionId
-        self.filters = None
         self.pageNumber = None
         self.pageSize = None
-
-    def setFilters(self, filters):
-        """
-        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
-`diagnosticId`：诊断任务ID
-`diagnosticType`：诊断类型
-`clusterId`：集群ID
-`instanceId`：节点ID
-`diagnosticState`：诊断任务状态
-
-        """
-        self.filters = filters
+        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
-        :param pageNumber: (Optional) 页码；默认为1。
+        :param pageNumber: (Optional) 页码, 默认为1, 取值范围：[1,∞), 页码超过总页数时, 显示最后一页
         """
         self.pageNumber = pageNumber
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页大小；默认为20；取值范围[10, 100]。
+        :param pageSize: (Optional) 分页大小，默认为20，取值范围：[10,100]
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) ids - 诊断报告ID列表，支持多个
+
+        """
+        self.filters = filters
 

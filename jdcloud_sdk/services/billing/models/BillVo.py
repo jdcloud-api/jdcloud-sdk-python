@@ -19,7 +19,7 @@
 
 class BillVo(object):
 
-    def __init__(self, sourceId, startTime, endTime, region, appCode, serviceCode, resourceId, billingType, billFee, actualFee, billTime, payState, currency=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, wire=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, org=None, orgName=None, contractNumber=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None, couponList=None, billItemList=None):
+    def __init__(self, sourceId, startTime, endTime, region, appCode, serviceCode, resourceId, billingType, billFee, actualFee, billTime, payState, org, contractNumber, currency=None, payTime=None, discountFee=None, eraseFee=None, balancePayFee=None, cashPayFee=None, cashCouponFee=None, freeCashCouponFee=None, payCashCouponFee=None, wire=None, consumeTime=None, transactionNo=None, refundNo=None, site=None, orgName=None, tradeType=None, billType=None, formulaDesc=None, isDeleted=None, favorableInfo=None, az=None, couponList=None, billItemList=None):
         """
         :param sourceId:  账单唯一ID，不可重复，更新时根据该ID进行
         :param startTime:  开始时间(格式为：yyyy-MM-dd HH:mm:ss)
@@ -47,9 +47,9 @@ class BillVo(object):
         :param transactionNo: (Optional) 交易单号
         :param refundNo: (Optional) 退款单号,如为退款账单，需要传退款单号
         :param site: (Optional) 站点，0:国内，不可修改
-        :param org: (Optional) 组织机构代码
+        :param org:  组织机构代码
         :param orgName: (Optional) 组织机构名称
-        :param contractNumber: (Optional) 合同编码
+        :param contractNumber:  合同编码
         :param tradeType: (Optional) 交易类型 1、使用 2、 新购 3、续费 4、配置变更 5、退款，不可修改
         :param billType: (Optional) 账单类型 0-普通账单 1-退款账单 2-调账账单 3-保底账单，不可修改
         :param formulaDesc: (Optional) 配置描述，用于控制台账单详情中展示

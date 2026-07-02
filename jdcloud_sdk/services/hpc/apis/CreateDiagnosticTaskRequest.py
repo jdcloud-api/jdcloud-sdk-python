@@ -23,6 +23,13 @@ class CreateDiagnosticTaskRequest(JDCloudRequest):
     """
     创建诊断任务。
 
+## 接口说明
+- `diagnosticType` 与对应的 spec 必须一一匹配，且仅能填写一个 spec：
+  - `HardwareStaticCheck` → `hardwareStaticCheckSpec`
+  - `NetworkNcclTest` → `networkNcclTestSpec`
+  - `OneClickDiagnosis` → `oneClickDiagnosisSpec`
+- 当 spec 中 `scopeType` 为 `instances` 时，`instanceIds` 必填；当 `scopeType` 为 `cluster` 时，`instanceIds` 可为空。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -33,12 +40,52 @@ class CreateDiagnosticTaskRequest(JDCloudRequest):
 
 class CreateDiagnosticTaskParameters(object):
 
-    def __init__(self,regionId, diagnosticTaskSpec):
+    def __init__(self,regionId, clusterName, diagnosticType, ):
         """
         :param regionId: 地域ID。
-        :param diagnosticTaskSpec: 诊断任务配置。
+        :param clusterName: 集群名称。
+        :param diagnosticType: 诊断类型。
+取值：`HardwareStaticCheck`、`NetworkNcclTest`、`OneClickDiagnosis`。
+
         """
 
         self.regionId = regionId
-        self.diagnosticTaskSpec = diagnosticTaskSpec
+        self.clusterName = clusterName
+        self.instanceIds = None
+        self.diagnosticType = diagnosticType
+        self.hardwareStaticCheckSpec = None
+        self.networkNcclTestSpec = None
+        self.oneClickDiagnosisSpec = None
+
+    def setInstanceIds(self, instanceIds):
+        """
+        :param instanceIds: (Optional) 诊断目标实例ID列表。
+当 spec 中 `scopeType` 为 `instances` 时必填；当 `scopeType` 为 `cluster` 时可为空。
+
+        """
+        self.instanceIds = instanceIds
+
+    def setHardwareStaticCheckSpec(self, hardwareStaticCheckSpec):
+        """
+        :param hardwareStaticCheckSpec: (Optional) 硬件静态检查配置。
+当 `diagnosticType` 为 `HardwareStaticCheck` 时必填。
+
+        """
+        self.hardwareStaticCheckSpec = hardwareStaticCheckSpec
+
+    def setNetworkNcclTestSpec(self, networkNcclTestSpec):
+        """
+        :param networkNcclTestSpec: (Optional) NCCL 网络测试配置。
+当 `diagnosticType` 为 `NetworkNcclTest` 时必填。
+
+        """
+        self.networkNcclTestSpec = networkNcclTestSpec
+
+    def setOneClickDiagnosisSpec(self, oneClickDiagnosisSpec):
+        """
+        :param oneClickDiagnosisSpec: (Optional) 一键诊断配置。
+当 `diagnosticType` 为 `OneClickDiagnosis` 时必填。
+
+        """
+        self.oneClickDiagnosisSpec = oneClickDiagnosisSpec
 

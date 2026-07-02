@@ -19,25 +19,29 @@
 
 class ResourceUsageReq(object):
 
-    def __init__(self, pin, appCode, serviceCode, region, resourceId, startTime, endTime, site, formula, ):
+    def __init__(self, pin, appCode, serviceCode, region, resourceId, startTime, endTime, site, formula, az=None, subList=None):
         """
         :param pin:  用户pin
         :param appCode:  产品线编码
         :param serviceCode:  产品编码
         :param region:  地域
+        :param az: (Optional) az
         :param resourceId:  资源ID
         :param startTime:  开始时间（格式：2021-01-01 00:00:00）
         :param endTime:  结束时间（格式：2021-01-01 23:59:59）
         :param site:  站点（0：中国站）
         :param formula:  计费项
+        :param subList: (Optional) 子类用量数据统计，用于云存储分账账单
         """
 
         self.pin = pin
         self.appCode = appCode
         self.serviceCode = serviceCode
         self.region = region
+        self.az = az
         self.resourceId = resourceId
         self.startTime = startTime
         self.endTime = endTime
         self.site = site
         self.formula = formula
+        self.subList = subList

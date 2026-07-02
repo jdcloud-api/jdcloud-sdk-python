@@ -41,13 +41,14 @@ class CreateRuntimeRequest(JDCloudRequest):
 
 class CreateRuntimeParameters(object):
 
-    def __init__(self,regionId, name, artifactConfiguration, authorizerConfiguration, networkConfiguration, ):
+    def __init__(self,regionId, name, artifactConfiguration, authorizerConfiguration, networkConfiguration, roleName, ):
         """
         :param regionId: Region ID
         :param name: Runtime 名称。长度为 1~32 个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
         :param artifactConfiguration: Runtime 制品配置，当前支持通过镜像导入
         :param authorizerConfiguration: Runtime 鉴权配置。
         :param networkConfiguration: Runtime 网络配置。
+        :param roleName: 绑定 IAM 角色名。
         """
 
         self.regionId = regionId
@@ -59,7 +60,9 @@ class CreateRuntimeParameters(object):
         self.authorizerConfiguration = authorizerConfiguration
         self.lifecycleConfiguration = None
         self.networkConfiguration = networkConfiguration
+        self.roleName = roleName
         self.envs = None
+        self.filesystemConfiguration = None
         self.protocol = None
         self.clientToken = None
 
@@ -93,9 +96,15 @@ class CreateRuntimeParameters(object):
         """
         self.envs = envs
 
+    def setFilesystemConfiguration(self, filesystemConfiguration):
+        """
+        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。
+        """
+        self.filesystemConfiguration = filesystemConfiguration
+
     def setProtocol(self, protocol):
         """
-        :param protocol: (Optional) Runtime 支持的协议类型。当前支持 HTTP 。
+        :param protocol: (Optional) Runtime 支持的协议类型。当前支持http、mcp、a2a 。
         """
         self.protocol = protocol
 

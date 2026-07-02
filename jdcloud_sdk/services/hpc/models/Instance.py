@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, hostName=None, status=None, region=None, az=None, hpcClusterId=None, hpcClusterName=None, packageId=None, osType=None, osVersion=None, instanceType=None, systemDisk=None, dataDisks=None, rdmaNetworkInterfaces=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, launchTime=None, charge=None, platform=None, bootMode=None, architecture=None, progress=None):
+    def __init__(self, instanceId=None, instanceName=None, hostName=None, status=None, region=None, az=None, hpcClusterId=None, hpcClusterName=None, packageId=None, osType=None, osVersion=None, instanceType=None, tags=None, resourceGroupId=None, systemDisk=None, dataDisks=None, rdmaNetworkInterfaces=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, launchTime=None, charge=None, platform=None, bootMode=None, architecture=None, progress=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -33,6 +33,8 @@ class Instance(object):
         :param osType: (Optional) 操作系统类型
         :param osVersion: (Optional) 操作系统版本
         :param instanceType: (Optional) 实例规格
+        :param tags: (Optional) 
+        :param resourceGroupId: (Optional) 资源组ID
         :param systemDisk: (Optional) 系统盘配置。
         :param dataDisks: (Optional) 数据盘配置列表。
         :param rdmaNetworkInterfaces: (Optional) RDMA网卡配置列表。
@@ -64,6 +66,8 @@ class Instance(object):
         self.osType = osType
         self.osVersion = osVersion
         self.instanceType = instanceType
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId
         self.systemDisk = systemDisk
         self.dataDisks = dataDisks
         self.rdmaNetworkInterfaces = rdmaNetworkInterfaces

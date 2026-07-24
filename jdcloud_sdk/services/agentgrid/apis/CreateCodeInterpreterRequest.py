@@ -42,8 +42,8 @@ class CreateCodeInterpreterParameters(object):
     def __init__(self,regionId, name, networkConfiguration):
         """
         :param regionId: Region ID
-        :param name: Code Interpreter 名称，全局唯一。
-        :param networkConfiguration: Code Interpreter 网络配置类型。当前支持 `Public` 和 `SandBox`，建议显式传值。
+        :param name: Code Interpreter 名称。长度为 1~32 个字符，可包含中文、数字、大小写字母、下划线、中划线或点。
+        :param networkConfiguration: Code Interpreter 网络配置类型。当前支持 `public` 和 `sandbox`。
         """
 
         self.regionId = regionId
@@ -61,7 +61,7 @@ class CreateCodeInterpreterParameters(object):
 
     def setAuthenticationType(self, authenticationType):
         """
-        :param authenticationType: (Optional) Code Interpreter 鉴权方式，当前仅支持 `APIKey`
+        :param authenticationType: (Optional) Code Interpreter 鉴权方式，当前仅支持 `API_KEY`
         """
         self.authenticationType = authenticationType
 

@@ -19,9 +19,11 @@
 
 class FilesystemView(object):
 
-    def __init__(self, ossAccessPoints=None):
+    def __init__(self, ossAccessPoints=None, cfsAccessPoints=None):
         """
         :param ossAccessPoints: (Optional) OSS 访问点配置列表
+        :param cfsAccessPoints: (Optional) CFS 访问点配置列表
         """
 
         self.ossAccessPoints = ossAccessPoints
+        self.cfsAccessPoints = cfsAccessPoints

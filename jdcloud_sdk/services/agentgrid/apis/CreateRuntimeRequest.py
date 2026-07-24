@@ -41,14 +41,13 @@ class CreateRuntimeRequest(JDCloudRequest):
 
 class CreateRuntimeParameters(object):
 
-    def __init__(self,regionId, name, artifactConfiguration, authorizerConfiguration, networkConfiguration, roleName, ):
+    def __init__(self,regionId, name, artifactConfiguration, authorizerConfiguration, networkConfiguration, ):
         """
         :param regionId: Region ID
         :param name: Runtime 名称。长度为 1~32 个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
         :param artifactConfiguration: Runtime 制品配置，当前支持通过镜像导入
         :param authorizerConfiguration: Runtime 鉴权配置。
         :param networkConfiguration: Runtime 网络配置。
-        :param roleName: 绑定 IAM 角色名。
         """
 
         self.regionId = regionId
@@ -60,7 +59,7 @@ class CreateRuntimeParameters(object):
         self.authorizerConfiguration = authorizerConfiguration
         self.lifecycleConfiguration = None
         self.networkConfiguration = networkConfiguration
-        self.roleName = roleName
+        self.roleName = None
         self.envs = None
         self.filesystemConfiguration = None
         self.protocol = None
@@ -90,6 +89,12 @@ class CreateRuntimeParameters(object):
         """
         self.lifecycleConfiguration = lifecycleConfiguration
 
+    def setRoleName(self, roleName):
+        """
+        :param roleName: (Optional) 绑定 IAM 服务角色名。
+        """
+        self.roleName = roleName
+
     def setEnvs(self, envs):
         """
         :param envs: (Optional) Runtime 环境变量配置，最多 50 组。
@@ -98,13 +103,13 @@ class CreateRuntimeParameters(object):
 
     def setFilesystemConfiguration(self, filesystemConfiguration):
         """
-        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。
+        :param filesystemConfiguration: (Optional) Runtime 文件系统配置，最多支持配置 5 个文件系统。
         """
         self.filesystemConfiguration = filesystemConfiguration
 
     def setProtocol(self, protocol):
         """
-        :param protocol: (Optional) Runtime 支持的协议类型。当前支持http、mcp、a2a 。
+        :param protocol: (Optional) Runtime 支持的协议类型。当前支持http、mcp、a2a。
         """
         self.protocol = protocol
 

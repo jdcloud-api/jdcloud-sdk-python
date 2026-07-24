@@ -117,7 +117,7 @@ class UpdateRuntimeParameters(object):
 
     def setFilesystemConfiguration(self, filesystemConfiguration):
         """
-        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。不传该参数时，保留当前生效版本中的文件系统配置；传入该参数时，将用本次配置替换新版本中的文件系统配置。
+        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。不传该参数时，保留当前生效版本中的文件系统配置；传入该参数时，将用本次配置替换新版本中的文件系统配置，最多支持配置 5 个文件系统。
         """
         self.filesystemConfiguration = filesystemConfiguration
 

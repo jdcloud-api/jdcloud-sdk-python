@@ -19,9 +19,11 @@
 
 class FilesystemConfiguration(object):
 
-    def __init__(self, ossAccessPoints=None):
+    def __init__(self, ossAccessPoints=None, cfsAccessPoints=None):
         """
-        :param ossAccessPoints: (Optional) OSS 访问点配置列表，支持配置 0~5 个 OSS 访问点。配置 ossAccessPointConfiguration 时，必须指定 RoleName。
+        :param ossAccessPoints: (Optional) OSS 访问点配置列表。配置 ossAccessPointConfiguration 时，必须指定 RoleName。
+        :param cfsAccessPoints: (Optional) CFS 访问点配置列表。
         """
 
         self.ossAccessPoints = ossAccessPoints
+        self.cfsAccessPoints = cfsAccessPoints

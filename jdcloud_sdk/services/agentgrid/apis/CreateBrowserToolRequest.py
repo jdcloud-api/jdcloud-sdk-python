@@ -43,7 +43,7 @@ class CreateBrowserToolParameters(object):
         """
         :param regionId: Region ID
         :param name: Browser Tool 名称。长度为 1~32 个字符，可包含中文、数字、大小写字母、下划线、中划线或点。
-        :param networkConfiguration: Code Interpreter 网络配置。支持 public｜sandbox 两种。默认为sandbox。
+        :param networkConfiguration: Code Interpreter 网络配置。支持 public｜sandbox 两种。
         """
 
         self.regionId = regionId
@@ -61,7 +61,7 @@ class CreateBrowserToolParameters(object):
 
     def setAuthenticationType(self, authenticationType):
         """
-        :param authenticationType: (Optional) Browser Tool 鉴权方式，当前仅支持 `APIKey`
+        :param authenticationType: (Optional) Browser Tool 鉴权方式，当前仅支持 `API_KEY`
         """
         self.authenticationType = authenticationType
 

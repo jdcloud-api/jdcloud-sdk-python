@@ -19,7 +19,7 @@
 
 class WorkspaceInfoResp(object):
 
-    def __init__(self, id=None, workspaceName=None, workspaceDescription=None, workspaceModel=None, workspaceId=None, accountId=None):
+    def __init__(self, id=None, workspaceName=None, workspaceDescription=None, workspaceModel=None, workspaceId=None, accountId=None, workspaceLabel=None, regionId=None):
         """
         :param id: (Optional) 
         :param workspaceName: (Optional) 
@@ -27,6 +27,8 @@ class WorkspaceInfoResp(object):
         :param workspaceModel: (Optional) 
         :param workspaceId: (Optional) 
         :param accountId: (Optional) 
+        :param workspaceLabel: (Optional) 
+        :param regionId: (Optional) 
         """
 
         self.id = id
@@ -35,3 +37,5 @@ class WorkspaceInfoResp(object):
         self.workspaceModel = workspaceModel
         self.workspaceId = workspaceId
         self.accountId = accountId
+        self.workspaceLabel = workspaceLabel
+        self.regionId = regionId

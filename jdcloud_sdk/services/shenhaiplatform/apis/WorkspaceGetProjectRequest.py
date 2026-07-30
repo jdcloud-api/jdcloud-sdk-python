@@ -43,6 +43,7 @@ class WorkspaceGetProjectParameters(object):
         self.id = None
         self.workspaceCode = None
         self.projectCode = None
+        self.resourceCode = None
 
     def setId(self, id):
         """
@@ -61,4 +62,10 @@ class WorkspaceGetProjectParameters(object):
         :param projectCode: (Optional) 
         """
         self.projectCode = projectCode
+
+    def setResourceCode(self, resourceCode):
+        """
+        :param resourceCode: (Optional) 
+        """
+        self.resourceCode = resourceCode
 

@@ -60,6 +60,7 @@ class UranusScriptSyntaxCheckParameters(object):
         self.resourceName = None
         self.resourceCode = None
         self.loopInfo = None
+        self.jcwSQLRunParams = None
 
     def setArgs(self, args):
         """
@@ -84,4 +85,10 @@ class UranusScriptSyntaxCheckParameters(object):
         :param loopInfo: (Optional) 循环节点信息
         """
         self.loopInfo = loopInfo
+
+    def setJcwSQLRunParams(self, jcwSQLRunParams):
+        """
+        :param jcwSQLRunParams: (Optional) 任务的资源控制
+        """
+        self.jcwSQLRunParams = jcwSQLRunParams
 

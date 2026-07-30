@@ -19,15 +19,19 @@
 
 class WorkspaceUserRoleResp(object):
 
-    def __init__(self, id=None, workspaceCode=None, workspaceName=None, roles=None):
+    def __init__(self, id=None, workspaceCode=None, workspaceName=None, workspaceModel=None, workspaceLabel=None, roles=None):
         """
         :param id: (Optional) 
         :param workspaceCode: (Optional) 
         :param workspaceName: (Optional) 
+        :param workspaceModel: (Optional) 
+        :param workspaceLabel: (Optional) 
         :param roles: (Optional) 
         """
 
         self.id = id
         self.workspaceCode = workspaceCode
         self.workspaceName = workspaceName
+        self.workspaceModel = workspaceModel
+        self.workspaceLabel = workspaceLabel
         self.roles = roles

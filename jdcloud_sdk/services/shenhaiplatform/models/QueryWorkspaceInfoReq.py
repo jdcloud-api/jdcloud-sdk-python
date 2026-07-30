@@ -19,13 +19,15 @@
 
 class QueryWorkspaceInfoReq(object):
 
-    def __init__(self, id=None, workspaceCode=None, projectCode=None):
+    def __init__(self, id=None, workspaceCode=None, projectCode=None, resourceCode=None):
         """
         :param id: (Optional) 
         :param workspaceCode: (Optional) 
         :param projectCode: (Optional) 
+        :param resourceCode: (Optional) 
         """
 
         self.id = id
         self.workspaceCode = workspaceCode
         self.projectCode = projectCode
+        self.resourceCode = resourceCode

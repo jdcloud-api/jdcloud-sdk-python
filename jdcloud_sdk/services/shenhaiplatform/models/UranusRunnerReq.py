@@ -19,7 +19,7 @@
 
 class UranusRunnerReq(object):
 
-    def __init__(self, flowCode, dataSourceCode, fileCode, fileName, fileType, content, execEngine, segment, args=None, resourceName=None, resourceCode=None, loopInfo=None):
+    def __init__(self, flowCode, dataSourceCode, fileCode, fileName, fileType, content, execEngine, segment, args=None, resourceName=None, resourceCode=None, loopInfo=None, jcwSQLRunParams=None):
         """
         :param flowCode:  流程code
         :param dataSourceCode:  数据源code
@@ -33,6 +33,7 @@ class UranusRunnerReq(object):
         :param resourceName: (Optional) 队列名称
         :param resourceCode: (Optional) 队列code
         :param loopInfo: (Optional) 循环节点信息
+        :param jcwSQLRunParams: (Optional) 任务的资源控制
         """
 
         self.flowCode = flowCode
@@ -47,3 +48,4 @@ class UranusRunnerReq(object):
         self.resourceName = resourceName
         self.resourceCode = resourceCode
         self.loopInfo = loopInfo
+        self.jcwSQLRunParams = jcwSQLRunParams

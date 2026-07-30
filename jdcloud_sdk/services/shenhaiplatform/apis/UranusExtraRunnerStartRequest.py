@@ -46,6 +46,7 @@ class UranusExtraRunnerStartParameters(object):
         self.args = None
         self.resourceName = None
         self.resourceCode = None
+        self.jcwSQLRunParams = None
 
     def setFlowCode(self, flowCode):
         """
@@ -82,4 +83,10 @@ class UranusExtraRunnerStartParameters(object):
         :param resourceCode: (Optional) 资源组code
         """
         self.resourceCode = resourceCode
+
+    def setJcwSQLRunParams(self, jcwSQLRunParams):
+        """
+        :param jcwSQLRunParams: (Optional) 任务资源配置
+        """
+        self.jcwSQLRunParams = jcwSQLRunParams
 

@@ -19,7 +19,7 @@
 
 class WorkspaceCreateReq(object):
 
-    def __init__(self, userPin=None, workspaceId=None, workspaceName=None, manager=None, workspaceDescription=None, workspaceModel=None, engineType=None, calculateResourceCode=None, integrationResourceCode=None, needBundleProject=None, bundleDevProjectReq=None, bundleProdProjectReq=None):
+    def __init__(self, userPin=None, workspaceId=None, workspaceName=None, manager=None, workspaceDescription=None, workspaceModel=None, workspaceLabel=None, engineType=None, calculateResourceCode=None, integrationResourceCode=None, needBundleProject=None, bundleDevProjectReq=None, bundleProdProjectReq=None):
         """
         :param userPin: (Optional) 
         :param workspaceId: (Optional) 
@@ -27,6 +27,7 @@ class WorkspaceCreateReq(object):
         :param manager: (Optional) 
         :param workspaceDescription: (Optional) 
         :param workspaceModel: (Optional) 
+        :param workspaceLabel: (Optional) 
         :param engineType: (Optional) 
         :param calculateResourceCode: (Optional) 
         :param integrationResourceCode: (Optional) 
@@ -41,6 +42,7 @@ class WorkspaceCreateReq(object):
         self.manager = manager
         self.workspaceDescription = workspaceDescription
         self.workspaceModel = workspaceModel
+        self.workspaceLabel = workspaceLabel
         self.engineType = engineType
         self.calculateResourceCode = calculateResourceCode
         self.integrationResourceCode = integrationResourceCode

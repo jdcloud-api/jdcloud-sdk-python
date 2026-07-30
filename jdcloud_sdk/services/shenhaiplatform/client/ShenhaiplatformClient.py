@@ -26,4 +26,4 @@ class ShenhaiplatformClient(JDCloudClient):
         if config is None:
             config = Config('shenhaiplatform.jdcloud-api.com')
 
-        super(ShenhaiplatformClient, self).__init__(credential, config, 'shenhaiplatform', '1.0.0', logger)
+        super(ShenhaiplatformClient, self).__init__(credential, config, 'shenhaiplatform', '1.0.1', logger)

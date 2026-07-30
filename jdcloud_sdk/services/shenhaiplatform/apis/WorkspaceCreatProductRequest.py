@@ -50,6 +50,8 @@ class WorkspaceCreatProductParameters(object):
         self.purchaseDuration = None
         self.projectResourceReq = None
         self.returnUrl = None
+        self.bizResourceKey = None
+        self.bizTagInfos = None
 
     def setRegion(self, region):
         """
@@ -110,4 +112,16 @@ class WorkspaceCreatProductParameters(object):
         :param returnUrl: (Optional) 
         """
         self.returnUrl = returnUrl
+
+    def setBizResourceKey(self, bizResourceKey):
+        """
+        :param bizResourceKey: (Optional) 
+        """
+        self.bizResourceKey = bizResourceKey
+
+    def setBizTagInfos(self, bizTagInfos):
+        """
+        :param bizTagInfos: (Optional) 
+        """
+        self.bizTagInfos = bizTagInfos
 

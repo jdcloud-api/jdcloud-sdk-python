@@ -46,6 +46,7 @@ class WorkspaceCreateParameters(object):
         self.manager = None
         self.workspaceDescription = None
         self.workspaceModel = None
+        self.workspaceLabel = None
         self.engineType = None
         self.calculateResourceCode = None
         self.integrationResourceCode = None
@@ -88,6 +89,12 @@ class WorkspaceCreateParameters(object):
         :param workspaceModel: (Optional) 
         """
         self.workspaceModel = workspaceModel
+
+    def setWorkspaceLabel(self, workspaceLabel):
+        """
+        :param workspaceLabel: (Optional) 
+        """
+        self.workspaceLabel = workspaceLabel
 
     def setEngineType(self, engineType):
         """

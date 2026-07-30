@@ -19,7 +19,7 @@
 
 class CreateWorkspaceProductParam(object):
 
-    def __init__(self, region=None, az=None, ownerIntegrationResource=None, payPlan=None, billingVersion=None, billingModel=None, autoRenewal=None, purchaseDuration=None, projectResourceReq=None, returnUrl=None):
+    def __init__(self, region=None, az=None, ownerIntegrationResource=None, payPlan=None, billingVersion=None, billingModel=None, autoRenewal=None, purchaseDuration=None, projectResourceReq=None, returnUrl=None, bizResourceKey=None, bizTagInfos=None):
         """
         :param region: (Optional) 
         :param az: (Optional) 
@@ -31,6 +31,8 @@ class CreateWorkspaceProductParam(object):
         :param purchaseDuration: (Optional) 
         :param projectResourceReq: (Optional) 
         :param returnUrl: (Optional) 
+        :param bizResourceKey: (Optional) 
+        :param bizTagInfos: (Optional) 
         """
 
         self.region = region
@@ -43,3 +45,5 @@ class CreateWorkspaceProductParam(object):
         self.purchaseDuration = purchaseDuration
         self.projectResourceReq = projectResourceReq
         self.returnUrl = returnUrl
+        self.bizResourceKey = bizResourceKey
+        self.bizTagInfos = bizTagInfos

@@ -19,7 +19,7 @@
 
 class ExtraRunnerReq(object):
 
-    def __init__(self, flowCode=None, content=None, execEngine=None, args=None, resourceName=None, resourceCode=None):
+    def __init__(self, flowCode=None, content=None, execEngine=None, args=None, resourceName=None, resourceCode=None, jcwSQLRunParams=None):
         """
         :param flowCode: (Optional) 流程code
         :param content: (Optional) 脚本内容
@@ -27,6 +27,7 @@ class ExtraRunnerReq(object):
         :param args: (Optional) 脚本内容的变量参数配置
         :param resourceName: (Optional) 资源组名称
         :param resourceCode: (Optional) 资源组code
+        :param jcwSQLRunParams: (Optional) 任务资源配置
         """
 
         self.flowCode = flowCode
@@ -35,3 +36,4 @@ class ExtraRunnerReq(object):
         self.args = args
         self.resourceName = resourceName
         self.resourceCode = resourceCode
+        self.jcwSQLRunParams = jcwSQLRunParams

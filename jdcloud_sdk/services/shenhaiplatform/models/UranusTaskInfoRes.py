@@ -19,7 +19,7 @@
 
 class UranusTaskInfoRes(object):
 
-    def __init__(self, flowCode, taskCode, projectNameMatch=None, nameKeyWord=None, relationType=None, redirectType=None, tableName=None, tableNameMatch=None, jobName=None, jobSystem=None, triggerType=None, dependencies=None, manager=None, priority=None, jobDesc=None, scriptType=None, runScript=None, scriptContent=None, cycle=None, sequence=None, lifeCycle=None, retry=None, notifyOccasion=None, notifyTime=None, notifyPattern=None, notifier=None, startRunTime=None, endRunTime=None, runTime=None, runDate=None, markIds=None, runTimeOut=None, scriptSourceType=None, isDeploy=None, scriptPath=None, scriptByte=None, fileCode=None, publishDesc=None, scriptInfo=None, version=None, sequenceStartTime=None, sequenceEndTime=None, sequenceInterval=None, runEngine=None, resourceCode=None, resourceName=None, cooperator=None, taskParamList=None, exportParamList=None, fromGravity=None, datasourcePrimaryId=None, datasourceUseEnvType=None):
+    def __init__(self, flowCode, taskCode, projectNameMatch=None, nameKeyWord=None, relationType=None, redirectType=None, tableName=None, tableNameMatch=None, jobName=None, jobSystem=None, triggerType=None, dependencies=None, manager=None, priority=None, jobDesc=None, scriptType=None, runScript=None, scriptContent=None, cycle=None, sequence=None, lifeCycle=None, retry=None, notifyOccasion=None, notifyTime=None, notifyPattern=None, notifier=None, startRunTime=None, endRunTime=None, runTime=None, runDate=None, markIds=None, runTimeOut=None, scriptSourceType=None, isDeploy=None, scriptPath=None, scriptByte=None, fileCode=None, publishDesc=None, scriptInfo=None, version=None, sequenceStartTime=None, sequenceEndTime=None, sequenceInterval=None, runEngine=None, resourceCode=None, resourceName=None, cooperator=None, taskParamList=None, exportParamList=None, fromGravity=None, datasourcePrimaryId=None, datasourceUseEnvType=None, runParams=None):
         """
         :param flowCode:  新模型（MODEL），老模型（OLD_MODEL）、数据开发（IDE）、数据集成（PIPE）、数据质量（DQ)
         :param projectNameMatch: (Optional) projectNameMatch
@@ -73,6 +73,7 @@ class UranusTaskInfoRes(object):
         :param fromGravity: (Optional) 
         :param datasourcePrimaryId: (Optional) 作业读写数据源主id，数据源的主ID
         :param datasourceUseEnvType: (Optional) 作业读写数据源使用环境类型,dev：开发环境，prod：生产环境
+        :param runParams: (Optional) 任务使用资源配置
         """
 
         self.flowCode = flowCode
@@ -127,3 +128,4 @@ class UranusTaskInfoRes(object):
         self.fromGravity = fromGravity
         self.datasourcePrimaryId = datasourcePrimaryId
         self.datasourceUseEnvType = datasourceUseEnvType
+        self.runParams = runParams

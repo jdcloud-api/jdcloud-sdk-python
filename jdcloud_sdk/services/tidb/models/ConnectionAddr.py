@@ -19,7 +19,7 @@
 
 class ConnectionAddr(object):
 
-    def __init__(self, addrType=None, internetAddr=None, intranetAddr=None, port=None):
+    def __init__(self, addrType=None, internetAddr=None, intranetAddr=None, manageAddr=None, port=None):
         """
         :param addrType: (Optional) 连接信息的类型，目前支持以下类型：
 - database: 通常数据访问，读写等
@@ -29,10 +29,12 @@ class ConnectionAddr(object):
 
         :param internetAddr: (Optional) 公网地址，域名或IP
         :param intranetAddr: (Optional) VPC内网地址，域名或IP
+        :param manageAddr: (Optional) 管理地址，域名或IP
         :param port: (Optional) 端口
         """
 
         self.addrType = addrType
         self.internetAddr = internetAddr
         self.intranetAddr = intranetAddr
+        self.manageAddr = manageAddr
         self.port = port

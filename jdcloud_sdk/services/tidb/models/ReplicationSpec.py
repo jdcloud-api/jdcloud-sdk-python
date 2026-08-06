@@ -19,9 +19,11 @@
 
 class ReplicationSpec(object):
 
-    def __init__(self, startTS=None, replicationObjects=None, targetType=None, targetIP=None, targetPort=None, targetComment=None, targetUser=None, targetPassword=None, kafkaTopic=None, kafkaVersion=None, kafkaProtocol=None):
+    def __init__(self, startTS=None, startTsInt=None, id=None, replicationObjects=None, targetType=None, targetIP=None, targetPort=None, targetComment=None, targetUser=None, targetPassword=None, kafkaTopic=None, kafkaVersion=None, kafkaProtocol=None, dispatchers=None, partitionNum=None, maxMessageBytes=None):
         """
-        :param startTS: (Optional) 复制的起始时间戳
+        :param startTS: (Optional) 复制任务的起始时间戳,格式为"2006-01-02 15:04:05",UTC时间, 优先级低于startTsInt
+        :param startTsInt: (Optional) 复制任务的起始时间戳,TSO格式,优先级较高,样例: 442501956723539969 (2023-06-29 11:56:44.347 +0800 CST)
+        :param id: (Optional) 复制任务的id,正则表达式：`^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$`，长度为 [2,32], 留空自动生成
         :param replicationObjects: (Optional) 要复制的对象列表
         :param targetType: (Optional) 目标实例类型
         :param targetIP: (Optional) 目标实例IP
@@ -32,9 +34,14 @@ class ReplicationSpec(object):
         :param kafkaTopic: (Optional) Kafka的Topic
         :param kafkaVersion: (Optional) Kafka的版本
         :param kafkaProtocol: (Optional) 消息的格式
+        :param dispatchers: (Optional) kafka event分发器的类型
+        :param partitionNum: (Optional) kafka分片数
+        :param maxMessageBytes: (Optional) 每次向 Kafka broker 发送消息的最大数据量
         """
 
         self.startTS = startTS
+        self.startTsInt = startTsInt
+        self.id = id
         self.replicationObjects = replicationObjects
         self.targetType = targetType
         self.targetIP = targetIP
@@ -45,3 +52,6 @@ class ReplicationSpec(object):
         self.kafkaTopic = kafkaTopic
         self.kafkaVersion = kafkaVersion
         self.kafkaProtocol = kafkaProtocol
+        self.dispatchers = dispatchers
+        self.partitionNum = partitionNum
+        self.maxMessageBytes = maxMessageBytes

@@ -19,9 +19,10 @@
 
 class Flavor(object):
 
-    def __init__(self, instanceClass=None, cpu=None, memoryGB=None, defaultStorageGB=None, storageGB=None):
+    def __init__(self, instanceClass=None, classGroup=None, cpu=None, memoryGB=None, defaultStorageGB=None, storageGB=None):
         """
         :param instanceClass: (Optional) 规格代码,如tidb.s1.xlarge
+        :param classGroup: (Optional) 规格类型，general(通用型)、exclusive(独享型)
         :param cpu: (Optional) cpu核数
         :param memoryGB: (Optional) 内存大小，单位GB
         :param defaultStorageGB: (Optional) 默认存储规格，单位GB
@@ -29,6 +30,7 @@ class Flavor(object):
         """
 
         self.instanceClass = instanceClass
+        self.classGroup = classGroup
         self.cpu = cpu
         self.memoryGB = memoryGB
         self.defaultStorageGB = defaultStorageGB

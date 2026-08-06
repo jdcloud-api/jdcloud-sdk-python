@@ -32,7 +32,7 @@ class RebootPodRequest(JDCloudRequest):
 
 class RebootPodParameters(object):
 
-    def __init__(self,regionId, instanceId, nodeType):
+    def __init__(self,regionId, instanceId, nodeType, ):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
@@ -42,4 +42,18 @@ class RebootPodParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.nodeType = nodeType
+        self.timing = None
+        self.cancel = None
+
+    def setTiming(self, timing):
+        """
+        :param timing: (Optional) 版本升级的时间点,时间格式yyyy-mm-dd hh:mm:ss。不传或者传入空表示当前时间
+        """
+        self.timing = timing
+
+    def setCancel(self, cancel):
+        """
+        :param cancel: (Optional) 是否取消重启任务, 为 true 则取消该实例的重启任务
+        """
+        self.cancel = cancel
 

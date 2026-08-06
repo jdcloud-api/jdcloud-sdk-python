@@ -32,7 +32,7 @@ class DescribeInstanceClassesRequest(JDCloudRequest):
 
 class DescribeInstanceClassesParameters(object):
 
-    def __init__(self,regionId, storageType):
+    def __init__(self,regionId, storageType, ):
         """
         :param regionId: 地域代码
         :param storageType: 存储类型,目前只支持本地SSD;
@@ -40,4 +40,11 @@ class DescribeInstanceClassesParameters(object):
 
         self.regionId = regionId
         self.storageType = storageType
+        self.classGroup = None
+
+    def setClassGroup(self, classGroup):
+        """
+        :param classGroup: (Optional) 规格类型：general(通用型)、exclusive(独享型);
+        """
+        self.classGroup = classGroup
 

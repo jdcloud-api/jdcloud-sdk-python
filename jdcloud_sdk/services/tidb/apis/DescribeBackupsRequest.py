@@ -32,14 +32,16 @@ class DescribeBackupsRequest(JDCloudRequest):
 
 class DescribeBackupsParameters(object):
 
-    def __init__(self,regionId, instanceId, ):
+    def __init__(self,regionId, instanceId, sortType, ):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID，唯一标识一个实例
+        :param sortType: 排序方式（asc:正序, desc:倒序）
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.sortType = sortType
         self.pageNumber = None
         self.pageSize = None
 

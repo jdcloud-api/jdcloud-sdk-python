@@ -32,7 +32,7 @@ class CreateAccountRequest(JDCloudRequest):
 
 class CreateAccountParameters(object):
 
-    def __init__(self,regionId, instanceId, accountName, accountPassword):
+    def __init__(self,regionId, instanceId, accountName, accountPassword, ):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
@@ -43,5 +43,19 @@ class CreateAccountParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.accountName = accountName
+        self.accountHost = None
         self.accountPassword = accountPassword
+        self.bindResourceGroup = None
+
+    def setAccountHost(self, accountHost):
+        """
+        :param accountHost: (Optional) 账号Host, 默认为%
+        """
+        self.accountHost = accountHost
+
+    def setBindResourceGroup(self, bindResourceGroup):
+        """
+        :param bindResourceGroup: (Optional) 为账号绑定资源组 (该字段仅支持v7及其以上实例)
+        """
+        self.bindResourceGroup = bindResourceGroup
 

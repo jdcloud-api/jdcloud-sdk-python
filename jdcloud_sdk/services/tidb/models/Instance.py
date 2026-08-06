@@ -19,10 +19,11 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engineVersion=None, architecture=None, minorVersion=None, totalNodeNum=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, createTime=None, charge=None, tags=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceNamespace=None, engineVersion=None, architecture=None, minorVersion=None, totalNodeNum=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, tidbNodeSpec=None, tikvNodeSpec=None, pdNodeSpec=None, monitorNodeSpec=None, tiflashNodeSpec=None, ticdcNodeSpec=None, regionId=None, azId=None, vpcId=None, subnetId=None, instanceStatus=None, createTime=None, charge=None, tags=None, internalDomainName=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
+        :param instanceNamespace: (Optional) 实例的命名空间
         :param engineVersion: (Optional) 实例引擎版本
         :param architecture: (Optional) CPU架构
         :param minorVersion: (Optional) 实例引擎版本的详细版本号
@@ -30,6 +31,12 @@ class Instance(object):
         :param totalCPU: (Optional) 整个集群总的CPU核数
         :param totalMemoryGB: (Optional) 整个集群总的内存大小，单位GB
         :param totalStorageGB: (Optional) 整个集群总的存储空间大小，单位GB
+        :param tidbNodeSpec: (Optional) TiDB节点规格和数目
+        :param tikvNodeSpec: (Optional) TiKV节点规格和数目
+        :param pdNodeSpec: (Optional) PD节点规格和数目
+        :param monitorNodeSpec: (Optional) Monitor节点规格，只能有1个Monitor节点
+        :param tiflashNodeSpec: (Optional) TiFlash节点规格和数目
+        :param ticdcNodeSpec: (Optional) Ticdc节点规格和数目
         :param regionId: (Optional) 地域ID
         :param azId: (Optional) 可用区ID，目前仅支持单可用区
         :param vpcId: (Optional) VPC的ID
@@ -38,10 +45,12 @@ class Instance(object):
         :param createTime: (Optional) 实例创建时间, UTC 时间格式
         :param charge: (Optional) 计费配置
         :param tags: (Optional) 标签信息
+        :param internalDomainName: (Optional) TiDB内网域名
         """
 
         self.instanceId = instanceId
         self.instanceName = instanceName
+        self.instanceNamespace = instanceNamespace
         self.engineVersion = engineVersion
         self.architecture = architecture
         self.minorVersion = minorVersion
@@ -49,6 +58,12 @@ class Instance(object):
         self.totalCPU = totalCPU
         self.totalMemoryGB = totalMemoryGB
         self.totalStorageGB = totalStorageGB
+        self.tidbNodeSpec = tidbNodeSpec
+        self.tikvNodeSpec = tikvNodeSpec
+        self.pdNodeSpec = pdNodeSpec
+        self.monitorNodeSpec = monitorNodeSpec
+        self.tiflashNodeSpec = tiflashNodeSpec
+        self.ticdcNodeSpec = ticdcNodeSpec
         self.regionId = regionId
         self.azId = azId
         self.vpcId = vpcId
@@ -57,3 +72,4 @@ class Instance(object):
         self.createTime = createTime
         self.charge = charge
         self.tags = tags
+        self.internalDomainName = internalDomainName

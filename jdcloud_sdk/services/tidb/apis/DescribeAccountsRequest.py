@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeAccountsRequest(JDCloudRequest):
     """
-    查看当前实例下的账号信息。
+    查看当前实例下的账号信息，老接口。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

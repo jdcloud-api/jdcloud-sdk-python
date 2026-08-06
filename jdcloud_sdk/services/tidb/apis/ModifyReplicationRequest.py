@@ -32,56 +32,16 @@ class ModifyReplicationRequest(JDCloudRequest):
 
 class ModifyReplicationParameters(object):
 
-    def __init__(self,regionId, instanceId, taskId, ):
+    def __init__(self,regionId, instanceId, taskId, replicationModify):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
         :param taskId: 复制任务ID
+        :param replicationModify: 数据复制任务的修改信息
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
         self.taskId = taskId
-        self.targetComment = None
-        self.targetUser = None
-        self.targetPassword = None
-        self.kafkaTopic = None
-        self.kafkaVersion = None
-        self.replicationObjects = None
-
-    def setTargetComment(self, targetComment):
-        """
-        :param targetComment: (Optional) 目标实例备注说明
-        """
-        self.targetComment = targetComment
-
-    def setTargetUser(self, targetUser):
-        """
-        :param targetUser: (Optional) 目标类型为TiDB或MySQL时，连接目标实例的用户名
-        """
-        self.targetUser = targetUser
-
-    def setTargetPassword(self, targetPassword):
-        """
-        :param targetPassword: (Optional) 目标类型为TiDB或MySQL时，连接目标实例的密码
-        """
-        self.targetPassword = targetPassword
-
-    def setKafkaTopic(self, kafkaTopic):
-        """
-        :param kafkaTopic: (Optional) Kafka的Topic
-        """
-        self.kafkaTopic = kafkaTopic
-
-    def setKafkaVersion(self, kafkaVersion):
-        """
-        :param kafkaVersion: (Optional) Kafka的版本
-        """
-        self.kafkaVersion = kafkaVersion
-
-    def setReplicationObjects(self, replicationObjects):
-        """
-        :param replicationObjects: (Optional) 过滤规则列表
-        """
-        self.replicationObjects = replicationObjects
+        self.replicationModify = replicationModify
 

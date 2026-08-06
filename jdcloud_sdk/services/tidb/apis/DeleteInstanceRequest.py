@@ -32,7 +32,7 @@ class DeleteInstanceRequest(JDCloudRequest):
 
 class DeleteInstanceParameters(object):
 
-    def __init__(self,regionId, instanceId):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
@@ -40,4 +40,11 @@ class DeleteInstanceParameters(object):
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.opsTagSpecs = None
+
+    def setOpsTagSpecs(self, opsTagSpecs):
+        """
+        :param opsTagSpecs: (Optional) 
+        """
+        self.opsTagSpecs = opsTagSpecs
 

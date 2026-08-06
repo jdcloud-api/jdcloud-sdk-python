@@ -63,6 +63,9 @@ class DescribeInstancesParameters(object):
 instanceId, 支持operator选项：eq,ne
 instanceName, 支持operator选项：eq,ne,like
 instanceStatus, 支持operator选项：eq,ne
+engineVersion, 支持operator选项：eq
+subnetId, 支持operator选项：eq, ne, in
+vpcId, 支持operator选项：eq, ne, in
 
         """
         self.filters = filters

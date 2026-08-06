@@ -19,13 +19,15 @@
 
 class NodeFlavor(object):
 
-    def __init__(self, maxNum=None, minNum=None, flavors=None):
+    def __init__(self, maxNum=None, minNum=None, defaultGroup=None, flavors=None):
         """
         :param maxNum: (Optional) 允许的最大节点数
         :param minNum: (Optional) 允许的最小节点数
+        :param defaultGroup: (Optional) 该节点的默认组(前端显示时默认显示)
         :param flavors: (Optional) 
         """
 
         self.maxNum = maxNum
         self.minNum = minNum
+        self.defaultGroup = defaultGroup
         self.flavors = flavors

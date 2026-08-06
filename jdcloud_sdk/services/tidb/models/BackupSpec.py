@@ -19,9 +19,11 @@
 
 class BackupSpec(object):
 
-    def __init__(self, backupName, ):
+    def __init__(self, backupName, dbName=None):
         """
         :param backupName:  备份名称，最长支持64个英文字符或等长的中文字符
+        :param dbName: (Optional) 需要备份的库列表
         """
 
         self.backupName = backupName
+        self.dbName = dbName

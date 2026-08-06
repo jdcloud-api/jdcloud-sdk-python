@@ -19,25 +19,33 @@
 
 class Backup(object):
 
-    def __init__(self, backupId=None, backupName=None, instanceId=None, backupStatus=None, backupStartTime=None, backupEndTime=None, backupType=None, backupMode=None, backupSizeByte=None):
+    def __init__(self, backupId=None, backupName=None, instanceId=None, backupStatus=None, backupCreateTime=None, backupStartTime=None, backupEndTime=None, backupType=None, backupMode=None, backupSizeByte=None, backupDbVersion=None, backupPolicy=None, backupDbs=None):
         """
         :param backupId: (Optional) 备份ID
         :param backupName: (Optional) 备份名称，最长支持64个英文字符或等长的中文字符
         :param instanceId: (Optional) 备份所属实例ID
         :param backupStatus: (Optional) 备份状态
+        :param backupCreateTime: (Optional) 备份创建时间
         :param backupStartTime: (Optional) 备份开始时间
         :param backupEndTime: (Optional) 备份结束时间
         :param backupType: (Optional) 备份类型
         :param backupMode: (Optional) 备份模式
         :param backupSizeByte: (Optional) 整个备份集大小，单位：Byte
+        :param backupDbVersion: (Optional) 备份的数据库版本，格式:x.y(major.minor)
+        :param backupPolicy: (Optional) 备份策略（instance或database）
+        :param backupDbs: (Optional) 库备份策略下备份的库信息
         """
 
         self.backupId = backupId
         self.backupName = backupName
         self.instanceId = instanceId
         self.backupStatus = backupStatus
+        self.backupCreateTime = backupCreateTime
         self.backupStartTime = backupStartTime
         self.backupEndTime = backupEndTime
         self.backupType = backupType
         self.backupMode = backupMode
         self.backupSizeByte = backupSizeByte
+        self.backupDbVersion = backupDbVersion
+        self.backupPolicy = backupPolicy
+        self.backupDbs = backupDbs

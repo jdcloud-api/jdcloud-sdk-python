@@ -32,7 +32,7 @@ class AddWhiteListGroupRequest(JDCloudRequest):
 
 class AddWhiteListGroupParameters(object):
 
-    def __init__(self,regionId, instanceId, name):
+    def __init__(self,regionId, instanceId, name, ):
         """
         :param regionId: 地域代码
         :param instanceId: 实例ID
@@ -42,4 +42,11 @@ class AddWhiteListGroupParameters(object):
         self.regionId = regionId
         self.instanceId = instanceId
         self.name = name
+        self.ips = None
+
+    def setIps(self, ips):
+        """
+        :param ips: (Optional) IP或IP段,不同的IP/IP段之间用英文逗号分隔,例如0.0.0.0/0,192.168.0.10
+        """
+        self.ips = ips
 

@@ -19,30 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeAvailableDBInfoInternelRequest(JDCloudRequest):
+class CompareParameterRequest(JDCloudRequest):
     """
-    查询 TiDB支持的基本信息。
+    比较实例和参数模板的参数
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeAvailableDBInfoInternelRequest, self).__init__(
-            '/regions/{regionId}/instances:describeAvailableDBInfoInternel', 'GET', header, version)
+        super(CompareParameterRequest, self).__init__(
+            '/regions/{regionId}/templates/{tid}/instance/{gid}', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeAvailableDBInfoInternelParameters(object):
+class CompareParameterParameters(object):
 
-    def __init__(self,regionId, ):
+    def __init__(self,regionId, tid, gid):
         """
-        :param regionId: 地域代码
+        :param regionId: 地域
+        :param tid: 模板ID
+        :param gid: 实例ID
         """
 
         self.regionId = regionId
-        self.azs = None
-
-    def setAzs(self, azs):
-        """
-        :param azs: (Optional) 用户可用区[多个使用,分隔]
-        """
-        self.azs = azs
+        self.tid = tid
+        self.gid = gid
 

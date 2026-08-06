@@ -19,7 +19,7 @@
 
 class ReplicationTask(object):
 
-    def __init__(self, taskId=None, targetType=None, replicationObjects=None, targetIP=None, targetPort=None, targetUser=None, kafkaTopic=None, kafkaVersion=None, targetComment=None, taskStatus=None, startTime=None, checkpointTime=None, createTime=None):
+    def __init__(self, taskId=None, targetType=None, replicationObjects=None, targetIP=None, targetPort=None, targetUser=None, kafkaTopic=None, kafkaVersion=None, targetComment=None, taskStatus=None, startTime=None, checkpointTime=None, checkpointLag=None, createTime=None, partitionNum=None, dispatchers=None, maxMessageBytes=None):
         """
         :param taskId: (Optional) 复制任务ID
         :param targetType: (Optional) 目标实例类型
@@ -33,7 +33,11 @@ class ReplicationTask(object):
         :param taskStatus: (Optional) 任务状态
         :param startTime: (Optional) 复制的起始时间
         :param checkpointTime: (Optional) Checkpoint时间
+        :param checkpointLag: (Optional) Checkpoint延迟
         :param createTime: (Optional) 任务创建时间
+        :param partitionNum: (Optional) Kafka分片数
+        :param dispatchers: (Optional) Kafka event分发器
+        :param maxMessageBytes: (Optional) 每次向 Kafka broker 发送消息的最大数据量
         """
 
         self.taskId = taskId
@@ -48,4 +52,8 @@ class ReplicationTask(object):
         self.taskStatus = taskStatus
         self.startTime = startTime
         self.checkpointTime = checkpointTime
+        self.checkpointLag = checkpointLag
         self.createTime = createTime
+        self.partitionNum = partitionNum
+        self.dispatchers = dispatchers
+        self.maxMessageBytes = maxMessageBytes

@@ -19,13 +19,16 @@
 
 class DescribeParam(object):
 
-    def __init__(self, name=None, description=None, nodeType=None, defaultValue=None, currentValue=None, needRestart=None):
+    def __init__(self, name=None, description=None, nodeType=None, defaultValue=None, currentValue=None, dataType=None, minValue=None, maxValue=None, needRestart=None):
         """
         :param name: (Optional) 参数名称
         :param description: (Optional) 参数的描述
-        :param nodeType: (Optional) 参数的节点类型，包括TiKV,TiDB,PD,TiFlash
+        :param nodeType: (Optional) 参数的类型，包括 tidb,tikv,pd,ticdc,tiflash,sysvar
         :param defaultValue: (Optional) 参数的默认数值
         :param currentValue: (Optional) 参数的当前值
+        :param dataType: (Optional) 参数值类型，目前有 bool/int/float/string
+        :param minValue: (Optional) 参数最小值
+        :param maxValue: (Optional) 参数最大值
         :param needRestart: (Optional) 参数修改是否需要重启生效，大小写敏感 -true:参数需要重启才能生效 -false:参数无需重启生效
         """
 
@@ -34,4 +37,7 @@ class DescribeParam(object):
         self.nodeType = nodeType
         self.defaultValue = defaultValue
         self.currentValue = currentValue
+        self.dataType = dataType
+        self.minValue = minValue
+        self.maxValue = maxValue
         self.needRestart = needRestart

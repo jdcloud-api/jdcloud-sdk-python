@@ -19,14 +19,18 @@
 
 class TidbInstanceAttribute(object):
 
-    def __init__(self, instanceId=None, instanceName=None, engineVersion=None, architecture=None, minorVersion=None, totalNodeNum=None, tidbNodeSpec=None, tikvNodeSpec=None, pdNodeSpec=None, monitorNodeSpec=None, tiflashNodeSpec=None, ticdcNodeSpec=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, regionId=None, azId=None, vpcId=None, subnetId=None, internalDomainName=None, publicDomainName=None, monitorInternalDomainName=None, monitorPublicDomainName=None, pdInternalDomainName=None, pdPublicDomainName=None, dmsInternalDomainName=None, dmsPublicDomainName=None, instancePort=None, monitorPort=None, pdPort=None, dmsPort=None, instanceStatus=None, createTime=None, charge=None, tags=None):
+    def __init__(self, instanceId=None, instanceName=None, instanceNamespace=None, appName=None, systemName=None, engineVersion=None, architecture=None, minorVersion=None, totalNodeNum=None, classGroup=None, tidbNodeSpec=None, tikvNodeSpec=None, pdNodeSpec=None, monitorNodeSpec=None, tiflashNodeSpec=None, ticdcNodeSpec=None, totalCPU=None, totalMemoryGB=None, totalStorageGB=None, regionId=None, azId=None, vpcId=None, subnetId=None, connectionAddr=None, internalDomainName=None, publicDomainName=None, monitorInternalDomainName=None, monitorPublicDomainName=None, pdInternalDomainName=None, pdPublicDomainName=None, dmsInternalDomainName=None, dmsPublicDomainName=None, ticdcInternalDomainName=None, instancePort=None, monitorPort=None, pdPort=None, dmsPort=None, ticdcPort=None, instanceStatus=None, createTime=None, resourceGroupId=None, resourceGroupName=None, existBackup=None, charge=None, tags=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
+        :param instanceNamespace: (Optional) 命名空间
+        :param appName: (Optional) 行云应用名称
+        :param systemName: (Optional) 行云系统名称
         :param engineVersion: (Optional) 实例引擎版本
         :param architecture: (Optional) CPU架构
         :param minorVersion: (Optional) 实例引擎版本的详细版本号
         :param totalNodeNum: (Optional) 集群中节点的总数
+        :param classGroup: (Optional) 规格类型：general(通用型)、exclusive(独享型)
         :param tidbNodeSpec: (Optional) TiDB节点规格和数目
         :param tikvNodeSpec: (Optional) TiKV节点规格和数目
         :param pdNodeSpec: (Optional) PD节点规格和数目
@@ -40,6 +44,7 @@ class TidbInstanceAttribute(object):
         :param azId: (Optional) 可用区ID，目前仅支持单可用区
         :param vpcId: (Optional) VPC的ID
         :param subnetId: (Optional) 子网的ID
+        :param connectionAddr: (Optional) 实例的连接地址，端口等连接信息
         :param internalDomainName: (Optional) TiDB内网域名
         :param publicDomainName: (Optional) TiDB公网域名
         :param monitorInternalDomainName: (Optional) TiDB监控的内网域名
@@ -48,22 +53,31 @@ class TidbInstanceAttribute(object):
         :param pdPublicDomainName: (Optional) PD的公网域名
         :param dmsInternalDomainName: (Optional) DMS的内网域名
         :param dmsPublicDomainName: (Optional) DMS的公网域名
+        :param ticdcInternalDomainName: (Optional) TiCDC的内网域名
         :param instancePort: (Optional) 应用访问端口
         :param monitorPort: (Optional) TiDB监控的端口
         :param pdPort: (Optional) PD的端口
         :param dmsPort: (Optional) DMS的端口
+        :param ticdcPort: (Optional) TiCDC的端口
         :param instanceStatus: (Optional) 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
         :param createTime: (Optional) 实例创建时间, UTC 时间格式
+        :param resourceGroupId: (Optional) 资源组id
+        :param resourceGroupName: (Optional) 资源组名称
+        :param existBackup: (Optional) 是否存在日志备份
         :param charge: (Optional) 计费配置
         :param tags: (Optional) 标签信息
         """
 
         self.instanceId = instanceId
         self.instanceName = instanceName
+        self.instanceNamespace = instanceNamespace
+        self.appName = appName
+        self.systemName = systemName
         self.engineVersion = engineVersion
         self.architecture = architecture
         self.minorVersion = minorVersion
         self.totalNodeNum = totalNodeNum
+        self.classGroup = classGroup
         self.tidbNodeSpec = tidbNodeSpec
         self.tikvNodeSpec = tikvNodeSpec
         self.pdNodeSpec = pdNodeSpec
@@ -77,6 +91,7 @@ class TidbInstanceAttribute(object):
         self.azId = azId
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.connectionAddr = connectionAddr
         self.internalDomainName = internalDomainName
         self.publicDomainName = publicDomainName
         self.monitorInternalDomainName = monitorInternalDomainName
@@ -85,11 +100,16 @@ class TidbInstanceAttribute(object):
         self.pdPublicDomainName = pdPublicDomainName
         self.dmsInternalDomainName = dmsInternalDomainName
         self.dmsPublicDomainName = dmsPublicDomainName
+        self.ticdcInternalDomainName = ticdcInternalDomainName
         self.instancePort = instancePort
         self.monitorPort = monitorPort
         self.pdPort = pdPort
         self.dmsPort = dmsPort
+        self.ticdcPort = ticdcPort
         self.instanceStatus = instanceStatus
         self.createTime = createTime
+        self.resourceGroupId = resourceGroupId
+        self.resourceGroupName = resourceGroupName
+        self.existBackup = existBackup
         self.charge = charge
         self.tags = tags

@@ -19,9 +19,10 @@
 
 class TidbInstanceSpec(object):
 
-    def __init__(self, instanceName, architecture, tidbNodeSpec, tikvNodeSpec, pdNodeSpec, monitorNodeSpec, azId, vpcId, subnetId, chargeSpec, engineVersion=None, tiflashNodeSpec=None, ticdcNodeSpec=None, tagSpec=None):
+    def __init__(self, instanceName, architecture, tidbNodeSpec, tikvNodeSpec, pdNodeSpec, monitorNodeSpec, azId, vpcId, subnetId, chargeSpec, instanceNamespace=None, engineVersion=None, tiflashNodeSpec=None, ticdcNodeSpec=None, ipv6Enable=None, tagSpec=None, resourceGroupId=None):
         """
         :param instanceName:  实例名
+        :param instanceNamespace: (Optional) 命名空间(必须由小写字母数字字符或“-”组成，并且必须以字母数字字符开头和结尾,最大长度为30)
         :param engineVersion: (Optional) TiDB引擎版本
         :param architecture:  CPU架构
         :param tidbNodeSpec:  TiDB节点规格和数目
@@ -33,11 +34,14 @@ class TidbInstanceSpec(object):
         :param azId:  可用区ID，目前仅支持单可用区部署
         :param vpcId:  VPC的ID
         :param subnetId:  子网ID
+        :param ipv6Enable: (Optional) 是否开启IPV6（true：是、false：否），默认：false
         :param chargeSpec:  计费规格，包括计费类型，计费周期等
         :param tagSpec: (Optional) 标签信息
+        :param resourceGroupId: (Optional) 资源组id
         """
 
         self.instanceName = instanceName
+        self.instanceNamespace = instanceNamespace
         self.engineVersion = engineVersion
         self.architecture = architecture
         self.tidbNodeSpec = tidbNodeSpec
@@ -49,5 +53,7 @@ class TidbInstanceSpec(object):
         self.azId = azId
         self.vpcId = vpcId
         self.subnetId = subnetId
+        self.ipv6Enable = ipv6Enable
         self.chargeSpec = chargeSpec
         self.tagSpec = tagSpec
+        self.resourceGroupId = resourceGroupId

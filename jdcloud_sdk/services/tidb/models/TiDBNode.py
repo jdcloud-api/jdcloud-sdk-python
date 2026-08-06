@@ -22,7 +22,7 @@ class TiDBNode(object):
     def __init__(self, nodeId=None, nodeType=None, nodeStatus=None, cpuUtil=None, memeryUtil=None, diskUsage=None):
         """
         :param nodeId: (Optional) 节点ID
-        :param nodeType: (Optional) 节点类型，支持,tidb,tikv,pd,tiflash,monitor
+        :param nodeType: (Optional) 节点类型，支持,tidb,tikv,pd,tiflash,monitor,ticdc
         :param nodeStatus: (Optional) 节点状态
         :param cpuUtil: (Optional) CPU 使用百分比，例如0.832表示CPU使用率为83.2%
         :param memeryUtil: (Optional) 内存使用百分比，例如0.832表示内存使用率为83.2%

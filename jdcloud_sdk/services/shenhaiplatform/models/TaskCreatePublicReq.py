@@ -19,15 +19,17 @@
 
 class TaskCreatePublicReq(object):
 
-    def __init__(self, catalogId=None, taskName=None, taskType=None, desc=None):
+    def __init__(self, catalogId=None, flowId=None, taskName=None, taskType=None, desc=None):
         """
-        :param catalogId: (Optional) 目录ID，用于分类和管理任务
+        :param catalogId: (Optional) 目录ID，用于分类和管理任务。创建工作流内部节点时可空（由父工作流派生）
+        :param flowId: (Optional) 所属工作流草稿ID（flw_ 前缀）。为空时创建独立任务（TaskKind=TASK）；非空时创建工作流内部任务（TaskKind=INTERNAL_TASK）
         :param taskName: (Optional) 任务名称
         :param taskType: (Optional) 任务类型，定义任务的性质和处理方式，只支持 STARROCKS、PYTHON 两种类型的任务
         :param desc: (Optional) 任务描述信息
         """
 
         self.catalogId = catalogId
+        self.flowId = flowId
         self.taskName = taskName
         self.taskType = taskType
         self.desc = desc

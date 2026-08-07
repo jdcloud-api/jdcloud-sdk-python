@@ -19,18 +19,18 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UranusTaskPublicCreateRequest(JDCloudRequest):
+class UranusTaskPublicCreateFlowRequest(JDCloudRequest):
     """
-    创建一个新的外部任务，支持多种任务类型
+    创建一个新的工作流节点
     """
 
     def __init__(self, parameters, header=None, version="v2"):
-        super(UranusTaskPublicCreateRequest, self).__init__(
-            '/regions/{regionId}/apps/{appName}/uranusTaskPublicCreate', 'POST', header, version)
+        super(UranusTaskPublicCreateFlowRequest, self).__init__(
+            '/regions/{regionId}/apps/{appName}/uranusTaskPublicCreateFlow', 'POST', header, version)
         self.parameters = parameters
 
 
-class UranusTaskPublicCreateParameters(object):
+class UranusTaskPublicCreateFlowParameters(object):
 
     def __init__(self,regionId, appName, ):
         """
@@ -41,38 +41,31 @@ class UranusTaskPublicCreateParameters(object):
         self.regionId = regionId
         self.appName = appName
         self.catalogId = None
-        self.flowId = None
-        self.taskName = None
-        self.taskType = None
+        self.flowName = None
         self.desc = None
+        self.collaborators = None
 
     def setCatalogId(self, catalogId):
         """
-        :param catalogId: (Optional) 目录ID，用于分类和管理任务。创建工作流内部节点时可空（由父工作流派生）
+        :param catalogId: (Optional) 所属目录ID（biz_ 前缀），必填
         """
         self.catalogId = catalogId
 
-    def setFlowId(self, flowId):
+    def setFlowName(self, flowName):
         """
-        :param flowId: (Optional) 所属工作流草稿ID（flw_ 前缀）。为空时创建独立任务（TaskKind=TASK）；非空时创建工作流内部任务（TaskKind=INTERNAL_TASK）
+        :param flowName: (Optional) 工作流名称，必填
         """
-        self.flowId = flowId
-
-    def setTaskName(self, taskName):
-        """
-        :param taskName: (Optional) 任务名称
-        """
-        self.taskName = taskName
-
-    def setTaskType(self, taskType):
-        """
-        :param taskType: (Optional) 任务类型，定义任务的性质和处理方式，只支持 STARROCKS、PYTHON 两种类型的任务
-        """
-        self.taskType = taskType
+        self.flowName = flowName
 
     def setDesc(self, desc):
         """
-        :param desc: (Optional) 任务描述信息
+        :param desc: (Optional) 工作流描述
         """
         self.desc = desc
+
+    def setCollaborators(self, collaborators):
+        """
+        :param collaborators: (Optional) 协作人列表
+        """
+        self.collaborators = collaborators
 

@@ -21,8 +21,8 @@ class UpdatePublicDatasetVersionParam(object):
 
     def __init__(self, versionDesc=None, datasetIntroduction=None):
         """
-        :param versionDesc: (Optional) 版本描述，传null不更新，有值或传空都会更新
-        :param datasetIntroduction: (Optional) 数据集介绍，传null不更新，有值或传空都会更新
+        :param versionDesc: (Optional) 版本描述，传空字符串会更新成空
+        :param datasetIntroduction: (Optional) 数据集介绍，传空字符串会更新成空
         """
 
         self.versionDesc = versionDesc

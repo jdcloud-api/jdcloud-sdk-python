@@ -19,7 +19,7 @@
 
 class WorkspaceQueue(object):
 
-    def __init__(self, queueId=None, allModuleSupported=None, queueModules=None, allMemberSupported=None, queueMemberPins=None, schedulePolicy=None):
+    def __init__(self, queueId=None, allModuleSupported=None, queueModules=None, allMemberSupported=None, queueMemberPins=None):
         """
         :param queueId: (Optional) 队列id。
         :param allModuleSupported: (Optional) true支持所有任务模块
@@ -28,10 +28,11 @@ class WorkspaceQueue(object):
 - training:训练任务
 - inference:在线服务，
 - finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
 
         :param allMemberSupported: (Optional) true所有成员可用
         :param queueMemberPins: (Optional) 队列可用成员，allUserSupported=false生效
-        :param schedulePolicy: (Optional) 调度测略
         """
 
         self.queueId = queueId
@@ -39,4 +40,3 @@ class WorkspaceQueue(object):
         self.queueModules = queueModules
         self.allMemberSupported = allMemberSupported
         self.queueMemberPins = queueMemberPins
-        self.schedulePolicy = schedulePolicy

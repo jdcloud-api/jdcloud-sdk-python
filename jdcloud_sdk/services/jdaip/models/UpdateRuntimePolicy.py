@@ -22,7 +22,11 @@ class UpdateRuntimePolicy(object):
     def __init__(self, runtimeHour=None, queueIds=None):
         """
         :param runtimeHour: (Optional) 运行时长配置(小时)
-        :param queueIds: (Optional) 运行时长配置-生效的资源队列id(空间已绑定的队列)
+        :param queueIds: (Optional) 运行时长配置-生效的资源队列id, 可选值：
+- 空间已绑定的专属队列，示例：queue-2xxx**********2d*********8b8
+- joybuilder-public-queue 公共队列
+- joybuilder-exclusive-queue 专享队列
+
         """
 
         self.runtimeHour = runtimeHour

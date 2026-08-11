@@ -24,7 +24,7 @@ class RoleDeploy(object):
         :param roleName: (Optional) 角色名称（prefill/decode/router/custom）
         :param replica: (Optional) 角色副本数
         :param podsState: (Optional) 仅查询返回：该角色 pod 状态统计
-        :param resource: (Optional) 角色部署所需资源
+        :param resource: (Optional) 角色部署所需资源。多角色分离模式时，该字段为必填项。
         :param deployType: (Optional) 部署类型（distributed/single）
         :param distributedNodeCount: (Optional) 分布式节点数
         :param affinity: (Optional) 角色部署的节点亲和性配置

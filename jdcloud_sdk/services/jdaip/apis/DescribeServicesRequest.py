@@ -43,6 +43,8 @@ class DescribeServicesParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.order = None
+        self.sort = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -69,4 +71,22 @@ class DescribeServicesParameters(object):
 
         """
         self.filters = filters
+
+    def setOrder(self, order):
+        """
+        :param order: (Optional) <b>排序字段；默认为 createTime</b>
+`createTime`: 按该服务的创建时间排序。
+`running`: 按该服务中运行的版本数排序。
+
+        """
+        self.order = order
+
+    def setSort(self, sort):
+        """
+        :param sort: (Optional) <b>排序方式；默认为 desc</b>
+`desc`: 按 order 字段降序排序。
+`asc`: 按 order 字段升序排序。
+
+        """
+        self.sort = sort
 

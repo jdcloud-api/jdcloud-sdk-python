@@ -19,14 +19,16 @@
 
 class WorkspaceSpec(object):
 
-    def __init__(self, workspaceName, resourceQueue, workspaceDesc=None, queueConfigs=None, workspaceMember=None, logConfigs=None):
+    def __init__(self, workspaceName, workspaceDesc=None, resourceQueue=None, queueConfigs=None, workspaceMember=None, logConfigs=None):
         """
         :param workspaceName:  工作空间名称。
+命名规则：1~32字符，仅支持中文、大小写字母、数字、英文中划线“-”和英文下划线“_”
+
         :param workspaceDesc: (Optional) 工作空间描述，256个字符内。
-        :param resourceQueue:  资源队列。【废弃】该字段即将下线，建议使用新的资源队列配置字段[queueConfigs]。
+        :param resourceQueue: (Optional) 资源队列。【废弃】该字段即将下线，建议使用新的资源队列配置字段[queueConfigs]。
         :param queueConfigs: (Optional) 资源队列配置。
-        :param workspaceMember: (Optional) 工作空间成员。
-        :param logConfigs: (Optional) 空间关联的日志配置。
+        :param workspaceMember: (Optional) 工作空间成员配置。
+        :param logConfigs: (Optional) 空间关联的日志配置，最多支持配置20个日志投递目标，[日志投递相关文档](https://docs.jdcloud.com/cn/jdaip/create-logconfig-for-joybuilder)
         """
 
         self.workspaceName = workspaceName

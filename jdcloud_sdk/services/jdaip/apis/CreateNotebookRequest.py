@@ -24,14 +24,17 @@ class CreateNotebookRequest(JDCloudRequest):
     在工作空间下创建一个Notebook实例，Notebook是基于Kubernetes的交互式开发环境，支持JupyterLab应用。
 
 ## 接口说明
-- **资源队列**: 必须选择一个队列，使用公共资源池时必须指定规格，使用私有资源池时必须指定CPU和内存，是否使用GPU可以按需选择。公共资源池队列ID固定为`joybuilder-public-queue`。
+- **资源队列**: 必须选择一个队列，使用公共资源池时必须指定规格和逻辑可用区，使用私有资源池时必须指定CPU和内存，是否使用GPU可以按需选择。公共资源池队列ID固定为`joybuilder-public-queue`。
 - **镜像配置**: 支持公共镜像和自定义镜像，需要指定镜像来源(public/self)、镜像名称、镜像URL等信息。
 - **存储空间**: 使用用户个人存储，第一块存储默认作为工作目录，挂载到Notebook实例中`/mnt/workspace`目录下。支持cfs、oss、jpfs三种存储类型。`cfs`和`jpfs`类型存储只能选择与队列同vpc下的资源，使用私有资源池时跨vpc需要打通(vpcPeering)对等连接。
 - **数据集**: 可选择公共数据集或个人数据集。`cfs`和`jpfs`类型的数据集只能选择与队列同vpc下的数据集，使用私有资源池时跨vpc需要打通(vpcPeering)对等连接。
 - **模型**: 可选择公共模型或个人模型。`cfs`和`jpfs`类型的模型只能选择与队列同vpc下的模型，使用私有资源池时跨vpc需要打通(vpcPeering)对等连接。
-- **SSH连接**: 开启后需要选择一个与队列同vpc下的负载均衡(LB)，并设置一个未占用的监听端口，实例运行后可以通过LB的公网IP和端口进行SSH访问，使用私有资源池时跨vpc需要打通(vpcPeering)对等连接。
+- **SSH连接**: 开启后需要选择一个与队列同vpc下的负载均衡(LB)，并设置一个未占用的监听端口，实例运行后可以通过LB的公网IP和端口进行SSH访问。公共资源池下LbSpec不为空仅表示需要公网访问；私有资源池下需要指定lbId和lbPort。公共资源池可通过LbSpec.lbEnable=true开启公网访问，系统自动分配LB。
+- **公网出口**: 公共资源池可通过internetEgress.switchStatus=on开启公网出口，并设置internetEgress.egressType=SHARE_GATEWAY配置出公网访问方式，经平台共享NAT网关出公网。switchStatus必须显式传值，switchStatus=off时关闭公网出口且egressType无效。设为SHARE_GATEWAY时，要求实例规格支持出公网(allowInternet=true)，否则创建被拒绝。私有资源池暂不支持。
 - **计费配置**: 在私有资源池中创建Notebook时不计费，在公共资源池中创建Notebook时默认为按规格配置计费。
 - **资源权限**: 支持设置工作空间中的资源归属权限(public/private)，管理员可查看工作空间中全部资源，其他用户只能查看归属自己的private权限的资源或public权限的资源。
+- **节点亲和性**: 公共资源池不支持设置节点亲和性(nodeAffinities)，仅私有资源池支持。
+- **环境变量**: 可通过envs配置最多100个用户环境变量；该参数可选，与平台系统变量同名时运行时以平台值为准。
 
 ## Notebook环境说明
 - Notebook通过(/home/.notebook_utils/notebook_start.sh)脚本启动，启动脚本不可更改。
@@ -74,7 +77,7 @@ class CreateNotebookParameters(object):
         """
         :param chargeSpec: (Optional) 计费配置。
 在私有资源池中创建Notebook时不计费并且参数无效。
-在公共资源池中创建Notebook时默认为按配置计费，并且只支持按配置计费。
+在公共资源池中创建Notebook时默认为按配置计费(postpaid_by_duration)，只支持按配置计费。
 
         """
         self.chargeSpec = chargeSpec

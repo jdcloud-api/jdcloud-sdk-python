@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateCodeRepoConfigRequest(JDCloudRequest):
     """
-    添加代码仓配置
+    添加代码仓配置。
+
+详细操作说明请参考帮助文档：[资产管理-代码配置](https://docs.jdcloud.com/cn/jdaip/code)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

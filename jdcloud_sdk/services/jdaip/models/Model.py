@@ -19,7 +19,7 @@
 
 class Model(object):
 
-    def __init__(self, modelName, modelPath, modelType=None, modelId=None, source=None, storageType=None, modelVersion=None, mountPath=None, readOnly=None):
+    def __init__(self, modelName, modelPath, modelType=None, modelId=None, source=None, storageType=None, modelVersion=None, mountPath=None, mountTargetId=None, readOnly=None):
         """
         :param modelType: (Optional) 模型类型
         :param modelId: (Optional) 模型ID
@@ -29,7 +29,11 @@ class Model(object):
         :param modelPath:  模型存储路径 （如：oss://bucket-global/models/deepseek.r1)
         :param modelVersion: (Optional) 模型版本
         :param mountPath: (Optional) 模型挂载路径（如：/mnt/models/
-        :param readOnly: (Optional) 模型是否只读
+        :param mountTargetId: (Optional) 用户指定的cfs或者jpfs挂载点
+        :param readOnly: (Optional) 是否只读挂载模型，仅当 `source=self` 且 `storageType=oss` 时生效，默认 `false`。
+开启后容器内对模型挂载路径的写操作将被拒绝（K8s 原生 volumeMount.readOnly），可防止业务进程误写覆盖 OSS 上的模型文件。
+公共模型、本地模型（hostpath）、私有 CFS/JPFS 模型本字段忽略。
+
         """
 
         self.modelType = modelType
@@ -40,4 +44,5 @@ class Model(object):
         self.modelPath = modelPath
         self.modelVersion = modelVersion
         self.mountPath = mountPath
+        self.mountTargetId = mountTargetId
         self.readOnly = readOnly

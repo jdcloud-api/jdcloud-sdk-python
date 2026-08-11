@@ -19,7 +19,7 @@
 
 class NotebookSpec(object):
 
-    def __init__(self, name, appType, imageSource, imageName, imageUrl, workloadSpec, storages, description=None, imageId=None, lbSpec=None, datasets=None, models=None, permission=None, nodeAffinities=None, codes=None, sshSpec=None, userTags=None, resourceGroupId=None, schedulePriority=None):
+    def __init__(self, name, appType, imageSource, imageName, imageUrl, workloadSpec, storages, description=None, imageId=None, lbSpec=None, internetEgress=None, datasets=None, models=None, permission=None, nodeAffinities=None, codes=None, envs=None, sshSpec=None, userTags=None, resourceGroupId=None):
         """
         :param name:  Notebook实例名称。
 
@@ -60,14 +60,21 @@ class NotebookSpec(object):
         :param lbSpec: (Optional) 负载均衡配置，用于配置Notebook的公网SSH访问能力。
 
 ## 使用说明
-- 仅支持私有资源池中的Notebook配置公网访问
-- 需要传入与资源队列可通信的负载均衡ID和端口
+- **公共资源池**: 可通过lbEnable=true开启公网访问，系统自动分配LB，无需指定lbId/lbPort
+- **私有资源池**: 需要传入与资源队列可通信的负载均衡ID和端口
 - 不需要公网SSH访问时不要指定此参数
+
+        :param internetEgress: (Optional) 公网出口配置，用于配置Notebook的出公网访问方式。
+
+## 使用说明
+- switchStatus必须显式传值，为on时开启公网出口，为off时关闭公网出口且egressType无效
+- **公共资源池**: switchStatus=on时可设置 internetEgress.egressType=SHARE_GATEWAY，经平台共享NAT网关出公网
+- **私有资源池**: 暂不支持公网出口配置
 
         :param workloadSpec:  工作负载资源配置，定义Notebook的计算资源需求。
 
 ## 配置说明
-- **公共资源池**: 必须指定规格ID(flavorId)
+- **公共资源池**: 必须指定规格ID(flavorId)和逻辑可用区编码(logicAzCode)
 - **私有资源池**: 必须指定CPU和内存，可选GPU配置
 
         :param storages:  存储空间配置列表，定义Notebook挂载的存储资源。
@@ -111,12 +118,25 @@ class NotebookSpec(object):
 - 适用于需要调度到特定硬件或标签节点的场景
 - 例如：调度到特定GPU型号的节点
 
+## 限制
+- 公共资源池不支持设置节点亲和性，仅私有资源池有效
+
         :param codes: (Optional) 代码库配置列表，定义Notebook挂载的代码仓库。
 
 ## 配置说明
 - 支持Git代码仓库
 - 需要预先在工作空间中配置代码库
 - 指定挂载路径后代码会自动拉取到指定目录
+
+        :param envs: (Optional) 用户环境变量列表。该参数可选，未配置时不注入用户环境变量。
+
+## 配置规则
+- 最多支持100个环境变量
+- 变量名仅支持大小写字母、数字和下划线，必须以字母或下划线开头，最长255个字符
+- 单个变量值最大2048字节，全部用户环境变量总量最大32768字节
+- 用户变量名不能重复，变量名区分大小写
+- 与平台系统变量同名时允许配置，Notebook运行时以平台系统变量为准
+- 请勿使用环境变量保存密码、密钥或Token等敏感信息
 
         :param sshSpec: (Optional) SSH配置，用于配置SSH远程连接能力。
 
@@ -139,13 +159,6 @@ class NotebookSpec(object):
 - 将资源归属到指定的资源组
 - 便于按资源组进行权限管理和成本核算
 
-        :param schedulePriority: (Optional) 调度优先级配置，控制Pod调度顺序。
-
-## 使用说明
-- 非必填，默认使用系统优先级：normal-priority(10000)
-- 优先级越高越优先调度
-- 适用于资源紧张时的调度控制
-
         """
 
         self.name = name
@@ -156,6 +169,7 @@ class NotebookSpec(object):
         self.imageName = imageName
         self.imageUrl = imageUrl
         self.lbSpec = lbSpec
+        self.internetEgress = internetEgress
         self.workloadSpec = workloadSpec
         self.storages = storages
         self.datasets = datasets
@@ -163,7 +177,7 @@ class NotebookSpec(object):
         self.permission = permission
         self.nodeAffinities = nodeAffinities
         self.codes = codes
+        self.envs = envs
         self.sshSpec = sshSpec
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
-        self.schedulePriority = schedulePriority

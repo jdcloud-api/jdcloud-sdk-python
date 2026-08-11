@@ -21,7 +21,7 @@ class StorageSpaceParamForJob(object):
 
     def __init__(self, storageType=None, readonly=None, oss=None, cfs=None, jpfs=None):
         """
-        :param storageType: (Optional) 存储类型，决定数据来源和存储方式。
+        :param storageType: (Optional) 存储类型，决定外部共享存储的数据来源和存储方式。
 
 **可选值：**
 - `oss`：对象存储服务
@@ -35,7 +35,8 @@ class StorageSpaceParamForJob(object):
 
 **只读模式：** 无法在挂载的存储中进行写操作
 
-**注意：** 仅当存储类型为 `oss` 时有效
+**注意：**
+- 仅当存储类型为 `oss` 时有效
 
 **使用场景：**
 - 只读数据集目录

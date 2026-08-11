@@ -21,7 +21,14 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDatasetVersionsRequest(JDCloudRequest):
     """
-    获取数据集的版本列表
+    获取数据集列表。
+
+## 接口查询说明
+
+- 下游任务使用，查询条件一： "filters":[{"name":"states","values":["success"]}]
+
+- 下游任务使用，查询条件二： filters 中加上{"name":"cfsVpcIds","values":["vpc-5n****qw"]}, 可过滤不可用的cfs数据集版本，cfsVpcIds传资源队列对用的vpcId
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

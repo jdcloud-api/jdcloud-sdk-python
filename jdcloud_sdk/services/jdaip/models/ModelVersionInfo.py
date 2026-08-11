@@ -42,7 +42,7 @@ class ModelVersionInfo(object):
 - cfs  cfs://{storageId}/{storageBucket}/{storagePath}
 - jpfs  jpfs://{storageId}/{storagePath}
 
-        :param storageId: (Optional) 存储ID cfs或jpfs时使用，例如：fs-60z1s969ui
+        :param storageId: (Optional) 存储ID cfs或jpfs时使用，例如：fs-60****ui
         :param cfsVpcId: (Optional) cfsVpcId
         :param modelIntroduction: (Optional) 模型介绍。
         :param labels: (Optional) 标签，多个标签使用英文逗号拼接。例如：label1,label2,label3
@@ -54,10 +54,10 @@ class ModelVersionInfo(object):
         :param updateTime: (Optional) 更新时间。
         :param updateUser: (Optional) 更新用户
         :param experimentId: (Optional) 注册来源对应的ID：训练任务ID/精调实验ID等
-        :param experimentRunId: (Optional) experimentId的运行记录id
+        :param experimentRunId: (Optional) 训练任务/精调实验等的运行记录id
         :param ownerUser: (Optional) 归属用户名称。
         :param ownerUserPin: (Optional) 归属用户pin。
-        :param permission: (Optional) 工作空间中的资源归属权限。
+        :param permission: (Optional) 模型资源归属权限，支持(public,private)。
         """
 
         self.modelId = modelId

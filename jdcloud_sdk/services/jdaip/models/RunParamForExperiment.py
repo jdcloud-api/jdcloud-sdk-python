@@ -19,7 +19,7 @@
 
 class RunParamForExperiment(object):
 
-    def __init__(self, name, finetuningConfig, datasets, resource, storageSpace, description=None, evalDatasetSource=None, evalDatasetSplitRatio=None, nodeAffinities=None, schedulePriority=None, userTags=None, resourceGroupId=None):
+    def __init__(self, name, finetuningConfig, datasets, resource, storageSpace, description=None, evalDatasetSource=None, evalDatasetSplitRatio=None, nodeAffinities=None, userTags=None, resourceGroupId=None):
         """
         :param name:  微调运行名称。
 
@@ -90,7 +90,6 @@ class RunParamForExperiment(object):
 ## 说明
 支持配置多个亲和性规则，每个元素之间是"或"的关系。
 
-        :param schedulePriority: (Optional) 调度优先级配置。
         :param userTags: (Optional) 自定义实例标签。
 
 ## 格式
@@ -122,6 +121,5 @@ key-value 键值对形式。
         self.resource = resource
         self.storageSpace = storageSpace
         self.nodeAffinities = nodeAffinities
-        self.schedulePriority = schedulePriority
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId

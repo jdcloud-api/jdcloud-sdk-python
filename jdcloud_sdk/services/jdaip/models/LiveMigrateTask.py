@@ -19,21 +19,30 @@
 
 class LiveMigrateTask(object):
 
-    def __init__(self, migrateId=None, taskId=None, taskName=None, subTaskId=None, instanceName=None, beforeNode=None, afterNode=None, status=None, creator=None, createTimestamp=None, finishedTimestamp=None, taskCreator=None, nodeGroup=None, startedTimestamp=None, gpuUsage=None, usedSeconds=None, beforeAllocate=None, afterAllocate=None):
+    def __init__(self, migrateId=None, pin=None, taskId=None, taskName=None, taskType=None, subTaskId=None, taskCreator=None, queueId=None, queueName=None, cluster=None, instanceName=None, beforeNode=None, afterNode=None, targetDeviceModel=None, ratioPerGpu=None, memoryPerGpu=None, status=None, creator=None, createTimestamp=None, finishedTimestamp=None, nodeGroup=None, nodeGroupName=None, startedTimestamp=None, gpuUsage=None, usedSeconds=None, beforeAllocate=None, afterAllocate=None):
         """
         :param migrateId: (Optional) 
+        :param pin: (Optional) 
         :param taskId: (Optional) 
         :param taskName: (Optional) 
+        :param taskType: (Optional) 
         :param subTaskId: (Optional) 
+        :param taskCreator: (Optional) 
+        :param queueId: (Optional) 
+        :param queueName: (Optional) 
+        :param cluster: (Optional) 
         :param instanceName: (Optional) 
         :param beforeNode: (Optional) 
         :param afterNode: (Optional) 
+        :param targetDeviceModel: (Optional) 
+        :param ratioPerGpu: (Optional) 
+        :param memoryPerGpu: (Optional) 
         :param status: (Optional) 
         :param creator: (Optional) 
         :param createTimestamp: (Optional) 
         :param finishedTimestamp: (Optional) 
-        :param taskCreator: (Optional) 
         :param nodeGroup: (Optional) 
+        :param nodeGroupName: (Optional) 
         :param startedTimestamp: (Optional) 
         :param gpuUsage: (Optional) 
         :param usedSeconds: (Optional) 
@@ -42,18 +51,27 @@ class LiveMigrateTask(object):
         """
 
         self.migrateId = migrateId
+        self.pin = pin
         self.taskId = taskId
         self.taskName = taskName
+        self.taskType = taskType
         self.subTaskId = subTaskId
+        self.taskCreator = taskCreator
+        self.queueId = queueId
+        self.queueName = queueName
+        self.cluster = cluster
         self.instanceName = instanceName
         self.beforeNode = beforeNode
         self.afterNode = afterNode
+        self.targetDeviceModel = targetDeviceModel
+        self.ratioPerGpu = ratioPerGpu
+        self.memoryPerGpu = memoryPerGpu
         self.status = status
         self.creator = creator
         self.createTimestamp = createTimestamp
         self.finishedTimestamp = finishedTimestamp
-        self.taskCreator = taskCreator
         self.nodeGroup = nodeGroup
+        self.nodeGroupName = nodeGroupName
         self.startedTimestamp = startedTimestamp
         self.gpuUsage = gpuUsage
         self.usedSeconds = usedSeconds

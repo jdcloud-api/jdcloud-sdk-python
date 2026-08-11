@@ -44,6 +44,8 @@ class AdminDescribeInferencesParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.userTags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -72,4 +74,16 @@ class AdminDescribeInferencesParameters(object):
 
         """
         self.filters = filters
+
+    def setUserTags(self, userTags):
+        """
+        :param userTags: (Optional) 用户自定义标签列表。
+        """
+        self.userTags = userTags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组ID列表
+        """
+        self.resourceGroupIds = resourceGroupIds
 

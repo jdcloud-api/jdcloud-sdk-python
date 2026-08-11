@@ -21,11 +21,16 @@ class UpdateImageParam(object):
 
     def __init__(self, imageName=None, imageUsage=None, imageType=None, imageUrl=None, labels=None, command=None):
         """
-        :param imageName: (Optional) 镜像名称(1~128字符，仅支持小写字母、数字、英文中划线 “-”、英文下划线“_”和点 “.”，只能以字母开头)
-        :param imageUsage: (Optional) 镜像用途,多个用英文逗号拼接，可选值：
-- notebook Notebook
-- training 训练任务
-- inference 在线服务
+        :param imageName: (Optional) 镜像名称(1~128字符，仅支持小写字母、数字、英文中划线“-”、英文下划线“_”和点 “.”，只能以字母开头)
+        :param imageUsage: (Optional) 镜像用途，多个使用英文逗号,拼接，可选值：
+- notebook:Notebook
+- training:训练任务
+- inference:在线服务，
+- finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
+
+示例：notebook,training,inference
 
         :param imageType: (Optional) 镜像类型：cpu,gpu
         :param imageUrl: (Optional) 注册/构建后的镜像地址

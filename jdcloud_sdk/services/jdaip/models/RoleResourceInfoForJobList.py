@@ -19,7 +19,7 @@
 
 class RoleResourceInfoForJobList(object):
 
-    def __init__(self, queueId=None, roles=None):
+    def __init__(self, queueId=None, rdmaSwitch=None, roles=None):
         """
         :param queueId: (Optional) 队列ID，所有角色共享同一个队列。
 
@@ -28,6 +28,8 @@ class RoleResourceInfoForJobList(object):
 **专属资源池：** 使用创建队列时返回的队列ID
 
 **示例：** `queue-2xxx**********2d*********8b8`
+
+        :param rdmaSwitch: (Optional) RDMA 开关，控制是否为该任务开启 RDMA 高速网络。
 
         :param roles: (Optional) 角色资源配置详细信息列表。
 
@@ -38,4 +40,5 @@ class RoleResourceInfoForJobList(object):
         """
 
         self.queueId = queueId
+        self.rdmaSwitch = rdmaSwitch
         self.roles = roles

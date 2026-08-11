@@ -22,6 +22,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class CreateModelRequest(JDCloudRequest):
     """
     创建新模型/新版本。
+
+详细操作说明请参考帮助文档：[资产管理-模型](https://docs.jdcloud.com/cn/jdaip/model)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

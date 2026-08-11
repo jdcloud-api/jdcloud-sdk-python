@@ -21,10 +21,12 @@ class UpdatePrivateImageParam(object):
 
     def __init__(self, imageName=None, labels=None, permission=None, ownerUserPin=None):
         """
-        :param imageName: (Optional) 镜像名称，，null或空不更新
-        :param labels: (Optional) 标签，使用英文逗号拼接，传null不修改，有值或传空都会更新
-        :param permission: (Optional) 工作空间中的资源归属权限，null或空不更新
-        :param ownerUserPin: (Optional) 归属用户pin。null或空不更新
+        :param imageName: (Optional) 镜像名称。
+命名规则：1~128字符，仅支持小写字母、数字、英文中划线“-”、英文下划线“_”和点 “.”，只能以字母开头
+
+        :param labels: (Optional) 标签，使用英文逗号拼接。传空字符串会更新为空
+        :param permission: (Optional) 镜像资源归属权限，仅支持修改为公共资源public
+        :param ownerUserPin: (Optional) 归属用户pin。
         """
 
         self.imageName = imageName

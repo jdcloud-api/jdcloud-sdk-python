@@ -21,7 +21,9 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateImageRequest(JDCloudRequest):
     """
-    创建镜像
+    创建镜像。
+详细操作说明请参考帮助文档：[资产管理-镜像](https://docs.jdcloud.com/cn/jdaip/image)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

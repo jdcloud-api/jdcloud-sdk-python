@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribePublicModelVersionRequest(JDCloudRequest):
     """
-    获取公共模型版本详情
+    获取公共模型版本详情（公共模型只有一个版本，该接口也是公共模型详情）
     """
 
     def __init__(self, parameters, header=None, version="v1"):

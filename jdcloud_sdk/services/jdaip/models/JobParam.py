@@ -19,7 +19,7 @@
 
 class JobParam(object):
 
-    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, envs=None, resource=None, storageSpaces=None, datasets=None, models=None, roleResource=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, userTags=None, resourceGroupId=None, schedulePriority=None):
+    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None):
         """
         :param name:  训练任务名称。
 
@@ -41,8 +41,8 @@ class JobParam(object):
         :param imageVisibility:  镜像可见性，决定镜像的使用权限范围。
 
 **可选值：**
-- `public`：公开镜像，平台预置镜像或用户公开的镜像，所有用户可使用
-- `private`：私有镜像，仅当前用户可使用
+- `public`：表示产品页面[资产管理-镜像]对应的公共镜像，平台预置镜像，所有用户可使用
+- `private`：表示产品页面[资产管理-镜像]对应的我的镜像
 
         :param imageId:  镜像ID，用于指定训练环境的基础镜像。
 
@@ -83,6 +83,7 @@ class JobParam(object):
 
         :param replica: (Optional) **已废弃：** 请参考 `roleResource` 字段
 
+        :param taskPriority: (Optional) 任务优先级，范围[1, 9]; 当队列开启优先级调度时生效
         :param envs: (Optional) 环境变量列表，用于向训练脚本传递配置参数。
 
 **使用场景：**
@@ -97,7 +98,7 @@ class JobParam(object):
 
         :param resource: (Optional) **已废弃：** 请使用 `roleResource` 字段，支持更灵活的角色资源配置
 
-        :param storageSpaces: (Optional) 存储空间配置列表，用于挂载外部存储到训练容器中。
+        :param storageSpaces: (Optional) 存储空间配置列表，用于挂载外部共享存储到训练容器中。
 
 **支持的存储类型：**
 - `oss`：对象存储服务，适合大规模数据存储
@@ -108,6 +109,13 @@ class JobParam(object):
 - 挂载训练数据目录
 - 挂载输出目录保存模型和日志
 - 挂载共享存储用于分布式训练
+
+**说明：** 训练节点本地临时盘请使用顶层字段 `localStorage`，不要放在本列表中。
+
+        :param localStorage: (Optional) 本地存储挂载配置，与 `storageSpaces` / `datasets` / `models` 平级。
+
+在训练节点本地高速盘上为训练容器分配一块临时空间，仅支持专属资源池，每个任务最多一个。
+字段定义见 `localStorageParamForJob`。未开启时不传本字段。
 
         :param datasets: (Optional) 数据集配置列表，用于挂载已创建的数据集到训练容器。
 
@@ -133,6 +141,8 @@ class JobParam(object):
 **适用场景：**
 - Ray 分布式训练（必须配置 Head 和 Worker）
 - PyTorch 分布式训练（可配置不同规格的 Worker）
+
+        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。不需要出公网时不传此参数。
 
         :param advancedConfig: (Optional) 框架高级配置，JSON 格式字符串。
 
@@ -193,6 +203,16 @@ class JobParam(object):
 - 指定代码分支或CommitID
 - 代码版本管理
 
+        :param queuingTimeoutMinutes: (Optional) 公共池排队超时时间，单位：分钟。
+
+**取值范围：** 5 ~ 1440
+
+**默认值：** 5
+
+**说明：**
+- 仅公共资源池训练任务生效
+- 排队超过此时间后，任务将自动回滚为创建失败
+
         :param userTags: (Optional) 用户自定义标签，用于资源分类和筛选。
 
 **限制：**
@@ -212,15 +232,6 @@ class JobParam(object):
 - 按团队分配资源配额
 - 资源使用统计和计费
 
-        :param schedulePriority: (Optional) 调度优先级配置。
-
-**系统预置优先级：**
-- `high-priority`：优先级值 20000，高优先级
-- `normal-priority`：优先级值 10000，普通优先级（默认）
-- `low-priority`：优先级值 5000，低优先级
-
-**注意：** 提高优先级可能影响其他任务的调度
-
         """
 
         self.name = name
@@ -231,18 +242,21 @@ class JobParam(object):
         self.jobType = jobType
         self.command = command
         self.replica = replica
+        self.taskPriority = taskPriority
         self.envs = envs
         self.resource = resource
         self.storageSpaces = storageSpaces
+        self.localStorage = localStorage
         self.datasets = datasets
         self.models = models
         self.roleResource = roleResource
+        self.internetEgress = internetEgress
         self.advancedConfig = advancedConfig
         self.restartPolicy = restartPolicy
         self.healthCheckPolicy = healthCheckPolicy
         self.permission = permission
         self.nodeAffinities = nodeAffinities
         self.codes = codes
+        self.queuingTimeoutMinutes = queuingTimeoutMinutes
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
-        self.schedulePriority = schedulePriority

@@ -19,7 +19,7 @@
 
 class InferenceData(object):
 
-    def __init__(self, inferenceId=None, trafficPercent=None, status=None, deployType=None, queueId=None, qps=None, service=None, metadata=None, models=None, codes=None, resource=None, runtime=None, roleSet=None, runningPods=None, totalPods=None, failedPods=None, resourceState=None, userTags=None, schedulePriority=None, resourceGroupInfo=None):
+    def __init__(self, inferenceId=None, trafficPercent=None, status=None, deployType=None, queueId=None, qps=None, service=None, metadata=None, models=None, codes=None, resource=None, runtime=None, roleSet=None, runningPods=None, totalPods=None, failedPods=None, resourceState=None, userTags=None, resourceGroupInfo=None):
         """
         :param inferenceId: (Optional) 推理服务版本ID
         :param trafficPercent: (Optional) 流量占比
@@ -39,7 +39,6 @@ class InferenceData(object):
         :param failedPods: (Optional) 该推理服务当前异常pod数量
         :param resourceState: (Optional) 资源在集群中的空闲状态，值为空表示是空闲的，in-use表示资源已被占用。
         :param userTags: (Optional) 用户标签
-        :param schedulePriority: (Optional) 调度优先级
         :param resourceGroupInfo: (Optional) 资源组信息
         """
 
@@ -61,5 +60,4 @@ class InferenceData(object):
         self.failedPods = failedPods
         self.resourceState = resourceState
         self.userTags = userTags
-        self.schedulePriority = schedulePriority
         self.resourceGroupInfo = resourceGroupInfo

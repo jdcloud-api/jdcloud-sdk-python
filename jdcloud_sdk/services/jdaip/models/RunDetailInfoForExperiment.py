@@ -19,7 +19,7 @@
 
 class RunDetailInfoForExperiment(object):
 
-    def __init__(self, runId=None, name=None, description=None, finetuningConfig=None, evalDatasetSource=None, evalDatasetSplitRatio=None, datasets=None, resource=None, storageSpace=None, state=None, runningTimeInSec=None, pods=None, tokens=None, charge=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, schedulePriority=None, userTags=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, runId=None, name=None, description=None, finetuningConfig=None, evalDatasetSource=None, evalDatasetSplitRatio=None, datasets=None, resource=None, storageSpace=None, state=None, runningTimeInSec=None, pods=None, tokens=None, charge=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param runId: (Optional) 微调运行ID。
 
@@ -82,7 +82,6 @@ class RunDetailInfoForExperiment(object):
 
         :param resourceGroupName: (Optional) 资源组名称。
 
-        :param schedulePriority: (Optional) 调度优先级配置。
         :param userTags: (Optional) 用户自定义标签列表。
 
         :param pin: (Optional) 主账号Pin。
@@ -114,7 +113,6 @@ class RunDetailInfoForExperiment(object):
         self.nodeAffinities = nodeAffinities
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
-        self.schedulePriority = schedulePriority
         self.userTags = userTags
         self.pin = pin
         self.createUser = createUser

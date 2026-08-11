@@ -19,9 +19,11 @@
 
 class DashboardScheduleItem(object):
 
-    def __init__(self, item=None):
+    def __init__(self, item=None, metrics=None):
         """
         :param item: (Optional) 调度分析结果
+        :param metrics: (Optional) 调度分析结果v2
         """
 
         self.item = item
+        self.metrics = metrics

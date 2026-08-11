@@ -21,8 +21,8 @@ class UpdatePublicModelParm(object):
 
     def __init__(self, modelName=None, description=None):
         """
-        :param modelName: (Optional) 模型名称，nil或空都不更新。
-        :param description: (Optional) 模型描述，传nil不更新，传空会清空。
+        :param modelName: (Optional) 模型名称。
+        :param description: (Optional) 模型描述，传空字符串会清空。
         """
 
         self.modelName = modelName

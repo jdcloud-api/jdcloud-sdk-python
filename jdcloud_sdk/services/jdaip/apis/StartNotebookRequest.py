@@ -32,7 +32,7 @@ class StartNotebookRequest(JDCloudRequest):
 启动时支持更换资源配置(仅私有资源池):
 - 在公共资源池中的Notebook不允许变更资源配置，workloadSpec参数只能传null。
 - 在私有资源池中的Notebook不允许变更为公共资源池，但允许更换私有资源池中的其它队列。
-- 支持在启动时更换公网访问配置(LB)，或移除公网访问配置。
+- 支持在启动时更换公网访问配置(LB)，或移除公网访问配置。公共资源池可通过lbEnable=true开启公网访问。
 
     """
 
@@ -70,7 +70,7 @@ class StartNotebookParameters(object):
 
     def setLbSpec(self, lbSpec):
         """
-        :param lbSpec: (Optional) 只支持私有资源池中的Notebook可以更换公网访问配置。不需要更换时需要传null。
+        :param lbSpec: (Optional) 只支持私有资源池中的Notebook可以更换公网访问配置，公共资源池可通过lbEnable=true开启公网访问。不需要更换时需要传null。
         """
         self.lbSpec = lbSpec
 

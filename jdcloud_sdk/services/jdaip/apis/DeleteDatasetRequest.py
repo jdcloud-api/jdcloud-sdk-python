@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteDatasetRequest(JDCloudRequest):
     """
-    根据数据集ID删除数据集
+    根据数据集ID删除数据集。
+
+## 接口说明
+- 删除数据集，会自动删除该数据集下的所有版本
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

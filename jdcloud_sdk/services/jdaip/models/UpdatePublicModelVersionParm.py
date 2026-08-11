@@ -21,8 +21,8 @@ class UpdatePublicModelVersionParm(object):
 
     def __init__(self, versionDesc=None, modelIntroduction=None):
         """
-        :param versionDesc: (Optional) 版本描述，传null不更新，传空会清空。
-        :param modelIntroduction: (Optional) 模型介绍，传null不更新，传空会清空。
+        :param versionDesc: (Optional) 版本描述，传空字符串会清空。
+        :param modelIntroduction: (Optional) 模型介绍，传空字符串会清空。
         """
 
         self.versionDesc = versionDesc

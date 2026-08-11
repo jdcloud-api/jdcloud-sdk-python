@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribePrivateModelsRequest(JDCloudRequest):
     """
-    查询私有模型列表
+    查询私有模型列表。
+
+## 接口查询说明
+- 下游任务使用，查询条件： filters 中加上{"name":"cfsVpcIds","values":["vpc-5n****qw"]}, 可过滤不可用的cfs模型，cfsVpcIds传资源队列对用的vpcId
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

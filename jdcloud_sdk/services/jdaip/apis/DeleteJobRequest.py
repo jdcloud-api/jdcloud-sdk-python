@@ -33,7 +33,7 @@ class DeleteJobRequest(JDCloudRequest):
 ## 注意事项
 
 - 删除操作不可恢复，请确保已备份重要数据
-- 删除任务不会删除关联的存储数据、数据集和模型
+- 删除任务不会删除关联的持久化存储（OSS/CFS/JPFS）数据、数据集和模型；本地存储（顶层字段 `localStorage`）会随实例删除自动清除，不支持恢复
 
     """
 

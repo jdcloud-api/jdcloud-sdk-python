@@ -21,7 +21,8 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteModelRequest(JDCloudRequest):
     """
-    根据模型ID删除模型
+    根据模型ID删除模型, 会删除模型下所有版本
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

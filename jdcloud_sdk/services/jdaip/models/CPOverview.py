@@ -19,13 +19,15 @@
 
 class CPOverview(object):
 
-    def __init__(self, resourceType=None, value=None, accuracy=None):
+    def __init__(self, resourceType=None, value=None, accuracy=None, unit=None):
         """
         :param resourceType: (Optional) 资源类型，节点数量(node)，显卡算力(pflops)，显存(memory)，显卡数量(gpu)
         :param value: (Optional) 资源类型统计值
         :param accuracy: (Optional) 精度fp16/fp32，仅resourceType为pflops时有效
+        :param unit: (Optional) 单位
         """
 
         self.resourceType = resourceType
         self.value = value
         self.accuracy = accuracy
+        self.unit = unit

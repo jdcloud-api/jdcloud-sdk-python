@@ -21,12 +21,17 @@ class ImageInfo(object):
 
     def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, labelsObject=None, command=None, workspaceId=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, status=None, baseImage=None, dockerfile=None, queueId=None, podName=None, reason=None, ownerUser=None, ownerUserPin=None, permission=None):
         """
-        :param imageId: (Optional) 镜像 iD
+        :param imageId: (Optional) 镜像ID。 示例img-lh****3p
         :param imageName: (Optional) 镜像名称
         :param imageUsage: (Optional) 镜像用途，可选值：
-- notebook 开发
-- training 训练，
-- inference 推理
+- notebook:Notebook
+- training:训练任务
+- inference:在线服务，
+- finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
+
+示例：notebook,training,inference
 
         :param imageType: (Optional) 镜像类型：cpu,gpu
         :param imageUrl: (Optional) 镜像地址
@@ -34,12 +39,16 @@ class ImageInfo(object):
 - jcr 容器镜像仓库注册
 - dockerfile Dockerfile方式构建
 - notebook：notebook方式构建
-- base-image 基于基础镜像构建
 
-        :param labels: (Optional) 标签，使用英文逗号拼接。例如：label1,label2,label3
-        :param labelList: (Optional) 标签，labels转换的数组格式。
-        :param labelsObject: (Optional) 标签对象（公共镜像使用）
-        :param command: (Optional) 镜像启动命令。
+        :param labels: (Optional) 标签，使用英文逗号拼接。
+- 个人镜像示例：label1,label2,label3
+- 公共镜像示例：baseinfo:vllm0.25.0,baseinfo:pytorch2.11.0,baseinfo:transformers5.13.0,baseinfo:cuda13.0,baseinfo:gpu,baseinfo:python3.12.3,baseinfo:ubuntu24.04,baseinfo:jupyterlab,baseinfo:vscode,protocol:http,protocol:grpc
+
+        :param labelList: (Optional) 标签，labels转换的数组格式。公共镜像仅包含baseinfo对应的标签
+        :param labelsObject: (Optional) 标签对象（公共镜像使用）。
+labels转化对象， key:value中key值如果有._会删除转发成驼峰式。 如aaa.bbb_ccc换成aaaBbbCcc
+
+        :param command: (Optional) 镜像启动命令。在线服务使用
         :param workspaceId: (Optional) 工作空间ID
         :param pin: (Optional) 主账号pin
         :param createUser: (Optional) 创建人

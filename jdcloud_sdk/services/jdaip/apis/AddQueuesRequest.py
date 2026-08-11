@@ -22,6 +22,16 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class AddQueuesRequest(JDCloudRequest):
     """
     关联队列。
+详细操作说明请参考帮助文档：[创建及管理工作空间-配置关联队列](https://docs.jdcloud.com/cn/jdaip/create-and-manage-workspace)
+
+## 资源队列相关文档
+- [资源队列文档](https://docs.jdcloud.com/cn/jdaip/queue-details)
+- 资源队列列表接口 [listQueue](../JOYSCALE-队列/listQueue.md)
+
+## 接口说明
+- 指定模块使用：支持所有模块时，字段allModuleSupported=true,字段queueModules不传
+- 指定成员使用：支持所有成员时，字段allMemberSupported=true,字段queueMemberPins不传
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

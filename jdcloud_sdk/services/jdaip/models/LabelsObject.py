@@ -21,15 +21,21 @@ class LabelsObject(object):
 
     def __init__(self, finetuneModelBillingItem=None, finetuneModelSeries=None, finetuneModelTemplate=None, supportTask=None, icon=None, keyword=None, parameterSize=None, license=None, provider=None, scenario=None):
         """
-        :param finetuneModelBillingItem: (Optional) 精调实验计费项中的模型命名
-        :param finetuneModelSeries: (Optional) 精调实验关注（模型系列，如Llama系列-前端使用）
-        :param finetuneModelTemplate: (Optional) 精调实验关注（模型版本系列，如Llama2、Llama3-后端使用）
-        :param supportTask: (Optional) 支持平台任务类型
-        :param icon: (Optional) 模型icon地址
+        :param finetuneModelBillingItem: (Optional) 精调实验计费项中的模型命名。仅一个value值
+        :param finetuneModelSeries: (Optional) 精调实验关注（模型系列，如Llama系列-前端使用）。仅一个value值
+        :param finetuneModelTemplate: (Optional) 精调实验关注（模型版本系列，如Llama2、Llama3-后端使用）。仅一个value值
+        :param supportTask: (Optional) 支持平台任务类型，可设置多个。可选值：
+- notebook:Notebook
+- trainjob:训练任务
+- finetune:精调实验
+- llm-deploy:在线服务-LLM部署
+- custom-deploy:在线服务-自定义部署
+
+        :param icon: (Optional) 模型icon地址。仅一个value值
         :param keyword: (Optional) 其他关键词，可设置多个
-        :param parameterSize: (Optional) 模型参数
-        :param license: (Optional) 模型许可类型
-        :param provider: (Optional) 品牌/系列
+        :param parameterSize: (Optional) 模型参数。仅一个value值
+        :param license: (Optional) 模型许可类型。仅一个value值
+        :param provider: (Optional) 品牌/系列。仅一个value值
         :param scenario: (Optional) 场景，可设置多个
         """
 

@@ -23,14 +23,27 @@ class CreatePublicImageParam(object):
         """
         :param imageName: (Optional) 镜像名称
         :param imageUsage: (Optional) 镜像用途，可选值：
-- notebook Notebook
-- training 训练任务
-- inference 在线服务
+- notebook:Notebook
+- training:训练任务
+- inference:在线服务，
+- finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
+
+示例：notebook,training,inference
 
         :param imageType: (Optional) 镜像类型：cpu,gpu
         :param imageUrl: (Optional) 镜像地址
         :param sourceType: (Optional) 注册方式：jcr容器镜像仓库注册
-        :param labels: (Optional) 标签，使用英文逗号拼接。
+        :param labels: (Optional) 标签。多个标签使用英文逗号拼接，每个标签格式 key:value。
+key值说明
+  - baseinfo 镜像基础环境信息：vllm0.25.0、pytorch2.11.0、cuda13.0、gpu等
+  - jobtype 训练任务镜像专属，任务类型，支持单个，可选值pytorch、ray
+  - protocol 在线服务镜像专属，自定义部署-协议，支持多个http、grpc、tcp、udp
+  - distributed 在线服务镜像专属，分布式，支持单个，可选值sglang、vllm
+
+示例：baseinfo:vllm0.25.0,baseinfo:pytorch2.11.0,baseinfo:transformers5.13.0,baseinfo:cuda13.0,baseinfo:gpu,baseinfo:python3.12.3,baseinfo:ubuntu24.04,baseinfo:jupyterlab,baseinfo:vscode,protocol:http,protocol:grpc
+
         :param command: (Optional) 镜像启动命令。
         """
 

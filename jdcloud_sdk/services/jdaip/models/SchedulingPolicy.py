@@ -21,8 +21,8 @@ class SchedulingPolicy(object):
 
     def __init__(self, nodeSchedulerStrategy=None, deviceSchedulerStrategy=None):
         """
-        :param nodeSchedulerStrategy: (Optional) 节点调度策略，binpack：紧凑；spreadout：均衡；
-        :param deviceSchedulerStrategy: (Optional) 设备调度策略，binpack：紧凑；spreadout：均衡；
+        :param nodeSchedulerStrategy: (Optional) 节点调度策略，binpack：紧凑；spreadout：均衡
+        :param deviceSchedulerStrategy: (Optional) 设备调度策略，binpack：紧凑；spreadout：均衡
         """
 
         self.nodeSchedulerStrategy = nodeSchedulerStrategy

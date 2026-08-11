@@ -19,18 +19,19 @@
 
 class WorkspaceRelatedQueue(object):
 
-    def __init__(self, queueId=None, allModuleSupported=None, queueModules=None, allMemberSupported=None, schedulePolicy=None, queueMemberPins=None):
+    def __init__(self, queueId=None, allModuleSupported=None, queueModules=None, allMemberSupported=None, queueMemberPins=None):
         """
-        :param queueId: (Optional) 队列id。
+        :param queueId: (Optional) 队列id。示例：queue-2xxx**********2d*********8b8
         :param allModuleSupported: (Optional) true支持所有任务模块,默认true
         :param queueModules: (Optional) 支持使用任务模块，allModuleSupported=false生效：可选值：
 - notebook:Notebook
 - training:训练任务
 - inference:在线服务，
 - finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
 
         :param allMemberSupported: (Optional) true所有成员可用,默认true
-        :param schedulePolicy: (Optional) 调度测略
         :param queueMemberPins: (Optional) 队列可用成员，子账号pin，allUserSupported=false生效
         """
 
@@ -38,5 +39,4 @@ class WorkspaceRelatedQueue(object):
         self.allModuleSupported = allModuleSupported
         self.queueModules = queueModules
         self.allMemberSupported = allMemberSupported
-        self.schedulePolicy = schedulePolicy
         self.queueMemberPins = queueMemberPins

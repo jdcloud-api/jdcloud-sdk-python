@@ -19,7 +19,7 @@
 
 class RoleResourceInfoForJob(object):
 
-    def __init__(self, name=None, count=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None):
+    def __init__(self, name=None, count=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, logicAzCode=None, hpcClusterName=None):
         """
         :param name: (Optional) 角色名称，决定节点在分布式训练中的职责。
 
@@ -62,6 +62,17 @@ class RoleResourceInfoForJob(object):
 
 **换算：** 1024 MiB = 1 GiB
 
+        :param logicAzCode: (Optional) 逻辑可用区编码。
+
+**说明：**
+- 公共资源池必传
+- CPU/GPU 规格可填具体边缘可用区，或填中心随机(center_random)
+- 异构(HPC)规格须填具体可用区
+
+        :param hpcClusterName: (Optional) 物理集群名称。
+
+**说明：** 仅异构(HPC)规格需要且必填，如 `A1`、`C1`
+
         """
 
         self.name = name
@@ -72,3 +83,5 @@ class RoleResourceInfoForJob(object):
         self.vcudaCore = vcudaCore
         self.cpuMilli = cpuMilli
         self.memoryMiB = memoryMiB
+        self.logicAzCode = logicAzCode
+        self.hpcClusterName = hpcClusterName

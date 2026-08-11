@@ -21,7 +21,33 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeDatasetsRequest(JDCloudRequest):
     """
-    获取数据集列表
+    获取数据集列表。
+
+## 接口查询说明
+
+- 数据类型-任务类型
+  | 数据类型 | 任务类型 |
+  |------|------|
+  | text：文本 | sft：文本生成-SFT指令微调 |
+  | text：文本 | dpo：文本生成-DPO偏好训练 |
+  | text：文本 | cpt：文本生成-增量预训练 |
+  | text：文本 | distill：文本生成-模型蒸馏 |
+  | text：文本 | custom：自定义 |
+  | image：图像 | image-classification：图像分类 |
+  | image：图像 | custom：自定义 |
+  | custom：自定义 | custom：自定义 |
+
+- 下游任务使用，查询条件一：
+  | 任务模块 | 查询条件 |
+  |------|------|
+  | Notebook | "filters":[{"name":"states","values":["success"]}] |
+  | 训练任务 | "filters":[{"name":"states","values":["success"]}] |
+  | 模型精调 | "filters":[{"name":"states","values":["success"]},{"name":"datasetTypes","values":["text"]},{"name":"taskTypes","values":["cpt","dpo","sft"]}] |
+  | 模型蒸馏 | "filters":[{"name":"states","values":["success"]},{"name":"datasetTypes","values":["text"]},{"name":"taskTypes","values":["distill"]}] |
+  | 数据标注 | "filters":[{"name":"states","values":["success"]},{"name":"datasetTypes","values":["image"]},{"name":"taskTypes","values":["image-classification"]}] |
+
+- 下游任务使用，查询条件二： filters 中加上{"name":"cfsVpcIds","values":["vpc-5n****qw"]}, 可过滤不可用的cfs数据集，cfsVpcIds传资源队列对用的vpcId
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -64,7 +90,7 @@ class DescribeDatasetsParameters(object):
 `createUser`: 创建人名称，模糊匹配，支持单个
 `datasetTypes`: 数据集类型数组，支持多个，取值范围：[`text`, `custom`]
 `datasetIds`: 数据集ID数组，支持多个
-`taskTypes`: 任务类型数组，支持多个，取值范围：[`sft`, `dpo`, `cpt`, `custom`]
+`taskTypes`: 任务类型数组，支持多个，取值范围：[`sft`, `dpo`, `cpt`, `custom`,`distill`,`image-classification`]
 `labels`: 标签数组，支持多个
 `cfsVpcIds`: cfsVpcId数组，支持多个
 `states`: 资源状态数组，支持多个，取值范围：[`running`, `success`, `failed`]

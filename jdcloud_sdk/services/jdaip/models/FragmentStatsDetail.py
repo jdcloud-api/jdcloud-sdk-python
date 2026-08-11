@@ -19,12 +19,15 @@
 
 class FragmentStatsDetail(object):
 
-    def __init__(self, nodeName=None, cluster=None, schedulingStatus=None, readyStatus=None, deviceModel=None, totalDevice=None, idleDevice=None, usedDevice=None, faultDevice=None, idleCpu=None, idleNMemory=None):
+    def __init__(self, name=None, ip=None, instanceId=None, nodeType=None, cluster=None, enable=None, status=None, deviceModel=None, totalDevice=None, idleDevice=None, usedDevice=None, faultDevice=None, idleCpu=None, idleNMemory=None):
         """
-        :param nodeName: (Optional) 节点名称
+        :param name: (Optional) 节点名称
+        :param ip: (Optional) 节点ip
+        :param instanceId: (Optional) 节点id
+        :param nodeType: (Optional) 节点类型，vm/hpc
         :param cluster: (Optional) 所属集群名称
-        :param schedulingStatus: (Optional) 调度状态，enable/disable
-        :param readyStatus: (Optional) 就绪状态，ready/other
+        :param enable: (Optional) 调度状态
+        :param status: (Optional) 状态
         :param deviceModel: (Optional) 显卡型号
         :param totalDevice: (Optional) 显卡总数量
         :param idleDevice: (Optional) 显卡空闲数量
@@ -34,10 +37,13 @@ class FragmentStatsDetail(object):
         :param idleNMemory: (Optional) 内存空闲数量
         """
 
-        self.nodeName = nodeName
+        self.name = name
+        self.ip = ip
+        self.instanceId = instanceId
+        self.nodeType = nodeType
         self.cluster = cluster
-        self.schedulingStatus = schedulingStatus
-        self.readyStatus = readyStatus
+        self.enable = enable
+        self.status = status
         self.deviceModel = deviceModel
         self.totalDevice = totalDevice
         self.idleDevice = idleDevice

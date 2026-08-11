@@ -19,7 +19,7 @@
 
 class WorkspaceInfoWithRole(object):
 
-    def __init__(self, workspaceName=None, workspaceId=None, workspaceDesc=None, admins=None, createTime=None, resourceQueueId=None, createUser=None, pin=None, updateTime=None, updateUser=None, role=None):
+    def __init__(self, workspaceName=None, workspaceId=None, workspaceDesc=None, admins=None, createTime=None, resourceQueueId=None, createUser=None, pin=None, updateTime=None, updateUser=None, role=None, memberRole=None):
         """
         :param workspaceName: (Optional) 工作空间名称
         :param workspaceId: (Optional) 工作空间ID
@@ -31,7 +31,8 @@ class WorkspaceInfoWithRole(object):
         :param pin: (Optional) 主账号
         :param updateTime: (Optional) 更新时间
         :param updateUser: (Optional) 更新用户账号
-        :param role: (Optional) 当前账号的角色。
+        :param role: (Optional) 当前查询用户对应空间角色：admin管理员，developer开发者，visitor访客。（废弃可用，统一使用memberRole字段）
+        :param memberRole: (Optional) 当前查询用户对应的空间角色：admin管理员，developer开发者，visitor访客。
         """
 
         self.workspaceName = workspaceName
@@ -45,3 +46,4 @@ class WorkspaceInfoWithRole(object):
         self.updateTime = updateTime
         self.updateUser = updateUser
         self.role = role
+        self.memberRole = memberRole

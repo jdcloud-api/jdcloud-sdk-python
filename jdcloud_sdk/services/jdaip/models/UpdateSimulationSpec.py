@@ -19,8 +19,10 @@
 
 class UpdateSimulationSpec(object):
 
-    def __init__(self, imageSpec=None, workloadSpec=None, storages=None, datasets=None, lbSpec=None, nodeAffinities=None):
+    def __init__(self, taskPriority=None, imageSpec=None, workloadSpec=None, storages=None, datasets=None, lbSpec=None, nodeAffinities=None):
         """
+        :param taskPriority: (Optional) 任务优先级，取值范围1~9,传null表示不修改此字段。
+
         :param imageSpec: (Optional) 镜像配置。传null表示不修改此字段。
 
         :param workloadSpec: (Optional) 工作负载资源配置。传null表示不修改此字段。
@@ -38,6 +40,7 @@ class UpdateSimulationSpec(object):
 
         """
 
+        self.taskPriority = taskPriority
         self.imageSpec = imageSpec
         self.workloadSpec = workloadSpec
         self.storages = storages

@@ -23,7 +23,7 @@ class UpdateProductUpdateSpec(object):
         """
         :param title: (Optional) 动态标题，最大长度64字符
         :param content: (Optional) 动态内容或描述，最大长度128字符
-        :param updateType: (Optional) 动态类型 MODEL-模型上新, FEATURE-产品功能
+        :param updateType: (Optional) 动态类型 PUBLIC_ASSETS-公共资产, FEATURE-产品功能
         :param publishDate: (Optional) 发布日期，用于展示给客户, 格式 YYYY-MM-DD
         :param displayOrder: (Optional) 展示顺序, 数值越大越靠前, 默认0
         :param isSticky: (Optional) 是否置顶, 默认false

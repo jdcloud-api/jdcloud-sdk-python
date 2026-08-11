@@ -19,12 +19,13 @@
 
 class RolloutInferenceSpec(object):
 
-    def __init__(self, inferenceId, runtime, models, maxSurge, maxUnavailable, timeout, rolloutId=None):
+    def __init__(self, inferenceId, maxSurge, maxUnavailable, timeout, rolloutId=None, runtime=None, models=None, codes=None):
         """
         :param inferenceId:  推理服务ID
-        :param rolloutId: (Optional) 回滚指定ID
-        :param runtime:  
-        :param models:  
+        :param rolloutId: (Optional) 复用历史滚动记录ID；指定时可基于该历史记录重新发起滚动更新
+        :param runtime: (Optional) 运行时配置；当 rolloutId 为空时必填
+        :param models: (Optional) 模型配置；不传时按空数组处理，指定 rolloutId 时可选
+        :param codes: (Optional) 代码挂载配置；不传时按空数组处理，指定 rolloutId 时可选
         :param maxSurge:  最大超预期实例数
         :param maxUnavailable:  最大不可用实例数
         :param timeout:  滚动更新超时时间（秒）
@@ -34,6 +35,7 @@ class RolloutInferenceSpec(object):
         self.rolloutId = rolloutId
         self.runtime = runtime
         self.models = models
+        self.codes = codes
         self.maxSurge = maxSurge
         self.maxUnavailable = maxUnavailable
         self.timeout = timeout

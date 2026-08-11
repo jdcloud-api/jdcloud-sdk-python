@@ -21,10 +21,12 @@ class UpdateDatasetParam(object):
 
     def __init__(self, datasetName=None, description=None, permission=None, ownerUserPin=None):
         """
-        :param datasetName: (Optional) 数据集名称，传null或空都不修改
-        :param description: (Optional) 数据集描述，传null不更新，有值或传空都会更新
-        :param permission: (Optional) 工作空间中的资源归属权限，null或空不更新
-        :param ownerUserPin: (Optional) 归属用户pin。null或空不更新
+        :param datasetName: (Optional) 数据集名称。
+命名规则：1~32字符，仅支持中文、大小写字母、数字、英文中划线“-”和英文下划线“_”
+
+        :param description: (Optional) 数据集描述，传空字符串会更新成空
+        :param permission: (Optional) 工作空间中的资源归属权限，仅支持修改为公共资源public
+        :param ownerUserPin: (Optional) 归属用户pin。
         """
 
         self.datasetName = datasetName

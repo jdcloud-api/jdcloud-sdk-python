@@ -19,7 +19,7 @@
 
 class SimulationSpec(object):
 
-    def __init__(self, name, imageSpec, workloadSpec, storages, description=None, permission=None, datasets=None, lbSpec=None, nodeAffinities=None):
+    def __init__(self, name, imageSpec, workloadSpec, storages, description=None, permission=None, taskPriority=None, datasets=None, lbSpec=None, nodeAffinities=None):
         """
         :param name:  名称。1~32字符，可以包含中文、数字、大小写字母、英文下划线"_"、中划线"-"或点"。
 
@@ -27,6 +27,7 @@ class SimulationSpec(object):
         :param permission: (Optional) 工作空间中的资源归属权限，支持(public,private)。
 管理员可查看工作空间中全部资源，其他用户只能查看归属自己的private权限的资源或public权限的资源。
 
+        :param taskPriority: (Optional) 任务优先级,取值范围1~9,队列开启优先级情况下必传
         :param imageSpec:  镜像配置。
         :param workloadSpec:  工作负载资源配置。
         :param storages:  存储配置，第一个存储作为工作目录必须挂载到/mnt/workspace不能更改。
@@ -42,6 +43,7 @@ class SimulationSpec(object):
         self.name = name
         self.description = description
         self.permission = permission
+        self.taskPriority = taskPriority
         self.imageSpec = imageSpec
         self.workloadSpec = workloadSpec
         self.storages = storages

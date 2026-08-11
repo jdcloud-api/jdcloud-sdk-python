@@ -32,6 +32,7 @@ class DescribeNotebookRequest(JDCloudRequest):
 - 访问信息: 访问令牌、控制台地址、VSCode地址
 - 计费信息: 公共资源池的计费详情(私有资源池无计费信息)
 - 关机策略: 自动关机策略配置
+- 环境变量: 用户配置的环境变量列表
 
     """
 

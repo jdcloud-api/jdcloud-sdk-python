@@ -21,9 +21,13 @@ class WorkspaceMember(object):
 
     def __init__(self, memberUser=None, memberRole=None, memberPin=None):
         """
-        :param memberUser: (Optional) 成员名称。
-        :param memberRole: (Optional) 成员角色。
-        :param memberPin: (Optional) 成员子账号。
+        :param memberUser: (Optional) 成员名称(子账号名称)。
+        :param memberRole: (Optional) 成员角色，可选值：
+- admin 管理员
+- developer 开发者
+- visitor 访客
+
+        :param memberPin: (Optional) 成员子账号pin。
         """
 
         self.memberUser = memberUser

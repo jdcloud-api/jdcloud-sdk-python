@@ -23,8 +23,8 @@ class DataInfo(object):
         """
         :param isFile: (Optional) true文件夹，false文件
         :param totalSize: (Optional) 所有文件总大小
-        :param totalToken: (Optional) 所有文件总token数
-        :param totalSampleSize: (Optional) 所有文件总样本数
+        :param totalToken: (Optional) 所有文件总token数（-1 表示无统计数据，老数据兼容）
+        :param totalSampleSize: (Optional) 所有文件总样本数（-1 表示无统计数据，老数据兼容）
         :param totalMarked: (Optional) 已标注数据总数
         :param files: (Optional) files
         """

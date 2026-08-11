@@ -21,8 +21,8 @@ class UpdateShutdownPolicy(object):
 
     def __init__(self, runtimePolicys=None, idlePolicys=None, excludedNotebookIds=None):
         """
-        :param runtimePolicys: (Optional) 
-        :param idlePolicys: (Optional) 
+        :param runtimePolicys: (Optional) 运行时长对应配置
+        :param idlePolicys: (Optional) 闲置时长对应配置
         :param excludedNotebookIds: (Optional) 排除的notebookID
         """
 

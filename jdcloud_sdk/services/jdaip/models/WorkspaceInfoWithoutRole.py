@@ -26,12 +26,12 @@ class WorkspaceInfoWithoutRole(object):
         :param workspaceDesc: (Optional) 工作空间描述
         :param admins: (Optional) 工作空间管理员
         :param createTime: (Optional) 创建时间
-        :param resourceQueueId: (Optional) 资源队列ID
+        :param resourceQueueId: (Optional) 空间资源队列ID
         :param createUser: (Optional) 创建用户账号
         :param pin: (Optional) 主账号
         :param updateTime: (Optional) 更新时间
         :param updateUser: (Optional) 更新用户账号
-        :param memberRole: (Optional) 当前查询用户对应空间角色：admin管理员，developer开发者，visitor访客。
+        :param memberRole: (Optional) 当前查询用户对应的空间角色：admin管理员，developer开发者，visitor访客。
         """
 
         self.workspaceName = workspaceName

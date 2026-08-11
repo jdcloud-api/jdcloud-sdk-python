@@ -21,8 +21,8 @@ class UpdateLogConfigs(object):
 
     def __init__(self, logsetUID=None, logtopicUID=None, usages=None):
         """
-        :param logsetUID: (Optional) 日志集id
-        :param logtopicUID: (Optional) 日志主题id
+        :param logsetUID: (Optional) 日志集id。示例：logset-jk****ny
+        :param logtopicUID: (Optional) 日志主题id。示例：logtopic-vy****va
         :param usages: (Optional) 使用任务模块：可选值：
 - notebook:Notebook
 - training:训练任务

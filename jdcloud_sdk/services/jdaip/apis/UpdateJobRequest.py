@@ -55,6 +55,7 @@ class UpdateJobParameters(object):
         self.name = None
         self.description = None
         self.permission = None
+        self.taskPriority = None
         self.ownerUserPin = None
 
     def setName(self, name):
@@ -74,6 +75,12 @@ class UpdateJobParameters(object):
         :param permission: (Optional) 工作空间中的资源归属权限，支持(public,private)，默认为public。
         """
         self.permission = permission
+
+    def setTaskPriority(self, taskPriority):
+        """
+        :param taskPriority: (Optional) 任务优先级，取值范围[1, 9]; 当队列开启优先级调度时生效
+        """
+        self.taskPriority = taskPriority
 
     def setOwnerUserPin(self, ownerUserPin):
         """

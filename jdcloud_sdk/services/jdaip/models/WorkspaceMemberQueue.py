@@ -22,9 +22,13 @@ class WorkspaceMemberQueue(object):
     def __init__(self, memberUser=None, memberRole=None, memberPin=None, queueIds=None):
         """
         :param memberUser: (Optional) 成员名称。
-        :param memberRole: (Optional) 成员角色。
+        :param memberRole: (Optional) 成员角色，可选值：
+- admin 管理员
+- developer 开发者
+- visitor 访客
+
         :param memberPin: (Optional) 成员子账号。
-        :param queueIds: (Optional) 队列ID
+        :param queueIds: (Optional) 队列ID，当成员角色memberRole=admin时，无需传值， 管理员默认支持空间已绑定的所有队列权限
         """
 
         self.memberUser = memberUser

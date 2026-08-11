@@ -19,8 +19,10 @@
 
 class Flavor(object):
 
-    def __init__(self, deviceModel=None, gpu=None, vgpu=None, ratioPerVGpu=None, memoryPerVGpu=None):
+    def __init__(self, cpu=None, memory=None, deviceModel=None, gpu=None, vgpu=None, ratioPerVGpu=None, memoryPerVGpu=None):
         """
+        :param cpu: (Optional) CPU 核数
+        :param memory: (Optional) 内存大小（GiB）
         :param deviceModel: (Optional) 设备模型
         :param gpu: (Optional) GPU 数量
         :param vgpu: (Optional) vGPU 数量
@@ -28,6 +30,8 @@ class Flavor(object):
         :param memoryPerVGpu: (Optional) 每个 vGPU 的内存
         """
 
+        self.cpu = cpu
+        self.memory = memory
         self.deviceModel = deviceModel
         self.gpu = gpu
         self.vgpu = vgpu

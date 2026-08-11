@@ -21,23 +21,29 @@ class PublicImageInfo(object):
 
     def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, command=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, online=None):
         """
-        :param imageId: (Optional) 镜像 iD
+        :param imageId: (Optional) 镜像ID。 示例：img-lh****3p
         :param imageName: (Optional) 镜像名称
         :param imageUsage: (Optional) 镜像用途，可选值：
-- notebook 开发
-- training 训练，
-- inference 推理
+- notebook:Notebook
+- training:训练任务
+- inference:在线服务，
+- finetune:精调实验
+- simulation:仿真任务
+- offlineTask:离线任务
+
+示例：notebook,training,inference
 
         :param imageType: (Optional) 镜像类型：cpu,gpu
-        :param imageUrl: (Optional) 镜像地址
-        :param sourceType: (Optional) 注册方式，可选值：
-- jcr 容器镜像仓库注册
-- dockerfile Dockerfile方式构建
-- notebook：notebook方式构建
-- base-image 基于基础镜像构建
+        :param imageUrl: (Optional) 镜像地址。
+示例：aip-public-sq-cn-east-1.jcr.service.jdcloud.com/serving/vllm:minimaxm3-vllm0.1.dev17492-pytorch2.11.0-transformers5.11.0-cu13.0-gpu-py3.12.13-ubuntu22.04
 
-        :param labels: (Optional) 标签，使用英文逗号拼接。例如：label1,label2,label3
-        :param labelList: (Optional) 标签，labels转换的数组格式。
+        :param sourceType: (Optional) 注册方式，可选值：
+- jcr 容器镜像仓库注册，公共镜像仅支持已有镜像注册
+
+        :param labels: (Optional) 标签，使用英文逗号拼接。
+示例：baseinfo:vllm0.25.0,baseinfo:pytorch2.11.0,baseinfo:transformers5.13.0,baseinfo:cuda13.0,baseinfo:gpu,baseinfo:python3.12.3,baseinfo:ubuntu24.04,baseinfo:jupyterlab,baseinfo:vscode,protocol:http,protocol:grpc
+
+        :param labelList: (Optional) 标签，labels转换的数组格式, 仅包含baseinfo对应的标签。
         :param command: (Optional) 镜像启动命令。
         :param pin: (Optional) 主账号pin
         :param createUser: (Optional) 创建人

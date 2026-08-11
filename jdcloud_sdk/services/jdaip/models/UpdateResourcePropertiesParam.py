@@ -19,7 +19,7 @@
 
 class UpdateResourcePropertiesParam(object):
 
-    def __init__(self, imageSource=None, imageId=None, lbSpec=None, workloadSpec=None, storages=None, datasets=None, models=None, codes=None, nodeAffinities=None, sshSpec=None):
+    def __init__(self, imageSource=None, imageId=None, lbSpec=None, workloadSpec=None, storages=None, datasets=None, models=None, codes=None, envs=None, nodeAffinities=None, sshSpec=None, taskPriority=None):
         """
         :param imageSource: (Optional) 镜像来源，指定新镜像的来源类型。
 
@@ -39,8 +39,8 @@ class UpdateResourcePropertiesParam(object):
         :param lbSpec: (Optional) 负载均衡配置，用于更新公网访问能力。
 
 ## 使用说明
-- 仅支持私有资源池中的Notebook
-- 需要传入与资源队列可通信的负载均衡ID和端口
+- 私有资源池中的Notebook: 需要传入与资源队列可通信的负载均衡ID和端口
+- 公共资源池中的Notebook: 可通过lbEnable=true开启公网访问，系统自动分配LB
 - 不需要公网访问时不要指定此参数
 
         :param workloadSpec: (Optional) 工作负载资源配置，用于更新计算资源。
@@ -71,6 +71,15 @@ class UpdateResourcePropertiesParam(object):
 - 传null表示不修改此属性
 - 传空数组表示清空代码配置
 
+        :param envs: (Optional) 用户环境变量列表。
+
+## 更新语义
+- 该参数可选
+- 不传或传null表示不修改原配置
+- 传空数组表示清空全部用户环境变量
+- 传非空数组表示全量替换原配置
+- 数量、名称和变量值限制与创建Notebook时一致
+
         :param nodeAffinities: (Optional) 节点亲和性配置，用于更新Pod调度规则。
 
 ## 使用说明
@@ -83,6 +92,13 @@ class UpdateResourcePropertiesParam(object):
 ## 使用说明
 - 传null表示不修改此属性
 
+        :param taskPriority: (Optional) 任务调度优先级，数值越大，优先级越高。
+
+## 使用说明
+- 可选参数，传null表示不修改（保持原值）
+- 仅私有资源池且工作空间队列设置了调度优先级时可设置
+- **取值范围：** 1 ~ 9，实际以工作空间配置为准
+
         """
 
         self.imageSource = imageSource
@@ -93,5 +109,7 @@ class UpdateResourcePropertiesParam(object):
         self.datasets = datasets
         self.models = models
         self.codes = codes
+        self.envs = envs
         self.nodeAffinities = nodeAffinities
         self.sshSpec = sshSpec
+        self.taskPriority = taskPriority

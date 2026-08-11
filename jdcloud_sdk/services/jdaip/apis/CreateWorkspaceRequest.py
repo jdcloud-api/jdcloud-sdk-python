@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateWorkspaceRequest(JDCloudRequest):
     """
-    创建工作空间。
+    
+创建工作空间。
+
+详细操作说明请参考帮助文档：[创建及管理工作空间](https://docs.jdcloud.com/cn/jdaip/create-and-manage-workspace)
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

@@ -21,16 +21,16 @@ class UpdateCodeRepoConfigParam(object):
 
     def __init__(self, repoName=None, description=None, projectId=None, url=None, branch=None, commit=None, username=None, accessToken=None, permission=None, ownerUserPin=None):
         """
-        :param repoName: (Optional) 代码库配置名称。为null或空不更新
-        :param description: (Optional) 描述。为null不更新，传空会更新
-        :param projectId: (Optional) Coding的projectId。为null或空不更新
-        :param url: (Optional) 代码库地址。为null或空不更新
-        :param branch: (Optional) 代码库分支。为null不更新，传空会更新
-        :param commit: (Optional) 代码库commint。为null不更新，传空会更新
-        :param username: (Optional) git用户名。为null不更新，传空会更新
-        :param accessToken: (Optional) git访问凭证。为null不更新，传空会更新
+        :param repoName: (Optional) 代码库配置名称。
+        :param description: (Optional) 描述。传空字符串会清空
+        :param projectId: (Optional) Coding的projectId
+        :param url: (Optional) 代码库地址。
+        :param branch: (Optional) 代码库分支。传空字符串会清空（确保branch和commit最低一个有值）
+        :param commit: (Optional) 代码库commint。传空字符串会清空（确保branch和commit最低一个有值）
+        :param username: (Optional) git用户名。传空字符串会清空
+        :param accessToken: (Optional) git访问凭证。传空字符串会清空
         :param permission: (Optional) 工作空间中的资源归属权限，支持(public,private)。
-        :param ownerUserPin: (Optional) 归属用户pin。null或空不更新
+        :param ownerUserPin: (Optional) 归属用户pin。
         """
 
         self.repoName = repoName

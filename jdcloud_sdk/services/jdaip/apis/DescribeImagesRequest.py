@@ -22,6 +22,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribeImagesRequest(JDCloudRequest):
     """
     获取镜像列表
+
+## 下游任务使用时，接口入参说明
+- imageUsages 镜像用途，传对应的任务。[notebook、training训练任务、inference在线服务、finetune精调实验、simulation仿真任务、offlineTask离线任务]
+- states状态，只查询注册成功的数据。[success注册成功]
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -63,7 +68,7 @@ class DescribeImagesParameters(object):
 `createUser`: 创建人名称，模糊匹配，支持单个
 `imageTypes`: 镜像类型，支持多个，取值范围：[`gpu`, `cpu`]
 `imageIds`: 镜像ID数组，支持多个
-`imageUsages`: 镜像用途，支持多个，取值范围：[notebook Notebook、training 开发训练、inference 在线服务]
+`imageUsages`: 镜像用途，支持多个，取值范围：[notebook、training训练任务、inference在线服务、finetune精调实验、simulation仿真任务、offlineTask离线任务]
 `labels`: 标签数组，支持多个
 `states`: 状态数组，支持多个，取值范围：[资源状态:queuing排队中、pending启动中、running构建中、success注册成功、failed构建失败、deleting删除中、deleted已删除]
 `permission`: 权限，精确匹配，支持单个，可选(public,private)。

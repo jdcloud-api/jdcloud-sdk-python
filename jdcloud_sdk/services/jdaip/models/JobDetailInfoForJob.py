@@ -19,7 +19,7 @@
 
 class JobDetailInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, schedulePriority=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID。
         :param name: (Optional) 训练任务名称。
@@ -59,8 +59,10 @@ class JobDetailInfoForJob(object):
         :param envs: (Optional) 环境变量。
         :param resource: (Optional) **已废弃：** 请参考 `roleResource` 字段
 
-        :param storageSpaces: (Optional) 存储空间配置列表。
-        :param storageSpacesObject: (Optional) 存储空间配置列表。
+        :param storageSpaces: (Optional) 存储空间配置列表（外部共享存储，JSON 字符串）。
+        :param storageSpacesObject: (Optional) 存储空间配置列表（外部共享存储：oss/cfs/jpfs）。
+        :param localStorage: (Optional) 本地存储挂载配置。未开启时为 null。
+
         :param datasets: (Optional) 数据集。
         :param models: (Optional) 模型。
         :param codes: (Optional) 代码仓库配置列表。
@@ -68,6 +70,8 @@ class JobDetailInfoForJob(object):
         :param charge: (Optional) 计费信息，私有资源池的资源无计费信息。
         :param logCollectConfig: (Optional) 日志采集配置。
         :param roleResource: (Optional) 角色配置信息。
+        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。未配置时为 null。
+
         :param advancedConfig: (Optional) 框架高级配置；json格式。
         :param restartPolicy: (Optional) 重启策略。
         :param healthCheckPolicy: (Optional) 算力健康检测策略。
@@ -76,7 +80,6 @@ class JobDetailInfoForJob(object):
         :param resourceGroupId: (Optional) 资源组ID。
         :param resourceGroupName: (Optional) 资源组名称。
         :param userTags: (Optional) 用户自定义标签列表。
-        :param schedulePriority: (Optional) 调度优先级
         :param ownerUserPin: (Optional) 归属用户pin。
         :param ownerUser: (Optional) 归属用户名称。
         :param pin: (Optional) 主账号。
@@ -105,6 +108,7 @@ class JobDetailInfoForJob(object):
         self.resource = resource
         self.storageSpaces = storageSpaces
         self.storageSpacesObject = storageSpacesObject
+        self.localStorage = localStorage
         self.datasets = datasets
         self.models = models
         self.codes = codes
@@ -112,6 +116,7 @@ class JobDetailInfoForJob(object):
         self.charge = charge
         self.logCollectConfig = logCollectConfig
         self.roleResource = roleResource
+        self.internetEgress = internetEgress
         self.advancedConfig = advancedConfig
         self.restartPolicy = restartPolicy
         self.healthCheckPolicy = healthCheckPolicy
@@ -120,7 +125,6 @@ class JobDetailInfoForJob(object):
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
-        self.schedulePriority = schedulePriority
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class RemoveQueuesRequest(JDCloudRequest):
     """
-    解绑队列
+    解绑队列。
+
+## 接口说明
+- 当队列下有未停止的任务（notebook、训练任务、在线服务等）时， 不可解绑
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

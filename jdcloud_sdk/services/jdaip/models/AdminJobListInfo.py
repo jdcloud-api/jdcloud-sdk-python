@@ -19,7 +19,7 @@
 
 class AdminJobListInfo(object):
 
-    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, replica=None, queueId=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, replica=None, queueId=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID，系统自动生成的唯一标识。
 
@@ -159,6 +159,8 @@ class AdminJobListInfo(object):
 ## 说明
 分布式训练中不同角色（Master、Worker）的资源配置。
 
+        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。未配置时为 null。
+
         :param instanceInfo: (Optional) 实例详情信息。
 
 包含实例的运行状态、节点信息等详细数据。
@@ -243,6 +245,7 @@ class AdminJobListInfo(object):
         self.cpuMilli = cpuMilli
         self.memoryMiB = memoryMiB
         self.roleResource = roleResource
+        self.internetEgress = internetEgress
         self.instanceInfo = instanceInfo
         self.resourceState = resourceState
         self.permission = permission

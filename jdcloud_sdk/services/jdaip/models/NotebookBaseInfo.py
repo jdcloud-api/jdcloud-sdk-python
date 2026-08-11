@@ -19,7 +19,7 @@
 
 class NotebookBaseInfo(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, state=None, workspaceId=None, podIp=None, lb=None, ownerUser=None, ownerUserPin=None, permission=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, state=None, workspaceId=None, podIp=None, lb=None, internetEgress=None, ownerUser=None, ownerUserPin=None, permission=None, queue=None, publicQueue=None):
         """
         :param pin: (Optional) 主账号，资源所属的主账号标识。
 
@@ -55,6 +55,12 @@ class NotebookBaseInfo(object):
 
         :param lb: (Optional) 公网访问配置，负载均衡配置信息。
 
+        :param internetEgress: (Optional) 公网出口配置，Notebook的出公网访问方式。
+
+## 使用说明
+- 配置了公网出口时有值
+- 用于访问外部网络资源
+
         :param ownerUser: (Optional) 归属用户名称，资源归属的用户名称。
 
         :param ownerUserPin: (Optional) 归属用户pin，资源归属的用户标识。
@@ -65,6 +71,8 @@ class NotebookBaseInfo(object):
 - public: 公开，工作空间所有用户可见
 - private: 私有，仅管理员和拥有者可见
 
+        :param queue: (Optional) 队列ID，实例运行所在的资源队列（真实队列）。
+        :param publicQueue: (Optional) 公共队列ID，公共资源池场景下的队列标识。
         """
 
         self.pin = pin
@@ -76,6 +84,9 @@ class NotebookBaseInfo(object):
         self.workspaceId = workspaceId
         self.podIp = podIp
         self.lb = lb
+        self.internetEgress = internetEgress
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin
         self.permission = permission
+        self.queue = queue
+        self.publicQueue = publicQueue

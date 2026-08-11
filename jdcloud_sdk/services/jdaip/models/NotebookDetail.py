@@ -19,7 +19,7 @@
 
 class NotebookDetail(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, charge=None, storages=None, datasets=None, models=None, codes=None, logCollectConfig=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, schedulePriority=None, nodeAffinities=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, internetEgress=None, charge=None, storages=None, datasets=None, models=None, codes=None, envs=None, logCollectConfig=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, nodeAffinities=None, sshSpec=None):
         """
         :param pin: (Optional) 主账号，资源所属的主账号标识。
         :param createUser: (Optional) 创建人用户名，创建Notebook的用户名称。
@@ -120,6 +120,12 @@ class NotebookDetail(object):
 - 配置了公网访问时有值
 - 用于SSH或其他公网服务访问
 
+        :param internetEgress: (Optional) 公网出口配置，Notebook的出公网访问方式。
+
+## 使用说明
+- 配置了公网出口时有值
+- 用于访问外部网络资源
+
         :param charge: (Optional) Notebook的计费信息，公共资源池的计费详情。
 
 ## 使用说明
@@ -153,6 +159,8 @@ class NotebookDetail(object):
 - 代码库ID、名称
 - 挂载路径
 
+        :param envs: (Optional) 用户配置的环境变量列表。仅返回用户原始配置，不包含平台系统环境变量；与系统变量同名时，返回值可能与Notebook运行时实际值不同。
+
         :param logCollectConfig: (Optional) 日志采集配置，容器日志采集到日志服务的配置。
 
 ## 包含信息
@@ -184,9 +192,20 @@ class NotebookDetail(object):
 - key-value键值对形式
 - 最多10个标签
 
-        :param schedulePriority: (Optional) 调度优先级，Pod调度顺序控制。
+        :param taskPriority: (Optional) 调度优先级值，Pod调度顺序控制。
+
+## 使用说明
+- 数值越大，优先级越高
+- 仅在调度器支持优先级时生效
 
         :param nodeAffinities: (Optional) 节点亲和性配置，控制Pod调度到特定节点。
+
+        :param sshSpec: (Optional) SSH配置和连接信息。
+
+## 包含信息
+- 密码认证开关
+- SSH公钥列表
+- SSH连接地址
 
         """
 
@@ -217,11 +236,13 @@ class NotebookDetail(object):
         self.updateTime = updateTime
         self.workload = workload
         self.lb = lb
+        self.internetEgress = internetEgress
         self.charge = charge
         self.storages = storages
         self.datasets = datasets
         self.models = models
         self.codes = codes
+        self.envs = envs
         self.logCollectConfig = logCollectConfig
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin
@@ -230,5 +251,6 @@ class NotebookDetail(object):
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
-        self.schedulePriority = schedulePriority
+        self.taskPriority = taskPriority
         self.nodeAffinities = nodeAffinities
+        self.sshSpec = sshSpec

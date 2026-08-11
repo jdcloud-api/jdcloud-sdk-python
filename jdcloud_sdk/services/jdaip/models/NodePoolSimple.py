@@ -19,7 +19,7 @@
 
 class NodePoolSimple(object):
 
-    def __init__(self, id=None, name=None, bizType=None, nodeCount=None, topology=None, status=None, msg=None, enable=None, createTime=None, desc=None, gpuQuotas=None, cpuQuota=None, cluster=None, nodeIps=None):
+    def __init__(self, id=None, name=None, bizType=None, nodeCount=None, topology=None, status=None, rdma=None, msg=None, enable=None, createTime=None, desc=None, gpuQuotas=None, cpuQuota=None, cluster=None, nodeIps=None, alias=None, note=None, controllerNodeCount=None, deviceCount=None, capacity=None, used=None, liveUsage=None, nodeSchedulerStrategy=None, deviceSchedulerStrategy=None, controllerCluster=None, isDefault=None, operationMode=None, resourceGroupUsed=None, deviceVgpuCount=None, deviceGpuCount=None, resourceGroupCount=None, resourceQueueCount=None, runningTaskCount=None, podCount=None, nodeAllocatedCount=None, deviceUsedCount=None, deviceAllocatedCount=None, nodeGroupId=None):
         """
         :param id: (Optional) 节点池ID
         :param name: (Optional) 节点池名称
@@ -27,6 +27,7 @@ class NodePoolSimple(object):
         :param nodeCount: (Optional) 节点数量
         :param topology: (Optional) 是否支持网络拓扑；0：不支持，1：支持
         :param status: (Optional) 状态，creating:创建中；ready:运行中；fail:创建失败
+        :param rdma: (Optional) 是否支持rdma网络
         :param msg: (Optional) 错误信息
         :param enable: (Optional) 是否启用
         :param createTime: (Optional) 创建时间，秒
@@ -35,6 +36,29 @@ class NodePoolSimple(object):
         :param cpuQuota: (Optional) 资源配额信息
         :param cluster: (Optional) 
         :param nodeIps: (Optional) 节点IP列表
+        :param alias: (Optional) Controller节点组别名
+        :param note: (Optional) Controller节点组备注
+        :param controllerNodeCount: (Optional) Controller节点组节点数量；不覆盖原 nodeCount 字段
+        :param deviceCount: (Optional) 各显卡型号的显卡总数
+        :param capacity: (Optional) 节点组资源总量
+        :param used: (Optional) 节点组已分配资源
+        :param liveUsage: (Optional) 节点组实时使用资源
+        :param nodeSchedulerStrategy: (Optional) 节点调度策略
+        :param deviceSchedulerStrategy: (Optional) 显卡调度策略
+        :param controllerCluster: (Optional) Controller返回的集群ID；不覆盖原 cluster 对象
+        :param isDefault: (Optional) 是否默认节点池
+        :param operationMode: (Optional) Controller节点组运行模式
+        :param resourceGroupUsed: (Optional) 资源组已使用资源
+        :param deviceVgpuCount: (Optional) 各显卡型号开启算力切分的显卡数量
+        :param deviceGpuCount: (Optional) 各显卡型号未开启算力切分的显卡数量
+        :param resourceGroupCount: (Optional) 绑定资源组数量
+        :param resourceQueueCount: (Optional) 关联队列数量
+        :param runningTaskCount: (Optional) 运行中任务数量
+        :param podCount: (Optional) Pod数量
+        :param nodeAllocatedCount: (Optional) 已分配节点数量
+        :param deviceUsedCount: (Optional) 已使用显卡数量
+        :param deviceAllocatedCount: (Optional) 已分配显卡数量
+        :param nodeGroupId: (Optional) Controller节点组ID
         """
 
         self.id = id
@@ -43,6 +67,7 @@ class NodePoolSimple(object):
         self.nodeCount = nodeCount
         self.topology = topology
         self.status = status
+        self.rdma = rdma
         self.msg = msg
         self.enable = enable
         self.createTime = createTime
@@ -51,3 +76,26 @@ class NodePoolSimple(object):
         self.cpuQuota = cpuQuota
         self.cluster = cluster
         self.nodeIps = nodeIps
+        self.alias = alias
+        self.note = note
+        self.controllerNodeCount = controllerNodeCount
+        self.deviceCount = deviceCount
+        self.capacity = capacity
+        self.used = used
+        self.liveUsage = liveUsage
+        self.nodeSchedulerStrategy = nodeSchedulerStrategy
+        self.deviceSchedulerStrategy = deviceSchedulerStrategy
+        self.controllerCluster = controllerCluster
+        self.isDefault = isDefault
+        self.operationMode = operationMode
+        self.resourceGroupUsed = resourceGroupUsed
+        self.deviceVgpuCount = deviceVgpuCount
+        self.deviceGpuCount = deviceGpuCount
+        self.resourceGroupCount = resourceGroupCount
+        self.resourceQueueCount = resourceQueueCount
+        self.runningTaskCount = runningTaskCount
+        self.podCount = podCount
+        self.nodeAllocatedCount = nodeAllocatedCount
+        self.deviceUsedCount = deviceUsedCount
+        self.deviceAllocatedCount = deviceAllocatedCount
+        self.nodeGroupId = nodeGroupId

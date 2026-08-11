@@ -21,7 +21,19 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribePublicModelsRequest(JDCloudRequest):
     """
-    查询公共模型列表
+    查询公共模型列表。
+
+## 接口查询说明
+- 下游任务使用，查询条件：
+  | 任务模块 | 查询条件 |
+  |------|------|
+  | Notebook | "filters":[{"name":"labelsEq","values":["support.task:notebook"]}] |
+  | 训练任务 | "filters":[{"name":"labelsEq","values":["support.task:trainjob"]}] |
+  | 模型精调 | "filters":[{"name":"labelsEq","values":["support.task:finetune","finetune.model_series:llama","finetune.model_series:qwen"]}] |
+  | 模型蒸馏 | "filters":[{"name":"labelsEq","values":["support.task:finetune","finetune.model_series:llama","finetune.model_series:qwen"]}] |
+  | 在线服务-自定义部署 | "filters":[{"name":"labelsEq","values":["support.task:custom-deploy"]}] |
+  | 在线服务-LLM大语言模型部署 | "filters":[{"name":"labelsEq","values":["support.task:llm-deploy"]}] |
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

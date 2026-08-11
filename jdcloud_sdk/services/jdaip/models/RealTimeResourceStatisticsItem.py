@@ -19,7 +19,7 @@
 
 class RealTimeResourceStatisticsItem(object):
 
-    def __init__(self, resourceType=None, idle=None, allocated=None, capacity=None, allocatedRate=None, usedUtilization=None):
+    def __init__(self, resourceType=None, idle=None, allocated=None, capacity=None, allocatedRate=None, usedUtilization=None, allocatedUtilization=None):
         """
         :param resourceType: (Optional) 资源类型
         :param idle: (Optional) 空闲资源
@@ -27,6 +27,7 @@ class RealTimeResourceStatisticsItem(object):
         :param capacity: (Optional) 资源总量
         :param allocatedRate: (Optional) 已分配资源比例
         :param usedUtilization: (Optional) 已分配资源使用率
+        :param allocatedUtilization: (Optional) 已分配资源使用率
         """
 
         self.resourceType = resourceType
@@ -35,3 +36,4 @@ class RealTimeResourceStatisticsItem(object):
         self.capacity = capacity
         self.allocatedRate = allocatedRate
         self.usedUtilization = usedUtilization
+        self.allocatedUtilization = allocatedUtilization

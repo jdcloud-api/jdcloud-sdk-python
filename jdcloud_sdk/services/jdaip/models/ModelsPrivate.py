@@ -33,7 +33,7 @@ class ModelsPrivate(object):
         :param updateUser: (Optional) 更新用户。
         :param ownerUser: (Optional) 归属用户名称。
         :param ownerUserPin: (Optional) 归属用户pin。
-        :param permission: (Optional) 工作空间中的资源归属权限。
+        :param permission: (Optional) 模型资源归属权限，支持(public,private)。
         """
 
         self.modelId = modelId

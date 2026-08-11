@@ -21,9 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInstancesRequest(JDCloudRequest):
     """
-    查询训练任务实例列表。
+    获取训练任务实例列表。
 
-获取训练任务下所有运行实例（Pod）的详细信息，包括状态、IP、运行时长等。
+查询训练任务下所有运行实例（Pod）的详细信息，包括名称、类型、状态、IP、运行时长等。
+支持分页查询和多种过滤条件，异常状态数据可优先展示。
 
 ## 使用场景
 
@@ -79,8 +80,8 @@ class DescribeInstancesParameters(object):
         :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
 `name`: 实例名称，模糊匹配，支持单个。
 `type`: 实例类型，模糊匹配，支持单个。
-`state`: 实例状态，精确匹配，支持多个，用","隔开。
-`ip`: 实例Ip，精确匹配，支持多个，用","隔开。
+`state`: 实例状态，精确匹配，支持多个。
+`ip`: 实例Ip，精确匹配，支持多个。
 
         """
         self.filters = filters

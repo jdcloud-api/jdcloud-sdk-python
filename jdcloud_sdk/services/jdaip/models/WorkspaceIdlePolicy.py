@@ -25,7 +25,11 @@ class WorkspaceIdlePolicy(object):
         :param cpuPercentThreshold: (Optional) CPU利用率阈值，0表示未配置
         :param gpuPercentThreshold: (Optional) GPU利用率阈值，0表示未配置
         :param memoryPercentThreshold: (Optional) 内存利用率阈值，0表示未配置
-        :param queueIds: (Optional) 闲置策略配置-生效的资源队列id
+        :param queueIds: (Optional) 列闲置配置-生效的资源队列id, 可选值：
+- 空间已绑定的专属队列，示例：queue-2xxx**********2d*********8b8
+- joybuilder-public-queue 公共队列
+- joybuilder-exclusive-queue 专享队
+
         """
 
         self.maxIdleTimeHour = maxIdleTimeHour

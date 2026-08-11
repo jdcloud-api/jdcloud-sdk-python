@@ -21,10 +21,10 @@ class UpdateModelParm(object):
 
     def __init__(self, modelName=None, description=None, permission=None, ownerUserPin=None):
         """
-        :param modelName: (Optional) 模型名称。nil或为空不更新。
-        :param description: (Optional) 模型描述。nil不更新，传空更新。
-        :param permission: (Optional) 工作空间中的资源归属权限，null或空不更新
-        :param ownerUserPin: (Optional) 归属用户pin。null或空不更新
+        :param modelName: (Optional) 模型名称。
+        :param description: (Optional) 模型描述。传空字符串会清空。
+        :param permission: (Optional) 模型资源归属权限，仅支持修改为公共资源public
+        :param ownerUserPin: (Optional) 归属用户pin。
         """
 
         self.modelName = modelName

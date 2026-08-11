@@ -23,6 +23,12 @@ class UpdateNotebookRequest(JDCloudRequest):
     """
     更新Notebook实例的基础属性，不影响资源配置。
 
+## 可更新字段
+- name: 名称
+- description: 描述
+- permission: 资源归属权限
+- ownerUserPin: 资源归属用户
+- internetEgress: 公网出口配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -47,10 +53,11 @@ class UpdateNotebookParameters(object):
         self.description = None
         self.permission = None
         self.ownerUserPin = None
+        self.internetEgress = None
 
     def setName(self, name):
         """
-        :param name: (Optional) 名称。1~32字符，可以包含中文、数字、大小写字母、英文下划线“_”、中划线“-”或点“.”。传null表示不修改此字段。
+        :param name: (Optional) 名称。1~32字符，可以包含中文、数字、大小写字母、英文下划线"_"、中划线"-"或点"."。传null表示不修改此字段。
         """
         self.name = name
 
@@ -72,4 +79,15 @@ class UpdateNotebookParameters(object):
         :param ownerUserPin: (Optional) 资源归属用户。传null表示不修改此字段。
         """
         self.ownerUserPin = ownerUserPin
+
+    def setInternetEgress(self, internetEgress):
+        """
+        :param internetEgress: (Optional) 公网出口配置，用于配置Notebook的出公网访问方式。传null表示不修改此字段。
+
+## 使用说明
+- switchStatus必须显式传值，为on时开启公网出口，为off时关闭公网出口且egressType无效
+- **公共资源池**: switchStatus=on时可设置 internetEgress.egressType=SHARE_GATEWAY，经平台共享NAT网关出公网
+- **私有资源池**: 暂不支持公网出口配置
+        """
+        self.internetEgress = internetEgress
 

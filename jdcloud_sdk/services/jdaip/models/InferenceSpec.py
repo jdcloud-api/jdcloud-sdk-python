@@ -19,17 +19,16 @@
 
 class InferenceSpec(object):
 
-    def __init__(self, enableLimit, metadata, models, resource, runtime, qps=None, deployType=None, roleSet=None, schedulePriority=None):
+    def __init__(self, enableLimit, metadata, models, runtime, qps=None, deployType=None, resource=None, roleSet=None):
         """
         :param qps: (Optional) 推理服务限流阈值（QPS）
         :param enableLimit:  开启 true 关闭 false
         :param deployType: (Optional) 部署方式（自定义,或者大语言模型）
         :param metadata:  推理服务元数据（如：名字，ID等）
         :param models:  推理服务加载的模型信息（如：模型名字，存放地址，挂载路径）
-        :param resource:  推理服务所需资源（如：CPU， 内存等）
+        :param resource: (Optional) 推理服务所需资源（如：CPU， 内存等）。非多角色分离模式时，该字段为必填项
         :param runtime:  推理服务运行环境（如：镜像，命令行，环境变量等）
         :param roleSet: (Optional) 多角色部署配置
-        :param schedulePriority: (Optional) 调度优先级,非必填，默认使用系统优先级：normal-priority(10000)
         """
 
         self.qps = qps
@@ -40,4 +39,3 @@ class InferenceSpec(object):
         self.resource = resource
         self.runtime = runtime
         self.roleSet = roleSet
-        self.schedulePriority = schedulePriority

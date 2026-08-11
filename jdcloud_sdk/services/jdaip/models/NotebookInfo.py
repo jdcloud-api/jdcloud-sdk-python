@@ -19,7 +19,7 @@
 
 class NotebookInfo(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, schedulePriority=None, nodeAffinities=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, internetEgress=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, nodeAffinities=None):
         """
         :param pin: (Optional) 主账号，资源所属的主账号标识。
         :param createUser: (Optional) 创建人用户名，创建Notebook的用户名称。
@@ -120,6 +120,12 @@ class NotebookInfo(object):
 - 配置了公网访问时有值
 - 用于SSH或其他公网服务访问
 
+        :param internetEgress: (Optional) 公网出口配置，Notebook的出公网访问方式。
+
+## 使用说明
+- 配置了公网出口时有值
+- 用于访问外部网络资源
+
         :param ownerUser: (Optional) 归属用户名称，资源归属的用户名称。
         :param ownerUserPin: (Optional) 归属用户pin，资源归属的用户标识。
         :param permission: (Optional) 工作空间中的资源归属权限。
@@ -142,8 +148,6 @@ class NotebookInfo(object):
 ## 标签格式
 - key-value键值对形式
 - 最多10个标签
-
-        :param schedulePriority: (Optional) 调度优先级，Pod调度顺序控制。
 
         :param nodeAffinities: (Optional) 节点亲和性配置，控制Pod调度到特定节点。
 
@@ -176,6 +180,7 @@ class NotebookInfo(object):
         self.updateTime = updateTime
         self.workload = workload
         self.lb = lb
+        self.internetEgress = internetEgress
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin
         self.permission = permission
@@ -183,5 +188,4 @@ class NotebookInfo(object):
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
-        self.schedulePriority = schedulePriority
         self.nodeAffinities = nodeAffinities

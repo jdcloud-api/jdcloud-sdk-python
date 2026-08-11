@@ -19,7 +19,7 @@
 
 class NbWorkloadDetail(object):
 
-    def __init__(self, queueId=None, flavorId=None, cpuM=None, memoryMiB=None, deviceModel=None, vcudaCore=None, vcudaMemory=None, vcudaRatio=None):
+    def __init__(self, queueId=None, flavorId=None, cpuM=None, memoryMiB=None, deviceModel=None, vcudaCore=None, vcudaMemory=None, vcudaRatio=None, logicAzCode=None, hpcClusterName=None, queuingTimeoutMinutes=None):
         """
         :param queueId: (Optional) 资源队列ID，实例运行所在的资源队列。
 
@@ -73,6 +73,26 @@ class NbWorkloadDetail(object):
 - 所有虚拟GPU卡的总算力占比
 - 取值范围：0-100
 
+        :param logicAzCode: (Optional) 逻辑可用区编码，实例运行的逻辑可用区。
+
+## 使用说明
+- 仅公共资源池有效
+- 私有资源池时为空
+
+        :param hpcClusterName: (Optional) 物理集群名称，实例运行的物理集群名称。
+
+## 使用说明
+- 仅公共资源池有效
+- 与规格(flavorId)对应的物理集群名称
+
+        :param queuingTimeoutMinutes: (Optional) 排队超时时间（分钟），Notebook在排队状态的最大等待时间。
+
+## 使用说明
+- 仅公共资源池有效
+- 不传或传0时默认使用系统配置 5分钟
+- 取值范围：5~1440
+- 超过排队超时时间后，Notebook将自动停止排队
+
         """
 
         self.queueId = queueId
@@ -83,3 +103,6 @@ class NbWorkloadDetail(object):
         self.vcudaCore = vcudaCore
         self.vcudaMemory = vcudaMemory
         self.vcudaRatio = vcudaRatio
+        self.logicAzCode = logicAzCode
+        self.hpcClusterName = hpcClusterName
+        self.queuingTimeoutMinutes = queuingTimeoutMinutes

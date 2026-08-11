@@ -19,7 +19,7 @@
 
 class AutoScale(object):
 
-    def __init__(self, minReplicaCount, maxReplicaCount, scaleUpDelay=None, scaleDownDelay=None, cpuThreshold=None, gpuThreshold=None, memoryThreshold=None):
+    def __init__(self, minReplicaCount, maxReplicaCount, scaleUpDelay=None, scaleDownDelay=None, cpuThreshold=None, gpuThreshold=None, memoryThreshold=None, waitingRequestCountThreshold=None, timeToFirstTokenP99Threshold=None):
         """
         :param minReplicaCount:  最小副本数
         :param maxReplicaCount:  最大副本数
@@ -28,6 +28,8 @@ class AutoScale(object):
         :param cpuThreshold: (Optional) CPU使用率阈值（%，基于Limits）
         :param gpuThreshold: (Optional) GPU利用率阈值（%）
         :param memoryThreshold: (Optional) 内存使用率阈值（%，基于Limits）
+        :param waitingRequestCountThreshold: (Optional) 排队中的请求数阈值
+        :param timeToFirstTokenP99Threshold: (Optional) 首token时延阈值，单位毫秒
         """
 
         self.minReplicaCount = minReplicaCount
@@ -37,3 +39,5 @@ class AutoScale(object):
         self.cpuThreshold = cpuThreshold
         self.gpuThreshold = gpuThreshold
         self.memoryThreshold = memoryThreshold
+        self.waitingRequestCountThreshold = waitingRequestCountThreshold
+        self.timeToFirstTokenP99Threshold = timeToFirstTokenP99Threshold

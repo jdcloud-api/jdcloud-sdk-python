@@ -22,6 +22,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 class DescribePublicImagesRequest(JDCloudRequest):
     """
     获取公共镜像列表
+
+## 接口说明-返回数据包含
+- 已上线镜像 
+- 未上线且镜像灰度列表中存在当前登录主账号pin的镜像
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -60,11 +65,11 @@ class DescribePublicImagesParameters(object):
 `imageName`: 镜像名称，模糊匹配，支持单个
 `imageTypes`: 镜像类型，支持多个，取值范围：[`gpu`, `cpu`]
 `imageIds`: 镜像ID数组，支持多个
-`imageUsages`: 镜像用途，支持多个，取值范围：[notebook Notebook、training 开发训练、inference 在线服务]
-`labelsIn`: 标签，多个标签查询，有一个标签匹配上就行
-`labelsEq`: 标签，多个标签查询，每一个标签都要匹配到
-`labelsLikeIn`: 标签(模糊查询)，多个标签查询，有一个标签匹配上就行
-`labelsLikeEq`: 标签(模糊查询)，多个标签查询，每一个标签都要匹配到
+`imageUsages`: 镜像用途，支持多个，取值范围：[notebook、training训练任务、inference在线服务、finetune精调实验、simulation仿真任务、offlineTask离线任务]
+`labelsIn`: 标签，多个标签查询，镜像命中一个标签即可查到
+`labelsEq`: 标签，多个标签查询，镜像命中所有标签才可查到
+`labelsLikeIn`: 标签(模糊查询)，多个标签查询，镜像命中一个标签即可查到
+`labelsLikeEq`: 标签(模糊查询)，多个标签查询，镜像命中所有标签才可查到
 
         """
         self.filters = filters

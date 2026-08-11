@@ -19,7 +19,7 @@
 
 class ExperimentDetailInfo(object):
 
-    def __init__(self, experimentId=None, name=None, description=None, modelSeries=None, modelTemplate=None, runTotal=None, baseModelVisibility=None, baseModelId=None, baseModelName=None, baseModelVersion=None, permission=None, schedulePriority=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, experimentId=None, name=None, description=None, modelSeries=None, modelTemplate=None, runTotal=None, baseModelVisibility=None, baseModelId=None, baseModelName=None, baseModelVersion=None, permission=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param experimentId: (Optional) 微调实验ID，系统自动生成的唯一标识。
 
@@ -71,7 +71,6 @@ class ExperimentDetailInfo(object):
 - `public`：公开
 - `private`：私有
 
-        :param schedulePriority: (Optional) 调度优先级配置。
         :param ownerUserPin: (Optional) 归属用户pin。
 
 资源所有者的用户标识。
@@ -113,7 +112,6 @@ class ExperimentDetailInfo(object):
         self.baseModelName = baseModelName
         self.baseModelVersion = baseModelVersion
         self.permission = permission
-        self.schedulePriority = schedulePriority
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

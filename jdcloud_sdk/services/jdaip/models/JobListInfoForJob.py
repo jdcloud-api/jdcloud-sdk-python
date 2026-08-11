@@ -19,7 +19,7 @@
 
 class JobListInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, charge=None, replica=None, queueId=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, schedulePriority=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, charge=None, replica=None, queueId=None, flavorId=None, flavorInfo=None, logicAzCode=None, hpcClusterName=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID，唯一标识一个训练任务。
 **示例：** `job-abc123def456`
@@ -74,11 +74,15 @@ class JobListInfoForJob(object):
 
         :param flavorId: (Optional) 公共资源池的规格ID。
         :param flavorInfo: (Optional) 规格描述。
+        :param logicAzCode: (Optional) 逻辑可用区编码（公共池）。
+        :param hpcClusterName: (Optional) 物理集群名称（异构规格）。
         :param gpuDeviceModel: (Optional) GPU 卡类型。
         :param vcudaCore: (Optional) 虚拟 GPU 核数。
         :param cpuMilli: (Optional) CPU 大小（毫核）。
         :param memoryMiB: (Optional) 内存大小（MiB）。
         :param roleResource: (Optional) 训练实例角色配置信息。
+
+        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。未配置时为 null。
 
         :param instanceInfo: (Optional) 实例状态统计信息。
 
@@ -97,7 +101,6 @@ class JobListInfoForJob(object):
         :param resourceGroupId: (Optional) 资源组ID。
         :param resourceGroupName: (Optional) 资源组名称。
         :param userTags: (Optional) 用户自定义标签列表。
-        :param schedulePriority: (Optional) 调度优先级配置。
         :param ownerUserPin: (Optional) 归属用户 pin。
         :param ownerUser: (Optional) 归属用户名称。
         :param pin: (Optional) 主账号。
@@ -122,18 +125,20 @@ class JobListInfoForJob(object):
         self.queueId = queueId
         self.flavorId = flavorId
         self.flavorInfo = flavorInfo
+        self.logicAzCode = logicAzCode
+        self.hpcClusterName = hpcClusterName
         self.gpuDeviceModel = gpuDeviceModel
         self.vcudaCore = vcudaCore
         self.cpuMilli = cpuMilli
         self.memoryMiB = memoryMiB
         self.roleResource = roleResource
+        self.internetEgress = internetEgress
         self.instanceInfo = instanceInfo
         self.resourceState = resourceState
         self.permission = permission
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
-        self.schedulePriority = schedulePriority
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

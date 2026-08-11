@@ -19,29 +19,32 @@
 
 class LbSpec(object):
 
-    def __init__(self, lbId, lbPort, lbType=None):
+    def __init__(self, lbId=None, lbPort=None, lbEnable=None):
         """
-        :param lbId:  负载均衡实例ID，需要在京东云负载均衡产品中预先创建。
+        :param lbId: (Optional) 负载均衡实例ID，需要在京东云负载均衡产品中预先创建。
 
 ## 要求
+- 私有资源池必填，公共资源池无需指定(系统自动分配)
 - 负载均衡需要与资源队列在同一VPC下
 - 支持四层(TCP)负载均衡
 
-        :param lbPort:  监听端口，负载均衡监听此端口并转发到Notebook。
+        :param lbPort: (Optional) 监听端口，负载均衡监听此端口并转发到Notebook。
 
 ## 端口范围
+- 私有资源池必填，公共资源池无需指定(系统自动分配)
 - 1-65534
 - 需要指定一个未被占用的空闲可用端口
 - 建议使用1024以上端口
 
-        :param lbType: (Optional) 负载均衡类型。
+        :param lbEnable: (Optional) 是否开启公网访问，仅公共资源池有效。
 
-## 支持类型
-- 内网LB: 仅内网访问
-- 外网LB: 公网访问
+## 使用说明
+- 公共资源池: 为true时表示需要公网访问，系统会自动分配LB，无需指定lbId和lbPort
+- 私有资源池: 无效，需要通过lbId和lbPort指定负载均衡
+- 默认为false
 
         """
 
         self.lbId = lbId
         self.lbPort = lbPort
-        self.lbType = lbType
+        self.lbEnable = lbEnable

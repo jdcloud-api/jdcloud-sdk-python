@@ -19,12 +19,14 @@
 
 class WorkspaceParamReq(object):
 
-    def __init__(self, paramCode=None, paramName=None, paramType=None, paramValue=None, owner=None):
+    def __init__(self, paramCode=None, paramName=None, paramType=None, paramValue=None, devValue=None, prodValue=None, owner=None):
         """
         :param paramCode: (Optional) 参数Code
         :param paramName: (Optional) 参数名称
         :param paramType: (Optional) 参数类型
-        :param paramValue: (Optional) 参数值
+        :param paramValue: (Optional) 参数值(简单模式)
+        :param devValue: (Optional) 开发环境参数值(标准模式)
+        :param prodValue: (Optional) 生产环境参数值(标准模式)
         :param owner: (Optional) 责任人
         """
 
@@ -32,4 +34,6 @@ class WorkspaceParamReq(object):
         self.paramName = paramName
         self.paramType = paramType
         self.paramValue = paramValue
+        self.devValue = devValue
+        self.prodValue = prodValue
         self.owner = owner

@@ -19,15 +19,17 @@
 
 class QueryWorkspaceInfoReq(object):
 
-    def __init__(self, id=None, workspaceCode=None, projectCode=None, resourceCode=None):
+    def __init__(self, id=None, workspaceCode=None, projectCode=None, resourceCode=None, engineCode=None):
         """
         :param id: (Optional) 
         :param workspaceCode: (Optional) 
         :param projectCode: (Optional) 
         :param resourceCode: (Optional) 
+        :param engineCode: (Optional) 存算引擎实例编码
         """
 
         self.id = id
         self.workspaceCode = workspaceCode
         self.projectCode = projectCode
         self.resourceCode = resourceCode
+        self.engineCode = engineCode

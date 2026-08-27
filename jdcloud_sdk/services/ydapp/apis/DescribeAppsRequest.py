@@ -47,7 +47,7 @@ class DescribeAppsParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页数量，参数范围：10-100，默认20
+        :param pageSize: (Optional) 每页数量，默认10，最大100
         """
         self.pageSize = pageSize
 

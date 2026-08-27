@@ -19,14 +19,16 @@
 
 class WorkspaceParamResp(object):
 
-    def __init__(self, paramCode=None, workspaceCode=None, paramName=None, paramType=None, paramTypeDesc=None, paramValue=None, owner=None, creator=None, modifier=None, createdDate=None, modifiedDate=None):
+    def __init__(self, paramCode=None, workspaceCode=None, paramName=None, paramType=None, paramTypeDesc=None, paramValue=None, devValue=None, prodValue=None, owner=None, creator=None, modifier=None, createdDate=None, modifiedDate=None):
         """
         :param paramCode: (Optional) 参数Code
         :param workspaceCode: (Optional) 归属工作空间Code
         :param paramName: (Optional) 参数名称
         :param paramType: (Optional) 参数类型
         :param paramTypeDesc: (Optional) 参数类型描述
-        :param paramValue: (Optional) 参数值
+        :param paramValue: (Optional) 参数值(简单模式/通用)
+        :param devValue: (Optional) 开发环境参数值(标准模式)
+        :param prodValue: (Optional) 生产环境参数值(标准模式)
         :param owner: (Optional) 责任人
         :param creator: (Optional) 创建人
         :param modifier: (Optional) 修改人
@@ -40,6 +42,8 @@ class WorkspaceParamResp(object):
         self.paramType = paramType
         self.paramTypeDesc = paramTypeDesc
         self.paramValue = paramValue
+        self.devValue = devValue
+        self.prodValue = prodValue
         self.owner = owner
         self.creator = creator
         self.modifier = modifier

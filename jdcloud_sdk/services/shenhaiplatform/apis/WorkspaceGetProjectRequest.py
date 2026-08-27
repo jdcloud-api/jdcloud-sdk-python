@@ -44,6 +44,7 @@ class WorkspaceGetProjectParameters(object):
         self.workspaceCode = None
         self.projectCode = None
         self.resourceCode = None
+        self.engineCode = None
 
     def setId(self, id):
         """
@@ -68,4 +69,10 @@ class WorkspaceGetProjectParameters(object):
         :param resourceCode: (Optional) 
         """
         self.resourceCode = resourceCode
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 存算引擎实例编码
+        """
+        self.engineCode = engineCode
 

@@ -51,7 +51,7 @@ class DescribeDeploysParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页数量(10-100)
+        :param pageSize: (Optional) 每页数量，默认10，最大100
         """
         self.pageSize = pageSize
 

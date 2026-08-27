@@ -26,4 +26,4 @@ class YdappClient(JDCloudClient):
         if config is None:
             config = Config('ydapp.jdcloud-api.com')
 
-        super(YdappClient, self).__init__(credential, config, 'ydapp', '1.0.2', logger)
+        super(YdappClient, self).__init__(credential, config, 'ydapp', '1.0.3', logger)

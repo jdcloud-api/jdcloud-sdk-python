@@ -19,11 +19,13 @@
 
 class TaskScriptInfoPublicRes(object):
 
-    def __init__(self, draftId=None, content=None):
+    def __init__(self, draftId=None, content=None, contentEncoding=None):
         """
         :param draftId: (Optional) 草稿ID，用于标识该任务脚本信息所属的草稿
         :param content: (Optional) 任务脚本的内容
+        :param contentEncoding: (Optional) 内容编码方式。当值为 "base64" 时，content 字段为 base64 编码，需解码后使用；其他情况不处理
         """
 
         self.draftId = draftId
         self.content = content
+        self.contentEncoding = contentEncoding

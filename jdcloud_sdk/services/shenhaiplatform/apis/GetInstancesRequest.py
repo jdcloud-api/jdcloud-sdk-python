@@ -40,17 +40,11 @@ class GetInstancesParameters(object):
 
         self.regionId = regionId
         self.appName = appName
-        self.engineCode = None
         self.id = None
         self.workspaceCode = None
         self.projectCode = None
         self.resourceCode = None
-
-    def setEngineCode(self, engineCode):
-        """
-        :param engineCode: (Optional) 计算引擎Code
-        """
-        self.engineCode = engineCode
+        self.engineCode = None
 
     def setId(self, id):
         """
@@ -75,4 +69,10 @@ class GetInstancesParameters(object):
         :param resourceCode: (Optional) 
         """
         self.resourceCode = resourceCode
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 存算引擎实例编码
+        """
+        self.engineCode = engineCode
 

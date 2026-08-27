@@ -50,7 +50,7 @@ class DescribeCustomImagesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 每页数量(10-100)，E.g.，20
+        :param pageSize: (Optional) 每页数量，默认10，最大100
         """
         self.pageSize = pageSize
 

@@ -42,7 +42,8 @@ class DescribeImageRecordsParameters(object):
         self.packageId = None
         self.version = None
         self.status = None
-        self.page = None
+        self.pageNum = None
+        self.pageSize = None
 
     def setUid(self, uid):
         """
@@ -80,9 +81,15 @@ class DescribeImageRecordsParameters(object):
         """
         self.status = status
 
-    def setPage(self, page):
+    def setPageNum(self, pageNum):
         """
-        :param page: (Optional) 分页参数
+        :param pageNum: (Optional) 页码，默认1
         """
-        self.page = page
+        self.pageNum = pageNum
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 每页数量，默认10，最大100
+        """
+        self.pageSize = pageSize
 

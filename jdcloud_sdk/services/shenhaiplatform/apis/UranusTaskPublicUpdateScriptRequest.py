@@ -42,6 +42,7 @@ class UranusTaskPublicUpdateScriptParameters(object):
         self.appName = appName
         self.draftId = None
         self.content = None
+        self.contentEncoding = None
 
     def setDraftId(self, draftId):
         """
@@ -54,4 +55,10 @@ class UranusTaskPublicUpdateScriptParameters(object):
         :param content: (Optional) 任务脚本的内容
         """
         self.content = content
+
+    def setContentEncoding(self, contentEncoding):
+        """
+        :param contentEncoding: (Optional) 内容编码方式。当值为 "base64" 时，content 字段为 base64 编码，需解码后使用；其他情况不处理
+        """
+        self.contentEncoding = contentEncoding
 

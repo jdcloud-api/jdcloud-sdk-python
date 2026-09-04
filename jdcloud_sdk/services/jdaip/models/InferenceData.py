@@ -19,12 +19,14 @@
 
 class InferenceData(object):
 
-    def __init__(self, inferenceId=None, trafficPercent=None, status=None, deployType=None, queueId=None, qps=None, service=None, metadata=None, models=None, codes=None, resource=None, runtime=None, roleSet=None, runningPods=None, totalPods=None, failedPods=None, resourceState=None, userTags=None, resourceGroupInfo=None):
+    def __init__(self, inferenceId=None, trafficPercent=None, status=None, deployType=None, serviceType=None, smartRouterConfig=None, queueId=None, qps=None, service=None, metadata=None, models=None, codes=None, resource=None, runtime=None, roleSet=None, runningPods=None, totalPods=None, failedPods=None, resourceState=None, userTags=None, resourceGroupInfo=None):
         """
         :param inferenceId: (Optional) 推理服务版本ID
         :param trafficPercent: (Optional) 流量占比
         :param status: (Optional) 服务状态
         :param deployType: (Optional) 部署方式（自定义,或者大语言模型）
+        :param serviceType: (Optional) 在线服务类型
+        :param smartRouterConfig: (Optional) 智能路由配置，仅智能路由服务返回
         :param queueId: (Optional) 推理服务资源所在队列ID
         :param qps: (Optional) 推理服务限流阈值（QPS）
         :param service: (Optional) 推理服务相关信息（地址，token等）
@@ -46,6 +48,8 @@ class InferenceData(object):
         self.trafficPercent = trafficPercent
         self.status = status
         self.deployType = deployType
+        self.serviceType = serviceType
+        self.smartRouterConfig = smartRouterConfig
         self.queueId = queueId
         self.qps = qps
         self.service = service

@@ -19,7 +19,7 @@
 
 class AdminJobListInfo(object):
 
-    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, replica=None, queueId=None, flavorId=None, flavorInfo=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, runningTimeInSec=None, replica=None, queueId=None, queueType=None, flavorId=None, flavorInfo=None, taskPriority=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID，系统自动生成的唯一标识。
 
@@ -89,6 +89,7 @@ class AdminJobListInfo(object):
 - `PyTorch`：PyTorch 训练任务
 - `Ray`：Ray 训练任务
 
+        :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
         :param runningTimeInSec: (Optional) 持续运行时间，单位为秒。
 
 ## 用途
@@ -106,16 +107,19 @@ class AdminJobListInfo(object):
 
 ## 特殊值
 使用公共资源池时固定为：`joybuilder-public-queue`
+使用共享资源池时固定为：`joybuilder-exclusive-queue`
 
-        :param flavorId: (Optional) 公共资源池的规格ID。
+        :param queueType: (Optional) 队列类型。公共资源池为 `public`，共享资源池为 `exclusive`，安全资源池为 `secure`。
+        :param flavorId: (Optional) 公共资源池或共享资源池的规格ID。
 
 ## 说明
-使用公共资源池时的资源规格标识，用于确定 CPU、内存、GPU 配置。
+使用公共资源池或共享资源池时的资源规格标识，用于确定 CPU、内存、GPU 配置。
 
-        :param flavorInfo: (Optional) 公共资源池的规格详细信息。
+        :param flavorInfo: (Optional) 公共资源池或共享资源池的规格详细信息。
 
 包含具体的资源配置信息，如 CPU 核数、内存大小、GPU 配置等。
 
+        :param taskPriority: (Optional) 任务优先级。共享资源池取值范围为 `1..9`；未配置优先级时返回 `0`。
         :param gpuDeviceModel: (Optional) GPU卡类型。
 
 ## 示例
@@ -159,7 +163,7 @@ class AdminJobListInfo(object):
 ## 说明
 分布式训练中不同角色（Master、Worker）的资源配置。
 
-        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。未配置时为 null。
+        :param internetEgress: (Optional) 出公网配置（任务级，公共资源池和共享资源池训练任务生效）。未配置时为 null。
 
         :param instanceInfo: (Optional) 实例详情信息。
 
@@ -235,11 +239,14 @@ class AdminJobListInfo(object):
         self.failureReason = failureReason
         self.restartCount = restartCount
         self.jobType = jobType
+        self.privileged = privileged
         self.runningTimeInSec = runningTimeInSec
         self.replica = replica
         self.queueId = queueId
+        self.queueType = queueType
         self.flavorId = flavorId
         self.flavorInfo = flavorInfo
+        self.taskPriority = taskPriority
         self.gpuDeviceModel = gpuDeviceModel
         self.vcudaCore = vcudaCore
         self.cpuMilli = cpuMilli

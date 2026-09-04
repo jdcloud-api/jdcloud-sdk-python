@@ -19,13 +19,13 @@
 
 class JobDefinitionForUpdateJobDefinition(object):
 
-    def __init__(self, name=None, description=None, permission=None, imageVisibility=None, imageId=None, userStartupCommand=None, resource=None, storageSpaces=None, models=None, ownerUserPin=None, notifyConfig=None, taskPriority=None):
+    def __init__(self, name=None, description=None, permission=None, imageVisibility=None, imageId=None, userStartupCommand=None, resource=None, sharedMemory=None, storageSpaces=None, models=None, codes=None, ownerUserPin=None, notifyConfig=None, queuingTimeoutMinutes=None, taskPriority=None):
         """
         :param name: (Optional) 任务定义的名称。
 
 **命名规则：**
-- 长度：1~32个字符
-- 支持字符：中文、大小写字母、数字、英文中划线 "-" 和英文下划线 "_"
+- 长度：4~64字符
+- 支持字符：仅支持大小写字母、数字、英文中划线"-"、英文下划线"_"
 
         :param description: (Optional) 任务定义的描述信息。
 
@@ -58,6 +58,8 @@ class JobDefinitionForUpdateJobDefinition(object):
 
         :param resource: (Optional) 资源配置。
 
+        :param sharedMemory: (Optional) 共享内存配置；不传表示不更新，传入后整体替换。
+
         :param storageSpaces: (Optional) 存储空间配置列表，用于挂载外部存储到容器中。
 
 **支持的存储类型：**
@@ -67,11 +69,14 @@ class JobDefinitionForUpdateJobDefinition(object):
 
         :param models: (Optional) 模型配置列表，用于挂载模型到容器中。
 
+        :param codes: (Optional) 代码仓配置列表，用于挂载代码仓到容器中。
+
         :param ownerUserPin: (Optional) 新所有者 pin。传入时更新任务定义的归属用户，nil 则不更新所有者。
 
         :param notifyConfig: (Optional) 通知投递配置列表（event -> channels 映射）。
 
-        :param taskPriority: (Optional) 任务优先级，范围[1, 9]；当队列开启优先级调度时生效。
+        :param queuingTimeoutMinutes: (Optional) 排队超时时间（分钟）；不传表示不更新，`0` 表示恢复全局默认值，非 `0` 时取值范围为 5～1440。
+        :param taskPriority: (Optional) 任务优先级；当队列开启优先级调度时生效。
 
         """
 
@@ -82,8 +87,11 @@ class JobDefinitionForUpdateJobDefinition(object):
         self.imageId = imageId
         self.userStartupCommand = userStartupCommand
         self.resource = resource
+        self.sharedMemory = sharedMemory
         self.storageSpaces = storageSpaces
         self.models = models
+        self.codes = codes
         self.ownerUserPin = ownerUserPin
         self.notifyConfig = notifyConfig
+        self.queuingTimeoutMinutes = queuingTimeoutMinutes
         self.taskPriority = taskPriority

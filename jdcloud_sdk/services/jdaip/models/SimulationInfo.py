@@ -19,7 +19,7 @@
 
 class SimulationInfo(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, ownerUser=None, ownerUserPin=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, simulationId=None, name=None, description=None, permission=None, taskId=None, state=None, resourceState=None, workspaceId=None, workspaceName=None, reason=None, runningTime=None, imageInfo=None, workloadInfo=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, ownerUser=None, ownerUserPin=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, simulationId=None, name=None, description=None, permission=None, taskPriority=None, taskId=None, state=None, resourceState=None, workspaceId=None, workspaceName=None, reason=None, runningTime=None, imageInfo=None, workloadInfo=None):
         """
         :param pin: (Optional) 主帐号。
         :param createUser: (Optional) 创建人用户名。
@@ -34,6 +34,7 @@ class SimulationInfo(object):
         :param name: (Optional) 名称。
         :param description: (Optional) 描述。
         :param permission: (Optional) 工作空间中的资源归属权限。
+        :param taskPriority: (Optional) 任务优先级。非必填，取值范围1~9，默认值为0。
         :param taskId: (Optional) 任务ID，不为空表示正在执行任务。
         :param state: (Optional) 状态：
 - queuing: 队排中。
@@ -67,6 +68,7 @@ class SimulationInfo(object):
         self.name = name
         self.description = description
         self.permission = permission
+        self.taskPriority = taskPriority
         self.taskId = taskId
         self.state = state
         self.resourceState = resourceState

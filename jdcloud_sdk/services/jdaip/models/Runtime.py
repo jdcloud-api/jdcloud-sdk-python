@@ -19,7 +19,7 @@
 
 class Runtime(object):
 
-    def __init__(self, command, env=None, imageUrl=None, registryUser=None, registryPass=None, fileContent=None, filePath=None, healthChecks=None, privilege=None, fuse=None, port=None, vpcInfo=None, vpcProto=None, vpcAccess=None, timeout=None, localStorage=None, affinity=None, sessionPersistentEnabled=None, enableEngineMetrics=None, internetEgress=None, customServices=None):
+    def __init__(self, command, env=None, imageUrl=None, registryUser=None, registryPass=None, fileContent=None, filePath=None, healthChecks=None, privilege=None, fuse=None, port=None, vpcInfo=None, vpcProto=None, vpcAccess=None, timeout=None, localStorage=None, affinity=None, sessionPersistentEnabled=None, enableEngineMetrics=None, internetEgress=None, gracefulShutdown=None, customServices=None):
         """
         :param command:  命令行及参数 （如：python3 start.py --port 8080  或者 python3 start.py --port=8080)
         :param env: (Optional) 环境变量（如：MODEL_PATH=/mnt/models)
@@ -40,7 +40,8 @@ class Runtime(object):
         :param affinity: (Optional) 创建资源时的节点亲和性配置
         :param sessionPersistentEnabled: (Optional) 是否开启会话保持
         :param enableEngineMetrics: (Optional) 是否开启引擎指标采集，当前仅vLLM和SGlang支持
-        :param internetEgress: (Optional) 公网出口配置。不需要出公网时不指定该参数，服务端会按 NONE 落库。
+        :param internetEgress: (Optional) 公网出口配置；不传表示关闭公网出口。
+        :param gracefulShutdown: (Optional) 优雅退出配置，仅支持普通单机推理
         :param customServices: (Optional) 自定义服务端口列表
         """
 
@@ -64,4 +65,5 @@ class Runtime(object):
         self.sessionPersistentEnabled = sessionPersistentEnabled
         self.enableEngineMetrics = enableEngineMetrics
         self.internetEgress = internetEgress
+        self.gracefulShutdown = gracefulShutdown
         self.customServices = customServices

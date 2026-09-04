@@ -26,8 +26,9 @@ class RoleResourceForJob(object):
         :param count: (Optional) 节点数量
         :param queueId: (Optional) 队列ID。示例：queue-2xxx**********2d*********8b8
 使用公共资源池时固定为：joybuilder-public-queue。
+使用共享资源池时固定为：joybuilder-exclusive-queue。
 
-        :param flavorId: (Optional) 公共资源池的规格ID。
+        :param flavorId: (Optional) 公共资源池或共享资源池的规格ID。
         :param flavorInfo: (Optional) 规格描述。
         :param gpuDeviceModel: (Optional) GPU卡类型。示例：NVIDIA_G2
         :param vcudaCore: (Optional) 虚拟GPU卡数量，

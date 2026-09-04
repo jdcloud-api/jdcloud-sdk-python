@@ -19,7 +19,7 @@
 
 class JobDetailInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID。
         :param name: (Optional) 训练任务名称。
@@ -46,6 +46,7 @@ class JobDetailInfoForJob(object):
 
         :param restartCount: (Optional) 重启次数。
         :param jobType: (Optional) 任务类型。
+        :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
         :param runningTimeInSec: (Optional) 持续时间，单位为秒。
         :param description: (Optional) 训练任务的描述信息。
         :param imageVisibility: (Optional) 镜像可见性。可选值：[public, private]。
@@ -70,7 +71,7 @@ class JobDetailInfoForJob(object):
         :param charge: (Optional) 计费信息，私有资源池的资源无计费信息。
         :param logCollectConfig: (Optional) 日志采集配置。
         :param roleResource: (Optional) 角色配置信息。
-        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。未配置时为 null。
+        :param internetEgress: (Optional) 出公网配置（任务级，公共资源池和共享资源池训练任务生效）。未配置时为 null。
 
         :param advancedConfig: (Optional) 框架高级配置；json格式。
         :param restartPolicy: (Optional) 重启策略。
@@ -80,6 +81,7 @@ class JobDetailInfoForJob(object):
         :param resourceGroupId: (Optional) 资源组ID。
         :param resourceGroupName: (Optional) 资源组名称。
         :param userTags: (Optional) 用户自定义标签列表。
+        :param taskPriority: (Optional) 任务优先级。共享资源池创建时必填，范围 `1..9`。
         :param ownerUserPin: (Optional) 归属用户pin。
         :param ownerUser: (Optional) 归属用户名称。
         :param pin: (Optional) 主账号。
@@ -96,6 +98,7 @@ class JobDetailInfoForJob(object):
         self.failureReason = failureReason
         self.restartCount = restartCount
         self.jobType = jobType
+        self.privileged = privileged
         self.runningTimeInSec = runningTimeInSec
         self.description = description
         self.imageVisibility = imageVisibility
@@ -125,6 +128,7 @@ class JobDetailInfoForJob(object):
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
+        self.taskPriority = taskPriority
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

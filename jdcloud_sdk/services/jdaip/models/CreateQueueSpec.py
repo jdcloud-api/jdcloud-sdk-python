@@ -19,17 +19,18 @@
 
 class CreateQueueSpec(object):
 
-    def __init__(self, queueType, queueId, poolId, description=None, enable=None, preemptible=None, baseQuota=None, gpuQuotas=None, queueUsers=None):
+    def __init__(self, queueType, queueId, poolId, description=None, enable=None, preemptible=None, baseQuota=None, gpuQuotas=None, queueUsers=None, force=None):
         """
         :param queueType:  队列类型。
         :param queueId:  队列ID。
         :param poolId:  资源池ID。
         :param description: (Optional) 描述信息。
         :param enable: (Optional) 是否启用。
-        :param preemptible: (Optional) 是否支持抢占。
-        :param baseQuota: (Optional) CPU/内存quota，每个队列必须配置。
-        :param gpuQuotas: (Optional) GPU quota列表。GPU/HPC资源池必填。
+        :param preemptible: (Optional) 是否支持抢占。默认由 Scale GetQueue 接口的 taskPreempt 获取；force=true 时可作为兜底值。
+        :param baseQuota: (Optional) CPU/内存quota。默认由 Scale GetQueue 接口获取；内存由 GiB 转换为 MB，force=true 时可作为兜底值。
+        :param gpuQuotas: (Optional) vGPU quota列表。默认由 Scale GetQueue 接口获取并统一使用 vGPU，force=true 时可作为兜底值；GPU/HPC资源池必须存在至少一个 quota。
         :param queueUsers: (Optional) 允许访问user queue的pin列表，仅user queue可配置。
+        :param force: (Optional) 是否跳过 Scale 队列校验。默认 false；为 true 时队列不存在不阻止注册。
         """
 
         self.queueType = queueType
@@ -41,3 +42,4 @@ class CreateQueueSpec(object):
         self.baseQuota = baseQuota
         self.gpuQuotas = gpuQuotas
         self.queueUsers = queueUsers
+        self.force = force

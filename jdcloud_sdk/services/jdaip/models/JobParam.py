@@ -19,7 +19,7 @@
 
 class JobParam(object):
 
-    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None):
+    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, privileged=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None, profilingEnable=None):
         """
         :param name:  训练任务名称。
 
@@ -83,7 +83,12 @@ class JobParam(object):
 
         :param replica: (Optional) **已废弃：** 请参考 `roleResource` 字段
 
-        :param taskPriority: (Optional) 任务优先级，范围[1, 9]; 当队列开启优先级调度时生效
+        :param taskPriority: (Optional) 任务优先级，取值范围 `1..9`。
+
+- 共享资源池：创建时必填，仅校验取值范围
+- 公共资源池：不支持配置，传入任意值均拒绝
+- 其他资源队列：可选，按队列优先级策略校验
+
         :param envs: (Optional) 环境变量列表，用于向训练脚本传递配置参数。
 
 **使用场景：**
@@ -142,7 +147,16 @@ class JobParam(object):
 - Ray 分布式训练（必须配置 Head 和 Worker）
 - PyTorch 分布式训练（可配置不同规格的 Worker）
 
-        :param internetEgress: (Optional) 出公网配置（任务级，仅公共资源池训练任务生效）。不需要出公网时不传此参数。
+        :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式，默认值为 `false`。
+
+**开启条件：**
+- 仅支持工作空间绑定的资源队列，公共资源池和共享资源池不支持
+- 仅支持整机 GPU 任务：`Ascend` 前缀型号要求单实例申请 16 卡，其他非空 GPU 型号要求单实例申请 8 卡
+- Ray 任务的 Head 和全部 Worker 角色都必须满足整机条件
+
+不满足开启条件时，创建接口返回参数错误，不会静默降级为 `false`。
+
+        :param internetEgress: (Optional) 出公网配置（任务级，公共资源池和共享资源池训练任务生效）。不需要出公网时不传此参数。
 
         :param advancedConfig: (Optional) 框架高级配置，JSON 格式字符串。
 
@@ -203,14 +217,14 @@ class JobParam(object):
 - 指定代码分支或CommitID
 - 代码版本管理
 
-        :param queuingTimeoutMinutes: (Optional) 公共池排队超时时间，单位：分钟。
+        :param queuingTimeoutMinutes: (Optional) 公共资源池或共享资源池排队超时时间，单位：分钟。
 
 **取值范围：** 5 ~ 1440
 
 **默认值：** 5
 
 **说明：**
-- 仅公共资源池训练任务生效
+- 仅公共资源池和共享资源池训练任务生效
 - 排队超过此时间后，任务将自动回滚为创建失败
 
         :param userTags: (Optional) 用户自定义标签，用于资源分类和筛选。
@@ -232,6 +246,14 @@ class JobParam(object):
 - 按团队分配资源配额
 - 资源使用统计和计费
 
+        :param profilingEnable: (Optional) 是否启用性能分析。(仅支持pytorch训练任务)
+
+**默认值：** `false`（禁用）
+**使用场景：**
+- 性能调优
+- 资源瓶颈分析
+- 模型训练优化
+
         """
 
         self.name = name
@@ -250,6 +272,7 @@ class JobParam(object):
         self.datasets = datasets
         self.models = models
         self.roleResource = roleResource
+        self.privileged = privileged
         self.internetEgress = internetEgress
         self.advancedConfig = advancedConfig
         self.restartPolicy = restartPolicy
@@ -260,3 +283,4 @@ class JobParam(object):
         self.queuingTimeoutMinutes = queuingTimeoutMinutes
         self.userTags = userTags
         self.resourceGroupId = resourceGroupId
+        self.profilingEnable = profilingEnable

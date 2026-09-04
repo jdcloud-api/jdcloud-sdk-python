@@ -19,10 +19,10 @@
 
 class Device(object):
 
-    def __init__(self, id=None, brand=None, gpuModel=None, deviceNo=None, az=None, pin=None, nodeId=None, nodeName=None, nodeIp=None, nodePoolId=None, nodePoolName=None, nodePoolType=None, chargeType=None, nodeLabels=None, nodeReadyStatus=None, nodeSpec=None, clusterId=None, clusterName=None, runStatus=None, compute=None, memory=None, deviceStatus=None, gpuFaultStatus=None, gpuFaultMessage=None, virtualized=None, gpuRemaining=None):
+    def __init__(self, id=None, deviceBrand=None, gpuModel=None, deviceNo=None, az=None, pin=None, nodeId=None, nodeName=None, nodeIp=None, nodePoolId=None, nodePoolName=None, nodePoolType=None, chargeType=None, nodeLabels=None, nodeReadyStatus=None, nodeSpec=None, createTime=None, nodeType=None, clusterId=None, clusterName=None, runStatus=None, compute=None, memory=None, deviceStatus=None, gpuFaultStatus=None, gpuFaultMessage=None, virtualized=None, gpuRemaining=None):
         """
         :param id: (Optional) 显卡ID
-        :param brand: (Optional) 显卡品牌
+        :param deviceBrand: (Optional) 显卡品牌
         :param gpuModel: (Optional) 显卡型号
         :param deviceNo: (Optional) 显卡编号
         :param az: (Optional) 可用区
@@ -37,6 +37,8 @@ class Device(object):
         :param nodeLabels: (Optional) 节点标签
         :param nodeReadyStatus: (Optional) 节点状态，对应节点表ReadyStatus
         :param nodeSpec: (Optional) 节点规格，对应节点表InstanceConfig
+        :param createTime: (Optional) 节点创建时间，Unix秒
+        :param nodeType: (Optional) 节点类型
         :param clusterId: (Optional) 集群ID
         :param clusterName: (Optional) 集群名称
         :param runStatus: (Optional) 运行状态，idle为空闲，allocated为已分配，unavailable为不可用
@@ -50,7 +52,7 @@ class Device(object):
         """
 
         self.id = id
-        self.brand = brand
+        self.deviceBrand = deviceBrand
         self.gpuModel = gpuModel
         self.deviceNo = deviceNo
         self.az = az
@@ -65,6 +67,8 @@ class Device(object):
         self.nodeLabels = nodeLabels
         self.nodeReadyStatus = nodeReadyStatus
         self.nodeSpec = nodeSpec
+        self.createTime = createTime
+        self.nodeType = nodeType
         self.clusterId = clusterId
         self.clusterName = clusterName
         self.runStatus = runStatus

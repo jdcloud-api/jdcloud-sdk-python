@@ -23,7 +23,7 @@ class VisiblePool(object):
         """
         :param clusterId: (Optional) 所属集群ID。
         :param poolId: (Optional) 资源池ID。
-        :param poolName: (Optional) 资源池名称。
+        :param poolName: (Optional) 资源池名称。默认由 Scale GetNodePool 接口获取；force=true 且 Scale 不可用时可作为兜底值。
         :param description: (Optional) 资源池描述。
         :param poolType: (Optional) 资源池类型。`public` 为公共资源池，`exclusive` 为专享公共池。
         :param category: (Optional) 资源池规格类型。

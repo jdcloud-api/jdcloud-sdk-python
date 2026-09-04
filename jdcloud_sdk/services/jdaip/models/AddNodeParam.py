@@ -24,7 +24,7 @@ class AddNodeParam(object):
         :param nodePool:  节点池，当添加节点时只设置ID即可
         :param nodeInfo:  节点配置
         :param nodeCount:  节点数量
-        :param timeUnit: (Optional) 购买时间单位，year：年；month：月；day：天
+        :param timeUnit: (Optional) 购买时间单位，year：年；month：月；week：周；day：天
         :param timeCount: (Optional) 购买时间
         :param autoRenew: (Optional) 是否开启自动续费
         :param edge: (Optional) 是否为边缘集群

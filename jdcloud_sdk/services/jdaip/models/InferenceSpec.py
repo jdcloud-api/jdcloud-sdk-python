@@ -19,11 +19,13 @@
 
 class InferenceSpec(object):
 
-    def __init__(self, enableLimit, metadata, models, runtime, qps=None, deployType=None, resource=None, roleSet=None):
+    def __init__(self, enableLimit, metadata, models, runtime, qps=None, deployType=None, serviceType=None, smartRouterConfig=None, resource=None, roleSet=None):
         """
         :param qps: (Optional) 推理服务限流阈值（QPS）
         :param enableLimit:  开启 true 关闭 false
         :param deployType: (Optional) 部署方式（自定义,或者大语言模型）
+        :param serviceType: (Optional) 在线服务类型；standard：普通服务，smartRouter：智能路由服务
+        :param smartRouterConfig: (Optional) 智能路由配置；serviceType=smartRouter 时必填，serviceType=standard 时不得传递
         :param metadata:  推理服务元数据（如：名字，ID等）
         :param models:  推理服务加载的模型信息（如：模型名字，存放地址，挂载路径）
         :param resource: (Optional) 推理服务所需资源（如：CPU， 内存等）。非多角色分离模式时，该字段为必填项
@@ -34,6 +36,8 @@ class InferenceSpec(object):
         self.qps = qps
         self.enableLimit = enableLimit
         self.deployType = deployType
+        self.serviceType = serviceType
+        self.smartRouterConfig = smartRouterConfig
         self.metadata = metadata
         self.models = models
         self.resource = resource

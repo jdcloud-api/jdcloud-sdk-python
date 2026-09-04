@@ -19,7 +19,7 @@
 
 class InstanceListInfoForJob(object):
 
-    def __init__(self, name=None, type=None, ip=None, nodeIp=None, state=None, createTime=None, startTime=None, endTime=None, runningTimeInSec=None, terminalUrl=None):
+    def __init__(self, name=None, type=None, ip=None, nodeIp=None, nodeName=None, state=None, createTime=None, startTime=None, endTime=None, runningTimeInSec=None, terminalUrl=None):
         """
         :param name: (Optional) 实例名称，对应 Kubernetes Pod 名称。
 
@@ -34,6 +34,12 @@ class InstanceListInfoForJob(object):
 **说明：** 集群内部 IP，用于实例间通信
 
         :param nodeIp: (Optional) 物理节点 IP 地址。
+
+**说明：**
+- 仅专属队列返回
+- 公共资源池队列返回空值
+
+        :param nodeName: (Optional) 物理节点名称。
 
 **说明：**
 - 仅专属队列返回
@@ -66,6 +72,7 @@ class InstanceListInfoForJob(object):
         self.type = type
         self.ip = ip
         self.nodeIp = nodeIp
+        self.nodeName = nodeName
         self.state = state
         self.createTime = createTime
         self.startTime = startTime

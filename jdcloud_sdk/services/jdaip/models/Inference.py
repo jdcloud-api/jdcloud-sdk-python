@@ -19,9 +19,11 @@
 
 class Inference(object):
 
-    def __init__(self, deployType=None, qps=None, metadata=None, models=None, resource=None, runtime=None, roleSet=None, userTags=None, resourceGroupInfo=None):
+    def __init__(self, deployType=None, serviceType=None, smartRouterConfig=None, qps=None, metadata=None, models=None, resource=None, runtime=None, roleSet=None, userTags=None, resourceGroupInfo=None):
         """
         :param deployType: (Optional) 部署方式（自定义,或者大语言模型）
+        :param serviceType: (Optional) 在线服务类型
+        :param smartRouterConfig: (Optional) 智能路由配置，仅智能路由服务返回
         :param qps: (Optional) 推理服务限流阈值（QPS）
         :param metadata: (Optional) 推理服务元数据（如：名字，ID等）
         :param models: (Optional) 推理服务加载的模型信息（如：模型名字，存放地址，挂载路径）
@@ -33,6 +35,8 @@ class Inference(object):
         """
 
         self.deployType = deployType
+        self.serviceType = serviceType
+        self.smartRouterConfig = smartRouterConfig
         self.qps = qps
         self.metadata = metadata
         self.models = models

@@ -34,7 +34,7 @@ class DescribeNodeInstancesParameters(object):
 
     def __init__(self,regionId, ):
         """
-        :param regionId: Region ID，例如：cn-north-1；无region传固定值：all
+        :param regionId: Region ID，例如：cn-north-1
         """
 
         self.regionId = regionId

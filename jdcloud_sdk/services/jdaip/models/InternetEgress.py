@@ -19,17 +19,11 @@
 
 class InternetEgress(object):
 
-    def __init__(self, type, ):
+    def __init__(self, switchStatus, egressType=None):
         """
-        :param type:  公网出口类型，指定在线服务出公网的访问方式。
-
-支持的类型：
-- SHARE_GATEWAY：经平台共享 NAT 网关出公网。
-
-使用说明：
-- 仅公共资源池生效。
-- 设为 SHARE_GATEWAY 时，要求实例规格支持出公网。
-- 指定 NONE 表示不出公网；不传 internetEgress 参数时默认为 NONE。
+        :param switchStatus:  公网出口开关。on 表示开启，off 表示关闭；off 时 egressType 无效。
+        :param egressType: (Optional) 公网出口类型。switchStatus=on 时必传，当前仅支持 SHARE_GATEWAY（平台共享 NAT 网关）。
         """
 
-        self.type = type
+        self.switchStatus = switchStatus
+        self.egressType = egressType

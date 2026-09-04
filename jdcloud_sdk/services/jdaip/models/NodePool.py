@@ -24,7 +24,7 @@ class NodePool(object):
         :param id: (Optional) 节点池ID
         :param name: (Optional) 节点池名称
         :param bizType: (Optional) 业务类型-离线/在线/混部
-        :param poolType: (Optional) 节点池类型，combined：异构节点池；general：云主机节点池；mixture：混合节点池
+        :param poolType: (Optional) 节点池类型，combined：异构节点池；general：云主机节点池；mixture：混合节点池；security：安全节点池
         :param chargeType: (Optional) 计费方式，pack：包年包月；advance：预付费
         :param nodeCount: (Optional) 节点数量
         :param topology: (Optional) 是否支持网络拓扑；0：不支持，1：支持

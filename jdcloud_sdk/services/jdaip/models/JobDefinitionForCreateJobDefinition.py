@@ -19,7 +19,7 @@
 
 class JobDefinitionForCreateJobDefinition(object):
 
-    def __init__(self, name, permission, imageVisibility, imageId, userStartupCommand, resource, storageSpaces, description=None, models=None, buffalo=None, notifyConfig=None, taskPriority=None):
+    def __init__(self, name, permission, imageVisibility, imageId, userStartupCommand, resource, storageSpaces, description=None, sharedMemory=None, models=None, codes=None, buffalo=None, notifyConfig=None, queuingTimeoutMinutes=None, taskPriority=None):
         """
         :param name:  任务定义的名称。
 
@@ -60,6 +60,8 @@ class JobDefinitionForCreateJobDefinition(object):
 
         :param resource:  资源配置。
 
+        :param sharedMemory: (Optional) 共享内存配置。
+
         :param storageSpaces:  存储空间配置列表，用于挂载外部存储到容器中。
 
 **支持的存储类型：**
@@ -69,10 +71,13 @@ class JobDefinitionForCreateJobDefinition(object):
 
         :param models: (Optional) 模型配置列表，用于挂载模型到容器中。
 
+        :param codes: (Optional) 代码仓配置列表，用于挂载代码仓到容器中。
+
         :param buffalo: (Optional) 调度任务配置。
         :param notifyConfig: (Optional) 通知投递配置列表（event -> channels 映射）。
 
-        :param taskPriority: (Optional) 任务优先级，范围[1, 9]；当队列开启优先级调度时生效。
+        :param queuingTimeoutMinutes: (Optional) 排队超时时间（分钟）；不传或者传`0` 表示使用全局默认值，非 `0` 时取值范围为 5～1440。
+        :param taskPriority: (Optional) 任务优先级；当队列开启优先级调度时生效。
 
         """
 
@@ -83,8 +88,11 @@ class JobDefinitionForCreateJobDefinition(object):
         self.imageId = imageId
         self.userStartupCommand = userStartupCommand
         self.resource = resource
+        self.sharedMemory = sharedMemory
         self.storageSpaces = storageSpaces
         self.models = models
+        self.codes = codes
         self.buffalo = buffalo
         self.notifyConfig = notifyConfig
+        self.queuingTimeoutMinutes = queuingTimeoutMinutes
         self.taskPriority = taskPriority

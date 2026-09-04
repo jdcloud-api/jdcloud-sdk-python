@@ -19,7 +19,7 @@
 
 class JobDefinitionForDescribeJobDefinitions(object):
 
-    def __init__(self, jobDefinitionId=None, name=None, description=None, latestState=None, latestStartTime=None, latestEndTime=None, latestRunningTimeInSec=None, latestScheduledTime=None, latestScheduledMinusOneDay=None, permission=None, imageVisibility=None, imageId=None, imageName=None, imageUrl=None, resource=None, models=None, storageSpaces=None, taskPriority=None, buffalo=None, pin=None, ownerUser=None, ownerUserPin=None, createUser=None, createTime=None, updateUserId=None, updateUserName=None, updateTime=None):
+    def __init__(self, jobDefinitionId=None, name=None, description=None, latestState=None, latestFailureReason=None, latestStartTime=None, latestEndTime=None, latestRunningTimeInSec=None, latestScheduledTime=None, latestScheduledMinusOneDay=None, permission=None, imageVisibility=None, imageId=None, imageName=None, imageUrl=None, resource=None, models=None, storageSpaces=None, charge=None, taskPriority=None, buffalo=None, pin=None, ownerUser=None, ownerUserPin=None, createUser=None, createTime=None, updateUserId=None, updateUserName=None, updateTime=None):
         """
         :param jobDefinitionId: (Optional) 任务定义ID，唯一标识一个任务定义。
 **示例：** `jd-abc123def456`
@@ -28,6 +28,7 @@ class JobDefinitionForDescribeJobDefinitions(object):
         :param description: (Optional) 任务定义的描述信息。
         :param latestState: (Optional) 最新一条任务执行的状态。
 
+        :param latestFailureReason: (Optional) 最新一条任务执行的失败原因。
         :param latestStartTime: (Optional) 最新一条任务执行的开始时间。
 
         :param latestEndTime: (Optional) 最新一条任务执行的结束时间。
@@ -50,7 +51,8 @@ class JobDefinitionForDescribeJobDefinitions(object):
 
         :param storageSpaces: (Optional) 存储空间配置列表。
 
-        :param taskPriority: (Optional) 任务优先级，范围[1, 9]；当队列开启优先级调度时生效。
+        :param charge: (Optional) 计费信息；私有队列时为空。
+        :param taskPriority: (Optional) 任务优先级；当队列开启优先级调度时生效。
 
         :param buffalo: (Optional) 调度任务列表项信息，包含调度相关的基本信息和状态概览。
 
@@ -68,6 +70,7 @@ class JobDefinitionForDescribeJobDefinitions(object):
         self.name = name
         self.description = description
         self.latestState = latestState
+        self.latestFailureReason = latestFailureReason
         self.latestStartTime = latestStartTime
         self.latestEndTime = latestEndTime
         self.latestRunningTimeInSec = latestRunningTimeInSec
@@ -81,6 +84,7 @@ class JobDefinitionForDescribeJobDefinitions(object):
         self.resource = resource
         self.models = models
         self.storageSpaces = storageSpaces
+        self.charge = charge
         self.taskPriority = taskPriority
         self.buffalo = buffalo
         self.pin = pin

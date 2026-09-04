@@ -19,13 +19,16 @@
 
 class RoleResourceInfoForJobList(object):
 
-    def __init__(self, queueId=None, rdmaSwitch=None, roles=None):
+    def __init__(self, queueType=None, queueId=None, rdmaSwitch=None, roles=None):
         """
+        :param queueType: (Optional) 队列类型。公共资源池为 `public`，共享资源池为 `exclusive`，安全资源池为 `secure`。
         :param queueId: (Optional) 队列ID，所有角色共享同一个队列。
 
 **公共资源池：** 固定使用 `joybuilder-public-queue`
 
-**专属资源池：** 使用创建队列时返回的队列ID
+**共享资源池：** 固定使用 `joybuilder-exclusive-queue`
+
+**专属资源池/安全资源池：** 使用创建队列时返回的队列ID
 
 **示例：** `queue-2xxx**********2d*********8b8`
 
@@ -39,6 +42,7 @@ class RoleResourceInfoForJobList(object):
 
         """
 
+        self.queueType = queueType
         self.queueId = queueId
         self.rdmaSwitch = rdmaSwitch
         self.roles = roles

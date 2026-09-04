@@ -25,16 +25,19 @@ class ResourceParamForJob(object):
 
 **公共资源池：** 固定使用 `joybuilder-public-queue`
 
-**专属资源池：** 使用创建队列时返回的队列ID
+**共享资源池：** 固定使用 `joybuilder-exclusive-queue`
+
+**专属资源池/安全资源池：** 使用创建队列时返回的队列ID
 
 **示例：**
 - 公共资源池：`joybuilder-public-queue`
+- 共享资源池：`joybuilder-exclusive-queue`
 - 专属资源池：`queue-2xxx**********2d*********8b8`
 
-        :param flavorId: (Optional) 规格ID，指定公共资源池的计算规格。
+        :param flavorId: (Optional) 规格ID，指定公共资源池或共享资源池的计算规格。
 
 **说明：**
-- 公共资源池必须填写此字段
+- 公共资源池和共享资源池必须填写此字段
 - 专属资源池无需填写，由自定义资源配置决定
 
 **获取方式：** 通过规格查询接口获取可用规格列表
@@ -56,6 +59,8 @@ class ResourceParamForJob(object):
 - 小规格：`0.1`, `0.125`, `0.25`, `0.5`
 - 中规格：`1`, `2`, `3`, `4`
 - 大规格：`5`, `6`, `7`, `8`
+
+**昇腾整机规格：** `16`
 
 **使用建议：**
 - 小模型训练：0.5 ~ 2 核

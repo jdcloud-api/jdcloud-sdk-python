@@ -72,7 +72,7 @@ class NotebookBaseInfo(object):
 - private: 私有，仅管理员和拥有者可见
 
         :param queue: (Optional) 队列ID，实例运行所在的资源队列（真实队列）。
-        :param publicQueue: (Optional) 公共队列ID，公共资源池场景下的队列标识。
+        :param publicQueue: (Optional) 公共/专享队列ID，公共/专享资源池场景下的队列标识。
         """
 
         self.pin = pin

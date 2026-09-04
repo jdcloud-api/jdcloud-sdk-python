@@ -126,10 +126,10 @@ class NotebookDetail(object):
 - 配置了公网出口时有值
 - 用于访问外部网络资源
 
-        :param charge: (Optional) Notebook的计费信息，公共资源池的计费详情。
+        :param charge: (Optional) Notebook的计费信息，公共/专享资源池的计费详情。
 
 ## 使用说明
-- 仅公共资源池有计费信息
+- 仅公共/专享资源池有计费信息
 - 私有资源池的资源无计费信息
 
         :param storages: (Optional) 存储空间列表，实例挂载的存储配置详情。
@@ -192,11 +192,7 @@ class NotebookDetail(object):
 - key-value键值对形式
 - 最多10个标签
 
-        :param taskPriority: (Optional) 调度优先级值，Pod调度顺序控制。
-
-## 使用说明
-- 数值越大，优先级越高
-- 仅在调度器支持优先级时生效
+        :param taskPriority: (Optional) 任务调度优先级，数值越大，优先级越高。
 
         :param nodeAffinities: (Optional) 节点亲和性配置，控制Pod调度到特定节点。
 

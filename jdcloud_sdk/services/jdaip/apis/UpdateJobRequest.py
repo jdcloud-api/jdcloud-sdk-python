@@ -23,7 +23,7 @@ class UpdateJobRequest(JDCloudRequest):
     """
     更新训练任务属性信息。
 
-仅支持更新任务的元数据属性（名称、描述、权限、归属），不影响正在运行的训练任务。
+支持更新任务的元数据属性（名称、描述、权限、归属）和排队中任务的优先级。
 
 ## 使用场景
 
@@ -31,6 +31,7 @@ class UpdateJobRequest(JDCloudRequest):
 - 更新任务描述信息
 - 调整资源的可见性权限
 - 转移任务归属给其他用户
+- 调整共享资源池排队中任务的优先级
 
     """
 
@@ -78,7 +79,9 @@ class UpdateJobParameters(object):
 
     def setTaskPriority(self, taskPriority):
         """
-        :param taskPriority: (Optional) 任务优先级，取值范围[1, 9]; 当队列开启优先级调度时生效
+        :param taskPriority: (Optional) 任务优先级，取值范围 `1..9`。仅排队中（`queuing`）任务允许更新。
+共享资源池直接校验范围；公共资源池不支持；其他资源队列按队列策略校验。
+
         """
         self.taskPriority = taskPriority
 

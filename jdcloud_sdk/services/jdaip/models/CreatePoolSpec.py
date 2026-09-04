@@ -19,16 +19,17 @@
 
 class CreatePoolSpec(object):
 
-    def __init__(self, clusterId, poolName, poolType, category, poolAzs, poolId=None, description=None, hpcClusterName=None):
+    def __init__(self, clusterId, poolId, poolType, category, poolName=None, description=None, poolAzs=None, hpcClusterName=None, force=None):
         """
         :param clusterId:  所属集群ID。
-        :param poolId: (Optional) 资源池ID。
-        :param poolName:  资源池名称。
+        :param poolId:  资源池ID。
+        :param poolName: (Optional) 资源池名称。默认由 Scale GetNodePool 接口获取；force=true 且 Scale 不可用时可作为兜底值。
         :param description: (Optional) 描述信息。
         :param poolType:  资源池类型。`public` 为公共资源池，`exclusive` 为专享公共池。
         :param category:  资源池规格类型。
-        :param poolAzs:  资源池物理可用区列表。
-        :param hpcClusterName: (Optional) HPC物理集群名称。HPC资源池必填，非HPC资源池会清空。
+        :param poolAzs: (Optional) 资源池物理可用区列表。默认通过 Scale ListNode 查询已启用节点的逻辑 AZ，并结合 UC 映射转换为管理员已登记的物理 AZ；force=true 时可作为兜底值。
+        :param hpcClusterName: (Optional) HPC物理集群名称。默认由 Scale GetNodePool 接口获取；force=true 时可作为兜底值，非HPC资源池会清空。
+        :param force: (Optional) 是否跳过 Scale 资源池校验。默认 false；为 true 时节点池不存在或节点查询失败不阻止注册。
         """
 
         self.clusterId = clusterId
@@ -39,3 +40,4 @@ class CreatePoolSpec(object):
         self.category = category
         self.poolAzs = poolAzs
         self.hpcClusterName = hpcClusterName
+        self.force = force

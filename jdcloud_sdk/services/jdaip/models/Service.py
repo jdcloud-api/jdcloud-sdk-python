@@ -19,10 +19,11 @@
 
 class Service(object):
 
-    def __init__(self, createTime=None, deployType=None, name=None, running=None, serviceId=None, address=None, innerAddress=None, resourceState=None, vpcAddress=None, accessToken=None, qps=None, total=None):
+    def __init__(self, createTime=None, deployType=None, serviceType=None, name=None, running=None, serviceId=None, address=None, innerAddress=None, resourceState=None, vpcAddress=None, accessToken=None, gatewayType=None, dgAddress=None, dgInnerAddress=None, qps=None, productId=None, productName=None, bgbu=None, total=None):
         """
         :param createTime: (Optional) 服务创建时间
         :param deployType: (Optional) 部署类型（custom, llm)
+        :param serviceType: (Optional) 在线服务类型
         :param name: (Optional) 服务名称
         :param running: (Optional) 该服务中运行的版本数
         :param serviceId: (Optional) 服务ID
@@ -31,12 +32,19 @@ class Service(object):
         :param resourceState: (Optional) 资源在集群中的空闲状态，值为空表示是空闲的，in-use表示资源已被占用。
         :param vpcAddress: (Optional) vpc内调用地址，当前是IP形式提供
         :param accessToken: (Optional) 访问服务的Bearer Token
+        :param gatewayType: (Optional) 网关类型
+        :param dgAddress: (Optional) 专属网关公网调用地址
+        :param dgInnerAddress: (Optional) 专属网关内网调用地址
         :param qps: (Optional) 推理服务限流阈值（QPS）
+        :param productId: (Optional) 服务关联的产品ID
+        :param productName: (Optional) 服务关联的产品名称，层级之间使用连字符分隔
+        :param bgbu: (Optional) 服务关联产品所属BG/BU
         :param total: (Optional) 该服务中总版本数
         """
 
         self.createTime = createTime
         self.deployType = deployType
+        self.serviceType = serviceType
         self.name = name
         self.running = running
         self.serviceId = serviceId
@@ -45,5 +53,11 @@ class Service(object):
         self.resourceState = resourceState
         self.vpcAddress = vpcAddress
         self.accessToken = accessToken
+        self.gatewayType = gatewayType
+        self.dgAddress = dgAddress
+        self.dgInnerAddress = dgInnerAddress
         self.qps = qps
+        self.productId = productId
+        self.productName = productName
+        self.bgbu = bgbu
         self.total = total

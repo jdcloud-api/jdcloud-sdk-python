@@ -26,4 +26,4 @@ class JdaipClient(JDCloudClient):
         if config is None:
             config = Config('jdaip.jdcloud-api.com')
 
-        super(JdaipClient, self).__init__(credential, config, 'jdaip', '1.0.3', logger)
+        super(JdaipClient, self).__init__(credential, config, 'jdaip', '1.0.7', logger)

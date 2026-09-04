@@ -19,7 +19,7 @@
 
 class ResourceForDescribeJobDefinitions(object):
 
-    def __init__(self, queueId=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None):
+    def __init__(self, queueId=None, queueType=None, flavorId=None, logicAzCode=None, hpcClusterName=None, flavorCategory=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None):
         """
         :param queueId: (Optional) 队列ID，指定任务运行的资源队列。
 
@@ -28,6 +28,11 @@ class ResourceForDescribeJobDefinitions(object):
 **示例：**
 - 专属资源池：`queue-2xxx**********2d*********8b8`
 
+        :param queueType: (Optional) 队列类型。
+        :param flavorId: (Optional) 规格ID。
+        :param logicAzCode: (Optional) 逻辑可用区编码。
+        :param hpcClusterName: (Optional) HPC集群名称。
+        :param flavorCategory: (Optional) 规格类别。
         :param gpuDeviceModel: (Optional) GPU 卡类型，指定使用的 GPU 型号。
 
 **常见型号示例：**
@@ -60,6 +65,11 @@ class ResourceForDescribeJobDefinitions(object):
         """
 
         self.queueId = queueId
+        self.queueType = queueType
+        self.flavorId = flavorId
+        self.logicAzCode = logicAzCode
+        self.hpcClusterName = hpcClusterName
+        self.flavorCategory = flavorCategory
         self.gpuDeviceModel = gpuDeviceModel
         self.vcudaCore = vcudaCore
         self.cpuMilli = cpuMilli

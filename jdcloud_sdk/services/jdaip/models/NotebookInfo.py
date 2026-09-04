@@ -19,7 +19,7 @@
 
 class NotebookInfo(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, internetEgress=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, nodeAffinities=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, rdma=None, lb=None, internetEgress=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, nodeAffinities=None, taskPriority=None):
         """
         :param pin: (Optional) 主账号，资源所属的主账号标识。
         :param createUser: (Optional) 创建人用户名，创建Notebook的用户名称。
@@ -114,6 +114,13 @@ class NotebookInfo(object):
 - CPU、内存配置
 - GPU配置(如有)
 
+        :param rdma: (Optional) RDMA高速网络的最终生效状态。
+
+## 返回值说明
+- `true`：启动Notebook时会申请RDMA资源
+- `false`：当前配置不会申请RDMA资源，历史Notebook未配置时也返回`false`
+- 公共/专享资源池返回所选规格的RDMA属性
+
         :param lb: (Optional) 公网访问配置，负载均衡配置信息。
 
 ## 使用说明
@@ -151,6 +158,8 @@ class NotebookInfo(object):
 
         :param nodeAffinities: (Optional) 节点亲和性配置，控制Pod调度到特定节点。
 
+        :param taskPriority: (Optional) 任务调度优先级，数值越大，优先级越高。
+
         """
 
         self.pin = pin
@@ -179,6 +188,7 @@ class NotebookInfo(object):
         self.createTime = createTime
         self.updateTime = updateTime
         self.workload = workload
+        self.rdma = rdma
         self.lb = lb
         self.internetEgress = internetEgress
         self.ownerUser = ownerUser
@@ -189,3 +199,4 @@ class NotebookInfo(object):
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
         self.nodeAffinities = nodeAffinities
+        self.taskPriority = taskPriority

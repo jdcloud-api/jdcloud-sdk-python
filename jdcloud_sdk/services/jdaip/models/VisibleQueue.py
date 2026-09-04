@@ -24,7 +24,7 @@ class VisibleQueue(object):
         :param queueType: (Optional) 队列类型。
         :param queueId: (Optional) 队列ID。
         :param description: (Optional) 队列描述。
-        :param preemptible: (Optional) 是否支持抢占。
+        :param preemptible: (Optional) 是否支持抢占。默认由 Scale GetQueue 接口的 taskPreempt 获取；force=true 时可作为兜底值。
         :param pool: (Optional) 队列所属资源池。
         """
 

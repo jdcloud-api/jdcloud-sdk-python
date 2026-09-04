@@ -30,10 +30,10 @@ class CreateJobRequest(JDCloudRequest):
 - **基本信息**：任务名称、描述、框架类型
 - **镜像配置**：镜像可见性、镜像ID、镜像地址
 - **启动命令**：训练脚本执行命令和环境变量
-- **资源配置**：队列、GPU/CPU/内存、节点数量、可用区（公共池）
+- **资源配置**：队列、GPU/CPU/内存、节点数量、可用区（公共资源池/共享资源池）
 - **存储配置**：OSS/CFS/JPFS 为外部共享存储（`storageSpaces`）；本地存储为顶层字段 `localStorage`（训练节点本地临时高速缓存，仅专属资源池，每个任务最多一个）
 - **数据与模型**：数据集、模型、代码仓库配置
-- **高级配置**：重启策略（仅异构节点池+PyTorch）、健康检测、公共池排队超时
+- **高级配置**：重启策略（仅异构节点池+PyTorch）、健康检测、公共池排队超时、容器特权模式（仅专属资源池整机 GPU）
 
 ## 创建流程
 
@@ -47,8 +47,11 @@ class CreateJobRequest(JDCloudRequest):
 - `resource` 参数已废弃
 - Ray 任务必须使用 `roleResource` 配置 Head 和 Worker 角色
 - **重启策略仅适用于异构节点池的 PyTorch 任务**，云主机资源池和 Ray 任务不支持
-- 公共资源池角色规格须通过 `logicAzCode` 指定可用区（异构规格还须填 `hpcClusterName`）
-- `queuingTimeoutMinutes` 仅公共资源池生效，排队超时后任务自动回滚为创建失败
+- 公共资源池和共享资源池角色规格须通过 `logicAzCode` 指定可用区（异构规格还须填 `hpcClusterName`）
+- 共享资源池固定使用 `queueId=joybuilder-exclusive-queue`；用户必须已加入共享池且存在启用的 user queue
+- 共享资源池创建任务时 `taskPriority` 必填，取值范围 `1..9`；公共资源池不支持 `taskPriority`
+- `queuingTimeoutMinutes` 仅公共资源池和共享资源池生效，排队超时后任务自动回滚为创建失败
+- `privileged=true` 仅支持专属资源池整机 GPU 任务；`Ascend` 前缀型号要求单实例申请 16 卡，其他非空 GPU 型号要求单实例申请 8 卡；Ray 全部角色都必须满足
 - 本地存储（顶层字段 `localStorage`）仅支持专属资源池（接口会校验拒绝公共资源池），每个任务最多一个，数据随实例删除/销毁自动清除、不支持持久化，不可存放 checkpoint、模型权重等关键数据
 - 本地存储依赖队列节点已配置本地高速盘（目前主要是异构专属节点池具备该能力），接口暂不校验节点本地盘能力，若节点不满足条件，任务会调度失败并停留在排队/启动中，而非创建时直接报错
 

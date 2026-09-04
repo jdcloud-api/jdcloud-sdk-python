@@ -19,15 +19,19 @@
 
 class ServiceInfo(object):
 
-    def __init__(self, address=None, innerAddress=None, accessToken=None, vpcAddress=None):
+    def __init__(self, address=None, innerAddress=None, dgAddress=None, dgInnerAddress=None, accessToken=None, vpcAddress=None):
         """
         :param address: (Optional) 服务地址
         :param innerAddress: (Optional) 内部服务地址
+        :param dgAddress: (Optional) 专属网关公网调用地址
+        :param dgInnerAddress: (Optional) 专属网关内网调用地址
         :param accessToken: (Optional) 访问服务时携带的Bearer Token
         :param vpcAddress: (Optional) 用户集群内可访问的地址
         """
 
         self.address = address
         self.innerAddress = innerAddress
+        self.dgAddress = dgAddress
+        self.dgInnerAddress = dgInnerAddress
         self.accessToken = accessToken
         self.vpcAddress = vpcAddress

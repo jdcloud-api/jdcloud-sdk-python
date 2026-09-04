@@ -19,16 +19,16 @@
 
 class InferenceDedicatedGatewaySpec(object):
 
-    def __init__(self, subnet, azs, replicas=None, cpu=None, memory=None, internal=None, vpc=None, elasticIp=None, retain=None, reclaimPolicy=None, enableLimit=None, qps=None):
+    def __init__(self, replicas=None, cpu=None, memory=None, internal=None, vpc=None, subnet=None, elasticIp=None, azs=None, retain=None, reclaimPolicy=None, enableLimit=None, qps=None):
         """
         :param replicas: (Optional) 专属网关实例数, 大于等于1，默认为2， 为安全起见，建议最少为2
-        :param cpu: (Optional) 专属网关单个实例所需cpu资源，单位豪核 如： 1000是一核
-        :param memory: (Optional) 专属网关单个实例所需内存资源，单位M， 如： 1024是1G
-        :param internal: (Optional) 是否仅内网可用；`true` 表示只提供内网地址
+        :param cpu: (Optional) 专属网关单个实例所需 CPU，单位 mCPU；须与 memory 按 1000/2048、2000/4096、4000/8192 配对
+        :param memory: (Optional) 专属网关单个实例所需内存，单位 MiB；须与 cpu 按 1000/2048、2000/4096、4000/8192 配对
+        :param internal: (Optional) 是否仅内网可用；当前实际内外网类型以 elasticIp.bindType 为准
         :param vpc: (Optional) 专属网关所属vpc
-        :param subnet:  子网信息
+        :param subnet: (Optional) 子网信息
         :param elasticIp: (Optional) 公网信息
-        :param azs:  可用区集合（逗号分隔）
+        :param azs: (Optional) 可用区集合（逗号分隔）
         :param retain: (Optional) 自建LB保留策略，默认 `false`；为 `true` 时在删除网关时仅删除LB下配置，保留LB及公网IP（仅对自建LB生效）
         :param reclaimPolicy: (Optional) EIP 回收策略，`delete|retain`，默认 `delete`；当未指定 `elasticIpId` 且创建公网 EIP 时生效
         :param enableLimit: (Optional) 是否开启专属网关限流

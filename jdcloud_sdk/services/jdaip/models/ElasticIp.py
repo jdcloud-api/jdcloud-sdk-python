@@ -23,7 +23,7 @@ class ElasticIp(object):
         """
         :param id: (Optional) 绑定的弹性公网 IP ID（当 `internal=false` 时可选）
         :param ip: (Optional) 绑定的弹性公网 IP
-        :param bindType: (Optional) 绑定的公网ip类型，none:不绑定,new:新建,exist:已存在的，默认none
+        :param bindType: (Optional) 绑定的公网 IP 类型；none：仅内网、不绑定公网 IP，new：新建，exist：使用已有公网 IP
         :param bandwidthMbps: (Optional) 入口带宽（Mbps）, 默认1Mbps
         :param chargeMode: (Optional) 计费方式, 固定带宽： postpaid_by_duration；按用量： postpaid_by_usage
         :param provider: (Optional) 线路, 如：BGP

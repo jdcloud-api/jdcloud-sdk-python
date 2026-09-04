@@ -36,7 +36,7 @@ class CreateInferenceParameters(object):
         """
         :param regionId: 地域ID
         :param workspaceId: 工作空间ID
-        :param inferenceSpec: 创建推理服务的规格（与请求 JSON 字段 inferenceSpec 对应）
+        :param inferenceSpec: 创建推理服务的规格
         """
 
         self.regionId = regionId
@@ -53,7 +53,7 @@ class CreateInferenceParameters(object):
 
     def setExtend(self, extend):
         """
-        :param extend: (Optional) 推理服务扩展信息（如用户标签、资源组等）
+        :param extend: (Optional) 推理服务扩展信息（如用户标签、资源组、关联产品等）
         """
         self.extend = extend
 

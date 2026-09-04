@@ -19,9 +19,11 @@
 
 class NodePoolAllocationStats(object):
 
-    def __init__(self, data=None):
+    def __init__(self, pool=None, queue=None):
         """
-        :param data: (Optional) 节点池资源分配情况
+        :param pool: (Optional) 
+        :param queue: (Optional) 节点池资源分配情况
         """
 
-        self.data = data
+        self.pool = pool
+        self.queue = queue

@@ -23,7 +23,7 @@ class NotebookEnv(object):
         """
         :param name:  环境变量名称。仅支持大小写字母、数字和下划线，必须以字母或下划线开头，最长255个字符。
 
-        :param value:  环境变量值，按UTF-8编码计算最大2048字节。OpenAPI的maxLength用于限制字符数，最终字节上限以后端校验结果为准。
+        :param value:  环境变量值，按UTF-8编码计算，最大2048字节，最终字节上限以后端校验结果为准。
 
         """
 

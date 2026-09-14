@@ -32,14 +32,13 @@ class CreateAppRequest(JDCloudRequest):
 
 class CreateAppParameters(object):
 
-    def __init__(self,appKey, systemId, appLevel, stateful, language, appMembers):
+    def __init__(self,appKey, systemId, appLevel, stateful, language):
         """
-        :param appKey: 应用名称
-        :param systemId: 绑定系统id
+        :param appKey: 应用英文名称，由小写字母、数字和中划线组成，以小写字母或数字开头结尾，长度为2-27个字符
+        :param systemId: 绑定系统ID
         :param appLevel: 应用级别：0-核心应用，3-其他应用
         :param stateful: 应用类型：true-有状态应用，false-无状态应用
-        :param language: 编程语言：Java、Php、其他
-        :param appMembers: 
+        :param language: 编程语言：Java、Php、Other
         """
 
         self.appKey = appKey
@@ -49,17 +48,16 @@ class CreateAppParameters(object):
         self.appLevel = appLevel
         self.stateful = stateful
         self.language = language
-        self.appMembers = appMembers
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) 应用中文名称
+        :param appName: (Optional) 应用中文名称，为空默认和应用英文名称保持一致
         """
         self.appName = appName
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 应用描述
+        :param description: (Optional) 应用描述，长度不超过100
         """
         self.description = description
 

@@ -19,25 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeAppImagesRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    分页查询应用镜像仓库的编译镜像，支持多条件过滤
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeAppImagesRequest, self).__init__(
+            '/app/{appId}/images', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeAppImagesParameters(object):
 
-    def __init__(self,):
+    def __init__(self,appId, ):
         """
+        :param appId: 应用ID
         """
 
+        self.appId = appId
         self.pageNum = None
         self.pageSize = None
+        self.uid = None
+        self.pipelineTaskId = None
+        self.packageId = None
+        self.version = None
 
     def setPageNum(self, pageNum):
         """
@@ -50,4 +56,28 @@ class DescribeClustersParameters(object):
         :param pageSize: (Optional) 每页数量，默认10，最大100
         """
         self.pageSize = pageSize
+
+    def setUid(self, uid):
+        """
+        :param uid: (Optional) 镜像记录UID
+        """
+        self.uid = uid
+
+    def setPipelineTaskId(self, pipelineTaskId):
+        """
+        :param pipelineTaskId: (Optional) 流水线任务ID
+        """
+        self.pipelineTaskId = pipelineTaskId
+
+    def setPackageId(self, packageId):
+        """
+        :param packageId: (Optional) 程序包ID
+        """
+        self.packageId = packageId
+
+    def setVersion(self, version):
+        """
+        :param version: (Optional) 镜像版本
+        """
+        self.version = version
 

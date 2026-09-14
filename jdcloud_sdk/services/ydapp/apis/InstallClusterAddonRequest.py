@@ -19,30 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class OpenAutoDeleteRepoRequest(JDCloudRequest):
+class InstallClusterAddonRequest(JDCloudRequest):
     """
-    为指定应用的镜像仓库开启自动删除策略，可配置保留数量上限
+    在指定云鼎 k8s 集群上安装组件（如 csi-nfs 文件存储插件）
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(OpenAutoDeleteRepoRequest, self).__init__(
-            '/app/{appId}/imageRepo:openAutoDelete', 'POST', header, version)
+        super(InstallClusterAddonRequest, self).__init__(
+            '/regions/{regionId}/clusters/{k8sClusterId}/addon', 'POST', header, version)
         self.parameters = parameters
 
 
-class OpenAutoDeleteRepoParameters(object):
+class InstallClusterAddonParameters(object):
 
-    def __init__(self,appId, ):
+    def __init__(self,regionId, k8sClusterId, addon):
         """
-        :param appId: 应用ID，E.g.，app-123456789
+        :param regionId: 地域ID
+        :param k8sClusterId: 云鼎k8s集群ID
+        :param addon: 组件名，目前仅支持 csi-nfs
         """
 
-        self.appId = appId
-        self.limit = None
-
-    def setLimit(self, limit):
-        """
-        :param limit: (Optional) 镜像保留数量上限，E.g.，10
-        """
-        self.limit = limit
+        self.regionId = regionId
+        self.k8sClusterId = k8sClusterId
+        self.addon = addon
 

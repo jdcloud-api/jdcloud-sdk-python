@@ -26,27 +26,20 @@ class CreatePipelineTaskRequest(JDCloudRequest):
 
     def __init__(self, parameters, header=None, version="v1"):
         super(CreatePipelineTaskRequest, self).__init__(
-            '/pipelinetask', 'POST', header, version)
+            '/app/{appId}/pipelinetask', 'POST', header, version)
         self.parameters = parameters
 
 
 class CreatePipelineTaskParameters(object):
 
-    def __init__(self,appId, baseImageUid, packageId, ):
+    def __init__(self,appId, baseImageUid, packageId):
         """
-        :param appId: 应用ID，E.g.，app-123456789
-        :param baseImageUid: 基础镜像UID，从 baseImages 接口返回参数 uid 获取，E.g.，baseimg-123456789
-        :param packageId: 制品包ID，E.g.，10086
+        :param appId: 应用ID
+        :param baseImageUid: 基础镜像UID
+        :param packageId: 程序包ID
         """
 
         self.appId = appId
         self.baseImageUid = baseImageUid
         self.packageId = packageId
-        self.args = None
-
-    def setArgs(self, args):
-        """
-        :param args: (Optional) 附加扩展参数，一般无需传递，E.g.，''
-        """
-        self.args = args
 

@@ -19,29 +19,33 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeClusterAddonsRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    分页查询指定云鼎 k8s 集群上的组件列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeClusterAddonsRequest, self).__init__(
+            '/regions/{regionId}/clusters/{k8sClusterId}/addons', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeClusterAddonsParameters(object):
 
-    def __init__(self,):
+    def __init__(self,regionId, k8sClusterId, ):
         """
+        :param regionId: 地域ID
+        :param k8sClusterId: 云鼎k8s集群ID
         """
 
+        self.regionId = regionId
+        self.k8sClusterId = k8sClusterId
         self.pageNum = None
         self.pageSize = None
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码，默认1
+        :param pageNum: (Optional) 页码
         """
         self.pageNum = pageNum
 

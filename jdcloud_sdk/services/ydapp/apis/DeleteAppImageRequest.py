@@ -19,35 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DeleteAppImageRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    根据UID删除指定的应用镜像
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DeleteAppImageRequest, self).__init__(
+            '/images/{uid}', 'DELETE', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DeleteAppImageParameters(object):
 
-    def __init__(self,):
+    def __init__(self,uid):
         """
+        :param uid: 应用镜像UID
         """
 
-        self.pageNum = None
-        self.pageSize = None
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) 页码，默认1
-        """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页数量，默认10，最大100
-        """
-        self.pageSize = pageSize
+        self.uid = uid
 

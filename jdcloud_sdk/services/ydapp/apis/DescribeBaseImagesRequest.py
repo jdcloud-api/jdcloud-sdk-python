@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeBaseImagesRequest(JDCloudRequest):
     """
-    查询已发布的基础镜像列表，可按镜像类型过滤（JAVA、PHP、Nginx）
+    查询已发布的基础镜像列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -36,11 +36,4 @@ class DescribeBaseImagesParameters(object):
         """
         """
 
-        self.imageType = None
-
-    def setImageType(self, imageType):
-        """
-        :param imageType: (Optional) 镜像类型，可选值：JAVA、PHP、Nginx，E.g.，JAVA
-        """
-        self.imageType = imageType
 

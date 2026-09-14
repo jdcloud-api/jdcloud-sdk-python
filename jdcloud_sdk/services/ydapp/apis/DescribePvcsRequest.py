@@ -19,37 +19,25 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateSystemRequest(JDCloudRequest):
+class DescribePvcsRequest(JDCloudRequest):
     """
-    根据系统 ID 修改系统详情
+    查询指定应用分组下的 PVC 列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateSystemRequest, self).__init__(
-            '/system/{systemId}', 'PUT', header, version)
+        super(DescribePvcsRequest, self).__init__(
+            '/apps/{appId}/groups/{groupId}/pvcs', 'GET', header, version)
         self.parameters = parameters
 
 
-class UpdateSystemParameters(object):
+class DescribePvcsParameters(object):
 
-    def __init__(self,systemId, ):
+    def __init__(self,appId, groupId):
         """
-        :param systemId: 系统ID
+        :param appId: 应用ID
+        :param groupId: 分组ID
         """
 
-        self.systemId = systemId
-        self.systemName = None
-        self.description = None
-
-    def setSystemName(self, systemName):
-        """
-        :param systemName: (Optional) 系统中文名
-        """
-        self.systemName = systemName
-
-    def setDescription(self, description):
-        """
-        :param description: (Optional) 应用描述
-        """
-        self.description = description
+        self.appId = appId
+        self.groupId = groupId
 

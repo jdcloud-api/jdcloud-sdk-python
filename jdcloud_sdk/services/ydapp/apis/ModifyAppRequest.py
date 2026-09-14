@@ -19,58 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class UpdateAppRequest(JDCloudRequest):
+class ModifyAppRequest(JDCloudRequest):
     """
     根据应用 ID 编辑应用
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(UpdateAppRequest, self).__init__(
+        super(ModifyAppRequest, self).__init__(
             '/app/{appId}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class UpdateAppParameters(object):
+class ModifyAppParameters(object):
 
-    def __init__(self,appId, ):
+    def __init__(self,appId, appLevel, language):
         """
         :param appId: 应用ID
+        :param appLevel: 应用级别：0-核心应用，3-其他应用
+        :param language: 编程语言：Java、Php、Other
         """
 
         self.appId = appId
         self.appName = None
         self.description = None
-        self.appLevel = None
-        self.language = None
-        self.appMembers = None
+        self.appLevel = appLevel
+        self.language = language
 
     def setAppName(self, appName):
         """
-        :param appName: (Optional) 应用中文名称
+        :param appName: (Optional) 应用中文名称，为空默认和应用英文名称保持一致
         """
         self.appName = appName
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 应用描述
+        :param description: (Optional) 应用描述，长度不超过100
         """
         self.description = description
-
-    def setAppLevel(self, appLevel):
-        """
-        :param appLevel: (Optional) 应用级别：0-核心应用，3-其他应用
-        """
-        self.appLevel = appLevel
-
-    def setLanguage(self, language):
-        """
-        :param language: (Optional) 编程语言：Java、Php、其他
-        """
-        self.language = language
-
-    def setAppMembers(self, appMembers):
-        """
-        :param appMembers: (Optional) 
-        """
-        self.appMembers = appMembers
 

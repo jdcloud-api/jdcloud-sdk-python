@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetPackageDownloadInfoRequest(JDCloudRequest):
     """
-    获取指定应用下制品包的下载信息，包含名称、版本及预签名下载地址（preSignedUrl）。 调用方使用返回的 preSignedUrl 自行下载文件（该地址有鉴权、有效期有限）。
+    获取指定应用下程序包的下载信息，包含名称、版本及预签名下载地址（preSignedUrl）。 调用方使用返回的 preSignedUrl 自行下载文件（该地址有鉴权、有效期有限）。
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class GetPackageDownloadInfoParameters(object):
     def __init__(self,appId, packageId):
         """
         :param appId: 应用ID，E.g.，app-123456789
-        :param packageId: 制品包ID，E.g.，10086
+        :param packageId: 程序包ID，E.g.，10086
         """
 
         self.appId = appId

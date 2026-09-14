@@ -19,35 +19,27 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class ModifyContainerPortRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    配置应用分组的容器端口，协议默认为TCP
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(ModifyContainerPortRequest, self).__init__(
+            '/app/{appId}/group/{groupId}:modifyContainerPort', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class ModifyContainerPortParameters(object):
 
-    def __init__(self,):
+    def __init__(self,appId, groupId, ports):
         """
+        :param appId: 应用ID
+        :param groupId: 分组ID
+        :param ports: 容器端口配置列表
         """
 
-        self.pageNum = None
-        self.pageSize = None
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) 页码，默认1
-        """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页数量，默认10，最大100
-        """
-        self.pageSize = pageSize
+        self.appId = appId
+        self.groupId = groupId
+        self.ports = ports
 

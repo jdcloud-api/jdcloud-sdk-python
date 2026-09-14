@@ -34,8 +34,8 @@ class CreateSystemParameters(object):
 
     def __init__(self,systemKey, josAppKey):
         """
-        :param systemKey: 系统名称
-        :param josAppKey: 绑定JOS应用名称appKey
+        :param systemKey: 系统英文名，对应 k8s 集群的 namespace；支持小写字母、数字和中划线，且必须以字母或数字开头、结尾，长度2~50字符
+        :param josAppKey: 绑定 JOS 应用 appKey
         """
 
         self.systemKey = systemKey
@@ -45,13 +45,13 @@ class CreateSystemParameters(object):
 
     def setSystemName(self, systemName):
         """
-        :param systemName: (Optional) 系统中文名
+        :param systemName: (Optional) 系统中文名，为空时和系统英文名保持一致
         """
         self.systemName = systemName
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 应用描述
+        :param description: (Optional) 系统描述
         """
         self.description = description
 

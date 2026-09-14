@@ -19,23 +19,37 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class CloseAutoDeleteRepoRequest(JDCloudRequest):
+class ModifySystemRequest(JDCloudRequest):
     """
-    关闭指定应用的镜像仓库自动删除策略
+    根据系统 ID 修改系统详情
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(CloseAutoDeleteRepoRequest, self).__init__(
-            '/app/{appId}/imageRepo:closeAutoDelete', 'POST', header, version)
+        super(ModifySystemRequest, self).__init__(
+            '/system/{systemId}', 'PUT', header, version)
         self.parameters = parameters
 
 
-class CloseAutoDeleteRepoParameters(object):
+class ModifySystemParameters(object):
 
-    def __init__(self,appId):
+    def __init__(self,systemId, ):
         """
-        :param appId: 应用ID，E.g.，app-123456789
+        :param systemId: 系统ID
         """
 
-        self.appId = appId
+        self.systemId = systemId
+        self.systemName = None
+        self.description = None
+
+    def setSystemName(self, systemName):
+        """
+        :param systemName: (Optional) 系统中文名，为空时和系统英文名保持一致
+        """
+        self.systemName = systemName
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 系统描述
+        """
+        self.description = description
 

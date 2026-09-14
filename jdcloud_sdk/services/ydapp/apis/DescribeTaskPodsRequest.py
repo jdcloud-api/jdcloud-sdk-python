@@ -19,29 +19,31 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeTaskPodsRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    分页查询指定部署任务下的容器（Pod）列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeTaskPodsRequest, self).__init__(
+            '/task/{taskId}/pods', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeTaskPodsParameters(object):
 
-    def __init__(self,):
+    def __init__(self,taskId, ):
         """
+        :param taskId: 部署任务ID
         """
 
+        self.taskId = taskId
         self.pageNum = None
         self.pageSize = None
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码，默认1
+        :param pageNum: (Optional) 页码
         """
         self.pageNum = pageNum
 

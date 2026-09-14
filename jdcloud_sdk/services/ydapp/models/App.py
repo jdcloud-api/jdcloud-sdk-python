@@ -21,11 +21,11 @@ class App(object):
 
     def __init__(self, appId=None, appName=None, systemId=None, createTime=None, updateTime=None):
         """
-        :param appId: (Optional) 应用ID，E.g.，app-123456789
-        :param appName: (Optional) 应用名称，E.g.，测试应用
-        :param systemId: (Optional) 应用归属的系统ID，E.g.，sys-987654321
-        :param createTime: (Optional) 创建时间，E.g.，'2024-08-22T05:48:37.000+00:00'
-        :param updateTime: (Optional) 更新时间，E.g.，'2024-08-22T05:48:37.000+00:00'
+        :param appId: (Optional) 应用ID
+        :param appName: (Optional) 应用名称
+        :param systemId: (Optional) 应用归属的系统ID
+        :param createTime: (Optional) 创建时间
+        :param updateTime: (Optional) 更新时间
         """
 
         self.appId = appId

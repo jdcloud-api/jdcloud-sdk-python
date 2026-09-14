@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class LinkPackageRequest(JDCloudRequest):
     """
-    将制品包与指定应用建立关联，返回流水线ID
+    将程序包与指定应用建立关联，返回程序包ID
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,45 +32,23 @@ class LinkPackageRequest(JDCloudRequest):
 
 class LinkPackageParameters(object):
 
-    def __init__(self,appId, ):
+    def __init__(self,appId, name, version, url):
         """
         :param appId: 应用ID，E.g.，app-123456789
+        :param name: 程序包名称，支持5-64位大小写字母、中划线和下划线
+        :param version: 程序包版本，支持2-32位大小写字母、数字、点和中划线
+        :param url: 程序包地址
         """
 
         self.appId = appId
-        self.name = None
-        self.version = None
-        self.desc = None
-        self.env = None
-        self.url = None
-
-    def setName(self, name):
-        """
-        :param name: (Optional) 制品包名称，E.g.，my-app-package
-        """
         self.name = name
-
-    def setVersion(self, version):
-        """
-        :param version: (Optional) 制品包版本号，E.g.，v1.0.0
-        """
         self.version = version
+        self.desc = None
+        self.url = url
 
     def setDesc(self, desc):
         """
-        :param desc: (Optional) 制品包描述，E.g.，一次构建产物
+        :param desc: (Optional) 备注，最长128字符
         """
         self.desc = desc
-
-    def setEnv(self, env):
-        """
-        :param env: (Optional) 环境标识，E.g.，prod
-        """
-        self.env = env
-
-    def setUrl(self, url):
-        """
-        :param url: (Optional) 制品包下载地址，E.g.，https://repo.jdcloud.com/artifact/my-app-package-v1.0.0.tar.gz
-        """
-        self.url = url
 

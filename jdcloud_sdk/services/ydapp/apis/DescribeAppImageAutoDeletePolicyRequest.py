@@ -19,35 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeAppImageAutoDeletePolicyRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    查询指定应用的镜像仓库自动删除策略配置
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeAppImageAutoDeletePolicyRequest, self).__init__(
+            '/app/{appId}/image:autoDeletePolicy', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeAppImageAutoDeletePolicyParameters(object):
 
-    def __init__(self,):
+    def __init__(self,appId):
         """
+        :param appId: 应用ID，E.g.，app-123456789
         """
 
-        self.pageNum = None
-        self.pageSize = None
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) 页码，默认1
-        """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页数量，默认10，最大100
-        """
-        self.pageSize = pageSize
+        self.appId = appId
 

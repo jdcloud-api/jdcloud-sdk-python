@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeletePackageRequest(JDCloudRequest):
     """
-    删除指定应用下的制品包
+    删除指定应用下的程序包
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class DeletePackageParameters(object):
     def __init__(self,appId, packageId):
         """
         :param appId: 应用ID，E.g.，app-123456789
-        :param packageId: 制品包ID，E.g.，10086
+        :param packageId: 程序包ID，E.g.，10086
         """
 
         self.appId = appId

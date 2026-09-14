@@ -19,29 +19,35 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeContainerLogsRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    分页查询指定分组下 Pod 容器的日志
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeContainerLogsRequest, self).__init__(
+            '/group/{groupId}/pod/{podName}/container/{containerName}/logs', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeContainerLogsParameters(object):
 
-    def __init__(self,):
+    def __init__(self,groupId, podName, containerName, ):
         """
+        :param groupId: 分组ID
+        :param podName: Pod名称
+        :param containerName: 容器名称
         """
 
+        self.groupId = groupId
+        self.podName = podName
+        self.containerName = containerName
         self.pageNum = None
         self.pageSize = None
 
     def setPageNum(self, pageNum):
         """
-        :param pageNum: (Optional) 页码，默认1
+        :param pageNum: (Optional) 页码
         """
         self.pageNum = pageNum
 

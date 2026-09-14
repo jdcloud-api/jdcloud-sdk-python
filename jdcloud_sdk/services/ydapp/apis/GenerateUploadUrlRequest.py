@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GenerateUploadUrlRequest(JDCloudRequest):
     """
-    获取制品包预签名 PUT 上传地址。客户端使用返回的 presignedPutUrl 直接 PUT 上传文件， 上传成功后再用 finalUrl 调用关联接口（linkPackage）来关联包。
+    获取程序包预签名 PUT 上传地址。客户端使用返回的 presignedPutUrl 直接 PUT 上传文件， 上传成功后再用 finalUrl 调用关联接口（linkPackage）来关联包。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

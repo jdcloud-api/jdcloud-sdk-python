@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateAppGroupRequest(JDCloudRequest):
     """
-    在指定应用下创建分组
+    在指定应用下创建分组，所选集群的环境必须与分组环境一致
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -32,128 +32,33 @@ class CreateAppGroupRequest(JDCloudRequest):
 
 class CreateAppGroupParameters(object):
 
-    def __init__(self,appId, groupKey, env, clusterId, podCount, cpu, memory, requestCpu, requestMemory, imageUrl, deployStrategyStruct, ):
+    def __init__(self,appId, groupKey, env, clusterId, podCount, cpu, memory, requestCpu, requestMemory):
         """
         :param appId: 应用ID
-        :param groupKey: 分组 key
-        :param env: 环境
+        :param groupKey: 分组英文名，由小写字母、数字和中划线组成，以小写字母或数字开头结尾，长度为2-27个字符
+        :param env: 分组环境，必须与所选集群环境一致。test-测试环境; product-生产环境
         :param clusterId: 集群ID
-        :param podCount: Pod 数量
-        :param cpu: CPU 限制
-        :param memory: 内存限制
-        :param requestCpu: CPU 请求量
-        :param requestMemory: 内存请求量
-        :param imageUrl: 镜像地址，固定值：imageUrlHolder
-        :param deployStrategyStruct: 
+        :param podCount: Pod数量，最小值 1
+        :param cpu: CPU规格，单位为核，最小为0.1。CPU资源，单位为核
+        :param memory: 内存规格，单位为GB，最小为0.1。内存资源，单位为GB
+        :param requestCpu: CPU限制，单位为核，最小为0.1。CPU资源限制，单位为核
+        :param requestMemory: 内存限制，单位为GB，最小为0.1。内存资源限制，单位为GB
         """
 
         self.appId = appId
         self.groupKey = groupKey
         self.groupName = None
         self.env = env
-        self.serviceName = None
         self.clusterId = clusterId
         self.podCount = podCount
         self.cpu = cpu
         self.memory = memory
         self.requestCpu = requestCpu
         self.requestMemory = requestMemory
-        self.imageUrl = imageUrl
-        self.terminationGraceSeconds = None
-        self.deployStrategyStruct = deployStrategyStruct
-        self.healthCheckStruct = None
-        self.readyCheckStruct = None
-        self.lifecycleStruct = None
-        self.containerInfo = None
-        self.baseInfo = None
-        self.configFiles = None
-        self.ports = None
-        self.tags = None
-        self.annotations = None
-        self.startCmdStruct = None
-        self.volumeBases = None
 
     def setGroupName(self, groupName):
         """
-        :param groupName: (Optional) 分组名称
+        :param groupName: (Optional) 分组中文名称，为空默认和分组英文名保持一致
         """
         self.groupName = groupName
-
-    def setServiceName(self, serviceName):
-        """
-        :param serviceName: (Optional) 服务名称
-        """
-        self.serviceName = serviceName
-
-    def setTerminationGraceSeconds(self, terminationGraceSeconds):
-        """
-        :param terminationGraceSeconds: (Optional) 优雅终止时间
-        """
-        self.terminationGraceSeconds = terminationGraceSeconds
-
-    def setHealthCheckStruct(self, healthCheckStruct):
-        """
-        :param healthCheckStruct: (Optional) 
-        """
-        self.healthCheckStruct = healthCheckStruct
-
-    def setReadyCheckStruct(self, readyCheckStruct):
-        """
-        :param readyCheckStruct: (Optional) 
-        """
-        self.readyCheckStruct = readyCheckStruct
-
-    def setLifecycleStruct(self, lifecycleStruct):
-        """
-        :param lifecycleStruct: (Optional) 
-        """
-        self.lifecycleStruct = lifecycleStruct
-
-    def setContainerInfo(self, containerInfo):
-        """
-        :param containerInfo: (Optional) 
-        """
-        self.containerInfo = containerInfo
-
-    def setBaseInfo(self, baseInfo):
-        """
-        :param baseInfo: (Optional) 
-        """
-        self.baseInfo = baseInfo
-
-    def setConfigFiles(self, configFiles):
-        """
-        :param configFiles: (Optional) 配置文件列表
-        """
-        self.configFiles = configFiles
-
-    def setPorts(self, ports):
-        """
-        :param ports: (Optional) 端口列表
-        """
-        self.ports = ports
-
-    def setTags(self, tags):
-        """
-        :param tags: (Optional) 标签列表
-        """
-        self.tags = tags
-
-    def setAnnotations(self, annotations):
-        """
-        :param annotations: (Optional) 注解列表
-        """
-        self.annotations = annotations
-
-    def setStartCmdStruct(self, startCmdStruct):
-        """
-        :param startCmdStruct: (Optional) 
-        """
-        self.startCmdStruct = startCmdStruct
-
-    def setVolumeBases(self, volumeBases):
-        """
-        :param volumeBases: (Optional) 卷基础配置列表
-        """
-        self.volumeBases = volumeBases
 

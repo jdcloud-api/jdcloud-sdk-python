@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ScanPackageRequest(JDCloudRequest):
     """
-    对指定制品包触发安全扫描
+    对指定程序包触发安全扫描
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +35,7 @@ class ScanPackageParameters(object):
     def __init__(self,appId, packageId):
         """
         :param appId: 应用ID，E.g.，app-123456789
-        :param packageId: 制品包ID，E.g.，10086
+        :param packageId: 程序包ID，E.g.，10086
         """
 
         self.appId = appId

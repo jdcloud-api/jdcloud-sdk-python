@@ -19,35 +19,23 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class DescribeGroupTagsRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    查询指定分组下的标签列表
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(DescribeGroupTagsRequest, self).__init__(
+            '/group/{groupId}/tags', 'GET', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class DescribeGroupTagsParameters(object):
 
-    def __init__(self,):
+    def __init__(self,groupId):
         """
+        :param groupId: 分组ID
         """
 
-        self.pageNum = None
-        self.pageSize = None
-
-    def setPageNum(self, pageNum):
-        """
-        :param pageNum: (Optional) 页码，默认1
-        """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页数量，默认10，最大100
-        """
-        self.pageSize = pageSize
+        self.groupId = groupId
 

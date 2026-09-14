@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribePackagesRequest(JDCloudRequest):
     """
-    分页查询指定应用下的制品包列表，支持按名称模糊搜索
+    分页查询指定应用下的程序包列表，支持按名称模糊搜索
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -56,7 +56,7 @@ class DescribePackagesParameters(object):
 
     def setNameLike(self, nameLike):
         """
-        :param nameLike: (Optional) 制品包名称，模糊匹配，E.g.，my-app
+        :param nameLike: (Optional) 程序包名称，模糊匹配，E.g.，my-app
         """
         self.nameLike = nameLike
 

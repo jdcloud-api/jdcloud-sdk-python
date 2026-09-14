@@ -19,35 +19,30 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DescribeClustersRequest(JDCloudRequest):
+class ModifyGroupAnnotationsRequest(JDCloudRequest):
     """
-    分页查询集群列表
+    创建/编辑/删除注解，全量覆盖
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DescribeClustersRequest, self).__init__(
-            '/clusters', 'POST', header, version)
+        super(ModifyGroupAnnotationsRequest, self).__init__(
+            '/group/{groupId}/annotations', 'POST', header, version)
         self.parameters = parameters
 
 
-class DescribeClustersParameters(object):
+class ModifyGroupAnnotationsParameters(object):
 
-    def __init__(self,):
+    def __init__(self,groupId, ):
         """
+        :param groupId: 分组ID
         """
 
-        self.pageNum = None
-        self.pageSize = None
+        self.groupId = groupId
+        self.tags = None
 
-    def setPageNum(self, pageNum):
+    def setTags(self, tags):
         """
-        :param pageNum: (Optional) 页码，默认1
+        :param tags: (Optional) 标签/注解列表，全量覆盖；传空列表表示清空
         """
-        self.pageNum = pageNum
-
-    def setPageSize(self, pageSize):
-        """
-        :param pageSize: (Optional) 每页数量，默认10，最大100
-        """
-        self.pageSize = pageSize
+        self.tags = tags
 

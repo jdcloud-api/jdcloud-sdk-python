@@ -19,9 +19,17 @@
 
 class ModelExportParam(object):
 
-    def __init__(self, targetStorage, modelFormat, modelFramework, modelParams, ):
+    def __init__(self, targetStorage, modelFormat, modelFramework, modelParams, exportDir=None):
         """
         :param targetStorage:  目标OSS存储配置，指定模型导出的目标存储位置。
+        :param exportDir: (Optional) 导出目录，指定安全存储output下的子目录。
+
+**默认值：** 不传时默认为 `/output/`。
+
+**约束：** 必须以 `/output/` 为前缀。
+
+**示例：** `/output/my-model/`
+
         :param modelFormat:  模型格式。
 
 **可选值：**
@@ -38,7 +46,6 @@ class ModelExportParam(object):
         :param modelFramework:  模型框架，与模型格式联动。
 
 **联动规则：**
-- `Custom` → Custom
 - `HuggingFace` → SafeTensor、Transformers、Diffusers
 - `SavedModel` → TensorFlow
 - `TorchScript` → PyTorch
@@ -51,11 +58,14 @@ class ModelExportParam(object):
 
         :param modelParams:  模型参数量，单位为B（十亿）。支持输入实际模型参数量，如 7 表示 7B、14 表示 14B、123.4 表示 123.4B 等。
 
+**约束：** 最大值为 1000。
+
 **示例：** `7`、`14`、`123.4`
 
         """
 
         self.targetStorage = targetStorage
+        self.exportDir = exportDir
         self.modelFormat = modelFormat
         self.modelFramework = modelFramework
         self.modelParams = modelParams

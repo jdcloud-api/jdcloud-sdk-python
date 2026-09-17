@@ -19,7 +19,7 @@
 
 class ModelExportListItem(object):
 
-    def __init__(self, exportId=None, resourceId=None, secureId=None, secureName=None, targetStorage=None, modelFormat=None, modelFramework=None, modelParams=None, state=None, reason=None, createTime=None, createUser=None):
+    def __init__(self, exportId=None, resourceId=None, secureId=None, secureName=None, targetStorage=None, exportDir=None, modelFormat=None, modelFramework=None, modelParams=None, state=None, reason=None, createTime=None, createUser=None):
         """
         :param exportId: (Optional) 导出任务ID。
         :param resourceId: (Optional) 关联的训练任务ID。
@@ -29,6 +29,10 @@ class ModelExportListItem(object):
 
         :param secureName: (Optional) 安全存储名称，表示模型的来源安全存储名称。
         :param targetStorage: (Optional) 导出目标存储信息，模型导出的目标存储配置。
+        :param exportDir: (Optional) 导出目录，安全存储output下的子目录。
+
+**示例：** `/output/my-model/`
+
         :param modelFormat: (Optional) 模型格式。
 
 **可选值：**
@@ -57,6 +61,8 @@ class ModelExportListItem(object):
 
         :param modelParams: (Optional) 模型参数量，单位为B（十亿）。支持输入实际模型参数量，如 7 表示 7B、14 表示 14B、123.4 表示 123.4B 等。
 
+**约束：** 最大值为 1000。
+
 **示例：** `7`、`14`、`123.4`
 
         :param state: (Optional) 导出任务状态。
@@ -64,10 +70,12 @@ class ModelExportListItem(object):
 **可选值：**
 - `pending`：等待中，导出任务已创建但尚未开始
 - `exporting`：导出中，正在导出模型
+- `stopping`：停止中，导出任务正在停止
+- `stopped`：已停止，导出任务已被手动停止
 - `completed`：已完成，模型导出成功
 - `failed`：失败，模型导出失败
 
-        :param reason: (Optional) 失败原因，仅当状态为 failed 时有值。
+        :param reason: (Optional) 失败或停止原因，仅当状态为 failed 或 stopped 时有值。
         :param createTime: (Optional) 导出任务创建时间。
         :param createUser: (Optional) 创建用户名称。
         """
@@ -77,6 +85,7 @@ class ModelExportListItem(object):
         self.secureId = secureId
         self.secureName = secureName
         self.targetStorage = targetStorage
+        self.exportDir = exportDir
         self.modelFormat = modelFormat
         self.modelFramework = modelFramework
         self.modelParams = modelParams

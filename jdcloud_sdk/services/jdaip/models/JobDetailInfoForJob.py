@@ -19,7 +19,7 @@
 
 class JobDetailInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID。
         :param name: (Optional) 训练任务名称。
@@ -47,6 +47,8 @@ class JobDetailInfoForJob(object):
         :param restartCount: (Optional) 重启次数。
         :param jobType: (Optional) 任务类型。
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
+        :param secJob: (Optional) 是否为安全训练任务。
+        :param supportExportModel: (Optional) 是否支持导出模型。
         :param runningTimeInSec: (Optional) 持续时间，单位为秒。
         :param description: (Optional) 训练任务的描述信息。
         :param imageVisibility: (Optional) 镜像可见性。可选值：[public, private]。
@@ -82,6 +84,15 @@ class JobDetailInfoForJob(object):
         :param resourceGroupName: (Optional) 资源组名称。
         :param userTags: (Optional) 用户自定义标签列表。
         :param taskPriority: (Optional) 任务优先级。共享资源池创建时必填，范围 `1..9`。
+        :param profilingEnable: (Optional) 是否开启性能分析。
+
+**取值说明：**
+- `true`：已开启性能分析
+- `false`：未开启性能分析
+- `null`：该任务类型不支持性能分析
+
+**注意：** 仅 `jobType` 为 `pytorch` 的任务返回该字段的布尔值，其他任务类型返回 `null`。
+
         :param ownerUserPin: (Optional) 归属用户pin。
         :param ownerUser: (Optional) 归属用户名称。
         :param pin: (Optional) 主账号。
@@ -99,6 +110,8 @@ class JobDetailInfoForJob(object):
         self.restartCount = restartCount
         self.jobType = jobType
         self.privileged = privileged
+        self.secJob = secJob
+        self.supportExportModel = supportExportModel
         self.runningTimeInSec = runningTimeInSec
         self.description = description
         self.imageVisibility = imageVisibility
@@ -129,6 +142,7 @@ class JobDetailInfoForJob(object):
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
         self.taskPriority = taskPriority
+        self.profilingEnable = profilingEnable
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

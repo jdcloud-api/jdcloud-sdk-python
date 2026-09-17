@@ -47,7 +47,6 @@ class DescribeModelExportsParameters(object):
         self.jobId = jobId
         self.pageNumber = None
         self.pageSize = None
-        self.filters = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -60,12 +59,4 @@ class DescribeModelExportsParameters(object):
         :param pageSize: (Optional) 分页大小；默认为20；取值范围[1, 500]。
         """
         self.pageSize = pageSize
-
-    def setFilters(self, filters):
-        """
-        :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
-`status`: 导出状态，精确匹配，支持多个，可选(pending/exporting/completed/failed)。
-
-        """
-        self.filters = filters
 

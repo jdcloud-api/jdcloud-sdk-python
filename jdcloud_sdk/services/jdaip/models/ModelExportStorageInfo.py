@@ -19,7 +19,7 @@
 
 class ModelExportStorageInfo(object):
 
-    def __init__(self, endpoint, bucket, path, ):
+    def __init__(self, endpoint, bucket, path=None):
         """
         :param endpoint:  OSS服务的endpoint地址
 
@@ -29,7 +29,9 @@ class ModelExportStorageInfo(object):
 
 **注意：** 需确保目标Bucket已存在且有写入权限。
 
-        :param path:  存储路径（不含Bucket名称）。
+        :param path: (Optional) 存储路径（不含Bucket名称），为相对路径。
+
+**默认值：** 不传时默认导出到 Bucket 根目录。
 
 **示例：** `models/export-abc123/model.tar.gz`
 

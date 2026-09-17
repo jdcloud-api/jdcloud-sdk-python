@@ -19,7 +19,7 @@
 
 class CreatePublicImageParam(object):
 
-    def __init__(self, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, command=None):
+    def __init__(self, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, command=None, description=None):
         """
         :param imageName: (Optional) 镜像名称
         :param imageUsage: (Optional) 镜像用途，可选值：
@@ -45,6 +45,7 @@ key值说明
 示例：baseinfo:vllm0.25.0,baseinfo:pytorch2.11.0,baseinfo:transformers5.13.0,baseinfo:cuda13.0,baseinfo:gpu,baseinfo:python3.12.3,baseinfo:ubuntu24.04,baseinfo:jupyterlab,baseinfo:vscode,protocol:http,protocol:grpc
 
         :param command: (Optional) 镜像启动命令。
+        :param description: (Optional) 描述。最大长度256
         """
 
         self.imageName = imageName
@@ -54,3 +55,4 @@ key值说明
         self.sourceType = sourceType
         self.labels = labels
         self.command = command
+        self.description = description

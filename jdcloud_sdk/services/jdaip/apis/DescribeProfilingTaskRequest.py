@@ -67,8 +67,8 @@ class DescribeProfilingTaskParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) <b>filters 中支持使用以下关键字进行过滤</b>
-`instanceName`: 实例名称，模糊匹配，支持单个。
-`nodeName`: 所属节点名称，模糊匹配，支持单个。
+`instanceName`: 实例名称，精确匹配，支持单个。
+`nodeName`: 所属节点名称，精确匹配，支持单个。
 `collectStatus`: 采集状态，精确匹配，支持多个，可选(pending/collecting/success/failed)。
 
         """

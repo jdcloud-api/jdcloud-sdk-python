@@ -46,16 +46,57 @@ class CreateProfilingTaskRequest(JDCloudRequest):
 
 class CreateProfilingTaskParameters(object):
 
-    def __init__(self,regionId, workspaceId, jobId, profilingParam):
+    def __init__(self,regionId, workspaceId, jobId, name, duration, targetType, targets, ):
         """
         :param regionId: 地域ID
         :param workspaceId: 工作空间ID
         :param jobId: 训练任务ID
-        :param profilingParam: 性能分析任务参数。
+        :param name: 监控任务名称。必填。
+
+**限制：** 不超过128个字符
+
+        :param duration: 监控时长（秒）。必填。
+
+**取值范围：** 1 ~ 10（超出范围返回参数错误）
+
+        :param targetType: 监控目标类型，决定采集范围。必填。
+
+**可选值：**
+- `instance`：按实例采集，采集所选实例的所有进程
+- `pid`：按PID采集，仅采集指定实例内的指定PID
+
+        :param targets: 监控目标列表，每个目标对应一个实例。**必填且不允许为空数组**（任何 `targetType` 下都必填）。
+
+- **instance 模式**：`pids` 可不传或传空数组，表示采集该实例的全部进程
+- **pid 模式**：每个目标的 `pids` 必须至少包含一个PID，且PID只允许纯数字，否则返回参数错误
+
         """
 
         self.regionId = regionId
         self.workspaceId = workspaceId
         self.jobId = jobId
-        self.profilingParam = profilingParam
+        self.name = name
+        self.description = None
+        self.duration = duration
+        self.targetType = targetType
+        self.targets = targets
+        self.metrics = None
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 监控任务描述。非必填。
+
+**限制：** 不超过512个字符
+
+        """
+        self.description = description
+
+    def setMetrics(self, metrics):
+        """
+        :param metrics: (Optional) 采集指标列表，指定需要监控的性能指标。非必填，不传时由采集端按各类别默认值处理。
+
+**说明：** 取值由采集端定义，本接口不做取值校验。
+
+        """
+        self.metrics = metrics
 

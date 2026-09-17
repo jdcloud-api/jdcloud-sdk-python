@@ -19,7 +19,7 @@
 
 class StorageSpec(object):
 
-    def __init__(self, storageType, storageId, storagePath, mountPath, readonly=None):
+    def __init__(self, storageType, storageId, storagePath, mountPath, readonly=None, storageSource=None):
         """
         :param storageType:  存储类型，决定存储后端的类型和访问方式。
 
@@ -45,7 +45,7 @@ class StorageSpec(object):
 ## 各类型路径格式
 - cfs: `10.0.23.45:/dir-path` 或 `/dir-path`
 - oss: `oss://bucket.s3.cn-north-1.jdcloud-oss.com/object-path`
-- jpfs: `fs-xxxxxxxxxx:/dir-path` 或 `/dir-path`
+- jpfs: `fs-xxxxx:fsmt-yyyyy:/dir-path` 或 `fs-xxxxx:/dir-path` 或 `/dir-path`
 
 ## 使用说明
 - 路径必须存在，否则挂载失败
@@ -63,11 +63,38 @@ class StorageSpec(object):
 
         :param readonly: (Optional) 是否以只读模式挂载存储。
 
-## 使用说明
-- 仅oss类型存储有效
+## 取值
 - true: 只读模式，无法写入
 - false: 读写模式，可读写
 - 默认为false(读写模式)
+
+## 生效范围
+- `oss`类型存储与安全jpfs(`storageSource=security`)：按用户传入值挂载
+- 其他存储类型：该字段被忽略，恒挂载为可写
+
+## 限制
+- 安全队列(`queueType=security`)上的实例：除安全jpfs本身外，其余所有挂载点(oss、普通jpfs、数据集、模型)会被强制置为只读，用户传入的`readonly=false`不生效
+- 上述强制只读只取决于队列类型：安全队列上的实例即使未挂载任何安全jpfs，其余挂载点同样强制只读
+- 查询详情时返回的是服务端裁定后的值，可能与创建时传入的值不同
+- 公共(`source=public`)数据集/模型恒为只读
+
+        :param storageSource: (Optional) jpfs存储来源，区分这块jpfs是用户自有的还是平台统一管理的安全jpfs。
+
+## 取值
+- user: 用户自有的jpfs文件系统(默认)
+- security: 平台统一管理的安全jpfs，仅安全队列可用
+
+## 使用说明
+- 仅`storageType=jpfs`时有意义，其他存储类型忽略该字段
+- 不传或传空串时按`user`处理
+- 安全队列的完整使用限制见`nbWorkloadDetail.queueType`
+
+## 限制
+- 取值为`security`时，`storageType`必须是`jpfs`，否则返回参数错误
+- 取值为`security`时，该实例必须创建在安全队列(`queueType=security`)上，非安全队列使用会被拒绝
+- 安全jpfs的`storagePath`不能为空，且只能是`/data`或其子目录(`/data/...`)
+- 安全jpfs的`storagePath`会被服务端规范化后落库(如`/data/foo/../bar`规范化为`/data/bar`)，查询详情返回的是规范化后的值
+- 更新资源属性场景不支持切换为`security`：安全队列实例禁止修改资源属性，非安全队列不允许传`security`
 
         """
 
@@ -76,3 +103,4 @@ class StorageSpec(object):
         self.storagePath = storagePath
         self.mountPath = mountPath
         self.readonly = readonly
+        self.storageSource = storageSource

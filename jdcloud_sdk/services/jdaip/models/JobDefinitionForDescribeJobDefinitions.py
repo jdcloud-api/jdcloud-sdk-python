@@ -19,7 +19,7 @@
 
 class JobDefinitionForDescribeJobDefinitions(object):
 
-    def __init__(self, jobDefinitionId=None, name=None, description=None, latestState=None, latestFailureReason=None, latestStartTime=None, latestEndTime=None, latestRunningTimeInSec=None, latestScheduledTime=None, latestScheduledMinusOneDay=None, permission=None, imageVisibility=None, imageId=None, imageName=None, imageUrl=None, resource=None, models=None, storageSpaces=None, charge=None, taskPriority=None, buffalo=None, pin=None, ownerUser=None, ownerUserPin=None, createUser=None, createTime=None, updateUserId=None, updateUserName=None, updateTime=None):
+    def __init__(self, jobDefinitionId=None, name=None, description=None, latestState=None, latestFailureReason=None, latestStartTime=None, latestEndTime=None, latestRunningTimeInSec=None, latestScheduledTime=None, latestScheduledMinusOneDay=None, permission=None, imageVisibility=None, imageId=None, imageName=None, imageUrl=None, resource=None, models=None, storageSpaces=None, charge=None, taskPriority=None, buffalo=None, kuplusBuffaloId=None, pin=None, ownerUser=None, ownerUserPin=None, createUser=None, createTime=None, updateUserId=None, updateUserName=None, updateTime=None):
         """
         :param jobDefinitionId: (Optional) 任务定义ID，唯一标识一个任务定义。
 **示例：** `jd-abc123def456`
@@ -56,6 +56,7 @@ class JobDefinitionForDescribeJobDefinitions(object):
 
         :param buffalo: (Optional) 调度任务列表项信息，包含调度相关的基本信息和状态概览。
 
+        :param kuplusBuffaloId: (Optional) 已绑定的 Ku+ Buffalo 任务ID；未绑定时返回 null。
         :param pin: (Optional) 主账号ID。
         :param ownerUser: (Optional) 归属用户名称。
         :param ownerUserPin: (Optional) 归属用户主账号。
@@ -87,6 +88,7 @@ class JobDefinitionForDescribeJobDefinitions(object):
         self.charge = charge
         self.taskPriority = taskPriority
         self.buffalo = buffalo
+        self.kuplusBuffaloId = kuplusBuffaloId
         self.pin = pin
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin

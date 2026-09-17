@@ -19,22 +19,25 @@
 
 class ProfilingTaskDetail(object):
 
-    def __init__(self, profilingId=None, name=None, description=None, status=None, duration=None, targetType=None, instanceCount=None, finishedCount=None, metrics=None, createTime=None, finishTime=None):
+    def __init__(self, profilingId=None, name=None, description=None, status=None, duration=None, targetType=None, metrics=None, createTime=None, finishTime=None):
         """
         :param profilingId: (Optional) 性能分析任务ID。
         :param name: (Optional) 监控任务名称。
         :param description: (Optional) 监控任务描述。
         :param status: (Optional) 任务状态。
 
-**可选值：** `pending`、`running`、`completed`、`failed`、`canceled`
+**可选值：**
+- `pending`：等待中，任务已创建但尚未开始采集
+- `running`：运行中，正在采集数据
+- `completed`：已完成，所有实例采集结束
+- `failed`：失败，部分或全部实例采集失败
+- `expired`：结果已过期。采集结果在平台存储上仅保留有限时长，超期后被回收；此状态表示采集本身成功但结果已不可下载、也不可转存至OSS。由查询接口惰性判定并写回，仅从 `completed` 流转而来
 
         :param duration: (Optional) 监控时长（秒）。
         :param targetType: (Optional) 监控目标类型。
 
 **可选值：** `instance`、`pid`
 
-        :param instanceCount: (Optional) 监控实例总数。
-        :param finishedCount: (Optional) 实例采集完成数。
         :param metrics: (Optional) 采集指标列表。
         :param createTime: (Optional) 任务创建时间。
         :param finishTime: (Optional) 监控完成时间。
@@ -46,8 +49,6 @@ class ProfilingTaskDetail(object):
         self.status = status
         self.duration = duration
         self.targetType = targetType
-        self.instanceCount = instanceCount
-        self.finishedCount = finishedCount
         self.metrics = metrics
         self.createTime = createTime
         self.finishTime = finishTime

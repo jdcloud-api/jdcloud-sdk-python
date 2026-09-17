@@ -19,7 +19,11 @@
 
 class NodeSpecifications(object):
 
-    def __init__(self, ):
+    def __init__(self, instanceTypes=None, totalCount=None):
         """
+        :param instanceTypes: (Optional) 节点规格详情
+        :param totalCount: (Optional) 过滤后的节点规格数量
         """
 
+        self.instanceTypes = instanceTypes
+        self.totalCount = totalCount

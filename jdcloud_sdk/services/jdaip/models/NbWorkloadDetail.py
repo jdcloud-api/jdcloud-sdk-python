@@ -19,7 +19,7 @@
 
 class NbWorkloadDetail(object):
 
-    def __init__(self, queueId=None, flavorId=None, cpuM=None, memoryMiB=None, deviceModel=None, vcudaCore=None, vcudaMemory=None, vcudaRatio=None, logicAzCode=None, hpcClusterName=None, queuingTimeoutMinutes=None):
+    def __init__(self, queueId=None, queueType=None, flavorId=None, cpuM=None, memoryMiB=None, deviceModel=None, vcudaCore=None, vcudaMemory=None, vcudaRatio=None, logicAzCode=None, hpcClusterName=None, queuingTimeoutMinutes=None):
         """
         :param queueId: (Optional) 资源队列ID，实例运行所在的资源队列。
 
@@ -31,6 +31,28 @@ class NbWorkloadDetail(object):
 
 ## 私有资源池
 - 用户工作空间中的私有队列ID
+
+        :param queueType: (Optional) 队列类型，实例运行所在资源队列的类型。
+
+## 取值
+- private: 私有资源池队列
+- public: 公共资源池队列
+- exclusive: 专享资源池队列
+- security: 安全队列，出站网络受管控，禁止修改资源属性
+
+## 使用说明
+- 该字段为查询返回值，创建/更新时无需传入，队列类型由`queueId`推导
+
+## 兼容性说明
+- 存量实例以及创建时未查询到队列信息的实例，该字段返回空串
+- 调用方需同时容忍空串与`private`两种表示私有资源池的情形
+
+## 安全队列使用限制
+- 仅支持`jpfs`/`oss`两种存储类型，其他存储类型(如`cfs`)会被拒绝
+- 不支持开启大数据(BDP)功能，因其依赖CFS挂载
+- 不支持修改资源属性、不支持在启动时变更资源规格/队列、不支持保存镜像
+- 不允许把已有实例的资源属性变更到安全队列
+- 除安全jpfs(`storageSource=security`)本身外，其余挂载点强制只读，详见`storageSpec.readonly`
 
         :param flavorId: (Optional) 规格ID，公共/专享资源池的规格标识。
 
@@ -99,6 +121,7 @@ class NbWorkloadDetail(object):
         """
 
         self.queueId = queueId
+        self.queueType = queueType
         self.flavorId = flavorId
         self.cpuM = cpuM
         self.memoryMiB = memoryMiB

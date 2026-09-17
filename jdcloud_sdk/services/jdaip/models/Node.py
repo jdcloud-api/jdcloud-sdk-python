@@ -19,7 +19,7 @@
 
 class Node(object):
 
-    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, pin=None, unhealthReasons=None):
+    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
         """
         :param id: (Optional) 节点ID
         :param nodeType: (Optional) 节点类型
@@ -51,6 +51,9 @@ class Node(object):
         :param deviceBrand: (Optional) 设备品牌
         :param pin: (Optional) 所属租户
         :param unhealthReasons: (Optional) 
+        :param userTags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源组Id
+        :param resourceGroupName: (Optional) 资源组名称
         """
 
         self.id = id
@@ -83,3 +86,6 @@ class Node(object):
         self.deviceBrand = deviceBrand
         self.pin = pin
         self.unhealthReasons = unhealthReasons
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId
+        self.resourceGroupName = resourceGroupName

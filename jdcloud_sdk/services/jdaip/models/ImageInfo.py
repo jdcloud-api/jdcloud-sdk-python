@@ -19,7 +19,7 @@
 
 class ImageInfo(object):
 
-    def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, labelsObject=None, command=None, workspaceId=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, status=None, baseImage=None, dockerfile=None, queueId=None, podName=None, reason=None, ownerUser=None, ownerUserPin=None, permission=None):
+    def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, labelsObject=None, command=None, workspaceId=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, status=None, baseImage=None, dockerfile=None, queueId=None, podName=None, reason=None, ownerUser=None, ownerUserPin=None, permission=None, description=None):
         """
         :param imageId: (Optional) 镜像ID。 示例img-lh****3p
         :param imageName: (Optional) 镜像名称
@@ -72,6 +72,7 @@ labels转化对象， key:value中key值如果有._会删除转发成驼峰式�
         :param ownerUser: (Optional) 归属用户名称。
         :param ownerUserPin: (Optional) 归属用户pin。
         :param permission: (Optional) 工作空间中的资源归属权限。
+        :param description: (Optional) 描述
         """
 
         self.imageId = imageId
@@ -99,3 +100,4 @@ labels转化对象， key:value中key值如果有._会删除转发成驼峰式�
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin
         self.permission = permission
+        self.description = description

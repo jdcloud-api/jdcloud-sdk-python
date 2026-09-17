@@ -19,13 +19,13 @@
 
 class JpfsSpec(object):
 
-    def __init__(self, hpcClusterNames, specification, description=None, capacity=None, resourceGroupId=None, userTags=None):
+    def __init__(self, specification, description=None, capacity=None, resourceGroupId=None, userTags=None, hpcClusterNames=None):
         """
         :param description: (Optional) 文件系统描述
         :param capacity: (Optional) 文件系统容量
         :param resourceGroupId: (Optional) 资源组ID
         :param userTags: (Optional) 用户标签
-        :param hpcClusterNames:  HPC集群名称，多个值按JPFS服务约定分隔
+        :param hpcClusterNames: (Optional) HPC集群名称，多个值按JPFS服务约定分隔
         :param specification:  JPFS规格编码，同时作为商业平台商品名称
         """
 

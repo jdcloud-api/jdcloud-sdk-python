@@ -19,7 +19,7 @@
 
 class PublicImageInfo(object):
 
-    def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, command=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, online=None):
+    def __init__(self, imageId=None, imageName=None, imageUsage=None, imageType=None, imageUrl=None, sourceType=None, labels=None, labelList=None, command=None, pin=None, createUser=None, createTime=None, updateTime=None, updateUser=None, online=None, description=None):
         """
         :param imageId: (Optional) 镜像ID。 示例：img-lh****3p
         :param imageName: (Optional) 镜像名称
@@ -51,6 +51,7 @@ class PublicImageInfo(object):
         :param updateTime: (Optional) 更新时间
         :param updateUser: (Optional) 更新用户
         :param online: (Optional) true上线，false下线。
+        :param description: (Optional) 描述。
         """
 
         self.imageId = imageId
@@ -68,3 +69,4 @@ class PublicImageInfo(object):
         self.updateTime = updateTime
         self.updateUser = updateUser
         self.online = online
+        self.description = description

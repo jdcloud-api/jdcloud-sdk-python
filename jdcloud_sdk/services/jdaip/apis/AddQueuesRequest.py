@@ -61,7 +61,7 @@ class AddQueuesParameters(object):
 
     def setQueueConfigs(self, queueConfigs):
         """
-        :param queueConfigs: (Optional) 关联队列配置
+        :param queueConfigs: (Optional) 关联队列配置。注意：队列默认优先级会设置为5
         """
         self.queueConfigs = queueConfigs
 

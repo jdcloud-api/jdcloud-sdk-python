@@ -30,6 +30,7 @@ class WarmTaskProcess(object):
 - failed：预热失败
 - deleting：删除中
 - deleted：已删除
+- deleteFailed：删除失败
 
         :param progress: (Optional) 预热进度，取值范围[0, 100]
         :param completeTime: (Optional) 完成时间，Unix秒；未完成时返回0或不返回

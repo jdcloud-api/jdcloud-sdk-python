@@ -27,9 +27,12 @@ class TransferProfilingTaskToOssRequest(JDCloudRequest):
 
 ## 注意事项
 
-- 仅状态为 `completed` 的任务才允许转存
+- 仅状态为 `completed` 且结果未过保留期的采集任务才允许转存，否则返回400
+- 接口会先做一次过期判定：`completed` 但已超保留期的任务会被就地流转为 `expired`，随后被上面的 `completed` 校验拦下。因此结果已过期的任务同样不允许转存
+- `pending`/`running`/`failed` 状态的任务不允许转存：前两者结果尚未生成或不完整，后者没有可用结果
+- 校验不通过时不会创建任何转存记录，也不会下发转存作业
 - 需确保目标OSS Bucket已存在且有写入权限
-- 转存为异步操作，提交后返回转存任务状态
+- 转存为异步操作，提交后返回转存任务状态，接口不等待转存完成
 
     """
 
@@ -41,18 +44,34 @@ class TransferProfilingTaskToOssRequest(JDCloudRequest):
 
 class TransferProfilingTaskToOssParameters(object):
 
-    def __init__(self,regionId, workspaceId, jobId, profilingId, transferParam):
+    def __init__(self,regionId, workspaceId, jobId, profilingId, ossBucket, endpoint, objectPath):
         """
         :param regionId: 地域ID
         :param workspaceId: 工作空间ID
         :param jobId: 训练任务ID
         :param profilingId: 性能分析任务ID
-        :param transferParam: 转存参数。
+        :param ossBucket: OSS存储空间名称。
+
+**注意：** 需确保目标Bucket已存在且有写入权限。
+
+        :param endpoint: OSS服务的endpoint地址（如 `oss.cn-north-1.jdcloud-oss.com`）。
+
+**注意：** 需与目标Bucket所在地域一致。
+
+        :param objectPath: 对象存储中的目标**目录前缀**（不含Bucket名称）。
+
+采集结果会以递归拷贝的方式写入该前缀之下，因此这里应填目录而非单个文件名；
+开头的 `/` 会被忽略。
+
+**示例：** `my-profiling-results/job-abc123/`
+
         """
 
         self.regionId = regionId
         self.workspaceId = workspaceId
         self.jobId = jobId
         self.profilingId = profilingId
-        self.transferParam = transferParam
+        self.ossBucket = ossBucket
+        self.endpoint = endpoint
+        self.objectPath = objectPath
 

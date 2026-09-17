@@ -62,6 +62,7 @@ class NotebookSpec(object):
 ## 使用说明
 - **公共资源池**: 可通过lbEnable=true开启公网访问，系统自动分配LB，无需指定lbId/lbPort
 - **私有资源池**: 需要传入与资源队列可通信的负载均衡ID和端口
+- **安全队列(`queueType=security`)**: 可通过lbEnable=true开启SSH访问，系统自动分配LB与端口，无需指定lbId/lbPort
 - 不需要公网SSH访问时不要指定此参数
 
         :param internetEgress: (Optional) 公网出口配置，用于配置Notebook的出公网访问方式。

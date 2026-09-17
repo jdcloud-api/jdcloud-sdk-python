@@ -19,7 +19,7 @@
 
 class JpfsParamForExperiment(object):
 
-    def __init__(self, id=None, sourcePath=None):
+    def __init__(self, id=None, mountTargetId=None, sourcePath=None):
         """
         :param id: (Optional) JPFS 文件系统ID。
 
@@ -29,6 +29,16 @@ class JpfsParamForExperiment(object):
 ## 示例
 `fs-11******us`
 
+        :param mountTargetId: (Optional) JPFS 挂载点 ID，指定要使用的挂载点。
+
+**使用场景：** 当 JPFS 文件系统有多个挂载点时，可通过此字段指定具体的挂载点。
+
+**选点规则：** 如果不指定，系统将根据节点池类型和 JPFS 规格自动选择匹配的挂载点：
+- 异构节点池(combined)：选择 RDMA 协议的挂载点
+- 云主机节点池(vm)：智能型规格选择 NFS 协议，通用型规格选择 TCP 协议
+
+**示例：** `mt-xxxxxxxx`
+
         :param sourcePath: (Optional) JPFS 源路径。
 
 ## 示例
@@ -37,4 +47,5 @@ class JpfsParamForExperiment(object):
         """
 
         self.id = id
+        self.mountTargetId = mountTargetId
         self.sourcePath = sourcePath

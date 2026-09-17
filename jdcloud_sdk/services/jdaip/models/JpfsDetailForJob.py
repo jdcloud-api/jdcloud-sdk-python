@@ -19,9 +19,19 @@
 
 class JpfsDetailForJob(object):
 
-    def __init__(self, id=None, sourcePath=None, mountPath=None):
+    def __init__(self, id=None, mountTargetId=None, sourcePath=None, mountPath=None):
         """
         :param id: (Optional) jpfs ID。示例：fs-11******us。
+        :param mountTargetId: (Optional) JPFS 挂载点 ID，指定要使用的挂载点。
+
+**使用场景：** 当 JPFS 文件系统有多个挂载点时，可通过此字段指定具体的挂载点。
+
+**选点规则：** 如果不指定，系统将根据节点池类型和 JPFS 规格自动选择匹配的挂载点：
+- 异构节点池(combined)：选择 RDMA 协议的挂载点
+- 云主机节点池(vm)：智能型规格选择 NFS 协议，通用型规格选择 TCP 协议
+
+**示例：** `mt-xxxxxxxx`
+
         :param sourcePath: (Optional) jpfs 源路径。示例：/data/d1。
         :param mountPath: (Optional) 挂载点配置。示例：/mnt/ws/jpfs-1。
 建议挂载到/mnt/开头的路径下，不支持挂载到系统目录。
@@ -30,5 +40,6 @@ class JpfsDetailForJob(object):
         """
 
         self.id = id
+        self.mountTargetId = mountTargetId
         self.sourcePath = sourcePath
         self.mountPath = mountPath

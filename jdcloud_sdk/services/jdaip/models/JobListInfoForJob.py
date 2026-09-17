@@ -19,7 +19,7 @@
 
 class JobListInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, runningTimeInSec=None, charge=None, replica=None, queueId=None, queueType=None, flavorId=None, flavorInfo=None, taskPriority=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, workspaceId=None, workspaceName=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, charge=None, replica=None, queueId=None, queueType=None, flavorId=None, flavorInfo=None, taskPriority=None, gpuDeviceModel=None, vcudaCore=None, cpuMilli=None, memoryMiB=None, roleResource=None, internetEgress=None, instanceInfo=None, resourceState=None, permission=None, resourceGroupId=None, resourceGroupName=None, userTags=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID，唯一标识一个训练任务。
 **示例：** `job-abc123def456`
@@ -61,6 +61,8 @@ class JobListInfoForJob(object):
 **可选值：** `pytorch`, `ray`
 
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
+        :param secJob: (Optional) 是否为安全训练任务。
+        :param supportExportModel: (Optional) 是否支持导出模型。
         :param runningTimeInSec: (Optional) 任务运行时长，单位：秒。
 
 **说明：** 从任务开始运行到当前或结束的时间
@@ -102,7 +104,6 @@ class JobListInfoForJob(object):
         :param resourceGroupId: (Optional) 资源组ID。
         :param resourceGroupName: (Optional) 资源组名称。
         :param userTags: (Optional) 用户自定义标签列表。
-        :param profilingEnable: (Optional) 是否开启性能分析。
         :param ownerUserPin: (Optional) 归属用户 pin。
         :param ownerUser: (Optional) 归属用户名称。
         :param pin: (Optional) 主账号。
@@ -122,6 +123,8 @@ class JobListInfoForJob(object):
         self.restartCount = restartCount
         self.jobType = jobType
         self.privileged = privileged
+        self.secJob = secJob
+        self.supportExportModel = supportExportModel
         self.runningTimeInSec = runningTimeInSec
         self.charge = charge
         self.replica = replica
@@ -142,7 +145,6 @@ class JobListInfoForJob(object):
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName
         self.userTags = userTags
-        self.profilingEnable = profilingEnable
         self.ownerUserPin = ownerUserPin
         self.ownerUser = ownerUser
         self.pin = pin

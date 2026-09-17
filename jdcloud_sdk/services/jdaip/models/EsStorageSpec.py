@@ -27,7 +27,7 @@ class EsStorageSpec(object):
 
         :param storagePath:  存储路径。`cfs` 类型参数示例(10.0.23.45:/dir-path或/dir-path)。
 `oss` 类型参数示例(oss://bucket.s3.cn-north-1.jdcloud-oss.com/object-path)。
-`jpfs` 类型参数示例(fs-xxxxxxxxxx:/dir-path或/dir-path)。
+`jpfs` 类型参数示例(fs-xxxxxxxxxx:/dir-path或fs-xxxxx:fsmt-yyyyy:/dir-path或/dir-path)。
 
         :param mountPath:  挂载路径，列表中的第一个存储作为工作目录必须挂载到/mnt/workspace不能更改。
 其他存储建议挂载到/mnt/开头的路径下，不支持挂载到系统目录。

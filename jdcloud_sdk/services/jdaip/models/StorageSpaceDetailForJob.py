@@ -19,9 +19,9 @@
 
 class StorageSpaceDetailForJob(object):
 
-    def __init__(self, storageType=None, readonly=None, oss=None, cfs=None, jpfs=None, secure=None):
+    def __init__(self, storageType=None, readonly=None, oss=None, cfs=None, jpfs=None, secure=None, secureOss=None):
         """
-        :param storageType: (Optional) 存储类型（数据来源），大小写敏感，地域不同，支持的存储类型也不同，需要根据地域实际支持的存储类型选择：[oss, cfs, jpfs, secure]。其中 `secure` 仅限安全队列使用。
+        :param storageType: (Optional) 存储类型（数据来源），大小写敏感，地域不同，支持的存储类型也不同，需要根据地域实际支持的存储类型选择：[oss, cfs, jpfs, secure, secureOss]。其中 `secure` 和 `secureOss` 仅限安全队列使用。
 
         :param readonly: (Optional) 是否以只读模式挂载存储。只读模式下，无法在挂载的存储中进行写操作。仅当存储类型为oss时有效。
 
@@ -29,6 +29,7 @@ class StorageSpaceDetailForJob(object):
         :param cfs: (Optional) 
         :param jpfs: (Optional) 
         :param secure: (Optional) 
+        :param secureOss: (Optional) 
         """
 
         self.storageType = storageType
@@ -37,3 +38,4 @@ class StorageSpaceDetailForJob(object):
         self.cfs = cfs
         self.jpfs = jpfs
         self.secure = secure
+        self.secureOss = secureOss

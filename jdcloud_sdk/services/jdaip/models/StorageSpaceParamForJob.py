@@ -19,7 +19,7 @@
 
 class StorageSpaceParamForJob(object):
 
-    def __init__(self, storageType=None, readonly=None, oss=None, cfs=None, jpfs=None, secure=None):
+    def __init__(self, storageType=None, readonly=None, oss=None, cfs=None, jpfs=None, secure=None, secureOss=None):
         """
         :param storageType: (Optional) 存储类型，决定外部共享存储的数据来源和存储方式。
 
@@ -28,10 +28,11 @@ class StorageSpaceParamForJob(object):
 - `cfs`：云文件系统
 - `jpfs`：京东云并行文件系统
 - `secure`：安全存储（JPFS），**仅安全队列可用**
+- `secureOss`：安全存储（OSS），**仅安全队列可用**
 
 **注意：**
 - 大小写敏感
-- `secure` 仅在安全队列下可用，非安全队列使用将返回错误
+- `secure` 和 `secureOss` 仅在安全队列下可用，非安全队列使用将返回错误
 
         :param readonly: (Optional) 是否以只读模式挂载存储。
 
@@ -49,6 +50,7 @@ class StorageSpaceParamForJob(object):
         :param cfs: (Optional) 
         :param jpfs: (Optional) 
         :param secure: (Optional) 
+        :param secureOss: (Optional) 
         """
 
         self.storageType = storageType
@@ -57,3 +59,4 @@ class StorageSpaceParamForJob(object):
         self.cfs = cfs
         self.jpfs = jpfs
         self.secure = secure
+        self.secureOss = secureOss

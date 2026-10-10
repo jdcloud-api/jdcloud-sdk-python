@@ -19,10 +19,10 @@
 
 class Node(object):
 
-    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
+    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, deviceModel=None, driverVersion=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
         """
         :param id: (Optional) 节点ID
-        :param nodeType: (Optional) 节点类型
+        :param nodeType: (Optional) 节点类型，vm为云主机节点，hpc为物理集群节点
         :param chargeType: (Optional) 计费方式，pack：包年包月；advance：预付费
         :param name: (Optional) 节点名称
         :param enable: (Optional) 是否启用
@@ -49,6 +49,8 @@ class Node(object):
         :param cpuQuota: (Optional) 资源配额信息
         :param nodeLabels: (Optional) 
         :param deviceBrand: (Optional) 设备品牌
+        :param deviceModel: (Optional) GPU类型
+        :param driverVersion: (Optional) 驱动版本
         :param pin: (Optional) 所属租户
         :param unhealthReasons: (Optional) 
         :param userTags: (Optional) Tag信息
@@ -84,6 +86,8 @@ class Node(object):
         self.cpuQuota = cpuQuota
         self.nodeLabels = nodeLabels
         self.deviceBrand = deviceBrand
+        self.deviceModel = deviceModel
+        self.driverVersion = driverVersion
         self.pin = pin
         self.unhealthReasons = unhealthReasons
         self.userTags = userTags

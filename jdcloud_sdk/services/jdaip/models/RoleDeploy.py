@@ -19,7 +19,7 @@
 
 class RoleDeploy(object):
 
-    def __init__(self, roleName=None, replica=None, podsState=None, resource=None, deployType=None, distributedNodeCount=None, affinity=None, imageUrl=None, registryUser=None, registryPass=None, healthChecks=None, imageName=None, imageSource=None, command=None, port=None, env=None, inferEngine=None, timeout=None, routerPrefillPolicy=None, routerDecodePolicy=None):
+    def __init__(self, roleName=None, replica=None, podsState=None, resource=None, deployType=None, distributedNodeCount=None, affinity=None, imageUrl=None, registryUser=None, registryPass=None, healthChecks=None, imageName=None, imageSource=None, command=None, port=None, env=None, inferEngine=None, timeout=None, routerPrefillPolicy=None, routerDecodePolicy=None, kvTransferProtocol=None):
         """
         :param roleName: (Optional) 角色名称（prefill/decode/router/custom）
         :param replica: (Optional) 角色副本数
@@ -41,6 +41,7 @@ class RoleDeploy(object):
         :param timeout: (Optional) 服务超时时间，单位秒
         :param routerPrefillPolicy: (Optional) prefill路由策略
         :param routerDecodePolicy: (Optional) decode路由策略
+        :param kvTransferProtocol: (Optional) 多角色部署KVCache传输协议类型
         """
 
         self.roleName = roleName
@@ -63,3 +64,4 @@ class RoleDeploy(object):
         self.timeout = timeout
         self.routerPrefillPolicy = routerPrefillPolicy
         self.routerDecodePolicy = routerDecodePolicy
+        self.kvTransferProtocol = kvTransferProtocol

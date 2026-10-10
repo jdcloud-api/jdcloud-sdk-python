@@ -19,7 +19,7 @@
 
 class JobDetailInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, minAvailable=None, batchSummary=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID。
         :param name: (Optional) 训练任务名称。
@@ -31,6 +31,7 @@ class JobDetailInfoForJob(object):
 `stopping`：`停止中`
 `stopped`：`停止`
 `success`：`成功`
+`partial-success`：`部分成功`（仅 Batch 任务）
 `deleting`: `删除中`
 `rolling-back`：`回滚中`
 `rolled-back`：`已回滚`
@@ -41,11 +42,14 @@ class JobDetailInfoForJob(object):
 - `environment-failed`: 算力健康检测不通过。
 - `task-hang`: 任务卡住。
 - `process-inspection-failed`: 进程巡检失败。
+- `task-evict`: 任务副本被抢占或归还。
 
         :param failureReason: (Optional) 训练任务失败原因。详细描述失败原因信息。
 
         :param restartCount: (Optional) 重启次数。
         :param jobType: (Optional) 任务类型。
+        :param minAvailable: (Optional) Batch 任务开始调度的最小副本数；非 Batch 任务不返回。
+        :param batchSummary: (Optional) Batch 任务的逻辑副本状态统计；非 Batch 任务不返回。
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
         :param secJob: (Optional) 是否为安全训练任务。
         :param supportExportModel: (Optional) 是否支持导出模型。
@@ -109,6 +113,8 @@ class JobDetailInfoForJob(object):
         self.failureReason = failureReason
         self.restartCount = restartCount
         self.jobType = jobType
+        self.minAvailable = minAvailable
+        self.batchSummary = batchSummary
         self.privileged = privileged
         self.secJob = secJob
         self.supportExportModel = supportExportModel

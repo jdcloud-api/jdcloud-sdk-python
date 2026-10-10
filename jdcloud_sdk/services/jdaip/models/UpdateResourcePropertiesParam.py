@@ -19,7 +19,7 @@
 
 class UpdateResourcePropertiesParam(object):
 
-    def __init__(self, imageSource=None, imageId=None, lbSpec=None, workloadSpec=None, storages=None, datasets=None, models=None, codes=None, envs=None, nodeAffinities=None, rdma=None, sshSpec=None, taskPriority=None):
+    def __init__(self, imageSource=None, imageId=None, lbSpec=None, workloadSpec=None, storages=None, datasets=None, techDatasets=None, models=None, codes=None, envs=None, nodeAffinities=None, rdma=None, sshSpec=None, taskPriority=None):
         """
         :param imageSource: (Optional) 镜像来源，指定新镜像的来源类型。
 
@@ -41,7 +41,7 @@ class UpdateResourcePropertiesParam(object):
 ## 使用说明
 - 私有资源池中的Notebook: 需要传入与资源队列可通信的负载均衡ID和端口
 - 公共资源池中的Notebook: 可通过lbEnable=true开启公网访问，系统自动分配LB
-- 安全队列(`queueType=security`)中的Notebook: 可通过lbEnable=true开启SSH访问，系统自动分配LB与端口，无需指定lbId/lbPort
+- 安全队列(`queueType=security`或`sec-vm`)中的Notebook: 可通过lbEnable=true开启SSH访问，系统自动分配LB与端口，无需指定lbId/lbPort
 - 不需要公网访问时不要指定此参数
 
         :param workloadSpec: (Optional) 工作负载资源配置，用于更新计算资源。
@@ -60,6 +60,10 @@ class UpdateResourcePropertiesParam(object):
 
 ## 使用说明
 - 更新数据集配置需要确保新配置与队列的网络连通性
+
+        :param techDatasets: (Optional) 科技数据集配置，用于整体替换科技数据集挂载。
+
+不传或传null表示保留原配置，传空数组表示清空，传非空数组表示全量替换；独立最多50条。
 
         :param models: (Optional) 模型配置，用于更新模型挂载。
 
@@ -123,6 +127,7 @@ class UpdateResourcePropertiesParam(object):
         self.workloadSpec = workloadSpec
         self.storages = storages
         self.datasets = datasets
+        self.techDatasets = techDatasets
         self.models = models
         self.codes = codes
         self.envs = envs

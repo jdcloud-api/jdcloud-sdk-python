@@ -28,6 +28,7 @@ class DescribeJobTypesRequest(JDCloudRequest):
 **支持的训练任务类型：**
 - `pytorch`：PyTorch 框架，适用于深度学习训练、分布式训练
 - `ray`：Ray 框架，适用于分布式计算、强化学习、超参调优
+- `batch`：批量任务，多个同规格 Worker 副本独立执行
 
     """
 

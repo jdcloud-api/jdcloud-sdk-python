@@ -19,7 +19,7 @@
 
 class NotebookDetail(object):
 
-    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, internetEgress=None, charge=None, storages=None, datasets=None, models=None, codes=None, envs=None, logCollectConfig=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, nodeAffinities=None, sshSpec=None):
+    def __init__(self, pin=None, createUser=None, createUserPin=None, notebookId=None, name=None, description=None, appType=None, taskId=None, state=None, resourceState=None, workspaceId=None, token=None, uri=None, vscodeUri=None, customServiceUrls=None, reason=None, runningTime=None, imageId=None, imageSource=None, imageName=None, imageUrl=None, updateUser=None, updateUserPin=None, createTime=None, updateTime=None, workload=None, lb=None, internetEgress=None, charge=None, storages=None, datasets=None, techDatasets=None, models=None, codes=None, envs=None, logCollectConfig=None, ownerUser=None, ownerUserPin=None, permission=None, shutdownPolicy=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, nodeAffinities=None, sshSpec=None):
         """
         :param pin: (Optional) 主账号，资源所属的主账号标识。
         :param createUser: (Optional) 创建人用户名，创建Notebook的用户名称。
@@ -146,6 +146,7 @@ class NotebookDetail(object):
 - 存储类型、URL
 - 挂载路径、读写模式
 
+        :param techDatasets: (Optional) 科技数据集列表，返回Notebook本地只读挂载信息。
         :param models: (Optional) 模型列表，实例挂载的模型配置详情。
 
 ## 包含信息
@@ -236,6 +237,7 @@ class NotebookDetail(object):
         self.charge = charge
         self.storages = storages
         self.datasets = datasets
+        self.techDatasets = techDatasets
         self.models = models
         self.codes = codes
         self.envs = envs

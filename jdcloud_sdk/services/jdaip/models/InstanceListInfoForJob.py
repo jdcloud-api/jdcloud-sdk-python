@@ -19,7 +19,7 @@
 
 class InstanceListInfoForJob(object):
 
-    def __init__(self, name=None, type=None, ip=None, nodeIp=None, nodeName=None, state=None, createTime=None, startTime=None, endTime=None, runningTimeInSec=None, terminalUrl=None):
+    def __init__(self, name=None, type=None, ip=None, nodeIp=None, nodeName=None, state=None, taskIndex=None, exitCode=None, terminationReason=None, attemptNo=None, isCurrent=None, createTime=None, startTime=None, endTime=None, runningTimeInSec=None, terminalUrl=None):
         """
         :param name: (Optional) 实例名称，对应 Kubernetes Pod 名称。
 
@@ -54,8 +54,14 @@ class InstanceListInfoForJob(object):
 - `succeeded`：成功，训练正常完成
 - `failed`：失败，实例执行失败
 - `terminating`：终止中，正在终止实例
+- `terminated`：已终止；Batch 的历史 attempt 或任务停止后可能返回
 - `unknown`：未知，状态无法获取
 
+        :param taskIndex: (Optional) Batch 副本的零基序号；非 Batch 任务不返回。
+        :param exitCode: (Optional) 主容器退出码；尚未退出或非 Batch 任务不返回。
+        :param terminationReason: (Optional) Pod 或主容器终止原因；非 Batch 任务不返回。
+        :param attemptNo: (Optional) 同一 taskIndex 的尝试序号，从 1 开始；非 Batch 任务不返回。
+        :param isCurrent: (Optional) 是否为该 taskIndex 当前的 Pod 尝试；非 Batch 任务不返回。
         :param createTime: (Optional) 实例创建时间。
         :param startTime: (Optional) 实例启动时间（容器开始运行时间）。
         :param endTime: (Optional) 实例结束时间。
@@ -74,6 +80,11 @@ class InstanceListInfoForJob(object):
         self.nodeIp = nodeIp
         self.nodeName = nodeName
         self.state = state
+        self.taskIndex = taskIndex
+        self.exitCode = exitCode
+        self.terminationReason = terminationReason
+        self.attemptNo = attemptNo
+        self.isCurrent = isCurrent
         self.createTime = createTime
         self.startTime = startTime
         self.endTime = endTime

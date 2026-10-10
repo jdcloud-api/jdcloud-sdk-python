@@ -19,7 +19,7 @@
 
 class JobParam(object):
 
-    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, privileged=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None, profilingEnable=None):
+    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, minAvailable=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, privileged=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None, profilingEnable=None):
         """
         :param name:  训练任务名称。
 
@@ -61,6 +61,7 @@ class JobParam(object):
 **可选值：**
 - `pytorch`：PyTorch 框架，适用于深度学习训练
 - `ray`：Ray 框架，适用于分布式计算、强化学习
+- `batch`：批量任务，多个同规格 Worker 独立执行
 
 **注意：** 大小写敏感，必须使用小写
 
@@ -83,6 +84,7 @@ class JobParam(object):
 
         :param replica: (Optional) **已废弃：** 请参考 `roleResource` 字段
 
+        :param minAvailable: (Optional) Batch 任务的最小可调度副本数，范围为 `[1, roleResource.roles[0].count]`；非 Batch 任务不传。
         :param taskPriority: (Optional) 任务优先级，取值范围 `1..9`。
 
 - 共享资源池：创建时必填，仅校验取值范围
@@ -146,6 +148,7 @@ class JobParam(object):
 **适用场景：**
 - Ray 分布式训练（必须配置 Head 和 Worker）
 - PyTorch 分布式训练（可配置不同规格的 Worker）
+- Batch 批量任务（必须且只能配置一个 Worker，`count` 为副本总数）
 
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式，默认值为 `false`。
 
@@ -264,6 +267,7 @@ class JobParam(object):
         self.jobType = jobType
         self.command = command
         self.replica = replica
+        self.minAvailable = minAvailable
         self.taskPriority = taskPriority
         self.envs = envs
         self.resource = resource

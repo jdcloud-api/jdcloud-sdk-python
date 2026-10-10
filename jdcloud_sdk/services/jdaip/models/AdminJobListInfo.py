@@ -54,11 +54,12 @@ class AdminJobListInfo(object):
 | `stopping` | 停止中，正在停止任务 | 等待 |
 | `stopped` | 停止，任务已被停止 | 可重新提交 |
 | `success` | 成功，任务执行完成 | 可查看结果 |
+| `partial-success` | 部分成功，仅 Batch 任务返回 | 可查看各副本结果 |
 | `deleting` | 删除中，正在删除任务 | 等待 |
 | `rolling-back` | 回滚中，正在回滚 | 等待 |
 | `rolled-back` | 已回滚，回滚完成 | - |
 
-        :param failureType: (Optional) 训练任务失败类型，仅在 state 为 `failed` 时返回。
+        :param failureType: (Optional) 训练任务失败类型。
 
 ## 失败类型说明
 
@@ -69,6 +70,7 @@ class AdminJobListInfo(object):
 | `environment-failed` | 算力健康检测不通过 | 检查资源配置，确保环境正常 |
 | `task-hang` | 任务卡住 | 检查代码逻辑，可能存在死锁 |
 | `process-inspection-failed` | 进程巡检失败 | 检查进程状态和资源使用情况 |
+| `task-evict` | 任务副本被抢占或跨队列归还 | 查看任务实例与调度事件 |
 
         :param failureReason: (Optional) 训练任务失败原因。
 
@@ -88,6 +90,7 @@ class AdminJobListInfo(object):
 ## 可选值
 - `PyTorch`：PyTorch 训练任务
 - `Ray`：Ray 训练任务
+- `Batch`：批量任务
 
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
         :param runningTimeInSec: (Optional) 持续运行时间，单位为秒。

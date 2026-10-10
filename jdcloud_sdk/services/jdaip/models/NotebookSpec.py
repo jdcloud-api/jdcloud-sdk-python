@@ -19,7 +19,7 @@
 
 class NotebookSpec(object):
 
-    def __init__(self, name, appType, imageSource, imageName, imageUrl, workloadSpec, storages, description=None, imageId=None, lbSpec=None, internetEgress=None, datasets=None, models=None, permission=None, nodeAffinities=None, rdma=None, codes=None, envs=None, sshSpec=None, userTags=None, resourceGroupId=None):
+    def __init__(self, name, appType, imageSource, imageName, imageUrl, workloadSpec, storages, description=None, imageId=None, lbSpec=None, internetEgress=None, datasets=None, techDatasets=None, models=None, permission=None, nodeAffinities=None, rdma=None, codes=None, envs=None, sshSpec=None, userTags=None, resourceGroupId=None):
         """
         :param name:  Notebook实例名称。
 
@@ -62,7 +62,7 @@ class NotebookSpec(object):
 ## 使用说明
 - **公共资源池**: 可通过lbEnable=true开启公网访问，系统自动分配LB，无需指定lbId/lbPort
 - **私有资源池**: 需要传入与资源队列可通信的负载均衡ID和端口
-- **安全队列(`queueType=security`)**: 可通过lbEnable=true开启SSH访问，系统自动分配LB与端口，无需指定lbId/lbPort
+- **安全队列(`queueType=security`或`sec-vm`)**: 可通过lbEnable=true开启SSH访问，系统自动分配LB与端口，无需指定lbId/lbPort
 - 不需要公网SSH访问时不要指定此参数
 
         :param internetEgress: (Optional) 公网出口配置，用于配置Notebook的出公网访问方式。
@@ -91,6 +91,13 @@ class NotebookSpec(object):
 - 支持公共数据集和个人数据集
 - 可选择数据集版本
 - 建议挂载到`/mnt/datasets/`路径下
+
+        :param techDatasets: (Optional) 科技数据集配置列表，独立最多挂载50条,仅限京东内部用户使用。
+
+## 配置说明
+- 支持公共数据集和个人数据集
+- 可选择数据集版本
+- 建议挂载到`/mnt/techdataset-x/`路径下
 
         :param models: (Optional) 模型配置列表，定义Notebook挂载的模型资源。
 
@@ -182,6 +189,7 @@ class NotebookSpec(object):
         self.workloadSpec = workloadSpec
         self.storages = storages
         self.datasets = datasets
+        self.techDatasets = techDatasets
         self.models = models
         self.permission = permission
         self.nodeAffinities = nodeAffinities

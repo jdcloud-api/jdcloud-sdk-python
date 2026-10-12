@@ -19,11 +19,15 @@
 
 class Disk(object):
 
-    def __init__(self, diskType=None, capacity=None):
+    def __init__(self, diskType=None, capacity=None, diskCategory=None, diskId=None):
         """
         :param diskType: (Optional) 硬盘类型
         :param capacity: (Optional) 硬盘容量
+        :param diskCategory: (Optional) 磁盘分类，取值为 cloud(云盘) 或 local(本地盘)
+        :param diskId: (Optional) 磁盘Id, 仅云盘有效
         """
 
         self.diskType = diskType
         self.capacity = capacity
+        self.diskCategory = diskCategory
+        self.diskId = diskId

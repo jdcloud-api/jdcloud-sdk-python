@@ -22,7 +22,7 @@ class NodeInstance(object):
     def __init__(self, id=None, nodeType=None, name=None, cluster=None, nodePoolId=None, nodePoolName=None, region=None, config=None, ip=None, status=None):
         """
         :param id: (Optional) 节点ID
-        :param nodeType: (Optional) 节点类型
+        :param nodeType: (Optional) 节点类型，vm为云主机节点，hpc为物理集群节点
         :param name: (Optional) 节点名称
         :param cluster: (Optional) 集群ID
         :param nodePoolId: (Optional) 节点池ID

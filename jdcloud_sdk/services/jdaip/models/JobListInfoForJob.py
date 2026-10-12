@@ -34,6 +34,7 @@ class JobListInfoForJob(object):
 - `pending`：启动中，资源已分配，正在创建 Pod
 - `running`：运行中，训练任务正在执行
 - `success`：成功，训练任务正常完成
+- `partial-success`：部分成功，仅 Batch 任务返回；有副本成功且有副本失败
 - `failed`：失败，训练任务执行失败
 - `stopping`：停止中，正在执行停止操作
 - `stopped`：已停止，任务已被手动停止
@@ -41,7 +42,7 @@ class JobListInfoForJob(object):
 - `rolling-back`：回滚中，正在执行回滚操作
 - `rolled-back`：已回滚，回滚操作完成
 
-        :param failureType: (Optional) 训练任务失败类型，仅在状态为 `failed` 时有值。
+        :param failureType: (Optional) 训练任务失败类型。
 
 **可选值：**
 - `resource-failed`：节点故障
@@ -49,6 +50,7 @@ class JobListInfoForJob(object):
 - `environment-failed`：算力健康检测不通过
 - `task-hang`：任务卡住
 - `process-inspection-failed`：进程巡检失败
+- `task-evict`：任务副本被调度器抢占或跨队列归还
 
         :param failureReason: (Optional) 训练任务失败原因的详细描述。
 
@@ -58,7 +60,7 @@ class JobListInfoForJob(object):
 
         :param jobType: (Optional) 训练框架类型。
 
-**可选值：** `pytorch`, `ray`
+**可选值：** `pytorch`, `ray`, `batch`
 
         :param privileged: (Optional) 是否为用户训练主容器开启容器特权模式。
         :param secJob: (Optional) 是否为安全训练任务。
@@ -75,7 +77,15 @@ class JobListInfoForJob(object):
 
         :param queueId: (Optional) 队列ID。
 
-        :param queueType: (Optional) 队列类型。公共资源池为 `public`，共享资源池为 `exclusive`，安全资源池为 `secure`。
+        :param queueType: (Optional) 队列类型。
+
+**可选值：**
+- `public`：公共资源池
+- `exclusive`：共享资源池
+- `private`：专属资源池
+- `security`：安全异构节点池
+- `sec-vm`：安全云主机节点池
+
         :param flavorId: (Optional) 公共资源池或共享资源池的规格ID。
         :param flavorInfo: (Optional) 规格描述。
         :param taskPriority: (Optional) 任务优先级。共享资源池取值范围为 `1..9`；未配置优先级时返回 `0`。

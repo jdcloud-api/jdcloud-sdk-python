@@ -24,6 +24,7 @@ class DescribeJobRequest(JDCloudRequest):
     查询训练任务详情。
 
 获取训练任务的完整配置信息和运行状态，包括基本信息、镜像配置、资源配置、存储配置、运行配置、Pod信息等。
+Batch 任务额外返回 `minAvailable` 和 `batchSummary`；混合成功/失败时状态为 `partial-success`。
 
 ## 使用场景
 

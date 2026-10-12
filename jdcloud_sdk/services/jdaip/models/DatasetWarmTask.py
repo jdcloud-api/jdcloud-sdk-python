@@ -19,7 +19,7 @@
 
 class DatasetWarmTask(object):
 
-    def __init__(self, warmTaskId=None, datasetId=None, datasetName=None, status=None, progress=None, createTime=None, completeTime=None, safeStorageId=None, safeStorageDisplayId=None, safeStorageName=None, jpfsFolderName=None, estimatedSize=None, errorCode=None, errorMessage=None):
+    def __init__(self, warmTaskId=None, datasetId=None, datasetName=None, status=None, progress=None, createTime=None, completeTime=None, safeStorageId=None, safeStorageDisplayId=None, safeStorageName=None, folderName=None, taskType=None, bucketName=None, estimatedSize=None, errorCode=None, errorMessage=None):
         """
         :param warmTaskId: (Optional) 预热任务ID，生成规则为数据集ID加当前时间戳
         :param datasetId: (Optional) 数据集ID
@@ -36,10 +36,12 @@ class DatasetWarmTask(object):
         :param progress: (Optional) 预热进度，取值范围[0, 100]
         :param createTime: (Optional) 创建时间，Unix秒
         :param completeTime: (Optional) 完成时间，Unix秒；未完成时返回0或不返回
-        :param safeStorageId: (Optional) 安全存储ID
-        :param safeStorageDisplayId: (Optional) 安全存储展示ID，在安全存储ID前拼接sec-前缀；当安全存储ID已包含sec-前缀时保持不变
-        :param safeStorageName: (Optional) 安全存储名称快照
-        :param jpfsFolderName: (Optional) JPFS文件夹名称，生成规则与预热任务ID一致
+        :param safeStorageId: (Optional) 安全存储ID，JPFS 任务返回；OSS 任务可为空
+        :param safeStorageDisplayId: (Optional) 安全存储展示ID，在安全存储ID前拼接sec-前缀；当安全存储ID已包含sec-前缀时保持不变；OSS 任务可为空
+        :param safeStorageName: (Optional) 安全存储名称快照，JPFS 任务返回；OSS 任务可为空
+        :param folderName: (Optional) 预热目标路径，JPFS/OSS 共用，生成规则保持一致
+        :param taskType: (Optional) 预热任务类型，可选值：jpfs、oss；存量任务可为空字符串
+        :param bucketName: (Optional) OSS bucket 名称；taskType=oss 时返回，JPFS 任务可为空或不返回
         :param estimatedSize: (Optional) 数据集预估大小，单位GB
         :param errorCode: (Optional) 错误码，仅任务失败或控制操作异常时返回
         :param errorMessage: (Optional) 错误信息，仅任务失败或控制操作异常时返回
@@ -55,7 +57,9 @@ class DatasetWarmTask(object):
         self.safeStorageId = safeStorageId
         self.safeStorageDisplayId = safeStorageDisplayId
         self.safeStorageName = safeStorageName
-        self.jpfsFolderName = jpfsFolderName
+        self.folderName = folderName
+        self.taskType = taskType
+        self.bucketName = bucketName
         self.estimatedSize = estimatedSize
         self.errorCode = errorCode
         self.errorMessage = errorMessage

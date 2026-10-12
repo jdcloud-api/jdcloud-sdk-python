@@ -19,7 +19,7 @@
 
 class Jpfs(object):
 
-    def __init__(self, id=None, fileSystemId=None, name=None, pin=None, region=None, fileSystemType=None, productType=None, az=None, spec=None, status=None, billingInfo=None, chargeExpiredTime=None, buyId=None, orderNumber=None, vpcId=None, subnetId=None, clusterId=None, msg=None, createTime=None, updateTime=None):
+    def __init__(self, id=None, fileSystemId=None, name=None, pin=None, region=None, fileSystemType=None, productType=None, az=None, edge=None, spec=None, status=None, billingInfo=None, chargeExpiredTime=None, rdmaMountTargetId=None, tcpMountTargetId=None, nfsMountTargetId=None, buyId=None, orderNumber=None, vpcId=None, subnetId=None, clusterId=None, msg=None, createTime=None, updateTime=None):
         """
         :param id: (Optional) 平台JPFS ID
         :param fileSystemId: (Optional) 云端JPFS文件系统ID
@@ -29,10 +29,14 @@ class Jpfs(object):
         :param fileSystemType: (Optional) 文件系统类型
         :param productType: (Optional) 产品类型
         :param az: (Optional) 可用区
+        :param edge: (Optional) 是否为边缘网络作用域
         :param spec: (Optional) 文件系统规格
         :param status: (Optional) 文件系统状态
         :param billingInfo: (Optional) JPFS资源计费配置
         :param chargeExpiredTime: (Optional) 计费到期时间，原样返回JPFS ChargeSpecRes中的chargeExpiredTime
+        :param rdmaMountTargetId: (Optional) RDMA协议挂载目标ID
+        :param tcpMountTargetId: (Optional) TCP协议挂载目标ID，仅general规格返回
+        :param nfsMountTargetId: (Optional) NFS协议挂载目标ID，仅intelligent规格返回
         :param buyId: (Optional) 商业平台购买单ID
         :param orderNumber: (Optional) 商业平台订单号
         :param vpcId: (Optional) VPC ID
@@ -51,10 +55,14 @@ class Jpfs(object):
         self.fileSystemType = fileSystemType
         self.productType = productType
         self.az = az
+        self.edge = edge
         self.spec = spec
         self.status = status
         self.billingInfo = billingInfo
         self.chargeExpiredTime = chargeExpiredTime
+        self.rdmaMountTargetId = rdmaMountTargetId
+        self.tcpMountTargetId = tcpMountTargetId
+        self.nfsMountTargetId = nfsMountTargetId
         self.buyId = buyId
         self.orderNumber = orderNumber
         self.vpcId = vpcId

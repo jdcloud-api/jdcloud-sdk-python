@@ -46,6 +46,7 @@ class CreateJobRequest(JDCloudRequest):
 
 - `resource` 参数已废弃
 - Ray 任务必须使用 `roleResource` 配置 Head 和 Worker 角色
+- Batch 任务使用单 Worker `roleResource`，副本数取 Worker 的 `count`，`minAvailable` 默认 1，不支持重启策略、健康检测、高级配置和 RDMA
 - **重启策略仅适用于异构节点池的 PyTorch 任务**，云主机资源池和 Ray 任务不支持
 - 公共资源池和共享资源池角色规格须通过 `logicAzCode` 指定可用区（异构规格还须填 `hpcClusterName`）
 - 共享资源池固定使用 `queueId=joybuilder-exclusive-queue`；用户必须已加入共享池且存在启用的 user queue

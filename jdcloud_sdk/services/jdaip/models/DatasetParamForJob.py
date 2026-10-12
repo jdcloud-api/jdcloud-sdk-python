@@ -19,7 +19,7 @@
 
 class DatasetParamForJob(object):
 
-    def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, mountPath=None, readonly=None):
+    def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, mountPath=None, readonly=None, mountTargetId=None, host=None):
         """
         :param datasetVisibility: (Optional) 数据集可见性，决定数据集的访问权限。
 
@@ -58,6 +58,22 @@ class DatasetParamForJob(object):
 - 当数据集来源为 `public` 时，此参数无效（始终只读）
 - 当存储类型不是 `oss` 时，此参数无效
 
+        :param mountTargetId: (Optional) JPFS 挂载点 ID，指定数据集使用的 JPFS 挂载点。
+
+**使用场景：** 当数据集底层存储为 JPFS 且文件系统有多个挂载点时，可通过此字段指定具体的挂载点。
+
+**示例：** `mt-xxxxxxxx`
+
+        :param host: (Optional) CFS 挂载点 IP 地址，指定数据集使用的 CFS 挂载目标。
+
+**格式：** IPv4 地址
+
+**示例：** `192.168.0.1`
+
+**说明：**
+- 非必传参数
+- 如需指定特定挂载点，请传此参数
+
         """
 
         self.datasetVisibility = datasetVisibility
@@ -65,3 +81,5 @@ class DatasetParamForJob(object):
         self.datasetVersion = datasetVersion
         self.mountPath = mountPath
         self.readonly = readonly
+        self.mountTargetId = mountTargetId
+        self.host = host

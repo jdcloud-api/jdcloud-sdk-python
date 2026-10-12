@@ -37,7 +37,7 @@ class DatasetWarmCommercialDatasetInfo(object):
         :param pin: (Optional) 主账号pin
         :param createTime: (Optional) 创建时间
         :param updateTime: (Optional) 更新时间
-        :param hasDatasetWarmTask: (Optional) 该数据集在当前安全存储空间下是否存在非删除状态的预热任务
+        :param hasDatasetWarmTask: (Optional) 该数据集在当前安全存储下是否存在非删除状态的预热任务。JPFS 场景按 safeStorageId 判断，OSS 场景按 taskType=oss + bucketName 判断；OSS 场景未传 bucketName 时，safeStorageId 按 bucketName 兼容处理
         """
 
         self.datasetId = datasetId

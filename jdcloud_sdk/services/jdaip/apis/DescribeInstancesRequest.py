@@ -25,6 +25,7 @@ class DescribeInstancesRequest(JDCloudRequest):
 
 查询训练任务下所有运行实例（Pod）的详细信息，包括名称、类型、状态、IP、运行时长等。
 支持分页查询和多种过滤条件，异常状态数据可优先展示。
+Batch 实例额外返回 `taskIndex`、`exitCode`、`terminationReason`、`attemptNo` 和 `isCurrent`。
 
 ## 使用场景
 

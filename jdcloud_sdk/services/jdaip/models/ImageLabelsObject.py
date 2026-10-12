@@ -22,7 +22,7 @@ class ImageLabelsObject(object):
     def __init__(self, baseinfo=None, jobtype=None, protocol=None, distributed=None):
         """
         :param baseinfo: (Optional) 镜像基础环境信息：vllm0.25.0、pytorch2.11.0、cuda13.0、gpu等
-        :param jobtype: (Optional) 训练任务,当imageUsage包含training时， 使用该字段在创建训练任务时，任务类型使用，支持单个，可选值pytorch、ray
+        :param jobtype: (Optional) 训练任务,当imageUsage包含training时， 使用该字段在创建训练任务时，任务类型使用，可选值pytorch、ray、batch
 训练任务文档参考: [创建训练任务](https://docs.jdcloud.com/cn/jdaip/create-trainjob)
 
         :param protocol: (Optional) 在线服务自定义部署-支持协议，支持多个http、grpc、tcp、udp

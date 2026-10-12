@@ -19,7 +19,7 @@
 
 class EsStorageSpec(object):
 
-    def __init__(self, storageType, storageId, storagePath, mountPath, readonly=None):
+    def __init__(self, storageType, storageId, storagePath, mountPath, mountTargetId=None, host=None, readonly=None):
         """
         :param storageType:  存储类型，支持三种类型`cfs`、`oss`、`jpfs`。
         :param storageId:  存储ID。`cfs`和`jpfs`类型存储需要传对应类型的资源ID。
@@ -33,6 +33,10 @@ class EsStorageSpec(object):
 其他存储建议挂载到/mnt/开头的路径下，不支持挂载到系统目录。
 系统目录参考：/, /bin, /boot, /dev, /etc, /home, /lib, /lib32, /lib64, /libx32, /opt, /proc, /root, /run, /sbin, /sys, /tmp, /usr, /var。
 
+        :param mountTargetId: (Optional) 挂载点ID。仅当存储类型为`jpfs`时生效，用于指定JPFS的挂载点ID。
+
+        :param host: (Optional) 挂载点IP。仅当存储类型为`cfs`时生效，用于指定CFS的挂载点IP地址。
+
         :param readonly: (Optional) 是否以只读模式挂载存储。只读模式下，用户无法在挂载的存储中进行写操作。仅当存储类型为oss时有效。
 
         """
@@ -41,4 +45,6 @@ class EsStorageSpec(object):
         self.storageId = storageId
         self.storagePath = storagePath
         self.mountPath = mountPath
+        self.mountTargetId = mountTargetId
+        self.host = host
         self.readonly = readonly

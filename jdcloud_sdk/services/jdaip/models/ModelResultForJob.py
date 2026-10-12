@@ -19,13 +19,15 @@
 
 class ModelResultForJob(object):
 
-    def __init__(self, modelVisibility=None, modelId=None, modelVersion=None, readonly=None, storage=None):
+    def __init__(self, modelVisibility=None, modelId=None, modelVersion=None, readonly=None, mountTargetId=None, host=None, storage=None):
         """
         :param modelVisibility: (Optional) 模型可见性。可选值：[public, private]。
         :param modelId: (Optional) 模型ID。示例：model-11******us。
         :param modelVersion: (Optional) 模型版本。示例：v1。
         :param readonly: (Optional) 是否以只读模式挂载模型。只读模式下，无法在挂载的模型中进行写操作。当数据集来源为public，或存储类型不是oss时，该参数无效。
 
+        :param mountTargetId: (Optional) JPFS 挂载点 ID。
+        :param host: (Optional) CFS 挂载点 IP 地址。
         :param storage: (Optional) 存储参数。
         """
 
@@ -33,4 +35,6 @@ class ModelResultForJob(object):
         self.modelId = modelId
         self.modelVersion = modelVersion
         self.readonly = readonly
+        self.mountTargetId = mountTargetId
+        self.host = host
         self.storage = storage

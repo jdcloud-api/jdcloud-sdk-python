@@ -19,7 +19,7 @@
 
 class EsDatasetSpec(object):
 
-    def __init__(self, source, storageType, datasetId, datasetVersion, datasetUrl, mountPath, datasetName=None, readonly=None):
+    def __init__(self, source, storageType, datasetId, datasetVersion, datasetUrl, mountPath, datasetName=None, mountTargetId=None, host=None, readonly=None):
         """
         :param source:  来源，支持(public,self)。
         :param storageType:  存储类型，支持三种类型cfs、oss、jpfs。
@@ -30,6 +30,10 @@ class EsDatasetSpec(object):
 `cfs` 类型参数示例(10.0.23.45:/dir-path或/dir-path)。
 `oss` 类型参数示例(oss://bucket.s3.cn-north-1.jdcloud-oss.com/object-path)。
 `jpfs` 类型参数示例(fs-xxxxxxxxxx:/dir-path或fs-xxxxx:fsmt-yyyyy:/dir-path或/dir-path)。
+
+        :param mountTargetId: (Optional) 挂载点ID。仅当存储类型为`jpfs`时生效，用于指定JPFS的挂载点ID。
+
+        :param host: (Optional) 挂载点IP。仅当存储类型为`cfs`时生效，用于指定CFS的挂载点IP地址。
 
         :param mountPath:  建议挂载到/mnt/开头的路径下，不支持挂载到系统目录。
 系统目录参考：/, /bin, /boot, /dev, /etc, /home, /lib, /lib32, /lib64, /libx32, /opt, /proc, /root, /run, /sbin, /sys, /tmp, /usr, /var。
@@ -45,5 +49,7 @@ class EsDatasetSpec(object):
         self.datasetName = datasetName
         self.datasetVersion = datasetVersion
         self.datasetUrl = datasetUrl
+        self.mountTargetId = mountTargetId
+        self.host = host
         self.mountPath = mountPath
         self.readonly = readonly

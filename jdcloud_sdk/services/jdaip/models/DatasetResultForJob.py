@@ -19,13 +19,15 @@
 
 class DatasetResultForJob(object):
 
-    def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, readonly=None, storage=None):
+    def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, readonly=None, mountTargetId=None, host=None, storage=None):
         """
         :param datasetVisibility: (Optional) 数据集可见性。可选值：[public, private]。
         :param datasetId: (Optional) 数据集ID。示例：ds-11******ik
         :param datasetVersion: (Optional) 数据集版本。示例：v1
         :param readonly: (Optional) 否以只读模式挂载数据集。只读模式下，无法在挂载的数据集中进行写操作。当数据集来源为public，或存储类型不是oss时，该参数无效。
 
+        :param mountTargetId: (Optional) JPFS 挂载点 ID。
+        :param host: (Optional) CFS 挂载点 IP 地址。
         :param storage: (Optional) 存储参数。
         """
 
@@ -33,4 +35,6 @@ class DatasetResultForJob(object):
         self.datasetId = datasetId
         self.datasetVersion = datasetVersion
         self.readonly = readonly
+        self.mountTargetId = mountTargetId
+        self.host = host
         self.storage = storage

@@ -24,7 +24,7 @@ class Queue(object):
         :param id: (Optional) 资源队列ID
         :param name: (Optional) 资源队列名称
         :param nodePoolId: (Optional) 节点池ID
-        :param nodePoolInfo: (Optional) 节点池相关信息，key值参照NodePool属性，查询时有用（name、poolType、vpcId、vpcName、topology）
+        :param nodePoolInfo: (Optional) 节点池相关信息
         :param namespace: (Optional) 队列下任务的命名空间
         :param gpuQuotas: (Optional) GPU资源配额信息
         :param cpuQuota: (Optional) CPU资源配额信息
@@ -44,7 +44,7 @@ class Queue(object):
         :param taskPreempt: (Optional) 是否开启任务抢占
         :param createTime: (Optional) 创建时间，秒
         :param desc: (Optional) 资源队列名称
-        :param queueType: (Optional) 队列类型，common：普通队列；security：安全队列
+        :param queueType: (Optional) 废弃，参考nodePoolInfo.poolType，队列类型，common：普通队列；security：安全队列
         :param billingMode: (Optional) 计费模式，创建时确定不可修改
 - 1 按量计费（不承诺配额，min 默认 0）
 - 2 按配置计费（强制 min=max）

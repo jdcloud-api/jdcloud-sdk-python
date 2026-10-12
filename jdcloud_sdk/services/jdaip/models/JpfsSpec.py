@@ -26,7 +26,7 @@ class JpfsSpec(object):
         :param resourceGroupId: (Optional) 资源组ID
         :param userTags: (Optional) 用户标签
         :param hpcClusterNames: (Optional) HPC集群名称，多个值按JPFS服务约定分隔
-        :param specification:  JPFS规格编码，同时作为商业平台商品名称
+        :param specification:  JPFS规格编码；intelligent仅支持RDMA挂载，general同时支持RDMA和TCP挂载
         """
 
         self.description = description

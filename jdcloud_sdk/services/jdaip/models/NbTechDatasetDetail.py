@@ -19,10 +19,15 @@
 
 class NbTechDatasetDetail(object):
 
-    def __init__(self, source=None, storageName=None, datasetId=None, datasetVersion=None, mountPath=None, readonly=None):
+    def __init__(self, source=None, storageName=None, storageType=None, datasetId=None, datasetVersion=None, mountPath=None, readonly=None):
         """
         :param source: (Optional) 科技数据集来源，public表示公共数据集，self表示工作空间自有数据集。
         :param storageName: (Optional) 科技数据集名称；资产查询失败时可能为空。
+        :param storageType: (Optional) 存储类型，数据集的存储后端类型。
+
+## 支持类型
+- oss: 京东云对象存储
+
         :param datasetId: (Optional) 科技数据集ID。
         :param datasetVersion: (Optional) 科技数据集版本。
         :param mountPath: (Optional) 科技数据集在Notebook容器中的挂载路径。
@@ -31,6 +36,7 @@ class NbTechDatasetDetail(object):
 
         self.source = source
         self.storageName = storageName
+        self.storageType = storageType
         self.datasetId = datasetId
         self.datasetVersion = datasetVersion
         self.mountPath = mountPath

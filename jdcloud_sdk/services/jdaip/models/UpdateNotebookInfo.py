@@ -21,7 +21,7 @@ class UpdateNotebookInfo(object):
 
     def __init__(self, name=None, description=None, permission=None, ownerUserPin=None, internetEgress=None):
         """
-        :param name: (Optional) 名称。1~32字符，可以包含中文、数字、大小写字母、英文下划线"_"、中划线"-"或点"."。传null表示不修改此字段。
+        :param name: (Optional) 名称。1~256字符，可以包含中文、数字、大小写字母、英文下划线"_"、中划线"-"或点"."。传null表示不修改此字段。
         :param description: (Optional) 描述。不超过256字符。传null表示不修改此字段。
         :param permission: (Optional) 工作空间中的资源归属权限，支持(public,private)，只有管理员和拥有者可以修改。传null表示不修改此字段。
 管理员可查看工作空间中全部资源，其他用户只能查看归属自己的private权限的资源或public权限的资源。

@@ -19,7 +19,7 @@
 
 class AdminInferenceInfo(object):
 
-    def __init__(self, inferenceId=None, name=None, serviceId=None, serviceName=None, appType=None, state=None, createUser=None, createUserPin=None, workspaceId=None, workspaceName=None, userTags=None, resourceGroupInfo=None):
+    def __init__(self, inferenceId=None, name=None, serviceId=None, serviceName=None, appType=None, state=None, createUser=None, createUserPin=None, createTime=None, workspaceId=None, workspaceName=None, userTags=None, resourceGroupInfo=None):
         """
         :param inferenceId: (Optional) 推理服务实例ID
         :param name: (Optional) 推理服务实例名称，带有版本号
@@ -40,6 +40,7 @@ class AdminInferenceInfo(object):
 
         :param createUser: (Optional) 创建服务的用户
         :param createUserPin: (Optional) 创建服务的用户PIN
+        :param createTime: (Optional) 推理服务创建时间
         :param workspaceId: (Optional) 推理服务所属工作空间ID
         :param workspaceName: (Optional) 推理服务所属工作空间名称
         :param userTags: (Optional) 用户标签
@@ -54,6 +55,7 @@ class AdminInferenceInfo(object):
         self.state = state
         self.createUser = createUser
         self.createUserPin = createUserPin
+        self.createTime = createTime
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName
         self.userTags = userTags

@@ -33,7 +33,7 @@ class Jpfs(object):
         :param spec: (Optional) 文件系统规格
         :param status: (Optional) 文件系统状态
         :param billingInfo: (Optional) JPFS资源计费配置
-        :param chargeExpiredTime: (Optional) 计费到期时间，原样返回JPFS ChargeSpecRes中的chargeExpiredTime
+        :param chargeExpiredTime: (Optional) 商业平台返回的JPFS到期时间原始值；无有效到期时间时返回空字符串
         :param rdmaMountTargetId: (Optional) RDMA协议挂载目标ID
         :param tcpMountTargetId: (Optional) TCP协议挂载目标ID，仅general规格返回
         :param nfsMountTargetId: (Optional) NFS协议挂载目标ID，仅intelligent规格返回

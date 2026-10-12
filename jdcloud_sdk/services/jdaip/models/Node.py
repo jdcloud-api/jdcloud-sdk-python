@@ -19,7 +19,7 @@
 
 class Node(object):
 
-    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, deviceModel=None, driverVersion=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
+    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, expireTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, deviceModel=None, driverVersion=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
         """
         :param id: (Optional) 节点ID
         :param nodeType: (Optional) 节点类型，vm为云主机节点，hpc为物理集群节点
@@ -45,6 +45,7 @@ class Node(object):
         :param status: (Optional) 状态，creating:创建中；ready:运行中；fail:创建失败；stopping:停止中；stopped:已停止;starting:启动中；rebuilding:重置系统中；deleting:删除中
         :param msg: (Optional) 错误信息
         :param createTime: (Optional) 创建时间，秒
+        :param expireTime: (Optional) 商业平台返回的节点到期时间原始值；无有效到期时间时返回空字符串
         :param gpuQuota: (Optional) GPU资源配额信息
         :param cpuQuota: (Optional) 资源配额信息
         :param nodeLabels: (Optional) 
@@ -82,6 +83,7 @@ class Node(object):
         self.status = status
         self.msg = msg
         self.createTime = createTime
+        self.expireTime = expireTime
         self.gpuQuota = gpuQuota
         self.cpuQuota = cpuQuota
         self.nodeLabels = nodeLabels

@@ -61,7 +61,7 @@ class UpdateJobParameters(object):
 
     def setName(self, name):
         """
-        :param name: (Optional) 训练任务名称。1~32字符，仅支持中文、大小写字母、数字、英文中划线 "-"和英文下划线"_"。
+        :param name: (Optional) 训练任务名称。1~256字符，仅支持中文、大小写字母、数字、英文中划线 "-"和英文下划线"_"。
         """
         self.name = name
 

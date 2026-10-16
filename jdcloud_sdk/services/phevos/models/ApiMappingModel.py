@@ -20,6 +20,7 @@
 class ApiMappingModel(object):
 
 
+
     def __init__(self, requestParameterMapping=None, responseParameterMapping=None, type=None):
         """
         :param requestParameterMapping: (Optional) 请求参数映射

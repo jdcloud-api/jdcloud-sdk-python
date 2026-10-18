@@ -19,7 +19,7 @@
 
 class PublicTechDatasetInfo(object):
 
-    def __init__(self, datasetId=None, dssDatasetId=None, datasetName=None, description=None, datasetIntroduction=None, versionNum=None, labels=None, createTime=None):
+    def __init__(self, datasetId=None, dssDatasetId=None, datasetName=None, description=None, datasetIntroduction=None, versionNum=None, labels=None, createTime=None, isAvailable=None):
         """
         :param datasetId: (Optional) 数据集ID。示例："dst-*******"
         :param dssDatasetId: (Optional) 关联的数据工厂-数据集ID。
@@ -29,6 +29,7 @@ class PublicTechDatasetInfo(object):
         :param versionNum: (Optional) 版本数量
         :param labels: (Optional) 标签信息,仅做展示使用，多个值的由;拼接
         :param createTime: (Optional) 创建时间
+        :param isAvailable: (Optional) 是否可用：false表示不可用，dss数据集查不到
         """
 
         self.datasetId = datasetId
@@ -39,3 +40,4 @@ class PublicTechDatasetInfo(object):
         self.versionNum = versionNum
         self.labels = labels
         self.createTime = createTime
+        self.isAvailable = isAvailable

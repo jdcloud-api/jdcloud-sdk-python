@@ -50,7 +50,7 @@ class DescribeQueuesParameters(object):
 
     def setFilter(self, filter):
         """
-        :param filter: (Optional) 模糊匹配过来条件名称或描述
+        :param filter: (Optional) 模糊匹配队列名称或描述
         """
         self.filter = filter
 
@@ -68,7 +68,7 @@ class DescribeQueuesParameters(object):
 
     def setQueueType(self, queueType):
         """
-        :param queueType: (Optional) 队列类型，0：普通队列；1：安全队列，默认0
+        :param queueType: (Optional) 队列类型，common：普通队列；security：安全队列；不传则不过滤队列类型
         """
         self.queueType = queueType
 
@@ -86,13 +86,13 @@ class DescribeQueuesParameters(object):
 
     def setPageSize(self, pageSize):
         """
-        :param pageSize: (Optional) 分页页大小；未传时默认10
+        :param pageSize: (Optional) 分页页大小；未传时默认10，最大值为99
         """
         self.pageSize = pageSize
 
     def setOrderBy(self, orderBy):
         """
-        :param orderBy: (Optional) 排序字段
+        :param orderBy: (Optional) 排序字段；当前服务端固定按创建时间排序，仅支持createTime
         """
         self.orderBy = orderBy
 

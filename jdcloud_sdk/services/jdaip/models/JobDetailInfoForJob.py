@@ -19,7 +19,7 @@
 
 class JobDetailInfoForJob(object):
 
-    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, minAvailable=None, batchSummary=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, jobId=None, name=None, state=None, failureType=None, failureReason=None, restartCount=None, jobType=None, minAvailable=None, batchSummary=None, privileged=None, secJob=None, supportExportModel=None, runningTimeInSec=None, description=None, imageVisibility=None, imageId=None, imageNameSnapshot=None, imageUrlSnapshot=None, command=None, replica=None, envs=None, resource=None, storageSpaces=None, storageSpacesObject=None, localStorage=None, datasets=None, techDatasets=None, models=None, codes=None, pods=None, charge=None, logCollectConfig=None, roleResource=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, resourceGroupId=None, resourceGroupName=None, userTags=None, taskPriority=None, profilingEnable=None, ownerUserPin=None, ownerUser=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param jobId: (Optional) 训练任务ID。
         :param name: (Optional) 训练任务名称。
@@ -71,6 +71,7 @@ class JobDetailInfoForJob(object):
         :param localStorage: (Optional) 本地存储挂载配置。未开启时为 null。
 
         :param datasets: (Optional) 数据集。
+        :param techDatasets: (Optional) 科技数据集列表，返回训练容器的只读挂载及存储配置信息。
         :param models: (Optional) 模型。
         :param codes: (Optional) 代码仓库配置列表。
         :param pods: (Optional) 关联的pod资源列表
@@ -132,6 +133,7 @@ class JobDetailInfoForJob(object):
         self.storageSpacesObject = storageSpacesObject
         self.localStorage = localStorage
         self.datasets = datasets
+        self.techDatasets = techDatasets
         self.models = models
         self.codes = codes
         self.pods = pods

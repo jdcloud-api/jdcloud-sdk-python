@@ -19,13 +19,15 @@
 
 class ExternalQueue(object):
 
-    def __init__(self, id=None, name=None, nodePoolId=None, nodePoolInfo=None, namespace=None, status=None, msg=None, enable=None, priority=None, taskPriority=None, taskPreempt=None, createTime=None, desc=None, queueType=None, billingMode=None, realTimeResourceStatistics=None):
+    def __init__(self, id=None, name=None, nodePoolId=None, nodePoolInfo=None, namespace=None, gpuQuotas=None, cpuQuota=None, status=None, msg=None, enable=None, priority=None, taskPriority=None, taskPreempt=None, createTime=None, desc=None, queueType=None, realTimeResourceStatistics=None):
         """
         :param id: (Optional) 资源队列ID
         :param name: (Optional) 资源队列名称
         :param nodePoolId: (Optional) 节点池ID
         :param nodePoolInfo: (Optional) 节点池相关信息，key值参照NodePool属性，查询时有用（name、poolType、vpcId、vpcName、topology）
         :param namespace: (Optional) 队列下任务的命名空间
+        :param gpuQuotas: (Optional) GPU资源配额信息；数值来自队列当前配额和使用情况
+        :param cpuQuota: (Optional) CPU和内存资源配额信息；CPU单位为核，内存单位为GiB
         :param status: (Optional) 队列状态，
 - 1 创建中
 - 2 创建失败
@@ -42,11 +44,7 @@ class ExternalQueue(object):
         :param taskPreempt: (Optional) 是否开启任务抢占
         :param createTime: (Optional) 创建时间，秒
         :param desc: (Optional) 资源队列名称
-        :param queueType: (Optional) 队列类型，0：普通队列；1：安全队列，默认0
-        :param billingMode: (Optional) 计费模式，创建时确定不可修改
-- 1 按量计费（不承诺配额，min 默认 0）
-- 2 按配置计费（强制 min=max）
-
+        :param queueType: (Optional) 队列类型，common：普通队列；security：安全队列
         :param realTimeResourceStatistics: (Optional) 
         """
 
@@ -55,6 +53,8 @@ class ExternalQueue(object):
         self.nodePoolId = nodePoolId
         self.nodePoolInfo = nodePoolInfo
         self.namespace = namespace
+        self.gpuQuotas = gpuQuotas
+        self.cpuQuota = cpuQuota
         self.status = status
         self.msg = msg
         self.enable = enable
@@ -64,5 +64,4 @@ class ExternalQueue(object):
         self.createTime = createTime
         self.desc = desc
         self.queueType = queueType
-        self.billingMode = billingMode
         self.realTimeResourceStatistics = realTimeResourceStatistics

@@ -19,7 +19,7 @@
 
 class JobParam(object):
 
-    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, minAvailable=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, models=None, roleResource=None, privileged=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None, profilingEnable=None):
+    def __init__(self, name, imageVisibility, imageId, imageUrl, jobType, command, description=None, replica=None, minAvailable=None, taskPriority=None, envs=None, resource=None, storageSpaces=None, localStorage=None, datasets=None, techDatasets=None, models=None, roleResource=None, privileged=None, internetEgress=None, advancedConfig=None, restartPolicy=None, healthCheckPolicy=None, permission=None, nodeAffinities=None, codes=None, queuingTimeoutMinutes=None, userTags=None, resourceGroupId=None, profilingEnable=None):
         """
         :param name:  训练任务名称。
 
@@ -135,6 +135,10 @@ class JobParam(object):
 - 挂载训练数据集
 - 挂载验证数据集
 - 挂载测试数据集
+
+        :param techDatasets: (Optional) 科技数据集配置列表，用于将科技数据集只读挂载到训练容器，仅限京东内部用户使用。
+
+科技数据集固定使用 OSS 并以只读模式挂载，存储信息由服务端根据数据集版本查询，调用方无需传入。
 
         :param models: (Optional) 模型配置列表，用于挂载预训练模型或检查点文件。
 
@@ -274,6 +278,7 @@ class JobParam(object):
         self.storageSpaces = storageSpaces
         self.localStorage = localStorage
         self.datasets = datasets
+        self.techDatasets = techDatasets
         self.models = models
         self.roleResource = roleResource
         self.privileged = privileged

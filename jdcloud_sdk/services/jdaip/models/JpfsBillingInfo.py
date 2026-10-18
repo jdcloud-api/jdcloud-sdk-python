@@ -19,15 +19,13 @@
 
 class JpfsBillingInfo(object):
 
-    def __init__(self, chargeMode=None, chargeUnit=None, chargeDuration=None, autoRenew=None):
+    def __init__(self, chargeMode=None, chargeUnit=None, chargeDuration=None):
         """
         :param chargeMode: (Optional) 计费模式
         :param chargeUnit: (Optional) 计费时长单位
         :param chargeDuration: (Optional) 计费时长
-        :param autoRenew: (Optional) 是否自动续费
         """
 
         self.chargeMode = chargeMode
         self.chargeUnit = chargeUnit
         self.chargeDuration = chargeDuration
-        self.autoRenew = autoRenew

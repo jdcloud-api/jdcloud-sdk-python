@@ -19,7 +19,7 @@
 
 class Jpfs(object):
 
-    def __init__(self, id=None, fileSystemId=None, name=None, pin=None, region=None, fileSystemType=None, productType=None, az=None, edge=None, spec=None, status=None, billingInfo=None, chargeExpiredTime=None, rdmaMountTargetId=None, tcpMountTargetId=None, nfsMountTargetId=None, buyId=None, orderNumber=None, vpcId=None, subnetId=None, clusterId=None, msg=None, createTime=None, updateTime=None):
+    def __init__(self, id=None, fileSystemId=None, name=None, pin=None, region=None, fileSystemType=None, productType=None, az=None, edge=None, spec=None, status=None, billingInfo=None, chargeExpiredTime=None, chargeReleaseTime=None, rdmaMountTargetId=None, tcpMountTargetId=None, nfsMountTargetId=None, buyId=None, orderNumber=None, vpcId=None, subnetId=None, clusterId=None, msg=None, createTime=None, updateTime=None):
         """
         :param id: (Optional) 平台JPFS ID
         :param fileSystemId: (Optional) 云端JPFS文件系统ID
@@ -34,6 +34,7 @@ class Jpfs(object):
         :param status: (Optional) 文件系统状态
         :param billingInfo: (Optional) JPFS资源计费配置
         :param chargeExpiredTime: (Optional) 商业平台返回的JPFS到期时间原始值；无有效到期时间时返回空字符串
+        :param chargeReleaseTime: (Optional) 商业平台返回的JPFS释放时间原始值；无有效释放时间时返回空字符串
         :param rdmaMountTargetId: (Optional) RDMA协议挂载目标ID
         :param tcpMountTargetId: (Optional) TCP协议挂载目标ID，仅general规格返回
         :param nfsMountTargetId: (Optional) NFS协议挂载目标ID，仅intelligent规格返回
@@ -60,6 +61,7 @@ class Jpfs(object):
         self.status = status
         self.billingInfo = billingInfo
         self.chargeExpiredTime = chargeExpiredTime
+        self.chargeReleaseTime = chargeReleaseTime
         self.rdmaMountTargetId = rdmaMountTargetId
         self.tcpMountTargetId = tcpMountTargetId
         self.nfsMountTargetId = nfsMountTargetId

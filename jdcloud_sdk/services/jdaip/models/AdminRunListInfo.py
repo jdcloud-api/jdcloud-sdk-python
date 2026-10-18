@@ -19,7 +19,7 @@
 
 class AdminRunListInfo(object):
 
-    def __init__(self, runId=None, name=None, description=None, workspaceId=None, workspaceName=None, experimentId=None, experimentName=None, state=None, runningTimeInSec=None, bizType=None, resourceGroupId=None, resourceGroupName=None, userTags=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
+    def __init__(self, runId=None, name=None, description=None, workspaceId=None, workspaceName=None, experimentId=None, experimentName=None, state=None, runningTimeInSec=None, taskPriority=None, bizType=None, resourceGroupId=None, resourceGroupName=None, userTags=None, pin=None, createUser=None, createTime=None, updateUser=None, updateTime=None):
         """
         :param runId: (Optional) 微调运行ID，系统自动生成的唯一标识。
 
@@ -77,6 +77,13 @@ class AdminRunListInfo(object):
 
 ## 用途
 用于计算资源消耗和成本统计。
+
+        :param taskPriority: (Optional) 任务优先级。
+
+共享资源池取值范围为 `1..9`，数值越大优先级越高；未配置优先级时返回 `0`。
+
+## 使用场景
+当队列开启优先级调度时生效，用于任务排队时的调度排序。
 
         :param bizType: (Optional) 业务类型。
 
@@ -139,6 +146,7 @@ class AdminRunListInfo(object):
         self.experimentName = experimentName
         self.state = state
         self.runningTimeInSec = runningTimeInSec
+        self.taskPriority = taskPriority
         self.bizType = bizType
         self.resourceGroupId = resourceGroupId
         self.resourceGroupName = resourceGroupName

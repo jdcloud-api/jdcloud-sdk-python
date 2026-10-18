@@ -21,11 +21,11 @@ class DatasetParamForJob(object):
 
     def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, mountPath=None, readonly=None, mountTargetId=None, host=None):
         """
-        :param datasetVisibility: (Optional) 数据集可见性，决定数据集的访问权限。
+        :param datasetVisibility: (Optional) 数据集来源，指定使用公共数据集还是个人数据集。
 
 **可选值：**
-- `public`：公开数据集，工作空间所有成员可使用
-- `private`：私有数据集，仅创建者和空间管理员可使用
+- `public`：表示产品页面[资产管理-数据集]对应的公共数据集，平台预置，所有用户可使用
+- `private`：表示产品页面[资产管理-数据集]对应的个人数据集
 
         :param datasetId: (Optional) 数据集ID，唯一标识一个数据集。
 

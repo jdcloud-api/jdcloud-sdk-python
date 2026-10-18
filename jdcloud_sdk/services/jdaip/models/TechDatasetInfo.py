@@ -19,7 +19,7 @@
 
 class TechDatasetInfo(object):
 
-    def __init__(self, datasetId=None, dssDatasetId=None, datasetName=None, description=None, versionNum=None, workspaceId=None, pin=None, createTime=None, createUser=None, createUserPin=None, ownerUser=None, ownerUserPin=None, permission=None):
+    def __init__(self, datasetId=None, dssDatasetId=None, datasetName=None, description=None, versionNum=None, workspaceId=None, pin=None, createTime=None, createUser=None, createUserPin=None, ownerUser=None, ownerUserPin=None, permission=None, isAvailable=None):
         """
         :param datasetId: (Optional) 数据集ID。示例："dst-*******"
         :param dssDatasetId: (Optional) 关联的数据工厂-数据集ID。
@@ -34,6 +34,7 @@ class TechDatasetInfo(object):
         :param ownerUser: (Optional) 归属用户名称。
         :param ownerUserPin: (Optional) 归属用户pin。
         :param permission: (Optional) 数据集资源归属权限。支持(public,private)
+        :param isAvailable: (Optional) 是否可用：false表示不可用，dss数据集查不到
         """
 
         self.datasetId = datasetId
@@ -49,3 +50,4 @@ class TechDatasetInfo(object):
         self.ownerUser = ownerUser
         self.ownerUserPin = ownerUserPin
         self.permission = permission
+        self.isAvailable = isAvailable

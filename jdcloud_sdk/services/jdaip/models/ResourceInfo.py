@@ -19,7 +19,7 @@
 
 class ResourceInfo(object):
 
-    def __init__(self, id=None, type=None, name=None, workspaceId=None, workspaceName=None, createUser=None, taskPriority=None, relatedInfo=None):
+    def __init__(self, id=None, type=None, name=None, workspaceId=None, workspaceName=None, createUser=None, createTime=None, taskPriority=None, relatedInfo=None):
         """
         :param id: (Optional) 资源id。
         :param type: (Optional) 资源类型。["Notebook","TrainJob","FineTuning","Inference","Simulation"]
@@ -27,6 +27,7 @@ class ResourceInfo(object):
         :param workspaceId: (Optional) 工作空间id。
         :param workspaceName: (Optional) 工作空间名称。
         :param createUser: (Optional) 创建人。
+        :param createTime: (Optional) 创建时间，格式为 `2026-01-01T00:00:00Z`。
         :param taskPriority: (Optional) 任务优先级。取值范围为 `1..9`；未配置优先级时返回 `0`。
         :param relatedInfo: (Optional) 关联信息。
 type为FineTuning时，关联信息为实验信息；
@@ -40,5 +41,6 @@ type为Inference时，关联信息为服务信息；
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName
         self.createUser = createUser
+        self.createTime = createTime
         self.taskPriority = taskPriority
         self.relatedInfo = relatedInfo

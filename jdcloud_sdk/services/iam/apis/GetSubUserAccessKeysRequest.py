@@ -32,10 +32,17 @@ class GetSubUserAccessKeysRequest(JDCloudRequest):
 
 class GetSubUserAccessKeysParameters(object):
 
-    def __init__(self,subUser):
+    def __init__(self,subUser, ):
         """
         :param subUser: 子用户名称
         """
 
         self.subUser = subUser
+        self.account = None
+
+    def setAccount(self, account):
+        """
+        :param account: (Optional) 主用户pin
+        """
+        self.account = account
 

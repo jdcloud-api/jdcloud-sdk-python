@@ -19,7 +19,7 @@
 
 class SystemAkGenVo(object):
 
-    def __init__(self, id=None, serviceCode=None, type=None, systemCode=None, accessKey=None, createUser=None, createTime=None, updateUser=None, updateTime=None, version=None, source=None, selected=None, statusCode=None, deleteFlag=None, trustRelationship=None):
+    def __init__(self, id=None, serviceCode=None, type=None, systemCode=None, accessKey=None, createUser=None, createTime=None, updateUser=None, updateTime=None, version=None, source=None, selected=None, statusCode=None, deleteFlag=None, trustRelationship=None, isSuperAK=None):
         """
         :param id: (Optional) 主键ID
         :param serviceCode: (Optional) 产品线
@@ -36,6 +36,7 @@ class SystemAkGenVo(object):
         :param statusCode: (Optional) 状态码
         :param deleteFlag: (Optional) 删除标记
         :param trustRelationship: (Optional) 信任关系
+        :param isSuperAK: (Optional) 是否超级AK
         """
 
         self.id = id
@@ -53,3 +54,4 @@ class SystemAkGenVo(object):
         self.statusCode = statusCode
         self.deleteFlag = deleteFlag
         self.trustRelationship = trustRelationship
+        self.isSuperAK = isSuperAK

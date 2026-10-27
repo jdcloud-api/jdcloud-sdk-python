@@ -19,11 +19,12 @@
 
 class ExtraRunnerReq(object):
 
-    def __init__(self, flowCode=None, content=None, execEngine=None, args=None, resourceName=None, resourceCode=None, jcwSQLRunParams=None):
+    def __init__(self, flowCode=None, content=None, execEngine=None, engineCode=None, args=None, resourceName=None, resourceCode=None, jcwSQLRunParams=None):
         """
         :param flowCode: (Optional) 流程code
         :param content: (Optional) 脚本内容
         :param execEngine: (Optional) 执行引擎MapReduce,Spark,Tez,presto,Python2,Python3,auto,默认spark
+        :param engineCode: (Optional) 执行引擎编码，只支持JCW类型的引擎
         :param args: (Optional) 脚本内容的变量参数配置
         :param resourceName: (Optional) 资源组名称
         :param resourceCode: (Optional) 资源组code
@@ -33,6 +34,7 @@ class ExtraRunnerReq(object):
         self.flowCode = flowCode
         self.content = content
         self.execEngine = execEngine
+        self.engineCode = engineCode
         self.args = args
         self.resourceName = resourceName
         self.resourceCode = resourceCode

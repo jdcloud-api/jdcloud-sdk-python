@@ -19,9 +19,10 @@
 
 class UranusTableQuery(object):
 
-    def __init__(self, id=None, tableEnName=None, tableCnName=None, owner=None, manager=None, columns=None, partitions=None, isPartition=None, storageType=None, fieldDelim=None, lineDelim=None, bucketCols=None, bucketNum=None):
+    def __init__(self, id=None, dbName=None, tableEnName=None, tableCnName=None, owner=None, manager=None, columns=None, partitions=None, isPartition=None, storageType=None, fieldDelim=None, lineDelim=None, bucketCols=None, bucketNum=None):
         """
         :param id: (Optional) 图谱ID
+        :param dbName: (Optional) 库名（JMR 引擎表返回所属库名）
         :param tableEnName: (Optional) 表英文名称
         :param tableCnName: (Optional) 表中文名
         :param owner: (Optional) 负责人
@@ -37,6 +38,7 @@ class UranusTableQuery(object):
         """
 
         self.id = id
+        self.dbName = dbName
         self.tableEnName = tableEnName
         self.tableCnName = tableCnName
         self.owner = owner

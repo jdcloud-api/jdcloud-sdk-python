@@ -27,7 +27,7 @@ class EngineJmrConfigResp(object):
         :param configType: (Optional) 配置类型(如 core-site, hdfs-site 等)
         :param configTag: (Optional) 配置标识Tag
         :param configVersion: (Optional) 配置版本号
-        :param properties: (Optional) 配置属性表
+        :param properties: (Optional) 配置属性表。openldap-proxy 类型为 {"userName":"jmr_{companyCode}","password":"明文密码"}
         :param createdDate: (Optional) 创建时间
         :param modifiedDate: (Optional) 修改时间
         """

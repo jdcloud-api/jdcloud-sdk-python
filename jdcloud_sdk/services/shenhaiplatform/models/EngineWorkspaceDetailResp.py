@@ -19,10 +19,11 @@
 
 class EngineWorkspaceDetailResp(object):
 
-    def __init__(self, instanceCode=None, instanceType=None, engineCode=None, engineName=None, engineType=None, engineStatus=None, workspaceCode=None, workspaceName=None, companyCode=None, manager=None, createdDate=None):
+    def __init__(self, instanceCode=None, instanceType=None, defaultAccessIdentity=None, engineCode=None, engineName=None, engineType=None, engineStatus=None, workspaceCode=None, workspaceName=None, companyCode=None, manager=None, createdDate=None):
         """
         :param instanceCode: (Optional) 实例Code
         :param instanceType: (Optional) 实例类型
+        :param defaultAccessIdentity: (Optional) JMR默认访问身份(CLUSTER_ACCOUNT_HADOOP-集群账号hadoop，TASK_OWNER_MAPPED_ACCOUNT-任务责任人映射集群账号；仅JMR实例有值，历史数据兜底返回CLUSTER_ACCOUNT_HADOOP，JCW实例为null)
         :param engineCode: (Optional) 计算引擎Code
         :param engineName: (Optional) 计算引擎名称
         :param engineType: (Optional) 计算引擎类型
@@ -36,6 +37,7 @@ class EngineWorkspaceDetailResp(object):
 
         self.instanceCode = instanceCode
         self.instanceType = instanceType
+        self.defaultAccessIdentity = defaultAccessIdentity
         self.engineCode = engineCode
         self.engineName = engineName
         self.engineType = engineType

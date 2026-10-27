@@ -19,13 +19,14 @@
 
 class TableSourceVo(object):
 
-    def __init__(self, id=None, sourceType=None, sourceName=None, sort=None, isDefault=None):
+    def __init__(self, id=None, sourceType=None, sourceName=None, sort=None, isDefault=None, engineCode=None):
         """
         :param id: (Optional) 表来源ID
         :param sourceType: (Optional) 表来源类型
         :param sourceName: (Optional) 表来源名称
         :param sort: (Optional) 排序
         :param isDefault: (Optional) 是否默认
+        :param engineCode: (Optional) 当前用户在此空间选定的引擎编码，与 isDefault 无关，每条来源均返回
         """
 
         self.id = id
@@ -33,3 +34,4 @@ class TableSourceVo(object):
         self.sourceName = sourceName
         self.sort = sort
         self.isDefault = isDefault
+        self.engineCode = engineCode

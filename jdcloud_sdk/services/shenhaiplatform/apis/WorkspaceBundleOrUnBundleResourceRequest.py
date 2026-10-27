@@ -44,6 +44,7 @@ class WorkspaceBundleOrUnBundleResourceParameters(object):
         self.userPin = None
         self.calculateResourceCode = None
         self.integrationResourceCode = None
+        self.generalResourceCode = None
         self.bundleResource = None
 
     def setWorkspaceCode(self, workspaceCode):
@@ -69,6 +70,12 @@ class WorkspaceBundleOrUnBundleResourceParameters(object):
         :param integrationResourceCode: (Optional) 
         """
         self.integrationResourceCode = integrationResourceCode
+
+    def setGeneralResourceCode(self, generalResourceCode):
+        """
+        :param generalResourceCode: (Optional) 通用型资源组Code（双用途：计算+集成）
+        """
+        self.generalResourceCode = generalResourceCode
 
     def setBundleResource(self, bundleResource):
         """

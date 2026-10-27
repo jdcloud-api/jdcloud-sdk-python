@@ -19,7 +19,7 @@
 
 class TaskParamInfoRes(object):
 
-    def __init__(self, draftId=None, inputParams=None, outputParams=None, runParams=None, debugParams=None, loopParams=None, sparkJarParams=None, datasourceParams=None, pipeInfoRes=None, imageParams=None, specialParams=None, alcGeneralParams=None):
+    def __init__(self, draftId=None, inputParams=None, outputParams=None, runParams=None, debugParams=None, loopParams=None, sparkJarParams=None, datasourceParams=None, pipeInfoRes=None, imageParams=None, specialParams=None, alcGeneralParams=None, envParams=None, finalEnvParams=None, flowParams=None, spaceParams=None):
         """
         :param draftId: (Optional) 草稿 ID
         :param inputParams: (Optional) 输入参数列表
@@ -33,6 +33,10 @@ class TaskParamInfoRes(object):
         :param imageParams: (Optional) Image镜像参数
         :param specialParams: (Optional) 特有参数列表
         :param alcGeneralParams: (Optional) ALC_GENERAL 任务参数（含 alcTaskId / alcTaskType / originalName / alcWorkspaceCode）
+        :param envParams: (Optional) 本节点环境变量列表（LOCAL + UPSTREAM 混合，供配置页展示/编辑）
+        :param finalEnvParams: (Optional) 合并后的最终环境变量（已解析到常量，供预览/注入）
+        :param flowParams: (Optional) 所属工作流参数（只读回显，不参与本节点参数落库）
+        :param spaceParams: (Optional) 所属空间参数（只读回显，不参与本节点参数落库）
         """
 
         self.draftId = draftId
@@ -47,3 +51,7 @@ class TaskParamInfoRes(object):
         self.imageParams = imageParams
         self.specialParams = specialParams
         self.alcGeneralParams = alcGeneralParams
+        self.envParams = envParams
+        self.finalEnvParams = finalEnvParams
+        self.flowParams = flowParams
+        self.spaceParams = spaceParams

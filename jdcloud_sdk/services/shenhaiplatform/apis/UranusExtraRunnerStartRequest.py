@@ -43,6 +43,7 @@ class UranusExtraRunnerStartParameters(object):
         self.flowCode = None
         self.content = None
         self.execEngine = None
+        self.engineCode = None
         self.args = None
         self.resourceName = None
         self.resourceCode = None
@@ -65,6 +66,12 @@ class UranusExtraRunnerStartParameters(object):
         :param execEngine: (Optional) 执行引擎MapReduce,Spark,Tez,presto,Python2,Python3,auto,默认spark
         """
         self.execEngine = execEngine
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 执行引擎编码，只支持JCW类型的引擎
+        """
+        self.engineCode = engineCode
 
     def setArgs(self, args):
         """

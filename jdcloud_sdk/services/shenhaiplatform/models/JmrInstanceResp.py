@@ -19,17 +19,19 @@
 
 class JmrInstanceResp(object):
 
-    def __init__(self, instanceCode=None, instanceName=None, resourceCode=None, env=None, engineCode=None):
+    def __init__(self, instanceCode=None, instanceName=None, env=None, engineCode=None, defaultAccessIdentity=None, accountMappingCount=None):
         """
         :param instanceCode: (Optional) JMR实例Code
         :param instanceName: (Optional) JMR实例名称
-        :param resourceCode: (Optional) 资源组Code
         :param env: (Optional) 环境类型(dev/prod)
         :param engineCode: (Optional) 计算引擎Code
+        :param defaultAccessIdentity: (Optional) JMR默认访问身份(CLUSTER_ACCOUNT_HADOOP-集群账号hadoop，TASK_OWNER_MAPPED_ACCOUNT-任务责任人映射集群账号；历史数据兜底返回CLUSTER_ACCOUNT_HADOOP)
+        :param accountMappingCount: (Optional) 该实例下的 JMR 账号映射数量（仅 defaultAccessIdentity=TASK_OWNER_MAPPED_ACCOUNT 时前端需要显示/编辑）
         """
 
         self.instanceCode = instanceCode
         self.instanceName = instanceName
-        self.resourceCode = resourceCode
         self.env = env
         self.engineCode = engineCode
+        self.defaultAccessIdentity = defaultAccessIdentity
+        self.accountMappingCount = accountMappingCount

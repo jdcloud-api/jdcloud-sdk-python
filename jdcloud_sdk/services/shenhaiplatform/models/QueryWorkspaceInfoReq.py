@@ -19,17 +19,19 @@
 
 class QueryWorkspaceInfoReq(object):
 
-    def __init__(self, id=None, workspaceCode=None, projectCode=None, resourceCode=None, engineCode=None):
+    def __init__(self, id=None, workspaceCode=None, projectCode=None, instanceCode=None, resourceCode=None, engineCode=None):
         """
         :param id: (Optional) 
         :param workspaceCode: (Optional) 
-        :param projectCode: (Optional) 
+        :param projectCode: (Optional) 云仓项目code / JMR实例code
+        :param instanceCode: (Optional) 实例编码(解绑引擎实例时使用，JCW项目projectCode或JMR集群实例ID)
         :param resourceCode: (Optional) 
-        :param engineCode: (Optional) 存算引擎实例编码
+        :param engineCode: (Optional) 存算引擎实例编码（getEngineDetailsByEngineCode、getInstances 等按引擎查询接口必填）
         """
 
         self.id = id
         self.workspaceCode = workspaceCode
         self.projectCode = projectCode
+        self.instanceCode = instanceCode
         self.resourceCode = resourceCode
         self.engineCode = engineCode

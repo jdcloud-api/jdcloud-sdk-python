@@ -29,7 +29,7 @@ class TaskDependInfoRes(object):
         :param cycle: (Optional) 任务调度周期，day("天")、week("周")、month("月")、hour("小时")、minute("分钟")、year("年")
         :param manager: (Optional) 负责人
         :param taskKind: (Optional) 任务种类， WORKFLOW 工作流、TASK 单任务、INTERNAL_TASK 工作流内部任务
-        :param taskType: (Optional) 任务类型, JCW_SQL jcw引擎的SQL任务、PYTHON python任务、SHELL Linux脚本任务、SPARK_JAR sparkJar任务、STAR_ROCKS starrocks任务、MYSQL mysql任务、LOOP 循环节点任务、PIPE 数据集成任务
+        :param taskType: (Optional) 任务类型, JCW_SQL jcw引擎的SQL任务、PYTHON python任务、SHELL Linux脚本任务、SPARK_JAR sparkJar任务、STAR_ROCKS starrocks任务、MYSQL mysql任务、LOOP 循环节点任务、PIPE 数据集成任务、JMR_HIVE_SQL JMR Hive SQL任务、JMR_SPARK_SQL JMR Spark SQL任务、JMR_SPARK JMR Spark任务、JMR_SHELL JMR Shell任务、JMR_PYTHON JMR Python任务
         :param workspaceCode: (Optional) 依赖任务所属工作空间code；跨工作空间依赖场景下标识上游任务所在的工作空间
         :param workspaceName: (Optional) 依赖任务所属工作空间名称；本空间依赖不返回该字段，跨空间依赖必填；用户已退出该空间时返回"空间名(已退出)"
         :param necessary: (Optional) 是否强依赖

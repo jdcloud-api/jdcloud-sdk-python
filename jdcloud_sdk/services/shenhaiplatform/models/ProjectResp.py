@@ -19,7 +19,7 @@
 
 class ProjectResp(object):
 
-    def __init__(self, projectCode=None, projectName=None, projectStatus=None, msg=None, bundleTime=None, env=None):
+    def __init__(self, projectCode=None, projectName=None, projectStatus=None, msg=None, bundleTime=None, env=None, resourceInfos=None):
         """
         :param projectCode: (Optional) 
         :param projectName: (Optional) 
@@ -27,6 +27,7 @@ class ProjectResp(object):
         :param msg: (Optional) 
         :param bundleTime: (Optional) 绑定时间
         :param env: (Optional) 环境类型
+        :param resourceInfos: (Optional) 项目绑定的资源组列表(实时查云仓，计算在前/集成在后，查询失败降级空列表)
         """
 
         self.projectCode = projectCode
@@ -35,3 +36,4 @@ class ProjectResp(object):
         self.msg = msg
         self.bundleTime = bundleTime
         self.env = env
+        self.resourceInfos = resourceInfos

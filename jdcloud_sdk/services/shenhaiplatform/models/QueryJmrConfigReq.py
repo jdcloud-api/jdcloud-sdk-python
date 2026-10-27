@@ -19,13 +19,15 @@
 
 class QueryJmrConfigReq(object):
 
-    def __init__(self, engineCode=None, configType=None, env=None):
+    def __init__(self, engineCode=None, workspaceCode=None, configType=None, env=None):
         """
         :param engineCode: (Optional) 计算引擎Code
-        :param configType: (Optional) 配置类型(如 core-site, hdfs-site 等，为空返回全部)
-        :param env: (Optional) 环境类型(dev/prod)
+        :param workspaceCode: (Optional) 工作空间Code(可选，管理员权限校验兜底使用，header有值时优先取header)
+        :param configType: (Optional) 配置类型(如 core-site, hdfs-site, openldap-proxy 等，为空返回全部)
+        :param env: (Optional) 环境类型(dev/prod)；refreshJmrConfigs/getJmrConfigs 均可选：空则覆盖全部环境、非空则只作用该环境
         """
 
         self.engineCode = engineCode
+        self.workspaceCode = workspaceCode
         self.configType = configType
         self.env = env

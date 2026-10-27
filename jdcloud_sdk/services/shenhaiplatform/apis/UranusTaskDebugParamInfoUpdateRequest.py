@@ -52,6 +52,10 @@ class UranusTaskDebugParamInfoUpdateParameters(object):
         self.imageParams = None
         self.specialParams = None
         self.alcGeneralParams = None
+        self.envParams = None
+        self.finalEnvParams = None
+        self.flowParams = None
+        self.spaceParams = None
 
     def setDraftId(self, draftId):
         """
@@ -124,4 +128,28 @@ class UranusTaskDebugParamInfoUpdateParameters(object):
         :param alcGeneralParams: (Optional) ALC_GENERAL 任务参数（含 alcTaskId / alcTaskType / originalName / alcWorkspaceCode）
         """
         self.alcGeneralParams = alcGeneralParams
+
+    def setEnvParams(self, envParams):
+        """
+        :param envParams: (Optional) 本节点环境变量列表（LOCAL + UPSTREAM 混合，供配置页展示/编辑）
+        """
+        self.envParams = envParams
+
+    def setFinalEnvParams(self, finalEnvParams):
+        """
+        :param finalEnvParams: (Optional) 合并后的最终环境变量（已解析到常量，供预览/注入）
+        """
+        self.finalEnvParams = finalEnvParams
+
+    def setFlowParams(self, flowParams):
+        """
+        :param flowParams: (Optional) 所属工作流参数（只读回显，不参与本节点参数落库）
+        """
+        self.flowParams = flowParams
+
+    def setSpaceParams(self, spaceParams):
+        """
+        :param spaceParams: (Optional) 所属空间参数（只读回显，不参与本节点参数落库）
+        """
+        self.spaceParams = spaceParams
 

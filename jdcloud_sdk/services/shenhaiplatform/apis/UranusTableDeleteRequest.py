@@ -32,7 +32,7 @@ class UranusTableDeleteRequest(JDCloudRequest):
 
 class UranusTableDeleteParameters(object):
 
-    def __init__(self,regionId, appName, table, env):
+    def __init__(self,regionId, appName, table, env, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
@@ -44,4 +44,11 @@ class UranusTableDeleteParameters(object):
         self.appName = appName
         self.table = table
         self.env = env
+        self.dbName = None
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎必传）
+        """
+        self.dbName = dbName
 

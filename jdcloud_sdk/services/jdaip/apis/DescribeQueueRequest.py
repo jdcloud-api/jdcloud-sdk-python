@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeQueueRequest(JDCloudRequest):
     """
-    查询队列详情
+    查询队列详情。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

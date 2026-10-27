@@ -19,8 +19,9 @@
 
 class NodePool(object):
 
-    def __init__(self, id=None, name=None, bizType=None, poolType=None, chargeType=None, nodeCount=None, topology=None, status=None, rdma=None, msg=None, enable=None, createTime=None, hpcCluster=None, hpcClusterName=None, hpcZone=None, desc=None, gpuQuotas=None, cpuQuota=None, cluster=None, userTags=None, resourceGroupId=None, resourceGroupName=None, overview=None):
+    def __init__(self, accessRelation=None, id=None, name=None, bizType=None, poolType=None, chargeType=None, nodeCount=None, topology=None, status=None, rdma=None, msg=None, enable=None, createTime=None, hpcCluster=None, hpcClusterName=None, hpcZone=None, desc=None, gpuQuotas=None, cpuQuota=None, cluster=None, userTags=None, resourceGroupId=None, resourceGroupName=None, overview=None):
         """
+        :param accessRelation: (Optional) 仅用于响应，创建和更新请求不应传入。owned表示拥有，managed表示管理，shared表示被授权共享；不代表写操作权限。共享响应仅返回基础信息，私有字段不返回。
         :param id: (Optional) 节点池ID
         :param name: (Optional) 节点池名称
         :param bizType: (Optional) 业务类型-离线/在线/混部
@@ -46,6 +47,7 @@ class NodePool(object):
         :param overview: (Optional) 节点池概览信息
         """
 
+        self.accessRelation = accessRelation
         self.id = id
         self.name = name
         self.bizType = bizType

@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeNodesRequest(JDCloudRequest):
     """
-    查询节点列表
+    查询节点列表。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

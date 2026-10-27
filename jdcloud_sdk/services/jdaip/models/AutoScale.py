@@ -19,25 +19,64 @@
 
 class AutoScale(object):
 
-    def __init__(self, minReplicaCount, maxReplicaCount, scaleUpDelay=None, scaleDownDelay=None, cpuThreshold=None, gpuThreshold=None, memoryThreshold=None, waitingRequestCountThreshold=None, timeToFirstTokenP99Threshold=None):
+    def __init__(self, minReplicaCount, maxReplicaCount, scaleUpDelay=None, scaleDownDelay=None, mode=None, scaleUpOperator=None, scaleDownOperator=None, scaleUpFactor=None, scaleDownFactor=None, metrics=None, roles=None, cpuThreshold=None, gpuThreshold=None, memoryThreshold=None, waitingRequestCountThreshold=None, timeToFirstTokenP99Threshold=None, tokenUsageThreshold=None, decodeTransferQueueThreshold=None):
         """
         :param minReplicaCount:  最小副本数
         :param maxReplicaCount:  最大副本数
         :param scaleUpDelay: (Optional) 扩容延迟时间（秒）
-        :param scaleDownDelay: (Optional) 缩容延迟时间（秒）
-        :param cpuThreshold: (Optional) CPU使用率阈值（%，基于Limits）
-        :param gpuThreshold: (Optional) GPU利用率阈值（%）
-        :param memoryThreshold: (Optional) 内存使用率阈值（%，基于Limits）
-        :param waitingRequestCountThreshold: (Optional) 排队中的请求数阈值
-        :param timeToFirstTokenP99Threshold: (Optional) 首token时延阈值，单位毫秒
+        :param scaleDownDelay: (Optional) 缩容延迟时间（秒）。创建/更新时（scaleType=auto）必须在 30-3600，否则返回 400；
+存量低于 30 的规则查询时原值返回，不会被自动修正
+
+        :param mode: (Optional) 自动扩缩容模式，仅 scaleType=auto 有效。缺省按 basic；
+basic 使用扁平阈值（*Threshold），advanced 使用 metrics 双阈值。
+查询时缺省值会补全返回
+
+        :param scaleUpOperator: (Optional) advanced 扩容组合条件，仅接受大写 AND / OR，缺省 OR；
+非法值返回 400。查询 advanced 规则时缺省值会补全返回
+
+        :param scaleDownOperator: (Optional) advanced 缩容组合条件，仅接受大写 AND / OR，缺省 AND；
+非法值返回 400。查询 advanced 规则时缺省值会补全返回
+
+        :param scaleUpFactor: (Optional) advanced 扩容信号系数（百分比整数，必填）。如 150 表示 PromQL 输出 1.5（threshold=1）；
+必须大于 100，且大于 scaleDownFactor。basic / cron 禁止携带。推荐值 150
+
+        :param scaleDownFactor: (Optional) advanced 缩容信号系数（百分比整数，必填）。如 40 表示 PromQL 输出 0.4；
+必须在 1-99，且小于 scaleUpFactor。basic / cron 禁止携带。推荐值 40
+
+        :param metrics: (Optional) advanced 双阈值指标，至少配置一项。key 白名单：
+cpu、gpu、memory、waitingRequestCount、timeToFirstTokenP99、tokenUsage、decodeTransferQueue。
+每项至少配置 scaleUp/scaleDown 之一，两者都配时 scaleUp 必须大于 scaleDown；
+未传与显式 0 含义不同（未传表示该方向不参与判断）
+
+        :param roles: (Optional) 分角色自动扩缩容预留字段。缺省、null、空对象 {} 按整组策略处理；
+含任何角色条目（即使值为 null 或 {}）一律返回 400（分角色自动扩缩容尚未开放）
+
+        :param cpuThreshold: (Optional) basic 模式下 CPU 使用率阈值（%，基于 Limits），0 表示关闭
+        :param gpuThreshold: (Optional) basic 模式下 GPU 利用率阈值（%），0 表示关闭
+        :param memoryThreshold: (Optional) basic 模式下内存使用率阈值（%，基于 Limits），0 表示关闭
+        :param waitingRequestCountThreshold: (Optional) basic 模式下排队中的请求数阈值，0 表示关闭
+        :param timeToFirstTokenP99Threshold: (Optional) basic 模式下首 token 时延 P99 阈值（毫秒），0 表示关闭
+        :param tokenUsageThreshold: (Optional) basic 模式下 KV Cache 占用阈值（整数百分比），0 表示关闭
+        :param decodeTransferQueueThreshold: (Optional) basic 模式下 Decode 传输排队阈值（个），0 表示关闭；
+仅 SGLang 的 PD 分离实例可启用，否则返回 400
+
         """
 
         self.minReplicaCount = minReplicaCount
         self.maxReplicaCount = maxReplicaCount
         self.scaleUpDelay = scaleUpDelay
         self.scaleDownDelay = scaleDownDelay
+        self.mode = mode
+        self.scaleUpOperator = scaleUpOperator
+        self.scaleDownOperator = scaleDownOperator
+        self.scaleUpFactor = scaleUpFactor
+        self.scaleDownFactor = scaleDownFactor
+        self.metrics = metrics
+        self.roles = roles
         self.cpuThreshold = cpuThreshold
         self.gpuThreshold = gpuThreshold
         self.memoryThreshold = memoryThreshold
         self.waitingRequestCountThreshold = waitingRequestCountThreshold
         self.timeToFirstTokenP99Threshold = timeToFirstTokenP99Threshold
+        self.tokenUsageThreshold = tokenUsageThreshold
+        self.decodeTransferQueueThreshold = decodeTransferQueueThreshold

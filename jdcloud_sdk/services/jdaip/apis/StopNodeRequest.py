@@ -32,7 +32,7 @@ class StopNodeRequest(JDCloudRequest):
 
 class StopNodeParameters(object):
 
-    def __init__(self,regionId, name, nodePoolId):
+    def __init__(self,regionId, name, nodePoolId, ):
         """
         :param regionId: Region ID，例如：cn-north-1
         :param name: 节点名称
@@ -42,4 +42,11 @@ class StopNodeParameters(object):
         self.regionId = regionId
         self.name = name
         self.nodePoolId = nodePoolId
+        self.stopCharge = None
+
+    def setStopCharge(self, stopCharge):
+        """
+        :param stopCharge: (Optional) 可选值：true/false，是否停止计费，默认值：false
+        """
+        self.stopCharge = stopCharge
 

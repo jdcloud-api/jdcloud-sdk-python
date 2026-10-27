@@ -19,10 +19,11 @@
 
 class TechDatasetVersionInfo(object):
 
-    def __init__(self, datasetId=None, dssDatasetId=None, version=None, versionDesc=None, storageDomain=None, storageBucket=None, storagePath=None, storageUri=None):
+    def __init__(self, datasetId=None, dssDatasetId=None, datasetName=None, version=None, versionDesc=None, storageDomain=None, storageBucket=None, storagePath=None, storageUri=None):
         """
         :param datasetId: (Optional) 数据集ID。示例："dst-*******"
         :param dssDatasetId: (Optional) 关联的数据工厂-数据集ID。
+        :param datasetName: (Optional) 数据集名称。
         :param version: (Optional) 版本号
         :param versionDesc: (Optional) 版本描述（简介）
         :param storageDomain: (Optional) 存储oss对应Enpoint
@@ -35,6 +36,7 @@ class TechDatasetVersionInfo(object):
 
         self.datasetId = datasetId
         self.dssDatasetId = dssDatasetId
+        self.datasetName = datasetName
         self.version = version
         self.versionDesc = versionDesc
         self.storageDomain = storageDomain

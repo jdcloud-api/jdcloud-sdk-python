@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeNodeRequest(JDCloudRequest):
     """
-    节点详情
+    节点详情。
     """
 
     def __init__(self, parameters, header=None, version="v1"):

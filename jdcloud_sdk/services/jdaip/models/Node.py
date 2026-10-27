@@ -19,8 +19,9 @@
 
 class Node(object):
 
-    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, expireTime=None, releaseTime=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, deviceModel=None, driverVersion=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
+    def __init__(self, accessRelation=None, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, expireTime=None, releaseTime=None, aeStatus=None, gpuQuota=None, cpuQuota=None, nodeLabels=None, deviceBrand=None, deviceModel=None, driverVersion=None, pin=None, unhealthReasons=None, userTags=None, resourceGroupId=None, resourceGroupName=None):
         """
+        :param accessRelation: (Optional) 仅用于响应，创建和更新请求不应传入。owned表示拥有，managed表示管理，shared表示被授权共享；不代表写操作权限。共享响应仅返回基础信息，私有字段不返回。
         :param id: (Optional) 节点ID
         :param nodeType: (Optional) 节点类型，vm为云主机节点，hpc为物理集群节点
         :param chargeType: (Optional) 计费方式，pack：包年包月；advance：预付费
@@ -47,6 +48,7 @@ class Node(object):
         :param createTime: (Optional) 创建时间，秒
         :param expireTime: (Optional) 商业平台返回的节点到期时间原始值；无有效到期时间时返回空字符串
         :param releaseTime: (Optional) 商业平台返回的节点释放时间原始值；无有效释放时间时返回空字符串
+        :param aeStatus: (Optional) 商业平台资源单欠费、到期状态；仅资源在商业平台存在有效资源单时返回。1=包年包月正常，2=包年包月到期，3=按配置或按用量正常，4=按配置或按用量欠费
         :param gpuQuota: (Optional) GPU资源配额信息
         :param cpuQuota: (Optional) 资源配额信息
         :param nodeLabels: (Optional) 
@@ -60,6 +62,7 @@ class Node(object):
         :param resourceGroupName: (Optional) 资源组名称
         """
 
+        self.accessRelation = accessRelation
         self.id = id
         self.nodeType = nodeType
         self.chargeType = chargeType
@@ -86,6 +89,7 @@ class Node(object):
         self.createTime = createTime
         self.expireTime = expireTime
         self.releaseTime = releaseTime
+        self.aeStatus = aeStatus
         self.gpuQuota = gpuQuota
         self.cpuQuota = cpuQuota
         self.nodeLabels = nodeLabels

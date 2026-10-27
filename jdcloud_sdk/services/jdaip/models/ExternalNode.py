@@ -19,8 +19,9 @@
 
 class ExternalNode(object):
 
-    def __init__(self, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, nodeLabels=None, deviceBrand=None, pin=None, unhealthReasons=None, realTimeResourceStatistics=None):
+    def __init__(self, accessRelation=None, id=None, nodeType=None, chargeType=None, name=None, enable=None, clusterId=None, config=None, zones=None, hpcCluster=None, hpcClusterName=None, subnet=None, subnetName=None, vpcName=None, ipv4=None, ipv6=None, securityGroup=None, os=None, osTag=None, systemDisk=None, dataDisk=None, rootPwd=None, status=None, msg=None, createTime=None, nodeLabels=None, deviceBrand=None, pin=None, unhealthReasons=None, realTimeResourceStatistics=None):
         """
+        :param accessRelation: (Optional) 仅用于响应，创建和更新请求不应传入。owned表示拥有，managed表示管理，shared表示被授权共享；不代表写操作权限。共享响应仅返回基础信息，私有字段不返回。
         :param id: (Optional) 节点ID
         :param nodeType: (Optional) 节点类型，vm为云主机节点，hpc为物理集群节点
         :param chargeType: (Optional) 计费方式，pack：包年包月；advance：预付费
@@ -52,6 +53,7 @@ class ExternalNode(object):
         :param realTimeResourceStatistics: (Optional) 
         """
 
+        self.accessRelation = accessRelation
         self.id = id
         self.nodeType = nodeType
         self.chargeType = chargeType

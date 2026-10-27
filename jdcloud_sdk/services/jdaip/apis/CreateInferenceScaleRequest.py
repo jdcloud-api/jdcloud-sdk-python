@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateInferenceScaleRequest(JDCloudRequest):
     """
-    为指定的推理服务创建自动扩缩容规则，包括基于资源使用率的自动扩缩容和基于时间的定时扩缩容
+    为指定的推理服务创建自动扩缩容规则，包括基于指标的自动扩缩容（basic 扁平阈值 / advanced 双阈值）
+和基于时间的定时扩缩容。scaleType=auto 时，mode 缺省为 basic；advanced 需配置 metrics、
+scaleUpFactor / scaleDownFactor（百分比整数，如 150/40），并可指定 scaleUpOperator /
+scaleDownOperator（缺省分别为 OR / AND）
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -37,7 +41,7 @@ class CreateInferenceScaleParameters(object):
         :param regionId: 地域ID
         :param workspaceId: 工作空间ID
         :param inferenceId: 推理服务 ID
-        :param inferenceScaleSpec: 日志采集配置
+        :param inferenceScaleSpec: 自动扩缩容配置
         """
 
         self.regionId = regionId

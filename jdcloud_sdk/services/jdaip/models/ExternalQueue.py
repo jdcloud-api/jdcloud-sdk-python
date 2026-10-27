@@ -19,8 +19,9 @@
 
 class ExternalQueue(object):
 
-    def __init__(self, id=None, name=None, nodePoolId=None, nodePoolInfo=None, namespace=None, gpuQuotas=None, cpuQuota=None, status=None, msg=None, enable=None, priority=None, taskPriority=None, taskPreempt=None, createTime=None, desc=None, queueType=None, realTimeResourceStatistics=None):
+    def __init__(self, accessRelation=None, id=None, name=None, nodePoolId=None, nodePoolInfo=None, namespace=None, gpuQuotas=None, cpuQuota=None, status=None, msg=None, enable=None, priority=None, taskPriority=None, taskPreempt=None, createTime=None, desc=None, queueType=None, realTimeResourceStatistics=None):
         """
+        :param accessRelation: (Optional) 仅用于响应，创建和更新请求不应传入。owned表示拥有，managed表示管理，shared表示被授权共享；不代表写操作权限。共享响应仅返回基础信息，私有字段不返回。
         :param id: (Optional) 资源队列ID
         :param name: (Optional) 资源队列名称
         :param nodePoolId: (Optional) 节点池ID
@@ -48,6 +49,7 @@ class ExternalQueue(object):
         :param realTimeResourceStatistics: (Optional) 
         """
 
+        self.accessRelation = accessRelation
         self.id = id
         self.name = name
         self.nodePoolId = nodePoolId

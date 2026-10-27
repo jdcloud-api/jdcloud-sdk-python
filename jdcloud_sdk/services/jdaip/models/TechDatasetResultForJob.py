@@ -19,10 +19,11 @@
 
 class TechDatasetResultForJob(object):
 
-    def __init__(self, datasetVisibility=None, datasetId=None, datasetVersion=None, mountPath=None, storage=None):
+    def __init__(self, datasetVisibility=None, datasetId=None, datasetName=None, datasetVersion=None, mountPath=None, storage=None):
         """
         :param datasetVisibility: (Optional) 科技数据集来源，`public` 表示公共数据集，`private` 表示工作空间自有数据集。
         :param datasetId: (Optional) 科技数据集 ID。
+        :param datasetName: (Optional) 科技数据集名字。
         :param datasetVersion: (Optional) 科技数据集版本。
         :param mountPath: (Optional) 科技数据集在训练容器中的挂载路径。
         :param storage: (Optional) 存储参数。
@@ -30,6 +31,7 @@ class TechDatasetResultForJob(object):
 
         self.datasetVisibility = datasetVisibility
         self.datasetId = datasetId
+        self.datasetName = datasetName
         self.datasetVersion = datasetVersion
         self.mountPath = mountPath
         self.storage = storage

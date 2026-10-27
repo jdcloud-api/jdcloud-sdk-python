@@ -21,7 +21,10 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DescribeInferenceScaleRequest(JDCloudRequest):
     """
-    获取指定推理服务的当前自动扩缩容规则配置
+    获取指定推理服务的当前自动扩缩容规则配置。
+查询时 mode 缺省按 basic 补全返回；advanced 规则的 scaleUpOperator / scaleDownOperator
+缺省分别按 OR / AND 补全返回（不改写库中原值）
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):

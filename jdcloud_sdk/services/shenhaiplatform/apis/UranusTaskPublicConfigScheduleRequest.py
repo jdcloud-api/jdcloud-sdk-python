@@ -50,6 +50,7 @@ class UranusTaskPublicConfigScheduleParameters(object):
         self.cu = None
         self.parallelism = None
         self.resourceCode = None
+        self.engineCode = None
         self.imageId = None
 
     def setTaskDraftId(self, taskDraftId):
@@ -111,6 +112,12 @@ class UranusTaskPublicConfigScheduleParameters(object):
         :param resourceCode: (Optional) 资源组code，用于标识任务调度所在的资源组
         """
         self.resourceCode = resourceCode
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 执行引擎编码（任务绑定的计算引擎实例Code）
+        """
+        self.engineCode = engineCode
 
     def setImageId(self, imageId):
         """

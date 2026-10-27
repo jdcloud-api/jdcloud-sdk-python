@@ -19,15 +19,16 @@
 
 class WorkspaceEngineDetailResp(object):
 
-    def __init__(self, workspaceCode=None, engineCode=None, engineName=None, engineType=None, status=None, cloudProjects=None, jmrInstances=None):
+    def __init__(self, workspaceCode=None, engineCode=None, engineName=None, engineType=None, status=None, primaryFlag=None, cloudProjects=None, jmrInstances=None):
         """
         :param workspaceCode: (Optional) 工作空间Code
         :param engineCode: (Optional) 计算引擎Code
         :param engineName: (Optional) 计算引擎名称
-        :param engineType: (Optional) 计算引擎类型
+        :param engineType: (Optional) 计算引擎类型(JCW/JMR)
         :param status: (Optional) 状态
+        :param primaryFlag: (Optional) 是否默认引擎：1、是，0、否
         :param cloudProjects: (Optional) 绑定的云仓项目列表
-        :param jmrInstances: (Optional) 绑定的JMR实例列表
+        :param jmrInstances: (Optional) 绑定的JMR实例列表(同一集群绑定dev和prod时返回两条，env与defaultAccessIdentity分别对应环境)
         """
 
         self.workspaceCode = workspaceCode
@@ -35,5 +36,6 @@ class WorkspaceEngineDetailResp(object):
         self.engineName = engineName
         self.engineType = engineType
         self.status = status
+        self.primaryFlag = primaryFlag
         self.cloudProjects = cloudProjects
         self.jmrInstances = jmrInstances

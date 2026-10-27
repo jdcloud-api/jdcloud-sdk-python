@@ -19,7 +19,7 @@
 
 class TaskScheduleInfoRes(object):
 
-    def __init__(self, draftId=None, cronExpression=None, effectiveDateStart=None, effectiveDateEnd=None, delay=None, priority=None, timeout=None, taskStatus=None, retryTimes=None, retryInterval=None, resourceGroup=None, crossCycleDependType=None, scheduleCycle=None):
+    def __init__(self, draftId=None, cronExpression=None, effectiveDateStart=None, effectiveDateEnd=None, delay=None, priority=None, timeout=None, taskStatus=None, retryTimes=None, retryInterval=None, resourceGroup=None, engineCode=None, crossCycleDependType=None, scheduleCycle=None):
         """
         :param draftId: (Optional) 草稿 ID
         :param cronExpression: (Optional) Cron 表达式
@@ -32,6 +32,7 @@ class TaskScheduleInfoRes(object):
         :param retryTimes: (Optional) 重试次数
         :param retryInterval: (Optional) 重试间隔
         :param resourceGroup: (Optional) 资源组
+        :param engineCode: (Optional) 执行引擎编码（任务绑定的计算引擎实例Code）
         :param crossCycleDependType: (Optional) 跨周期依赖类型，目前只支持SELF
         :param scheduleCycle: (Optional) 任务调度周期类型，当为手动调度任务是该字段必填，且为 manual
         """
@@ -47,5 +48,6 @@ class TaskScheduleInfoRes(object):
         self.retryTimes = retryTimes
         self.retryInterval = retryInterval
         self.resourceGroup = resourceGroup
+        self.engineCode = engineCode
         self.crossCycleDependType = crossCycleDependType
         self.scheduleCycle = scheduleCycle

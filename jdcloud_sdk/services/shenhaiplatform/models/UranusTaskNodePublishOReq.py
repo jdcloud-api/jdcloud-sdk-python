@@ -22,7 +22,7 @@ class UranusTaskNodePublishOReq(object):
     def __init__(self, ids, reason, ):
         """
         :param ids:  节点列表
-        :param reason:  发布原因
+        :param reason:  发布任务的原因
         """
 
         self.ids = ids

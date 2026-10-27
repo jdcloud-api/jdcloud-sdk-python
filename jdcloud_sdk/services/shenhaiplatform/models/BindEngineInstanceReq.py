@@ -19,19 +19,21 @@
 
 class BindEngineInstanceReq(object):
 
-    def __init__(self, engineCode=None, instanceCode=None, instanceName=None, instanceType=None, resourceCode=None, env=None):
+    def __init__(self, engineCode=None, instanceCode=None, instanceName=None, instanceType=None, defaultAccessIdentity=None, env=None, workspaceCode=None):
         """
         :param engineCode: (Optional) 计算引擎Code
         :param instanceCode: (Optional) 实例Code
         :param instanceName: (Optional) 实例名称
         :param instanceType: (Optional) 实例类型(JCW/JMR)
-        :param resourceCode: (Optional) 资源组Code
-        :param env: (Optional) 环境类型(dev/prod)
+        :param defaultAccessIdentity: (Optional) JMR默认访问身份(CLUSTER_ACCOUNT_HADOOP-集群账号hadoop，TASK_OWNER_MAPPED_ACCOUNT-任务责任人映射集群账号；可选，不传落库为null，查询时兜底返回CLUSTER_ACCOUNT_HADOOP)
+        :param env: (Optional) 环境类型(dev/prod)。同一引擎下同一实例按环境区分，允许同一JMR集群分别绑定开发/生产并配置不同访问身份
+        :param workspaceCode: (Optional) 工作空间Code(管理员校验用，网关未注入workspaceCode头时兜底)
         """
 
         self.engineCode = engineCode
         self.instanceCode = instanceCode
         self.instanceName = instanceName
         self.instanceType = instanceType
-        self.resourceCode = resourceCode
+        self.defaultAccessIdentity = defaultAccessIdentity
         self.env = env
+        self.workspaceCode = workspaceCode

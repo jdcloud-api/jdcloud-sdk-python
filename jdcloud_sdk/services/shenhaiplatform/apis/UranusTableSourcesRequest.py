@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UranusTableSourcesRequest(JDCloudRequest):
     """
-    查询表来源列表并标识默认项
+    查询表来源列表并标识默认项，每条带当前用户选定的引擎编码
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -32,7 +32,7 @@ class UranusTableSourcesRequest(JDCloudRequest):
 
 class UranusTableSourcesParameters(object):
 
-    def __init__(self,regionId, appName):
+    def __init__(self,regionId, appName, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
@@ -40,4 +40,32 @@ class UranusTableSourcesParameters(object):
 
         self.regionId = regionId
         self.appName = appName
+        self.engineCode = None
+        self.clusterId = None
+        self.engineType = None
+        self.dbName = None
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 引擎编码
+        """
+        self.engineCode = engineCode
+
+    def setClusterId(self, clusterId):
+        """
+        :param clusterId: (Optional) 集群 ID（JMR 引擎）
+        """
+        self.clusterId = clusterId
+
+    def setEngineType(self, engineType):
+        """
+        :param engineType: (Optional) 引擎类型：JCW、JMR、AI_LAKE
+        """
+        self.engineType = engineType
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎）
+        """
+        self.dbName = dbName
 

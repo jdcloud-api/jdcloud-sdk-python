@@ -32,7 +32,7 @@ class UranusTableDDLRequest(JDCloudRequest):
 
 class UranusTableDDLParameters(object):
 
-    def __init__(self,regionId, appName, env):
+    def __init__(self,regionId, appName, env, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
@@ -43,10 +43,17 @@ class UranusTableDDLParameters(object):
         self.appName = appName
         self.tableName = None
         self.env = env
+        self.dbName = None
 
     def setTableName(self, tableName):
         """
         :param tableName: (Optional) 表名称
         """
         self.tableName = tableName
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎必传）
+        """
+        self.dbName = dbName
 

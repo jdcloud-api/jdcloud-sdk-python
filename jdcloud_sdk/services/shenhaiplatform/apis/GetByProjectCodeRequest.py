@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetByProjectCodeRequest(JDCloudRequest):
     """
-    按照projectCode查询绑定的计算引擎信息以及计算引擎绑定的空间信息
+    按照projectCode查询绑定的计算引擎信息以及计算引擎绑定的空间信息。同一云仓项目可挂多个工作空间时仍返回单条（按绑定id最小）。
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -43,6 +43,7 @@ class GetByProjectCodeParameters(object):
         self.id = None
         self.workspaceCode = None
         self.projectCode = None
+        self.instanceCode = None
         self.resourceCode = None
         self.engineCode = None
 
@@ -60,9 +61,15 @@ class GetByProjectCodeParameters(object):
 
     def setProjectCode(self, projectCode):
         """
-        :param projectCode: (Optional) 
+        :param projectCode: (Optional) 云仓项目code / JMR实例code
         """
         self.projectCode = projectCode
+
+    def setInstanceCode(self, instanceCode):
+        """
+        :param instanceCode: (Optional) 实例编码(解绑引擎实例时使用，JCW项目projectCode或JMR集群实例ID)
+        """
+        self.instanceCode = instanceCode
 
     def setResourceCode(self, resourceCode):
         """
@@ -72,7 +79,7 @@ class GetByProjectCodeParameters(object):
 
     def setEngineCode(self, engineCode):
         """
-        :param engineCode: (Optional) 存算引擎实例编码
+        :param engineCode: (Optional) 存算引擎实例编码（getEngineDetailsByEngineCode、getInstances 等按引擎查询接口必填）
         """
         self.engineCode = engineCode
 

@@ -32,12 +32,13 @@ class UranusTableLikeRequest(JDCloudRequest):
 
 class UranusTableLikeParameters(object):
 
-    def __init__(self,regionId, appName, auth, env, ):
+    def __init__(self,regionId, appName, auth, env, engineType, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
         :param auth: 是否负责，1 负责、0不负责
         :param env: 环境信息，dev 开发、prod 生产
+        :param engineType: 引擎类型：JCW/JMR
         """
 
         self.regionId = regionId
@@ -46,6 +47,9 @@ class UranusTableLikeParameters(object):
         self.auth = auth
         self.env = env
         self.diff = None
+        self.engineType = engineType
+        self.engineCode = None
+        self.dbName = None
 
     def setTableLike(self, tableLike):
         """
@@ -58,4 +62,16 @@ class UranusTableLikeParameters(object):
         :param diff: (Optional) 0 不强对比，1 开发、生产表强对比
         """
         self.diff = diff
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 引擎编码
+        """
+        self.engineCode = engineCode
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎必传, 默认JCW不传）
+        """
+        self.dbName = dbName
 

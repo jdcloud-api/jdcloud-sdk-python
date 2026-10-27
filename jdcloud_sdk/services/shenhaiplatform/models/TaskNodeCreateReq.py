@@ -24,7 +24,7 @@ class TaskNodeCreateReq(object):
         :param catalogId: (Optional) 创建任务/工作流的业务目录id
         :param flowId: (Optional) 为空时为TaskKind=TASK的任务，或工作流任务
         :param taskName: (Optional) 任务/工作流名称
-        :param taskType: (Optional) 任务类型, JCW_SQL jcw引擎的SQL任务、PYTHON python任务、SHELL Linux脚本任务、SPARK_JAR sparkJar任务、STAR_ROCKS starrocks任务、MYSQL mysql任务、LOOP 循环节点任务、PIPE 数据集成任务
+        :param taskType: (Optional) 任务类型, JCW_SQL jcw引擎的SQL任务、PYTHON python任务、SHELL Linux脚本任务、SPARK_JAR sparkJar任务、STAR_ROCKS starrocks任务、MYSQL mysql任务、LOOP 循环节点任务、PIPE 数据集成任务、JMR_HIVE_SQL JMR Hive SQL任务、JMR_SPARK_SQL JMR Spark SQL任务、JMR_SPARK JMR Spark任务、JMR_SHELL JMR Shell任务、JMR_PYTHON JMR Python任务
         :param owner: (Optional) 任务负责人
         :param collaborators: (Optional) 任务协作人
         :param desc: (Optional) 任务描述

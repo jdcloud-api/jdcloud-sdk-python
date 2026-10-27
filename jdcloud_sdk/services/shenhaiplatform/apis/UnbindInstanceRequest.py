@@ -32,16 +32,54 @@ class UnbindInstanceRequest(JDCloudRequest):
 
 class UnbindInstanceParameters(object):
 
-    def __init__(self,regionId, appName, engineCode, instanceCode):
+    def __init__(self,regionId, appName, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
-        :param engineCode: 引擎 Code
-        :param instanceCode: 实例 Code
         """
 
         self.regionId = regionId
         self.appName = appName
-        self.engineCode = engineCode
+        self.id = None
+        self.workspaceCode = None
+        self.projectCode = None
+        self.instanceCode = None
+        self.resourceCode = None
+        self.engineCode = None
+
+    def setId(self, id):
+        """
+        :param id: (Optional) 
+        """
+        self.id = id
+
+    def setWorkspaceCode(self, workspaceCode):
+        """
+        :param workspaceCode: (Optional) 
+        """
+        self.workspaceCode = workspaceCode
+
+    def setProjectCode(self, projectCode):
+        """
+        :param projectCode: (Optional) 云仓项目code / JMR实例code
+        """
+        self.projectCode = projectCode
+
+    def setInstanceCode(self, instanceCode):
+        """
+        :param instanceCode: (Optional) 实例编码(解绑引擎实例时使用，JCW项目projectCode或JMR集群实例ID)
+        """
         self.instanceCode = instanceCode
+
+    def setResourceCode(self, resourceCode):
+        """
+        :param resourceCode: (Optional) 
+        """
+        self.resourceCode = resourceCode
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 存算引擎实例编码（getEngineDetailsByEngineCode、getInstances 等按引擎查询接口必填）
+        """
+        self.engineCode = engineCode
 

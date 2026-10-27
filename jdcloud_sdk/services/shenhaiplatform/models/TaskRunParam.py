@@ -19,11 +19,13 @@
 
 class TaskRunParam(object):
 
-    def __init__(self, cu=None, parallelism=None):
+    def __init__(self, cu=None, parallelism=None, jmrRunParams=None):
         """
         :param cu: (Optional) CU数量
         :param parallelism: (Optional) 并行度
+        :param jmrRunParams: (Optional) JMR运行参数（仅 JMR 任务类型生效）
         """
 
         self.cu = cu
         self.parallelism = parallelism
+        self.jmrRunParams = jmrRunParams

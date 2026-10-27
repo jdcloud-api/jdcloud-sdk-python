@@ -32,11 +32,11 @@ class UranusTableColumnRequest(JDCloudRequest):
 
 class UranusTableColumnParameters(object):
 
-    def __init__(self,regionId, appName, table, env):
+    def __init__(self,regionId, appName, table, env, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
-        :param table: 墨迹搜索字段
+        :param table: 模糊搜索字段
         :param env: 环境信息，dev 开发、prod 生产
         """
 
@@ -44,4 +44,11 @@ class UranusTableColumnParameters(object):
         self.appName = appName
         self.table = table
         self.env = env
+        self.dbName = None
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎必传）
+        """
+        self.dbName = dbName
 

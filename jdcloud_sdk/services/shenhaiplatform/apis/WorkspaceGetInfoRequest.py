@@ -43,6 +43,7 @@ class WorkspaceGetInfoParameters(object):
         self.id = None
         self.workspaceCode = None
         self.projectCode = None
+        self.instanceCode = None
         self.resourceCode = None
         self.engineCode = None
 
@@ -60,9 +61,15 @@ class WorkspaceGetInfoParameters(object):
 
     def setProjectCode(self, projectCode):
         """
-        :param projectCode: (Optional) 
+        :param projectCode: (Optional) 云仓项目code / JMR实例code
         """
         self.projectCode = projectCode
+
+    def setInstanceCode(self, instanceCode):
+        """
+        :param instanceCode: (Optional) 实例编码(解绑引擎实例时使用，JCW项目projectCode或JMR集群实例ID)
+        """
+        self.instanceCode = instanceCode
 
     def setResourceCode(self, resourceCode):
         """
@@ -72,7 +79,7 @@ class WorkspaceGetInfoParameters(object):
 
     def setEngineCode(self, engineCode):
         """
-        :param engineCode: (Optional) 存算引擎实例编码
+        :param engineCode: (Optional) 存算引擎实例编码（getEngineDetailsByEngineCode、getInstances 等按引擎查询接口必填）
         """
         self.engineCode = engineCode
 

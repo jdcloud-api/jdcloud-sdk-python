@@ -55,6 +55,8 @@ class UranusTablePublishParameters(object):
         self.lineDelim = None
         self.bucketCols = None
         self.bucketNum = None
+        self.dbName = None
+        self.env = None
 
     def setTableCnName(self, tableCnName):
         """
@@ -121,4 +123,16 @@ class UranusTablePublishParameters(object):
         :param bucketNum: (Optional) 分桶字段
         """
         self.bucketNum = bucketNum
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎由用户选择后回传；JCW 引擎可不传）
+        """
+        self.dbName = dbName
+
+    def setEnv(self, env):
+        """
+        :param env: (Optional) 环境：dev 开发环境，prod 生产环境（JMR 标准模式由前端选定）
+        """
+        self.env = env
 

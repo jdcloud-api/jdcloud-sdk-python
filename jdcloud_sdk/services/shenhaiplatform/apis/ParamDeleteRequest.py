@@ -32,14 +32,26 @@ class ParamDeleteRequest(JDCloudRequest):
 
 class ParamDeleteParameters(object):
 
-    def __init__(self,regionId, appName, paramCode):
+    def __init__(self,regionId, appName, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
-        :param paramCode: 参数 Code
         """
 
         self.regionId = regionId
         self.appName = appName
+        self.paramCode = None
+        self.workspaceCode = None
+
+    def setParamCode(self, paramCode):
+        """
+        :param paramCode: (Optional) 参数Code
+        """
         self.paramCode = paramCode
+
+    def setWorkspaceCode(self, workspaceCode):
+        """
+        :param workspaceCode: (Optional) 工作空间Code(可选，与paramList/paramBatchSave请求体字段对齐)
+        """
+        self.workspaceCode = workspaceCode
 

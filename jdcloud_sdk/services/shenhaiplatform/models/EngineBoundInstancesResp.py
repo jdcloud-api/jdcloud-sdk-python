@@ -23,7 +23,7 @@ class EngineBoundInstancesResp(object):
         """
         :param engineCode: (Optional) 计算引擎Code
         :param cloudProjects: (Optional) 绑定的云仓项目列表
-        :param jmrInstances: (Optional) 绑定的JMR实例列表
+        :param jmrInstances: (Optional) 绑定的JMR实例列表(同一集群绑定dev和prod时返回两条，env与defaultAccessIdentity分别对应环境)
         """
 
         self.engineCode = engineCode

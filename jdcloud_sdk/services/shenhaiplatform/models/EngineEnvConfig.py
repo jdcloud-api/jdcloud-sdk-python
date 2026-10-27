@@ -19,13 +19,17 @@
 
 class EngineEnvConfig(object):
 
-    def __init__(self, projectCode=None, projectName=None, resourceCode=None):
+    def __init__(self, projectCode=None, projectName=None, calculateResourceCodes=None, integrationResourceCodes=None, defaultAccessIdentity=None):
         """
-        :param projectCode: (Optional) 项目/实例Code
+        :param projectCode: (Optional) 项目/实例Code(JCW留空且projectName非空时，绑定过程中自动创建新的云仓项目；JMR允许devConfig与prodConfig填同一集群，分别配置访问身份)
         :param projectName: (Optional) 项目/实例名称
-        :param resourceCode: (Optional) 资源组Code
+        :param calculateResourceCodes: (Optional) 计算资源组Code列表(新建云仓项目时随项目一并绑定，对应云仓calculateResourceList)
+        :param integrationResourceCodes: (Optional) 集成资源组Code列表(新建云仓项目时随项目一并绑定，对应云仓integrationResourceCode)
+        :param defaultAccessIdentity: (Optional) JMR默认访问身份(CLUSTER_ACCOUNT_HADOOP-集群账号hadoop，TASK_OWNER_MAPPED_ACCOUNT-任务责任人映射集群账号；绑定JMR引擎时对配置了实例的环境必填，JCW不使用)
         """
 
         self.projectCode = projectCode
         self.projectName = projectName
-        self.resourceCode = resourceCode
+        self.calculateResourceCodes = calculateResourceCodes
+        self.integrationResourceCodes = integrationResourceCodes
+        self.defaultAccessIdentity = defaultAccessIdentity

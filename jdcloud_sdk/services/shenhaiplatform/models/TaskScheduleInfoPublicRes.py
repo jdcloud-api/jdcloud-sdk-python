@@ -19,7 +19,7 @@
 
 class TaskScheduleInfoPublicRes(object):
 
-    def __init__(self, taskDraftId=None, cronExpression=None, priority=None, timeout=None, retryTimes=None, retryInterval=None, isCrossCycleDepend=None, cu=None, parallelism=None, resourceCode=None, imageId=None):
+    def __init__(self, taskDraftId=None, cronExpression=None, priority=None, timeout=None, retryTimes=None, retryInterval=None, isCrossCycleDepend=None, cu=None, parallelism=None, resourceCode=None, engineCode=None, imageId=None):
         """
         :param taskDraftId: (Optional) 任务草稿ID
         :param cronExpression: (Optional) Cron表达式，定义任务调度时间，例如：00 09 00 * * ?
@@ -31,6 +31,7 @@ class TaskScheduleInfoPublicRes(object):
         :param cu: (Optional) CU数量，表示任务调度时可用的计算单元数量
         :param parallelism: (Optional) 并行度，表示任务调度时的并行执行数量
         :param resourceCode: (Optional) 资源组code，用于标识任务调度所在的资源组
+        :param engineCode: (Optional) 执行引擎编码（任务绑定的计算引擎实例Code）
         :param imageId: (Optional) 用于标识任务调度所需的镜像, 适用于Python任务, 当配置为0时 更新为系统默认镜像
         """
 
@@ -44,4 +45,5 @@ class TaskScheduleInfoPublicRes(object):
         self.cu = cu
         self.parallelism = parallelism
         self.resourceCode = resourceCode
+        self.engineCode = engineCode
         self.imageId = imageId

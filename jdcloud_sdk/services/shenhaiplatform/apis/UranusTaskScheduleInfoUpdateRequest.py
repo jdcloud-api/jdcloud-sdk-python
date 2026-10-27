@@ -51,6 +51,7 @@ class UranusTaskScheduleInfoUpdateParameters(object):
         self.retryTimes = None
         self.retryInterval = None
         self.resourceGroup = None
+        self.engineCode = None
         self.crossCycleDependType = None
         self.scheduleCycle = None
 
@@ -119,6 +120,12 @@ class UranusTaskScheduleInfoUpdateParameters(object):
         :param resourceGroup: (Optional) 资源组
         """
         self.resourceGroup = resourceGroup
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 执行引擎编码（任务绑定的计算引擎实例Code）
+        """
+        self.engineCode = engineCode
 
     def setCrossCycleDependType(self, crossCycleDependType):
         """

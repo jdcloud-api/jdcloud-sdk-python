@@ -19,7 +19,7 @@
 
 class UranusTableSaveOrUpdate(object):
 
-    def __init__(self, tableEnName, columns, tableCnName=None, owner=None, manager=None, partitions=None, isPartition=None, updateTable=None, storageType=None, fieldDelim=None, lineDelim=None, bucketCols=None, bucketNum=None):
+    def __init__(self, tableEnName, columns, tableCnName=None, owner=None, manager=None, partitions=None, isPartition=None, updateTable=None, storageType=None, fieldDelim=None, lineDelim=None, bucketCols=None, bucketNum=None, dbName=None, env=None):
         """
         :param tableEnName:  表英文名称
         :param tableCnName: (Optional) 表中文名
@@ -34,6 +34,8 @@ class UranusTableSaveOrUpdate(object):
         :param lineDelim: (Optional) 表行分隔符（只有TEXTFILE类型表需要该字段）
         :param bucketCols: (Optional) 分桶字段
         :param bucketNum: (Optional) 分桶字段
+        :param dbName: (Optional) 库名（JMR 引擎由用户选择后回传；JCW 引擎可不传）
+        :param env: (Optional) 环境：dev 开发环境，prod 生产环境（JMR 标准模式由前端选定）
         """
 
         self.tableEnName = tableEnName
@@ -49,3 +51,5 @@ class UranusTableSaveOrUpdate(object):
         self.lineDelim = lineDelim
         self.bucketCols = bucketCols
         self.bucketNum = bucketNum
+        self.dbName = dbName
+        self.env = env

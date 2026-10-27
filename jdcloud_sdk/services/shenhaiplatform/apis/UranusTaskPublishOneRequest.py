@@ -37,7 +37,7 @@ class UranusTaskPublishOneParameters(object):
         :param regionId: 地域ID
         :param appName: 应用名称
         :param ids: 节点列表
-        :param reason: 发布原因
+        :param reason: 发布任务的原因
         """
 
         self.regionId = regionId

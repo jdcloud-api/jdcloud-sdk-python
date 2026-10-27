@@ -19,12 +19,13 @@
 
 class BundleOrUnBundleResourceReq(object):
 
-    def __init__(self, workspaceCode=None, userPin=None, calculateResourceCode=None, integrationResourceCode=None, bundleResource=None):
+    def __init__(self, workspaceCode=None, userPin=None, calculateResourceCode=None, integrationResourceCode=None, generalResourceCode=None, bundleResource=None):
         """
         :param workspaceCode: (Optional) 工作空间code
         :param userPin: (Optional) 
         :param calculateResourceCode: (Optional) 
         :param integrationResourceCode: (Optional) 
+        :param generalResourceCode: (Optional) 通用型资源组Code（双用途：计算+集成）
         :param bundleResource: (Optional) 
         """
 
@@ -32,4 +33,5 @@ class BundleOrUnBundleResourceReq(object):
         self.userPin = userPin
         self.calculateResourceCode = calculateResourceCode
         self.integrationResourceCode = integrationResourceCode
+        self.generalResourceCode = generalResourceCode
         self.bundleResource = bundleResource

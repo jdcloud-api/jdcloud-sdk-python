@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class BindInstanceRequest(JDCloudRequest):
     """
-    计算引擎绑定云仓或JMR实例
+    计算引擎绑定云仓或JMR实例。JCW：同一工作空间内同一云仓项目只能绑定一次（不可同时挂到开发与生产），允许同一项目绑定到多个工作空间。JMR：同一集群可绑定到多个工作空间，同一工作空间内可绑定多个引擎；同一引擎下同一集群可按env分别绑定dev/prod，并配置不同默认访问身份。
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -44,8 +44,9 @@ class BindInstanceParameters(object):
         self.instanceCode = None
         self.instanceName = None
         self.instanceType = None
-        self.resourceCode = None
+        self.defaultAccessIdentity = None
         self.env = None
+        self.workspaceCode = None
 
     def setEngineCode(self, engineCode):
         """
@@ -71,15 +72,21 @@ class BindInstanceParameters(object):
         """
         self.instanceType = instanceType
 
-    def setResourceCode(self, resourceCode):
+    def setDefaultAccessIdentity(self, defaultAccessIdentity):
         """
-        :param resourceCode: (Optional) 资源组Code
+        :param defaultAccessIdentity: (Optional) JMR默认访问身份(CLUSTER_ACCOUNT_HADOOP-集群账号hadoop，TASK_OWNER_MAPPED_ACCOUNT-任务责任人映射集群账号；可选，不传落库为null，查询时兜底返回CLUSTER_ACCOUNT_HADOOP)
         """
-        self.resourceCode = resourceCode
+        self.defaultAccessIdentity = defaultAccessIdentity
 
     def setEnv(self, env):
         """
-        :param env: (Optional) 环境类型(dev/prod)
+        :param env: (Optional) 环境类型(dev/prod)。同一引擎下同一实例按环境区分，允许同一JMR集群分别绑定开发/生产并配置不同访问身份
         """
         self.env = env
+
+    def setWorkspaceCode(self, workspaceCode):
+        """
+        :param workspaceCode: (Optional) 工作空间Code(管理员校验用，网关未注入workspaceCode头时兜底)
+        """
+        self.workspaceCode = workspaceCode
 

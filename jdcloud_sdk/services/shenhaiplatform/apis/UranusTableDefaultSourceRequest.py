@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class UranusTableDefaultSourceRequest(JDCloudRequest):
     """
-    更新用户默认表来源
+    更新用户默认表来源（即引擎类型）与默认引擎编码，各字段非空才覆盖
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -32,14 +32,35 @@ class UranusTableDefaultSourceRequest(JDCloudRequest):
 
 class UranusTableDefaultSourceParameters(object):
 
-    def __init__(self,regionId, appName, sourceType):
+    def __init__(self,regionId, appName, sourceType, ):
         """
         :param regionId: 地域ID
         :param appName: 应用名称
-        :param sourceType: 表来源类型：JCW、AI_LAKE
+        :param sourceType: 表来源类型，即引擎类型：JCW、AI_LAKE、JMR（必传，为空返回参数错误）
         """
 
         self.regionId = regionId
         self.appName = appName
         self.sourceType = sourceType
+        self.engineCode = None
+        self.clusterId = None
+        self.dbName = None
+
+    def setEngineCode(self, engineCode):
+        """
+        :param engineCode: (Optional) 引擎编码
+        """
+        self.engineCode = engineCode
+
+    def setClusterId(self, clusterId):
+        """
+        :param clusterId: (Optional) 集群 ID（JMR 引擎）
+        """
+        self.clusterId = clusterId
+
+    def setDbName(self, dbName):
+        """
+        :param dbName: (Optional) 库名（JMR 引擎）
+        """
+        self.dbName = dbName
 

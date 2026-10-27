@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class GetJmrConfigsRequest(JDCloudRequest):
     """
-    通过计算引擎Code查询绑定的JMR引擎配置信息(支持按类型过滤)
+    通过计算引擎Code查询绑定的JMR引擎配置信息(支持按类型过滤)。绑定JMR时会额外落一条configType=openldap-proxy，properties含userName与解密后的password；按configType过滤时只返回对应类型。
     """
 
     def __init__(self, parameters, header=None, version="v2"):
@@ -41,6 +41,7 @@ class GetJmrConfigsParameters(object):
         self.regionId = regionId
         self.appName = appName
         self.engineCode = None
+        self.workspaceCode = None
         self.configType = None
         self.env = None
 
@@ -50,15 +51,21 @@ class GetJmrConfigsParameters(object):
         """
         self.engineCode = engineCode
 
+    def setWorkspaceCode(self, workspaceCode):
+        """
+        :param workspaceCode: (Optional) 工作空间Code(可选，管理员权限校验兜底使用，header有值时优先取header)
+        """
+        self.workspaceCode = workspaceCode
+
     def setConfigType(self, configType):
         """
-        :param configType: (Optional) 配置类型(如 core-site, hdfs-site 等，为空返回全部)
+        :param configType: (Optional) 配置类型(如 core-site, hdfs-site, openldap-proxy 等，为空返回全部)
         """
         self.configType = configType
 
     def setEnv(self, env):
         """
-        :param env: (Optional) 环境类型(dev/prod)
+        :param env: (Optional) 环境类型(dev/prod)；refreshJmrConfigs/getJmrConfigs 均可选：空则覆盖全部环境、非空则只作用该环境
         """
         self.env = env
 

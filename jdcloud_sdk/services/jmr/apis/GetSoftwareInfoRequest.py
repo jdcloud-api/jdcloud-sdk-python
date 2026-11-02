@@ -32,12 +32,14 @@ class GetSoftwareInfoRequest(JDCloudRequest):
 
 class GetSoftwareInfoParameters(object):
 
-    def __init__(self, regionId, version):
+    def __init__(self,regionId, softVer, template):
         """
         :param regionId: 地域ID
-        :param version: JMR软件版本号
+        :param softVer: JMR软件版本号
+        :param template: JMR的模板名称
         """
 
         self.regionId = regionId
-        self.version = version
+        self.softVer = softVer
+        self.template = template
 

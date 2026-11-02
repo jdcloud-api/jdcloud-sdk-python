@@ -19,13 +19,21 @@
 
 class ClusterExpansion(object):
 
-    def __init__(self, clusterId, expansionNum, nodeType=None):
+    def __init__(self, clusterId, expansionNum, nodeType=None, expandTypeId=None, expandServices=None, configGroupId=None, taskNodesByGroup=None):
         """
         :param clusterId:  集群ID
-        :param expansionNum:  扩容节点个数
-        :param nodeType: (Optional) 扩容节点类型。 Task：计算节点，Core：存储和计算节点
+        :param expansionNum:  扩容节点数量
+        :param nodeType: (Optional) 扩容节点类型，默认为Core类型。 Task：计算节点，Core：存储和计算节点，Edge：边缘节点
+        :param expandTypeId: (Optional) （已废弃）扩容节点规格，默认值为0。集群已有的Core，Task，Edge节点规格分别取值0，-1，-2。否则需为预置规格的id，取值>0
+        :param expandServices: (Optional) 扩容时选择的组件，默认为集群已有组件。逗号分割，举例 HDFS,YARN,HBASE
+        :param configGroupId: (Optional) 扩容节点所属的已有节点组ID
+        :param taskNodesByGroup: (Optional) 扩容新建的节点组及节点信息
         """
 
         self.clusterId = clusterId
         self.expansionNum = expansionNum
         self.nodeType = nodeType
+        self.expandTypeId = expandTypeId
+        self.expandServices = expandServices
+        self.configGroupId = configGroupId
+        self.taskNodesByGroup = taskNodesByGroup

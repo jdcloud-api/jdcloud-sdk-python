@@ -19,20 +19,22 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class MonitorLabelListRequest(JDCloudRequest):
+class CreateDatabaseRequest(JDCloudRequest):
     """
-    查询JMR的监控模板信息
+    创建数据库，执行传入的 CREATE DATABASE 语句。
+仅支持 v2 集群（controlMethod=ambari）。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(MonitorLabelListRequest, self).__init__(
-            '/regions/{regionId}/monitorLabelList/{clusterId}', 'POST', header, version)
+        super(CreateDatabaseRequest, self).__init__(
+            '/regions/{regionId}/clusters/{clusterId}/databases', 'POST', header, version)
         self.parameters = parameters
 
 
-class MonitorLabelListParameters(object):
+class CreateDatabaseParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId):
         """
         :param regionId: 地域ID
         :param clusterId: 集群ID

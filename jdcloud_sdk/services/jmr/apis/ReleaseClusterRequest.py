@@ -33,7 +33,7 @@ class ReleaseClusterRequest(JDCloudRequest):
 
 class ReleaseClusterParameters(object):
 
-    def __init__(self, regionId, clusterId, ):
+    def __init__(self,regionId, clusterId):
         """
         :param regionId: 地域ID
         :param clusterId: 集群ID

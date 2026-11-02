@@ -19,7 +19,7 @@
 
 class Cluster(object):
 
-    def __init__(self, id=None, name=None, dataCenter=None, clusterPrimaryId=None, monitorResourceId=None, status=None, softwareStack=None, createTime=None, haFlag=None, jssFlag=None, payPrice=None, payType=None, duration=None, nodeCount=None, hardware=None):
+    def __init__(self, id=None, name=None, dataCenter=None, clusterPrimaryId=None, monitorResourceId=None, status=None, softwareStack=None, createTime=None, haFlag=None, jssFlag=None, payPrice=None, payType=None, duration=None, rdsInstanceId=None, nodeCount=None, hardware=None):
         """
         :param id: (Optional) 集群ID
         :param name: (Optional) 集群名称
@@ -34,7 +34,8 @@ class Cluster(object):
         :param payPrice: (Optional) 集群费用
         :param payType: (Optional) 集群收费类型
         :param duration: (Optional) 集群运行时间
-        :param nodeCount: (Optional) 集群节点个数
+        :param rdsInstanceId: (Optional) 集群使用的RDS实例ID
+        :param nodeCount: (Optional) 集群节点数量
         :param hardware: (Optional) 集群节点信息
         """
 
@@ -51,5 +52,6 @@ class Cluster(object):
         self.payPrice = payPrice
         self.payType = payType
         self.duration = duration
+        self.rdsInstanceId = rdsInstanceId
         self.nodeCount = nodeCount
         self.hardware = hardware

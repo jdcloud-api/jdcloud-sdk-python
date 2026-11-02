@@ -33,7 +33,7 @@ class DescribeClustersRequest(JDCloudRequest):
 
 class DescribeClustersParameters(object):
 
-    def __init__(self, regionId, ):
+    def __init__(self,regionId, ):
         """
         :param regionId: 地域ID
         """
@@ -45,6 +45,8 @@ class DescribeClustersParameters(object):
         self.orderBy = None
         self.pageNum = None
         self.pageSize = None
+        self.filters = None
+        self.tagFilters = None
 
     def setDataCenter(self, dataCenter):
         """
@@ -81,4 +83,21 @@ class DescribeClustersParameters(object):
         :param pageSize: (Optional) 每页数目，默认为10
         """
         self.pageSize = pageSize
+
+    def setFilters(self, filters):
+        """
+        :param filters: (Optional) 过滤参数，多个过滤参数之间的关系为“与”(and)
+支持以下属性的过滤：
+clusterId, 支持operator选项：eq
+clusterName, 支持operator选项：eq, like
+status, 支持operator选项：eq
+
+        """
+        self.filters = filters
+
+    def setTagFilters(self, tagFilters):
+        """
+        :param tagFilters: (Optional) 资源标签
+        """
+        self.tagFilters = tagFilters
 

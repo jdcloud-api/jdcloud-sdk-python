@@ -19,7 +19,7 @@
 
 class ClusterListNode(object):
 
-    def __init__(self, id=None, name=None, dataCenter=None, recordId=None, monitorResourceId=None, status=None, errorMessage=None, createTime=None, payType=None, duration=None, outerIp=None):
+    def __init__(self, id=None, name=None, dataCenter=None, recordId=None, monitorResourceId=None, status=None, errorMessage=None, createTime=None, payType=None, duration=None, outerIp=None, controlMethod=None, nodeTypeSummary=None):
         """
         :param id: (Optional) 集群ID
         :param name: (Optional) 集群名称
@@ -32,6 +32,8 @@ class ClusterListNode(object):
         :param payType: (Optional) 集群收费类型
         :param duration: (Optional) 集群运行时间
         :param outerIp: (Optional) 公网Ip
+        :param controlMethod: (Optional) 控制方式，取值v1或者v2
+        :param nodeTypeSummary: (Optional) 节点类型汇总信息
         """
 
         self.id = id
@@ -45,3 +47,5 @@ class ClusterListNode(object):
         self.payType = payType
         self.duration = duration
         self.outerIp = outerIp
+        self.controlMethod = controlMethod
+        self.nodeTypeSummary = nodeTypeSummary

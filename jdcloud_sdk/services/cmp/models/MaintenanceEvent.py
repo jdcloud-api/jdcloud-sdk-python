@@ -19,7 +19,7 @@
 
 class MaintenanceEvent(object):
 
-    def __init__(self, eventId=None, eventState=None, eventType=None, maintenancePolicyType=None, maintenancePolicyOperate=None, resourceId=None, createTime=None, eventTime=None, deadlineTime=None, finishTime=None, eventOperateLog=None):
+    def __init__(self, eventId=None, eventState=None, eventType=None, maintenancePolicyType=None, maintenancePolicyOperate=None, resourceId=None, discardLocalDataDisk=None, createTime=None, eventTime=None, deadlineTime=None, finishTime=None, eventOperateLog=None):
         """
         :param eventId: (Optional) 运维事件ID
         :param eventState: (Optional) 运维事件状态
@@ -48,6 +48,8 @@ class MaintenanceEvent(object):
 
         :param resourceId: (Optional) 资源ID
 
+        :param discardLocalDataDisk: (Optional) 本次迁移是否允许丢弃本地数据盘，不包含系统盘和云数据盘；缺省或false表示未开启。
+
         :param createTime: (Optional) 运维事件创建时间
 
         :param eventTime: (Optional) 运维事件执行开始时间
@@ -65,6 +67,7 @@ class MaintenanceEvent(object):
         self.maintenancePolicyType = maintenancePolicyType
         self.maintenancePolicyOperate = maintenancePolicyOperate
         self.resourceId = resourceId
+        self.discardLocalDataDisk = discardLocalDataDisk
         self.createTime = createTime
         self.eventTime = eventTime
         self.deadlineTime = deadlineTime

@@ -19,12 +19,21 @@
 
 class EventOperateLog(object):
 
-    def __init__(self, operateTime=None, maintenancePolicySnapshot=None):
+    def __init__(self, operateTime=None, maintenancePolicySnapshot=None, faultDescription=None, reproductionCommand=None, commandOutput=None):
         """
         :param operateTime: (Optional) 运维事件操作时间
 
         :param maintenancePolicySnapshot: (Optional) 运维策略快照
+        :param faultDescription: (Optional) 创建事件时提报的故障描述，对应请求中的description，最长256个字符；
+
+        :param reproductionCommand: (Optional) 创建事件时提报的故障复现命令原文，最多2048个UTF-8字节，仅保存和展示，不执行；
+
+        :param commandOutput: (Optional) 创建事件时提报的故障复现命令输出原文，最多16384个UTF-8字节；
+
         """
 
         self.operateTime = operateTime
         self.maintenancePolicySnapshot = maintenancePolicySnapshot
+        self.faultDescription = faultDescription
+        self.reproductionCommand = reproductionCommand
+        self.commandOutput = commandOutput

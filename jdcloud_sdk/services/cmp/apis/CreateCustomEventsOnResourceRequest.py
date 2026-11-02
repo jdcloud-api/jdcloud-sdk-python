@@ -43,11 +43,39 @@ class CreateCustomEventsOnResourceParameters(object):
         self.regionId = regionId
         self.resourceId = resourceId
         self.description = None
+        self.reproductionCommand = None
+        self.commandOutput = None
+        self.discardLocalDataDisk = None
 
     def setDescription(self, description):
         """
-        :param description: (Optional) 描述信息，最长256个字符
+        :param description: (Optional) 故障描述，最长256个字符；必填且不能仅包含空白字符。
 
         """
         self.description = description
+
+    def setReproductionCommand(self, reproductionCommand):
+        """
+        :param reproductionCommand: (Optional) 故障复现命令，最多2048个UTF-8字节；必填且不能仅包含空白字符。
+仅保存和展示提报原文，不执行命令。
+
+        """
+        self.reproductionCommand = reproductionCommand
+
+    def setCommandOutput(self, commandOutput):
+        """
+        :param commandOutput: (Optional) 故障复现命令输出，最多16384个UTF-8字节；必填且不能仅包含空白字符。
+按原文保存，超出长度限制时拒绝，不截断。
+
+        """
+        self.commandOutput = commandOutput
+
+    def setDiscardLocalDataDisk(self, discardLocalDataDisk):
+        """
+        :param discardLocalDataDisk: (Optional) 是否允许本次迁移丢弃本地数据盘，缺省或false保持原迁移行为，仅显式true时允许弃盘。
+true仅支持云系统盘VM实例，保留系统盘和云数据盘，不支持本地系统盘。
+不要求实例实际存在本地数据盘，纯云盘或无数据盘实例满足上述条件时也可传true。
+
+        """
+        self.discardLocalDataDisk = discardLocalDataDisk
 

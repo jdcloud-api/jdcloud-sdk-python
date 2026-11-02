@@ -19,38 +19,62 @@
 
 class ClusterSpec(object):
 
-    def __init__(self, name, password, version, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterDiskType, masterDiskVolume, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveDiskType, slaveDiskVolume, coreInstanceType, jssFlag, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, payType=None, masterSystemDiskIops=None, masterDiskIops=None, slaveSystemDiskIops=None, slaveDiskIops=None, createOuterIpFlag=None, createSecurityGroupFlag=None, securityGroupId=None):
+    def __init__(self, name, version, masterNodeCount, masterSystemDiskType, masterSystemDiskVolume, masterDiskType, masterDiskVolume, masterInstanceType, slaveNodeCount, slaveSystemDiskType, slaveSystemDiskVolume, slaveDiskType, slaveDiskVolume, coreInstanceType, dataCenter, softwareList, haFlag, vpcId, vpcSubnetId, az, password=None, payType=None, masterSystemDiskIops=None, masterDiskIops=None, slaveSystemDiskIops=None, slaveDiskNumber=None, slaveDiskIops=None, taskNodeCount=None, taskSystemDiskType=None, taskSystemDiskVolume=None, taskSystemDiskIops=None, taskDiskType=None, taskDiskVolume=None, taskDiskNumber=None, taskDiskIops=None, taskInstanceType=None, coordNodeCount=None, coordSystemDiskType=None, coordSystemDiskVolume=None, coordSystemDiskIops=None, coordDiskType=None, coordDiskVolume=None, coordDiskNumber=None, coordDiskIops=None, coordInstanceType=None, jssFlag=None, rdsMetaFlag=None, isKerberos=None, createOuterIpFlag=None, createSecurityGroupFlag=None, securityGroupId=None, userDefinedConf=None, sshKeyName=None, taskNodesByGroup=None):
         """
         :param name:  集群名称(不能少于6字符不能超过20字符，除下划线外不能包含特殊符号)
-        :param password:  集群root用户密码(须包含大小写字母、数字及特殊字符其中三类，且不能少于8字符不能超过30字符)
+        :param password: (Optional) 集群root用户密码(须包含大小写字母、数字及特殊字符其中三类，且不能少于8字符不能超过30字符)
         :param version:  集群版本，默认版本为JMR2.0.0
         :param payType: (Optional) 集群计费类型，支持按配置和包年包月计费
         :param masterNodeCount:  主节点数量
         :param masterSystemDiskType:  Master系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
-        :param masterSystemDiskVolume:  Master系统硬盘大小，单位GB
-        :param masterSystemDiskIops: (Optional) Master系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param masterSystemDiskVolume:  Master系统硬盘大小，取值范围[40, 500]，单位GB。
+        :param masterSystemDiskIops: (Optional) Master系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
         :param masterDiskType:  Master数据盘类型：ssd.gp1,ssd.io1和hdd.std1
-        :param masterDiskVolume:  Master数据盘大小，单位GB
-        :param masterDiskIops: (Optional) Master数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param masterDiskVolume:  Master数据盘大小，取值范围[50, 32000]，单位GB
+        :param masterDiskIops: (Optional) Master数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
         :param masterInstanceType:  master节点规格
         :param slaveNodeCount:  Slave节点数量
         :param slaveSystemDiskType:  Slave系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
-        :param slaveSystemDiskVolume:  Slave系统硬盘大小，单位GB
-        :param slaveSystemDiskIops: (Optional) Slave系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param slaveSystemDiskVolume:  Slave系统硬盘大小，取值范围[40, 500]，单位GB
+        :param slaveSystemDiskIops: (Optional) Slave系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
         :param slaveDiskType:  Slave数据盘类型：ssd.gp1,ssd.io1和hdd.std1
-        :param slaveDiskVolume:  Slave数据盘大小，单位GB
-        :param slaveDiskIops: (Optional) Slave数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，200起步，步长为10
+        :param slaveDiskVolume:  Slave数据盘大小，取值范围[50, 32000]，单位GB
+        :param slaveDiskNumber: (Optional) Slave数据盘数量，取值范围[1, 7]，单位个，默认1个
+        :param slaveDiskIops: (Optional) Slave数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
         :param coreInstanceType:  slave节点规格
-        :param jssFlag:  关联JSS
+        :param taskNodeCount: (Optional) task节点数量
+        :param taskSystemDiskType: (Optional) task系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
+        :param taskSystemDiskVolume: (Optional) task系统硬盘大小，取值范围[40, 500]，单位GB
+        :param taskSystemDiskIops: (Optional) task系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
+        :param taskDiskType: (Optional) task数据盘类型：ssd.gp1,ssd.io1和hdd.std1
+        :param taskDiskVolume: (Optional) task数据盘大小，取值范围[50, 32000]，单位GB
+        :param taskDiskNumber: (Optional) task数据盘数量，取值范围[1, 7]，单位个，默认1个
+        :param taskDiskIops: (Optional) task数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
+        :param taskInstanceType: (Optional) task节点规格
+        :param coordNodeCount: (Optional) coord节点数量
+        :param coordSystemDiskType: (Optional) coord系统硬盘类型：ssd.gp1,ssd.io1和hdd.std1
+        :param coordSystemDiskVolume: (Optional) coord系统硬盘大小，取值范围[40, 500]，单位GB
+        :param coordSystemDiskIops: (Optional) coord系统硬盘iops，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
+        :param coordDiskType: (Optional) coord数据盘类型：ssd.gp1,ssd.io1和hdd.std1
+        :param coordDiskVolume: (Optional) coord数据盘大小，取值范围[50, 32000]，单位GB
+        :param coordDiskNumber: (Optional) coord数据盘数量，取值范围[1, 7]，单位个，默认1个
+        :param coordDiskIops: (Optional) coord数据盘ipos，只有在硬盘类型是ssd.gp1,ssd.io1时，才需要有iops，详细取值说明见云硬盘相关文档
+        :param coordInstanceType: (Optional) coord节点规格
+        :param jssFlag: (Optional) 关联JSS，默认为false
         :param dataCenter:  数据中心，即regionId
         :param softwareList:  软件列表
-        :param haFlag:  集群是否为高可用，默认为高可用集群
+        :param haFlag:  集群是否为高可用，默认为true，高可用集群
+        :param rdsMetaFlag: (Optional) 是否创建RDS作为Hive元数据库字段，默认为false
+        :param isKerberos: (Optional) 集群是否支持Kerberos，默认为false
         :param vpcId:  Vpc网络ID
         :param vpcSubnetId:  Vpc子网ID
         :param az:  数据中心的可用区
-        :param createOuterIpFlag: (Optional) 是否创建公网IP
-        :param createSecurityGroupFlag: (Optional) 是否创建安全组
+        :param createOuterIpFlag: (Optional) 是否创建公网IP，默认为false
+        :param createSecurityGroupFlag: (Optional) 是否创建安全组，默认为false
         :param securityGroupId: (Optional) 安全组ID
+        :param userDefinedConf: (Optional) 自定义软件配置，JSON格式字符串
+        :param sshKeyName: (Optional) 集群使用密钥创建的密钥名称
+        :param taskNodesByGroup: (Optional) 集群创建的Task所属的节点组的规格和扩容节点数量信息
         """
 
         self.name = name
@@ -71,15 +95,39 @@ class ClusterSpec(object):
         self.slaveSystemDiskIops = slaveSystemDiskIops
         self.slaveDiskType = slaveDiskType
         self.slaveDiskVolume = slaveDiskVolume
+        self.slaveDiskNumber = slaveDiskNumber
         self.slaveDiskIops = slaveDiskIops
         self.coreInstanceType = coreInstanceType
+        self.taskNodeCount = taskNodeCount
+        self.taskSystemDiskType = taskSystemDiskType
+        self.taskSystemDiskVolume = taskSystemDiskVolume
+        self.taskSystemDiskIops = taskSystemDiskIops
+        self.taskDiskType = taskDiskType
+        self.taskDiskVolume = taskDiskVolume
+        self.taskDiskNumber = taskDiskNumber
+        self.taskDiskIops = taskDiskIops
+        self.taskInstanceType = taskInstanceType
+        self.coordNodeCount = coordNodeCount
+        self.coordSystemDiskType = coordSystemDiskType
+        self.coordSystemDiskVolume = coordSystemDiskVolume
+        self.coordSystemDiskIops = coordSystemDiskIops
+        self.coordDiskType = coordDiskType
+        self.coordDiskVolume = coordDiskVolume
+        self.coordDiskNumber = coordDiskNumber
+        self.coordDiskIops = coordDiskIops
+        self.coordInstanceType = coordInstanceType
         self.jssFlag = jssFlag
         self.dataCenter = dataCenter
         self.softwareList = softwareList
         self.haFlag = haFlag
+        self.rdsMetaFlag = rdsMetaFlag
+        self.isKerberos = isKerberos
         self.vpcId = vpcId
         self.vpcSubnetId = vpcSubnetId
         self.az = az
         self.createOuterIpFlag = createOuterIpFlag
         self.createSecurityGroupFlag = createSecurityGroupFlag
         self.securityGroupId = securityGroupId
+        self.userDefinedConf = userDefinedConf
+        self.sshKeyName = sshKeyName
+        self.taskNodesByGroup = taskNodesByGroup

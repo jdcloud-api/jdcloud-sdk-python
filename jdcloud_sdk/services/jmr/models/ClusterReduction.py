@@ -19,13 +19,15 @@
 
 class ClusterReduction(object):
 
-    def __init__(self, clusterId, reserveNum=None, nodeType=None):
+    def __init__(self, clusterId, reserveNum, nodeType=None, configGroupId=None):
         """
         :param clusterId:  集群ID
-        :param reserveNum: (Optional) 保留的节点个数
-        :param nodeType: (Optional) 缩容节点类型。 仅支持 Task ，即计算节点
+        :param reserveNum:  保留的节点个数
+        :param nodeType: (Optional) 缩容Task或Edge节点。默认为Task节点
+        :param configGroupId: (Optional) 缩容Task所属的节点组ID
         """
 
         self.clusterId = clusterId
         self.reserveNum = reserveNum
         self.nodeType = nodeType
+        self.configGroupId = configGroupId

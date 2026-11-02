@@ -32,7 +32,7 @@ class ClusterReductionRequest(JDCloudRequest):
 
 class ClusterReductionParameters(object):
 
-    def __init__(self, regionId, clusterReduction, ):
+    def __init__(self,regionId, clusterReduction, ):
         """
         :param regionId: 地域ID
         :param clusterReduction: 描述集群缩容信息

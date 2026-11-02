@@ -19,7 +19,7 @@
 
 class ClusterNode(object):
 
-    def __init__(self, serverId=None, instanceInfo=None, nodeName=None, nodeSystemDiskType=None, instanceType=None, nodeStatus=None, nodeDiskType=None, nodeType=None, outerIp=None, innerIp=None, nodeSystemDiskVolume=None, nodeDiskVolume=None, msg=None, nodeSystemInfo=None, nodeDiskCategory=None, nodeSystemDiskCategory=None, nodeCoreNum=None, nodeMemoryNum=None):
+    def __init__(self, serverId=None, instanceInfo=None, nodeName=None, nodeSystemDiskType=None, instanceType=None, nodeStatus=None, nodeDiskType=None, nodeType=None, outerIp=None, innerIp=None, nodeSystemDiskVolume=None, nodeDiskVolume=None, nodeDiskNumber=None, msg=None, nodeSystemInfo=None, nodeDiskCategory=None, nodeSystemDiskCategory=None, nodeCoreNum=None, nodeMemoryNum=None, configGroupId=None, configGroupName=None, nodeNumber=None, nodeSystemDiskIops=None, nodeDiskIops=None):
         """
         :param serverId: (Optional) 节点ID
         :param instanceInfo: (Optional) 节点实例信息
@@ -28,17 +28,23 @@ class ClusterNode(object):
         :param instanceType: (Optional) 节点实例类型
         :param nodeStatus: (Optional) 节点运行状态
         :param nodeDiskType: (Optional) 节点数据盘类型
-        :param nodeType: (Optional) 节点类型，MASTER或者SLAVE
+        :param nodeType: (Optional) 节点类型，MASTER，Core，Task，Edge
         :param outerIp: (Optional) 节点外网IP
         :param innerIp: (Optional) 节点内网IP
         :param nodeSystemDiskVolume: (Optional) 节点系统盘大小(GB)
         :param nodeDiskVolume: (Optional) 节点数据盘大小(GB)
+        :param nodeDiskNumber: (Optional) 节点数据盘数量(个)
         :param msg: (Optional) 信息
         :param nodeSystemInfo: (Optional) 节点系统信息
         :param nodeDiskCategory: (Optional) 节点硬盘类型
         :param nodeSystemDiskCategory: (Optional) 节点系统盘类型
         :param nodeCoreNum: (Optional) 节点数量
         :param nodeMemoryNum: (Optional) 节点内存数量
+        :param configGroupId: (Optional) Task节点的节点组ID
+        :param configGroupName: (Optional) Task节点的节点组名称
+        :param nodeNumber: (Optional) 节点数量(个)
+        :param nodeSystemDiskIops: (Optional) 节点系统盘IOPS
+        :param nodeDiskIops: (Optional) 节点数据盘IOPS
         """
 
         self.serverId = serverId
@@ -53,9 +59,15 @@ class ClusterNode(object):
         self.innerIp = innerIp
         self.nodeSystemDiskVolume = nodeSystemDiskVolume
         self.nodeDiskVolume = nodeDiskVolume
+        self.nodeDiskNumber = nodeDiskNumber
         self.msg = msg
         self.nodeSystemInfo = nodeSystemInfo
         self.nodeDiskCategory = nodeDiskCategory
         self.nodeSystemDiskCategory = nodeSystemDiskCategory
         self.nodeCoreNum = nodeCoreNum
         self.nodeMemoryNum = nodeMemoryNum
+        self.configGroupId = configGroupId
+        self.configGroupName = configGroupName
+        self.nodeNumber = nodeNumber
+        self.nodeSystemDiskIops = nodeSystemDiskIops
+        self.nodeDiskIops = nodeDiskIops

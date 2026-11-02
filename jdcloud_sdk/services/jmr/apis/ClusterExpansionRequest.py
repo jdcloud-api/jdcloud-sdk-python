@@ -32,7 +32,7 @@ class ClusterExpansionRequest(JDCloudRequest):
 
 class ClusterExpansionParameters(object):
 
-    def __init__(self, regionId, clusterExpansion, ):
+    def __init__(self,regionId, clusterExpansion, ):
         """
         :param regionId: 地域ID
         :param clusterExpansion: 描述集群扩容信息

@@ -32,7 +32,7 @@ class CreateClusterRequest(JDCloudRequest):
 
 class CreateClusterParameters(object):
 
-    def __init__(self, regionId, clusterSpec, ):
+    def __init__(self,regionId, clusterSpec, ):
         """
         :param regionId: 地域ID
         :param clusterSpec: 描述集群配置

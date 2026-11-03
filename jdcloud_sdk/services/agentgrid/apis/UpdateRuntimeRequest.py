@@ -25,8 +25,12 @@ class UpdateRuntimeRequest(JDCloudRequest):
 
 ## 接口说明
 - 该操作用于更新 Runtime 的配置信息。
+- 更新镜像配置时，可仅传 `image.command`、`image.args` 或 `image.port`，无需重复传 `image.imageUrl`；未传的字段沿用当前生效版本。`command` 或 `args` 传空数组可恢复镜像默认配置。
+- `imageVolumes` 不传或传 null 时继承当前生效版本，传空数组 `[]` 时清空新版本的镜像卷，传非空数组时整体替换，最多 1 个。镜像卷挂载路径会与更新后或继承的文件系统配置一起校验，不能与 OSS 或 CFS 挂载点重叠。
+- `image.port` 的配置形态在更新时不可改变：当前生效版本已有自定义端口时，可将其修改为另一个 1～65535 的端口，不能传 0 删除；当前生效版本没有自定义端口时，不能在更新中新增自定义端口。不传 `port` 则沿用原配置。
+- Runtime 协议在创建后不可修改；更新时沿用创建 Runtime 时指定的协议。
 - Runtime 在处理更新请求期间，其状态通常会变为 `updating`；本次新生成的 Runtime Version 状态通常会依次经历 `pending`、`creating`，最终进入 `running` 或 `failed`。
-- 本接口响应仅返回 `requestId`，不会直接返回新版本号。请求受理后，建议调用“查询 Runtime 版本列表”确认最新版本号及其状态。
+- 本接口返回 `requestId`、`runtimeId` 和新生成的 `runtimeVersion`；请求受理后，建议调用“查询 Runtime 版本列表”确认新版本的状态。
 - 新版本创建成功后不会自动成为生效版本；如需切换，请继续调用“选择 Runtime 模版版本”接口。
 
     """
@@ -53,11 +57,13 @@ class UpdateRuntimeParameters(object):
         self.networkConfiguration = None
         self.warmSession = None
         self.maxSession = None
+        self.resourceConfiguration = None
         self.roleName = None
         self.envs = None
-        self.filesystemConfiguration = None
-        self.protocol = None
+        self.fileSystemConfiguration = None
+        self.imageVolumes = None
         self.lifecycleConfiguration = None
+        self.logConfiguration = None
 
     def setDescription(self, description):
         """
@@ -73,7 +79,7 @@ class UpdateRuntimeParameters(object):
 
     def setArtifactConfiguration(self, artifactConfiguration):
         """
-        :param artifactConfiguration: (Optional) Runtime 制品配置，支持更换镜像
+        :param artifactConfiguration: (Optional) Runtime 制品配置；可以只更新镜像地址、启动入口、启动参数或服务端口，其余镜像字段沿用当前版本。
         """
         self.artifactConfiguration = artifactConfiguration
 
@@ -95,6 +101,12 @@ class UpdateRuntimeParameters(object):
         """
         self.maxSession = maxSession
 
+    def setResourceConfiguration(self, resourceConfiguration):
+        """
+        :param resourceConfiguration: (Optional) Runtime 新版本的资源配置；不指定时沿用当前版本规格，已有 Session 不受影响。
+        """
+        self.resourceConfiguration = resourceConfiguration
+
     def setRoleName(self, roleName):
         """
         :param roleName: (Optional) runtime 绑定的实例角色
@@ -115,21 +127,27 @@ class UpdateRuntimeParameters(object):
         """
         self.envs = envs
 
-    def setFilesystemConfiguration(self, filesystemConfiguration):
+    def setFileSystemConfiguration(self, fileSystemConfiguration):
         """
-        :param filesystemConfiguration: (Optional) Runtime 文件系统配置。不传该参数时，保留当前生效版本中的文件系统配置；传入该参数时，将用本次配置替换新版本中的文件系统配置，最多支持配置 5 个文件系统。
+        :param fileSystemConfiguration: (Optional) Runtime 文件系统配置。不传该参数时，保留当前生效版本中的文件系统配置；传入该参数时，将用本次配置替换新版本中的文件系统配置，最多支持配置 5 个文件系统。
         """
-        self.filesystemConfiguration = filesystemConfiguration
+        self.fileSystemConfiguration = fileSystemConfiguration
 
-    def setProtocol(self, protocol):
+    def setImageVolumes(self, imageVolumes):
         """
-        :param protocol: (Optional) Runtime 支持的协议类型，当前支持http、mcp、a2a。
+        :param imageVolumes: (Optional) Runtime 只读镜像卷配置，最多 1 个，数组元素不能为 null。不传或传 null 时继承当前生效版本；传空数组 [] 时清空新版本的镜像卷；传非空数组时整体替换。
         """
-        self.protocol = protocol
+        self.imageVolumes = imageVolumes
 
     def setLifecycleConfiguration(self, lifecycleConfiguration):
         """
-        :param lifecycleConfiguration: (Optional) Runtime 生命周期配置。
+        :param lifecycleConfiguration: (Optional) Runtime 生命周期配置。不传时继承当前生效版本的配置。
         """
         self.lifecycleConfiguration = lifecycleConfiguration
+
+    def setLogConfiguration(self, logConfiguration):
+        """
+        :param logConfiguration: (Optional) Runtime 云日志投递配置。不传时继承当前生效版本的配置；传入 enabled=false 时关闭；传入 enabled=true 时完整覆盖。
+        """
+        self.logConfiguration = logConfiguration
 

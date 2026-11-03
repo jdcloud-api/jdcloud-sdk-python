@@ -19,13 +19,14 @@
 
 class BrowserToolSession(object):
 
-    def __init__(self, browserToolId=None, name=None, sessionId=None, state=None, maxLifeTime=None, cdpEndpoint=None, vncEndpoint=None, vncAccessToken=None, failureReason=None, createTime=None, expireTime=None):
+    def __init__(self, browserToolId=None, name=None, sessionId=None, state=None, persistent=None, maxLifeTime=None, cdpEndpoint=None, vncEndpoint=None, vncAccessToken=None, failureReason=None, createTime=None, expireTime=None):
         """
         :param browserToolId: (Optional) Browser Tool ID
         :param name: (Optional) browser tool 名字
         :param sessionId: (Optional) Session ID
         :param state: (Optional) Session 状态。可选值：`pending`（已受理，等待资源准备）、`creating`（初始化中）、`ready`（可连接使用）、`deleting`（删除中）、`deleted`（已删除）、`failed`（初始化失败）
-        :param maxLifeTime: (Optional) Session 最大存活时长（秒）
+        :param persistent: (Optional) 是否开启长程运行
+        :param maxLifeTime: (Optional) Session 最大生命周期，单位为秒；长程运行时不生效
         :param cdpEndpoint: (Optional) Chrome DevTools Protocol WebSocket 地址；通常仅当 `state` 为 `ready` 时可用
         :param vncEndpoint: (Optional) VNC 访问地址；通常仅当 `state` 为 `ready` 时可用
         :param vncAccessToken: (Optional) 访问 VNC 的校验 Token；通常仅当 `state` 为 `ready` 时可用
@@ -38,6 +39,7 @@ class BrowserToolSession(object):
         self.name = name
         self.sessionId = sessionId
         self.state = state
+        self.persistent = persistent
         self.maxLifeTime = maxLifeTime
         self.cdpEndpoint = cdpEndpoint
         self.vncEndpoint = vncEndpoint

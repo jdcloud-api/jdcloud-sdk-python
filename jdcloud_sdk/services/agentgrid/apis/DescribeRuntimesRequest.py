@@ -24,7 +24,8 @@ class DescribeRuntimesRequest(JDCloudRequest):
     查询 Runtime 列表，默认返回当前生效版本的信息。
 
 ## 接口说明
-- 支持分页、排序、条件过滤与标签过滤。
+- 支持分页、条件过滤、标签过滤与资源组过滤。
+- 返回结果包含 Runtime 的用户标签、资源组 ID 和当前版本资源配置。
 - Runtime 状态包括：`pending`、`creating`、`running`、`updating`、`failed`、`deleted`。
 - 返回结果中的 `state` 表示 Runtime 当前整体状态；`versionView.state` 表示本次返回版本的状态。
 
@@ -47,6 +48,8 @@ class DescribeRuntimesParameters(object):
         self.pageSize = None
         self.pageNumber = None
         self.filters = None
+        self.tags = None
+        self.resourceGroupIds = None
 
     def setPageSize(self, pageSize):
         """
@@ -69,4 +72,16 @@ class DescribeRuntimesParameters(object):
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 按 Runtime 用户标签过滤；不同标签条件之间取交集。
+        """
+        self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 按 Runtime 所属资源组 ID 过滤。
+        """
+        self.resourceGroupIds = resourceGroupIds
 

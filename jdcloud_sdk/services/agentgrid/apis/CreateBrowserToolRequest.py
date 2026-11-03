@@ -25,6 +25,7 @@ class CreateBrowserToolRequest(JDCloudRequest):
 
 ## 接口说明
 - 支持通过 `clientToken` 保证请求幂等性。
+- 支持在创建时指定用户标签和资源组，创建成功后自动上报资源中心。
 - 创建成功后由服务端自动生成 `apiKey`。
 - Browser Tool 状态包括：`pending`（已受理，等待资源准备）、`ready`（可创建 Session）、`failed`（处理失败）、`deleting`（删除中）、`deleted`（已删除）。
 - 本接口为异步接口。请求受理成功后，资源通常先进入 `pending`，待底层资源准备完成后进入 `ready`；如创建失败则进入 `failed`。建议通过“查询 Browser Tool 详情”或“查询 Browser Tool 列表”轮询确认最终状态。
@@ -49,15 +50,31 @@ class CreateBrowserToolParameters(object):
         self.regionId = regionId
         self.name = name
         self.description = None
+        self.resourceConfiguration = None
+        self.logConfiguration = None
         self.authenticationType = None
         self.networkConfiguration = networkConfiguration
         self.clientToken = None
+        self.tags = None
+        self.resourceGroupId = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) Browser Tool 描述信息，长度不超过 256 个字符。
         """
         self.description = description
+
+    def setResourceConfiguration(self, resourceConfiguration):
+        """
+        :param resourceConfiguration: (Optional) Browser Tool 资源配置；不指定时使用 1 vCPU、2 GiB 内存。
+        """
+        self.resourceConfiguration = resourceConfiguration
+
+    def setLogConfiguration(self, logConfiguration):
+        """
+        :param logConfiguration: (Optional) Browser Tool 云日志投递配置。不传或 enabled=false 时不开启日志投递。
+        """
+        self.logConfiguration = logConfiguration
 
     def setAuthenticationType(self, authenticationType):
         """
@@ -70,4 +87,16 @@ class CreateBrowserToolParameters(object):
         :param clientToken: (Optional) 用于保证请求幂等性。
         """
         self.clientToken = clientToken
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Browser Tool 用户标签配置。
+        """
+        self.tags = tags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) Browser Tool 所属资源组 ID；不指定时使用默认资源组。
+        """
+        self.resourceGroupId = resourceGroupId
 

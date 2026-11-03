@@ -19,7 +19,7 @@
 
 class CodeInterpreter(object):
 
-    def __init__(self, codeInterpreterId=None, name=None, description=None, apiKey=None, failureReason=None, state=None, network=None, createTime=None):
+    def __init__(self, codeInterpreterId=None, name=None, description=None, apiKey=None, failureReason=None, state=None, network=None, resource=None, logConfigurationView=None, tags=None, resourceGroupId=None, createTime=None):
         """
         :param codeInterpreterId: (Optional) Code Interpreter ID
         :param name: (Optional) Code Interpreter 名称
@@ -28,6 +28,10 @@ class CodeInterpreter(object):
         :param failureReason: (Optional) 失败原因；仅当 `state` 为 `failed` 时通常有值
         :param state: (Optional) Code Interpreter 状态。可选值：`pending`（已受理，等待资源准备）、`ready`（可创建 Session）、`failed`（处理失败）、`deleting`（删除中）、`deleted`（已删除）
         :param network: (Optional) 网络配置类型
+        :param resource: (Optional) Code Interpreter 资源配置；未记录规格时不返回
+        :param logConfigurationView: (Optional) Code Interpreter 的云日志投递配置
+        :param tags: (Optional) Code Interpreter 绑定的用户标签
+        :param resourceGroupId: (Optional) Code Interpreter 所属资源组 ID
         :param createTime: (Optional) Code Interpreter 创建时间
         """
 
@@ -38,4 +42,8 @@ class CodeInterpreter(object):
         self.failureReason = failureReason
         self.state = state
         self.network = network
+        self.resource = resource
+        self.logConfigurationView = logConfigurationView
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId
         self.createTime = createTime

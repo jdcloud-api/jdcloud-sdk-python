@@ -25,6 +25,7 @@ class DescribeRuntimeVersionsRequest(JDCloudRequest):
 
 ## 接口说明
 - 每个版本的 `state` 可选值为：`pending`、`creating`、`running`、`failed`、`deleted`。
+- 每个版本分别返回其资源配置；未记录规格时不返回 `resource`。
 - 建议在创建 Runtime 或更新 Runtime 后，通过本接口确认版本是否已进入 `running`。
 
     """

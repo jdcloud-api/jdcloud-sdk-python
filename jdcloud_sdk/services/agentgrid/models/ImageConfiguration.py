@@ -19,9 +19,15 @@
 
 class ImageConfiguration(object):
 
-    def __init__(self, imageUrl, ):
+    def __init__(self, imageUrl=None, command=None, args=None, port=None):
         """
-        :param imageUrl:  镜像地址
+        :param imageUrl: (Optional) 镜像地址。创建 Runtime 时必填；更新时不传则沿用当前版本的镜像。
+        :param command: (Optional) 覆盖镜像的启动入口（ENTRYPOINT），按数组顺序执行；不传沿用当前配置，更新时传空数组恢复镜像默认启动入口。
+        :param args: (Optional) 覆盖镜像的启动参数（CMD）；不传沿用当前配置，更新时传空数组恢复镜像默认启动参数。
+        :param port: (Optional) 镜像内服务监听端口，取值范围 1～65535。创建时可选；更新时仅当 Runtime 当前生效版本已有自定义端口才可传入新端口，不传则沿用当前端口。不能在更新时新增或删除自定义端口。端口声明不会改变镜像内进程实际监听的端口。
         """
 
         self.imageUrl = imageUrl
+        self.command = command
+        self.args = args
+        self.port = port

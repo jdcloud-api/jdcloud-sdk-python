@@ -19,13 +19,15 @@
 
 class OssAccessPointView(object):
 
-    def __init__(self, bucketName=None, bucketPath=None, mountPath=None):
+    def __init__(self, bucketName=None, bucketPath=None, mountPath=None, readOnly=None):
         """
         :param bucketName: (Optional) OSS Bucket 名称
         :param bucketPath: (Optional) OSS Bucket 内的文件夹路径
         :param mountPath: (Optional) 挂载在 Runtime 内的路径
+        :param readOnly: (Optional) 是否以只读方式挂载 OSS，false 表示可读写。
         """
 
         self.bucketName = bucketName
         self.bucketPath = bucketPath
         self.mountPath = mountPath
+        self.readOnly = readOnly

@@ -25,6 +25,7 @@ class DescribeBrowserToolsRequest(JDCloudRequest):
 
 ## 接口说明
 - 支持按 Browser Tool ID 批量查询。
+- 支持按用户标签和资源组 ID 过滤，返回结果包含标签、资源组 ID 和资源配置。
 
     """
 
@@ -45,6 +46,8 @@ class DescribeBrowserToolsParameters(object):
         self.pageSize = None
         self.pageNumber = None
         self.filters = None
+        self.tags = None
+        self.resourceGroupIds = None
 
     def setPageSize(self, pageSize):
         """
@@ -66,4 +69,16 @@ class DescribeBrowserToolsParameters(object):
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 按 Browser Tool 用户标签过滤。
+        """
+        self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 按 Browser Tool 所属资源组 ID 过滤。
+        """
+        self.resourceGroupIds = resourceGroupIds
 

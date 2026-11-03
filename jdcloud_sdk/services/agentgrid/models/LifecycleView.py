@@ -19,9 +19,11 @@
 
 class LifecycleView(object):
 
-    def __init__(self, maxLifeTime=None):
+    def __init__(self, persistent=None, maxLifeTime=None):
         """
-        :param maxLifeTime: (Optional) runtime 的 session 存活的最长时间
+        :param persistent: (Optional) 是否开启长程运行
+        :param maxLifeTime: (Optional) Session 最大生命周期，单位为秒；长程运行时不生效
         """
 
+        self.persistent = persistent
         self.maxLifeTime = maxLifeTime

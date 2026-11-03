@@ -19,13 +19,14 @@
 
 class CodeInterpreterSession(object):
 
-    def __init__(self, codeInterpreterId=None, sessionId=None, name=None, state=None, maxLifeTime=None, createTime=None):
+    def __init__(self, codeInterpreterId=None, sessionId=None, name=None, state=None, persistent=None, maxLifeTime=None, createTime=None):
         """
         :param codeInterpreterId: (Optional) Code Interpreter ID
         :param sessionId: (Optional) Session ID
         :param name: (Optional) Session 名称
         :param state: (Optional) Session 状态。可选值：`pending`（已受理，等待资源准备）、`creating`（初始化中）、`ready`（可执行工具调用）、`deleting`（删除中）、`deleted`（已删除）、`failed`（初始化失败）
-        :param maxLifeTime: (Optional) Session 最大存活时长（秒）
+        :param persistent: (Optional) 是否开启长程运行
+        :param maxLifeTime: (Optional) Session 最大生命周期，单位为秒；长程运行时不生效
         :param createTime: (Optional) Session 创建时间
         """
 
@@ -33,5 +34,6 @@ class CodeInterpreterSession(object):
         self.sessionId = sessionId
         self.name = name
         self.state = state
+        self.persistent = persistent
         self.maxLifeTime = maxLifeTime
         self.createTime = createTime

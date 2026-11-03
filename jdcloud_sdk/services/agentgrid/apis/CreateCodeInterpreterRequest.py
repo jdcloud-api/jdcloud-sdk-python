@@ -25,6 +25,7 @@ class CreateCodeInterpreterRequest(JDCloudRequest):
 
 ## 接口说明
 - 支持通过 `clientToken` 保证请求幂等性。
+- 支持在创建时指定用户标签和资源组，创建成功后自动上报资源中心。
 - 创建成功后由服务端自动生成 `apiKey`。
 - Code Interpreter 状态包括：`pending`（已受理，等待资源准备）、`ready`（可创建 Session）、`failed`（处理失败）、`deleting`（删除中）、`deleted`（已删除）。
 - 本接口为异步接口。请求受理成功后，资源通常先进入 `pending`，待底层资源准备完成后进入 `ready`；如创建失败则进入 `failed`。建议通过“查询 Code Interpreter 详情”或“查询 Code Interpreter 列表”轮询确认最终状态。
@@ -39,7 +40,7 @@ class CreateCodeInterpreterRequest(JDCloudRequest):
 
 class CreateCodeInterpreterParameters(object):
 
-    def __init__(self,regionId, name, networkConfiguration):
+    def __init__(self,regionId, name, networkConfiguration, ):
         """
         :param regionId: Region ID
         :param name: Code Interpreter 名称。长度为 1~32 个字符，可包含中文、数字、大小写字母、下划线、中划线或点。
@@ -49,15 +50,38 @@ class CreateCodeInterpreterParameters(object):
         self.regionId = regionId
         self.name = name
         self.description = None
+        self.roleName = None
+        self.resourceConfiguration = None
+        self.logConfiguration = None
         self.authenticationType = None
         self.clientToken = None
         self.networkConfiguration = networkConfiguration
+        self.tags = None
+        self.resourceGroupId = None
 
     def setDescription(self, description):
         """
         :param description: (Optional) Code Interpreter 描述信息。
         """
         self.description = description
+
+    def setRoleName(self, roleName):
+        """
+        :param roleName: (Optional) Code Interpreter 绑定的实例角色
+        """
+        self.roleName = roleName
+
+    def setResourceConfiguration(self, resourceConfiguration):
+        """
+        :param resourceConfiguration: (Optional) Code Interpreter 资源配置；不指定时使用 1 vCPU、2 GiB 内存。
+        """
+        self.resourceConfiguration = resourceConfiguration
+
+    def setLogConfiguration(self, logConfiguration):
+        """
+        :param logConfiguration: (Optional) Code Interpreter 云日志投递配置。不传或 enabled=false 时不开启日志投递。
+        """
+        self.logConfiguration = logConfiguration
 
     def setAuthenticationType(self, authenticationType):
         """
@@ -70,4 +94,16 @@ class CreateCodeInterpreterParameters(object):
         :param clientToken: (Optional) 用于保证请求幂等性。
         """
         self.clientToken = clientToken
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Code Interpreter 用户标签配置。
+        """
+        self.tags = tags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) Code Interpreter 所属资源组 ID；不指定时使用默认资源组。
+        """
+        self.resourceGroupId = resourceGroupId
 

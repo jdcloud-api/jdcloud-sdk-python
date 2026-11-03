@@ -46,6 +46,7 @@ class CreateCodeInterpreterSessionParameters(object):
         self.regionId = regionId
         self.codeInterpreterId = codeInterpreterId
         self.name = None
+        self.persistent = None
         self.maxLifeTime = None
         self.clientToken = None
 
@@ -55,9 +56,15 @@ class CreateCodeInterpreterSessionParameters(object):
         """
         self.name = name
 
+    def setPersistent(self, persistent):
+        """
+        :param persistent: (Optional) 是否开启长程运行。开启后 Session 不受最大生命周期限制，需要主动删除。
+        """
+        self.persistent = persistent
+
     def setMaxLifeTime(self, maxLifeTime):
         """
-        :param maxLifeTime: (Optional) Session 存活时间（秒）。取值范围为60～28800，默认为900秒（15分钟）。
+        :param maxLifeTime: (Optional) Session 最大生命周期，单位为秒。仅在 persistent 为 false 时生效，取值范围为 60～28800，默认值为 900。
         """
         self.maxLifeTime = maxLifeTime
 

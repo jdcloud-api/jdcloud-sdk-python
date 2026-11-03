@@ -19,15 +19,13 @@
 
 class CfsAccessPointConfiguration(object):
 
-    def __init__(self, mountTargetId=None, path=None, mountPath=None, readOnly=None):
+    def __init__(self, fileSystemId, mountPath, readOnly=None):
         """
-        :param mountTargetId: (Optional) 挂载目标ID。
-        :param path: (Optional) CFS 路径，可以不填，默认值为 /cfs。
-        :param mountPath: (Optional) 挂载在 Runtime 内的路径。MountPath 必须是绝对路径，即以 '/' 开头；不允许是 /、/bin、/usr、/var/run、/proc、/sys、/dev 系统路径；多个挂载点不能互为父子路径，例如 /mnt 和 /mnt/data。
+        :param fileSystemId:  CFS 文件系统 ID。长度不能超过 64 个字符，必须以字母或数字开头，仅支持字母、数字、点号（.）、下划线（_）、冒号（:）和连字符（-）。同一个 Runtime 中不能重复配置相同的文件系统 ID。
+        :param mountPath:  挂载在 Runtime 内的路径。必须位于 /mnt 的子目录下，不能直接使用 /mnt；所有 OSS、CFS 和镜像卷挂载点不能相同，也不能互为父子路径。
         :param readOnly: (Optional) 文件系统是否只读。
         """
 
-        self.mountTargetId = mountTargetId
-        self.path = path
+        self.fileSystemId = fileSystemId
         self.mountPath = mountPath
         self.readOnly = readOnly

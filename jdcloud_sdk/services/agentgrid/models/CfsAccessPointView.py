@@ -19,15 +19,13 @@
 
 class CfsAccessPointView(object):
 
-    def __init__(self, mountTargetId=None, path=None, mountPath=None, readOnly=None):
+    def __init__(self, fileSystemId=None, mountPath=None, readOnly=None):
         """
-        :param mountTargetId: (Optional) 挂载目标ID
-        :param path: (Optional) CFS 路径
+        :param fileSystemId: (Optional) CFS 文件系统 ID
         :param mountPath: (Optional) 挂载在 Runtime 内的路径
         :param readOnly: (Optional) 文件系统是否只读
         """
 
-        self.mountTargetId = mountTargetId
-        self.path = path
+        self.fileSystemId = fileSystemId
         self.mountPath = mountPath
         self.readOnly = readOnly

@@ -47,6 +47,7 @@ class CreateBrowserToolSessionParameters(object):
         self.regionId = regionId
         self.browserToolId = browserToolId
         self.name = None
+        self.persistent = None
         self.maxLifeTime = None
         self.clientToken = None
 
@@ -56,9 +57,15 @@ class CreateBrowserToolSessionParameters(object):
         """
         self.name = name
 
+    def setPersistent(self, persistent):
+        """
+        :param persistent: (Optional) 是否开启长程运行。开启后 Session 不受最大生命周期限制，需要主动删除。
+        """
+        self.persistent = persistent
+
     def setMaxLifeTime(self, maxLifeTime):
         """
-        :param maxLifeTime: (Optional) Session 最大存活时长（秒）。取值范围 60～28800，默认值为 28800。
+        :param maxLifeTime: (Optional) Session 最大生命周期，单位为秒。仅在 persistent 为 false 时生效，取值范围为 60～28800，默认值为 28800。
         """
         self.maxLifeTime = maxLifeTime
 

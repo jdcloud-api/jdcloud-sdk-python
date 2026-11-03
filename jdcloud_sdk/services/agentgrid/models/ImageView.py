@@ -19,9 +19,15 @@
 
 class ImageView(object):
 
-    def __init__(self, imageUrl=None):
+    def __init__(self, imageUrl=None, command=None, args=None, port=None):
         """
         :param imageUrl: (Optional) 镜像地址
+        :param command: (Optional) 当前版本覆盖镜像 ENTRYPOINT 的启动入口；未设置时不返回。
+        :param args: (Optional) 当前版本覆盖镜像 CMD 的启动参数；未设置时不返回。
+        :param port: (Optional) 当前版本声明的服务端口；未设置时不返回，并使用协议默认端口。
         """
 
         self.imageUrl = imageUrl
+        self.command = command
+        self.args = args
+        self.port = port

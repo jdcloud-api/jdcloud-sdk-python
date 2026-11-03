@@ -19,7 +19,7 @@
 
 class BrowserTool(object):
 
-    def __init__(self, browserToolId=None, name=None, description=None, apiKey=None, state=None, network=None, createTime=None):
+    def __init__(self, browserToolId=None, name=None, description=None, apiKey=None, state=None, network=None, resource=None, logConfigurationView=None, tags=None, resourceGroupId=None, createTime=None):
         """
         :param browserToolId: (Optional) Browser Tool ID
         :param name: (Optional) Browser Tool 名称
@@ -27,6 +27,10 @@ class BrowserTool(object):
         :param apiKey: (Optional) Browser Tool API Key
         :param state: (Optional) Browser Tool 状态。可选值：`pending`（已受理，等待资源准备）、`ready`（可创建 Session）、`failed`（处理失败）、`deleting`（删除中）、`deleted`（已删除）
         :param network: (Optional) 网络配置类型
+        :param resource: (Optional) Browser Tool 资源配置；未记录规格时不返回
+        :param logConfigurationView: (Optional) Browser Tool 的云日志投递配置
+        :param tags: (Optional) Browser Tool 绑定的用户标签
+        :param resourceGroupId: (Optional) Browser Tool 所属资源组 ID
         :param createTime: (Optional) Browser Tool 创建时间
         """
 
@@ -36,4 +40,8 @@ class BrowserTool(object):
         self.apiKey = apiKey
         self.state = state
         self.network = network
+        self.resource = resource
+        self.logConfigurationView = logConfigurationView
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId
         self.createTime = createTime

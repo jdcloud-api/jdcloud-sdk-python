@@ -26,6 +26,9 @@ class CreateRuntimeRequest(JDCloudRequest):
 ## 接口说明
 - 支持通过 `clientToken` 保证请求幂等性。
 - 创建时需提供制品、鉴权方式、网络等核心配置信息。
+- 镜像制品的 `imageUrl` 必填；可选的 `command`、`args` 分别覆盖镜像的 ENTRYPOINT、CMD，`port` 声明镜像内服务实际监听的端口（1～65535）。不填写这些可选项时沿用镜像默认启动方式和协议默认端口。
+- 可通过 `imageVolumes` 配置最多 1 个只读镜像卷，挂载路径必须位于 `/mnt` 的子目录下，且不能与 OSS 或 CFS 挂载点重叠。
+- 支持在创建时指定用户标签和资源组；标签或资源组参数会在创建前进行合法性校验，并在 Runtime 创建成功后绑定到资源。
 - Runtime 状态包括：`pending`（已受理，等待资源准备）、`creating`（创建中）、`running`（可正常调用）、`updating`（版本或配置更新中）、`failed`（处理失败）、`deleted`（已删除，不可继续使用）。
 - Runtime Version 状态包括：`pending`（已受理，等待资源准备）、`creating`（创建中）、`running`（可正常使用）、`failed`（处理失败）、`deleted`（已删除）。
 - 本接口为异步接口，请求受理成功后会返回 `requestId`、`runtimeId` 和初始 `runtimeVersion`。创建初期，Runtime 与首个 Runtime Version 通常先处于 `pending`，随后进入 `creating`，最终进入 `running` 或 `failed`。
@@ -45,7 +48,7 @@ class CreateRuntimeParameters(object):
         """
         :param regionId: Region ID
         :param name: Runtime 名称。长度为 1~32 个字符，只允许中文、数字、大小写字母、英文下划线（\_）、连字符（-）及点（.）。
-        :param artifactConfiguration: Runtime 制品配置，当前支持通过镜像导入
+        :param artifactConfiguration: Runtime 制品配置，当前支持通过镜像导入；创建时必须提供 `image.imageUrl`，`image.command`、`image.args`、`image.port` 可选。
         :param authorizerConfiguration: Runtime 鉴权配置。
         :param networkConfiguration: Runtime 网络配置。
         """
@@ -55,13 +58,18 @@ class CreateRuntimeParameters(object):
         self.artifactConfiguration = artifactConfiguration
         self.warmSession = None
         self.maxSession = None
+        self.resourceConfiguration = None
         self.description = None
         self.authorizerConfiguration = authorizerConfiguration
         self.lifecycleConfiguration = None
+        self.logConfiguration = None
         self.networkConfiguration = networkConfiguration
         self.roleName = None
         self.envs = None
-        self.filesystemConfiguration = None
+        self.fileSystemConfiguration = None
+        self.imageVolumes = None
+        self.tags = None
+        self.resourceGroupId = None
         self.protocol = None
         self.clientToken = None
 
@@ -77,6 +85,12 @@ class CreateRuntimeParameters(object):
         """
         self.maxSession = maxSession
 
+    def setResourceConfiguration(self, resourceConfiguration):
+        """
+        :param resourceConfiguration: (Optional) Runtime 资源配置；不指定时使用 1 vCPU、2 GiB 内存。
+        """
+        self.resourceConfiguration = resourceConfiguration
+
     def setDescription(self, description):
         """
         :param description: (Optional) Runtime 描述信息。
@@ -88,6 +102,12 @@ class CreateRuntimeParameters(object):
         :param lifecycleConfiguration: (Optional) Runtime 生命周期配置。
         """
         self.lifecycleConfiguration = lifecycleConfiguration
+
+    def setLogConfiguration(self, logConfiguration):
+        """
+        :param logConfiguration: (Optional) Runtime 云日志投递配置。不传或 enabled=false 时不开启日志投递。
+        """
+        self.logConfiguration = logConfiguration
 
     def setRoleName(self, roleName):
         """
@@ -101,15 +121,33 @@ class CreateRuntimeParameters(object):
         """
         self.envs = envs
 
-    def setFilesystemConfiguration(self, filesystemConfiguration):
+    def setFileSystemConfiguration(self, fileSystemConfiguration):
         """
-        :param filesystemConfiguration: (Optional) Runtime 文件系统配置，最多支持配置 5 个文件系统。
+        :param fileSystemConfiguration: (Optional) Runtime 文件系统配置，最多支持配置 5 个文件系统。
         """
-        self.filesystemConfiguration = filesystemConfiguration
+        self.fileSystemConfiguration = fileSystemConfiguration
+
+    def setImageVolumes(self, imageVolumes):
+        """
+        :param imageVolumes: (Optional) Runtime 只读镜像卷配置，最多 1 个，数组元素不能为 null。不传、传 null 或空数组表示不配置镜像卷。
+        """
+        self.imageVolumes = imageVolumes
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Runtime 用户标签配置。
+        """
+        self.tags = tags
+
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) Runtime 所属资源组 ID；不指定时使用默认资源组。
+        """
+        self.resourceGroupId = resourceGroupId
 
     def setProtocol(self, protocol):
         """
-        :param protocol: (Optional) Runtime 支持的协议类型。当前支持http、mcp、a2a。
+        :param protocol: (Optional) Runtime 支持的协议类型。当前支持 http、mcp、a2a；创建后不可修改。
         """
         self.protocol = protocol
 

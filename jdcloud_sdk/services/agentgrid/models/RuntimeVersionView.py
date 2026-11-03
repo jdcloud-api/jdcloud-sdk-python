@@ -19,7 +19,7 @@
 
 class RuntimeVersionView(object):
 
-    def __init__(self, version=None, artifact=None, network=None, state=None, versionDescription=None, warmSession=None, maxSession=None, protocol=None, lifecycle=None, envs=None, fileSystem=None, createTime=None):
+    def __init__(self, version=None, artifact=None, network=None, state=None, versionDescription=None, warmSession=None, maxSession=None, resource=None, protocol=None, lifecycle=None, logConfigurationView=None, envs=None, fileSystem=None, imageVolumes=None, createTime=None):
         """
         :param version: (Optional) Runtime 版本号
         :param artifact: (Optional) 当前版本镜像信息
@@ -28,10 +28,13 @@ class RuntimeVersionView(object):
         :param versionDescription: (Optional) 当前版本的描述信息
         :param warmSession: (Optional) 预热 Session 数
         :param maxSession: (Optional) 最大 Session 数
+        :param resource: (Optional) 当前版本的资源配置；未记录规格时不返回
         :param protocol: (Optional) Runtime 协议
         :param lifecycle: (Optional) Runtime 存活周期配置
+        :param logConfigurationView: (Optional) 当前 Runtime 版本的云日志投递配置
         :param envs: (Optional) 环境变量信息
         :param fileSystem: (Optional) 当前版本文件系统配置
+        :param imageVolumes: (Optional) 当前版本的只读镜像卷配置，未配置时不返回。仅包含源镜像地址和挂载路径。
         :param createTime: (Optional) 当前版本创建时间
         """
 
@@ -42,8 +45,11 @@ class RuntimeVersionView(object):
         self.versionDescription = versionDescription
         self.warmSession = warmSession
         self.maxSession = maxSession
+        self.resource = resource
         self.protocol = protocol
         self.lifecycle = lifecycle
+        self.logConfigurationView = logConfigurationView
         self.envs = envs
         self.fileSystem = fileSystem
+        self.imageVolumes = imageVolumes
         self.createTime = createTime

@@ -19,13 +19,14 @@
 
 class MasterVersion(object):
 
-    def __init__(self, version=None, isDefault=None, defaultNodeVersion=None, versionStatus=None, nodeOsTypes=None, clusterAddons=None):
+    def __init__(self, version=None, isDefault=None, defaultNodeVersion=None, versionStatus=None, nodeOsTypes=None, hpcNodeOsVersions=None, clusterAddons=None):
         """
         :param version: (Optional) 集群版本号
-        :param isDefault: (Optional) 是否默认版本
+        :param isDefault: (Optional) 是否为默认版本
         :param defaultNodeVersion: (Optional) 默认工作节点版本号
         :param versionStatus: (Optional) 版本状态
-        :param nodeOsTypes: (Optional) node节点操作系统类型列表，以 "," 分割，目前支持 CentOS|Windows
+        :param nodeOsTypes: (Optional) node节点操作系统类型列表，以 "," 分割，目前支持 CentOS、Windows、OpenEuler等
+        :param hpcNodeOsVersions: (Optional) 异构节点操作系统版本，如OpenEuler 24.03等
         :param clusterAddons: (Optional) 该版本可安装的addons
         """
 
@@ -34,4 +35,5 @@ class MasterVersion(object):
         self.defaultNodeVersion = defaultNodeVersion
         self.versionStatus = versionStatus
         self.nodeOsTypes = nodeOsTypes
+        self.hpcNodeOsVersions = hpcNodeOsVersions
         self.clusterAddons = clusterAddons

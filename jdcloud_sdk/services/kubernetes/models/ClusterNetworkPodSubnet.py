@@ -19,10 +19,10 @@
 
 class ClusterNetworkPodSubnet(object):
 
-    def __init__(self, subnetId=None, subnetType=None, enabled=None, autoDelete=None, ipMaskLen=None, availableCidrCount=None, eniLen=None, ipamPolicy=None, runtimeError=None):
+    def __init__(self, subnetId=None, subnetType=None, enabled=None, autoDelete=None, ipMaskLen=None, availableCidrCount=None, eniLen=None, ipamPolicy=None, runtimeError=None, namespace=None):
         """
         :param subnetId: (Optional) 子网 ID
-        :param subnetType: (Optional) 子网类型，可取值为：pod_subnet/lb_subnet/node_subnet
+        :param subnetType: (Optional) 子网类型，可取值为：pod_subnet/lb_subnet/node_subnet/pod_subnet_with_namespace
         :param enabled: (Optional) 子网是否启用，仅pod子网可用
         :param autoDelete: (Optional) 是否允许自动删除
         :param ipMaskLen: (Optional) ip mask of subnet view
@@ -30,6 +30,7 @@ class ClusterNetworkPodSubnet(object):
         :param eniLen: (Optional) ip count of each cidr. defined by user
         :param ipamPolicy: (Optional) ipam policy. defined by user
         :param runtimeError: (Optional) tell if runtime subnet has error
+        :param namespace: (Optional) pod子网关联的命名空间
         """
 
         self.subnetId = subnetId
@@ -41,3 +42,4 @@ class ClusterNetworkPodSubnet(object):
         self.eniLen = eniLen
         self.ipamPolicy = ipamPolicy
         self.runtimeError = runtimeError
+        self.namespace = namespace

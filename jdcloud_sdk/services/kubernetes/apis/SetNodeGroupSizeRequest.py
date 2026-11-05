@@ -32,7 +32,7 @@ class SetNodeGroupSizeRequest(JDCloudRequest):
 
 class SetNodeGroupSizeParameters(object):
 
-    def __init__(self,regionId, nodeGroupId, expectCount):
+    def __init__(self,regionId, nodeGroupId, expectCount, ):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID
@@ -42,4 +42,11 @@ class SetNodeGroupSizeParameters(object):
         self.regionId = regionId
         self.nodeGroupId = nodeGroupId
         self.expectCount = expectCount
+        self.diskInitialize = None
+
+    def setDiskInitialize(self, diskInitialize):
+        """
+        :param diskInitialize: (Optional) 扩容新建节点使用的磁盘初始化策略；不传时继承节点组默认策略diskPriority=local_first、splitStrategy=weighted、containerWeight=100、containerCapGB=1000、rootfsQuotaGB=0；显式传入仅覆盖本次扩容，不修改节点组默认策略或存量节点；缩容或节点数不变时不允许传入
+        """
+        self.diskInitialize = diskInitialize
 

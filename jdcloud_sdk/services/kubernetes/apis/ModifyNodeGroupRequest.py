@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ModifyNodeGroupRequest(JDCloudRequest):
     """
-    修改工作节点组的 名称 和 描述<br>name 和 description 必须要指定一个
+    修改工作节点组的 名称 和 描述以及k8s label、taint等信息 <br>name 和 description 必须要指定一个
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -42,6 +42,12 @@ class ModifyNodeGroupParameters(object):
         self.nodeGroupId = nodeGroupId
         self.name = None
         self.description = None
+        self.labels = None
+        self.taints = None
+        self.updateExistNode = None
+        self.diskInitialize = None
+        self.systemDisk = None
+        self.dataDisks = None
 
     def setName(self, name):
         """
@@ -54,4 +60,40 @@ class ModifyNodeGroupParameters(object):
         :param description: (Optional) 工作节点组描述
         """
         self.description = description
+
+    def setLabels(self, labels):
+        """
+        :param labels: (Optional) k8s标签
+        """
+        self.labels = labels
+
+    def setTaints(self, taints):
+        """
+        :param taints: (Optional) k8s污点
+        """
+        self.taints = taints
+
+    def setUpdateExistNode(self, updateExistNode):
+        """
+        :param updateExistNode: (Optional) 变更是否对存量节点生效，默认false
+        """
+        self.updateExistNode = updateExistNode
+
+    def setDiskInitialize(self, diskInitialize):
+        """
+        :param diskInitialize: (Optional) 更新节点组默认磁盘初始化策略；不传时保留原策略；仅影响后续新建节点，不调整已有布局；all_disks_lvm 的 CSI 初始预留默认 800 GiB
+        """
+        self.diskInitialize = diskInitialize
+
+    def setSystemDisk(self, systemDisk):
+        """
+        :param systemDisk: (Optional) 更新节点组系统盘信息，仅支持修改系统盘类型
+        """
+        self.systemDisk = systemDisk
+
+    def setDataDisks(self, dataDisks):
+        """
+        :param dataDisks: (Optional) 更新节点组数据盘信息，兼容多块盘模式
+        """
+        self.dataDisks = dataDisks
 

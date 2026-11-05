@@ -19,17 +19,18 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, name=None, description=None, version=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, privateEndpoint=None, endpoint=None, endpointIPV6=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None, clusterEnvironments=None, isEdge=None):
+    def __init__(self, clusterId=None, name=None, description=None, version=None, upgradeVersion=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, privateEndpoint=None, endpoint=None, endpointIPV6=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None, clusterEnvironments=None, isEdge=None, deleteProtected=None, tags=None, resourceGroupId=None, isCreditNic=None, clusterDnsSpec=None, kubeApiserverDomains=None):
         """
         :param clusterId: (Optional) 集群id
         :param name: (Optional) 名称
         :param description: (Optional) 描述
         :param version: (Optional) kubernetes的版本
+        :param upgradeVersion: (Optional) k8s可升级的版本
         :param azs: (Optional) 集群所在的az
         :param nodeGroups: (Optional) 节点组列表
         :param clusterCidr: (Optional) k8s的cluster的cidr
         :param masterAuth: (Optional) 认证信息
-        :param clusterState: (Optional) 状态  [pending,running,reconciling（升级时的状态）, deleting, deleted, error]
+        :param clusterState: (Optional) 状态  [pending,running,upgrading(升级中), deleting, deleted, error]
         :param stateMessage: (Optional) 状态变更原因
         :param updateTime: (Optional) 更新时间
         :param createTime: (Optional) 创建时间
@@ -51,12 +52,19 @@ class Cluster(object):
         :param networkMode: (Optional) 集群网络类型,可取值为auto和customized
         :param clusterEnvironments: (Optional) 用户自定义的集群的环境信息，会影响到创建集群时的组件模版的渲染
         :param isEdge: (Optional) 是否是边缘计算集群
+        :param deleteProtected: (Optional) 是否开启集群删除保护
+        :param tags: (Optional) 资源标签
+        :param resourceGroupId: (Optional) 资源组id
+        :param isCreditNic: (Optional) 是否开启集群授权网卡, true表示开启， false表示未开启
+        :param clusterDnsSpec: (Optional) 集群DNS的定制化配置，可以配置自定义的hosts和域名解析
+        :param kubeApiserverDomains: (Optional) kube-apiserver的自定义域名，会自动签名到证书里
         """
 
         self.clusterId = clusterId
         self.name = name
         self.description = description
         self.version = version
+        self.upgradeVersion = upgradeVersion
         self.azs = azs
         self.nodeGroups = nodeGroups
         self.clusterCidr = clusterCidr
@@ -83,3 +91,9 @@ class Cluster(object):
         self.networkMode = networkMode
         self.clusterEnvironments = clusterEnvironments
         self.isEdge = isEdge
+        self.deleteProtected = deleteProtected
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId
+        self.isCreditNic = isCreditNic
+        self.clusterDnsSpec = clusterDnsSpec
+        self.kubeApiserverDomains = kubeApiserverDomains

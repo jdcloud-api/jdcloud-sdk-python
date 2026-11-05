@@ -25,7 +25,6 @@ class CreateClusterRequest(JDCloudRequest):
 - 证书
   - 关于kubernetes的证书，默认生成，不需要用户传入。
 - nodegroup
-  - cluster必须与nodeGroup进行绑定
   - cluster支持多nodegroup
   - 状态
     - pending,reconciling,deleting状态不可以操作更新接口
@@ -48,30 +47,33 @@ class CreateClusterRequest(JDCloudRequest):
 
 class CreateClusterParameters(object):
 
-    def __init__(self,regionId, name, azs, nodeGroup, accessKey, secretKey, ):
+    def __init__(self,regionId, name, ):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 允许重名）
-        :param azs: 集群所在的az
-        :param nodeGroup: 集群节点组
-        :param accessKey: 用户的AccessKey，插件调用open-api时的认证凭证
-        :param secretKey: 用户的SecretKey，插件调用open-api时的认证凭证
         """
 
         self.regionId = regionId
         self.name = name
         self.description = None
         self.version = None
+        self.resourceGroupId = None
+        self.tags = None
         self.isEdge = None
-        self.azs = azs
-        self.nodeGroup = nodeGroup
-        self.accessKey = accessKey
-        self.secretKey = secretKey
+        self.deleteProtected = None
+        self.isCreditNic = None
+        self.azs = None
+        self.nodeGroup = None
+        self.hpcNodeGroup = None
+        self.accessKey = None
+        self.secretKey = None
         self.addonsConfig = None
         self.clusterNetworkType = None
         self.autoClusterNetworkSpec = None
         self.customizedClusterNetworkSpec = None
         self.clusterEnvironments = None
+        self.clusterDnsSpec = None
+        self.kubeApiserverDomains = None
 
     def setDescription(self, description):
         """
@@ -85,11 +87,65 @@ class CreateClusterParameters(object):
         """
         self.version = version
 
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 集群关联的资源组id，不传使用默认资源组
+        """
+        self.resourceGroupId = resourceGroupId
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 集群关联的资源标签
+        """
+        self.tags = tags
+
     def setIsEdge(self, isEdge):
         """
         :param isEdge: (Optional) 是否是边缘计算集群
         """
         self.isEdge = isEdge
+
+    def setDeleteProtected(self, deleteProtected):
+        """
+        :param deleteProtected: (Optional) 是否开启集群删除保护
+        """
+        self.deleteProtected = deleteProtected
+
+    def setIsCreditNic(self, isCreditNic):
+        """
+        :param isCreditNic: (Optional) 是否开启授信网卡网络模式
+        """
+        self.isCreditNic = isCreditNic
+
+    def setAzs(self, azs):
+        """
+        :param azs: (Optional) 集群所在的az,边缘集群必填，中心可用区不填默认随机
+        """
+        self.azs = azs
+
+    def setNodeGroup(self, nodeGroup):
+        """
+        :param nodeGroup: (Optional) 云主机节点组
+        """
+        self.nodeGroup = nodeGroup
+
+    def setHpcNodeGroup(self, hpcNodeGroup):
+        """
+        :param hpcNodeGroup: (Optional) 异构节点组，仅授信网卡模式支持创建(isCreditNic=true)
+        """
+        self.hpcNodeGroup = hpcNodeGroup
+
+    def setAccessKey(self, accessKey):
+        """
+        :param accessKey: (Optional) 用户的AccessKey，插件调用open-api时的认证凭证(已废弃)
+        """
+        self.accessKey = accessKey
+
+    def setSecretKey(self, secretKey):
+        """
+        :param secretKey: (Optional) 用户的SecretKey，插件调用open-api时的认证凭证(已废弃)
+        """
+        self.secretKey = secretKey
 
     def setAddonsConfig(self, addonsConfig):
         """
@@ -120,4 +176,16 @@ class CreateClusterParameters(object):
         :param clusterEnvironments: (Optional) 用户自定义的集群的环境信息，会影响到创建集群时的组件模版的渲染
         """
         self.clusterEnvironments = clusterEnvironments
+
+    def setClusterDnsSpec(self, clusterDnsSpec):
+        """
+        :param clusterDnsSpec: (Optional) 集群DNS配置
+        """
+        self.clusterDnsSpec = clusterDnsSpec
+
+    def setKubeApiserverDomains(self, kubeApiserverDomains):
+        """
+        :param kubeApiserverDomains: (Optional) KubeApiserver自定义域名配置
+        """
+        self.kubeApiserverDomains = kubeApiserverDomains
 

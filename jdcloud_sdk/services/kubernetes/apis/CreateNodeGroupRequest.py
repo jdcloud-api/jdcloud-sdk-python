@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateNodeGroupRequest(JDCloudRequest):
     """
-    创建工作节点组<br>
+    创建云主机节点组<br>
 - 要求集群状态为running
 
     """
@@ -38,20 +38,24 @@ class CreateNodeGroupParameters(object):
         """
         :param regionId: 地域 ID
         :param name: 名称（同一用户的 cluster 内部唯一）
-        :param clusterId: 工作节点所属的集群
-        :param nodeConfig: 工作节点配置信息
-        :param initialNodeCount: 工作节点组初始化大小
+        :param clusterId: 节点组所属的集群
+        :param nodeConfig: 云主机节点配置信息
+        :param initialNodeCount: 云主机节点组初始化大小
         """
 
         self.regionId = regionId
         self.name = name
         self.description = None
         self.clusterId = clusterId
+        self.resourceGroupId = None
         self.nodeConfig = nodeConfig
         self.azs = None
         self.initialNodeCount = initialNodeCount
         self.caConfig = None
         self.nodeGroupNetwork = None
+        self.diskInitialize = None
+        self.tags = None
+        self.containerRuntime = None
 
     def setDescription(self, description):
         """
@@ -59,9 +63,15 @@ class CreateNodeGroupParameters(object):
         """
         self.description = description
 
+    def setResourceGroupId(self, resourceGroupId):
+        """
+        :param resourceGroupId: (Optional) 节点组关联的资源组id，不传为默认资源组
+        """
+        self.resourceGroupId = resourceGroupId
+
     def setAzs(self, azs):
         """
-        :param azs: (Optional) 工作节点组的 az，必须为集群az的子集，默认为集群az
+        :param azs: (Optional) 云主机节点组的 az
         """
         self.azs = azs
 
@@ -73,7 +83,25 @@ class CreateNodeGroupParameters(object):
 
     def setNodeGroupNetwork(self, nodeGroupNetwork):
         """
-        :param nodeGroupNetwork: (Optional) 节点组的网络配置，如果集群的类型customized类型，则必须指定该参数，如果是auto，则不是必须
+        :param nodeGroupNetwork: (Optional) 节点组的网络配置，如果集群的网络类型为customized类型，则必须指定该参数，如果是auto，则不是必须
         """
         self.nodeGroupNetwork = nodeGroupNetwork
+
+    def setDiskInitialize(self, diskInitialize):
+        """
+        :param diskInitialize: (Optional) 工作节点数据盘初始化策略；创建后保存为节点组默认策略；不传时沿用 legacy 默认值diskPriority=local_first、splitStrategy=weighted、containerWeight=100、containerCapGB=1000、rootfsQuotaGB=0；all_disks_lvm 的 CSI 初始预留默认 800 GiB
+        """
+        self.diskInitialize = diskInitialize
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 云主机节点组关联的资源标签
+        """
+        self.tags = tags
+
+    def setContainerRuntime(self, containerRuntime):
+        """
+        :param containerRuntime: (Optional) 容器运行时，默认为空字符。仅支持空字符和kata-container
+        """
+        self.containerRuntime = containerRuntime
 

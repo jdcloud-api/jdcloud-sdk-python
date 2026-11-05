@@ -32,16 +32,22 @@ class DeleteNodeInstancesRequest(JDCloudRequest):
 
 class DeleteNodeInstancesParameters(object):
 
-    def __init__(self,regionId, nodeGroupId, instanceIds):
+    def __init__(self,regionId, nodeGroupId, instanceIds, ):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID
         :param instanceIds: 需要从工作节点组中删除的实例
-- 不可将一个集群中的实例全部删除
 
         """
 
         self.regionId = regionId
         self.nodeGroupId = nodeGroupId
         self.instanceIds = instanceIds
+        self.realDeleteInstance = None
+
+    def setRealDeleteInstance(self, realDeleteInstance):
+        """
+        :param realDeleteInstance: (Optional) 是否需要释放实例
+        """
+        self.realDeleteInstance = realDeleteInstance
 

@@ -22,7 +22,7 @@ class NodeGroupProgress(object):
     def __init__(self, nodeGroupId=None, action=None, totalCount=None, updatedCount=None):
         """
         :param nodeGroupId: (Optional) 工作节点组 id
-        :param action: (Optional) 操作类型, upgrade, downgrade, rollback
+        :param action: (Optional) 操作类型, upgrade
         :param totalCount: (Optional) 总工作节点个数
         :param updatedCount: (Optional) 升级完成工作节点个数
         """

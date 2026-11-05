@@ -19,19 +19,21 @@
 
 class CustomizedClusterNetworkSpec(object):
 
-    def __init__(self, publicApiServer, masterCidr, serviceCidr, vpcId, podSubnetId, lbSubnetId, nodeSubnetId, dualStack=None, masterNatEnabled=None, natGateway=None, nodeElasticIpSpec=None):
+    def __init__(self, publicApiServer, serviceCidr, vpcId, podSubnetId, lbSubnetId, masterCidr=None, nodeSubnetId=None, dualStack=None, masterNatEnabled=None, natGateway=None, nodeElasticIpSpec=None, lbConfig=None, hpcNodeSubnetId=None):
         """
         :param publicApiServer:  kube-apiserver是否可公网访问，false则kube-apiserver不绑定公网地址，true绑定公网地址
-        :param masterCidr:  master网络的cidr
+        :param masterCidr: (Optional) master网络的cidr；isCreditNic为true时，自动生成；isCreditNic为false，此参数值必填
         :param serviceCidr:  service网络的cidr
         :param vpcId:  用户侧承载node和pod的vpc id
         :param podSubnetId:  初始pod的子网id
         :param lbSubnetId:  初始loadbalancer类型的service所创建的lb所在的subnet
-        :param nodeSubnetId:  初始的node子网ID
+        :param nodeSubnetId: (Optional) 初始的vm node子网ID
         :param dualStack: (Optional) 是否双栈支持，开启后，kube-apiserver将拥有ipv6地址，默认不开启
         :param masterNatEnabled: (Optional) 是否开启master访问公网的能力，如果需要引入公网OIDC认证时需要开启，默认不开启
         :param natGateway: (Optional) nat网关配置
         :param nodeElasticIpSpec: (Optional) 节点公网IP的配置，与nat网关配置互斥，不可同时设置
+        :param lbConfig: (Optional) 负载均衡配置，仅对集群isCreditNic:true生效, 如果isCreditNic设置true,lbConfig对象必须设置
+        :param hpcNodeSubnetId: (Optional) 异构节点子网id,如果创建集群时选择了异构节点组，此字段需必传
         """
 
         self.publicApiServer = publicApiServer
@@ -45,3 +47,5 @@ class CustomizedClusterNetworkSpec(object):
         self.masterNatEnabled = masterNatEnabled
         self.natGateway = natGateway
         self.nodeElasticIpSpec = nodeElasticIpSpec
+        self.lbConfig = lbConfig
+        self.hpcNodeSubnetId = hpcNodeSubnetId

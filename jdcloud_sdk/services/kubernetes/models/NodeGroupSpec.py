@@ -19,14 +19,18 @@
 
 class NodeGroupSpec(object):
 
-    def __init__(self, name, nodeConfig, initialNodeCount, description=None, azs=None, caConfig=None):
+    def __init__(self, name, nodeConfig, initialNodeCount, description=None, azs=None, caConfig=None, resourceGroupId=None, diskInitialize=None, tags=None, containerRuntime=None):
         """
         :param name:  名称
-        :param description: (Optional) 
-        :param nodeConfig:  工作节点组的信息
-        :param azs: (Optional) 工作节点组的 az，必须为集群az的子集，默认为集群az
-        :param initialNodeCount:  工作节点组初始化大小，至少为1个
+        :param description: (Optional) 描述
+        :param nodeConfig:  云主机节点组的信息
+        :param azs: (Optional) 云主机节点组的 az
+        :param initialNodeCount:  云主机节点组初始化大小
         :param caConfig: (Optional) 自动伸缩配置
+        :param resourceGroupId: (Optional) 资源组id
+        :param diskInitialize: (Optional) 工作节点数据盘初始化策略；创建后保存为节点组默认策略；不传时沿用 legacy 默认值；all_disks_lvm 的 CSI 初始预留默认 800 GiB
+        :param tags: (Optional) 资源标签
+        :param containerRuntime: (Optional) 容器运行时，默认为空字符。仅支持空字符或者kata-container
         """
 
         self.name = name
@@ -35,3 +39,7 @@ class NodeGroupSpec(object):
         self.azs = azs
         self.initialNodeCount = initialNodeCount
         self.caConfig = caConfig
+        self.resourceGroupId = resourceGroupId
+        self.diskInitialize = diskInitialize
+        self.tags = tags
+        self.containerRuntime = containerRuntime

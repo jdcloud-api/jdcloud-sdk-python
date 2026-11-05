@@ -25,8 +25,8 @@ class ClusterAddonVersion(object):
         :param version: (Optional) 组件版本，非必须
         :param description: (Optional) 组件版本简要说明
         :param releaseNote: (Optional) 组件版本发布说明
-        :param minAdaptedK8sVersion: (Optional) 适配的k8s最低版本，如 1.12
-        :param maxAdaptedK8sVersion: (Optional) 适配的k8s最高版本，如 1.18
+        :param minAdaptedK8sVersion: (Optional) 适配的k8s最低版本，如 1.18
+        :param maxAdaptedK8sVersion: (Optional) 适配的k8s最高版本，如 1.30
         """
 
         self.name = name

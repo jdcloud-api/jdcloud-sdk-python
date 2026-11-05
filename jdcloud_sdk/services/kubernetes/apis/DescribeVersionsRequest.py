@@ -42,7 +42,7 @@ class DescribeVersionsParameters(object):
 
     def setMasterVersion(self, masterVersion):
         """
-        :param masterVersion: (Optional) 集群的大版本，如 1.16.4-jcs.3
+        :param masterVersion: (Optional) 集群的大版本，如1.28.15-jcs.3
         """
         self.masterVersion = masterVersion
 

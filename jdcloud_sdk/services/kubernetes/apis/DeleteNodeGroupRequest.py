@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class DeleteNodeGroupRequest(JDCloudRequest):
     """
-    集群摘除工作节点组并删除工作节点组
+    集群摘除工作节点并删除工作节点组
     """
 
     def __init__(self, parameters, header=None, version="v1"):

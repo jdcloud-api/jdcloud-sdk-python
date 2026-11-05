@@ -19,12 +19,12 @@
 
 class AutoClusterNetworkSpec(object):
 
-    def __init__(self, publicApiServer, masterCidr, nodeNetworkCidr, vpcId, dualStack=None, masterNatEnabled=None, natGateway=None, nodeElasticIpSpec=None):
+    def __init__(self, publicApiServer, masterCidr=None, nodeNetworkCidr=None, vpcId=None, dualStack=None, masterNatEnabled=None, natGateway=None, nodeElasticIpSpec=None):
         """
         :param publicApiServer:  kube-apiserver是否可公网访问，false则kube-apiserver不绑定公网地址，true绑定公网地址
-        :param masterCidr:  master网络的cidr
-        :param nodeNetworkCidr:  node网络的cidr，自动切分
-        :param vpcId:  用户侧承载node和pod的vpc id
+        :param masterCidr: (Optional) master网络的cidr；isCreditNic为true时，自动生成；isCreditNic为false，此参数值如果为空则自动生成
+        :param nodeNetworkCidr: (Optional) node网络的cidr，自动切分；vpcId不为空时，此参数必传
+        :param vpcId: (Optional) 用户侧承载node和pod的vpc id，此参数为空则自动创建
         :param dualStack: (Optional) 是否双栈支持，开启后，kube-apiserver将拥有ipv6地址，默认不开启
         :param masterNatEnabled: (Optional) 是否开启master访问公网的能力，如果需要引入公网OIDC认证时需要开启，默认不开启
         :param natGateway: (Optional) nat网关配置,如果clusterNetworkType为auto，当natGateway和nodeElasticIpSpec都为空时会自动创建nat虚机

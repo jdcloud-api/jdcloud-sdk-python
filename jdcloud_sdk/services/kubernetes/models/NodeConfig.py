@@ -19,7 +19,7 @@
 
 class NodeConfig(object):
 
-    def __init__(self, instanceType=None, imageId=None, keyNames=None, systemDiskCategory=None, systemDiskSize=None, systemDiskType=None, systemDiskIops=None, labels=None, userScripts=None, dataDiskSpec=None, systemDiskSpec=None, securityGroup=None):
+    def __init__(self, instanceType=None, imageId=None, keyNames=None, systemDiskCategory=None, systemDiskSize=None, systemDiskType=None, systemDiskIops=None, labels=None, taints=None, updateExistNode=None, userScripts=None, dataDiskSpec=None, systemDiskSpec=None, securityGroup=None, chargeConfig=None):
         """
         :param instanceType: (Optional) 实例类型
         :param imageId: (Optional) 镜像信息
@@ -29,10 +29,13 @@ class NodeConfig(object):
         :param systemDiskType: (Optional) 云主机云盘系统盘类型
         :param systemDiskIops: (Optional) 云主机云盘 iops，仅限 ssd 类型云盘有效
         :param labels: (Optional) 工作节点组标签
+        :param taints: (Optional) 工作节点组污点
+        :param updateExistNode: (Optional) 变更是否对存量节点生效
         :param userScripts: (Optional) 云主机脚本，目前支持启动脚本，key为launch-script。
         :param dataDiskSpec: (Optional) 数据盘配置信息
         :param systemDiskSpec: (Optional) 数据盘配置信息
         :param securityGroup: (Optional) 工作节点组的安全组配置，为空则使用默认安全组
+        :param chargeConfig: (Optional) 工作节点组的计费配置
         """
 
         self.instanceType = instanceType
@@ -43,7 +46,10 @@ class NodeConfig(object):
         self.systemDiskType = systemDiskType
         self.systemDiskIops = systemDiskIops
         self.labels = labels
+        self.taints = taints
+        self.updateExistNode = updateExistNode
         self.userScripts = userScripts
         self.dataDiskSpec = dataDiskSpec
         self.systemDiskSpec = systemDiskSpec
         self.securityGroup = securityGroup
+        self.chargeConfig = chargeConfig

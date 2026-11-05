@@ -19,23 +19,31 @@
 
 class NodeConfigSpec(object):
 
-    def __init__(self, instanceType, password=None, keyNames=None, systemDisk=None, labels=None, userScripts=None, dataDiskSpec=None, securityGroup=None):
+    def __init__(self, instanceType, password=None, keyNames=None, passWordAuth=None, systemDisk=None, labels=None, taints=None, userScripts=None, customizedImageId=None, dataDiskSpec=None, securityGroup=None, chargeConfig=None):
         """
-        :param instanceType:  实例类型
+        :param instanceType:  云主机实例类型
         :param password: (Optional) 云主机密码，默认为集群密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
         :param keyNames: (Optional) 云主机SSH密钥对名称，当前仅支持一个。使用中的SSH密钥请勿删除。
+        :param passWordAuth: (Optional) 是否允许SSH密码登录。yes：允许SSH密码登录。no：禁止SSH密码登录。仅在指定密钥时此参数有效，指定此参数后密码即使输入也将被忽略，同时会在系统内禁用SSH密码登录。
         :param systemDisk: (Optional) 云主机系统盘配置信息
-        :param labels: (Optional) 工作节点组标签，最多支持 10 个
+        :param labels: (Optional) k8s节点标签，最多支持5个
+        :param taints: (Optional) k8s节点污点，最多支持20个
         :param userScripts: (Optional) 云主机脚本，暂定最多支持5个脚本，目前支持脚本类型为启动脚本，key为launch-script。
+        :param customizedImageId: (Optional) 自定义云主机镜像，为空则使用k8s release关联镜像
         :param dataDiskSpec: (Optional) 云主机数据盘配置信息
-        :param securityGroup: (Optional) 工作节点组的安全组配置，为空则使用默认安全组
+        :param securityGroup: (Optional) 云主机节点的安全组配置，为空则使用默认安全组
+        :param chargeConfig: (Optional) 云主机节点的计费配置
         """
 
         self.instanceType = instanceType
         self.password = password
         self.keyNames = keyNames
+        self.passWordAuth = passWordAuth
         self.systemDisk = systemDisk
         self.labels = labels
+        self.taints = taints
         self.userScripts = userScripts
+        self.customizedImageId = customizedImageId
         self.dataDiskSpec = dataDiskSpec
         self.securityGroup = securityGroup
+        self.chargeConfig = chargeConfig

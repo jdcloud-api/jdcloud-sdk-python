@@ -40,6 +40,7 @@ class DescribeClustersParameters(object):
         self.regionId = regionId
         self.pageNumber = None
         self.pageSize = None
+        self.tags = None
         self.filters = None
 
     def setPageNumber(self, pageNumber):
@@ -54,10 +55,16 @@ class DescribeClustersParameters(object):
         """
         self.pageSize = pageSize
 
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) 
+        """
+        self.tags = tags
+
     def setFilters(self, filters):
         """
         :param filters: (Optional) name - 集群名称，模糊匹配，仅支持单个   
-id - id，支持多个   
+id - id，支持多个
 
         """
         self.filters = filters

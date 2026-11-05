@@ -21,8 +21,8 @@ class MasterProgress(object):
 
     def __init__(self, action=None, progress=None):
         """
-        :param action: (Optional) 操作类型 upgrade,rollback,downgrade 等
-        :param progress: (Optional) 升级范围, 目前只有三个值：0, 50, 100
+        :param action: (Optional) 操作类型 upgrade
+        :param progress: (Optional) 升级进度
         """
 
         self.action = action

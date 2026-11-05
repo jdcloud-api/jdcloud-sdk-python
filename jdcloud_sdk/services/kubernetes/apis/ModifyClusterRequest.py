@@ -42,6 +42,7 @@ class ModifyClusterParameters(object):
         self.clusterId = clusterId
         self.name = None
         self.description = None
+        self.deleteProtected = None
 
     def setName(self, name):
         """
@@ -54,4 +55,10 @@ class ModifyClusterParameters(object):
         :param description: (Optional) 集群描述
         """
         self.description = description
+
+    def setDeleteProtected(self, deleteProtected):
+        """
+        :param deleteProtected: (Optional) 集群删除保护
+        """
+        self.deleteProtected = deleteProtected
 

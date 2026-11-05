@@ -19,7 +19,7 @@
 
 class ClusterPodSubnet(object):
 
-    def __init__(self, subnetId=None, subnetType=None, enabled=None, autoDelete=None, ipMaskLen=None, availableCidrCount=None, eniLen=None, ipamPolicy=None, runtimeError=None, cidr=None, availableIpNum=None, subnetName=None):
+    def __init__(self, subnetId=None, subnetType=None, enabled=None, autoDelete=None, ipMaskLen=None, availableCidrCount=None, eniLen=None, ipamPolicy=None, runtimeError=None, cidr=None, availableIpNum=None, subnetName=None, namespace=None):
         """
         :param subnetId: (Optional) 子网 ID
         :param subnetType: (Optional) 子网类型，可取值为：pod_subnet/lb_subnet/node_subnet
@@ -33,6 +33,7 @@ class ClusterPodSubnet(object):
         :param cidr: (Optional) 子网CIDR
         :param availableIpNum: (Optional) 子网中可用的IP数量
         :param subnetName: (Optional) 子网名称
+        :param namespace: (Optional) pod子网关联的命名空间
         """
 
         self.subnetId = subnetId
@@ -47,3 +48,4 @@ class ClusterPodSubnet(object):
         self.cidr = cidr
         self.availableIpNum = availableIpNum
         self.subnetName = subnetName
+        self.namespace = namespace

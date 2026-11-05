@@ -19,7 +19,7 @@
 
 class UpgradePlan(object):
 
-    def __init__(self, mode=None, scope=None, state=None, masterExpectedVersion=None, nodeExpectedVersion=None, startTime=None, duration=None):
+    def __init__(self, mode=None, scope=None, state=None, masterExpectedVersion=None, nodeExpectedVersion=None, startTime=None, duration=None, options=None):
         """
         :param mode: (Optional) 升级方式 auto, manual
         :param scope: (Optional) 升级范围 cluster, master, nodegroup
@@ -28,6 +28,7 @@ class UpgradePlan(object):
         :param nodeExpectedVersion: (Optional) node 期望版本
         :param startTime: (Optional) 升级启动时间
         :param duration: (Optional) 持续时长
+        :param options: (Optional) 集群升级定制选项
         """
 
         self.mode = mode
@@ -37,3 +38,4 @@ class UpgradePlan(object):
         self.nodeExpectedVersion = nodeExpectedVersion
         self.startTime = startTime
         self.duration = duration
+        self.options = options

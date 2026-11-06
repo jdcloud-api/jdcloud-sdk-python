@@ -21,7 +21,11 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class ClusterExpansionRequest(JDCloudRequest):
     """
-    扩容集群
+    扩容集群：在已有节点组内追加节点，或新建 Task/Edge 节点组。
+接口为异步：返回成功仅表示扩容已开始，集群状态会变为 EXPANDING，请轮询 describeClusters 直到恢复 RUNNING。
+失败语义：业务校验失败时 HTTP 仍返回 200，result.status 为 false，具体原因见 result.message。
+clientToken 幂等：相同 clientToken 的重复请求在 24 小时内只执行一次并返回首次结果。
+
     """
 
     def __init__(self, parameters, header=None, version="v1"):
@@ -35,7 +39,7 @@ class ClusterExpansionParameters(object):
     def __init__(self,regionId, clusterExpansion, ):
         """
         :param regionId: 地域ID
-        :param clusterExpansion: 描述集群扩容信息
+        :param clusterExpansion: 描述集群扩容信息。
         """
 
         self.regionId = regionId
@@ -44,7 +48,9 @@ class ClusterExpansionParameters(object):
 
     def setClientToken(self, clientToken):
         """
-        :param clientToken: (Optional) 用于保证请求的幂等性。由客户端生成，长度不能超过64个字符。
+        :param clientToken: (Optional) 幂等 token，由客户端生成，长度 1-64 个字符。
+相同 token 的重复请求在 24 小时内只执行一次并返回首次结果；token 已用于不同参数时返回失败。
+若上一次请求处于「状态未知」（服务异常/超时），接口会拒绝并要求确认集群状态后再用新 token 重试。
 
         """
         self.clientToken = clientToken

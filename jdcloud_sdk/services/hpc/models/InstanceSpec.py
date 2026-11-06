@@ -19,14 +19,18 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, installGpuDriver=None, su=None, hpcClusterId=None, hpcClusterName=None, resourceGroupId=None, userTags=None):
+    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, passwordAuth=None, keyNames=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, installGpuDriver=None, su=None, hpcClusterId=None, hpcClusterName=None, resourceGroupId=None, userTags=None, dedicatedZoneId=None):
         """
         :param az: (Optional) 可用区
         :param instanceType: (Optional) 实例规格
         :param packageId: (Optional) 安装包ID
         :param name: (Optional) 实例名称。长度为2~128个字符，只允许中文、数字、大小写字母、英文下划线（_）、连字符（-）
         :param hostName: (Optional) 实例hostname。若不指定hostname，则默认以实例名称 name 作为hostname，但是会以RFC 952和RFC 1123命名规范做一定转义
-        :param password: (Optional) 实例密码。可用于SSH登录和VNC登录，长度为8-30个字符，必须同时包含大、小写英文字母、数字和特殊符号中的三类字符。特殊符号包括：\(\)\`~!@#$%^&\*\_-+=\|{}\[ ]:";'<>,.?/
+        :param password: (Optional) 实例密码。当passwordAuth为yes时必填。可用于SSH登录和VNC登录，长度为8-30个字符，必须同时包含大、小写英文字母、数字和特殊符号中的三类字符。特殊符号包括：\(\)\`~!@#$%^&\*_\-+=\|{}\[ ]:";'<>,.?/
+
+        :param passwordAuth: (Optional) 认证模式。yes表示密码认证（需同时指定password），no表示密钥认证（需同时指定keyNames）。不指定时默认为yes。
+
+        :param keyNames: (Optional) 密钥对名称列表。当passwordAuth为no时，通过此参数指定绑定的密钥对名称。目前只支持一个密钥对。
 
         :param primaryNetworkInterface: (Optional) 主网卡配置。
 
@@ -45,8 +49,9 @@ class InstanceSpec(object):
         :param hpcClusterId: (Optional) 实例网络集群Id
         :param hpcClusterName: (Optional) 实例网络集群名称
         :param resourceGroupId: (Optional) 资源组ID
-        :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
+        :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或"jdc-"开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
 
+        :param dedicatedZoneId: (Optional) 专属区ID
         """
 
         self.az = az
@@ -55,6 +60,8 @@ class InstanceSpec(object):
         self.name = name
         self.hostName = hostName
         self.password = password
+        self.passwordAuth = passwordAuth
+        self.keyNames = keyNames
         self.primaryNetworkInterface = primaryNetworkInterface
         self.charge = charge
         self.userdata = userdata
@@ -65,3 +72,4 @@ class InstanceSpec(object):
         self.hpcClusterName = hpcClusterName
         self.resourceGroupId = resourceGroupId
         self.userTags = userTags
+        self.dedicatedZoneId = dedicatedZoneId

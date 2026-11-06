@@ -36,7 +36,10 @@ class DescribeQuotaParameters(object):
     def __init__(self,regionId, resourceType):
         """
         :param regionId: 地域ID。
-        :param resourceType: 资源类型：hpc
+        :param resourceType: 资源类型。取值范围：
+- hpc：HPC实例配额
+- keypair：密钥对配额
+
         """
 
         self.regionId = regionId

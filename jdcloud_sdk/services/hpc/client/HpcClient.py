@@ -26,4 +26,4 @@ class HpcClient(JDCloudClient):
         if config is None:
             config = Config('hpc.jdcloud-api.com')
 
-        super(HpcClient, self).__init__(credential, config, 'hpc', '4.3.11', logger)
+        super(HpcClient, self).__init__(credential, config, 'hpc', '4.3.16', logger)

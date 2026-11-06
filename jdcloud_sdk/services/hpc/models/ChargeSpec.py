@@ -19,13 +19,14 @@
 
 class ChargeSpec(object):
 
-    def __init__(self, chargeMode, chargeStatus=None, chargeStartTime=None, chargeExpiredTime=None, chargeRetireTime=None):
+    def __init__(self, chargeMode, chargeStatus=None, chargeStartTime=None, chargeExpiredTime=None, chargeRetireTime=None, isCommitment=None):
         """
         :param chargeMode:  计费模式，取值为：prepaid_by_duration 表示预付费
         :param chargeStatus: (Optional) 费用支付状态，取值为：normal、overdue、arrear，normal表示正常，overdue表示已到期，arrear表示欠费
         :param chargeStartTime: (Optional) 计费开始时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
         :param chargeExpiredTime: (Optional) 过期时间，预付费资源的到期时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ，后付费资源此字段内容为空
         :param chargeRetireTime: (Optional) 预期释放时间，资源的预期释放时间，预付费/后付费资源均有此值，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
+        :param isCommitment: (Optional) chargeMode=prepaid_by_duration 时有效。true 表示包销，false 表示普通包年包月（非包销），默认值为false。
         """
 
         self.chargeMode = chargeMode
@@ -33,3 +34,4 @@ class ChargeSpec(object):
         self.chargeStartTime = chargeStartTime
         self.chargeExpiredTime = chargeExpiredTime
         self.chargeRetireTime = chargeRetireTime
+        self.isCommitment = isCommitment

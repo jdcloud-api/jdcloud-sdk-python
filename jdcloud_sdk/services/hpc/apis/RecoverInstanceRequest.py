@@ -37,15 +37,36 @@ class RecoverInstanceRequest(JDCloudRequest):
 
 class RecoverInstanceParameters(object):
 
-    def __init__(self,regionId, instanceId, password):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID。
         :param instanceId: 实例ID。
-        :param password: 实例密码。可用于SSH登录和VNC登录，长度为8-30个字符，必须同时包含大、小写英文字母、数字和特殊符号中的三类字符。特殊符号包括：\(\)\`~!@#$%^&\*\_-+=\|{}\[ ]:";'<>,.?/
-
         """
 
         self.regionId = regionId
         self.instanceId = instanceId
+        self.password = None
+        self.passwordAuth = None
+        self.keyNames = None
+
+    def setPassword(self, password):
+        """
+        :param password: (Optional) 实例密码。当passwordAuth为yes时必填。可用于SSH登录和VNC登录，长度为8-30个字符，必须同时包含大、小写英文字母、数字和特殊符号中的三类字符。特殊符号包括：\(\)\`~!@#$%^&\*_-+=\|{}\[ ]:";'<>,.?/
+
+        """
         self.password = password
+
+    def setPasswordAuth(self, passwordAuth):
+        """
+        :param passwordAuth: (Optional) 认证模式。yes表示密码认证（需同时指定password），no表示密钥认证（需同时指定keyNames）。不指定时默认为yes。
+
+        """
+        self.passwordAuth = passwordAuth
+
+    def setKeyNames(self, keyNames):
+        """
+        :param keyNames: (Optional) 密钥对名称列表。当passwordAuth为no时，通过此参数指定绑定的密钥对名称。目前只支持一个密钥对。
+
+        """
+        self.keyNames = keyNames
 

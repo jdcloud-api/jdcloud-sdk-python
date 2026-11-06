@@ -22,7 +22,10 @@ class Quota(object):
     def __init__(self, region=None, resourceType=None, used=None, limited=None):
         """
         :param region: (Optional) 地域
-        :param resourceType: (Optional) 资源类型
+        :param resourceType: (Optional) 资源类型。取值范围：
+- hpc：HPC实例配额
+- keypair：密钥对配额
+
         :param used: (Optional) 已使用配额
         :param limited: (Optional) 总配额
         """

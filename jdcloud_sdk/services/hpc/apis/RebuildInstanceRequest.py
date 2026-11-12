@@ -49,7 +49,7 @@ class RebuildInstanceParameters(object):
         self.passwordAuth = None
         self.keyNames = None
         self.packageId = None
-        self.hostname = None
+        self.hostName = None
         self.metadata = None
         self.userdata = None
         self.clearDataDisks = None
@@ -84,14 +84,14 @@ class RebuildInstanceParameters(object):
         """
         self.packageId = packageId
 
-    def setHostname(self, hostname):
+    def setHostName(self, hostName):
         """
-        :param hostname: (Optional) 实例hostname。
+        :param hostName: (Optional) 实例hostname。
 **Windows系统**：长度为2\~15个字符，允许大小写字母、数字或连字符（-），不能以连字符（-）开头或结尾，不能连续使用连字符（-），也不能全部使用数字。不支持点号（.）。
 **Linux系统**：长度为2-64个字符，允许使用大小写字母、数字或连字符（-），但不能连续使用连字符（-），不能以连字符（-）开头或结尾。
 
         """
-        self.hostname = hostname
+        self.hostName = hostName
 
     def setMetadata(self, metadata):
         """

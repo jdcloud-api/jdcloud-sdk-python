@@ -19,7 +19,7 @@
 
 class Instance(object):
 
-    def __init__(self, instanceId=None, instanceName=None, hostName=None, status=None, region=None, az=None, hpcClusterId=None, hpcClusterName=None, packageId=None, osType=None, osVersion=None, instanceType=None, tags=None, resourceGroupId=None, systemDisk=None, dataDisks=None, rdmaNetworkInterfaces=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, launchTime=None, charge=None, platform=None, bootMode=None, architecture=None, progress=None, dedicatedZoneName=None, dedicatedZoneId=None, keyNames=None):
+    def __init__(self, instanceId=None, instanceName=None, hostName=None, status=None, region=None, az=None, hpcClusterId=None, hpcClusterName=None, packageId=None, osType=None, osVersion=None, instanceType=None, tags=None, resourceGroupId=None, systemDisk=None, dataDisks=None, rdmaNetworkInterfaces=None, vpcId=None, subnetId=None, privateIpAddress=None, elasticIpId=None, elasticIpAddress=None, primaryNetworkInterface=None, launchTime=None, charge=None, bootMode=None, architecture=None, progress=None, keyNames=None):
         """
         :param instanceId: (Optional) 实例ID
         :param instanceName: (Optional) 实例名称
@@ -48,12 +48,9 @@ class Instance(object):
         :param charge: (Optional) 计费配置。
 实例不支持按用量方式计费，如果计费配置为空，则按照包年包月计费方式处理。
 
-        :param platform: (Optional) 实例操作系统平台，取值：ubuntu、openEuler、centos、rocky。
         :param bootMode: (Optional) 启动方式，取值：bios、uefi。
         :param architecture: (Optional) 架构，取值：x86_64、arm64。
         :param progress: (Optional) 装机进度，取值范围：[0,100]。
-        :param dedicatedZoneName: (Optional) 专属区名称
-        :param dedicatedZoneId: (Optional) 专属区ID
         :param keyNames: (Optional) 已绑定的密钥对名称列表
         """
 
@@ -82,10 +79,7 @@ class Instance(object):
         self.primaryNetworkInterface = primaryNetworkInterface
         self.launchTime = launchTime
         self.charge = charge
-        self.platform = platform
         self.bootMode = bootMode
         self.architecture = architecture
         self.progress = progress
-        self.dedicatedZoneName = dedicatedZoneName
-        self.dedicatedZoneId = dedicatedZoneId
         self.keyNames = keyNames

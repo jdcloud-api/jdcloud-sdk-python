@@ -19,26 +19,41 @@
 from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 
-class DeleteClusterRequest(JDCloudRequest):
+class DescribeBillingInstancesRequest(JDCloudRequest):
     """
-    删除用户可调度的网络集群Id
+    查询统一计费实例的详细信息列表。
 
     """
 
     def __init__(self, parameters, header=None, version="v1"):
-        super(DeleteClusterRequest, self).__init__(
-            '/regions/{regionId}/operation:deleteCluster', 'DELETE', header, version)
+        super(DescribeBillingInstancesRequest, self).__init__(
+            '/regions/{regionId}/describeBillingInstances', 'GET', header, version)
         self.parameters = parameters
 
 
-class DeleteClusterParameters(object):
+class DescribeBillingInstancesParameters(object):
 
-    def __init__(self,regionId, id):
+    def __init__(self,regionId, instanceId, ):
         """
         :param regionId: 地域ID。
-        :param id: Id
+        :param instanceId: 实例ID。
+
         """
 
         self.regionId = regionId
-        self.id = id
+        self.instanceId = instanceId
+        self.pageNumber = None
+        self.pageSize = None
+
+    def setPageNumber(self, pageNumber):
+        """
+        :param pageNumber: (Optional) 页码；默认为1。
+        """
+        self.pageNumber = pageNumber
+
+    def setPageSize(self, pageSize):
+        """
+        :param pageSize: (Optional) 分页大小；默认为100；最大1000。
+        """
+        self.pageSize = pageSize
 

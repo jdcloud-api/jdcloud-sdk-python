@@ -19,7 +19,7 @@
 
 class InstanceSpec(object):
 
-    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, passwordAuth=None, keyNames=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, installGpuDriver=None, su=None, hpcClusterId=None, hpcClusterName=None, resourceGroupId=None, userTags=None, dedicatedZoneId=None):
+    def __init__(self, az=None, instanceType=None, packageId=None, name=None, hostName=None, password=None, passwordAuth=None, keyNames=None, primaryNetworkInterface=None, charge=None, userdata=None, metadata=None, su=None, hpcClusterId=None, hpcClusterName=None, resourceGroupId=None, userTags=None):
         """
         :param az: (Optional) 可用区
         :param instanceType: (Optional) 实例规格
@@ -42,16 +42,12 @@ class InstanceSpec(object):
         :param metadata: (Optional) 用户自定义元数据。以key-value键值对形式指定，可在实例系统内通过元数据服务查询获取。最多支持40对键值对，且key不超过256字符，value不超过16KB，不区分大小写。
 注意：key不要以连字符(-)结尾，否则此key不生效。
 
-        :param installGpuDriver: (Optional) 指定是否在创建计算实例时跳过GPU驱动的自动安装流程。当该参数设置为：`true`（默认值）：系统将自动为实例安装适配的GPU驱动程序；`false`：系统将不执行GPU驱动安装操作，用户需自行完成驱动的安装配置。
-注意事项：该参数仅对配备GPU的计算实例规格生效，若实例未配置GPU硬件则此参数不产生实际效果。建议在需要定制化驱动版本或使用特殊驱动场景时开启此参数
-
         :param su: (Optional) 传入指定调度的su列表：如果参数中的su不在用户配置的数据库su列表中，则禁止调度；传入的参数没有指定su列表时：1.用户数据库中配置了su，则走配置的su调度；2.用户未配置su则进行默认调度策略
         :param hpcClusterId: (Optional) 实例网络集群Id
         :param hpcClusterName: (Optional) 实例网络集群名称
         :param resourceGroupId: (Optional) 资源组ID
         :param userTags: (Optional) 自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或"jdc-"开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。
 
-        :param dedicatedZoneId: (Optional) 专属区ID
         """
 
         self.az = az
@@ -66,10 +62,8 @@ class InstanceSpec(object):
         self.charge = charge
         self.userdata = userdata
         self.metadata = metadata
-        self.installGpuDriver = installGpuDriver
         self.su = su
         self.hpcClusterId = hpcClusterId
         self.hpcClusterName = hpcClusterName
         self.resourceGroupId = resourceGroupId
         self.userTags = userTags
-        self.dedicatedZoneId = dedicatedZoneId

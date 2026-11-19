@@ -32,16 +32,28 @@ class ImportInstancesToHpcNodeGroupRequest(JDCloudRequest):
 
 class ImportInstancesToHpcNodeGroupParameters(object):
 
-    def __init__(self,regionId, nodeGroupId, instances, password):
+    def __init__(self,regionId, nodeGroupId, instances, ):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID
         :param instances: 异构实例id列表
-        :param password: 导入异构实例密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
         """
 
         self.regionId = regionId
         self.nodeGroupId = nodeGroupId
         self.instances = instances
+        self.password = None
+        self.keyNames = None
+
+    def setPassword(self, password):
+        """
+        :param password: (Optional) 导入异构实例密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
+        """
         self.password = password
+
+    def setKeyNames(self, keyNames):
+        """
+        :param keyNames: (Optional) SSH密钥对名称，当前仅支持一个。使用中的SSH密钥请勿删除。
+        """
+        self.keyNames = keyNames
 

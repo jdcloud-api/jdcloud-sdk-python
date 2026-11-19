@@ -19,7 +19,7 @@
 
 class Cluster(object):
 
-    def __init__(self, clusterId=None, name=None, description=None, version=None, upgradeVersion=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, privateEndpoint=None, endpoint=None, endpointIPV6=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None, clusterEnvironments=None, isEdge=None, deleteProtected=None, tags=None, resourceGroupId=None, isCreditNic=None, clusterDnsSpec=None, kubeApiserverDomains=None):
+    def __init__(self, clusterId=None, name=None, description=None, version=None, upgradeVersion=None, azs=None, nodeGroups=None, clusterCidr=None, masterAuth=None, clusterState=None, stateMessage=None, updateTime=None, createTime=None, accessKey=None, basicAuth=None, clientCertificate=None, privateEndpoint=None, endpoint=None, endpointIPV6=None, endpointPort=None, dashboardPort=None, userMetrics=None, addonsConfig=None, autoUpgrade=None, maintenanceWindow=None, upgradePlan=None, masterProgress=None, clusterNetwork=None, networkMode=None, clusterEnvironments=None, isEdge=None, deleteProtected=None, tags=None, resourceGroupId=None, isCreditNic=None, clusterDnsSpec=None, kubeApiserverDomains=None, caClusterConfig=None):
         """
         :param clusterId: (Optional) 集群id
         :param name: (Optional) 名称
@@ -58,6 +58,7 @@ class Cluster(object):
         :param isCreditNic: (Optional) 是否开启集群授权网卡, true表示开启， false表示未开启
         :param clusterDnsSpec: (Optional) 集群DNS的定制化配置，可以配置自定义的hosts和域名解析
         :param kubeApiserverDomains: (Optional) kube-apiserver的自定义域名，会自动签名到证书里
+        :param caClusterConfig: (Optional) 集群级自动伸缩策略，独立于各节点池的 caConfig
         """
 
         self.clusterId = clusterId
@@ -97,3 +98,4 @@ class Cluster(object):
         self.isCreditNic = isCreditNic
         self.clusterDnsSpec = clusterDnsSpec
         self.kubeApiserverDomains = kubeApiserverDomains
+        self.caClusterConfig = caClusterConfig

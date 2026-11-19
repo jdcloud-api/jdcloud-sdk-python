@@ -24,6 +24,10 @@ class ResetNodeRequest(JDCloudRequest):
     重置节点。
 - 对指定节点执行重置操作，包括停机、重装系统、启动
 - 重置后节点将恢复到初始状态，节点上的数据将丢失
+- recover 默认为 false，保持普通重置行为；为 true 时先迁移恢复，再重建系统并启动，实例 ID 保持不变
+- recover 为 true 即授权系统执行必要的停机操作，此时忽略 autoStop；不支持 HPC 节点
+- recover 为 true 时不要求显式传密码，不传则沿用节点组/集群已有密码；仅当均为空时返回 400
+- 节点正在重置或存在在途重置任务时返回 400（instance already resetting）
 
     """
 
@@ -47,7 +51,11 @@ class ResetNodeParameters(object):
         self.instanceId = instanceId
         self.imageId = None
         self.autoStop = None
+        self.recover = None
         self.password = None
+        self.description = None
+        self.reproductionCommand = None
+        self.commandOutput = None
 
     def setImageId(self, imageId):
         """
@@ -57,13 +65,37 @@ class ResetNodeParameters(object):
 
     def setAutoStop(self, autoStop):
         """
-        :param autoStop: (Optional) 是否自动停机（可选），默认 false
+        :param autoStop: (Optional) 是否自动停机（可选），默认 false；recover 为 true 时忽略此参数
         """
         self.autoStop = autoStop
 
+    def setRecover(self, recover):
+        """
+        :param recover: (Optional) 是否先迁移恢复再重建系统并启动（可选），默认 false；为 true 时授权停机并忽略 autoStop，实例 ID 保持不变，不支持 HPC 节点
+        """
+        self.recover = recover
+
     def setPassword(self, password):
         """
-        :param password: (Optional) 重置密码（可选），若不传则使用节点组或集群默认密码
+        :param password: (Optional) 重置密码（可选），若不传则沿用节点组或集群已有密码
         """
         self.password = password
+
+    def setDescription(self, description):
+        """
+        :param description: (Optional) 故障描述，最长 256 个字符；recover 为 true 时必填且不能仅含空白，recover 为 false 时忽略
+        """
+        self.description = description
+
+    def setReproductionCommand(self, reproductionCommand):
+        """
+        :param reproductionCommand: (Optional) 故障复现命令，最长 2048 个 UTF-8 字节，仅保存展示不执行；recover 为 true 时必填，recover 为 false 时忽略
+        """
+        self.reproductionCommand = reproductionCommand
+
+    def setCommandOutput(self, commandOutput):
+        """
+        :param commandOutput: (Optional) 复现命令输出，最长 16384 个 UTF-8 字节，原样保存，超限拒绝；recover 为 true 时必填，recover 为 false 时忽略
+        """
+        self.commandOutput = commandOutput
 

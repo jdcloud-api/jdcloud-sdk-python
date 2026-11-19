@@ -32,7 +32,7 @@ class ImportInstancesToNodeGroupRequest(JDCloudRequest):
 
 class ImportInstancesToNodeGroupParameters(object):
 
-    def __init__(self,regionId, nodeGroupId, instances, password):
+    def __init__(self,regionId, nodeGroupId, instances, password, ):
         """
         :param regionId: 地域 ID
         :param nodeGroupId: 工作节点组 ID
@@ -44,4 +44,11 @@ class ImportInstancesToNodeGroupParameters(object):
         self.nodeGroupId = nodeGroupId
         self.instances = instances
         self.password = password
+        self.keyNames = None
+
+    def setKeyNames(self, keyNames):
+        """
+        :param keyNames: (Optional) SSH密钥对名称，当前仅支持一个。使用中的SSH密钥请勿删除。
+        """
+        self.keyNames = keyNames
 

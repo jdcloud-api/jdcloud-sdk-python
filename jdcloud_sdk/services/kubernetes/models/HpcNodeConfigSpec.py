@@ -19,10 +19,11 @@
 
 class HpcNodeConfigSpec(object):
 
-    def __init__(self, instanceType, password, labels=None, taints=None, userScripts=None, chargeConfig=None, customizedImageId=None):
+    def __init__(self, instanceType, password=None, keyNames=None, labels=None, taints=None, userScripts=None, chargeConfig=None, customizedImageId=None):
         """
         :param instanceType:  异构实例类型
-        :param password:  异构节点密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
+        :param password: (Optional) 异构节点密码，密码规范参考：[公共参数规范](https://docs.jdcloud.com/cn/virtual-machines/api/general_parameters)
+        :param keyNames: (Optional) SSH密钥对名称，当前仅支持一个。使用中的SSH密钥请勿删除。
         :param labels: (Optional) k8s节点标签，最多支持10个
         :param taints: (Optional) k8s节点污点，最多支持20个
         :param userScripts: (Optional) 暂定最多支持5个脚本，目前支持脚本类型为启动脚本，key为launch-script。
@@ -32,6 +33,7 @@ class HpcNodeConfigSpec(object):
 
         self.instanceType = instanceType
         self.password = password
+        self.keyNames = keyNames
         self.labels = labels
         self.taints = taints
         self.userScripts = userScripts

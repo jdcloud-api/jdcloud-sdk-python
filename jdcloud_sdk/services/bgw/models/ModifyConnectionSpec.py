@@ -19,11 +19,13 @@
 
 class ModifyConnectionSpec(object):
 
-    def __init__(self, connectionName=None, description=None):
+    def __init__(self, connectionName=None, description=None, monitor=None):
         """
         :param connectionName: (Optional) Connection的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param description: (Optional) Connection的描述，允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param monitor: (Optional) 更新连接的监控相关属性
         """
 
         self.connectionName = connectionName
         self.description = description
+        self.monitor = monitor

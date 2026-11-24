@@ -19,9 +19,10 @@
 
 class VpnTunnelModifySpec(object):
 
-    def __init__(self, psk=None, tunnelIp=None, localTunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, bandwidthMbps=None):
+    def __init__(self, psk=None, vpnTunnelName=None, tunnelIp=None, localTunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, bandwidthMbps=None):
         """
         :param psk: (Optional) 预共享秘钥字符串, 只允许输入数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过20字符, 不能以0x或0s开头
+        :param vpnTunnelName: (Optional) VPN隧道名称, 名称只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且不能超过32字符；无默认值，可为空
         :param tunnelIp: (Optional) VPN隧道内网的掩码长度必须为30的CIDR格式IPv4地址段，必须在169.254.0.0/20, 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12这四个网段内，且不能和同一边界网关上的其它VPN隧道内层地址冲突
         :param localTunnelIp: (Optional) VPN隧道内网的本端ip，必须是/30的且不能是第一个和最后一个ip
         :param ikeVersion: (Optional) IKE版本, 取值范围为：v1、v2
@@ -41,6 +42,7 @@ class VpnTunnelModifySpec(object):
         """
 
         self.psk = psk
+        self.vpnTunnelName = vpnTunnelName
         self.tunnelIp = tunnelIp
         self.localTunnelIp = localTunnelIp
         self.ikeVersion = ikeVersion

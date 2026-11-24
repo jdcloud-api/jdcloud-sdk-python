@@ -19,7 +19,7 @@
 
 class VpcAttachment(object):
 
-    def __init__(self, vpcAttachmentId=None, vpcAttachmentName=None, bgwId=None, vpcId=None, propagateType=None, status=None, propagateCidrInfos=None, createdTime=None):
+    def __init__(self, vpcAttachmentId=None, vpcAttachmentName=None, bgwId=None, vpcId=None, propagateType=None, status=None, propagateCidrInfos=None, createdTime=None, tags=None, resourceGroupId=None):
         """
         :param vpcAttachmentId: (Optional) vpc接口的Id
         :param vpcAttachmentName: (Optional) vpc接口的名称
@@ -29,6 +29,8 @@ class VpcAttachment(object):
         :param status: (Optional) 创建vpc接口的状态:active
         :param propagateCidrInfos: (Optional) Vpc接口传播的网段信息列表
         :param createdTime: (Optional) vpc接口创建的时间
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcAttachmentId = vpcAttachmentId
@@ -39,3 +41,5 @@ class VpcAttachment(object):
         self.status = status
         self.propagateCidrInfos = propagateCidrInfos
         self.createdTime = createdTime
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

@@ -19,9 +19,10 @@
 
 class VpnTunnel(object):
 
-    def __init__(self, vpnTunnelId=None, vpnConnectionId=None, cloudPublicIp=None, customerIp=None, psk=None, localId=None, remoteId=None, localIp=None, localTunnelIp=None, remoteIp=None, remoteTunnelIp=None, tunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, adminStatus=None, opStatus=None, createdTime=None, updatedTime=None, bandwidthMbps=None):
+    def __init__(self, vpnTunnelId=None, vpnTunnelName=None, vpnConnectionId=None, cloudPublicIp=None, customerIp=None, psk=None, localId=None, remoteId=None, localIp=None, localTunnelIp=None, remoteIp=None, remoteTunnelIp=None, tunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, adminStatus=None, opStatus=None, createdTime=None, updatedTime=None, charge=None, bandwidthMbps=None):
         """
         :param vpnTunnelId: (Optional) VPN隧道ID
+        :param vpnTunnelName: (Optional) VPN隧道Name
         :param vpnConnectionId: (Optional) VPN连接ID
         :param cloudPublicIp: (Optional) VPN本地IP
         :param customerIp: (Optional) 客户IP
@@ -50,10 +51,12 @@ class VpnTunnel(object):
         :param opStatus: (Optional) 隧道活跃状态, UP或DOWN
         :param createdTime: (Optional) 隧道创建时间
         :param updatedTime: (Optional) 隧道最后更新时间
+        :param charge: (Optional) 计费信息
         :param bandwidthMbps: (Optional) VPN隧道公网限速带宽，单位Mbps
         """
 
         self.vpnTunnelId = vpnTunnelId
+        self.vpnTunnelName = vpnTunnelName
         self.vpnConnectionId = vpnConnectionId
         self.cloudPublicIp = cloudPublicIp
         self.customerIp = customerIp
@@ -82,4 +85,5 @@ class VpnTunnel(object):
         self.opStatus = opStatus
         self.createdTime = createdTime
         self.updatedTime = updatedTime
+        self.charge = charge
         self.bandwidthMbps = bandwidthMbps

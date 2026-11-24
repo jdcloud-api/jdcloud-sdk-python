@@ -19,7 +19,7 @@
 
 class Connection(object):
 
-    def __init__(self, connectionId=None, connectionName=None, location=None, partner=None, type=None, bandwidthMbps=None, orderId=None, vifIds=None, connectionStatus=None, description=None, createdTime=None, idcAddress=None, contactName=None, phoneNumber=None, rejectedReason=None, resourceIdInitial=None, resourceIdPTenancy=None, charge=None):
+    def __init__(self, connectionId=None, connectionName=None, location=None, partner=None, type=None, bandwidthMbps=None, orderId=None, vifIds=None, connectionStatus=None, description=None, createdTime=None, idcAddress=None, contactName=None, phoneNumber=None, rejectedReason=None, resourceIdInitial=None, resourceIdPTenancy=None, charge=None, monitor=None, tags=None, resourceGroupId=None):
         """
         :param connectionId: (Optional) Connection的Id
         :param connectionName: (Optional) 专线的名称, 只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -39,6 +39,9 @@ class Connection(object):
         :param resourceIdInitial: (Optional) 初装费资源ID
         :param resourceIdPTenancy: (Optional) 端口租用费资源ID
         :param charge: (Optional) 计费信息
+        :param monitor: (Optional) 秒级监控信息
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.connectionId = connectionId
@@ -59,3 +62,6 @@ class Connection(object):
         self.resourceIdInitial = resourceIdInitial
         self.resourceIdPTenancy = resourceIdPTenancy
         self.charge = charge
+        self.monitor = monitor
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

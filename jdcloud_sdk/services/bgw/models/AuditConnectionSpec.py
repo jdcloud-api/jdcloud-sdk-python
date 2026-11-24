@@ -19,11 +19,13 @@
 
 class AuditConnectionSpec(object):
 
-    def __init__(self, result, rejectedReason=None):
+    def __init__(self, result, rejectedReason=None, jdConfItem=None):
         """
         :param result:  审核结果，取值为：accept:通过、reject:不通过
         :param rejectedReason: (Optional) 审核不通过的原因，审核通过忽略此字段,允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param jdConfItem: (Optional) 京东内部客户的预制参数配置信息和bgw所在vip集群组信息
         """
 
         self.result = result
         self.rejectedReason = rejectedReason
+        self.jdConfItem = jdConfItem

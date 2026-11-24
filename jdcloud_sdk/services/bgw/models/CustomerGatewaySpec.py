@@ -19,15 +19,19 @@
 
 class CustomerGatewaySpec(object):
 
-    def __init__(self, customerGatewayName, customerIps, bgpAsn, description=None):
+    def __init__(self, customerGatewayName, customerIps, bgpAsn, description=None, userTags=None, resourceGroupId=None):
         """
         :param customerGatewayName:  客户网关的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param customerIps:  客户网关上公网可路由的IPv4地址列表，可以为单IP、双IP、四IP，IP不能相同
-        :param bgpAsn:  客户自治系统的ASN号，取值范围[65001,65499]，设置后不支持修改；
+        :param bgpAsn:  客户自治系统的ASN号，取值范围[64512,65534]，设置后不支持修改；
         :param description: (Optional) 客户网关的描述，允许输入UTF-8编码下的全部字符，不超过256字符。
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.customerGatewayName = customerGatewayName
         self.customerIps = customerIps
         self.bgpAsn = bgpAsn
         self.description = description
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

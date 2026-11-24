@@ -19,7 +19,7 @@
 
 class CustomerGateway(object):
 
-    def __init__(self, customerGatewayId=None, customerGatewayName=None, customerIps=None, bgpAsn=None, description=None, createdTime=None, updatedTime=None):
+    def __init__(self, customerGatewayId=None, customerGatewayName=None, customerIps=None, bgpAsn=None, description=None, createdTime=None, updatedTime=None, tags=None, resourceGroupId=None):
         """
         :param customerGatewayId: (Optional) 客户网关的Id
         :param customerGatewayName: (Optional) 客户网关的名称
@@ -28,6 +28,8 @@ class CustomerGateway(object):
         :param description: (Optional) 客户网关的描述
         :param createdTime: (Optional) 客户网关的创建时间
         :param updatedTime: (Optional) 客户网关的更新时间
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.customerGatewayId = customerGatewayId
@@ -37,3 +39,5 @@ class CustomerGateway(object):
         self.description = description
         self.createdTime = createdTime
         self.updatedTime = updatedTime
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

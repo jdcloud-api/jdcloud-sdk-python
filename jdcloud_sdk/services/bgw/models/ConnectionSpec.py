@@ -19,7 +19,7 @@
 
 class ConnectionSpec(object):
 
-    def __init__(self, connectionName, type, partnerCode=None, description=None, idcAddress=None, contactName=None, phoneNumber=None, chargeDuration=None, autoPay=None, location=None):
+    def __init__(self, connectionName, type, partnerCode=None, description=None, idcAddress=None, contactName=None, phoneNumber=None, chargeDuration=None, autoPay=None, location=None, userTags=None, resourceGroupId=None):
         """
         :param connectionName:  连接的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param partnerCode: (Optional) 合作伙伴编码;只在创建合作伙伴连接时生效，通过调用[describePartners](../Partner/describePartners.md)接口获取
@@ -31,6 +31,8 @@ class ConnectionSpec(object):
         :param chargeDuration: (Optional) 合作伙伴连接的时长，取值范围：1,3,6,12,24,36，单位月，默认值为6
         :param autoPay: (Optional) 初装费订单自动支付设置,取值范围：true,false,值为true时自动支付
         :param location: (Optional) 专线接入点信息,type为jcloud或jcloud_hosted时必传
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.connectionName = connectionName
@@ -43,3 +45,5 @@ class ConnectionSpec(object):
         self.chargeDuration = chargeDuration
         self.autoPay = autoPay
         self.location = location
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

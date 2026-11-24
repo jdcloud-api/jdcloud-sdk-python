@@ -41,6 +41,8 @@ class DescribeConnectionsParameters(object):
         self.pageNumber = None
         self.pageSize = None
         self.filters = None
+        self.tags = None
+        self.resourceGroupIds = None
 
     def setPageNumber(self, pageNumber):
         """
@@ -57,10 +59,22 @@ class DescribeConnectionsParameters(object):
     def setFilters(self, filters):
         """
         :param filters: (Optional) connectionIds - 连接ID列表，支持多个
-connectionNames - 连接名称列表,支持多个
+connectionNames - 连接名称列表，支持多个
 types - 类型，取值：jcloud_hosted:托管连接、jcloud_partner:合作伙伴连接、jcloud:自助连接, 支持多个
-status - Connection状态,支持单个。取值为：待审核(Ordering)、待支付(Installation_Paying)、施工中(Pending)、等待确认(Confirming)、可用(Active)、不可用(InActive)、删除中(Deleting)、已删除(Deleted)、审核未通过(Rejected)
+status - Connection状态，支持单个。取值为：待审核(Ordering)、待支付(Installation_Paying)、施工中(Pending)、等待确认(Confirming)、可用(Active)、不可用(InActive)、删除中(Deleting)、审核未通过(Rejected)
 
         """
         self.filters = filters
+
+    def setTags(self, tags):
+        """
+        :param tags: (Optional) Tag筛选条件
+        """
+        self.tags = tags
+
+    def setResourceGroupIds(self, resourceGroupIds):
+        """
+        :param resourceGroupIds: (Optional) 资源组筛选条件
+        """
+        self.resourceGroupIds = resourceGroupIds
 

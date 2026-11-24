@@ -19,9 +19,10 @@
 
 class VpnTunnelSpec(object):
 
-    def __init__(self, vpnConnectionId, cloudPublicIp, customerIp, psk, tunnelIp=None, localTunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, chargeSpec=None, bandwidthMbps=None):
+    def __init__(self, vpnConnectionId, cloudPublicIp, customerIp, psk, vpnTunnelName=None, tunnelIp=None, localTunnelIp=None, ikeVersion=None, ikeMode=None, ikeKeyExchange=None, ikeCipher=None, ikeAuth=None, ikeDpdSec=None, ikeSaLifeSec=None, ipsecCipher=None, ipsecAuth=None, ipsecKeyExchange=None, ipsecSaLifeSec=None, ipsecSaLifepkt=None, ipsecSaLifebyte=None, chargeSpec=None, bandwidthMbps=None):
         """
         :param vpnConnectionId:  VPN CONNECTION ID
+        :param vpnTunnelName: (Optional) VPN隧道名称, 名称只支持中文、数字、大小写字母、英文下划线“_”及中划线“-”，且不能超过32字符；无默认值，可为空
         :param cloudPublicIp:  VPN隧道本地公网IP
         :param customerIp:  VPN隧道客户侧公网IP
         :param psk:  预共享秘钥字符串, 只允许输入数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过20字符, 不能以0x或0s开头
@@ -45,6 +46,7 @@ class VpnTunnelSpec(object):
         """
 
         self.vpnConnectionId = vpnConnectionId
+        self.vpnTunnelName = vpnTunnelName
         self.cloudPublicIp = cloudPublicIp
         self.customerIp = customerIp
         self.psk = psk

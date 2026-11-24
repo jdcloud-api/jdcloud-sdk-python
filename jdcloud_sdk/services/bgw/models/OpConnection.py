@@ -19,7 +19,7 @@
 
 class OpConnection(object):
 
-    def __init__(self, connectionId=None, connectionName=None, location=None, partner=None, type=None, bandwidthMbps=None, orderId=None, vifIds=None, connectionStatus=None, description=None, createdTime=None, idcAddress=None, contactName=None, phoneNumber=None, rejectedReason=None, connectionOwner=None, charge=None):
+    def __init__(self, connectionId=None, connectionName=None, location=None, partner=None, type=None, bandwidthMbps=None, orderId=None, vifIds=None, connectionStatus=None, description=None, createdTime=None, idcAddress=None, contactName=None, phoneNumber=None, rejectedReason=None, connectionOwner=None, charge=None, tags=None, resourceGroupId=None):
         """
         :param connectionId: (Optional) Connection的Id
         :param connectionName: (Optional) 专线的名称, 只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -38,6 +38,8 @@ class OpConnection(object):
         :param rejectedReason: (Optional) 审核不通过的原因
         :param connectionOwner: (Optional) 专线所有者的用户pin
         :param charge: (Optional) 计费信息
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.connectionId = connectionId
@@ -57,3 +59,5 @@ class OpConnection(object):
         self.rejectedReason = rejectedReason
         self.connectionOwner = connectionOwner
         self.charge = charge
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

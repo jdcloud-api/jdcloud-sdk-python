@@ -19,7 +19,7 @@
 
 class VpnConnection(object):
 
-    def __init__(self, vpnConnectionId=None, vpnConnectionName=None, bgwId=None, cgwId=None, bgpEnabled=None, localAsn=None, cloudPublicIp=None, providers=None, haStatus=None, description=None, createdTime=None, updatedTime=None, charge=None, trafficSelectors=None, azType=None, az=None):
+    def __init__(self, vpnConnectionId=None, vpnConnectionName=None, bgwId=None, cgwId=None, bgpEnabled=None, localAsn=None, cloudPublicIp=None, providers=None, haStatus=None, description=None, createdTime=None, updatedTime=None, charge=None, trafficSelectors=None, azType=None, az=None, tags=None, resourceGroupId=None):
         """
         :param vpnConnectionId: (Optional) VPN connection的Id
         :param vpnConnectionName: (Optional) VPN connection的名称
@@ -37,6 +37,8 @@ class VpnConnection(object):
         :param trafficSelectors: (Optional) vpn connection policy，IPSec VPN的感兴趣流，用于第二阶段协商
         :param azType: (Optional) VPN az类型，取值：standard(标准VPN)，edge(边缘VPN)
         :param az: (Optional) VPN可用区
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpnConnectionId = vpnConnectionId
@@ -55,3 +57,5 @@ class VpnConnection(object):
         self.trafficSelectors = trafficSelectors
         self.azType = azType
         self.az = az
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

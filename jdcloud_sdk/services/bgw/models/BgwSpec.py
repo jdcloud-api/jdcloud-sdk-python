@@ -19,15 +19,21 @@
 
 class BgwSpec(object):
 
-    def __init__(self, bgwName, description=None, azType=None, az=None):
+    def __init__(self, bgwName, description=None, azType=None, az=None, userTags=None, resourceGroupId=None, resourceTag=None):
         """
         :param bgwName:  边界网关的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param description: (Optional) 边界网关的描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         :param azType: (Optional) 边界网关az类型，取值：standard(标准BGW)，edge(边缘BGW)
         :param az: (Optional) 边界网关可用区，azType为edge时，边缘BGW必须指定可用区，edge为standard时忽略
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
+        :param resourceTag: (Optional) 物理资源专区, 仅内部使用[JDStack]
         """
 
         self.bgwName = bgwName
         self.description = description
         self.azType = azType
         self.az = az
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId
+        self.resourceTag = resourceTag

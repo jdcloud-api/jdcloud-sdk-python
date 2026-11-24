@@ -19,9 +19,11 @@
 
 class ReplenishTrafficOrderSpec(object):
 
-    def __init__(self, connectionIds, ):
+    def __init__(self, connectionIds, customerPin=None):
         """
         :param connectionIds:  补单connection ID列表
+        :param customerPin: (Optional) 补单的PIN，base64
         """
 
         self.connectionIds = connectionIds
+        self.customerPin = customerPin

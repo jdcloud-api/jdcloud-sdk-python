@@ -26,4 +26,4 @@ class BgwClient(JDCloudClient):
         if config is None:
             config = Config('bgw.jdcloud-api.com')
 
-        super(BgwClient, self).__init__(credential, config, 'bgw', '1.3.1', logger)
+        super(BgwClient, self).__init__(credential, config, 'bgw', '1.4.0', logger)

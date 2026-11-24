@@ -19,7 +19,7 @@
 
 class Bgw(object):
 
-    def __init__(self, bgwId=None, bgwName=None, description=None, vifIds=None, vpcAttachmentIds=None, vpnConnectionIds=None, azType=None, az=None, createdTime=None):
+    def __init__(self, bgwId=None, bgwName=None, description=None, vifIds=None, vpcAttachmentIds=None, vpnConnectionIds=None, azType=None, az=None, createdTime=None, tags=None, resourceGroupId=None):
         """
         :param bgwId: (Optional) bgw的Id
         :param bgwName: (Optional) 边界网关的名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
@@ -30,6 +30,8 @@ class Bgw(object):
         :param azType: (Optional) 边界网关az类型，取值：standard(标准BGW)，edge(边缘BGW)
         :param az: (Optional) 边界网关可用区，边缘BGW必须指定可用区，中心BGW返回空
         :param createdTime: (Optional) Bgw的创建时间
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.bgwId = bgwId
@@ -41,3 +43,5 @@ class Bgw(object):
         self.azType = azType
         self.az = az
         self.createdTime = createdTime
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

@@ -19,7 +19,7 @@
 
 class BgpPeer(object):
 
-    def __init__(self, bgpPeerId=None, addressFamily=None, customerIp=None, jdCloudIp=None, customerAsn=None, jdCloudAsn=None, authKey=None, privateVifId=None, bgpPeerStatus=None, createdTime=None):
+    def __init__(self, bgpPeerId=None, addressFamily=None, customerIp=None, jdCloudIp=None, customerAsn=None, jdCloudAsn=None, authKey=None, privateVifId=None, createdTime=None):
         """
         :param bgpPeerId: (Optional) BgpPeer的Id
         :param addressFamily: (Optional) BgpPeer的地址簇：目前仅支持ipv4
@@ -29,7 +29,6 @@ class BgpPeer(object):
         :param jdCloudAsn: (Optional) 京东云侧AS
         :param authKey: (Optional) Bgp配置的认证key
         :param privateVifId: (Optional) 通道的Id
-        :param bgpPeerStatus: (Optional) BgpPeer的状态，取值为：Up, Down
         :param createdTime: (Optional) 通道创建的时间
         """
 
@@ -41,5 +40,4 @@ class BgpPeer(object):
         self.jdCloudAsn = jdCloudAsn
         self.authKey = authKey
         self.privateVifId = privateVifId
-        self.bgpPeerStatus = bgpPeerStatus
         self.createdTime = createdTime

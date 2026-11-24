@@ -19,13 +19,15 @@
 
 class VpcAttachmentSpec(object):
 
-    def __init__(self, vpcAttachmentName, vpcId, propagateType, bgwId, subnetIds=None):
+    def __init__(self, vpcAttachmentName, vpcId, propagateType, bgwId, subnetIds=None, userTags=None, resourceGroupId=None):
         """
         :param vpcAttachmentName:  vpc接口的名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param vpcId:  vpc接口的vpcId
         :param propagateType:  选择传播网段的方式all，partial，none
         :param bgwId:  vpc接口到的bgw的id
         :param subnetIds: (Optional) 选择传播的网段列表,仅在传播方式为partial的时候生效
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.vpcAttachmentName = vpcAttachmentName
@@ -33,3 +35,5 @@ class VpcAttachmentSpec(object):
         self.propagateType = propagateType
         self.bgwId = bgwId
         self.subnetIds = subnetIds
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

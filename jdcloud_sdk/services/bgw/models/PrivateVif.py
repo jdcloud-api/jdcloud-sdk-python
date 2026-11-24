@@ -19,7 +19,7 @@
 
 class PrivateVif(object):
 
-    def __init__(self, privateVifId=None, privateVifName=None, connectionId=None, type=None, privateVifOwner=None, bgwId=None, bgpPeers=None, vlan=None, privateVifStatus=None, description=None, createdTime=None, enableBgp=None, peers=None, bgp=None, healthCheck=None):
+    def __init__(self, privateVifId=None, privateVifName=None, connectionId=None, type=None, privateVifOwner=None, bgwId=None, bgpPeers=None, vlan=None, privateVifStatus=None, inActiveReason=None, description=None, createdTime=None, enableBgp=None, peers=None, bgp=None, healthCheck=None, monitor=None, tags=None, resourceGroupId=None):
         """
         :param privateVifId: (Optional) 通道的Id
         :param privateVifName: (Optional) 通道的名称
@@ -30,12 +30,16 @@ class PrivateVif(object):
         :param bgpPeers: (Optional) 通道涉及BgpPeer信息
         :param vlan: (Optional) 通道的业务vlan,取值范围 [1,4000]
         :param privateVifStatus: (Optional) 通道的状态，取值为：Confirming(待确认),Rejected（已拒绝）,Pending（配置中）,Active（可用）,Down（不可用）,Deleting（删除中）,Deleted（已删除）,Unknown（未知状态）,InActive(不可用)
+        :param inActiveReason: (Optional) 通道不可用原因，取值为：Arrear_NoService(流量费欠费停服或端口到期)
         :param description: (Optional) 通道的描述
         :param createdTime: (Optional) 通道创建的时间
         :param enableBgp: (Optional) 是否开启bgp，仅支持开启
         :param peers: (Optional) 通道Peer相关信息详情
         :param bgp: (Optional) 通道Bgp相关信息详情
         :param healthCheck: (Optional) 通道健康检查相关信息详情
+        :param monitor: (Optional) 秒级监控信息
+        :param tags: (Optional) Tag信息
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.privateVifId = privateVifId
@@ -47,9 +51,13 @@ class PrivateVif(object):
         self.bgpPeers = bgpPeers
         self.vlan = vlan
         self.privateVifStatus = privateVifStatus
+        self.inActiveReason = inActiveReason
         self.description = description
         self.createdTime = createdTime
         self.enableBgp = enableBgp
         self.peers = peers
         self.bgp = bgp
         self.healthCheck = healthCheck
+        self.monitor = monitor
+        self.tags = tags
+        self.resourceGroupId = resourceGroupId

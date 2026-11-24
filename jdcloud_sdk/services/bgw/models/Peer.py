@@ -19,13 +19,15 @@
 
 class Peer(object):
 
-    def __init__(self, peerId=None, peerBgpStatus=None, peerIps=None):
+    def __init__(self, peerId=None, bgpPeerState=None, peerHealthState=None, peerIps=None):
         """
         :param peerId: (Optional) Peer的Id
-        :param peerBgpStatus: (Optional) Peer的BGP状态，取值为：Up, Down
+        :param bgpPeerState: (Optional) 用户bgpPeer的连接状态（探测），取值为：Established、UnEstablished
+        :param peerHealthState: (Optional) peer的NQA/BFD健康检查状态，取值为：Active、Inactive、Unknown
         :param peerIps: (Optional) Peer的ip信息详情
         """
 
         self.peerId = peerId
-        self.peerBgpStatus = peerBgpStatus
+        self.bgpPeerState = bgpPeerState
+        self.peerHealthState = peerHealthState
         self.peerIps = peerIps

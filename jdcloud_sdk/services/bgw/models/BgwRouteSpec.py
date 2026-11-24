@@ -19,11 +19,11 @@
 
 class BgwRouteSpec(object):
 
-    def __init__(self, bgwRouteDestination, bgwRouteNexthop, bgwNexthopType=None, description=None):
+    def __init__(self, bgwRouteDestination, bgwNexthopType, bgwRouteNexthop, description=None):
         """
         :param bgwRouteDestination:  Bgw上路由的目的地址,格式如：172.10.2.15/16,参见RFC 4632
-        :param bgwNexthopType: (Optional) Bgw上路由的下一跳类型：目前支持托管通道(hosted_private_vif),专线通道(private_vif),vpc接口(vpc_attachment),vpn连接(vpn_connection)和vpc(vpc)
-        :param bgwRouteNexthop:  Bgw上路由的下一跳设备资源Id,目前支持hostedPrivateVifId(托管通道Id)，privateVifId专线通道Id,vpcAttachmentId(vpc接口Id)和vpnConnectionId(vpn连接Id)
+        :param bgwNexthopType:  Bgw上路由的下一跳类型：目前支持托管通道(hosted_private_vif),专线通道(private_vif),vpc接口(vpc_attachment),vpn连接(vpn_connection)、vpc(vpc)和中转路由器(tr)
+        :param bgwRouteNexthop:  Bgw上路由的下一跳设备资源Id，目前支持hostedPrivateVifId(托管通道Id)、privateVifId(专线通道Id)、vpcAttachmentId(vpc接口Id)、vpnConnectionId(vpn连接Id)、vpcId(VPC Id)和trId(中转路由器Id)
         :param description: (Optional) Bgw路由的描述
         """
 

@@ -19,13 +19,15 @@
 
 class ModifyPrivateVirtualInterfaceSpec(object):
 
-    def __init__(self, privateVifName=None, description=None, healthCheck=None):
+    def __init__(self, privateVifName=None, description=None, healthCheck=None, monitor=None):
         """
         :param privateVifName: (Optional) privateVif 名称,只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
         :param description: (Optional) privateVif的描述，允许输入UTF-8编码下的全部字符，不超过256字符。
         :param healthCheck: (Optional) 更新privateVif的健康检查相关属性
+        :param monitor: (Optional) 更新privateVif的监控相关属性
         """
 
         self.privateVifName = privateVifName
         self.description = description
         self.healthCheck = healthCheck
+        self.monitor = monitor

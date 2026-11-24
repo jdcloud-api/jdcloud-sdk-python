@@ -19,13 +19,15 @@
 
 class VpnTrafficSelectorSpec(object):
 
-    def __init__(self, localSubnet, remoteSubnets=None, description=None):
+    def __init__(self, localSubnet, remoteSubnets=None, description=None, policyType=None):
         """
         :param localSubnet:  本端网段。需要和本地IDC互连的VPC侧的网段，用于第二阶段协商。例如：192.168.1.0/24
         :param remoteSubnets: (Optional) 对端网段地址的数组。本地IDC的网段，用于第二阶段协商。例如：192.168.3.0/24
         :param description: (Optional) 感兴趣流的描述
+        :param policyType: (Optional) 感兴趣流的生成类型，SYSTEM (系统生成）， CUSTOM（用户自定义）
         """
 
         self.localSubnet = localSubnet
         self.remoteSubnets = remoteSubnets
         self.description = description
+        self.policyType = policyType

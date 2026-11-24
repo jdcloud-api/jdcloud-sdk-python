@@ -27,7 +27,7 @@ class BgwRoute(object):
         :param bgwRouteNexthop: (Optional) Bgw上路由的下一跳设备资源Id,目前支持托管通道Id，专线通道Id,vpc接口Id和vpn连接Id
         :param origin: (Optional) Bgw上的路由是静态的还是传播的:static,propagated
         :param bgwRoutePriority: (Optional) Bgw上路由的优先级
-        :param bgwRouteNextHopType: (Optional) Bgw上路由的下一跳类型：目前支持privateVif（专线网关）、hostedPrivateVif（托管网关）、vpcAttachment（vpc接口）、vpnConnection(vpn连接)
+        :param bgwRouteNextHopType: (Optional) Bgw上路由的下一跳类型：private_vif（专线网关）、hosted_private_vif（托管网关）、vpc_attachment（vpc接口）、vpn_connection（vpn连接）、vpc（VPC）、tr（中转路由器）
         :param description: (Optional) Bgw路由的描述
         """
 

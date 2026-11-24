@@ -19,11 +19,13 @@
 
 class ReplenishPortOrderSpec(object):
 
-    def __init__(self, connectionIds, autoPay=None):
+    def __init__(self, connectionIds, customerPin=None, autoPay=None):
         """
         :param connectionIds:  补单connection ID列表
+        :param customerPin: (Optional) 补单的PIN，base64
         :param autoPay: (Optional) 是否自动支付
         """
 
         self.connectionIds = connectionIds
+        self.customerPin = customerPin
         self.autoPay = autoPay

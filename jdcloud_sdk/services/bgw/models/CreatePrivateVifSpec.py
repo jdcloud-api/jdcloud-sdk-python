@@ -19,7 +19,7 @@
 
 class CreatePrivateVifSpec(object):
 
-    def __init__(self, privateVifName, connectionId, bgwId, vlan, privateVifOwner=None, bgpPeers=None, description=None, enableBgp=None, peerIps=None, bgpSpec=None, healthCheck=None):
+    def __init__(self, privateVifName, connectionId, bgwId, vlan, privateVifOwner=None, bgpPeers=None, description=None, enableBgp=None, peerIps=None, bgpSpec=None, healthCheck=None, userTags=None, resourceGroupId=None):
         """
         :param privateVifName:  PrivateVif的名称参考
         :param connectionId:  物理连接的Id
@@ -32,6 +32,8 @@ class CreatePrivateVifSpec(object):
         :param peerIps: (Optional) 通道Peer的ip信息
         :param bgpSpec: (Optional) 通道Bgp相关信息详情
         :param healthCheck: (Optional) 通道健康检查相关信息详情
+        :param userTags: (Optional) 用户标签
+        :param resourceGroupId: (Optional) 资源所属资源组ID
         """
 
         self.privateVifName = privateVifName
@@ -45,3 +47,5 @@ class CreatePrivateVifSpec(object):
         self.peerIps = peerIps
         self.bgpSpec = bgpSpec
         self.healthCheck = healthCheck
+        self.userTags = userTags
+        self.resourceGroupId = resourceGroupId

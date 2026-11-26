@@ -21,7 +21,7 @@ from jdcloud_sdk.core.jdcloudrequest import JDCloudRequest
 
 class CreateCustomEventsOnResourceRequest(JDCloudRequest):
     """
-    创建自定义运维事件，仅支持实例资源。
+    创建自定义运维事件，支持VM云主机（i-前缀）和异构计算实例（hpc-前缀）。
 仅灰度用户可用（元数据 vm_submithost=1）。
 
     """
@@ -37,15 +37,36 @@ class CreateCustomEventsOnResourceParameters(object):
     def __init__(self,regionId, resourceId, ):
         """
         :param regionId: 地域ID。
-        :param resourceId: 资源ID（实例ID）
+        :param resourceId: 资源ID，支持i-前缀的VM云主机实例和hpc-前缀的异构计算实例。
         """
 
         self.regionId = regionId
+        self.clientToken = None
+        self.targetState = None
         self.resourceId = resourceId
         self.description = None
         self.reproductionCommand = None
         self.commandOutput = None
         self.discardLocalDataDisk = None
+
+    def setClientToken(self, clientToken):
+        """
+        :param clientToken: (Optional) 创建事件的幂等标识，最多64个字符。同一账号（PIN）使用相同clientToken时，在通过原有参数、灰度和资源校验后返回首次创建的eventId。
+后续请求修改其他参数（包括targetState）或原事件执行失败，均不会覆盖首次事件或创建新事件；创建新事件应使用新的clientToken。
+不传或空字符串时沿用原创建行为，不保证幂等。
+
+        """
+        self.clientToken = clientToken
+
+    def setTargetState(self, targetState):
+        """
+        :param targetState: (Optional) 可选的恢复后开机状态，仅支持VM云主机；异构计算实例传入该参数时会忽略且不向下游透传。不传时沿用原有开关机处理逻辑。
+running：按开机意图执行，开机条件、调用、轮询及失败处理沿用原流程。
+stopped：不自动开机，包括失败后的兜底开机，并跳过原有running检查；不会主动关闭已运行的实例。
+本参数只控制恢复后的自动开机行为，不改变恢复成功判定。
+
+        """
+        self.targetState = targetState
 
     def setDescription(self, description):
         """
@@ -75,6 +96,7 @@ class CreateCustomEventsOnResourceParameters(object):
         :param discardLocalDataDisk: (Optional) 是否允许本次迁移丢弃本地数据盘，缺省或false保持原迁移行为，仅显式true时允许弃盘。
 true仅支持云系统盘VM实例，保留系统盘和云数据盘，不支持本地系统盘。
 不要求实例实际存在本地数据盘，纯云盘或无数据盘实例满足上述条件时也可传true。
+异构计算实例传入该参数时会忽略且不向下游透传。
 
         """
         self.discardLocalDataDisk = discardLocalDataDisk

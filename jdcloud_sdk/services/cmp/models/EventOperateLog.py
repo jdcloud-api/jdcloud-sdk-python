@@ -19,7 +19,7 @@
 
 class EventOperateLog(object):
 
-    def __init__(self, operateTime=None, maintenancePolicySnapshot=None, faultDescription=None, reproductionCommand=None, commandOutput=None):
+    def __init__(self, operateTime=None, maintenancePolicySnapshot=None, faultDescription=None, reproductionCommand=None, commandOutput=None, auditResult=None, auditOpinion=None, auditorErp=None):
         """
         :param operateTime: (Optional) 运维事件操作时间
 
@@ -30,6 +30,12 @@ class EventOperateLog(object):
 
         :param commandOutput: (Optional) 创建事件时提报的故障复现命令输出原文，最多16384个UTF-8字节；
 
+        :param auditResult: (Optional) 管理员审核结果，pass表示通过，reject表示拒绝。
+
+        :param auditOpinion: (Optional) 管理员审核意见。
+
+        :param auditorErp: (Optional) 审核人ERP。
+
         """
 
         self.operateTime = operateTime
@@ -37,3 +43,6 @@ class EventOperateLog(object):
         self.faultDescription = faultDescription
         self.reproductionCommand = reproductionCommand
         self.commandOutput = commandOutput
+        self.auditResult = auditResult
+        self.auditOpinion = auditOpinion
+        self.auditorErp = auditorErp
